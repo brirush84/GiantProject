@@ -1565,7 +1565,9 @@ The styx-room is in haunted-region.
 
 The styx-room is east of the front-room. The printed name of the styx-room is "Styx". The description of the styx-room is "A sign proclaims this to be the dread river Styx. You know that name from mythology: the river that divides the living from the dead.
 
-You can return to the front yard to the [bold type]west[roman type]."
+You can return to the front yard to the [bold type]west[roman type][first time]
+
+Interesting. From the voice you heard on the river, iIt seems like this place is some kind of holo-therapy chamber; but you don't know any planet that has holotechnology this advanced[only]."
 
 The styx-sign is scenery in the styx-room. The printed name of the styx-sign is "sign". Understand "sign" or "granite" or "low" as the styx-sign. The description of the styx-sign is "This is a low, black granite sign that is labelled 'The River Styx.'"
 
@@ -1599,7 +1601,7 @@ Instead of giving the obol to charon:
 
 You step on, and he pushes his pole into the dark waters. The two of you glide silently across the river Styx.
 
-As you travel, the world glitches around you, and begins to crumble , showing blank metal panels all around you. All that remains is the boat, the boatman, and the river. A robotic voice states, now exiting 'Holoprogram CHR-9815: 'Pscary Psychology. Next up is Holoprogram GAR-0001: Dr Gareth Djomo Memorial.'
+As you travel, the world glitches around you, and begins to crumble , showing blank metal panels in the distance, although you can see some physical objects remaining in the distance. All that remains is the boat, the boatman, and the river. A robotic voice states, 'Now exiting Holoprogram CHR-9815: 'Pscary Psychology. Next up is Holoprogram GAR-0001: Self-Reflection. You can return to your former program at any time by crossing back over the river.'
 
 All around you, a night sky reforms, as does a distant shore. After a few more moments, the boat runs ashore, and you step out.";
 	now the player is in distant-shore;
@@ -1633,31 +1635,66 @@ Sorry, testers; this connects to areas that haven't been implemented. Shouldn't 
 
 Chapter 12 - Distant shore
 
-Distant-shore is east of styx-room. The printed name of distant-shore is "Distant Shore". Distant-shore is a room in haunted-region. "You are at the edge of the great river Styx. [Charon] is waiting to take you back [boldwest] over the river.
+Castle-region is a region. Castle-region is in haunted-region.
 
-You've landed on a small beach. A large wall of overgrown thorns sweeps around you on most sides; the only way forward is through a small tunnel to the [boldeast]. Farther to the east, you can see a ruined castle[first time]
+Distant-shore is east of styx-room. The printed name of distant-shore is "Distant Shore". Distant-shore is a room in castle-region. "You are at the edge of the great river Styx. [Charon] is waiting to take you back [boldwest] over the river.
 
-The monkey-like thief is still here, carrying the action figure. It recoils from you, leaping through the thorny wall. After a few seconds, you can see it in the distance, climing onto the tower of the castle and into a hole on the roof, out of sight.[only]."
+You've landed on a small beach. A decaying iron fence surrounds much of the area; the only way forward is through a small tunnel to the [boldeast]. Farther to the east, you can see a ruined castle[first time]
 
-The ruined-scenery is distant scenery in distant-shore. The printed name of the ruined-scenery is "ruined castle". Understand "ruined" or "ruins" or "ruin" or "tower" or "hole" or "spire" or "roof" or "holes" as the ruined-scenery. The description of the ruined-scenery is "Past the wall of thorns rises the ruins of a castle. It still has a tower left standing, with holes in the roof."
+The monkey-like thief is still here, carrying the action figure. It recoils from you, leaping through the bars of the fence. After a few seconds, you can see it in the distance, climing onto the tower of the castle and into a hole on the roof, out of sight[only]."
+
+The ruined-scenery is distant scenery in distant-shore. The printed name of the ruined-scenery is "ruined castle". Understand "ruined" or "ruins" or "ruin" or "tower" or "hole" or "spire" or "roof" or "holes" as the ruined-scenery. The description of the ruined-scenery is "Past the iron fence rises the ruins of a castle. It still has a tower left standing, with holes in the roof."
 
 The shore-beach is scenery in distant-shore. THe printed name of shore-beach is "beach". Understand "small" or "beach" as the shore-beach. The description of the shore-beach is "This beach is bleak and seems relatively new, as it has not yet been washed into sand."
 
-The thorn-wall is scenery in the shore-beach. The printed name of the thorn-wall is "wall of thorns". Understand "overgrown" or "wall" or "large" or "thorns" or "wall of thorn" or "wall of thorns" as the thorn-wall. The description of the thorn-wall is "Thorns don't usually grow this large. Something has caused unusual growth here."
-
-The thorn-tunnel is a backdrop. The thorn-tunnel is in shore-beach. The thorn-tunnel is in thorn-passage. The thorn-tunnel is in ruined-courtyard.
+The iron-fence is a distant backdrop in the shore-beach. The printed name of the iron-fence gate is "iron fence". Understand "iron" or "tall" or "deadly" or "deadly-looking" or "fence" or "gate" or "decaying" as the iron-fence. The description of the iron-fence is "This tall and deadly-looking fence stands far away and surrounds the even further castle. A gate is visible to the [boldeast]."
 
 The scenery-styx is in Distant-shore.
 
-Chapter 13 - Thorn passage
+Chapter 13 - Iron gate
 
-Thorn-passage is east from distant-shore.  Thorn-passage is in haunted-region. The printed name of the thorn-passage is "Thorn Passage". The description of Thorn-passage is "You can return to the shore to the [boldwest], or continue to the castle to the [boldeast].";
+A thing can be noticed or unnoticed. The iron-bar is unnoticed.
 
-The thorn-spike is in thorn-passage. The printed name of the thorn-spike is "giant thorn". Understand "giant" or "thorn" or "nasty" or "point" or "cylinder" as the thorn-spike. The description of the thorn-spike is "This is a very big, roughly cylindrical thorn a couple centimeters thick that tapers to a nasty point at one end."
+Report examining the iron-gate:
+	now iron-bar is noticed;
+
+Gate-Passage is east from distant-shore.  Gate-Passage is in castle-region. The printed name of the Gate-Passage is "Iron Gate". The description of Gate-Passage is "You are standing before a tall, brooding iron gate made of bars. The fence sweeps to either side of you.  Everything is silent around you. Not even the waters of the Styx can be heard this far from the shore. 
+
+The gate is closed[if iron-bar is not part of iron-gate], but one of the bars has broken, leaving a gap that is easy to climb through[otherwise if iron-bar is noticed], but one of the bars appears weak[otherwise][end if]. 
+
+You can return to the shore to the [boldwest], or continue to the castle to the [boldeast].";
+
+The iron-bar is part of iron-gate. "An iron bar lies on the ground here." The printed name of the iron-bar is "iron bar". Understand "iron" or "broken" or "heavy" or "missing" or  "weak" or "bar" or "end" or "ends" or "solid" or "center" or "rusted" or "strong" as the iron-bar. The description of the iron-bar is "[if the iron-bar is part of iron-gate]One bar looks like it's rusted through; a good push might knock it out[otherwise]This heavy bar is a couple centimeters thick and about a meter long. It once barred the way to a castle, but no longer fulfills that task. Only the ends are rusted; the center is solid and strong[end if]."
+
+Before pushing or pulling or taking the iron-gate:
+	if iron-bar is part of iron-gate:
+		say "You twist a little and the iron bar pops off, falling to the ground.";
+		now the iron-bar is in gate-passage instead;
+		now iron-bar is noticed;
+
+Before pushing or pulling or taking the iron-bar:
+	if iron-bar is part of iron-gate:
+		try pushing the iron-gate instead;
+
+Before going east from gate-passage when iron-bar is part of iron-gate:
+	say "You can't squeeze through the gate, although one bar looks weak." instead;
+
+Instead of opening iron-gate:
+	say "It seems rusted shut permanently.";
+
+Instead of closing iron-gate:
+	say "It's already closed.";
+
+The iron-gate is scenery in Gate-Passage. The printed name of the iron-gate is "iron gate". Understand "proud" or "iron" or "tall" or "brooding" or "gate" or "fence" as the iron-gate. The description of the iron-gate is "This proud iron gate serves no useful purpose. It has rusted shut, [if iron-bar is part of iron-gate]but one of its bars seems loose[otherwise]and one of its bars are missing, allowing anyone to get through[end if]."
+
+Instead of physicality when the noun is the iron-gate:
+	say "The iron is cold and painful."
 
 Chapter 14 - Ruined courtyard
 
-Ruined-courtyard is east from thorn-passage. The ruined-courtyard is in haunted-region. The printed name of ruined-courtyard is "Ruined Courtyard". The description of ruined-courtyard is "This once-beautiful courtyard is now blighted and ruined. Dead grass runs past empty flowerbeds, and crumbling walls surround most of the area. You can go [boldnorth] or [boldsouth] into wings of the castle, go [boldeast] into the throne room, or return [boldwest] to the thorn passage."
+Ruined-courtyard is east from Gate-Passage. The ruined-courtyard is in castle-region. The printed name of ruined-courtyard is "Ruined Courtyard". The description of ruined-courtyard is "This once-beautiful courtyard is now blighted and ruined. Dead grass runs past empty flowerbeds, and crumbling walls surround most of the area. You can go [boldnorth] or [boldsouth] into wings of the castle, go [boldeast] into the throne room, or return [boldwest] to the gate in the iron fence."
+
+The iron-fence is in ruined-courtyard.
 
 The scenery-courtyard is scenery in ruined-courtyard. Understand "courtyard" as the scenery-courtyard. THe printed name of the scenery-courtyard is "courtyard". THe description of the scenery-courtyard is "This seems like it was once a regal and delightsome area, now barren and dry."
 
@@ -1667,76 +1704,210 @@ The empty-flowerbeds are scenery in ruined-courtyard. The printed name of the em
 
 The crumbling-walls are scenery in ruined-courtyard. The printed name of the crumbling-walls is "crumbling walls". Understand "crumbling" or "wall" or "castle" or "crumbling-walls" as the crumbling-walls. The description of the crumbling-walls is "The walls of the couryard have begun to tumble down, and are crumbling."
 
-The heavy-block is in ruined-courtyard. "A heavy block has fallen in front of the throne room, preventing entry."The printed name of the heavy block is "heavy block". The description of the heavy-block is "This heavy block must have fallen off from part of the castle higher up. It's very long and heavy."
+The heavy-block is in ruined-courtyard. "A heavy block has fallen in front of the the northern exit, preventing entry to the north wing of the castle."The printed name of the heavy block is "heavy block". The description of the heavy-block is "This heavy block must have fallen off from part of the castle higher up. You might be able to push it." Understand "heavy" or "block" as the heavy-block.
 
-The left-end and right-end are parts of the heavy-block. The printed name of left-end is "left end". The printed name of right-end is "right end". Understand "left" or "end" or "side" as the left-end. Understand "right" or "end" or "side" as the right-end. The description of the left-end is "The left end of the block is rough and looks easy to grasp." The description of the right-end is "The right end of the block is a little cumbersome but shouldn't be hard to grab."
+Blockblocking is a truth state that varies. BlockBlocking is true.
+
+Playerpushing is a truth state that varies. Playerpushing is false.
+
+Instead of going north from ruined-courtyard when blockblocking is true:
+	say "The heavy block is keeping you from going that way. It's much too heavy for you to move alone!"
+
+After pushing the heavy-block:
+	if blockblocking is true:
+		say "You lean down, and push the block as hard as you can. It moves a tiny bit.";
+		now playerpushing is true;
+	otherwise:
+		say "There's no need to push the block any more."
 
 Instead of taking the heavy-block:
-	say "It's so large, you'll have to pick an end to try to pick up."
+	say "It's far too heavy to pick up."
 
-Instead of taking the left-end:
-	say "Okay, now you're holding on to the left end."
+Instead of clone-you pushing the heavy-block when playerpushing is true:
+	say "Your clone leans down and pushes, too. With your combined efforts, you push aside the heavy block. Now the northern passage is open.
 
-Instead of clone-you taking the left-end:
-	say "Okay, now you're holding on to the left end."
+Your clone smiles. 'Great work,' she says. 'Let's see what else we can do.'";
+	now blockblocking is false;
+
+Every turn:
+	now playerpushing is false;
 
 [also have a flaming sword in treasury that can burn vines on wall? And a key in the throne room that unlocks the flaming sword, which can clear the vines]
 
 Chapter 15 - Battered pantry
 
-Battered-pantry is north from ruined-courtyard. Battered-pantry is in haunted-region.
+Battered-pantry is north from ruined-courtyard. Battered-pantry is in castle-region. The printed name of Battered-pantry is "Battered Pantry". "This appears to have stored food for the castle, once. Cupboards and shelves have all collapsed into a heap. The courtyard is back to the [boldsouth]"
 
-The notched-plank is in battered-pantry.  The printed name of the notched-plank is "notched plank". Understand "notched" or "plank" as the notched-plank. The description of the notched-plank is "This is a long plank, sturdy enough for several people to stand on. There is a notch in the center, which cuts the short way across the plank, leaving the two sides balanced."
+[, while a stranged enclosed space is visible higher up on the [boldeast] wall.]
+
+The battered-heap is scenery in the battered-pantry. THe printed name of battered-heap is "heap of rubble". Understand "heap" or "rubble" or "heap of" or "cupboards" or "shelve" or "shelves" as the battered-heap. The description of the battered-heap is "After looking over this heap thoroughly, you can't identify anything of use in it. It's just junk."
+
+[Instead of going nowhere from battered-pantry when the noun is up:
+	try going east;]
+
+The notched-plank is in battered-pantry. "A long plank, perhaps once part of a cupboard, lies on the floor."The printed name of the notched-plank is "notched plank". Understand "notched" or "plank" or "long" or "cupboard" as the notched-plank. The description of the notched-plank is "This is a long plank, sturdy enough for several people to stand on. There is a notch in the center, which cuts the short way across the plank, leaving the two sides balanced."
 
 The plank-notch is part of the notched-plank. The printed name of the plank-notch is "notch". Understand "notch" as the plank-notch. The description of the plank-notch is "This notch is a several centimeters wide and about fifty centimeters long, running the width of the board."
 
 Chapter 16 - Raised larder
 
-Raised-larder is east from battered-pantry. Raised-larder is in haunted-region. The printed name of raised-larder is "Larder."
+[Raised-kitchen is east from battered-pantry. Raised-kitchen is in castle-region. The printed name of raised-kitchen is "Collapsed Kitchen." The description of the raised-kitchen is "This room is almost completely filled with rubble, so that you can nearly touch the ceiling. Judging from the grease-marks on the ceiling, it seems to have been a kitchen."
+
+The kitchen-ceiling is scenery in raised-kitchen. The printed name of the kitchen-ceiling is "ceiling". Understand "ceiling" as the kitchen-ceiling. The description of the kitchen-ceiling is "The ceiling has years' worth of grease marks on it."
+
+Instead of touching the kitchen-ceiling:
+	say "You can just barely touch it. It's greasy."
+
+The grease-marks are plural-named. The grease-marks are part of the kitchen-ceiling. The printed name of the grease-marks is "grease marks".  The description of the grease-marks is "There are grease marks on the ceiling. Not in the 'oh yeah, I can harvest this grease and use it to lubricate things' way, but in the 'this is really gross' way."
+
+Instead of touching the grease-marks:
+	say "They feel like grease. Not enough to make use of, though."]
 
 Chapter 17 - Dark pool
 
-Dark-pool is south from ruined-courtyard. Dark-pool is in haunted-region. THe printed name of dark-pool is "Dark Pool". "This room frightens you. It's hard to say why, exactly, but it may be due to the pool of luminescent green liquid in the center of it."
+Dark-pool is south from ruined-courtyard. Dark-pool is in castle-region. THe printed name of dark-pool is "Dark Pool". "This room frightens you. It's hard to say why, exactly, but it may be due to the pool of luminescent green liquid in the center of it[first time]
 
-The shimmer-pool is scenery in the dark-pool. The printed name of the shimmer-pool is "pool of luminescent green liquid". Understand "pool" or "pool of" or "luminescent" or "green" or "liquid" as the shimmer-pool. The description of the shimmer-pool is "This pool of luminescent liquid bubble and boils in an unholy manner[trigger-clone]."
+You can hear murmuring coming from the pool. As you walk closer, the pool's bubbling softens and ceaess, and the pool goes flat. You look in, and see your own reflection. It winks at you.
+
+'Hello, Emrys,' she says[trigger-reflection][only]."
+
+The shimmer-pool is scenery in the dark-pool. The shimmer-pool is a transparent unopenable closed container. The printed name of the shimmer-pool is "pool of luminescent green liquid". Understand "pool" or "pool of" or "luminescent" or "green" or "liquid" or "water" as the shimmer-pool. The description of the shimmer-pool is "This pool of luminescent liquid bubble and boils in an unholy manner[if clonesubmerged is true].
+
+Your reflection is visible on the water[end if]."
+
+Instead of opening the shimmer-pool:
+	say "Something keeps you from touching the water; it frightens you.";
+
+Instead of physicality when the noun is the shimmer-pool:
+	say "Something keeps you from touching the water; it frightens you.";
+
+To say trigger-reflection:
+	deliver reflecting-me;
+
+Section 1 - Face
+
+Clonesubmerged is a truth state that varies. Clonesubmerged is true.
+
+Before physicality when the noun is clone-you:
+	if clonesubmerged is true:
+		say "It's just a reflection, you can't touch it." instead;
+		
+A clone-you is a woman in dark-pool. "[if clonesubmerged is true]Your reflection still floats in the pool[otherwise]Your clone is here, watching you[end if].". The printed name of clone-you is "[if clonesubmerged is true]reflection[otherwise]clone[end if]". The indefinite article of clone-you is "your". Understand "image" or "reflection" or  "clone" or "shadow" or "copy" or "curious" or "dark" or "eyes" or "resolute" or "jaw" as the clone-you. The description of clone-you is "Your clone looks exactly like you: curious, dark eyes; resolute jaw; and increasing years."
+
+Reflecting-me is a quip. The printed name of reflecting-me is "Reflecting". Understand "reflecting" as reflecting-me. The target of reflecting-me is clone-you. The preview of reflecting-me is "Let me guess; you represent my inner self."
+
+The targetresponse of reflecting-me is "She smiles, and says, 'Something like that. My job is to help you get the treasure. It's a ways east of here[deliverreflections]. We need to work together.'
+
+'Like loving myself,' you say.
+
+'If you see it that way,' says your reflection."
+
+To say deliverreflections:
+	deliver crumble-castle;
+	deliver how-help;
+	
+crumble-castle is a quip. The printed name of crumble-castle is "Crumble". Understand "Crumble" as crumble-castle. The target of crumble-castle is clone-you. The preview of crumble-castle is "If this represent my psyche, or whatever, then why is the castle crumbling?"
+
+The targetresponse of crumble-castle is "Your reflection answers, 'What it means is up to you. I'm not here to tell you what everything symbolizes. I respect you too much for that.'"
+
+how-help is a quip. The printed name of how-help is "Assistance". Understand "Assistance" as how-help. The target of how-help is clone-you. The preview of how-help is "How can you help me if you're just a reflection?"
+
+The targetresponse of how-help is "She answers, 'You're right, a reflection isn't much help. Here, help me up.'
+
+An arm lifts out of the pool, which you grab and pull. Your reflection emerges[trigger-clone].
+
+Before you stands a fully-embodied copy of yourself. She says, 'Well, I guess I'll follow your lead. I'm just your reflection, so whatever you do, I'll do, too. I'll give you a head start, though; I'll silently count to two before following you.'"
 
 Hidden-pool is a room.
 
 Section 1 - Your clone
 
-A Clone-you is a woman in hidden-pool. Understand "clone" or "shadow" or "copy" as clone-you. The printed name of clone-you is "clone". The indefinite article of clone-you is "your".
+Every turn:
+	if the player is in dark-pool and clonesubmerged is true:
+		if how-help is targetgiven:
+			say "'Ah, you've returned,' says your clone, pulling herself out of the water again. 'Let's see what we can do together.'";
+			now clonesubmerged is false;
 
 To say trigger-clone:
-	say ". As you stare into the waters, you see your reflection staring back. Then your reflection winks.
+	now clonesubmerged is false;
 
-Soon, it begins climbing its way out of the pool. Before you stands a copy of yourself. She says, 'Well, I guess I'll follow your lead. I'll give you a head start'";
+Past-actions is a list of stored actions that varies. Past-actions is {clone-you waiting}.
+PastPast-actions is a list of stored actions that varies. PastPast-actions is {clone-you waiting}.
+PastPastPast-actions is a list of stored actions that varies. PastPastPast-actions is {clone-you waiting}.
+	
+Every turn when the player is not in castle-region:
+	now clonesubmerged is true;
 	now clone-you is in dark-pool;
 
-Clone-actions is a list of stored actions that varies.
+Every turn when clonesubmerged is true:
+	now Past-actions is {clone-you waiting};
+	now PastPast-actions is {clone-you waiting};
+	now PastPastPast-actions is {clone-you waiting};
 
-After doing something when clone-you is not in Hidden-pool:
+After the player doing something when clonesubmerged is false:
 	now the actor is clone-you; 
-	add the current action to clone-actions; 
+	add the current action to past-actions; 
 	now the actor is the player; 
 	continue the action. 
-	
-Every turn when clone-you is in Hidden-pool:
-	now clone-actions is {looking, looking}
 
-Every turn when clone-you is not in Hidden-pool: 
-	truncate clone-actions to the last two entries;
-	try entry 1 of clone-actions; 
+Every turn when clonesubmerged is false:
+	if pastpastpast-actions is not empty:
+		try entry 1 of pastpastpast-actions;
+[		say "Now the clone is [entry 1 of pastpastpast-actions].";]
+	now pastpastpast-actions is pastpast-actions;
+	now pastpast-actions is past-actions;
+	now past-actions is {};
 	
-Every turn:
-	say "The clone-actions list is currently [clone-actions]";
+Clonedebugging is an action out of world. Understand "debugclone" as clonedebugging.
+
+Carry out clonedebugging:
+	if debugclone is false:
+		say "Turning on clone debugging.";
+		now debugclone is true;
+	otherwise:
+		say "Turning off clone debugging.";
+		now debugclone is false;
+	
+Debugclone is a truth state that varies. Debugclone is false.
+
+Every turn when debugclone is true:
+	say "The pastpastpastactions-actions list is currently [pastpastpast-actions], pastpast-actions list is currently [pastpast-actions], and the past-actions list is currently [past-actions]";
 			
+Dumbthing is an action out of world. Understand "dumbdumb" as dumbthing.
+
+Carry out dumbthing:
+	try clone-you looking;
+
 Chapter 18 -Throne room
 
-Throne-room is east from ruined-courtyard. Throne-room is in haunted-region. Throne-room is south from raised-larder. The printed name of the throne-room is "Throne Room". "This is the vast ruin of a once-glorious throne room. Pillars line the walls, some fallen and crumbling. Stairs once must have led upwards, as there is an entrance, towards the north part of the room, but it is a few meters above your grasp, even when jumping. Similarly, the wall to the [boldnorth] has crumbled, leaving an exposed hole high above ground to what seems to have been a larder.
+Understand "upward" or "upwards" as up.
+
+Throne-room is east from ruined-courtyard. Throne-room is in castle-region. [Throne-room is south from raised-larder.] The printed name of the throne-room is "Throne Room". "This is the vast ruin of a once-glorious throne room. Pillars line the walls, some fallen and crumbling. Stairs once led [bold type]upwards[roman type], but the lower parts have collapsed, leaving a balcony and the upper part of the stairs high above you, out of your reach[if strange-veins are in throne-room]. The balcony is densely covered in strange black veins[end if].
 
 The center of the room on the east side is a raised dais with a broken throne on it. It looks like it was once flanked with rows and rows of ornate wooden poles leading down the dais to the other side, but they are all broken on the floor. To the north, near the hole in the wall, one pair of stone supports remain, but the pole that once went through them is shattered."
 
-The stone-pair is scenery in the throne-room. The printed name of the stone-pair is "pair of stone supports". Understand "pair" or "pair of" or "stone" or "support" or "hole" or "holes" or "sewing" or "needle" or "needles"or "supports" as the stone-pair. The description of the stone-pair is "This is a pair of stone supports, about half a meter apart from each other and a few meters away from the wall. They each have a hole in them a few centimeters wide, with the holes facing each other. Overall, they look a bit like two large sewing needles stuck into the ground."
+The strange-veins are distant scenery in throne-room. The printed name of the strange-veins is "strange black veins". Understand "strange" or "black" or "vein" or "veins" as the strange-veins.
+
+The broken-poles are scenery in the throne-room. THe printed name of the broken-poles is "broken poles". Understand "broken" or "poles" as the broken-poles. The description of the broken-poles is "These must have seemed beautiful, once."
+
+The high-balcony is a scenery supporter in throne-room. The printed name of the high-balcony is "balcony". Understand "balcony" as the high-balcony.
+
+Before physicality when the player is on high-balcony:
+	if the noun is not enclosed by high-balcony:
+		say "That's too far away." instead;
+		
+Before physicality when the noun is high-balcony:
+	if the player is not on high-balcony:
+		say "That's too far away."
+
+Instead of taking the broken-poles:
+	say "They lay in so many fragments, it would take forever to grab them all."
+
+The stone-pair is scenery in the throne-room. The printed name of the stone-pair is "pair of stone supports". Understand "pair" or "pair of" or "stone" or "support" or "hole" or "holes" or "sewing" or "eyes" or "stable" or "pole" or "needle" or "needles"or "supports" as the stone-pair. The description of the stone-pair is "This is a pair of stone supports, about a meter apart from each other and a few meters away from the wall. They each have a hole in them a few centimeters wide, with the holes facing each other. Overall, they look a bit like two large sewing needles stuck into the ground.[if rodheld is false].
+
+The pole they once held is long gone[otherwise].
+
+Together, they are currently holding an iron rod[end if]."
 
 Before going north from the throne-room:
 	say "You climb up into the hole that goes to the larder."
@@ -1744,25 +1915,299 @@ Before going north from the throne-room:
 Instead of going up from the throne-room:
 	say "Even jumping, you can't reach the entrance above."
 
+Rodheld is a truth state that varies. Rodheld is false.
+
+Instead of inserting the iron-bar into the stone-pair:
+	say "You place the iron rod through the holes in the stone supports. It fits perfectly, forming a large horizontal shape at about waist-height.";
+	now the iron-bar is in throne-room;
+	now rodheld is true;
+
+Report examining iron-bar when rodheld is true:
+	say "The iron rod is wedged perfectly between the two supports, creating a stable pole."
+
+Report taking iron-bar:
+	now rodheld is false;
+
+The balanced-plank2 is an enterable supporter. "The plank is here, balanced carefully."The printed name of the balanced-plank2 is "balanced plank". Understand "notched" or "plank" or "balanced" or "long" or "cupboard" as the balanced-plank2. The description of the balanced-plank2 is "This is a long plank, sturdy enough for several people to stand on. There is a notch in the center, which cuts the short way across the plank. Right now the plank is balanced."
+
+Instead of putting something on the iron-bar when rodheld is true:
+	if the noun is the notched-plank:
+		say "You balance the notched plank on the iron bar. It wobbles a bit back and forth, but then settles down.";
+		now the notched-plank is nowhere;
+		now the balanced-plank2 is in throne-room;
+		set pronouns from the balanced-plank2;
+	otherwise:
+		say "The iron bar is fairly thing; the only thing you could put on it would be something balanced and stable enough to stay put.";
+
+Instead of entering the iron-bar when rodheld is true:
+	say "The iron bar itself is too narrow to stand on."
+
+After  entering the balanced-plank2:
+	say "You climb onto the plank. The plank wobbles back and forth a bit, but then it settles down.";
+	
+After jumping when the player is on the balanced-plank2:
+	if clone-you is on the balanced-plank2:
+		say "Your clone launchs up high into the air, close to the hole in the ceiling, before landing back on the board.";
+	otherwise:
+		say "That would flip the board and send you tumbling. Maybe a bad idea.";
+
+Instead of clone-you jumping when the player is on the balanced-plank2:
+		say "Your clone jumps up high and then slams back down onto the plank, launching you into the air. You fly through the air and land on the balcony!";
+		now the player is on high-balcony;
+
+Before taking the balanced-plank2:
+	if someone is on the balanced-plank2:
+		say "You can't pick up the plank when someone is on it.";
+
+Report taking the balanced-plank2:
+	now the notched-plank is carried by the player;
+	now the balanced-plank2 is nowhere;
+	set pronouns from the notched-plank;
+
+Instead of putting something on the balanced-plank2:
+	say "[The noun] slides off of the board and onto the ground.";
+	silently try dropping the noun;
+
+The upper-stairs is a plural-named staircase. The upper-stairs are up from throne-room and down from castle-spire. The printed name of the upper-stairs  is "upper stairs". Understand "upper" or "vestigial" or "stairs" as the upper-stairs. The description of the upper-stairs is "These vestigial stairs are all that is left of a once-grand staircase."
+
+Before going up from throne-room:
+	if the player is not on high-balcony:
+		say "You can't reach the stairs from here." instead;
+
 Chapter 19 - Spire
 
-The castle-spire is up from the throne-room. The castle-spire is in haunted-region.
+The castle-spire is a dark room in castle-region. The printed name of the castle-spire is "Spire".
+
+Rule for printing the description of a dark room when the player is in castle-spire: 
+	say "This room is completely dark. You can barely see some light from below." instead. 
+
 
 Chapter 20 - Dark tunnel
 
-The dark-tunnel is east from dark-pool. The dark-tunnel is in haunted-region. The printed name of the dark-tunnel is "Dark Tunnel". "This dark tunnel leads to a glowing purple door to the [boldeast]. In front of the door, however, is a deep pit that is too far for you to jump over. A thin iron rail is halfway across the pit, running from side to side."
+The dark-tunnel is east from dark-pool. The dark-tunnel is in castle-region. The printed name of the dark-tunnel is "Dark Tunnel". "This dark tunnel leads from the [boldwest] to a shadowed exit blocked by a portcullis to the [boldeast]. In front of the door, however, is a deep pit that is too far for you to jump over. A thin iron rail is halfway across the pit, running from side to side[if the player is not on east-ledge]. Across the pit, in front of the portcullis, is a ledge, and next to the ledge a rusty wheel is embedded in the wall[otherwise].
+
+Next to you are a large portcullis and a rusty wheel[end if]."
+
+The shadowed-exit is a scenery open unopenable door. Shadowed-exit is east from dark-tunnel and west from treasure-room. The printed name of shadowed-exit is "shadowed exit". Understand "shadow" or "shadowed" or "exit" as the shadowed-exit.
+
+Before doing something with the shadowed-exit:
+	if the player is not on the east-ledge:
+		now the shadowed-exit is distant;
+	otherwise:
+		now the shadowed-exit is not distant;
 
 The giant-pit is scenery in the dark-tunnel. Understand "deep" or "pit" as the giant-pit. The printed name of the giant-pit is "deep pit".
 
 Instead of physicality when the noun is the giant-pit:
 	say "You can't really touch a pit, it's just the absence of solid material."
 
-The iron-rail is scenery in the dark-tunnel. The printed name of the iron-rail is "iron rail". Understand "iron" or "rail" as the iron-rail. The description of the iron-rail is "This iron rail is a couple of centimeters wide and spans the pit from the left side to the right side. You can't reach it from where you are."
+The east-ledge is a scenery supporter in the dark-tunnel. The printed name of the east-ledge is "ledge". Understand "ledge" as the east-ledge.
+
+Before doing something with the east-ledge:
+	if the player is not on the east-ledge:
+		now the east-ledge is distant;
+	otherwise:
+		now the east-ledge is not distant;
+
+The iron-rail is a scenery supporter in the dark-tunnel. The printed name of the iron-rail is "iron rail". Understand "iron" or "rail" as the iron-rail. The description of the iron-rail is "This iron rail is a couple of centimeters wide and spans the pit from the left side to the right side. You can't reach it from where you are."
+
+Instead of inserting something into the giant-pit:
+	say "Anything you put in there is going to stay there forever. Best to leave it alone.";
+
+The balanced-plank is an enterable supporter. "The plank is here, balanced carefully."The printed name of the balanced-plank is "balanced plank". Understand "notched" or "plank" or "balanced" or "long" or "cupboard" as the balanced-plank. The description of the balanced-plank is "This is a long plank, sturdy enough for several people to stand on. There is a notch in the center, which cuts the short way across the plank. Right now the plank is balanced."
+
+Instead of putting something on the iron-rail:
+	if the noun is the notched-plank:
+		say "You balance the notched plank on the iron rail. It wobbles a bit back and forth, but then settles down.";
+		now the notched-plank is nowhere;
+		now the balanced-plank is in dark-tunnel;
+		set pronouns from the balanced-plank;
+	otherwise:
+		say "The iron rail is fairly thin and pretty far away; the only thing you could put on it would be something long enough to reach and stable enough to stay put.";
+
+Instead of entering the iron-rail:
+	say "The iron rail itself is too narrow to stand on, and too far away to jump to."
+
+Instead of entering the notched-plank when the notched-plank is in a room:
+	say "You stand on the plank for a second, but get off again."
+
+Instead of putting something on the notched-plank when the notched-plank is in a room:
+	say "You set [the noun] on the plank, but it's not very useful. You pick [the noun] back up again."
+
+After entering the balanced-plank:
+	say "The plank wobbles back and forth a bit, but then it settles down. You might be able to make it to the [boldeast] now.";
+	
+Instead of jumping when the player is on the balanced-plank:
+	if clone-you is on the balanced-plank:
+		say "That would launch your clone right into the ceiling! Or make them fall into the pit. A sort of obscene clone fall, if you will.";
+	otherwise:
+		say "That would flip the board and send you falling into the pit. Maybe a bad idea.";
+
+Before taking the balanced-plank:
+	if someone is on the balanced-plank:
+		say "You can't pick up the plank when someone is on it." instead;
+
+The  balanced-plank is portable. The balanced-plank2 is portable.
+
+Report taking the balanced-plank:
+	now the notched-plank is carried by the player;
+	now the balanced-plank is nowhere;
+	set pronouns from the notched-plank;
+
+Instead of putting something on the balanced-plank:
+	say "There's a good chance you'll lose it if you put that there."
+
+Before going east from dark-tunnel:
+	if the giant-pit is nowhere:
+		do nothing;
+	otherwise if the player is not on the balanced-plank and the player is not on east-ledge:
+		if the balanced-plank is in dark-tunnel:
+			try the player entering the balanced-plank instead;
+		otherwise:
+			say "There's no clear way to cross the pit right now." instead;
+	otherwise if clone-you is not on the balanced-plank:
+		say "The far side of the pit is longer than the near side, so you'd have to jump from the very end of the board. That's not going to happen without something to balance the rest of the board." instead;
+	otherwise if the player is not on east-ledge:
+		say "You leap over to the eastern ledge, successfully landing! Your clone attempts to balance on the plank, succesfully keeping herself from falling.";
+		now the player is on east-ledge instead;
+	otherwise if the shadow-portcullis is not open:
+		say "The portcullis bars the way forward." instead;
+	otherwise:
+		now the player is in treasure-room instead;
+
+Before going west from dark-tunnel:
+	if the player is on the balanced-plank:
+		try the player getting off the balanced-plank instead;
+
+The fly-wheel is scenery in dark-tunnel. The printed name of fly-wheel is "rusty wheel". Understand "rusty" or "wheel" as the fly-wheel. The description of the fly-wheel is "This rusty wheel set onto the wall has no visible purpose, but it does look like it can [bold type]turn[roman type]."
+
+Before doing something with the fly-wheel:
+	if the player is not on the east-ledge:
+		now the fly-wheel is distant;
+	otherwise:
+		now the fly-wheel is not distant;
+
+The shadow-portcullis is scenery in the dark-tunnel. The shadow-portcullis can be open or closed. The shadow-portcullis is closed. The printed name of the shadow-portcullis is "portcullis". Understand "portcullis" as the shadow-portcullis.
+
+Instead of opening the shadow-portcullis:
+	if the shadow-portcullis is open:
+		say "It's already open!";
+	otherwise:
+		say "It's not clear how to do that, but it might involve the wheel.";
+		
+Instead of closing the shadow-portcullis:
+	if the shadow-portcullis is closed:
+		say "It's already closed!";
+	otherwise:
+		say "It's not clear how to do that.";
+
+Instead of turning the fly-wheel:
+	if the giant-pit is in dark-tunnel:
+		say "The wheel is much harder to turn than expected. Once you get started, though, you build momentum. The portcullis starts lifting.
+
+But, too your surprise, something comes up from the pit as well. A counterweight must be falling somewhere, as both the portcullis and the bottom of the pit rise at once. Soon the floor of the pit rushes up, slowing down right before covering up the iron rail and gently pushin aside the notched plank and your clone, both of whom are now on solid ground. 
+
+The portcullis is open.
+
+Your clone grins, and says, 'Solving one problem fixed a lot more, I guess. Let's get our reward.'";
+		now the shadow-portcullis is open;
+		now the giant-pit is nowhere;
+		now the iron-rail is nowhere;
+		now the balanced-plank is nowhere;
+		now the notched-plank is in dark-tunnel;
+		now the player is in dark-tunnel;
+		repeat with current running through things on east-ledge:
+			now current is in dark-tunnel;
+		if clone-you is on balanced-plank:
+			now clone-you is in dark-tunnel;
+		now the east-ledge is nowhere;
+		now the description of dark-tunnel is "This dark tunnel leads from the [boldwest] to a shadowed exit to the [boldeast]. On one side, a rusty wheel is embedded in the wall. Otherwise, the room shows no sign of its now-disappeared features.";
+	otherwise:
+		say "The wheel spins uselessly. It seems like it's done with, now."
+
+Instead of getting off the east-ledge:
+	say "It's not obvious how to get off the ledge. The plank is too far away to get back easily."
+
+[code in that the player can't go east until the plank is there and until it is balanced by the clone]
+
+[add the fulcrum to the initial appearance and description of the plank]
 
 Chapter 21 - Treasure room
 
-Treasure-room is a dark room in haunted-region. The printed name of treasure-room is "Treasure Room". 
-The treasure-room is east from dark-tunnel. 
+Treasure-room is a room in castle-region. The printed name of treasure-room is "Treasure Room". "The walls here seem covered in pure gold, which is engraved in intricate detail. All except the back wall, that is, which is covered in some kind of malignant mass, with strange black veins stretching out of it and over much of the room. The treasure, you assume, is behind the mass."
+
+The treasure-veins are plural-named scenery in treasure-room. The printed name of treasure-veins is "strange black veins". Understand "strange" or "black" or "vein" or "veins" as the treasure-veins. The description of the treasure-veins is "These strange black veins stretch across much of the room and, perhaps, beyond.";
+
+Instead of physicality when the noun is treasure-veins:
+	say "The veins are too repulsive to touch.";
+
+Instead of attacking the malignant-wall:
+	say "It yields a little beneath your fists, but not enough[if clone-you is in treasure-room].
+
+Your clone shakes her head. 'I don't think that's the best way to go about this[end if]."
+
+The gold-walls are scenery in the treasure-room. The printed name of the gold-walls is "gold walls". Understand "gold" or "golden" or "walls" as the gold-walls. The description of the gold-walls is "The walls here seem to be coated in gold. There are intricate engravings on the wall which draw your attention."
+
+The intricate-engravings are part of the gold-walls. The intricate-engravings are plural-named. The printed name of the intricate-engravings is "intricate engravings". Understand "intricate" or "engraving" or "engravings" or "dyad" or "dyads" or "chords" or "chord" or "note" or "notes" as the intricate-engravings. The description of the intricate-engravings is "A complex set of engravings is on the wall. One you recognize from your school-training as music; it looks like chords. Or, no, dyads, since there are just two notes at a time.
+
+The first pair are a D and an F. The second are a D and a G, and the last are an F and a G.
+
+[bracket]You can sing a note by typing SING NOTE A or SING NOTE C, for example, but can only sing one note at a time.[close bracket]"
+
+Notesinging is an action applying to one topic. Understand "sing [text]" as notesinging.
+
+Carry out notesinging:
+	if the topic understood matches "Note A":
+		say "You sing the note A, purely and clearly.";
+	otherwise if the topic understood matches "Note B":
+		say "You sing the note B, purely and clearly.";
+	otherwise if the topic understood matches "Note C":
+		say "You sing the note C, purely and clearly.";
+	otherwise if the topic understood matches "Note D":
+		say "You sing the note D, purely and clearly.";
+	otherwise if the topic understood matches "Note E":
+		say "You sing the note E, purely and clearly.";
+	otherwise if the topic understood matches "Note F":
+		say "You sing the note F, purely and clearly.";
+	otherwise if the topic understood matches "Note G":
+		say "You sing the note G, purely and clearly.";
+	otherwise if the topic understood matches the text "Note", case insensitively:
+		say "Oh dear, that doesn't seem to be a note you know how to sing.";
+	otherwise:
+		say "You sing softly, under your breath.";
+	
+The malignant-wall is scenery in the treasure-room. The printed name of the malignant-wall is "malignant mass". Understand "malignant" or "mass" or "wall" or "crumbling" or "organic" or "rotten" or "matter" as the malignant-wall. The description of the malignant-wall is "This looks a crumbling, rotten mass of some kind of organic matter."
+
+WIthstriking is an action applying to one  thing and one carried thing. 
+
+Understand "attack  [something] with/using [something]" as withstriking.
+Understand "break [something] with/using [something]" as withstriking.
+Understand "smash [something] with/using [something]" as withstriking.
+Understand "hit [something] with/using [something]" as withstriking.
+Understand "fight [something] with/using [something]" as withstriking.
+Understand "torture [something] with/using [something]" as withstriking.
+Understand "wreck [something] with/using [something]" as withstriking.
+Understand "crack [something] with/using [something]" as withstriking.
+Understand "destroy [something] with/using [something]" as withstriking.
+Understand "murder [something] with/using [something]" as withstriking.
+Understand "kill [something] with/using [something]" as withstriking.
+Understand "punch [something] with/using [something]" as withstriking.
+Understand "thump [something] with/using [something]" as withstriking.
+
+Carry out withstriking:
+	if the second noun is not the iron-bar:
+		try attacking the noun;
+	otherwise:
+		say "Violence is a lot more effective when you use a crystalline thorn, but it's not the solution here."
+
+Chapter 22 - Outside
+
+The outside-treasure is east from treasure-room. The outside-treasure is in castle-region. The printed name of outside-treasure is "Outside". "It is bright and brilliant outside, a complete contrast to the gloominess of the other areas of the castle. You are surrounded by vibrant vegetation."
+
+The vibrant-vegetation is scenery in the outside-treasure. The printed name of the vibrant-vegetation is "vibrant vegetation". Understand "vibrant" or "plant" or "plants" or "vegetation" as the vibrant-vegetation. The description of the vibrant-vegetation is "These plants are beautiful, but they don't resemeble any vegetation you've seen before."
+
+Instead of going east from treasure-room when the malignant-wall is in treasure-room:
+	say "There's a wall in that direction; a gross wall."
 
 Part 7 - Murder mystery dimension
 
@@ -1862,6 +2307,10 @@ Test charon with "xyhaunt/s/e/give obol to charon"
 
 Test allhaunt with "test obol/test charon"
 
+Test clonesummon with "e/take thorn/e/s/x pool/say reflecting/say assistance/n/push block/z/push block"
+
+Test useplank with "n/take plank/s/s/e/put plank on rail/e/z/z/e"
+
 Part 3 - Checking missing stuff
 
 Alldescriptioning is an action out of world. Understand "alldesc" as alldescriptioning.
@@ -1903,6 +2352,11 @@ napoleon-teleporting is an action applying to nothing. Understand "xywax" as nap
 Carry out napoleon-teleporting:
 	now the player is in the napoleon-room;
 
+shore-teleporting is an action applying to nothing. Understand "xyshore" as shore-teleporting.
+
+Carry out shore-teleporting:
+	now the player is in the distant-shore;
+
 Book 5 - Notes
 
 Part 1
@@ -1928,3 +2382,5 @@ Part 6 - Haunted Mansion
 [need hints that frankenstein wants your stuff]
 
 [add space monkey that steals figurine, motivating you to enter the tear in space]
+
+[player MUST die to save the ship!]
