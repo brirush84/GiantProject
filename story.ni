@@ -18,7 +18,7 @@ Chapter 1 - Genre, description, etc
 
 Section 1 - Genre, description, etc
 
-The story genre is "Science Fiction". The story description is "Hop through dimensions to save your ship." The story creation year is 2022. The release number is 5
+The story genre is "Science Fiction". The story description is "Hop through dimensions to save your ship." The story creation year is 2022. The release number is 6.
 
 Part 2 - Out of world actions
 
@@ -39,7 +39,7 @@ Speech works by typing SAY [bracket]a topic[close bracket], or SAY [bracket]a to
 Crediting is an action out of world. Understand "Credits" as crediting. 
 
 Carry out crediting:
-	say "This game was written by Brian Rushton/Mathbrush using Inform 7 (by Graham Nelson). Beta testers include Amanda Walker, the Xenographer, John Ziegler, Jade and LAST_TESTER_HERE. Hanon Ondricek gave helpful advice about the concept and title.
+	say "This game was written by Brian Rushton/Mathbrush using Inform 7 (by Graham Nelson). Beta testers include Amanda Walker, the Xenographer, John Ziegler, Jade, Christopher Merriner, and LAST_TESTER_HERE. Hanon Ondricek gave helpful advice about the concept and title.
 
 Matt Weiner served as inspiration for some puzzle content."
 
@@ -124,7 +124,10 @@ A person is usually not talkative.
 
 Every turn:
 	repeat with current running through people:
-		now current is not talkative;
+		if current heeds a quip carried by the player:
+			now current is talkative;
+		otherwise:
+			now current is not talkative;
 	repeat with current running through quips carried by the player:
 		repeat with currentregion running through regions:
 			if target of current is in currentregion:
@@ -149,6 +152,33 @@ The advice on talking to just one person rule response (A) is "[We] [can] see ju
 
 To say a specific topic to someone, type SAY the topic TO that person[only]."
 
+[Replacing some code that doesn't work when becoming a suspect]
+A quip can be once-delivered or not once-delivered. A quip is usually not once-delivered.
+
+To clear the flags:
+	let somethingDelivered be 0;
+	repeat with currentquip running through once-delivered deliveryflagged quips:
+		now currentquip is not deliveryflagged;
+	repeat with currentquip running through deliveryflagged quips:
+		say "[bracket]New [ClueOrTopic of currentquip] - [currentquip][close bracket][roman type]";
+		say "[line break]";
+		now history of currentquip is "[currentquip] - [preview of currentquip][line break]";
+		now currentquip is carried by the emrys-weaver;
+		now currentquip is not deliveryflagged;
+		now currentquip is once-delivered;
+		now somethingDelivered is 1;
+		if the target of currentquip is nothing:
+			repeat with currentperson running through talkative people:
+				now currentperson heeds currentquip;
+	if somethingDelivered is 1:
+		If FirstClear is 0:
+			say "[line break][bracket]You can see your list of [HasCluesOrTopics]s by typing [CapCluesOrTopics], or just [if the number of clues carried by the player > 0]C[otherwise]T[end if].[close bracket]";
+			say "[line break]";
+			now FirstClear is 1;
+
+[squips are used for suspects: suspect-quips]
+A squip is a kind of quip. 
+
 Part 5 - Player character
 
 Chapter 1 - Name and identity
@@ -166,6 +196,8 @@ They say that Storyweavers have the Gift, but what that gift is, all disagree on
 Chapter 2 - Recorder
 
 The all-recorder is worn by the player. The printed name of the all-recorder is "recorder". Understand "recorder" or "slender" or "contraption" or "earpiece" or "metal" or "microphone" as the all-recorder.
+
+[make turning off the recorder put all quips out of scope]
 
 Instead of taking off the all-recorder:
 	say "It's actually attached to your nervous system. It might be a bad idea to remove it manually."
@@ -220,7 +252,7 @@ Carry out withplaying:
 	otherwise if the noun is the gareth-toy:
 		say "You wobble it back and forth a little and make it talk in a squeaky voice.";
 	otherwise:
-		say "This isn't the right time to play.";
+		say "This [aren't] the right time to play.";
 
 Instead of taking the action-figures:
 	say "Gareth would get very upset. This doesn't seem like the time for that."
@@ -237,7 +269,7 @@ The softer-lighting is intangible scenery in the psych-room. The printed name of
 
 Understand "furnishings" as the psych-couch. Understand "furnishings" as the psych-rug.
 
-The psych-rug is scenery in the psych-room. Understand "comfortable" or "rug" as the psych-rug. THe printed name of the psych-rug is "comfortable rug". The description of the psych-rug is "This a comfortable rug that helps mute some of the clangs and echoes typical in spaceships."
+The psych-rug is scenery in the psych-room. Understand "comfortable" or "rug" as the psych-rug. The printed name of the psych-rug is "comfortable rug". The description of the psych-rug is "This a comfortable rug that helps mute some of the clangs and echoes typical in spaceships."
 
 The psych-couch is an enterable scenery supporter in the psych-room. Understand "couch" as the psych-couch. The printed name of the psych-couch is "couch". The description of the psych-couch is "While its usefulness in psychological evaluation is debatable, the couch is one of the best places for naps on the ship. When there isn't an emergency, that is."
 
@@ -274,13 +306,13 @@ You'll have to chase that creature down; but in the meantime, what are you going
 
 Chapter 3 - Engineering room
 
-The engineering-room is west from hangar-room. The engineering-room is in ship-region. THe printed name of the engineering-room is "Engineering Room". "You can return to the hangar to the [boldeast]."
+The engineering-room is west from hangar-room. The engineering-room is in ship-region. The printed name of the engineering-room is "Engineering Room". "You can return to the hangar to the [boldeast]."
 
 The engineering-tear is a space-tear. "[if the player is in ship-region]A tear in space has opened up here[otherwise]The tear in space leading back to the ship is here[end if], to the [if the player is in engineering-room][boldnorth][otherwise][boldsouth][end if]. It is glowing [if the engineering-tear is red]red[otherwise]green[end if]." The engineering-tear is north of engineering-room and south of device-room. 
 
 Chapter 4 - Bridge, flight control
 
-The flight-room is up from hangar-room. THe flight-room is in ship-region. The printed name of the flight-room is "Bridge: Flight Controls".
+The flight-room is up from hangar-room. The flight-room is in ship-region. The printed name of the flight-room is "Bridge: Flight Controls".
 
 Mefe is a woman in flight-room. "Officer Mefe is here, frantically trying to restore navigation while helping everyone else on the bridge." The description of Mefe is "Flight Officer Mefe Azimov is a short woman with wavy black hair tucked under a cap. While trying to repair the controls, she constantly scans the room, looking for other problems to fix, but finding too many to handle.". Understand "flight" or "officer" as Mefe.
 
@@ -363,6 +395,10 @@ The tool-pedestal is an enterable scenery supporter in the tool-room. The printe
 
 Section 1 - The curious tool itself
 
+[setttings could include counting number of life forms in the area, altering electronics, breaking glass, unscrewing]
+
+[Make its first setting beep whenever there is an energy core, and put energy cores in quiet areas of the game.]
+
 The curious-tool is on the tool-pedestal. The printed name of the curious-tool is "curious tool". Understand "curious" or "tool" or "cylinder" or "lockpick" or "flashlight" as the curious-tool. The description of the curious-tool is "This is a cylindrical device with a dial at one end. The dial is currently set to [tool-mode of the curious-tool]. The available settings are inert, lockpick and flashlight."
 
 The tool-dial is part of the curious-tool. Understand "dial" as the tool-dial. The printed name of the tool-dial is "dial". The description of teh tool-dial is "The dial is currently set to [tool-mode of the curious-tool]. The available settings are inert, lockpick and flashlight."
@@ -386,7 +422,7 @@ Report tuning it to:
 		repeat with current running through lockable doors:
 			now curious-tool unlocks current;
 		now curious-tool unlocks treasure-case;
-		say "[bracket]To use the lockpick, simple UNLOCK a locked door WITH the tool.[close bracket]";
+		say "[bracket]To use the lockpick, simple UNLOCK a locked door WITH the tool.[close bracket][line break]";
 	otherwise:
 		repeat with current running through lockable doors:
 			now curious-tool does not unlock current;
@@ -399,14 +435,16 @@ Report tuning it to:
 
 AtPointing is an action applying to one carried thing and one thing. Understand "point [something] at [something]" as atpointing.
 
+To happen is a verb.
+
 Carry out atpointing:
 	if the noun is the curious-tool:
 		if the tool-mode of the curious-tool is flashlight:
 			say "You point the flashlight at [the second noun].";
 		otherwise:
-			say "Nothing happens.";
+			say "Nothing [adapt the verb happen].";
 	otherwise:
-		say "Nothing happens.";
+		say "Nothing [adapt the verb happen].";
 
 Part 4 - Garden dimension
 
@@ -695,7 +733,7 @@ He's still waiting for you to find his cat[end if]."
 
 The pharaoh-jewels are worn by pharaoh. The pharaoh-jewels are plural-named. Understand "bracelet" or "beaten" or "gold" or "jewel" or "lapis" or "lazuli" or "turquoirse" or "jewelry" or "jewels" or "bracelets" as the pharaoh-jewels. The printed name of the pharaoh-jewels is "jewels". The description of the pharaoh-jewels is "The jewels look priceless to you, and are of such fine craftmanship it makes you want to cry. "
 
-The tightly-wrapped linen bandages are worn by pharaoh. Understand "magnificent" or "yellow" or "yellowed" or "threadbare" or  "age" as the tightly-wrapped linen bandages. The description of the tightly-wrapped linen bandages is "While these bandages are yellowed and aged, they appear to have once been magnificent."
+The tightly-wrapped linen bandages are worn by pharaoh. Understand "magnificent" or "yellow" or "yellowed" or "threadbare" or "age" as the tightly-wrapped linen bandages. The description of the tightly-wrapped linen bandages is "While these bandages are yellowed and aged, they appear to have once been magnificent."
 
 Understand "mummy" or "mummified" or "towering" or "figure" as Pharaoh.
 
@@ -806,8 +844,10 @@ Instead of touching the Grand-mounds:
 
 Shivering is an action applying to nothing. Understand "shiver" as shivering.
 
-Instead of shivering:
-	say "You tremble, but with what emotion, you know not."
+To tremble is a verb. To know is a verb.
+
+Carry out shivering:
+	say "[We] [adapt the verb tremble], but with what emotion, [we] [adapt the verb know] not."
 
 Instead of listening to the Grand-whisper:
 	say "The lost souls are saying, 'We will never give you up, we will never let you down.....' You shiver in fear." 
@@ -900,7 +940,7 @@ Carry out playing:
 	if the noun is a musical:
 		try giving the noun to Dracula;
 	otherwise:
-		say "You haven't figured out how to play [the noun], yet. And likely never will."
+		say "[We] [don't] know how to play [the noun]."
 
 Instead of playing the Library-organ:
 	if the dracula-bats are trapped:
@@ -1011,9 +1051,9 @@ Every turn when the player is in library-room:
 				now the red-token is carried by the player;
 				say "Dracula pauses, looking up at the cage. The bats, realising they are now finally contained, begin to calm down and settle in for a nap. Soon, they are all hanging silently.
 
-Dracula smiles with relief, his long fangs reflecting the flickering light. 'Thank you, my friend. I love my bats, but sometimes I need a little help with them when I'm trying to focus. Here: a token of my admiration.' He hands you something and then returns to his desk. He looks up at the bats and presses a single finger to his lips before waving you away.
+Dracula smiles with relief, his long fangs reflecting the flickering light. 'Thank you, my friend. I love my bats, but sometimes I need a little help with them when I'm trying to focus.' He then returns to his desk. 
 
-You check what he gave you. It's a red token."
+Before he starts back on his work, he quietly throws you a red token."
 
 To reversemusicaffect (current - a musical):
 	if the dracula-bats are trapped:
@@ -1137,7 +1177,7 @@ Section 1 - The creature
 
 The lagoon-creature is a woman in the bath-room. The initial appearance of the lagoon-creature is "A scaled, vaguely humanoid creature that looks longer than your entire space vessel is floating here in the pool, staring up at the darkness. Her slightest movements send shallow waves across the pool[first time].
 
-She looks over at you with clear intelligence in her expression but then turns back. It's hard to tell if she'd understand you[only]." The printed name of the lagoon-creature is "lagoon creature". Understand "creature" or "black" or "lagoon" or "from" or "cross" or "humanoid" or "enormous" or  "scaled" or "humanoid" or "being" as the lagoon-creature.
+She looks over at you with clear intelligence in her expression but then turns back. It's hard to tell if she'd understand you[only]." The printed name of the lagoon-creature is "lagoon creature". Understand "creature" or "black" or "lagoon" or "from" or "cross" or "humanoid" or "enormous" or "scaled" or "humanoid" or "being" as the lagoon-creature.
 
 The description of the lagoon-creature is "The creature seems to be a cross between the largest land creatures and the beasts of the deepest seas, with a large green carapace and[if the creature-glasses are worn by the lagoon-creature] piercing black eyes behind a pair of enormous glasses[otherwise] a pair of blurry black eyes[end if]."
 
@@ -1238,7 +1278,7 @@ Instead of looking under the frozen-rug:
 	say "You lift up the rug, cards and all. The expanse of stone under here is surprisingly lumpy.";
 	resolve the frozen-cat;
 
-The stone-expanse is scenery in game-room. THe printed name of stone-expanse is "lumpy stone". Understand "expanse" or "lumpy" or "floor" or "stone" as the stone-expanse.
+The stone-expanse is scenery in game-room. The printed name of stone-expanse is "lumpy stone". Understand "expanse" or "lumpy" or "floor" or "stone" as the stone-expanse.
 
 The description of the stone-expanse is "Unlike the rest of the building, the floor here is mostly stone and quite lumpy."
 
@@ -1270,7 +1310,7 @@ It's currently broken in half[end if]."
 
 The frozen-target can be broken or unbroken. Understand the broken property as describing the frozen-target. Understand "broken" as broken .
 
-The shot-arrows are part of the frozen-target. Understand "shot" or "arrows" as the shot-arrows. THe printed name of the shot-arrows is "shot arrows". The description of the shot-arrows is "All the arrows are clustered near the center."
+The shot-arrows are part of the frozen-target. Understand "shot" or "arrows" as the shot-arrows. The printed name of the shot-arrows is "shot arrows". The description of the shot-arrows is "All the arrows are clustered near the center."
 
 Instead of physicality when the noun is the shot-arrows:
 	if the noun is broken:
@@ -1361,7 +1401,7 @@ Carry out cuffing:
 	if the wolf-handcuffs are carried by the player:
 		try putting the wolf-handcuffs on the second noun;
 	otherwise:
-		say "You don't have anything to use as handcuffs."
+		say "[We] [don't] have anything to use as handcuffs."
 
 Instead of putting the wolf-handcuffs on someone when the second noun is not the wolfman:
 	say "Handcuffing people against their will is not part of your ethos."
@@ -1461,13 +1501,13 @@ Instead of giving the frozen-mannequin to the yeti:
 
 She pulls back an arrow, aiming it at you and the mannequin. 'Drop it,' she commands.
 
-Afraid of the arrow, you drop the mannequin and back off. As you do so, flakes of ice and snow  fly into the air, covering the target in snow. It looks a lot like the yeti, now.
+Afraid of the arrow, you drop the mannequin and back off. As you do so, flakes of ice and snow fly into the air, covering the target in snow. It looks a lot like the yeti, now.
 
 [The yeti] stares, then sighs, and lowers the bow. 'It looks just like me, too. Me and Harry are a lot alike. Maybe instead of stewing here, I should go look for him myself.'
 
-She picks up the mannequin and says, 'Thanks for your help, though. You can have this,' she says, as she hands you  and walks out of the room, carrying the mannequin absent-mindedly with her.
+She picks up the mannequin and says, 'Thanks for your help, though. You can have this,' she says and walks out of the room, carrying the mannequin absent-mindedly with her.
 
-You check to see what she handed you. It's a white token.";
+On her way out, she hands you a white token.";
 		now the yeti is nowhere;
 		now the frozen-mannequin is nowhere;
 		now the white-token is carried by the player;
@@ -1892,6 +1932,9 @@ Instead of entering the charon-boat:
 	otherwise:
 		try going west;
 
+Instead of taking the charon-boat:
+	say "Charon holds the boat down with one foot. It's not going anywhere."
+
 Instead of pushing, pulling, or turning the charon-boat:
 	say "Charon waves you away with his skeletal hand.";
 
@@ -1952,7 +1995,7 @@ The monkey-like thief is still here, carrying the action figure. It recoils from
 
 The ruined-scenery is distant scenery in distant-shore. The printed name of the ruined-scenery is "ruined castle". Understand "ruined" or "ruins" or "ruin" or "tower" or "hole" or "spire" or "roof" or "holes" or "castle" as the ruined-scenery. The description of the ruined-scenery is "Past the iron fence rises the ruins of a castle. It still has a tower left standing, with holes in the roof."
 
-The shore-beach is scenery in distant-shore. THe printed name of shore-beach is "beach". Understand "small" or "beach" as the shore-beach. The description of the shore-beach is "This beach is bleak and seems relatively new, as it has not yet been washed into sand."
+The shore-beach is scenery in distant-shore. The printed name of shore-beach is "beach". Understand "small" or "beach" as the shore-beach. The description of the shore-beach is "This beach is bleak and seems relatively new, as it has not yet been washed into sand."
 
 The iron-fence is a distant backdrop in the shore-beach. The printed name of the iron-fence is "iron fence". Understand "iron" or "tall" or "deadly" or "deadly-looking" or "fence" or "gate" or "decaying" as the iron-fence. The description of the iron-fence is "This tall and deadly-looking fence stands far away and surrounds the even further castle. A gate is visible to the [boldeast]."
 
@@ -1974,7 +2017,7 @@ Instead of entering the dark-forest:
 Instead of going nowhere from gate-passage when the noun is north or the noun is south:
 	say "The forest is incredibly dense, and seems to go on forever. There's no point in going in there." 
 
-The iron-bar is part of iron-gate. "An iron bar lies on the ground here." The printed name of the iron-bar is "iron bar". Understand "iron" or "broken" or "heavy" or "missing" or "weak" or "bar" or "end" or "ends" or "solid" or "center" or "rusted" or "strong" as the iron-bar. The description of the iron-bar is "[if the iron-bar is part of iron-gate]One bar looks like it's rusted through; a good push might knock it out[otherwise]This heavy bar is a couple centimeters thick and about a meter long. It once barred the way to a castle, but no longer fulfills that task. Only the ends are rusted; the center is solid and strong[end if]."
+The iron-bar is part of iron-gate. "An iron bar lies on the ground here." The printed name of the iron-bar is "iron bar". Understand "iron" or "broken" or "heavy" or "weak" or "bar" or "end" or "ends" or "solid" or "center" or "rusted" or "strong" as the iron-bar. The description of the iron-bar is "[if the iron-bar is part of iron-gate]One bar looks like it's rusted through; a good push might knock it out[otherwise]This heavy bar is a couple centimeters thick and about a meter long. It once barred the way to a castle, but no longer fulfills that task. Only the ends are rusted; the center is solid and strong[end if]."
 
 Instead of climbing the iron-gate:
 	say "The bars are mostly vertical; it looks hard to climb."
@@ -2003,7 +2046,7 @@ Instead of physicality when the noun is the gate-gap:
 Instead of inserting something into the gate-gap:
 	try dropping the noun;
 
-Before turning  or pushing or pulling or taking or attacking the iron-bar:
+Before turning or pushing or pulling or taking or attacking the iron-bar:
 	if iron-bar is part of iron-gate:
 		try pushing the iron-gate instead;
 
@@ -2041,7 +2084,7 @@ Ruined-courtyard is east from Gate-Passage. The ruined-courtyard is in castle-re
 
 The iron-fence is in ruined-courtyard.
 
-The scenery-courtyard is scenery in ruined-courtyard. Understand "courtyard" as the scenery-courtyard. THe printed name of the scenery-courtyard is "courtyard". THe description of the scenery-courtyard is "This seems like it was once a regal and delightsome area, now barren and dry."
+The scenery-courtyard is scenery in ruined-courtyard. Understand "courtyard" as the scenery-courtyard. The printed name of the scenery-courtyard is "courtyard". The description of the scenery-courtyard is "This seems like it was once a regal and delightsome area, now barren and dry."
 
 The courtyard-grass is part of the scenery-courtyard. The printed name of the courtyard-grass is "dead grass". Understand "dead" or "dry" or "grass" as the courtyard-grass. The description of the courtyard-grass is "The grass here has been dead for a long, long time."
 
@@ -2051,7 +2094,8 @@ The crumbling-walls are scenery in ruined-courtyard. The printed name of the cru
 
 The heavy-block is in ruined-courtyard. "[if blockblocking is true]A heavy block has fallen in front of the northern exit, preventing entry to the north wing of the castle[otherwise]The heavy block has been pushed out of the way[end if]."The printed name of the heavy-block is "heavy block". The description of the heavy-block is "This heavy block must have fallen off from part of the castle higher up. You might be able to push it." Understand "heavy" or "block" as the heavy-block.
 
-
+Instead of pulling the heavy-block:
+	say "It's harder to get traction this way. Pushing would probably work better, although you're not sure you're strong enough for it."
 
 Blockblocking is a truth state that varies. BlockBlocking is true.
 
@@ -2102,7 +2146,7 @@ Battered-pantry is north from ruined-courtyard. Battered-pantry is in castle-reg
 
 [, while a stranged enclosed space is visible higher up on the [boldeast] wall.]
 
-The battered-heap is scenery in the battered-pantry. THe printed name of battered-heap is "heap of rubble". Understand "heap" or "rubble" or "heap of" or "cupboards" or "shelve" or "shelves" as the battered-heap. The description of the battered-heap is "After looking over this heap thoroughly, you can't identify anything of use in it. It's just junk."
+The battered-heap is scenery in the battered-pantry. The printed name of battered-heap is "heap of rubble". Understand "heap" or "rubble" or "heap of" or "junk" or "cupboards" or "shelve" or "shelves" as the battered-heap. The description of the battered-heap is "After looking over this heap thoroughly, you can't identify anything of use in it. It's just junk."
 
 [Instead of going nowhere from battered-pantry when the noun is up:
 	try going east;]
@@ -2127,11 +2171,14 @@ Instead of touching the grease-marks:
 
 Chapter 17 - Dark pool
 
-Dark-pool is south from ruined-courtyard. Dark-pool is in castle-region. THe printed name of dark-pool is "Dark Pool". "You are in a dank cave. It looks older than the rest of the castle, hewn roughly out of stone. This room frightens you. It's hard to say why, exactly, but it may be due to the pool of luminescent green liquid in the center of it. Exits lead [boldeast] and [boldnorth][first time].
+Dark-pool is south from ruined-courtyard. Dark-pool is in castle-region. The printed name of dark-pool is "Dark Pool". "You are in a dank cave. It looks older than the rest of the castle, hewn roughly out of stone. This room frightens you. It's hard to say why, exactly, but it may be due to the pool of luminescent green liquid in the center of it. Exits lead [boldeast] and [boldnorth][first time].
 
 You can hear murmuring coming from the pool. As you walk closer, the pool's bubbling softens and ceases, and the pool goes flat. You look in, and see your own [clone-you]. It winks at you.
 
 'Hello, Emrys,' she says[trigger-reflection][only]."	
+
+Instead of inserting something into the shimmer-pool:
+	say "Whatever goes in there might be lost forever."
 
 Instead of going nowhere from dark-pool when the noun is down:
 	say "The pool does not look like a pleasant place to be."
@@ -2183,7 +2230,7 @@ The clone reacting rule is listed last in the every turn rulebook.
 To say setcloneact:
 	now cloneacted is true;
 
-A clone-you is a woman in dark-pool. "[if clonesubmerged is true]Your reflection still floats in the pool[otherwise]Your clone is here, watching you[end if].". The printed name of clone-you is "[if currentactee is clone-you ]herself[otherwise if clonesubmerged is true]reflection[otherwise]clone[end if][if currentactor is clone-you][setcloneact][end if]". The indefinite article of clone-you is "your". Understand "image" or "reflection" or "clone" or "shadow" or "copy" or "curious" or "dark" or "eyes" or "resolute" or "jaw" as the clone-you. The description of clone-you is "Your clone looks exactly like you: curious, dark eyes; resolute jaw; and increasing years[if the number of things held by clone-you > 0].
+A clone-you is a woman in dark-pool. "[if clonesubmerged is true]Your reflection still floats in the pool[otherwise]Your clone is here, watching you[end if].". The printed name of clone-you is "[if currentactee is clone-you ]herself[otherwise if clonesubmerged is true]reflection[otherwise]clone[end if][if currentactor is clone-you][setcloneact][end if]". The indefinite article of clone-you is "your". Understand "image" or "reflection" or "clone" or "shadow" or "copy" or "curious" or "dark" or "eyes" or "resolute" or "jaw" as the clone-you. The description of clone-you is "[The clone-you] looks exactly like you: curious, dark eyes; resolute jaw; and increasing years[if the number of things held by clone-you > 0].
 
 Your clone is carrying [a list of things held by clone-you][end if][if clone-you is on balanced-plank or clone-you is on balanced-plank2].
 
@@ -2259,10 +2306,15 @@ Every turn when the player is not in castle-region:
 	now the actor is the player; 
 	continue the action. ]
 
+TempAction is a stored action that varies.
+
 Before the player doing something:
 	now the actor is clone-you;
+	now TempAction is the current action;
+	if the player is on east-ledge and the current action is clone-you going west:
+		now TempAction is clone-you waiting;
 	if clonesubmerged is false:
-		add the current action to past-actions; 
+		add TempAction to past-actions; 
 	now the actor is the player; 
 	continue the action. 
 
@@ -2317,6 +2369,9 @@ After clone-you going:
 		say "The clone[setcloneact] arrives, following your movements.";
 	otherwise if cloneheadedout is true:
 		say "You clone heads out to [the noun]."
+
+Instead of clone-you swimming:
+	say "Your clone[setcloneact] firmly refuses to swim."
 
 Instead of clone-you examining something:
 	if clone-you is enclosed by the location:
@@ -2411,7 +2466,7 @@ Every turn:
 			now currentactee is clone-you;
 			now clone-you is proper-named;
 		if clone-you is enclosed by the location:
-			say "[one of]Your clone[setcloneact] attempts to grab [the current], but fails completely.[or]Your clone[setcloneact] looks at you in disbelief, but attempts to grab [the current] unseccessfully.[or]Your clone[setcloneact] unsuccessfully tries to grab [the current].[stopping]";
+			say "[one of]Your clone[setcloneact] attempts to grab [the current], but fails completely.[or]Your clone[setcloneact] looks at you in disbelief, but attempts to grab [the current] unsuccessfully.[or]Your clone[setcloneact] unsuccessfully tries to grab [the current].[stopping]";
 		repeat with current2 running through cloneattempting things:
 			now current2 is not cloneattempting;
 		now currentactor is the player;
@@ -2435,14 +2490,14 @@ Instead of clone-you consulting something about a topic:
 	if clone-you is enclosed by the location of the player:
 		say "Your clone[setcloneact] tries to look up [the topic understood] in [the noun]. 'Is this what I'm supposed to be doing?' she asks, puzzled.";
 
-Instead of locking something with something:
+Instead of clone-you locking something with something when clone-you:
 	if clone-you is enclosed by the location of the player:
 		if the second noun is not enclosed by clone-you:
 			say "Your clone[setcloneact] pretends to lock [the noun] with an imaginary [second noun].";
 		otherwise:
 			say "Your clone[setcloneact] fumbles with [the second noun], saying 'I'm sorry, I've never really locked anything before."
 
-Instead of unlocking something with something:
+Instead of clone-you unlocking something with something:
 	if clone-you is enclosed by the location of the player:
 		if the second noun is not enclosed by clone-you:
 			say "Your clone[setcloneact] pretends to unlock [the noun] with an imaginary [second noun].";
@@ -2457,7 +2512,7 @@ Instead of clone-you switching off something:
 	if clone-you is enclosed by the location of the player:
 		say "Your clone[setcloneact] imitates pushing a pretend button on [the noun]. 'Dzhyooooooo,' she says. 'Powering down.'";
 	
-The rucksack is an openable closed container. The rucksack is carried by the player. The description of the rucksack is "This rucksack is for testing purposes only."
+The rucksack is an openable closed container. The rucksack is carried by the player. Understand "ruck" or "sack" or "backpack" or "back pack" as the rucksack. The description of the rucksack is "This is your standard-issue rucksack you were given on your first day on the Starship Eilifligr."
 
 Instead of clone-you opening something:
 	if clone-you is enclosed by the location of the player:
@@ -2677,7 +2732,7 @@ Instead of doing something with the missing-throne:
 Instead of entering the scenery-pillars:
 	say "There's just not enough handholds.";
 
-The broken-poles are scenery in the throne-room. THe printed name of the broken-poles is "broken poles". Understand "broken" or "poles" or "pole" as the broken-poles. The description of the broken-poles is "These must have seemed beautiful, once."
+The broken-poles are scenery in the throne-room. The printed name of the broken-poles is "broken poles". Understand "broken" or "poles" or "pole" as the broken-poles. The description of the broken-poles is "These must have seemed beautiful, once."
 
 The high-balcony is a scenery supporter in throne-room. The printed name of the high-balcony is "balcony". Understand "balcony" as the high-balcony. The description of the high-balcony is "This once must have been the landing of some stairs, but now is just a balcony, high in the air."
 
@@ -2695,7 +2750,7 @@ Instead of taking the broken-poles:
 Instead of turning, pushing, or pulling the broken-poles:
 	say "The fragment lie everywhere, and cannot be easily manipulated."
 
-The stone-pair is scenery in the throne-room. The printed name of the stone-pair is "pair of stone supports". Understand "pair" or "pair of" or "stone" or "support" or "hole" or "holes" or "sewing" or "eyes" or "stable" or  "needle" or "needles"or "supports" as the stone-pair. The description of the stone-pair is "This is a pair of stone supports, about a meter apart from each other and a few meters away from the wall. They each have a hole in them a few centimeters wide, with the holes facing each other. Overall, they look a bit like two large sewing needles stuck into the ground[if rodheld is false].
+The stone-pair is scenery in the throne-room. The printed name of the stone-pair is "pair of stone supports". Understand "pair" or "pair of" or "stone" or "support" or "hole" or "holes" or "sewing" or "eyes" or "stable" or "needle" or "needles"or "supports" as the stone-pair. The description of the stone-pair is "This is a pair of stone supports, about a meter apart from each other and a few meters away from the wall. They each have a hole in them a few centimeters wide, with the holes facing each other. Overall, they look a bit like two large sewing needles stuck into the ground[if rodheld is false].
 
 The pole they once held is long gone[otherwise].
 
@@ -2743,6 +2798,9 @@ Instead of putting something on the iron-bar when rodheld is true:
 		set pronouns from the balanced-plank2;
 	otherwise:
 		say "The iron bar is fairly thin; the only thing you could put on it would be something balanced and stable enough to stay put.";
+
+Instead of putting the notched-plank on the iron-bar when rodheld is false:
+	say "That would be a lot easier if the bar were being held by supports of some kind."
 
 Instead of entering the iron-bar when rodheld is true:
 	say "The iron bar itself is too narrow to stand on."
@@ -2879,9 +2937,9 @@ Report uttering dedication-quip to gareth:
 Instead of going down from castle-spire:
 	now the player is on high-balcony;
 
-Instead of going nowhere from throne-room when the noun is down:
+Before going nowhere from throne-room when the noun is down:
 	if the player is on high-balcony:
-		try getting off the high-balcony;
+		try getting off the high-balcony instead;
 
 After getting off the high-balcony:
 	say "You jump off the balcony to the ground below. You hit the ground hard, but you're okay.";
@@ -2902,8 +2960,15 @@ Before doing something with the shadowed-exit:
 
 The giant-pit is scenery in the dark-tunnel. Understand "deep" or "pit" as the giant-pit. The printed name of the giant-pit is "deep pit". The description of the giant-pit is "It's impossible to see the bottom of this thing. It makes your skin crawl."
 
+Understand "climb down [something]" or "climb into [something]" as entering.
+
+Understand "jump across [the giant-pit]" as entering.
+
 Instead of physicality when the noun is the giant-pit:
 	say "You can't really touch a pit, it's just the absence of solid material."
+
+Instead of entering the giant-pit:
+	say "The pit is so large that you shudder at the idea of falling into it. Who knows when you might land?"
 
 The east-ledge is a scenery supporter in the dark-tunnel. The printed name of the east-ledge is "ledge". Understand "ledge" as the east-ledge. The description of the east-ledge is "This ledge just out of the very east side of the room. A rusty wheel is on the wall next to it."
 
@@ -2928,6 +2993,9 @@ Instead of putting something on the iron-rail:
 		set pronouns from the balanced-plank;
 	otherwise:
 		say "The steel rail is fairly thin and pretty far away; the only thing you could put on it would be something long enough to reach and stable enough to stay put.";
+
+Instead of taking the iron-rail:
+	say "It's firmly embedded into the walls."
 
 Instead of entering the iron-rail:
 	say "The steel rail itself is too narrow to stand on, and too far away to jump to."
@@ -3012,11 +3080,11 @@ Instead of turning the fly-wheel:
 		if the player is on east-ledge:
 			say "The wheel is much harder to turn than expected. Once you get started, though, you build momentum. The portcullis starts lifting.
 
-	But, too your surprise, something comes up from the pit as well. A counterweight must be falling somewhere, as both the portcullis and the bottom of the pit rise at once. Soon the floor of the pit rushes up, slowing down right before covering up the steel rail and gently pushin aside the notched plank and your clone[setcloneact], both of whom are now on solid ground. 
+	But, too your surprise, something comes up from the pit as well. A counterweight must be falling somewhere, as both the portcullis and the bottom of the pit rise at once. Soon the floor of the pit rushes up, slowing down right before covering up the steel rail and gently pushing aside the notched plank and your clone[setcloneact], both of whom are now on solid ground. 
 
 	The portcullis is open.
 
-	Your clone[setcloneact] grins, and says, 'Solving one problem fixed a lot more, I guess. Let's get our reward.'";
+	Your clone[setcloneact] grins. 'Solving one problem fixed a lot more, I guess. Let's get our reward,' she says.";
 			now the shadow-portcullis is open;
 			now the giant-pit is nowhere;
 			now the iron-rail is nowhere;
@@ -3069,7 +3137,7 @@ Your clone[setcloneact] shakes her head. 'I don't think that's the best way to g
 
 The gold-walls are scenery in the treasure-room. The printed name of the gold-walls is "gold walls". Understand "gold" or "golden" or "walls" as the gold-walls. The description of the gold-walls is "The walls here seem to be coated in gold. There are intricate engravings on the wall which draw your attention."
 
-The intricate-engravings are part of the gold-walls. The intricate-engravings are plural-named. The printed name of the intricate-engravings is "intricate engravings". Understand "intricate" or "engraving" or "engravings" or "dyad" or "dyads" or "chords" or "chord" or "note" or "notes" as the intricate-engravings. The description of the intricate-engravings is "A complex set of engravings is on the wall. One you recognize from your school training as music; it looks like chords. Or, no, dyads, since there are just two notes at a time.
+The intricate-engravings are part of the gold-walls. The intricate-engravings are plural-named. The printed name of the intricate-engravings is "intricate engravings". Understand "intricate" or "engraving" or "carving" or "carvings" or "etching" or "etchings" or "engravings" or "dyad" or "dyads" or "chords" or "chord" or "note" or "notes" as the intricate-engravings. The description of the intricate-engravings is "A complex set of engravings is on the wall. One you recognize from your school training as music; it looks like chords. Or, no, dyads, since there are just two notes at a time.
 
 The first pair are a D and an F. The second are a D and a G, and the last are an F and a G.
 
@@ -3087,35 +3155,38 @@ Breakchords is a truth state that varies. Breakchords is false.
 Justbroke is a truth state that varies. Justbroke is false.
 
 Carry out notesinging:
-	now breakchords is true;
-	now justbroke is false;
-	if the topic understood matches " A":
-		say "You sing the note A, purely and clearly.";
-		now lastnote is "A";
-	otherwise if the topic understood matches " B":
-		say "You sing the note B, purely and clearly.";
-		now lastnote is "B";
-	otherwise if the topic understood matches " C":
-		say "You sing the note C, purely and clearly.";
-		now lastnote is "C";
-	otherwise if the topic understood matches " D":
-		say "You sing the note D, purely and clearly.";
-		now lastnote is "D";
-	otherwise if the topic understood matches " E":
-		say "You sing the note E, purely and clearly.";
-		now lastnote is "E";
-	otherwise if the topic understood matches " F":
-		say "You sing the note F, purely and clearly.";
-		now lastnote is "F";
-	otherwise if the topic understood matches " G":
-		say "You sing the note G, purely and clearly.";
-		now lastnote is "G";
-	otherwise if the topic understood matches the text "Note", case insensitively:
-		say "Oh dear, that doesn't seem to be a note you know how to sing.";
-		now lastnote is "none";
+	if the player is emrys-weaver:
+		now breakchords is true;
+		now justbroke is false;
+		if the topic understood matches " A":
+			say "You sing the note A, purely and clearly.";
+			now lastnote is "A";
+		otherwise if the topic understood matches " B":
+			say "You sing the note B, purely and clearly.";
+			now lastnote is "B";
+		otherwise if the topic understood matches " C":
+			say "You sing the note C, purely and clearly.";
+			now lastnote is "C";
+		otherwise if the topic understood matches " D":
+			say "You sing the note D, purely and clearly.";
+			now lastnote is "D";
+		otherwise if the topic understood matches " E":
+			say "You sing the note E, purely and clearly.";
+			now lastnote is "E";
+		otherwise if the topic understood matches " F":
+			say "You sing the note F, purely and clearly.";
+			now lastnote is "F";
+		otherwise if the topic understood matches " G":
+			say "You sing the note G, purely and clearly.";
+			now lastnote is "G";
+		otherwise if the topic understood matches the text "Note", case insensitively:
+			say "Oh dear, that doesn't seem to be a note you know how to sing.";
+			now lastnote is "none";
+		otherwise:
+			say "You sing softly, under your breath.";
+			now lastnote is "none";
 	otherwise:
-		say "You sing softly, under your breath.";
-		now lastnote is "none";
+		say "It wasn't the right time for singing."
 
 Report clone-you notesinging:
 	now breakchords is true;
@@ -3191,12 +3262,15 @@ Every turn:
 						now firstchord is false;
 						now secondchord is false;
 						now thirdchord is false;
-						say "[conditional paragraph break]The song is out of tune with the notes of the engraving. The malignant mass recovers and grows larger than ever.
+						say "The song is out of tune with the notes of the engraving. The malignant mass recovers and grows larger than ever.
 
 				'It's okay,' says your clone[setcloneact]. 'We'll try again.'";
 						now justbroke is true;
 
 The malignant-wall is scenery in the treasure-room. The printed name of the malignant-wall is "malignant mass". Understand "malignant" or "mass" or "wall" or "crumbling" or "organic" or "rotten" or "matter" as the malignant-wall. The description of the malignant-wall is "This looks a crumbling, rotten mass of some kind of organic matter. Strange black veins stretch out from it, infecting the castle."
+
+Instead of taking, touching, rubbing, pushing, or pulling the malignant-wall:
+	say "It would be horrifying to grasp that with your hands."
 
 WIthstriking is an action applying to one thing and one carried thing. 
 
@@ -3229,7 +3303,7 @@ There's nowhere really to go, besides back to the [boldwest]."
 Basking is an action applying to nothing. Understand "bask" as basking.
 
 Carry out basking:
-	say "The environment isn't really suitable for basking.";
+	say "The environment [aren't] really suitable for basking.";
 	
 Instead of basking when the player is in outside-treasure:
 	say "You bask luxuriously in the sun. It feels great!"
@@ -3255,7 +3329,7 @@ You take a minute to just let it all sink in, the warmth and the bright sky. You
 
 'For most players, the game would end there. But you're looking for something up there, aren't you?' she says, pointing at the spire. 'I think we can make it. Let's see if we can find a way up.' You nod"
 
-The outside-scenery is distant scenery in distant-shore. The printed name of the outside-scenery is "ruined castle". Understand "ruined" or "ruins" or "ruin" or "tower" or "hole" or "spire" or "roof" or "holes" as the outside-scenery. The description of the outside-scenery is "Above you rises the ruins of a castle. It still has a tower left standing, with holes in the roof."
+The outside-scenery is distant scenery in outside-treasure. The printed name of the outside-scenery is "ruined castle". Understand "ruined" or "ruins" or "ruin" or "tower" or "hole" or "spire" or "roof" or "holes" as the outside-scenery. The description of the outside-scenery is "Above you rises the ruins of a castle. It still has a tower left standing, with holes in the roof."
 
 Instead of going nowhere from outside-treasure when the noun is up:
 	say "It'll probably be easier to get into the spire from inside the castle than outside. There's no clear way up out here."
@@ -3264,9 +3338,28 @@ Part 7 - Murder mystery dimension
 
 The murder-region is a region. The train-region is a region. The train-region is in murder-region.
 
-Chapter 1 - Lavatory
+A suspect is a kind of person. A suspect is always talkative.
 
-[make this a train and not a house, since we already have a house! and train is good]
+When play begins:
+	repeat with current running through suspects:
+		now current heeds every squip;
+
+Linking it to is an action applying to two things. Understand "link [something] with/to [something]" as linking it to.
+
+Check linking it to:
+	if the noun is physical:
+		say "In this game, linking only applies to conversational topics, which you can find by typing TOPICS." instead;
+	otherwise if the second noun is physical:
+		say "In this game, linking only applies to conversational topics, which you can find by typing TOPICS." instead;
+	otherwise if the player is not in murder-region:
+		say "Linking topics is not necessary in this part of the game." instead;
+
+The standard topicing rule response (B) is "[bold type]Clues and Questions[roman type]";
+
+Carry out linking it to:
+	say "For some reason or another, you can't find any contradictions in these two clues.";
+
+Chapter 1 - Lavatory
 
 The lavatory-room is a room in train-region. The printed name of lavatory-room is "Lavatory". "You find yourself in a very cramped lavatory that reminds you of the head in the first ship you served on. The walls are some kind of wood-laminate, pretty cheap-looking.
 
@@ -3296,15 +3389,27 @@ Section 2 - Police badge
 
 Badgeopened is a truth state that varies. Badgeopened is false.
 
-The police-badge is a thing in lavatory-room. The printed name of the police-badge is "[if badgeopened is false]leather wallet[otherwise]detective badge[end if]". Understand "small" or "police" or "detective" or "badge" or "strange" or "leather" or "wallet" as the police-badge. The description of the police-badge is "[if the police-badge is open]This has the form of a leather wallet, with your face with title 'Detective Emrys Weaver' on a card in a window on one side, and a metallic pin on the other saying 'Precinct 13'.[otherwise]This is a small leather wallet, or at least it looks like a wallet. It's currently closed.[end if]"
+The police-badge is a thing in lavatory-room. "[if police-badge is not oncecarried]What appears to be a thick leather wallet is lying on the floor near the door[otherwise]The [police-badge] is lying on the floor here[end if]."
+
+The printed name of the police-badge is "[if badgeopened is false]leather wallet[otherwise]detective badge[end if]". Understand "small" or "police" or "detective" or "badge" or "strange" or "leather" or "thick" or "wallet" as the police-badge. The description of the police-badge is "[if the police-badge is open]This has the form of a leather wallet, with your face with title 'Detective Emrys Weaver' on a card in a window on one side, and a metallic pin on the other saying 'Precinct 13'.[otherwise]This is a small leather wallet, or at least it looks like a wallet. It's currently closed.[end if]"
 
 The police-badge can be open or closed. The police-badge is closed. 
+
+Instead of giving the police-badge to someone:
+	try showing the police-badge to the noun;
+
+Before showing the police-badge to someone:
+	if the police-badge is closed:
+		 say "[The police-badge] is closed; [the second noun] may take more interest if it were open."instead;
 
 Instead of opening the police-badge:
 	if the police-badge is open:
 		say "The badge is already open.";
 	otherwise:
-		say "[first time]Well, this is a surprise. [only] The wallet opens to reveal itself as a kind of police badge. On one side is a metallic pin saying 'Precinct 13'. But the other side has a plastic window with an ID card in it. The person on the card is you.";
+		now badgeopened is true;
+		say "[one of]Well, this is a surprise. The wallet opens to reveal itself as a kind of police badge. On one side is a metallic pin saying 'Precinct 13'. But the other side has a plastic window with an ID card in it. The person on the card is you.
+
+It's surreal, seeing your face and name on a badge that is clearly not yours, but not much more surreal than having numerous portals open on a crashing starship. A Weaver must trust in her gift; you'll see where this thread leads.[or]You flip the badge open again.[stopping]";
 		now the police-badge is open;
 		now detective-card is part of police-badge;
 		now metallic-pin is part of police-badge;
@@ -3343,16 +3448,16 @@ The metallic-pin is part of the police-badge. Understand "metal" or "metallic" o
 Instead of taking the metallic-pin:
 	say "The metallic pin seems adhered quite firmly to the badge; apparently it doesn't come off."
 
-Chapter 2 - First car
+Section 3 - Lavatory door
 
-The lavatory-door is a closed, locked, openable lockable scenery door. The lavatory-door is east from lavatory-room and west from first-class. Understand "door" or "lavatory" or "gap" or "gaps" or "light" or "material"  or "wood" or "laminate" as the lavatory-door. The printed name of the lavatory-door is "lavatory door". The description of the lavatory-door is "This is an ill-fitting door made of some light material. It lets in light in gaps all around it, and is covered in wood laminate[if the lavatory-door is locked]
+The lavatory-door is a closed, locked, openable lockable scenery door. The lavatory-door is east from lavatory-room and west from first-class. Understand "door" or "lavatory" or "gap" or "gaps" or "light" or "material" or "wood" or "laminate" as the lavatory-door. The printed name of the lavatory-door is "lavatory door". The description of the lavatory-door is "This is an ill-fitting door made of some light material. It lets in light in gaps all around it, and is covered in wood laminate[if the lavatory-door is locked]
 
 It's currently locked shut by a latch on the nearby wall[end if]."
 
 Instead of searching the lavatory-door:
 	say "It's hard to see through any of the gaps. Otherwise, this is just a normal door."
 
-The lavatory-latch is scenery in lavatory-room. The printed name of the lavatory-latch is "latch". Understand "latch" as the lavatory-latch. The description of the lavatory latch is "This is a curious-looking latch mounted on the wall; it seems to lock and unlock the lavatory door when you turn it. It is currently [if the lavatory-door is locked]locked[otherwise]unlocked[end if]."
+The lavatory-latch is scenery in lavatory-room. The printed name of the lavatory-latch is "latch". Understand "latch" as the lavatory-latch. The description of the lavatory-latch is "This is a curious-looking latch mounted on the wall; it seems to lock and unlock the lavatory door when you turn it. It is currently [if the lavatory-door is locked]locked[otherwise]unlocked[end if]."
 
 Unlocking keylessly is an action applying to one thing. Understand "unlock [something]" as unlocking keylessly. Understand "unlock [a
 locked lockable thing]" as unlocking keylessly. Understand "unlock [a lockable
@@ -3367,16 +3472,16 @@ Carry out unlocking keylessly:
 		otherwise:
 			try turning the lavatory-latch;
 	otherwise if the noun is not lockable:
-		say "That's not something you can unlock.";
+		say "That [are] not something [we] [can] unlock.";
 	otherwise if the noun is unlocked:
-		say "That's already unlocked!";
+		say "That [are] already unlocked!";
 	otherwise if the curious-tool is held by the player:
 		if the tool-mode of curious-tool is lockpick:
 			try unlocking the noun with the curious-tool;
 		otherwise:
 			say "Your tool is not currently set to 'lockpick' mode.";
 	otherwise:
-		say "You don't have anything to unlock that with."
+		say "[We] [don't] have anything to unlock that with."
 		
 
 Locking keylessly is an action applying to one thing. Understand "lock [something]" as locking keylessly. Understand "lock [a
@@ -3392,17 +3497,28 @@ Carry out locking keylessly:
 		otherwise:
 			try turning the lavatory-latch;
 	otherwise if the noun is not lockable:
-		say "That's not something you can lock.";
+		say "That [are] not something [we] [can] lock.";
 	otherwise if the noun is unlocked:
-		say "That's already locked!";
+		say "That [are] already locked!";
 	otherwise if the curious-tool is held by the player:
 		if the tool-mode of curious-tool is lockpick:
 			try locking the noun with the curious-tool;
 		otherwise:
 			say "Your tool is not currently set to 'lockpick' mode.";
 	otherwise:
-		say "You don't have anything to unlock that with."
+		say "[We] [don't] have anything to unlock that with."
 		
+Instead of opening the lavatory-latch:
+	if the lavatory-latch is closed:
+		try turning the lavatory-latch;
+	otherwise:
+		say "The latch is already unlocked.";
+
+Instead of closing the lavatory-latch:
+	if the lavatory-latch is open:
+		try turning the lavatory-latch;
+	otherwise:
+		say "The latch is already locked.";
 
 Instead of turning the lavatory-latch:
 	if the lavatory-door is locked:
@@ -3415,39 +3531,290 @@ Instead of turning the lavatory-latch:
 			say "You turn the latch, locking the door.";
 			now the lavatory-door is locked.
 
-first-class is a room in train-region. The printed name of first-class is "First Class". The description of First-Class is "This is a comfortable-looking car with wide seats, each with their own table. 
+Before opening the lavatory-door:
+	if the police-badge is in lavatory-room:
+		say "The [police-badge] is in the way of the door opening. It usually wouldn't matter, but this is a very cramped room." instead;
 
-You can return [boldwest] to the lavatory, or go [boldsouth] to the Second Class car.[deliverstatement]"
+Chapter 2 - First car
+
+first-class is a room in train-region. The printed name of first-class is "First Class". The description of First-Class is "This spacious train-car only holds a few, scattered seats, each an overstuffed armchair. The floor is luxuriously carpeted, and brightly-colored silk curtains are drawn back, allowing a full view of the wide picture windows. 
+
+You can return [boldwest] to the lavatory, or go [boldsouth] to [if second-class is unvisited]what seems to be [end if]the Second Class car.[deliverstatement]"
+
+The scattered-armchairs are plural-named scenery in first-class. The printed name of scattered-armchairs is "scattered armchairs". Understand "scattered" or "chair" or "arm" or "armchair" or "plush" or "upholstered" or "upholstery" or "armchairs" or "rivet" or "rivets" or "riveted" or "chairs" or "bolt" or "cushion" or "cushions" or "bolts" or "seat" or "seats" as the scattered-armchairs. The description of the scattered-armchairs is "These plush, upholstered seats look comfortable but very impractical. They must be bolted into the floor somehow".
+
+Instead of searching the scattered-armchairs:
+	say "You try looking underneath cushions but find nothing."
+
+Instead of looking under the scattered-armchairs:
+	say "You peek underneath, and see that the armchairs are riveted to the floor."
+
+Instead of entering the scattered-armchairs:
+	say "You try sitting a little, but a sense of duty compels you to arise again."
+
+The luxury-carpet is ambiguously plural scenery in first-class. The indefinite article of the luxury-carpet is "some". The printed name of the luxury-carpet is "luxurious carpet". Understand "carpet" or "luxury" or "luxurious" or "soft" as the luxury-carpet. The description of the luxury-carpet is "Carpet this soft must wear out easily. They probably have to replace it at least each year."
+ 
+Instead of touching or rubbing the luxury-carpet:
+	say "Mmm, soft."
+
+Instead of looking under the luxury-carpet:
+	say "You consider ripping up the carpet like an animal, screaming and ripping off shreds. But you discard such intrusive thoughts."
+
+The first-windows are plural-named scenery in first-class. The printed name of the first-windows is "windows". Understand "window" or "wide" or "picture" or "windows" as the first-windows. The description of the first-windows is "These windows are huge, several feet across each, with minimal obstructions to the view.
+
+Outside is a moving landscape of snow-covered mountains and forests."
+
+Instead of searching the first-windows:
+	try examining the moving-landscape
+
+Instead of opening the first-windows:
+	say "They aren't designed to open."
+
+Instead of closing the first-windows:
+	say "They aren't designed to open or close."
+
+The moving-landscape is distant scenery in first-class. The printed name of the moving-landscape is "moving landscape". Understand "moving" or "landscape" or "mountain" or "tall" or "mountains" or "dense" or "forest" or "forests" or "deep" or "snowbank" or "snowbanks" or "snow-covered" or "snow" or "outside" or "covered" as the moving-landscape. The description of the moving-landscape is "The moving landscape that you can see through the windows has tall mountains, dense forests, and deep snowbanks. It's hard to look away from."
+
+The bright-curtains are plural-named scenery in first-class. The printed name of the bright-curtains is "brightly-colored curtains". Understand "bright" or "brightly" or "colored" or "silk" or "curtain" or "marble-dyed" or "dyed" or "marble" or "dye" or "fabric" or "warm" or "light" or "colors" or "curtains" or "color" as the bright-curtains. 
+
+The description of the bright-curtains is "These are marble-dyed silk curtains in a variety of warm, light colors. They are drawn back, allowing a full view of the outside landscape."
+
+Instead of opening the bright-curtains:
+	say "They are already open."
+	
+Instead of closing the bright-curtains:
+	say "You go to close the curtains, but the view outside captures your fancy, and you hesitate. It's too beautiful out there to shut it all out right now. Besides, the silk fabric would hardly block the light."
 
 Section 1- Maeve
 
-Maeve is a woman in first-class. "A woman who looks just like Officer Mefe is here, but dressed in a rhinestone jumpsuit." The description of Maeve is "This woman looks surprisingly like Officer Mefe. But she is dressed much more glamorously, with a rhinestone jumpsuit enormous sapphire earrings."
+Maeveknown is a truth state that varies. Maeveknown is false.
+
+The Maeve is a female suspect in first-class. "[if maeveknown is false]A woman who looks just like Officer Mefe is here, but dressed in a rhinestone jumpsuit and heavy sunglasses. She is pacing anxiously[otherwise]Maeve is sprawled in one of the armchairs, covering her eyes with one hand and holding her designer sunglasses with the other[end if]." The description of Maeve is "[The maeve] looks surprisingly like Officer Mefe: the same square chin, the same curiously small ears, the same shade of blonde. But this woman is dressed much more glamorously, with a rhinestone jumpsuit, dangly sapphire earrings, and thick sunglasses."
+
+Understand "glamorous" or "anxious" or "blonde" or "blond" or "square" or "chin" or "woman" as Maeve.
+
+The printed name of Maeve is "[if maeveknown is false]glamorous woman[otherwise]Maeve[end if]"
+
+The sapphire-earrings are worn by Maeve. The printed name of the sapphire-earrings is "sapphire earrings". Understand "dangly" or "sapphire" or "sapphires" or "thread" or "lab" or "grown" or "earring" or "ear" or "ring" or "string" or "strings" or "earrings" or "rings" as the sapphire-earrings. The description of the sapphire-earrings is "These earrings are quite long, with several sapphires threaded along strings. The sapphires are very clear; probably lab-grown."
+
+The maeve-sunglasses are worn by Maeve. The printed name of the maeve-sunglasses is "designer sunglasses". Understand "designer" or "logo" or "glass" or "sun" or "sunglass" or "expensive" or "sunglasses" or "heavy" or "glasses" or "designer" or "shades" as the maeve-sunglasses. The description of the maeve-sunglasses is "These heavy-looking sunglasses have a logo on them you can't identify, but they are certainly very expensive."
+
+The rhinestone-jumpsuit is worn by Maeve. The printed name of the rhinestone-jumpsuit is "rhinestone jumpsuit." Understand "rhinestone" or "rheinstone" or "jump" or "suit" or "jumpsuit" or "ankle" or "ankles" as the rhinestone-jumpsuit. The description of the rhinestone-jumpsuit is "This is perhaps the flashiest outfit you've ever seen. Rhinestones are absolutely everywhere. Well, not everywhere--some seem to have fallen off near the ankles[delivermissing].";
+
+To say delivermissing:
+	deliver stoneless-quip;
+
+Stoneless-quip is a squip. The printed name of stoneless-quip is "Stoneless". Understand "stoneless" as stoneless-quip.
+
+Maeve heeds stoneless-quip. The preview of stoneless-quip is "Maeve is missing some rhinestones."
+
+The targetresponse of stoneless-quip is "'Hmm, that's interesting,' responds [the currenttarget]."
+
+Instead of showing the police-badge to Maeve:
+	if Maeveknown is true:
+		say "'Very impressive, Detective; but you've show me that already,' she says.";
+	otherwise:
+		say "She crouches down, staring between you and the photo. 'Oh, all right,' she says. 'I believe you.' She stands up and steps back a bit.
+
+'I'm sure you've already guessed, and it's true. I am celebrity author Maeve Miller, travelling incognito'--and here she tips her sunglasses down, revealing watery blue eyes, leaning in to whipser--'to avoid the paparazzi. They can be brutal, you know,' she says, nodding. 
+
+She then seats herself down and removes her sunglasses entirely, massaging her eyes with the other hand.";
+		now Maeve is proper-named;
+		now Maeveknown is true;
 
 [maeve is sitting in front of dedication to maeve, honored as a pioneer in navigation]
 
 Section 2 -Arthur
 
-Arthur is a man in first-class. "A bearded man with thick glasses and a slightly dirty plaid shirt is sitting here with an annoyed look on his face. He clutches a [arthur-briefcase]."
+Arthurknown is a truth state that varies. Arthurknown is false.
 
-The arthur-briefcase is carried by arthur. Understand "brief" or "case" or "briefcase" or "suitcase" as the arthur-briefcase. The printed name of the arthur-briefcase is "briefcase".
+[Arthur is Mr. Casaubon]
+
+The Arthur is a male suspect in first-class. "[if arthurknown is false]A bearded man with thick glasses and a slightly dirty plaid shirt [otherwise]Arthur [end if]is sitting here with an annoyed look on his face. He clutches a [arthur-briefcase]. "
+
+The description of arthur is "[The arthur] looks to be an older man, with an air of confidence bordering on arrogance. He has a heavy beard and wears thick glasses. His plaid shirt is a bit dirty. He's holding a battered leather briefcase.
+
+ He has some discoloration on his face; some kind of bruise, it seems."
+
+The face-discoloration is part of arthur. The indefinite article of the face-discoloration is "some". The printed name of the face-discoloration is "[if the face-discoloration is examined]bruise[otherwise]discoloration". Understand "face" or "discoloration" or "bruise" or "jaw" as the face-discoloration.
+
+The description of the face-discoloration is "Looking closely as the discoloration on [the Arthur]'s face, you can see it is actually a bruise along his jaw."
+
+Understand "beard" or "heavy" or "bearded" or "man" as arthur. The printed name of arthur is "[if arthurknown is true]Arthur[otherwise]bearded man[end if]".
+
+The thick-glasses are worn by arthur. Understand "glasses" or "thick" or "arthur's" as the thick-glasses. The printed name of the thick-glasses is "[if arthurknown is true][arthur]'s [otherwise]thick [end if]glasses". The description of the thick-glasses is "It looks like [the arthur]'s prescription is quite strong if it requires such thick glasses."
+
+The arthur-briefcase is carried by arthur. Understand "brief" or "case" or "battered" or "briefcase" or "suitcase" or "black" or "leather" or "brass" or "hardware" as the arthur-briefcase. The printed name of the arthur-briefcase is "briefcase". The description of the arthur-briefcase is "[The arthur] is clutching the briefcase tightly, but hasn't opened it. It's a battered black leather briefcase with brass hardware."
+
+The arthur-briefcase is a locked, closed openable lockable container.
+
+The dirty-plaid is worn by arthur. The printed name of the dirty-plaid is "dirty plaid shirt". Understand "dirty" or "slightly" or "plaid" or "shirt" as the dirty-plaid. The description of the dirty-plaid is "This shirt looks like it has been worn several times since it was last washed."
+
+Instead of showing the police-badge to arthur:
+	if arthurknown is false:
+		say "The man frowns when he sees the badge. 'I see. I suppose you're the best we have available for now. My name is Dr. Arthur Svenson, Professor of Nanobiotics at Textor University. And while I had intended to focus on my research during this voyage, I suppose I can spare some of my time to assist you in your investigation.'";
+		now arthurknown is true;
+		now arthur is proper-named;
+	otherwise:
+		say "Arthur grimaces. 'If you don't mind, Detective, I'd rather not waste all of our time on repetitive trivialities. You've already shown me your badge; once should suffice.'"
 
 Chapter 3 - Second class
 
-train-door is a closed openable scenery door. Train-door is south from first-class and north from second-class. Understand "compartment" or "door" as the train-door. The printed name of the train-door is "compartment door".
+train-door is a closed openable scenery door. Train-door is south from first-class and north from second-class. Understand "compartment" or "door" or "steel" as the train-door. The printed name of the train-door is "compartment door". The description of the train-door is "This is a steel door that divides the two compartments. Surprisingly, it has no window."
 
-second-class is a room in train-region. The printed name of second-class is "Second Class".  The description of second-class is "A corpse is here on the floor. You can return [boldnorth] to the First Class car."
+Dafyddknown is a truth state that varies. Dafyddknown is false.
 
-The train-corpse is scenery in second-class. Understand "corpse" or "body" or "dead" or "daffyd" as the train-corpse. The printed name of the train-corpse is "corpse".
+second-class is a room in train-region. The printed name of second-class is "Second Class". The description of second-class is "This cramped car has row after row of molded orange plastic bucket seats. Dim light filters through numerous small, dingy windows. The floor is some kind of rubbery, textured plastic that seems designed to be hosed down every night. 
 
-Section 1 - Mari
+[if dafyddknown is false]On the floor is the body of a small, slim man with remarkably smooth skin[otherwise]Dafydd's body is on the floor[end if], a trail of blood leaking from under him. You can return [boldnorth] to the First Class car."
 
-Mari is a woman in second-class. "A frazzled-looking young courier, wearing her uniform, is pacing back and forth in the train car."
+The rubbery-floor is scenery in second-class. The printed name of the rubbery-floor is "floor". Understand "floor" or "rubbery" or "rubber" or "texture" or "textured" or "utilitarian" or "sturdy" or "plastic" as the rubbery-floor.
 
-Section 2 -Elen
+The description of the rubbery-floor is "The floor is utilitarian, some kind of textured plastic with a little give as you walk on it. It's not particularly flattering, but looks quite sturdy."
 
-[stern, emotionless-trying, but failing, is actually a celebrity]
+The bucket-seats are plural-named scenery in second-class. The printed name of the bucket-seats is "orange bucket seats". Understand "row" or "bucket" or "orange" or "seat" or "seats" or "chair" or "chairs" or "molded" or "uncomfortable" as the bucket-seats. The description of the bucket-seats is "These look distinctly uncomfortable. You can't imagine sitting in one for hours at a time."
 
-Elen is a woman in second-class. "The train attendant keeps watch here with a stern but troubled face."
+Instead of looking under the bucket-seats:
+	say "It's kind of gross under there. You only look for a few moments--don't want to breathe that all in."
+	
+Instead of entering the bucket-seats:
+	say "You try sitting on one of the seats, but it is extremely uncomfortable. You hop right up again."
+	
+The dingy-windows are plural-named scenery in second-class. The printed name of the dingy-windows is "dingy windows". Understand "window" or "windows" or "dingy" or "small" or "numerous" or "gunk" or "yellow" as the dingy-windows. The description of the dingy-windows is "Each seat has one of these small windows, but they're all old-looking and have gunk on them."
+
+Instead of searching the dingy-windows:
+	say "You can't really see anything through these; they're small and yellowed with either gunk or age."
+
+Instead of rubbing or touching the dingy-windows:
+	say "The windows feel slightly sticky. It's not pleasant."
+	
+Instead of opening the dingy-windows:
+	say "They look like they might open, but the mechanisms seem stuck."
+	
+Instead of closing the dingy-windows:
+	say "They're already closed, and not pleasant to touch!"
+	
+Instead of smelling the dingy-windows: 
+	say "You lean close and take a sniff. You instantly wish you hadn't."
+
+Section 1 - Corpse
+
+Dafyddknown is a truth state that varies. Dafyddknown is false.
+
+The train-corpse is scenery in second-class. Understand "corpse" or "body" or "dead" or "face" or "limb" or "limbs" or "dafydd" or "small" or "short" or "slim" or "man" or "him" or "dafydd's" as the train-corpse. The printed name of the train-corpse is "[if dafyddknown is true]Dafydd[otherwise]dead man[end if]".
+
+The description of the train-corpse is "[if dafyddknown is true]Dafydd was [otherwise]This body belongs to [end if]a short, slender man no older than thirty. He is wearing a tank-top and gym shorts. His skin is pale, although remarkably smooth-looking, and his limbs are stiff and clenched. 
+
+Something is clenched in his fist. There's something odd about the hand itself, too."
+
+Report examining the train-corpse:
+	now package-receipt is held by train-corpse.
+
+The package-receipt is a thing. Understand "receipt" or "something" as the package-receipt. The printed name of the package-receipt is "receipt". 
+
+The dead-fist is part of train-corpse. Understand "hand" or "fist" or "knuckle" or "knuckles" as the dead-fist. The printed name of the dead-fist is "fist". 
+
+The description of the package-receipt is "Clutched in [the train-corpse]'s fist is a receipt for United Carpundia Deliveries, signed by agent Mari Gallagher.[deliverPostal]."
+
+To say deliverpostal:
+	deliver postal-quip;
+	
+Postal-quip is a squip. The printed name of postal-quip is "Postal". Understand "Postal" as postal-quip. The preview of postal-quip is "[The train-corpse] gave a satchel directly to [the mari]."
+
+The targetresponse of postal-quip is "FIX THIS LATER".
+
+The description of the dead-fist is "The knuckles on [the train-corpse]'s hand are discolored. You've seen this before, in basic training. He must have punched someone, and hard[deliverpunch]."
+
+To say deliverpunch:
+	deliver punch-quip;
+	
+Punch-quip is a squip. The printed name of punch-quip is "Punch". Understand "Punch" as punch-quip. The preview of punch-quip is "[The train-corpse] recently punched someone hard."
+
+The targetresponse of punch-quip is "FIX THIS LATER."
+
+The smooth-skin is part of train-corpse. The printed name of smooth-skin is "[the train-corpse]'s smooth skin". Understand "smooth" or "skin" or "smooth-looking" or "looking" or "remarkably" or "dafydd's" or "pallor" as the smooth-skin. The description of the smooth-skin is "[italic type]Pallor mortis[roman type] has set in, but the skin is still unusually smooth."
+
+The dafydd-tank is worn by train-corpse. Understand "tank" or "black" or "tanktop" or "tank-top" or "top" as the dafydd-tank. The printed name of the dafydd-tank is "tank top". The description of the dafydd-tank is "This black tank-top is still a bit damp from sweat. He must have recently been exercising heavily when he died."
+
+The dafydd-shorts are a plural-named thing. The dafydd-shorts are worn by train-corpse. The printed name of the dafydd-shorts is "gym shorts". Understand "gym" or "shorts" or "short" as the dafydd-shorts.
+
+The description of the dafydd-shorts is "His gym shorts aren't intended for show, but don't seem cheap. He must have been of at least moderate means."
+
+[clue about dafydd's wealth?]
+
+A thing can be police-only or not police-only. A thing is usually not police-only.
+
+When play begins:
+	repeat with current running through things enclosed by train-corpse:
+		now current is police-only;
+	now train-corpse is police-only;
+		
+Instead of physicality when the noun is police-only:
+	say DafyddText;
+	
+To say DafyddText:
+	say "[one of][The elen] looks at you and says, nervously, 'Hey, I don't think you're supposed to touch the evidence until the crime scene techs can look over it.'[or]You can't mess with the evidence. The attendant wouldn't let you.[stopping]";
+
+[have a clue about exercising heavily?]
+
+Section 2 - Mari
+
+Mariknown is a truth state that varies. Mariknown is false.
+
+[mari is a celebrity excited to be 'normal']
+
+The Mari is a female suspect in second-class. "[if mariknown is true]Mari, the courier, looking anxious, [otherwise]A shifty-looking young courier, wearing a company cap and satchel, [end if]is pacing back and forth in the train car."
+
+The printed name of Mari is "[if mariknown is true]Mari[otherwise]courier[end if]".
+
+Understand "young" or "frazzled" or "courier" or "woman" or "anxious" or "gallagher" as mari. The description of Mari is "[The mari] is a young woman with a matching cap and satchel that say 'United Carpundia Deliveries'. She doesn't seem quite as upset as she should be, given the presence of a dead body."
+
+The company-cap is worn by mari. The printed name of the company-cap is "cap". Understand "company" or "cap" or "delivery" or "matching" or "carpundia" or "oversized" or "over-sized" or "deliveries" or "united" or "cardboard" or "box" or "milky" or "way" or "logo" as the company-cap. The description of the company-cap is "This is a slightly over-sized baseball cap that says 'United Carpundia Deliveries' on it and shows a logo that kind of looks like a carboard box floating in the milky way."
+
+The company-satchel is a closed openable container. The company-satchel is worn by mari. The printed name of the company-satchel is "satchel". Understand "company" or "satchel" or "delivery" or "matching" or "carpundia" or "oversized" or "over-sized" or "deliveries" or "united" or "cardboard" or "box" or "milky" or "way" or "logo" as the company-satchel. The description of the company-satchel is "This is a slightly over-sized baseball cap that says 'United Carpundia Deliveries' on it and shows a logo that kind of looks like a carboard box floating in the milky way."
+
+The signed-book is in the company-satchel. The description of the signed-book is "FIX THIS LATER".
+
+After an actor opening the company-satchel:
+	say "FIX THIS LATER: The book appears inside."
+
+Instead of showing the police-badge to mari:
+	if mariknown is true:
+		say "'Sir,' says Mari, 'You've already shown me the badge. Don't worry, I intend to cooperate fully.";
+	otherwise:
+		say "You flash the badge, and the courier looks over it. 'Looks legit to me, ma'am,' she says. 'The name's Mari. I'm with UCD, she says,' pointing at her cap, 'United Carpundia Deliveries. I'm just hoping we can wrap things up here quick and I can get back to work. Love the grind, right?' she asks, looking at [the Elen] for support; but [the Elen] shakes her head.";
+		now mariknown is true;
+		now mari is proper-named;
+
+Section 3 - Elen
+
+[stern, emotionless-trying, but failing, is actually a celebrity. she is mr bulstrode with the dark secret of stealing.]
+
+Elenknown is a truth state that varies. Elenknown is false.
+
+Elen is a female suspect in second-class. "[if elenknown is true]Elen, the train attendant, [otherwise]The train attendant [end if]keeps watch here with a stern but troubled face."
+
+Understand "attendant" or "train" or "curl" or "curly" or "curls" or "dark" or "hair" or "woman" as Elen.
+
+The printed name of Elen is "[if elenknown is true]Elen[otherwise]attendant[end if]".
+
+The description of Elen is "[The elen] is a middle-aged woman wearing a sleek black uniform. Her hair is dark and highly curled[if the arawnz-watch is worn by Elen]. 
+
+She's wearing a very expensive-looking wristwatch[end if]."
+
+The elen-uniform is worn by Elen. The printed name of the elen-uniform is "sleek black uniform". Understand "sleek" or "black" or "uniform" or "well" or "designed" or "well-designed" as the elen-uniform. 
+
+The description of the elen-uniform is "This train attendant uniform is surprisingly well-designed, completely unobtrusive while not being unflattering."
+
+Instead of showing the police-badge to elen:
+	if elenknown is true:
+		say "[The elen] looks over the badge again, just as carefully as the first time.";
+	otherwise:
+		say "You show the badge to the train attendant. She inspects it carefully, taking so long that your arm gets tired holding out the badge. Then she nods. 'Very well,' she says. 'I can allow you to take charge of this crime scene investigation. However, I must remind you that no physical evidence can be touched until the crime tech team meets us at Pobydd Street.'
+
+No touching physical evidence? That will make this quite a bit trickier. Although you're not actually a real detective, everyone seems to believe you are. Maybe you can sort this out before the day is through?";
+		now elenknown is true;
+		now elen is proper-named;
 
 Chapter 4 - Statement definitions and mechanics
 
@@ -3457,9 +3824,15 @@ A person has a person called the doppelganger. The doppelganger of a person is u
 
 Playerswapped is a truth state that varies. Playerswapped is false.
 
+Currentswap is a person that varies. Currentswap is emrys-weaver.
+
 To playerswap (current - a person):
+	now currentswap is current;
+	now the story viewpoint is first person singular; 
+	now the story tense is past tense;
 	now the player is doppelganger of current;
 	now playerswapped is true;
+	try looking;
 
 Before singleuttering:
 	if the player is in first-class or the player is in second-class:
@@ -3470,10 +3843,13 @@ Ceasing is an action applying to nothing. Understand "stop" as ceasing.
 Carry out ceasing:
 	if playerswapped is true:
 		now the player is emrys-weaver;
+		now the story viewpoint is second person singular; 
+		now the story tense is present tense;
 		now playerswapped is false;
 		try looking;
+		now currentswap does not forsake statement-quip;
 		
-Statement-quip is a quip. The preview of Statement-quip is "Would you mind giving me your statement?"
+Statement-quip is a squip. The printed name of statement-quip is "Statement". Understand "statement" as statement-quip. The preview of Statement-quip is "Would you mind giving me your statement?"
 
 Maeve heeds statement-quip. Arthur heeds statement-quip. Mari heeds statement-quip. Elen heeds statement-quip.
 
@@ -3488,42 +3864,1122 @@ To say deliverstatement:
 Chapter 4 - Maeve statement world
 
 Luxury-apartment is a room in statement-region.
-Fake-maeve is a woman in luxury-apartment.  the doppelganger of maeve is fake-maeve.
+Fake-maeve is a woman in luxury-apartment. the doppelganger of maeve is fake-maeve.
 
-Section 1 - Author Maeve's apartment 
+The fake-robe is worn by fake-maeve. The printed name of the fake-robe is "robe". Understand "robe" or "terry" or "terrycloth" or "cloth" or "terry-cloth" as the fake-robe. The description of the fake-robe is "It was one of my many terrycloth robes. They are very comfortable, and keep me warm."
+
+[This code resets the world for maeve]
+Every turn when currentswap is maeve and the player is emrys-weaver:
+	resetmaeve;
+	
+To resetmaeve:
+	now currentswap is emrys-weaver;
+	if maeve-level is 0:
+		now fake-maeve is in luxury-apartment;
+		now fake-jumpsuit is in luxury-closet;
+		now fake-robe is worn by fake-maeve;
+		now delicious-breakfast is on luxury-nightstand;
+		now the luxury-boxes are in luxury-office;
+		now book-dafydd is in luxury-bookstore;
+		now the signing-pen is on the signing-table;
+		now the dafydd-copy is held by book-dafydd;
+		now dafyddbegged is false;
+		now book-dafydd is not proper-named;
+		now book-signed is false;
+		now Dafmaevemet is false;
+	otherwise if maeve-level is 1:
+		now fake-maeve is in nice-apartment;
+		now the signing-pen is on nice-table;
+		now fake-jumpsuit is in nice-wardrobe;
+		now fake-pajamas is worn by fake-maeve;
+		now healthy-breakfast is on refinished-nightstand;
+		now nice-dafydd is in nice-bookstore;
+		now nice-copy is held by nice-dafydd;
+		now nice-dafydd is not proper-named;
+		now book-signed is false;
+		now dafyddbegged is false;
+		now the nice-box is in nice-front;
+		now Dafmaevemet is false;
+		now the lemon-water is on convenient-table;
+
+Maeve-level is a number that varies. Maeve-level is 0.
+
+Section 1 - Fake-Maeve
+
+The printed name of fake-maeve is "maeve". Understand "maeve" as fake-maeve. The description of fake-maeve is "I'd describe myself as still fairly young for a famous author. Although I have had at least one review call me a 'middle-aged author', if you can believe it. I have platinum-blonde hair, and I can run a 10K in an hour."
+
+The platinum-hair is part of fake-maeve. Understand "platinum" or "blonde" or "platinum-blonde" or "hair" as the platinum-hair. The description of the platinum-hair is "It's completely natural; I'm blessed with it."
+
+Section 2 - Author Maeve's apartment 
 
 [we see this twice, once rich and once faux-rich. consider making two apartments].
 
+The printed name of Luxury-apartment is "Luxury Apartment". The description of luxury-apartment is "I was in the bedroom of my penthouse apartment, which overlooks the big city below with a magnificent view. That morning, the room was spotless and tidy, empty except for my king-sized hoverbed and my nightstand with the chef's freshly-prepared breakfast.
+
+My walk-in closet was to the [boldsouth], and my office to the [boldeast]. I won't bother you with the more private details of my life, like the bathroom or the kitchen or the pool. The paparazzi might be listening you know."
+
+The luxury-bathroom is scenery in luxury-apartment. The luxury-pool is scenery in luxury-apartment. The luxury-kitchen is scenery in luxury-apartment.
+
+Understand "bathroom" as the luxury-bathroom. The printed name of the luxury-bathroom is "bathroom".
+Understand "pool" as the luxury-pool. The printed name of the luxury-pool is "pool".
+Understand "kitchen" as the luxury-kitchen. The printed name of the luxury-kitchen is "kitchen".
+
+Instead of doing something with luxury-bathroom:
+	say "Didn't I say I wanted to skip over these details, Detective? I promise they don't matter in my story."
+
+Instead of doing something with luxury-kitchen:
+	say "Didn't I say I wanted to skip over these details, Detective? I promise they don't matter in my story."
+
+Instead of doing something with luxury-pool:
+	say "Didn't I say I wanted to skip over these details, Detective? I promise they don't matter in my story."
+
+The magnificent-view is distant scenery in luxury-apartment. Understand "magnificent" or "view" or "big" or "city" as the magnificent-view. The printed name of the magnificent-view is "magnificent view". The description of the magnificent-view is "That's what my books pay for, Detective: being above the whole world."
+
+The king-hoverbed is an enterable scenery supporter in luxury-apartment. The printed name of the king-hoverbed is "king-sized hoverbed". Understand "hover" or "bed" or "blanket" or "blankets" or "pillow" or "pillows" or "comforter" or "comforters" or "king" or "size" or "sized" as the king-hoverbed. The description of the king-hoverbed is "Oh, you want to know how I sleep? Perfectly. The hoverbed is perfect for my temperament."
+
+Understand "make [king-hoverbed]" as rubbing.
+
+Instead of rubbing the king-hoverbed:
+	say "I didn't clean the bed; that's what the servants do."
+
+Instead of looking under the king-hoverbed:
+	say "There was nothing under there; that's why it's so neat!";
+
+The luxury-nightstand is a scenery supporter in luxury-apartment. The printed name of luxury-nightstand is "nightstand". Understand "nightstand" or "night" or "Stand" as the luxury-nightstand. The description of the luxury-nightstand is "My nightstand is made of imported hardwood. It has no drawers; if I need something, I can easily call the servants."
+
+Instead of pushing or pulling or turning the luxury-nightstand:
+	say "I would never have moved my nightstand; it would disturb the balance of the room."
+	
+The delicious-breakfast is an edible thing on the luxury-nightstand. The printed name of the delicious-breakfast is "delicious breakfast". Understand "delicious" or "breakfast" or "toast" or "bacon" or "freshly" or "prepared" or "freshly-prepared" or "eggs" or "work" or "works" as the delicious-breakfast. The description of the delicious-breakfast is "My chef is just the best you know. He gives me everything I want: toast, bacon, eggs, the works. He is simply the best!";
+
+After eating the delicious-breakfast:
+	say "It was excellent, I have to admit, although my chef still struggles with egg consistency. After I was finished, I rang for the maid, and she came and cleared the dishes for me before departing."
+
+Section 3 - Walk-in closet
+
+The luxury-closet is south from luxury-apartment. The printed name of luxury-closet is "Walk-In Closet".
+
+Luxury-closet is in statement-region.
+
+The description of the luxury-closet is "My closet is about the same size as this train car we're in. At the time, it was filled with countless outfits, but most of them were of no interest to me. I have to wear what strikes my mood.
+
+My bedroom was back to the [boldnorth]."
+
+The countless-outfits are plural-named scenery in the luxury-closet. The printed name of the countless-outfits is "countless outfits". Understand "countless" or "outfits" or "outfit" or "clothing" or "clothe" or "clothes" as the countless-outfits.
+
+The description of the countless-outfits is "Oh, it would take me forever to describe all of the clothes that I own."
+
+The fake-jumpsuit is in luxury-closet. "The only clothing that stood out to me was my favorite rhinestone jumpsuit." The fake-jumpsuit is a wearable thing. The printed name of the fake-jumpsuit is "rhinestone jumpsuit". Understand "rhinestone" or "rheinstone" or "jump" or "suit" or "jumpsuit" or "tasteful" or "wardrobe" or "item" as the fake-jumpsuit. The description of the fake-jumpsuit is "It was the very same jumpsuit you see me wearing now, one of my more tasteful wardrobe items."
+
+The fake-sapphires are a wearable thing.
+
+After wearing the fake-jumpsuit when the fake-robe is worn by the player:
+	now the fake-robe is in the location;
+	now the fake-sapphires are worn by fake-maeve;
+	say "I changed into the jumpsuit, leaving the robe for the maid to pick up later.";
+
+Instead of taking the fake-robe when the fake-robe is not worn by the player:
+	say "I didn't need to worry about the robe anymore; the help would do that for me."
+
+Instead of taking off the fake-robe:
+	say "My apartment was just the right temperature; taking off the robe would have left me chilly[if the fake-jumpsuit is in the location]. I could just WEAR JUMPSUIT to change right into it[end if]."
+
+Instead of taking off the fake-jumpsuit:
+	say "After all the work I did putting it on, I wasn't about to take it off any time soon."
+
+Section 4 - Office
+
+[flesh out fake sapphires]
+
+Luxury-office is east from luxury-apartment. "My office was simple, with desks for myself and my assistant, who had the day off. My wide-screen data terminal made an impressive contrast with my shelves of antique books that covered the walls.
+
+My bedroom was back to the [boldwest]."
+
+Luxury-office is in statement-region.
+
+The luxury-desk is a scenery supporter in luxury-office. The printed name of the luxury-desk is "executive desk". Understand "my" or "executive" or "titanium" or "steel" or "oak" or "highlight" or "highlights" or "solid" or "glass" or "desks" or "carbon" or "nanotube" or "frame" or "desk" as the luxury-desk. The description of the luxury-desk is "My desk had a carbon nanotube frame, titanium steel and oak highlights, all covered with a layer of solid glass. 
+
+On top of it was my wide-screen terminal, and nearby was the comfortable office chair I usually sit in."
+
+The assistant-desk is a scenery supporter in luxury-office.  The printed name of the assistant-desk is "assistant's desk". Understand "assistant" or "assistant's" or "desk" or "thin" or "slab" or "wood" or "metal" or "leg" or "legs" or "desks" as the assistant-desk.
+
+The description of the assistant-desk is "My assistant's desk was simple, a thin slab of wood painted white, with metal legs. Her stool was nearby."
+
+Instead of looking under the luxury-desk:
+	say "I like to keep my office clean, detective. Nothing was under the desk."
+
+Instead of looking under the assistant-desk:
+	say "I like to keep my office clean, detective. Nothing was under the desk."
+
+The executive-chair is an enterable scenery supporter in luxury-office. The printed name of the executive-chair is "comfortable office chair". Understand "comfortable" or "office" or "ergonomic" or "ergonomically" or "advanced" or "chair" as the executive-chair. The description of the executive-chair is "My office chair is ergonomically advanced. Much better than these poor armchairs the train puts us in."
+
+Report entering the executive-chair:
+	say "Ahhh...my chair felt amazing."
+
+The assistant-stool is an enterable scenery supporter in luxury-office. The printed name of the assistant-stool is "stool". Understand "stool" as the assistant-stool.
+
+The description of the assistant-stool is "I give my assistant a workable support, but her focus should be on helping me."
+
+Instead of entering the assistant-stool:
+	say "I would never sit in my assistant's stool...especially not when my comfortable chair is nearby!"
+
+The wide-terminal is a switched off scenery device in luxury-office. The printed name of wide-terminal is "wide-screen data terminal". Understand "wide-screen" or "wide" or "state" or "art" or "screen" or "terminal" or "data" as the wide-terminal.
+
+The description of the wide-terminal is "My data terminal is state-of-the art, with a wide terminal and higher-tier access to data streaming. At the time, it was turned off, as I was done writing for the day."
+
+Instead of switching on the wide-terminal:
+	say "I didn't have time to write that day; I had to go to my book signing to greet my adoring fans."
+
+The luxury-shelves are plural-named scenery in luxury-office. The printed name of the luxury-shelves is "bookshelves". Understand "book" or "books" or "shelf" or "shelves" or "bookshelf" or "bookshelves" or "antique" or "wall" or "walls" as the luxury-shelves. The description of the luxury-shelves is "I know it's quaint to still have books in this day and age, but I love their aesthetic. My office has wall to wall bookshelves, and they looked lovely that day."
+
+Instead of taking the luxury-shelves:
+	say "I didn't have time to read any of those books; I was more worried about my own!"
+
+Does the player mean doing something with the luxury-shelves:
+	it is unlikely;
+
+Does the player mean taking the luxury-boxes:
+	it is likely;
+
+Instead of inserting something into the luxury-shelves:
+	say "I didn't make a habit of leaving odd things on my shelves."
+
+Instead of putting something on the luxury-shelves:
+	say "I didn't make a habit of leaving odd things on my shelves."
+
+The luxury-boxes are plural-named things in luxury-office. "The boxes of my books that I had ordered for the signing that night were piled up in the corner." The printed name of the luxury-boxes is "boxes of books". Understand "boxes" or "box" or "of" or "book" or "my" or "books" as the luxury-boxes. The description of the luxury-boxes is "FIX THIS LATER".
+
+The luxury-boxes are a plural-named closed openable container. 
+
+Instead of opening the luxury-boxes:
+	say "No, I kept them closed, it would have been really hard to get them to the store otherwise.";
+
+Instead of taking the luxury-boxes:
+	say "I rang for the valet, who came and assisted me in carrying the books down to my waiting taxi, which took me directly to the bookstore.";
+	now the player is in luxury-bookstore;
+	
+Section 5 - Bookstore
+
+Luxury-bookstore is a room in statement-region. The printed name of luxury-bookstore is "Bookstore". "The bookstore had opened up a room usually used for parties to be able to hold all of my fans. The adoring crowd swarmed around me, only held back by velvet ropes."
+
+The fans-crowd is plural-named distant scenery people in luxury-bookstore. The printed name of the fans-crowd is "adoring fans". Understand "crowd" or "adoring" or "fans" or "hubbub" as the fans-crowd.
+
+The description of the fans-crowd is "My adoring fans came from walk of life to get a chance to meet me. And get their books signed, of course! "
+
+Instead of listening to something when the player is in luxury-bookstore:
+	say "It was hard to hear anything over the hubbub of the fans"
+
+The velvet-ropes are distant plural-named scenery in luxury-bookstore. The printed name of the velvet-ropes is "velvet ropes". Understand "rope" or "ropes" or "velvet" as the velvet-ropes. The description of the velvet-ropes is "Those velvet ropes were the only thing standing between me and being crushed by fans."
+
+The signing-table is a scenery supporter in luxury-bookstore. The printed name of the signing-table is "signing table". Understand "singing" or "table" as the signing-table.
+
+The description of the signing-table is "This signing table was the best the bookstore could provide. It was acceptable, but I have had much better accomodations in the past."
+
+[solve a puzzle here involving signing books]
+
+The signing-pen is on the signing-table. The printed name of the signing-pen is "signing pen". Understand "signing" or "pen" as the signing-pen. The description of the signing-pen is "The pen was provided by the bookstore. It was simple, but effective."
+
+dafmaevemet is a truth state that varies. Dafmaevemet is false.
+
+The Book-dafydd is a man in luxury-bookstore. "[if dafyddbegged is true]Dafydd was sitting at his table, sobbing[otherwise if book-dafydd is in luxury-cafe]Dafydd was seated at a nearby table[otherwise]A charming young man was the next in line, waiting for me to [end if][if dafydd-copy is held by book-dafydd]talk to him. He held the copy of my book he had purchased at the front of the line[otherwise if book-dafydd is not in luxury-cafe]sign his book[end if]." The printed name of Book-dafydd is "[if dafydd-copy is held by book-dafydd]charming young man[otherwise]Dafydd[end if]". Understand "charming" or "young" or "man" or "dafydd" as book-dafydd. 
+
+The description of book-dafydd is "[The book-dafydd] was the kind of guy that looks like he's going to be a billionaire one day. You know? Like you look at pictures of famous inventors or big corporate men back in their 20s. That's the way that he looked."
+
+Instead of taking dafydd-copy when dafydd-copy is held by book-dafydd:
+	say "That's not how I remember it; I'm fairly sure we talked first."
+
+Instead of talking to book-dafydd:
+	if the dafydd-copy is held by book-dafydd:
+		now book-dafydd is proper-named;
+		say "'Well hello,' I said to the nice young man. 
+
+He blushed. 'H...hi!' he said. 'I'm a really big fan.' His face was kind of cute, with how red it was.
+
+'What's your name, sugar?' I asked. 
+
+He stammered out: 'It's Dafydd. I'd love to have your autograph; I've read literally all of your books. I hope they make movies out of them!'
+
+He put his copy on the table. As he did so, I saw his sleeve lift up. I noticed he was wearing a [italic type]very[roman type] nice watch. It was an Arawnz brand watch, monogrammed with what mus have been his initials: DY.";
+		deliver timepiece-quip;
+		deliver signed-quip;
+		now dafydd-copy is on the signing-table;
+	otherwise if book-dafydd is in luxury-bookstore:
+		say "He said, 'I'm excited to get your autograph!' he said, pointing towards his book.";
+	otherwise if book-dafydd is in luxury-cafe:
+		now dafyddbegged is true;
+		say "'Dafydd,' I called out in surprise. 'What are you doing here?'
+
+'Maeve,' he said, standing up and approaching my table, 'Maeve, I have to see you again. You're all I can think about.'
+
+'I'm sorry,' I said, trying to let him down gently. 'I know how it feels to fall in love with a celebrity. It's called paraphilia, you should look it up.' 
+
+He was shaking his head, but I put a finger on his lips. 'No, I said,'we can't be together. But I'll always remember you, Dafydd.'
+
+He sat back down and put his head in his hands, crying. It was time for me to leave."
+
+Booksigning is an action applying to one thing. Understand "sign [something]" as booksigning.
+
+Check booksigning:
+	if the signing-pen is not carried by the player:
+		if the signing-pen is enclosed by the location:
+			say "I grabbed the pen first.";
+		otherwise:
+			say "[We] [aren't] holding anything good to sign with." instead;
+
+Book-signed is a truth state that varies. Book-signed is false.
+
+Carry out booksigning:
+	if the noun is not the dafydd-copy:
+		say "The only thing I was signing that day was my book, Detective. I don't do freebies.";
+	otherwise:
+		now book-signed is true;
+		say "Well, I signed that copy just like he wanted. 'For Dafydd,' I wrote, 'my greatest fan.' I read it out loud, and Dafydd giggle a little with happiness. It was...perfect.
+
+He still stood around, awkwardly"
+
+The dafydd-copy is held by book-dafydd. The printed name of dafydd-copy is "blank copy of my book". Understand "blank" or "copy" or "book" or "my" as the dafydd-copy. The description of the dafydd-copy is "This was [the book-dafydd]'s personal copy of my book[if book-signed is false]. I hadn't signed it yet[otherwise]. I had already signed it, but I hadn't given it back to him yet[end if]."
+
+Instead of giving dafydd-copy to book-dafydd:
+	if book-signed is false:
+		say "I hadn't signed the book yet!";
+	otherwise:
+		say "I handed him the book. His hand grazed mine as he grabbed it, and he looked like he was about to faint. I waved him goodbye, and finished the book signing.
+
+I did see him again, the next day, while I was eating at a cafe.";
+		now dafydd-copy is on signing-table;
+		now the player is in luxury-cafe;
+		now book-dafydd is in luxury-cafe;
+		now the signing-pen is nowhere;
+		say "To my surprise, I saw Dafydd there. I can only assume he had been following me. It happens sometimes."
+	
+Timepiece-quip is a squip. The printed name of timepiece-quip is "Timepiece". Understand "timepiece" as timepiece-quip. The preview of timepiece-quip is "[The train-corpse] owned an expensive, monogrammed Arawnz wristwatch."
+
+The targetresponse of timepiece-quip is "FIX THIS LATER".
+
+Signed-quip is a squip. The printed name of signed-quip is "Collector".  Understand "collector" as signed-quip. The preview of signed-quip is "[The train-corpse] wanted a signed copy of Maeve's book for himself."
+
+The targetresponse of signed-quip is "FIX THIS LATER."
+
+Section 6 - Cafe
+
+Luxury-cafe is a room in statement-region. The printed name of Luxury-cafe is "Cafe" 
+
+"The next day, I was seated at a cafe, in an outdoors patio. The sun was bright, and the air was fresh. I was seated at my usual table, sipping lemon water and contemplating life.
+
+I could leave the cafe to the [boldnorth]."
+
+The cafe-sun is distant backdrop in the luxury-cafe. The printed name of the cafe-sun is "sun". Understand "sun" as the cafe-sun. The description of the cafe-sun is "I've always adored being in the sun. I feel like a little plant, sometimes."
+
+The outdoors-patio is a backdrop in luxury-cafe. The printed name of the outdoors-patio is "patio". Understand "outdoor" or "outdoors" or "patio" as the outdoors-patio. The description of the outdoors-patio is "I always ate outdoors when possible; the chance to see humanity and nature all at once is something I could never give up."
+
+The usual-table is a scenery supporter in the luxury-cafe. The printed name of the usual-table is "usual table". The indefinite article of the usual-table is "my". Understand "usual" or "my" or "table" or "wrought-iron" or "wrought" or "iron" or "elaborate" or "floral" or "pattern" or "patterns" as the usual-table. The description of the usual-table is "[tabledesc]".
+
+The nearby-table is a scenery supporter in the luxury-cafe. The printed name of the nearby-table is "nearby table". Understand "nearby" or "table" or "wrought-iron" or "his" or "wrought" or "iron" or "elaborate" or "floral" or "pattern" or "patterns" as the nearby-table. The description of the nearby-table is "[tabledesc]".
+
+The lemon-water is a scenery thing on the usual-table. The printed name of the lemon-water is "lemon water". Understand "lemon" or "water" or "my" as the lemon-water. The description of the lemon-water is "Lemon water is a favorite of mine, especially when I'm doing a cleanse. It feels more substantial than plain water, but not as overwhelming as coffee or tea."
+
+Understand "sip [something]" as drinking.
+
+Instead of taking or drinking the lemon-water:
+	say "I sipped from the lemon water. Truly refreshing, especially on such a lovely day!"
+
+To say tabledesc:
+	say "All of my the tables at my favorite cafe look alike: metal with a wrought-iron type finish, beaten into elaborate floral patterns."
+
+dafyddbegged is a truth state that varies. Dafyddbegged is false.
+
+Instead of going nowhere from luxury-cafe when the noun is north:
+	if dafyddbegged is false:
+		say "I couldn't leave yet without trying to figure out what was going on with this young man.";
+	otherwise:
+		say "But all good things have to come to end. I said goodbye to Dafydd, and left. He seemed sad to have to leave me.";
+		silently try ceasing;
+		say "'And that's everything that happened, Detective. We parted on good terms. I can only assume he came here to find me,' says Maeve."
+
+Section 7 - Nice apartment
+
+Nice-apartment is a room in statement-region.
+
+The printed name of Nice-apartment is "Nice Apartment". The description of nice-apartment is "Okay, you're right. I'm not a millionaire. Books don't pay as much as you'd think! My apartment is still nice, though. It's rent controlled, and has original hardwood floors. I have a vintage queen bed, and a cozy nightstand that I rescued and refinished.
+
+[if fake-pajamas are worn by the player]I was still in my pajamas, but my [otherwise]My [end if]wardrobe was standing in the corner. I could go [boldeast] to my living room."
+
+The original-floors are plural-named scenery in nice-apartment. The printed name of original-floors is "original hardwood floors".  Understand "original" or "hard" or "wood" or "floor" or "floors" as the original-floors.
+
+The description of the original-floors is "I ripped out the carpet when I moved in. Can you believe the last owner covered them up? [italic type]Original[roman type] hardwood floors?"
+
+Instead of putting something on the original-floors:
+	try dropping the noun;
+	
+The vintage-bed is an enterable scenery supporter in nice-apartment. The printed name of the vintage-bed is "vintage queen bed". Understand "vintage" or "queen" or "bed" as the vintage-bed. The description of the vintage-bed is "I got my bed at an estate sell a few years back. It's so heavy, I had to pay the movers double. But it'll outlast me."
+
+Instead of entering the vintage-bed:
+	say "Bed looks so comfortable. But if I got in,I knew I wouldn't get out for a long time."
+
+The refinished-nightstand is a scenery supporter in nice-apartment. The printed name of the refinished-nightstand is "nightstand". Understand "nightstand" or "refinished" or "rescued" or "refurbished" or "new" or "screws" or "paint" or "night" or "stand" as the refinished-nightstand.
+
+The description of the refinished-nightstand is "Gosh, this thing was my baby. I had found it, old, paint peeling on the side of the road. I stripped it, found new screws for it and repainted it."
+
+The fake-pajamas are a wearable thing. The printed name of the fake-pajamas is "pajamas". Understand "pyjamas" or "pajamas" as the fake-pajamas. The description of the fake-pajamas is "I was wearing the pajamas I bought with my Christmas bonus. They made me feel like I was wearing a blanket."
+
+A healthy-breakfast is an edible thing. The printed name of the healthy-breakfast is "healthy breakfast". Understand "healthy" or "breakfast" or "bagel" or "banana" as the healthy-breakfast. The description of the healthy-breakfast is "I had a healthy breakfast I had prepared the night before: a banana and a bagel. Not the tastiest, but good for me."
+
+[put breakfast in]
+
+Nice-wardrobe is a scenery closed openable container in nice-apartment. Understand "wardrobe" as the nice-wardrobe. The printed name of the nice-wardrobe is "wardrobe". The description of the wardrobe is "The wardrobe came with the apartment; the previous tenant couldn't get it out, and neither could I. It's a wonder how it was brought in in the first place. But it fits my aesthetic, so I kept it."
+
+The other-clothes are plural-named things in the nice-wardrobe. "My other clothes were in the wardrobe, as well." The printed name of the other-clothes is "other clothes". Understand "other" or "clothe" or "clothes" as the other-clothes.
+
+Instead of taking the other-clothes:
+	say "My jumpsuit was the only thing that called out to me to wear that day."
+
+Before going east from nice-apartment:
+	if the healthy-breakfast is not nowhere:
+		say "I definitely wouldn't have had the energy to get going that day if I didn't have food in me." instead;
+	otherwise if the fake-jumpsuit is not worn by the player:
+		say "I couldn't go out in my pajamas!"
+
+Instead of taking off the fake-pajamas:
+	say "My apartment was too cold to wear nothing; I could just WEAR my clothes once I picked out what to wear."
+
+Section 8 - Nice front room
+
+Nice-front is east from nice-apartment. The printed name of nice-front is "Front Room". The description of nice-front is "My front room was comfortable, with a yellow houndstooth couch and a knotted hand-dyed rug. I had a brand-new laptop for my writing perched on my couch. My bedroom was back to the [boldwest]."
+
+Nice-front is in statement-region.
+
+The nice-couch is an enterable scenery supporter in nice-front. The printed name of the nice-couch is "houndstooth couch". Understand "yellow" or "houndstooth" or "couch" or "comfortable" as the nice-couch. The description of the nice-couch is "This yellow houndstooth couch has a bit of a story to it. The seller was a young couple that was completely overpriced it. I knew they were just trying to gouge me so I haggled them down to half the original price. Half! Can you imagine?"
+
+After entering the nice-couch:
+	say "Believe me, Detective, when I say that this is the most comfortable couch you can imagine."
+
+The knotted-rug is scenery in nice-front. The printed name of the knotted-rug is "knotted hand-dyed rug". Understand "knotted" or "knot" or "knots" or "hand" or "dyed" or "hand-dyed" or "rug" as the knotted-rug. 
+
+The description of the knotted hand-dyed rug is "I got it off a seller online. It wasn't quite as good as it looked in the photos, but it's grown on me.".
+
+Instead of looking under the knotted-rug:
+	say "I don't have any trapdoors or dust bunnies, Detective."
+
+The nice-laptop is a scenery thing on the nice-couch. The nice-laptop is a switched off device. The printed name of the nice-laptop is "brand-new laptop". Understand "brand" or "new" or "laptop" as the nice-laptop.
+
+Instead of switching on the nice-laptop:
+	say "I didn't feel like writing right then."
+
+Instead of taking the nice-laptop:
+	say "I didn't feel like doing work right then."
+
+The nice-box is in nice-front.  "A box of my books that I had ordered for the signing was ready for me to grab." Understand "box" or "books" or "box of books" as the nice-box. The printed name of the nice-box is "box of books". The description of the nice-box is "I'll admit, I only ordered a single box of books for the signing. Is that so wrong for a woman to lie about, Detective?"
+
+Instead of opening the nice-box:
+	say "The books would probably have spilled if I had opened them before I got to the bookstore."
+
+Instead of taking the nice-box:
+	now the player is in nice-bookstore;
+	
+Section 9 - Nice book store
+
+Nice-bookstore is a room in statement-region. The printed name of nice-bookstore is "Bookstore". The description of nice-bookstore is "You know, yeah, they didn't open up a whole party room for me at the bookstore. But they did give me a desk right at the front, and there were at least, I mean, a couple dozen fans."
+
+Nice-dafydd is a man in nice-bookstore. The printed name of nice-dafydd is "charming young man". Understand "dafydd" as nice-dafydd. The initial appearance of nice-dafydd is "[if dafyddbegged is true]Dafydd was sitting at his table, sobbing[otherwise if nice-dafydd is in nice-cafe]Dafydd was seated at a nearby table[otherwise]I wasn't lying about the guy, though. A charming young man was the next in line, waiting for me to [end if][if nice-copy is held by nice-dafydd]talk to him. He held the copy of my book he had picked at the front of the line[otherwise if nice-dafydd is not in nice-cafe]sign his book[end if]."
+
+The description of nice-dafydd is "[The nice-dafydd] was sweet. He looked like one in a million. And he was at [italic type]my[roman type] signing. You understand?"
+
+The nice-copy is a thing in nice-bookstore. The printed name of nice-copy is "blank copy of my book". Understand "blank" or "copy" or "book" or "my" as the nice-copy. The description of the nice-copy is "This was [the nice-dafydd]'s personal copy of my book. You know what that means? It means he though it was worth spending his own money on. He cared about me! Chew on that[if book-signed is false]. I hadn't signed it yet[otherwise]. I had already signed it, but I hadn't given it back to him yet[end if]."
+
+The nice-table is a scenery supporter in nice-bookstore. The printed name of the nice-table is "signing table". Understand "signing" or "table" or "folding" as the nice-table. The description of the nice-table is "They had just grabbed a folding table from the back. It worked, but wasn't as glamorous as I hoped."
+
+dafmaevemet is a truth state that varies. Dafmaevemet is false.
+
+Instead of taking nice-copy when nice-copy is held by nice-dafydd:
+	say "That's not how I remember it; I'm fairly sure we talked first."
+
+The nice-crowd is plural-named distant scenery people in nice-bookstore. The printed name of the nice-crowd is "fans". Understand "crowd" or "couple" or "dozen" as the nice-crowd. The description of the nice-crowd is "Only a couple dozen fans were there, not my biggest event ever. But it's still nice getting out and meeting the fans, right?"
+
+Instead of talking to nice-dafydd:
+	if the nice-copy is held by nice-dafydd:
+		now nice-dafydd is proper-named;
+		say "Our conversation was longer than I said the first time. After all, it was a smaller crowd.
+
+He put his copy on the table, and I saw his watch, just like I said. I like men with expensive tastes, okay? And he was obviously there to see me. So I asked about him, his life. He told me he was a scientist. I asked if he'd like to research me, ha ha. He laughed, you know. And his book copy was still on the table.";
+		now nice-copy is on the nice-table;
+	otherwise if nice-dafydd is in nice-bookstore:
+		say "We chatted a bit more, but he started checking his watch. I knew he wanted me to sign his book.";
+	otherwise if nice-dafydd is in nice-cafe:
+		now dafyddbegged is true;
+		say "'Dafydd,' I called out in surprise. 'Is that you?'
+
+He blushed deeply. I didn't tell you before, but I was thrilled he was there. I'll admit it, I wanted him to be there. That's one reason I had been outdoors; I was sending a message out to the universe, shouting, 'I want to be found!'
+
+He got up to me and said, 'Maeve, I had to see you again. You're all I can think about.'
+
+'I know,' I said. 'I feel the same way.'
+
+'You do?' he said, almost shaking. 'I didn't think someone like you...'
+
+I put a finger on his lips. 'Listen,' I said, looking around. 'We can't talk here. Let's go somewhere where we can talk alone.'
+
+He grinned and said, 'I know just the place. A train is leaving in five minutes, no one ever's on it this early. Meet me there in five minutes.'
+
+And then he was gone, leaving to the north.";
+		now nice-dafydd is nowhere;
+
+Instead of booksigning the nice-copy:
+	now book-signed is true;
+	say "He had been so sweet, I was happy to sign his book. 'For Dafydd,' I wrote, 'my greatest fan.' Just like I told you before. And I said that to him. He grinned, and his smile was like a million bucks.
+
+I could tell he was excited for me to give him the book."
+
+Instead of giving nice-copy to nice-dafydd:
+	if book-signed is false:
+		say "I hadn't signed the book yet!";
+	otherwise:
+		say "I handed him the book. His hand grazed mine as he grabbed it, and I grabbed it. 'Hey,' I said, 'maybe we'll see each other again sometime.'
+
+'I'd like that,' he said, smiling as he backed out of the room.
+
+I did see him again, the next day, while I was eating at a cafe.";
+		now nice-copy is on nice-table;
+		now the player is in nice-cafe;
+		now nice-dafydd is in nice-cafe;
+		now the signing-pen is nowhere;
+		say "To my surprise, I saw Dafydd there. My heart started beating faster. Had he followed me?"
+
+Section 10 - Nice cafe
+
+Nice-cafe is a room in statement-region. The printed name of Nice-cafe is "Cafe". "The next day, I was seated at a cafe, in an outdoors patio. Thoughts of Dafydd weighed on my mind. I had grabbed a convenient table and was waiting for my order, sipping lemon water.
+
+I could leave the cafe to the [boldnorth]."
+
+The cafe-sun is in nice-cafe.
+
+The outdoors-patio is in nice-cafe. 
+
+The convenient-table is a scenery supporter in the nice-cafe. The printed name of the convenient-table is "convenient table". The indefinite article of the usual-table is "my". Understand "convenient" or "my" or "table" or "wrought-iron" or "wrought" or "iron" or "elaborate" or "floral" or "pattern" or "patterns" as the usual-table. The description of the usual-table is "[tabledesc]".
+
+Understand "sip [something]" as drinking.
+
+
+Instead of going nowhere from nice-cafe when the noun is north:
+	if nice-dafydd is in nice-cafe:
+		say "I couldn't leave yet without talking to Dafydd.";
+	otherwise:
+		say "I rushed to the train, hoping to find him here.";
+		silently try ceasing;
+		say "'And that's everything that happened, Detective. When I reached the train, I was trying to find him, but the lights went out, and I heard a man scream. It was Dafydd,' says Maeve. 'It was awful. I didn't want to tell you everything before, because, well, I didn't want you to suspect me.'"
+
+
+Instead of going nowhere from nice-cafe when the noun is north:
+	say "But all good things have to come to end. I said goodbye to Dafydd, and left. He seemed sad to have to leave me.";
+	silently try ceasing;
+	say "'And that's everything that happened, Detective. We parted on good terms. I can only assume he came here to find me,' says Maeve."
 
 Chapter 5 - Professor Arthur statement world
 
 Bio-lab is a room in statement-region.
 
-fake-Arthur is a man in bio-lab. The doppelganger of arthur is fake-arthur.
+[This reset's Arthur's flashbacks]
+Every turn when currentswap is arthur and the player is emrys-weaver:
+	reset-arthur;
 
-Section 1 - Biolab
+To reset-arthur:
+	if arthur-level is 0:
+		now currentswap is emrys-weaver;
+		now fake-arthur is in bio-lab;
+		now red-marker is on lab-table;
+		now blue-marker is on lab-table;
+		now big-computer is switched off;
+		now other-slides are in samples-fridge;
+		now lab-dafydd is nowhere;
+		now sample-4b is not microed;
+		now sample-5c is not microed;
+		now sample-4b is unmarked;
+		now sample-5c is unmarked;
+		now dataentered is false;
+		now dafydd-finished is false;
+		now the samples-fridge is closed;
+	otherwise if arthur-level is 1:
+		now currentswap is emrys-weaver;
+		now other-slides are nowhere;
+		now false-slides are in bio-lab;
+		now fake-arthur is in bio-lab;
+		now red-marker is in bio-lab;
+		now blue-marker is in bio-lab;
+		now big-computer is switched off;
+		now lab-dafydd is nowhere;
+		now shifty-dafydd is nowhere;
+		now Sloppynoticed is false;
+		now dataread is false;
+		now dafydd-confronted is false;
+		now dafydd-finished is false;
+		now the samples-fridge is closed;
+
+Arthur-level is a number that varies. Arthur-level is 0.
+
+Section 1 - Fake Arthur
+
+fake-Arthur is a man in bio-lab. The doppelganger of arthur is fake-arthur. The printed name of fake-arthur is "Arthur". The description of fake-Arthur is "I am a healthy man: I eat mostly vegetables and whole grains; I bike; I play handball. I've managed to avoid most of the diseases that plague my fellow academics. Those who know the human body ought to be kind towards it."
+
+Section 2 - Bio lab
+
+The printed name of the Bio-lab is "Bio Lab". The description of the Bio-lab is "My lab is the largest at Textor University, because I've been able to secure the most funding. Last week, when all of this happened, my lab was unusually empty; the floors were going to be waxed prior to new equipment being installed. 
+
+However, I was still able to conduct my most recent research. All I needed was the samples refrigerator, my lab table, and my microscope, none of which had been moved.
+
+The protocol poster I had established for the students hanged prominently on the wall.
+
+I could go [boldeast] to the data lab or [boldsouth] to the department hallway."
+
+The protocol-poster is scenery in bio-lab. The printed name of the protocol-poster is "protocol poster". Understand "protocol" or "poster" as the protocol-poster. The description of the protocol-poster is "My poster was written in simple language, to help my rather incompetent assistants.
+
+1. Retrieve unmarked samples from the refrigerator.[line break]2. Put unmarked samples into the microscope.[line break]3. Look in the microscope to examine the slide, and look for distinguishing features.[line break]4. Use the red marker to mark any samples with line-shaped nano devices. Use the blue marker for samples that are roughly circular.[line break]5. Replace the samples in the fridge, and enter the data in the Data Lab."
+
+The unwaxed-floors are scenery in the bio-lab. The printed name of the unwaxed-floors is "floors". Understand "floor" or "floors" as the unwaxed-floors. The description of the unwaxed-floors is "The floors had not yet been waxed, and were in poor repair. For all the funding I provide the university, one would think that they would have better maintenance protocols."
+
+Instead of putting something on the unwaxed-floors:
+	try dropping the noun;
+
+The lab-table is a scenery supporter in bio-lab. The printed name of the lab-table is "lab table". Understand "lab" or "wood" or "plastic"or "top" or "tops" or "table" as the lab-table. The description of the lab-table is "Due to several recent accidents from clumsy assistants, our tables are simple wood with plastic tops, cheap and easy to replace."
+
+Samples-fridge is a closed openable container in bio-lab. The printed name of samples-fridge is "samples refrigerator". Understand "sample" or "samples" or "fridge" or "refrigerator" as the samples-fridge. The description of samples-fridge is "This refrigerator, the only one currently in the lab, held the results of my most recent experiment, a groundbreaking accomplishment that would assure government funding for a decade."
+
+A sample-slide is a kind of thing. Understand "slide" or "slides" or "sample" or "nano" or "device" or "devices" as a sample-slide.
+
+Instead of taking the other-slides:
+	say "I had already marked those slides, so there was no need to interact with them further."
+
+The false-slides are plural-named scenery. The printed name of the false-slides is "sample slides". Understand "sample" or "samples" or "slide" or "slides" as the false-slides. The description of the false-slides is "FIX THIS LATER These are so sloppy! Who did this[dishesslopped]?"
+
+After opening the samples-fridge when arthur-level is 0:
+	say "I opened the refrigerator, revealing the last two samples to be marked, sample 4B and sample 5C. The other samples I had previously marked were also in the refrigerator."
+
+Sample-4B is a sample-slide in the samples-fridge. Sample-5C is a sample-slide in the samples-fridge. The printed name of Sample-4B is "sample 4B". Understand "4b" as sample-4b. Understand "5c" as sample-5c. The printed name of sample-5c is "sample 5c". The description of sample-4B is "This was one of the more confusing samples of the experiment, and had been left for last, along with sample 5C. I couldn't see any pertinent details without the use of the microscope."
+
+The description of sample-5C is "This was one of the more confusing samples of the experiment, and had been left for last, along with sample 4B. I couldn't see any pertinent details without the use of the microscope."
+
+The other-slides are plural-named things in samples-fridge. The printed name of the other-slides is "other samples". Understand "slides" or "samples" or "other" as the other-slides. The description of the other-slides is "The slides I had previously, painstakingly marked were in the fridge already, where I had carefully placed them after analyzing them."
+
+The lab-micro is a scenery thing in bio-lab. The printed name of the lab-micro is "microscope". Understand "microscope" or "micro" or "scope" as the lab-micro.
+
+The description of the lab-micro is "While far from our most powerful microscope, this one served well enough for the experiment in question. It was easy to PUT slides INTO the microscope and to LOOK IN the microscope."
+
+The lab-micro is an open unopenable container. The lab-micro can be switched on or switched off. The lab-micro is switched on.
+
+Instead of examining a sample-slide when the noun is in the lab-micro:
+	try searching the lab-micro;
+
+Before inserting something into the lab-micro:
+	if the noun is not a sample-slide:
+		say "Only slides could fit in the microscope, of course." instead;
+	otherwise if the number of sample-slides in lab-micro > 0:
+		say "Only one slide could fit in the microscope at once." instead;
+
+Instead of searching the lab-micro:
+	if the lab-micro is switched off:
+		say "I couldn't see anything, as the microscope was turned off.";
+	otherwise if sample-4b is in the lab-micro:
+		say "The nano devices on sample 4B were forming heavily diversified and sharply linear striations that exhibited both annealing and vector-like properties.";
+		now sample-4b is microed;
+	otherwise if sample-5c is in the lab-micro:
+		say "The nano devices on sample 5C had formed an conglomerated ovoid sediment exhibiting weak tension and a spherical nature.";
+		now sample-5c is microed;
+	otherwise:
+		say "There was no slide in the microscope to look at."
+
+A sample-slide can be microed or not microed. A sample-slide is usually not microed.
+
+A marker is a kind of thing. A marker has some text called the markercolor. Understand "marker" or "pen" as a marker. Understand the markercolor property as describing a marker.
+
+The red-marker is a marker on lab-table. The printed name of the red-marker is "red marker". The markercolor of red-marker is "red".
+
+The description of the red-marker is "Red, a color suited for strength and masculinity, was, in deference to society, used to mark failed samples in this experiment. 
+
+I had marked with red all samples that were roughly circle-shaped, to put things in layman's terms."
+
+The blue-marker is a marker on lab-table. The printed name of the blue-marker is "blue marker". The markercolor of blue-marker is "blue". The description of the blue-marker is "Blue is soothing, and I used it to symbolize to the rather simple-minded students in my lab that a sample was suited for our experiment. 
+
+I mainly used it for marking samples that are shaped like lines, to put things in layman's terms."
+
+Marking it with is an action applying to two things. Understand "mark [something] with [something]" as marking it with.
+
+Does the player mean marking something with a marker:
+	it is very likely;
+
+[make sure you can only mark important things]
+
+A sample-slide can be marked or unmarked. A sample-slide is usually unmarked.
+Sloppynoticed is a truth state that varies. Sloppynoticed is false.
+
+To mark is a verb.
+
+Carry out marking it with:
+	if the second noun is a marker:
+		if the second noun is not held:
+			say "(first taking [the second noun])[line break]"; 
+			silently try taking the second noun;
+		if the noun is a sample-slide:
+			if the noun is not microed:
+				say "I hadn't examined the slide yet. As a responsible researcher, I couldn't mark the slide without using the microscope first to identify the correct type of nano device I was seeing.";
+			otherwise if the noun is unmarked:
+				say "[We] [adapt the verb mark] [the noun] with [the second noun].";
+				now the noun is marked;
+			otherwise:
+				say "[We] already [adapt the verb mark] [the noun].";
+		otherwise if the second noun is the false-slides:
+			say "FIX THIS LATER These slide had already been marked, and sloppily, at that[dishesslopped]!";
+		otherwise:
+			say "I'm not in the habit of drawing with markers like a child, Detective. I only used them to mark my sample slides.";
+	otherwise:
+		say "You can't mark anything with [the second noun].";
+
+To say dishesslopped:
+	now sloppynoticed is true;
+
+Section 3 - Data lab
+
+Dataentered is a truth state that varies. Dataentered is false.
+Dataread is a truth state that varies. Dataread is false.
+
+The data-lab is east from the bio-lab. "Our data lab had a supercomputer a few years old; securing the new grant I was aiming for would mean that we could finally purchase a better one.
+
+For now, though, our current supercomputer would suffice. The lab was sterile and well-ventilated, with banks of servers to store our data. Our computer was here, currently turned [if big-computer is switched on]on[otherwise]off, to conserve electricity[end if].
+
+ I could go [boldwest] to return to the Bio Lab." The printed name of the data-lab is "Data Lab".
+
+The data-lab is in statement-region.
+
+Before switching on the big-computer:
+	if  the number of marked sample-slides < 2 and arthur-level is 0:
+		say "I wasn't yet ready to enter all of our data, as I hadn't classified the remaining samples from the Bio Lab." instead;
+	otherwise if sloppynoticed is false and arthur-level is 1:
+		say "FIX THIS LATER I hadn't checked the other-slides yet, so it wasn't time to input the data.";
+
+The server-banks are plural-named scenery in the data-lab. The printed name of the server-banks is "server banks". Understand "server" or "bank" or "banks" or "servers" as the server-banks. The description of the server-banks is "Our data storage was serviceable. The servers  were only accessible from the supercomputer itself, though."
+
+[fix all these names; search for big-computer everywhere]
+The big-computer is scenery in the data-lab. The big-computer is a switched off device. Understand "big" or "current" or "super" or "supercomputer" or "super-computer" or "computer" as the big-computer. The printed name of the big-computer is "supercomputer". The description of the big-computer is "This current computer dated back four or fives years. It was capable of processing our more elaborate models in a day or two. The newest model on the market could do it in an hour. Today, though, I just needed to input data.
+
+The computer was currently turned [if big-computer is switched on]on[otherwise]off[end if]."
+
+After switching on the big-computer:
+	if arthur-level is 0:
+		say "I turned on the computer and then I input all the data from the slides, including the two difficult ones I had just finished. Now the modeling work could begin, but not that night; I needed to go home and rest.";
+		now dataentered is true;
+		now lab-dafydd is in bio-lab;
+	otherwise if arthur-level is 1:
+		say "FIX THIS LATER I turned on the computer and then I input all the data from the dishes. At least, I would have, but it's all terrible!";
+		now dataread is true;
+		now shifty-dafydd is in bio-lab;		
+
+Section 4 - Lab Dafydd and shifty  Dafydd
+
+Lab-dafydd is a man. The printed name of lab-dafydd is "Dafydd". Understand "dafydd" as lab-dafydd.
+
+[don't leave until data is entered, then mention the door hitting you on the way out when dafydd comes to see you. so don't take dafydd out of the room yet]
+
+Dafydd-finished is a truth state that varies. Dafydd-finished is false;
+
+Instead of talking to lab-Dafydd:
+	if lab-dafydd is in bio-lab:
+		say "FIX THIS LATER All done for today, Dafydd. I enjoy my work. Oh thanks, professor!.";
+		now dafydd-finished is true;
+	otherwise:
+		say "FIX THIS LATER Dafydd! You hit me with the door! Sorry, professor!";
+		try ceasing;
+		say "'And then I didn't see him again until I saw him on this train,' concludes Arthur."
+
+Shifty-dafydd is a man. The printed name of shifty-dafydd is "Dafydd". Understand "dafydd" as shifty-dafydd.
+
+Dafydd-confronted is a truth state that varies. Dafydd-confronted is false;
+
+Instead of talking to shifty-Dafydd:
+	if shifty-dafydd is in bio-lab:
+		say "FIX THIS LATER Dafydd, all this data is falsified! You haven't beein doing this properly!";
+		now dafydd-confronted is true;
+	otherwise:
+		say "FIX THIS LATER Dafydd! You are fired! Then dafydd slugged me!";
+		try ceasing;
+		say "'And then I didn't see him again until I saw him on this train,' concludes Arthur. 'He must have been trying to reconcile with me.'"
+
+Section 5 - Department Hallway
+
+[put a door between bio lab and department hallway; swinging door or lockable]
+
+The department-hallway is south from the bio-lab. "FIX THIS LATER I could return [boldnorth] to the Bio Lab, or leave [boldeast] or [boldwest] to get out of the building; both directions would eventually take me to the stair wells and out of the building."
+
+The department-hallway is in statement-region.
+
+Before going south from bio-lab:
+	if dafydd-finished is false and arthur-level is 0:
+		say "FIX THIS LATER ALTHOUGH ITS PROBABLY GOOD I looked out into the hallway, but it was empty. I stayed inside the Bio Lab, as I wasn't yet finished analyzing my results." instead;
+	otherwise if dafydd-confronted is false and arthur-level is 1:
+		say "FIX THIS LATER I couldn't leave yet because there was much to do."
+		
+After going south from bio-lab:
+	try looking;
+	if arthur-level is 0:
+		say "FIX THIS LATER SPICILY As I exited the lab and closed the door, I heard Dafydd shout my name. I turned around, and he burst out of the door, which hit me soundly on the jaw[delivercollision]. And that is why I have this bruise on my face.";
+		now lab-dafydd is in department-hallway;
+	otherwise if arthur-level is 1:
+		say "FIX THIS LATER As I exited the lab and closed the door, Dafydd ran out and tried to explain.";
+		now shifty-dafydd is in department-hallway;
+
+[maybe get rid of the bruise quip when you combine it with collision]
+
+To say delivercollision:
+	deliver collision-quip.
+	
+Collision-quip is a squip. The printed name of collision-quip is "Collision". Understand "collision" as the collision-quip. The preview of collision-quip is "Dafydd accidentally gave [the Arthur] a bruise by hitting him with a door."
+
+The targetresponse of collision-quip is "Finish this later".
+
+Instead of linking collision-quip to punch-quip:
+	linkcollpun;
+	
+Instead of linking punch-quip to collision-quip:
+	linkcollpun;
+	
+To linkcollpun:
+	say "[The arthur] says Dayfdd hit him with the door, but the bruising on [the train-corpse]'s fist suggests that they fought.";
+	deliver alterc-quip;
+	remove collision-quip;
+	remove punch-quip;
+	
+Alterc-quip is a squip. The printed name of alterc-quip is "Altercation". Understand "altercation" as alterc-quip. The preview of alterc-quip is "[The arthur] and [the train-corpse] most likely fought with each other."
+
+The targetresponse of alterc-quip is "FIX THIS LATER".
+
+Report uttering alterc-quip to arthur:
+	say "FIX THIS LATER oh my says author. Okay, I can tell you what really happened.";
+	now arthur-level is 1;
+	reset-arthur;
+
+The stair-wells are plural-named distant scenery in department-hallway. Understand "stair" or "stairs" or "well" or "wells" or "stairwells" or "stairwell" as the stair-wells. The description of the stair-wells is "The stair wells were only barely visible, you see; and they did not matter in what I am about to tell you."
 
 Chapter 6 - Courier Mari statement world
 
-City-streets is a room in statement-region.
-
-Fake-mari is a woman in city-streets.
-
 The doppelganger of mari is fake-mari.
 
-Section 1 - City streets
+[This reset's Mari's flashbacks]
+Every turn when currentswap is mari and the player is emrys-weaver:
+	reset-mari;
+	
+To reset-mari:
+	if mari-level is 0:
+		now currentswap is emrys-weaver;
+		now mystery-package is in courier-office;
+		now fake-mari is in courier-office;
+	otherwise if mari-level is 1:
+		now currentswap is emrys-weaver;
+		now mari-dafydd is in courier-office;
+		now dafydd-package is held by mari-dafydd;
+		now fake-mari is in courier-office;
+		now mystery-package is nowhere;
+		now dafyddspotted is false;
 
+Mari-level is a number that varies. Mari-level is 0.
+
+Section 1 - Fake Mari
+
+The courier-office is a room in statement-region. 
+
+Fake-mari is a woman in courier-office.
+
+Section 1 - Courier office
+
+[Change package to satchel]
+
+The printed name of the courier-office is "Courier Office". The description of courier-office is "FIX THIS LATER I was in the courier office, a dingy and run-down place. I could go [boldsouth] to leave to the city streets."
+
+The mystery-package is in courier-office. The printed name of the mystery-package is "mystery package". Understand "mystery" or "package" as the mystery-package.
+
+The mystery-package is in courier-office. The printed name of the mystery-package is "mystery package". Understand "mystery" or "package" as the mystery-package.
+
+The dafydd-package is a thing. The printed name of the dafydd-package is "package". Understand "package" as the dafydd-package.
+
+The mari-dafydd is a man. The printed name of the mari-dafydd is "stressed-looking young man". Understand "stressed" or "looking" or "stressed-looking" as the mari-dafydd. 
+
+Before going south from courier-office:
+	if the mystery-package is not held by the player and mari-level is 0:
+		say "I couldn't leave without the package; as a courier, my duty is my life!";
+	otherwise if the dafydd-package is not held by the player and mari-level is 1:
+		say "I wasn't finished helping this customer!"
+
+Instead of dropping the mystery-package:
+	say "I would never abandon my post!"
+
+Instead of dropping the dafydd-package:
+	say "I would never abandon my post!"
+
+Instead of talking to mari-dafydd:
+	say "FIX THIS LATER He gave me a package, turned around, and left.
+
+But I realized I overcharged him! I had to track him down!";
+	now dafydd-package is held by fake-mari;
+	now mari-dafydd is in city-streets;
+
+Section 2 - City streets
+
+City-streets is a room in statement-region. City-streets is south from the courier-office. The printed name of city-streets is "City Streets". "FIXTHIS LATER The courier office was to the [boldnorth], while my destination was further to the [boldeast]."
+
+EVery turn when the player is in city-streets and mari-dafydd is in city-streets:
+	say "FIX THIS LATER Dafydd went east.";
+	now mari-dafydd is in city-intersection;
+
+Section 3 - Intersection
+
+City-intersection is a room in statement-region. City-intersection is east from city-streets. "I was at one of the most dangerous areas of the city, filled with burnt-out shells of stores and burnt-out shells of people. I could go [boldwest] back to the streets, while my destination was to the [boldeast]. A convenient alleyway was to the [boldsouth]."
+
+The wild-bikers are plural-named people in city-intersection. The printed name of wild-bikers is "bikers". Understand "biker" or "bikers" or "wild" or "gang" or "gang of" as the wild-bikers.
+
+Instead of going nowhere from city-intersection when the noun is east:
+	say "The gang of wild bikers swirled around me as I tried to break through. Their raucous laughter and callous catcalls were more than I could bear, and I had to fall back."
+
+EVery turn when the player is in city-intersection and mari-dafydd is in city-intersection:
+	say "FIX THIS LATER Dafydd went east. But I couldn't get past the bikers!";
+	now mari-dafydd is nowhere;
+
+Section 4 - Convenient alley
+
+The convenient-alley is a room in statement-region. Convenient-alley is south from city-intersection. "This alley was perfect; I could use my parkour skills to get [bold type]up[roman type] the walls!
+
+The wildly-dangerous intersection was back to the [boldnorth]."
+
+The printed name of convenient-alley is "Convenient Alleyway".
+
+Section 5 - Rooftops
+
+Roof-tops is a room in statement-region. Roof-tops is up from convenient-alley. The printed name of roof-tops is "Rooftops". "Up there, on the rooftops of the city, I felt safe. I could see the dangerous biker gangs below. To the [boldeast] where a set of wires leading down from the roof, hovering over the train platform."
+
+Dafyddspotted is a truth state that varies. Dafyddspotted is false.
+
+Before going nowhere from roof-tops when the noun is east:
+	if dafyddspotted is false and mari-level is 1:
+		say "I couldn't figure out which way [the mari-Dafydd] had gone!" instead;
+		
+The mari-platform is distant scenery in roof-tops. The printed name of the mari-platform is "train platform". Understand "train" or "platform" as the mari-platform.
+
+The description of the mari-platform is "[if mari-level is 0]That was my location! I just had to go on the wires to the [boldeast][otherwise]There was [mari-dafydd][setspottedtrue]!"
+
+To say setspottedtrue:
+	now dafyddspotted is true;
+
+Instead of going nowhere from roof-tops when the noun is east:
+	say "FIX THIS LATER I grabbed a convenient clothes hanger and slid down the wires, landing through an open train window and into this car!";
+	try ceasing;
+	if mari-level is 0:
+		say "'And that's when I discovered this body, already dead,' she says, finishing her story. 'I have never seen this man in my life[deliverunknown].'";
+	otherwise if mari-level is 1:
+		say "FIX THIS LATER So yeah, I was trying to help this guy out!"
+
+To say deliverunknown:
+	deliver unknown-quip
+	
+Unknown-quip is a squip. The printed name of unknown-quip is "Unaware". Understand "Unaware" as unknown-quip. The preview of Unknown-quip is "Mari claims to never have met [the train-corpse] before."
+
+Instead of linking unknown-quip to postal-quip:
+	postunlink;
+
+Instead of linking postal-quip to unknown-quip:
+	postunlink;
+
+To postunlink:
+	say "Hmm, that's a clear contradiction. There's visible evidence that [the Mari] interacted with [the train-corpse].";
+	remove postal-quip;
+	remove unknown-quip;
+	deliver acquaint-quip;
+	
+Acquaint-quip is a squip. The printed name of acquaint-quip is "Acquaintance".  Understand "Acquaintance" as acquaint-quip. 
+
+The preview of acquaint-quip is "[The Mari] lied about knowing [the train-corpse]."
+
+The targetresponse of acquaint-quip is "FIX THIS LATER"
+
+Report uttering acquaint-quip to mari:
+	say "FIX THIS LATER Oops says Mari. Okay, fine. Opens her satchel. 'Wait, that's evidence now! says elen. bag drops, book opens, says 'To my biggest fan Cai'";
+	now mari-level is 1;
+	reset-mari;
+	deliver ceri-quip;
+	
+Ceri-quip is a squip. The printed name of ceri-quip is "Ceri". Understand "ceri" as ceri-quip.
+
+The preview of ceri-quip is "[The train-corpse] asked [the maeve] for an autograph for someone else."
+
+Instead of linking ceri-quip to signed-quip:
+	linkcersign;
+	
+Instead of linking signed-quip to ceri-quip:
+	linkcersign;
+
+To linkcersign:
+	say "[The maeve] claimed that [the train-corpse] was obsessed with her and wanted her autograph, but actually requested an autograph for someone else.";
+	remove signed-quip;
+	remove ceri-quip;
+	deliver altered-quip;
+	
+Altered-quip is a squip. The printed name of altered-quip is "Altered". Understand "altered" as Altered-quip. 
+
+The preview of altered-quip is "[The maeve] lied about [the train-corpse] wanting her autograph for himself.".
+
+The targetresponse of altered-quip is "FIX THIS LATER".
+
+Report uttering altered-quip to maeve:
+	say "FIX THIS LATER Okay, okay, fine. He wasn't that interested in me. But I was interested in him. It's harder than you think, being an author; if you don't keep writing, people start forgetting you.";
+	now maeve-level is 1;
+	resetmaeve;
 
 Chapter 7 - Attendant Elen statement world
 
+[This reset's Elen's flashbacks]
+Every turn when currentswap is elen and the player is emrys-weaver:
+	reset-elen;
+
+To reset-elen:
+	now currentswap is emrys-weaver;
+	now fake-elen is in train-locker;
+	now dafyddticketed is false;
+	now maeveticketed is false;
+	now arthurticketed is false;
+	if elen-level is 1:
+		now elen-watch is worn by elen-dafydd;
+
+Elen-level is a number that varies. Elen-level is 0.
+
+Section 1 - Elen
+
 train-locker is a room in statement-region.
+
 Fake-elen is a woman in train-locker.
 
 The doppelganger of elen is fake-elen.
 
 Section 1 - Locker room
 
+The printed name of train-locker is "Locker Room". The description of train-locker is "FIX THIS LATER I was in the locker room, having already changed. I could go to the [boldeast] to get to the platform."
+
+Gwen is a woman in train-locker.
+
+Instead of talking to Gwen:
+	if elen-level is 0:
+		say "FIX THIS LATER Did you hear about all of the muggings on trains recently? A lot of things have been stolen.";
+	if elen-level is 1 :
+		say "FIX THIS LATER a bunch of stuff has been stolen, and I have been assaulted by a lot of people recently. A guy hit my car."
+	
+Section 2 - Train Platform
+
+Platform-A is east from train-locker. The printed name of platform-A is "Platform A". The description of Platform-A is "A train was ready to leave, off to the [boldeast], or return to the locker room to the [boldwest]."
+
+ElenChilling is a recurring scene.
+ElenChilling begins when the player is Emrys-Weaver.
+ElenChilling ends when the player is in Platform-A.
+When ElenChilling ends:
+	say "FIX THIS LATER My supervisor saw me as I walked onto the platform, and called me over. 'We're missing crew today because of that undercooked sausage at the pizza party last night. I know you were scheduled for the B-line today, but we need you on the A-Line. Can you do that?'
+
+Of course my boss is always thinking of himself. 'Yes,' I answered sweetly, hiding my anger. 'Right away.'
+
+'Good. We have a light load, since we're sending this over early for the holiday rush later today. There's a police officer in the lavatory I already ticketed in First Class, but make sure to grab the tickets of anyone else aboard.'"
+
+Section 3 - Train
+
+Fake-second is east from Platform-A. The printed name of Fake-second is "Second Class". "The Second Class car was almost entirely empty. Not surprising, really; the trip to Sector 18 is long and expensive, and very few people can take the difficult train-ride."
+
+Instead of going west from fake-second:
+	say "I wasn't ready to jump from a moving train. Besides, the train was closed."
+
+The Elen-dafydd is a man in fake-second. Understand "nervous" or "young" or "Man" or "dafydd" as elen-dafydd. The printed name of elen-dafydd is "nervous young man".
+
+DafyddTicketed is a truth state that varies. DafyddTicketed is false.
+
+Instead of talking to elen-dafydd:
+	if elen-level is 0:
+		say "FIX THIS LATER Ticket please? He gave me his ticket. Seemed nervous.";
+	otherwise if elen-level is 1:
+		say "FIX THIS LATER Ticket please? Hey wait, you're the guy that ruined my car!";
+		now elen-watch is worn by fake-elen;
+	now dafyddticketed is true;
+
+The elen-watch is a wearable thing. Understand "wristwatch" or "wrist" or "watch" or "monogram" or "monogrammed" or "expensive" or "DY" or "expensive-looking" or "gold" or "alloy" or "looking" as the elen-watch. The description of the elen-watch is "FIX THIS LATER This wristwatch better be worth as much as your totalled car, or that guy is in big trouble!" The printed name of the elen-watch is "wristwatch".
+
+Section 4 - More train
+
+Fake-first is north from fake-second. The printed name of fake-first is "First Class". "The First Class car had a couple posh types in it."
+
+MaeveTicketed is a truth state that varies. MaeveTicketed is false.
+ArthurTicketed is a truth state that varies. ArthurTicketed is false.
+
+The Elen-maeve is a woman in fake-first. 
+
+Instead of talking to elen-maeve:
+	say "FIX THIS LATER Ticket please? She gave me her ticket. Seemed nervous.";
+	now maeveticketed is true;
+
+The Elen-arthur is a man in fake-first.
+
+Instead of talking to elen-arthur:
+	say "FIX THIS LATER Ticket please? He gave me his ticket. Seemed upset.";
+	now arthurticketed is true;
+
+Marienters is a recurring scene. Marienters begins when allmariready is true.
+
+Marienters ends when the player is emrys-weaver.
+
+To decide if allmariready is true:
+	let temp be true;
+	if the player is not fake-elen, now temp is false;
+	if dafyddticketed is false, now temp is false;
+	if maeveticketed is false, now temp is false;
+	if arthurticketed is false, now temp is false;
+	if the player is in fake-first, now temp is false;
+	decide on temp;
+	
+When marienters begins:
+	say "FIX TIHS LATERI heard the all-clear signal from above, and the train doors began to close as the motors started up.
+
+Right before the doors close, a young courier burst in carrying a satchel. [The elen-dafydd] stared at her and shouted, 'You!' Then the lights went off, everyone screamed, and when they went on again everyone was in here.";
+	try ceasing;
+	if mari-level is 0:
+		say "'And so I ushered the first-class passengers back to their car, and stayed here, guarding the body,' she said. 'I knew there was a police officer aboard, so I waited for you to come out.'
+
+	She stretches her arms, relieving her stiff posture. As she does so, a watch slides into view out from her uniform sleeve.";
+		now the arawnz-watch is worn by Elen;
+	otherwise if mari-level is 1:
+		say "FIX THIS LATER 'And that's what really happened!' she says."
+	
+
+The arawnz-watch is a wearable thing. Understand "wristwatch" or "wrist" or "watch" or "monogram" or "monogrammed" or "expensive" or "DY" or "expensive-looking" or "gold" or "alloy" or "looking" as the arawnz-watch. The description of the arawnz-watch is "This wristwatch looks very expensive. Its made of some high-purity gold alloy, judging from your metallurgical experience. It has an unfamiliar logo: 'Arawnz', and is monogrammed with the initials DY[deliverwatch]."
+
+To say deliverwatch:
+	deliver watch-quip;
+	
+Watch-quip is a squip. The printed name of watch-quip is "Bling". Understand "bling" as watch-quip. The preview of watch-quip is "[The Elen] is wearing an expensive, monogrammed watch."
+
+Targetresponse of watch-quip is "FIX THIS LATER."
+
+Instead of linking watch-quip to timepiece-quip:
+	linkwattim;
+	
+Instead of linking timepiece-quip to watch-quip:
+	linkwattim;
+	
+[Make it so that if the player doesn't examine the watch, and leaves and comes back, that it becomes more conspicuous]
+
+To linkwattim:
+	say "Yes, that's very suspicious. [The train-corpse] had a very distinctive watch, and [the elen] is wearing one just like it. How did she get it?";
+	remove watch-quip;
+	remove timepiece-quip;
+	deliver Appropriation-quip;
+	
+Appropriation-quip is a squip. The printed name of appropriation-quip is "Appropriated". Understand "appropriated" as appropriation-quip. The preview of appropriation-quip is "[The elen] somehow got a hold of [the train-corpse]'s distinctive watch."
+
+The targetresponse of appropriation-quip is "FIX THIS LATER"
+
+Report uttering appropriation-quip to elen:
+	say "FIX THIS LATER Oh yeah, it was a gift. I can tell you everything; I just didn't want to speak ill of the dead.";
+	now elen-level is 1;
+	reset-elen;
+
 [The whole dimension should end with the asking how they found you at the last second, then someone saying it was automatically added by computer, then them recognizing who you are at the last second]
+
+[There will be a hidden plaque in this room describing the manuever that Mefe can do to help pull the ship together. Maeve is sitting on it???????? No, she tells the story at the very end.]
 
 Part 8 - Spell dimension
 
@@ -3568,49 +5024,60 @@ Understand "kick [something]" as attacking.
 
 Chapter 2 - Responses for the game
 
-The block vaguely going rule response (A) is "What direction do you want to go?"
- The can't take yourself rule response (A) is "[if clone-you is enclosed by the location of the player]Your clone[setcloneact] might not like that, and it's kind of weird[otherwise]You give yourself a big hug[end if]."
+The block vaguely going rule response (A) is "[if the player is emrys-weaver]What direction do you want to go[otherwise]What direction did you mean, Detective[end if]?"
 
- The can't take other people rule response (A) is "[if the noun is a man or the noun is a woman]People[otherwise]Animals[end if] aren't possessions, so you can't take them."
- The can't drop yourself rule response (A) is "Never let go of yourself."
- The can't eat unless edible rule response (A) is "You've learned from long experience not to eat anything that you're not sure is food.".
+To give is a verb.
+
+ The can't take yourself rule response (A) is "[if clone-you is enclosed by the location of the player]Your clone[setcloneact] might not like that, and it's kind of weird[otherwise][We] [adapt the verb give] [ourselves] a big hug[end if]."
+
+ The can't take other people rule response (A) is "[if the noun is a man or the noun is a woman]People[otherwise]Animals[end if] aren't possessions, so [we] [can't] take them."
+ The can't drop yourself rule response (A) is "[if the player is emrys-weaver]Never let go of yourself[otherwise]But that's not something I did, Detective[end if]."
+ The can't eat unless edible rule response (A) is "[if the player is emrys-weaver]You've learned from long experience not to eat anything that you're not sure is food[otherwise]That wasn't edible[end if].".
 
 Instead of eating the player:
-	say "You chew on yourself a little. It's a nervous habit."
+	if the player is emrys-weaver:
+		say "You chew on yourself a little. It's a nervous habit.";
+	otherwise:
+		say "No, [we] don't remember doing that."
 
- The examine undescribed things rule response (A) is "You don't see any interesting details."
- The standard looking under rule response (A) is "You don't find anything underneath [the noun]."
+ The examine undescribed things rule response (A) is "[if the player is emrys-weaver]You don't see any interesting details[otherwise]I don't remember what it looked like[end if]."
+ The standard looking under rule response (A) is "[We] [don't] find anything underneath [the noun]."
 
-The block showing rule response (A) is "You don't provoke a reaction."
+The block showing rule response (A) is "[We] [don't] provoke a reaction."
 	
-The block throwing at rule response (A) is "You never know when you might need something; better not to throw it."
+The block throwing at rule response (A) is "[if the player is emrys-weaver]You never know when you might need something; better not to throw it[otherwise]But Detective, I didn't throw that[end if]."
 	
-The block attacking rule response (A) is "You'll resort to violence when you have to. But not right now."
+The block attacking rule response (A) is "[if the player is emrys-weaver]You'll resort to violence when you have to. But not right now[otherwise]I can assure you I didn't do that[end if]."
 
-The kissing yourself rule response (A) is "You already love yourself quite a bit."
+The kissing yourself rule response (A) is "[if the player is Emrys-weaver]You already love yourself quite a bit[otherwise]I consoled myself[end if]."
 	
-The block kissing rule response (A) is "This is better imagined than attempted."
+The block kissing rule response (A) is "This [are] better imagined than attempted."
 
-The standard report waiting rule response (A) is "[if clonesubmerged is false and clone-you is enclosed by the location]You wait for a bit, watching your clone.[otherwise]You wait, taking your time.".
+To wait is a verb.
 
-The report touching yourself rule response (A) is "You feel like skin, meat and bones."
-The report touching other people rule response (A) is "This isn't a game about wandering hands."
-The report touching things rule response (A) is "You don't gain any useful tactile information from your attempt."
-The can't pull people rule response (A) is "You can't find a good way to pull efficiently. Or politely, for that matter."
+The standard report waiting rule response (A) is "[if clonesubmerged is false and clone-you is enclosed by the location]You wait for a bit, watching your clone.[otherwise][We] [adapt the verb wait], taking [our] time.".
+
+The report touching yourself rule response (A) is "[if the player is Emrys-weaver]You feel like skin, meat and bones[otherwise]This isn't role-play, Detective[end if]."
+The report touching other people rule response (A) is "[if the player is emrys-weaver]This isn't a game about wandering hands[otherwise]Actually, I didn't touch anyone at the time[end if]."
+The report touching things rule response (A) is "[if the player is emrys-weaver]You don't gain any useful tactile information from your attempt[otherwise]I didn't feel anything special[end if]."
+The can't pull people rule response (A) is "[if the player is emrys-weaver]You can't find a good way to pull efficiently. Or politely, for that matter[otherwise]I didn't pull anyone, detective[end if]."
 	
-The can't push people rule response (A) is "There are better ways to deal with people than pushing."
+The can't push people rule response (A) is "There [are] better ways to deal with people than pushing."
 
 The can't turn people rule response (A) is "Turning people is not a necessary part of this game."
 	
-The innuendo about squeezing people rule response (A) is "You tried that with others, once, to disastrous results. Never again."
+The innuendo about squeezing people rule response (A) is "[if the player is emrys-weaver]You tried that with others, once, to disastrous results. Never again[otherwise]Please, detective, I didn't squeeze anyone[end if]."
 	
-The block burning rule response (A) is "As the crewmember of a starship, you've long eschewed fire except in necessity."
-The block waking up rule response (A) is "Isn't all of life a dream?"
-The block thinking rule response (A) is "You take a step back and try to remember your goals."
-The report smelling rule response (A) is "You have difficulty smelling things, most days."
-The report listening rule response (A) is "It's hard to pick out any unusual sounds that you haven't already noticed." 
-The report tasting rule response (A) is "Tasting things is a last resort. And you're not even close to needing to do that."	
-The block cutting rule response (A) is "Cutting things might render something useful inoperational. Better to not.".
+The block burning rule response (A) is "[if the player is emrys-weaver]As the crewmember of a starship, you've long eschewed fire except in necessity[otherwise]I certainly didn't burn anything at the time[end if]."
+The block waking up rule response (A) is "[if the player is emrys-weaver]Isn't all of life a dream?[otherwise]To stop a flashback at any time, type STOP[end if]."
+
+To take is a verb. To try is a verb.
+
+The block thinking rule response (A) is "[We] [adapt the verb take] a step back and [try] to remember [our] goals."
+The report smelling rule response (A) is "[if the player is emrys-weaver]You have difficulty smelling things, most days[otherwise]I didn't notice what anything smelled like, then[end if]."
+The report listening rule response (A) is "[if the player is emrys-weaver]It's hard to pick out any unusual sounds that you haven't already noticed[otherwise]I don't remember what I heard. Sorry[end if]." 
+The report tasting rule response (A) is "[if the player is emrys-weaver]Tasting things is a last resort. And you're not even close to needing to do that[otherwise]I don't remember the taste of anything[end if]."	
+The block cutting rule response (A) is "[if the player is emrys-weaver]Cutting things might render something useful inoperational. Better to not[otherwise]I didn't cut anything at the time[end if]."
  
 The parser error internal rule response (E) is "I didn't understand the object in that command.";
 
@@ -3622,37 +5089,53 @@ The parser error internal rule response (B) is "I understand simple sentences be
 
 The parser error internal rule response (C) is "I understand a simple set of commands; I believe you just want to (go)";
 	
-The report jumping rule response (A) is "You jump up into the air fairly athletically before landing."
+The report jumping rule response (A) is "[if the player is emrys-weaver]You jump up into the air fairly athletically before landing[otherwise if the player is maeve]I jumped, and did well, I think[otherwise if the player is mari]I jumped really high[otherwise]I didn't jump, Detective[end if]."
 
-The block tying rule response (A) is "You will rarely, if ever, need to tie anything. There's no need to do so right now."
+The block tying rule response (A) is "[if the player is emrys-weaver]You will rarely, if ever, need to tie anything. There's no need to do so right now[otherwise]I don't recall tying anything, actually[end if]."
 
-The block drinking rule response (A) is "Drinking unusual beverages is not one of your pastimes."
+The block drinking rule response (A) is "Drinking unusual beverages [are] not one of [our] pastimes."
 The block saying sorry rule response (A) is "Feeling guilty for something?"
-The block swinging rule response (A) is "Swinging isn't the best option here."
+The block swinging rule response (A) is "Swinging [aren't] the best option here."
 
-The can't rub another person rule response (A) is "That might get you in trouble."
+The can't rub another person rule response (A) is "[if the player is emrys-weaver]That might get you in trouble[otherwise]This isn't role-play, Detective[end if]."
 
-The block buying rule response (A) is "Any financial transactions you have can be accomplished by the physical transfer of legal tender."
-The block climbing rule response (A) is "You don't see a clear path upwards."
+The block buying rule response (A) is "[if the player is emrys-weaver]Any financial transactions you have can be accomplished by the physical transfer of legal tender[otherwise]I didn't buy anything at the time[end if]."
+The block climbing rule response (A) is "[We] [don't] see a clear path upwards."
 
-The block sleeping rule response (A) is "Despite the craziness of the day, you're not tired yet.".
+The block sleeping rule response (A) is "[if the player is emrys-weaver]Despite the craziness of the day, you're not tired yet[otherwise]I wasn't sleepy, not any more[end if].".
 
-The can't go that way rule response (A) is "It doesn't look like you can go that way."
+The can't go that way rule response (A) is "It [don't] look like [we] [can] go that way."
 
 Asking someone for something is chatty behavior. Telling someone about something is chatty behavior. Answering someone that something is chatty behavior. Asking someone about something is chatty behavior.
 
 Instead of chatty behavior:
-	say "In this game, conversation is handled by SAYING a topic TO another person. Available topics can be seen by typing TOPICS, or just T."
+	if the player is emrys-weaver:
+		say "In this game, conversation is handled by SAYING a topic TO another person. Available topics can be seen by typing TOPICS, or just T.";
+	otherwise:
+		say "In flashbacks, all conversation is handled by typing TALK TO [bracket]the person you are talking to[close bracket]."
 
 Part 2 - Special kinds of responses
-	
+
+Shouting is an action applying to nothing. Understand "shout" as shouting.
+
+Carry out shouting:
+	say "You shout without words, a pure vocal noise."
+
+Instead of clone-you shouting:
+	say "Your clone shouts, frightening you.'"
+
+To feel is a verb.
+
 Instead of searching a person:
-	say "That's not really something you feel comfortable with."
+	say "That's not really something [we] [adapt the verb feel] comfortable with."
 	
 Swimming is an action applying to nothing. Understand "swim" as swimming. 
 
 Carry out swimming:
-	say "You don't swim at all, since your recorder could get wet."
+	if the player is emrys-weaver:
+		say "You don't swim at all, since your recorder could get wet.";
+	otherwise:
+		say "No, I don't remember swimming at the time."
 
 xyzzying is an action applying to nothing. Understand "xyzzy" or "plugh" as xyzzying. 
 
@@ -3665,7 +5148,7 @@ Carry out xyzzying:
 	if frankenstein is in the location:
 		if franken-confusion is targetgiven:
 			now frankytrue is true;
-	repeat with current running through  rooms: 
+	repeat with current running through rooms: 
 		let currentnum be the number of moves from the location to the current,using doors;
 		if currentnum > -1:
 			now current is xyzzypossible;
@@ -3755,6 +5238,36 @@ Test endgareth with "x plaque/take toy/d/w/w/w/w/w/s/give toy to gareth/say dedi
 
 Test allgareth with "test allhaunt/test clonesummon/test movestone/test useplank/test singing/test spiring/test endgareth"
 
+Chapter 7 - Murder Mystery
+
+Test entry with "u/n/take wallet/open it/open latch/e"
+
+Test firstmaeve with "show badge to maeve/say statement to maeve/eat breakfast/s/wear jumpsuit/n/e/take books/talk to dafydd/sign book/give copy to dafydd/talk to dafydd/n"
+
+Test firstarthur with "show badge to arthur/say statement to arthur/take red/mark dishes/go east/turn on computer/go west/talk to dafydd/go south/talk to dafydd"
+
+Test firstmari with "s/show badge to mari/say statement to mari/take package/s/e/s/u/e"
+
+Test firstelen with "show badge to elen/say statement to elen/talk to gwen/e/e/talk to man/n/talk to man/talk to woman/s"
+
+Test inspection with "x watch/x corpse/x fist/x receipt"
+
+Test allfirst with "test entry/test firstmaeve/test firstarthur/test firstmari/test firstelen/test inspection" 
+
+Test linking with "T/link punch to collision/link bling to timepiece/link unaware to postal/say acquaintance to mari/link ceri to collector"
+
+Test secondelen with "say appropriated to elen/say statement to elen/talk to gwen/e/e/talk to dafydd/n/talk to man/talk to woman/s"
+
+Test secondmari with "say statement to mari/talk to dafydd/s/e/s/u/x platform/e"
+
+Test secondmaeve with "n/say altered to maeve/say statement to maeve/eat breakfast/open wardrobe/wear jumpsuit/e/take box/talk to dafydd/sign copy/give copy to dafydd/talk to dafydd/n"
+
+Test secondarthur with "say altercation to arthur/say statement to arthur/x dishes/e/turn on computer/w/talk to dafydd/s/talk to dafydd"
+
+Test allsecond with "test linking/test secondelen/test secondmari/test secondmaeve/test secondarthur"
+
+Test allmurder with "test allfirst/test allsecond"
+
 Part 3 - Checking missing stuff
 
 Alldescriptioning is an action out of world. Understand "alldesc" as alldescriptioning.
@@ -3803,19 +5316,12 @@ Carry out shore-teleporting:
 
 Book 5 - Notes
 
-Part 1
-
-Part 2
-
-Part 3
-
-Part 4
-
-Part 5 
-
-Part 6 - Haunted Mansion
-
 [add reading to books]
 
+[add rules for each region about showing the police badge to someone?]
 
 [player MUST die to save the ship!]
+
+[precinct 13 stamp only works on special materials, and says so on its lable 'only works on official precinct 13 material]
+
+[change jumpsuit in flashback to different clothes since she wouldn't wear it multiple days, or make it all happen today; or explain that it's her favorite and she wore it because he'd like it, or he found her because she wore it]
