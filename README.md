@@ -4,25 +4,23 @@ This is a big sci-fi interactive fiction game designed to last 20+ hours. It's s
 
 Finished areas:
 
--Haunted House
+-Haunted House (tested)
+-Murder mystery (tested)
+-Wax Museum Escape room (partially tested)
 
 Areas under construction:
 
--Murder mystery
+-Horror spell scroll dimension
 
 Remaining areas:
 
 -Forest/biomes/animals
-
--Wax museum escape room
 
 -toolroom
 
 -garden/plants
 
 -world monuments
-
--magical spells/cyborg area
 
 -combat zone
 
