@@ -19,17 +19,20 @@ Part 1 - Metadata
 
 Chapter 1 - Game essentials
 
+Release along with a solution.
+
 Section 1 - Genre, description, etc
 
-The story genre is "Science Fiction". The story description is "Hop through dimensions to save your ship." The story creation year is 2023. The release number is 11.
+The story genre is "Science Fiction". The story description is "Hop through dimensions to save your ship." The story creation year is 2023. The release number is 12.
 
 Section 2 - Increasing memory sizes
 
-Use MAX_PROP_TABLE_SIZE of 800000.
-Use MAX_NUM_STATIC_STRINGS of 80000.
-Use MAX_STATIC_DATA of 400000.
+Use MAX_PROP_TABLE_SIZE of 900000.
+Use MAX_NUM_STATIC_STRINGS of 90000.
+Use MAX_INDIV_PROP_TABLE_SIZE of 60000.
+Use MAX_STATIC_DATA of 500000.
 Use MAX_DICT_ENTRIES of 8000.
-Use MAX_OBJECTS of 1000.
+Use MAX_OBJECTS of 4000.
 Use MAX_SYMBOLS of 40000.
 
 Part 2 - Out of world actions
@@ -57,14 +60,19 @@ Crediting is an action out of world. Understand "Credits" as crediting.
 Carry out crediting:
 	say "This game was written by Brian Rushton/Mathbrush using Inform 7 (by Graham Nelson). Beta testers include Amanda Walker, the Xenographer, John Ziegler, Jade, Christopher Merriner, Patrick Mooney, Brett Witty, Rovarsson, E. Joyce, Max Fouquet O'Garra, Dee Cooke, Ian Greener, Chandler Groover, and LAST_TESTER_HERE. 
 
-Hanon Ondricek gave helpful advice about the concept and title.
+Hanon Ondricek gave helpful advice about the concept and title. Phil Riley made suggestions about coding.
 
 Matt Weiner, N. Comier, and Mike Sousa served as inspiration for some puzzle content."
 [Code from Otistdog was used for overly elaborate looking.]
 [for testing]
-Understand "* [text]" as a mistake ("Noted."). 
+[Understand "*[text]" as a mistake ("Noted."). 
 
-Understand "*#[text]" as a mistake ("Noted."). 
+Understand "*#[text]" as a mistake ("Noted."). ]
+
+After reading a command (this is the ignore beta-comments rule):
+	if the player's command matches the regular expression "^\p":
+		say "(Noted.)";
+		reject the player's command.
 
 Part 3 - Extensions
 
@@ -98,7 +106,7 @@ Before going nowhere when the noun is outside:
 Instead of exiting when the holder of the player is a room:
 	try going outside instead;
 
-The description of a space-tear is "This is a tear in the fabric of space and time. Going through it will take you to somewhere new and, perhaps, dangerous. It is glowing [if the noun is red-torn]red[otherwise]green[end if]."
+The description of a space-tear is "This is a tear in the fabric of space and time. Going through it will take you to somewhere new and, perhaps, dangerous. It is glowing [if the item described is red-torn]red[otherwise]green[end if]."
 
 [change description if you passed through it once]
 
@@ -370,7 +378,7 @@ Chapter 1 - Hangar
 
 Hangar-room is a room in ship-region. The printed name of Hangar-room is "Hangar".   The description of hangar-room is "This room is temporary, until the rest of the game is finished. Here are places you can go, in order of how much testing they need (stuff at the top needs more testing):
 
--To the [boldsouth] is a collapsed hallway, which leads to the horror magic area.[line break]-To the north[boldnorth] is the captain's quarters, which is where the wax museum is.[line break]-Going [boldup] through the transport tube to the bridge takes you to the murder mystery area.[line break]-Going [boldeast] to the psychologist's office takes you to the haunted house area.[line break]
+-To the [boldsouth] is a collapsed hallway, which leads to the horror magic area.[line break]-To the [boldnorth] is the captain's quarters, which is where the wax museum is.[line break]-Going [boldup] through the transport tube to the bridge takes you to the murder mystery area.[line break]-Going [boldeast] to the psychologist's office takes you to the haunted house area.
 
 There are also unfinished areas which are just for holding temporary items. Those are the engineering room to the [boldwest], which has a flashlight/lockpick, and the transport tube going [bolddown] to the living quarters and Savannah area, which has a wasphawk."
 
@@ -382,14 +390,62 @@ Chapter 2 - Psychologist's office
 
 Psych-room is east from Hangar-room. psych-room is in ship-region. The printed name of Psych-room is "Psychologist's Office". The description of psych-room is "You've spent a lot of time in Gareth's office over the last few months, given your similar responsibilities. This is a small office with softer lighting and more furnishings than most of the ship. The walls are plastered with classic movie posters and the desk is overflowing with action figures. You can return to the hangar to the [boldwest]."
 
-The classic-posters are plural-named scenery in psych-room. The printed name of the classic-posters is "classic movie posters". Understand "classic" or "movie" or "poster" or "posters"as the classic-posters. The description of the classic-posters is "These are all from old Earth. You know Gareth is a fan of the old movies; he's been trying to purchase an actual film reel for years."
+The classic-posters are plural-named scenery in psych-room. The printed name of the classic-posters is "classic movie posters". Understand "classic" or "movie" or "poster" or "posters"as the classic-posters. The description of the classic-posters is "These are all from old Earth. You know Gareth is a fan of the old movies; he's been trying to purchase an actual film reel for years.
+
+He has posters for The Mummy, Dracula, and The Creature from the Black Lagoon."
 
 Instead of taking the classic-posters:
 	say "You know how careful Gareth is with his posters; you would never take the chance of tearing something he cares so much about."
 
-The action-figures are plural-named scenery. The action-figures are on the psych-desk. The printed name of the action-figures is "action figures". Understand "action" or "figure" or "action figures" or "toys" or "toy" or "figures" or "horror" or "various" or "character" or "characters" as the action-figures. The description of the action-figures is "There are a variety of plastic toys here representing various horror characters."
+A horror-poster is a kind of thing. A horror-poster is usually scenery. Understand "poster" or "movie" as a horror-poster.
 
-The psych-desk is an enterable scenery supporter in psych-room. Understand "desk" as the psych-desk. The printed name of the psych-desk is "desk". The description of the psych-desk is "This is a plain desk without drawers. It's mostly cluttered with action figures. Gareth likes to set his patients at ease."
+The dracula-poster is a horror-poster in psych-room. The printed name of the dracula-poster is "[italic type]Dracula[roman type] poster". Understand "dracula" or "vampire" or "orange" or "bright" or "black" or "lugosi" or "bella" as the dracula-poster. The description of the dracula-poster is "This poster is bright orange and yellow and dark black, advertising the film [italic type]Dracula[roman type]. You recognize the man as Bella Lugosi, since Gareth once sat you down and talked to you for over three hours about why he was the most iconic vampire, although Carlisle Cullen was his second place choice, which made you doubt his overall method for ranking."
+
+The mummy-poster is a horror-poster in psych-room. The printed name of the mummy poster is "[italic type]Mummy[roman type] poster". The description of the mummy-poster is "This poster for the movie [italic type]The Mummy[roman type] shows an impressionistic image of a mummy and an alluring woman posing in front of vague hieroglyphics, with the words 'It Comes to Life!'
+
+You watched this one with Gareth, but it wasn't, in your opinion, as good as the Brendan Frasier one, or that ones['] 100th anniversary remake."
+
+Understand "mummy" as the mummy-poster.
+
+Understand "impressionistic" or "image" or "mummy" or "alluring" or "woman" or "vague" or "hieroglyphics" or "words" as the mummy-poster when the mummy-poster is examined.
+
+The lagoon-poster is a horror-poster in psych-room. THe printed name of the lagoon-poster is "[italic type]Creature from the Black Lagoon[roman type] poster". Understand "creature" or "black" or "lagoon" or "from the" as the lagoon-poster. The description of the lagoon-poster is "This is a pulpy-looking movie poster featuring a guy in a rubber suit grabbing a screaming woman clad in a bathing suit, under the title [italic type]Creature from the Black Lagoon[roman type]."
+
+Understand "pulpy" or "pulpy-looking" or "looking" or "guy" or "rubber" or "suit" or "screaming" or "woman" or "bathing" or "suit" as the lagoon-poster when the lagoon-poster is examined.
+
+INstead of taking or pulling or attacking a horror-poster:
+	say "Gareth would be so upset if you ruined his posters! You couldn't bring yourself to do that."
+
+The action-figures are plural-named scenery. The action-figures are on the psych-desk. The printed name of the action-figures is "action figures". Understand "action" or "action figures" or "toys" or "toy" or "figures" or "figurines" or "horror" or "various" or "character" or "characters" as the action-figures. The description of the action-figures is "Gareth has a few action figures out, but he keeps most of his favorites in storage. Except for his Dracula figure; that's his number one favorite, and he usually keeps it out for display. But it's missing.
+
+He still has his wolfman, yeti, and crystal ball out, though."
+
+A psych-figure is a kind of thing. A psych-figure is usually scenery. Understand "figure" or "figurine" as a psych-figure.
+
+Instead of physicality when the noun is a psych-figure:
+	say "Gareth doesn't really need someone messing with his possessions right now."
+
+The wolfman-figure is a psych-figure on the psych-desk. The printed name of the wolfman-figure is "wolfman figurine". Understand "wolf" or "wolf man" or "wolfman" as the wolfman-figure. The description of the wolfman-figure is "This figure is a wolfman caught mid-transformation, howling in agony."
+
+The yeti-figure is a psych-figure on the psych-desk. The printed name of the yeti-figure is "yeti figurine". Understand "yeti" or "bigfoot" or "snowman" or "creature" or "abominable" as the yeti-figure. The description of the yeti-figure is "This figure is a yeti, a creature from the mountains of Tibet."
+
+The crystal-figure is a psych-figure on the psych-desk. The printed name of the crystal-figure is "crystal ball". Understand "crystal" or "ball" or "ghost" as the crystal-figure. The description of the crystal-figure is "This is a little different from his other figures, a crystal ball that has a kind of ghost in it you can only see from certain directions." 
+
+The psych-desk is an enterable scenery supporter in psych-room. Understand "desk" as the psych-desk. The printed name of the psych-desk is "desk". The description of the psych-desk is "This is a plain desk with a single drawer, cluttered with action figures. Gareth likes to set his patients at ease."
+
+The psych-drawer is a closed openable container. The psych-drawer is part of the psych-desk. Understand "drawer" as the psych-drawer when the psych-desk is examined. The printed name of the psych-drawer is "drawer".
+
+After opening the psych-drawer for the first time:
+	now the psych-drawer is open;
+	say "You open the drawer, revealing a loosely-bound manuscript."
+
+The psych-manuscript is in psych-drawer. The printed name of the psych-manuscript is "loose manuscript". Understand "loose" or "loosely" or "loosely-bound" or "bound" or "untitled" or "manuscript" as the psych-manuscript. The description of the psych-manuscript is "[first time]You haven't seen this before. [only]It's a loosely-bound manuscript with the title 'The use of narrative in diagnosis and training in the human sciences'.".
+
+Instead of reading the psych-manuscript:
+	say "You leaf through a few pages[one of][or] again[stopping]. It looks like his idea is to make fictional narratives that depict various negative emotional states and how to deal with them yourself or help others experiencing them. Interesting."
+
+Instead of taking the psych-manuscript:
+	say "It looks like Gareth's been working hard on it; it'd be a shame to lose it."
 
 Instead of entering the psych-desk:
 	say "That might knock off a bunch of the action figures!";
@@ -430,7 +486,7 @@ Instead of looking under the psych-couch:
 
 Section 1 - Psychologist
 
-Gareth is a man in Psych-room. "Gareth is here, huddled on his couch and staring at the wall." Understand "doctor" or "Djomo" as Gareth. The description of Gareth is "Gareth is a disheveled middle-aged man with a mop of curly black hair and a lean frame. He has a thousand-yard stare right now and doesn't seem very responsive."
+Gareth is a man in Psych-room. "Gareth is here, huddled on his couch and staring at the wall." Understand "doctor" or "Djomo" as Gareth. The description of Gareth is "Gareth is a disheveled middle-aged man with a mop of curly black hair and a lean frame. He's usually so playful and full of energy, but he has a thousand-yard stare right now, and it hurts you to see him like this. "
 
 Report going to psych-room:
 	deliver Consolation-gareth;
@@ -452,9 +508,7 @@ Section 2 - Tear in space
 
 The psych-tear is a space-tear. "[one of]The psychologist on duty (and one of your best friends), Gareth Djomo, is in here, huddled on his couch. Oblivious to the chaos outside, or perhaps overwhelmed by it, he stares off into the corner. 
 
-There is a tearing sound, and the fabric of reality rips open to the [boldnorth]. Out of the tear comes a bizarre little creature that looks like a kind of robotic monkey. It leaps up onto Gareth's desk and grabs one of the action figures, then rushes back into the tear in space. [Gareth] doesn't seem to notice any of this. Could this be the weaver's gift?
-
-You'll have to chase that creature down; but in the meantime, what are you going to do about Gareth? He's in a bad spot[or][if the player is in ship-region]A tear in space has opened up here[otherwise]The tear in space leading back to the ship is here[end if], to the [if the player is in psych-room][boldnorth][otherwise][boldsouth][end if]. It is glowing [if the psych-tear is red-torn]red[otherwise]green[end if][stopping]." The psych-tear is north of psych-room and south of the front-room.
+There is a tearing sound, and the fabric of reality rips open to the [boldnorth]. Out of the tear comes a bizarre little creature, a kind of robotic monkey. It leaps up onto Gareth's desk and grabs one of the action figures, then rushes back into the tear in space. [Gareth] doesn't seem to notice any of this[or][if the player is in ship-region]A tear in space has opened up here[otherwise]A tear in space leading back to the ship is here[end if], to the [if the player is in psych-room][boldnorth][otherwise][boldsouth][end if]. It glows [if the psych-tear is red-torn]red[otherwise]green[end if][stopping]." The psych-tear is north of psych-room and south of the front-room.
 
 Chapter 3 - Engineering room
 
@@ -547,7 +601,7 @@ The quarters-tear is a space-tear. "[if the player is in ship-region]A tear in s
 
 Chapter 6 - Captain's quarters
 
-The captain-room is north from hangar-room. THe captain-room is in ship-region. The printed name of the captain-room is "Captain's Quarters". THe description of captain-room is "The Captain's quarters are much like the man himself, utilitarian but comfortable. [first time]Few people come in here, as the Captain likes to spend his time among his officers and around the ship. It feels almost like you are invading a private sanctum.
+The captain-room is north from hangar-room. The captain-room is in ship-region. The printed name of the captain-room is "Captain's Quarters". The description of captain-room is "The Captain's quarters are much like the man himself, utilitarian but comfortable. [first time]Few people come in here, as the Captain likes to spend his time among his officers and around the ship. It feels almost like you are invading a private sanctum.
 
 [only]A desk with his private data terminal is the main feature on one side of his room, next to his neatly-made bed. A shelf filled with historical texts dominates the other. The main decoration on the wall is a picture of his family[first time].
 
@@ -1294,7 +1348,7 @@ Gift-entryway is a scenery open unopenable door. Gift-entryway is east from prid
 
 Gift-room is a room. "[first time]The gift shop brings back a flood of memories. When you were younger, even in college, this part always seemed so fun: a way to buy something so that you could always hold onto the memory. Even then, you were concerned with the preservation of knowledge. Only now, you've seen too many material reminders decay or get left behind. Only the stories really last.
 
-[only]The gift shop for the wax museum is colorful and whimsical, to the point of being a little gaudy. 'MYSTERY AND HISTORY', the name of the museum, is dispayed proudly. Much of the room is empty, perhaps due to being closed. What's left is scattered around the edges of the room. There are a lot of informational posters on the wall[one of], about the wildest topics[or][stopping]: NATO, Bloody Mary, gold panning, [one of]even foosball![or]and foosball[stopping][paragraph break]An incongruously somber coin machine stands neglected in one corner, labelled 'TOKENS FOR OBOLS'. Next to it is a door marked 'EMPLOYEES ONLY'.
+[only]The gift shop for the wax museum is colorful and whimsical, to the point of being a little gaudy. 'MYSTERY AND HISTORY', the name of the museum, is displayed proudly. Much of the room is empty, perhaps due to being closed. What's left is scattered around the edges of the room. There are a lot of informational posters on the wall[one of], about the wildest topics[or][stopping]: NATO, Bloody Mary, gold panning, [one of]even foosball![or]and foosball[stopping][paragraph break]An incongruously somber coin machine stands neglected in one corner, labelled 'TOKENS FOR OBOLS'. Next to it is a door marked 'EMPLOYEES ONLY'.
 
 A meter stretches up the entire side of one wall: a sort of long indentation with seven marks at the side and an indicator. Right now, the indicator is at the mark labelled '[prize-level]'. 
 
@@ -1405,7 +1459,7 @@ The gold-poster is a gift-poster in gift-room. The printed name of the gold-post
 
 'Note: any valuable items found while panning for gold in this museum are the property of HISTORY AND MYSTERY and cannot be removed from the premises.'"
 
-The foos-poster is a gift-poster in gift-room. The printed name of the foos-poster is "foosball poster". Understand "foosball" or "Graffiti" as the foos-poster. THe description of the foos-poster is "Some angry customer has scribbled all over it in dark marker:
+The foos-poster is a gift-poster in gift-room. The printed name of the foos-poster is "foosball poster". Understand "foosball" or "Graffiti" as the foos-poster. The description of the foos-poster is "Some angry customer has scribbled all over it in dark marker:
 
  'The foosball game cheats! If they're gonna cheat, I'm gonna cheat too!'
 
@@ -1596,7 +1650,7 @@ Achilles-figure is a wax-figure in wrath-room. The printed name of achilles-figu
 
 The achilles-heel is part of achilles-figure. Understand "heel" as the achilles-heel. The printed name of the achilles-heel is "heel". The description of the achilles-heel is "You peek at the heel. There's a little message written on it that says: 'Nice try!'"
 
-The achilles-shield is part of achilles-figure. The printed name of the achilles-shield is "shield". Understand "shield" or "Fractal" or "pattern" as the achilles-shield. THe description of the achilles-shield is "Achilles's shield has a fractal pattern that recursively subdivides it into smaller and similar patterns.".
+The achilles-shield is part of achilles-figure. The printed name of the achilles-shield is "shield". Understand "shield" or "Fractal" or "pattern" as the achilles-shield. The description of the achilles-shield is "Achilles's shield has a fractal pattern that recursively subdivides it into smaller and similar patterns.".
 
 The achilles-abs are a plural-named part of achilles-figure. The printed name of achilles-abs is "abs". Understand "abs" or "abdominal" or "muscle" or "muscles" as the achilles-abs. The description of the achilles-abs is "There are sixteen of these. Is that right? Biology isn't your strong suit."
 
@@ -1890,7 +1944,7 @@ The scenery-nile is a scenery container in the lust-room. The printed name of th
 
 The description of the scenery-nile is "This miniature Nile river, only a few centimeters deep, flows in one mesh grate and out another. Plastic reeds surround it in a pale illusion of the Nile's true grandeur."
 
-The plastic-reeds are plural-named scenery in lust-room. The printed name of the plastic-reeds is "plastic reeds". Understand "plastic" or "reed" or "Reeds" as the plastic-reeds. THe description of the plastic-reeds is "The plastic reeds are well spaced out and obscure nothing."
+The plastic-reeds are plural-named scenery in lust-room. The printed name of the plastic-reeds is "plastic reeds". Understand "plastic" or "reed" or "Reeds" as the plastic-reeds. The description of the plastic-reeds is "The plastic reeds are well spaced out and obscure nothing."
 
 Instead of searching the scenery-nile:
 	say "The river is clear and you can easily see the bottom. Nothing but water here!"
@@ -2025,7 +2079,7 @@ Carry out intensemudremoval:
 
 Section 5 - Glass box
 
-The diamond-ring is a gold-ring. THe printed name of the diamond-ring is "diamond ring". Understand "diamond" or "sharp" or "point" or "Ring" as the diamond-ring. The description of the diamond-ring is "The diamond ring has a simple gold band, on which are engraved the tiny words 'DO NOT REMOVE FROM ROOM'. 
+The diamond-ring is a gold-ring. The printed name of the diamond-ring is "diamond ring". Understand "diamond" or "sharp" or "point" or "Ring" as the diamond-ring. The description of the diamond-ring is "The diamond ring has a simple gold band, on which are engraved the tiny words 'DO NOT REMOVE FROM ROOM'. 
 
 The diamond itself comes to a very sharp-looking point." 
 
@@ -2149,7 +2203,7 @@ A sign stands in the middle of the room.
 
 There are exits to the [boldeast] and [boldnorth]."
 
-The rough-fort is scenery in envy-room. Understand "rough" or "dirt" or "floor" or "wooden" or "beam" or "beams" or "fort" as the rough-fort. THe printed name of the rough-fort is "fort". The description of the rough-fort is "Half of the room is made to look like a rough fort with wooden beams and a dirt floor."
+The rough-fort is scenery in envy-room. Understand "rough" or "dirt" or "floor" or "wooden" or "beam" or "beams" or "fort" as the rough-fort. The printed name of the rough-fort is "fort". The description of the rough-fort is "Half of the room is made to look like a rough fort with wooden beams and a dirt floor."
 
 Instead of putting something on the rough-fort:
 	say "The fort is about half of the room; you'd have to be more specific than that."
@@ -2357,7 +2411,7 @@ Understand "untie [arthur-bandage]" as taking when the player is in envy-room.
 
 [handle the case where they X SILK]
 
-The weapons-rack is a scenery transparent open unopenable container in envy-room. THe printed name of the weapons-rack is "weapons rack". Understand "weapon" or "weapons" or "rack" as the weapons-rack.
+The weapons-rack is a scenery transparent open unopenable container in envy-room. The printed name of the weapons-rack is "weapons rack". Understand "weapon" or "weapons" or "rack" as the weapons-rack.
 
 The describe what's on scenery supporters in room descriptions rule does nothing when the player is in envy-room.
 
@@ -2861,7 +2915,7 @@ Chapter 7 - Gluttony
 [use the ants from one area to destroy the wood here]
 
 
-The gluttony-room is north from wrath-room. The gluttony-room is in wax-region. THe printed name of the gluttony-room is "Elvis Room". "[first time]Oh man, this room really reminds you of your dad.
+The gluttony-room is north from wrath-room. The gluttony-room is in wax-region. The printed name of the gluttony-room is "Elvis Room". "[first time]Oh man, this room really reminds you of your dad.
 
 The two figures here are Elvis and Henry VIII. Your dad was obsessed with Elvis when you were little; he was always sending you songs or showing you holovids. He claimed that he was one of history's greatest singers. You never saw the attraction, but it was fun bonding.
 
@@ -2879,7 +2933,7 @@ You can go [boldsouth] or [boldeast] from here."
 
 Section 1 - Elvis
 
-elvis-figure is a wax-figure in gluttony-room. Understand "elvis" or "presley" as the elvis-figure. The printed name of the elvis-figure is "Elvis". THe description of Elvis-figure is "Elvis is portrayed in his forties, wearing his iconic white jumpsuit. His body is thrust at such a peculiar angle that you have to wonder how they're supporting the wax figure. He has beads of wax sweat on his forehead. Impressive." 
+elvis-figure is a wax-figure in gluttony-room. Understand "elvis" or "presley" as the elvis-figure. The printed name of the elvis-figure is "Elvis". The description of Elvis-figure is "Elvis is portrayed in his forties, wearing his iconic white jumpsuit. His body is thrust at such a peculiar angle that you have to wonder how they're supporting the wax figure. He has beads of wax sweat on his forehead. Impressive." 
 
 The white-jumpsuit is part of the elvis-figure. Understand "white" or "jump" or "suit" or "jumpsuit" as the white-jumpsuit. The printed name of the white-jumpsuit is "white jumpsuit". The description of the white-jumpsuit is "Elvis's famous white jumpsuit looks pretty good here, although key details are missing, and some of the proportions are off." 
 
@@ -2893,7 +2947,9 @@ The elvis-plaque is an info-plaque in gluttony-room. Understand "Elvis" as the e
 
 Section 2 - Henry VII
 
-henry-figure is a wax-figure in gluttony-room. Understand "henry" or "viii" or "8" or "eight" or "8th" or "eighth" or "royal" or "finery" or "king" or "mouth" as the henry-figure. The printed name of the henry-figure is "Henry VIII". The description of the henry-figure is "Henry VIII is displayed in his royal finery, standing proud and rotund as ever. The artist has chosen to focus not on his religious reforms, murders of his wives, or other such details. Instead, he is surrounded by food, including a turkey drumstick in his hand. There are some thin wires leading from the nearby soda machine to his mouth."
+henry-figure is a wax-figure in gluttony-room. Understand "henry" or "viii" or "8" or "eight" or "8th" or "eighth" or "royal" or "finery" or "king" or "mouth" as the henry-figure. The printed name of the henry-figure is "Henry VIII". The description of the henry-figure is "Henry VIII is displayed in his royal finery, standing proud and rotund as ever. The artist has chosen to focus not on his religious reforms, murders of his wives, or other such details. Instead, he is surrounded by food, including a turkey drumstick in his hand. There are some thin wires leading from the nearby soda machine to his mouth.
+
+There is a plaque nearby."
 
 Some henry-food is scenery in gluttony-room. The printed name of the henry-food is "food". Understand "food" or "quail" or "ham" or "beef" or "bread" or "soup" or "wax" as the henry-food. The description of the henry-food is "Food of all kinds surrounds Henry, from quail to ham and bread and from beef to soup. All of it is made of wax."
 
@@ -3128,7 +3184,7 @@ That definitely doesn't seem like it's supposed to be part of the museum!"
 Instead of physicality when the noun is the wasps-note:
 	say "It wouldn't get close to that if I were you!"
 
-The wasphawk-bottle is a thing. The printed name of the wasphawk-bottle is "wasphawk in a bottle". Understand "wasphawk" or "bottle" or "hawk" or "in a bottle" as the wasphawk-bottle. THe description of the wasphawk-bottle is "This bottle contains a wasphawk, a deadly insect that specializes in eating wasps.".
+The wasphawk-bottle is a thing. The printed name of the wasphawk-bottle is "wasphawk in a bottle". Understand "wasphawk" or "bottle" or "hawk" or "in a bottle" as the wasphawk-bottle. The description of the wasphawk-bottle is "This bottle contains a wasphawk, a deadly insect that specializes in eating wasps.".
 
 Instead of inserting something into the wasphawk-bottle:
 	say "The bottle is sealed. For now."
@@ -3185,7 +3241,7 @@ The describe what's on scenery supporters in room descriptions rule does nothing
 
 Section 1 - Helen of Troy
 
-helen-figure is a wax-figure in sloth-room. THe printed name of helen-figure is "Helen of Troy". Understand "helen" or "figure" or "tall "or "hair" or "athletic" or "helen of" or "troy" as the helen-figure. The description of the helen-figure is "Helen is depicted as a graceful beauty, her hair held back by a headband and her figure covered by a Doric chiton. She is staring [if the foosball-table is in sloth-room]at the Trojan War as depicted in a foosball table[otherwise]off into the distance[end if].".
+helen-figure is a wax-figure in sloth-room. The printed name of helen-figure is "Helen of Troy". Understand "helen" or "figure" or "tall "or "hair" or "athletic" or "helen of" or "troy" as the helen-figure. The description of the helen-figure is "Helen is depicted as a graceful beauty, her hair held back by a headband and her figure covered by a Doric chiton. She is staring [if the foosball-table is in sloth-room]at the Trojan War as depicted in a foosball table[otherwise]off into the distance[end if].".
 
 The helen-band is part of the helen-figure. The printed name of the helen-band is "hairband". Understand "leaves" or "branches" or "branch" or "leaf" or "laurel" or "olive" or "band" or "hairband" or "stephane" as the helen-band. The description of the helen-band is "On further inspection, you can see that Helen's hairband is made of olive branches and laurel leaves, an early version of the Greek [italic type]stephane[roman type]."
 
@@ -3195,7 +3251,7 @@ Section 2 - John Lennon
 
 The lennon-bed is an enterable scenery supporter in sloth-room. Understand "bed" as the lennon-bed. The printed name of the lennon-bed is "bed". The description of the lennon-bed is "This, you recall, is a facsimile of John's famous bed used for his bed-in, minus Yoko Ono. He remained in bed most of the day to protest the Vietnam War, except when he and Yoko had to get up for the maid to clean things."
 
-missing-yoko is scenery in sloth-room. THe printed name of missing-yoko is "Yoko Ono". Understand "yoko" or "ono" as missing-yoko.
+missing-yoko is scenery in sloth-room. The printed name of missing-yoko is "Yoko Ono". Understand "yoko" or "ono" as missing-yoko.
 
 Instead of doing something with missing-yoko:
 	say "But Yoko Ono isn't here!"
@@ -3260,7 +3316,7 @@ Two hundred and fifteen years...you're not even that old!";
 			now emrys-ready is true;
 		otherwise:
 			say "The kiosk message briefly changes to say, 'I'm sorry. That wasn't a rhetorical question!'";
-	otherwise if the topic understood matches "Emrys":
+	otherwise if the topic understood includes "Emrys":
 		if emrys-ready is false:
 			say "The kiosk buzzes harshly, not accepting your answer.";
 		otherwise:
@@ -3743,6 +3799,19 @@ The haunted-region is a region.
 
 A token is a kind of thing. Understand "token" as a token. Understand "token" or "round" or "disk" or "depiction" or "waxworks" or "reverse" as a token. 
 
+Before listing contents:
+	group tokens together;
+	
+Before grouping together tokens:
+	say "some ";
+
+Rule for printing the name of a token (called currenttoken) while grouping together:
+	let temp be the printed name of currenttoken;
+	say word number 1 in temp;
+
+After grouping together tokens:
+	say " tokens";
+
 A token has some text called the token-target. The token-target of a token is usually "Frankenstein".
 
 The description of a token is usually "This is a round disk with a depiction of [the token-target of noun] on it. On the reverse, it says 'WAXWORKS'."
@@ -3751,7 +3820,7 @@ Chapter 1 - Parlor
 
 The Parlor-room is a room in haunted-region. The printed name of Parlor-room is "Frankenstein's Parlor".
 
-The description of Parlor-room is "This room, once a spacious entryway, is dominated by a broad and sturdy trophy case filled with a variety of treasures. The walls are dark wood, old and warped. You can go outside to the [boldsouth], or deeper into the building to the [boldnorth]."
+The description of Parlor-room is "This room, once a spacious entryway, is dominated by a broad and sturdy trophy case filled with a variety of treasures, of which [treasureslist] particularly stick out to you. The walls are dark wood, old and warped. You can go outside to the [boldsouth], or deeper into the building to the [boldnorth]."
 
 The warped-walls are scenery in parlor-room. The printed name of the warped-walls is "dark walls". Understand "warped" or "wood" or "old " or "dark" as the warped-walls. The description of the warped-walls is "It seems these walls have not been taken care of in a long time, having dried and warped over time. How long has Frankenstein been living here?"
 
@@ -3760,6 +3829,13 @@ Instead of touching the warped-walls:
 	
 Instead of tasting the warped-walls:
 	say "It is bitter-bitter, because they are walls, and because they are warped."
+
+To say treasureslist:
+	let L be a list of things;
+	now L is the list of things enclosed by treasure-case;
+	sort L in random order;
+	truncate L to 3 entries;
+	say "[L with indefinite articles]";
 
 Section 1 - Frankenstein
 
@@ -3792,15 +3868,23 @@ The TargetResponse of Franken-name is "The great creature sighs in response. 'Th
 
 Franken-confusion is a quip. The printed name of Franken-confusion is "Confusion". Understand "confusion" as Franken-confusion. The preview of Franken-confusion is "What is this place?"  The target of Franken-confusion is Frankenstein.
 
-The TargetResponse of Franken-confusion is "Frankenstein says, 'This is Frankenstein's Frightening Fantasy, home of the horrible and den of the despicable! Although you must forgive us, we are all a bit out of sorts today. If you help us out, we can give you...' he fishes something out of his pocket and waves it around, continuing, '...exciting tokens!'
+The TargetResponse of Franken-confusion is "Frankenstein says, 'Welcome to 'Monsters Inside', Miss...' he pauses, looking at you quizzically.
 
-'What do I do with the tokens?' you ask. 'Helping horrifying monsters seems like a big risk for a few plastic tokens.'
+'Emrys Tisserand,' you respond.
 
-He puts the token back out of sight, a little embarassed, and says, 'I may have exaggerated how horrible they are. And I'm sure you'll find a use for the tokens. Some people use them for work. I even know someone that got out of jail using tokens. In any case, I'll leave you to it. If you find any treasure, though, let me know; I'm quite the collector myself.'
+He rolls his eyes. 'Oh, geez, I've heard that one before. Real funny. Okay, Miss [']Tisserand['], as you read in your consent form and waiver, [italic type]Monsters Inside[roman type] is a therapeutic aid only and not an actual treatment for any disease or condition. We are not liable for any damage you may incur during your stay. To complete your training, you'll need to help out each monster inside these walls. In return, we'll give you...' he fishes something out of his pocket and waves it around, continuing, '...exciting tokens!'
+
+'What do I do with the tokens?' you ask. 'And I'm not sure I filled out any waivers.'
+
+He rubs his forehead in dismay. 'Man, I swear, the people I get these days. Listen, no one's ever gotten hurt here, you'll be fine. Just take the tokens. You get enough of them, you can show them to corporate or something and get credit for professional development. If you get all of them, you can process them into payment to get over the river. Although our payment processor for tokens is missing; we left it at our old location.'
+
+He puts the token back out of sight, a little embarassed, and says, 'Anyway, I'm going to default mode now. I'll leave you to it.'
+
+His face alters subtly, becoming more mechanical, and assumes a greedy expression. 'Welcome, traveller. If you find any treasure, let me know; I'm quite the collector.'
 
 'Will you give me your token if I give you treasure?' you ask.
 
-He smiles, and says, 'No. But I'll give you something of mine. To get my token, you must say the magic word[delivermagic].'"
+He grins greedily, and says, 'No. But I'll give you something of mine. To get my actual token, you must say the magic word[delivermagic].'"
 
 The disguised-glasses are a thing carried by Frankenstein. The description of the disguised-glasses is "This is a long staff with two prongs in the middle and what look like large shield-shaped pieces of glass on both ends. The pieces of glass refract everything seen through them." Understand "long" or "staff" or "prongs" or "prong" or "staff" or "staves" or "glass" or "shield" or "unusual" or "staff" or "shield-shaped" or "piece" or "pieces" as the disguised-glasses. The printed name of the disguised-glasses is "unusual staff".
 
@@ -4043,10 +4127,13 @@ To say deliverpharaoh:
 
 Pharaoh-hello is a quip. The printed name of Pharaoh-hello is "Problem". Understand "problem" as Pharaoh-hello. The preview of Pharaoh-hello is "What's wrong?"  The target of Pharaoh-hello is Pharaoh.
 
-The TargetResponse of Pharaoh-hello is "His voice comes like the sound of a massive but distant sandstorm. 'I can't find my cat,' he says. 'Please. She likes to play games, but I'm worried she might be actually lost. I know she's not here in our room. Can you find her[deliverabsent]?'"
+The TargetResponse of Pharaoh-hello is "His voice comes like the sound of a massive but distant sandstorm. 'I can't find my cat,' he says. 'Please. She likes to play games, but I'm worried she might be actually lost. It's just tearing me up inside. I know she's not here in our room. Can you find her[deliverabsent]?'"
+
+The pharaoh can be introduced or not introduced. The pharaoh is not introduced.
 
 To say deliverabsent:
 	deliver absent-quip;
+	now the pharaoh is introduced;
 
 Absent-quip is a quip. The printed name of absent-quip is "Absent". Understand "absent" as absent-quip. The preview of absent-quip is "What can you tell me about your missing cat?" The target of absent-quip is pharaoh. 
 
@@ -4066,30 +4153,31 @@ Instead of doing something with a catfound cat-ghost:
 	say "The cat isn't here anymore."
 
 To resolve (currentcat - a cat-ghost):
-	if currentcat is uncatfound:
-		increment cat-level;
-		if cat-level is 1:
-			say "[conditional paragraph break]You spy a little cat-shaped shadow, but it's already slipping away. It seems like the cat wants to play; where could she be now?";
-			deliver sawcatonce-quip;
-		otherwise if cat-level is 2:
-			say "[conditional paragraph break]There's the cat again! This time you see a transparent little tail as it slips away. You're getting close.";
-		otherwise if cat-level is 3:
-			say "[conditional paragraph break]You've found the cat! A ghostly little feline, looking tired and curled up in a ball. She stretches, gets up and walks through the wall.
+	if the pharaoh is introduced:
+		if currentcat is uncatfound:
+			increment cat-level;
+			if cat-level is 1:
+				say "[conditional paragraph break]You spy a little cat-shaped shadow, but it's already slipping away. It seems like the cat wants to play; where could she be now?";
+				deliver sawcatonce-quip;
+			otherwise if cat-level is 2:
+				say "[conditional paragraph break]There's the cat again! This time you see a transparent little tail as it slips away. You're getting close.";
+			otherwise if cat-level is 3:
+				say "[conditional paragraph break]You've found the cat! A ghostly little feline, looking tired and curled up in a ball. She stretches, gets up and walks through the wall.
 
-You can hear the Pharaoh's pleased voice in the other room.";
-		otherwise:
-			say "Dang, you found four cats and there are only three in this game. That's a bug! Feel free to report it!";
-	now the currentcat is catfound;
-	if cat-level is 3:
-		now pharaoh is fullcatfound;
-		if Sawcatonce-quip is not targetgiven:
-			remove Sawcatonce-quip;
+	You can hear the Pharaoh's pleased voice in the other room.";
+			otherwise:
+				say "Dang, you found four cats and there are only three in this game. That's a bug! Feel free to report it!";
+		now the currentcat is catfound;
+		if cat-level is 3:
+			now pharaoh is fullcatfound;
+			if Sawcatonce-quip is not targetgiven:
+				remove Sawcatonce-quip;
 
 Sawcatonce-quip is a quip. The printed name of Sawcatonce-quip is "Chasing". Understand "chasing" as Sawcatonce-quip. The target of Sawcatonce-quip is Pharaoh. The preview of Sawcatonce-quip is "I saw your cat, but I'm still trying to catch her!"
 
-Targetresponse of Sawcatonce-quip is "The pharaoh smiles and says, 'Excellent, thank you for your help. She can be so mischievous.'
+Targetresponse of Sawcatonce-quip is "The Pharaoh nods gravely and says, 'Excellent, thank you for your help. She can be so mischievous.'
 
-He seems somewhat happier than before."
+He seems somewhat happier than before, though still glum."
 
 Pharaoh can be fullcatfound or not fullcatfound. Pharaoh is not fullcatfound.
 
@@ -4174,6 +4262,9 @@ The description of the library-shelves is "The bookshelves are filled to the bri
 Instead of inserting something into library-shelves: try putting the noun on the library-shelves
 
 A book is a kind of thing. Understand "book" as a book.
+
+Instead of taking the library-shelves:
+	say "There are so many books, it's overwhelming. You'll have to pick one at a time.";
 
 Check putting something on the library-shelves:
 	if the noun is not a book:
@@ -4286,18 +4377,33 @@ The dracula-bats can be leftsided or rightsided. The dracula-bats are leftsided.
 
 A musical is a kind of book. Understand "music" as a musical.
 
-Advenit is a musical. The description of Advenit is "This is a slim volume titled 'Advenit, by Johannes L. and Saul M.'" Understand "slim" or "volume" as Advenit.
+Advenit is a musical. The description of Advenit is "This is a slim volume titled '[italic type]Advenit[roman type], by Johannes L. and Saul M.'" Understand "slim" or "volume" as Advenit.
 
-Sinistram is a musical. The description of Sinistram is "This is a sheaf of loose pages of music titled 'Ad Sinistram, by B. Knowles'." Understand "ad" as sinistram.
+Sinistram is a musical. The description of Sinistram is "This is a sheaf of loose pages of music titled '[italic type]Ad Sinistram[roman type], by B. Knowles'." Understand "ad" as sinistram.
 
 Understand "loose" or "sheaf" or "page" or "pages" as Sinistram.
 
-Gyra is a musical. The description of Gyra is "This is a folder containing music.  It's embossed with the words, 'Tu me Gyras, by Mortuum vel Vivum.'" Understand "folder" as Gyra.
+Gyra is a musical. The description of Gyra is "This is a folder containing music.  It's embossed with the words, '[italic type]Tu me Gyras[roman type], by Mortuum vel Vivum.'" Understand "folder" as Gyra.
 
 Advenit, Sinistram, and Gyra are on the library-shelves.
 
+Before listing contents: group musicals together.
+
 Instead of opening a musical:
 	say "You open [the noun] and peruse it for a bit. Looks neat, but not anything you'd know how to play yourself."
+
+Before printing the name of a musical while not grouping together:
+	if the listing contents activity is going on:
+		say "the music book ";
+
+Before grouping together musicals:
+	say "the music books ";
+
+Before printing the name of a musical:
+	say "[italic type]";
+	
+After printing the name of a musical:
+	say "[roman type]";
 
 Does the player mean giving a musical to dracula:
 	it is likely;
@@ -4911,9 +5017,7 @@ Instead of physicality when the noun is Christine:
 
 Innocent-me is a quip. The target of innocent-me is Christine. The preview of Innocent-me is "I promise, I didn't do anything!" The printed name of innocent-me is "Innocent". Understand "innocent" as Innocent-me.
 
-The targetresponse of innocent-me is "She says, 'Hmph, that seems most unlikely. I was told that I could be completely private here. Wait, the orb is speaking....' She taps it again and peers into it intently. 'It says that you are not like the others here, nor like me. It says that you are a weaver of destinies. And it says that you must be permitted because today is--' she cuts off, then whispers. '--the Day of Weft's End.'
-
-She looks up, her rage now mingled with fear. 'Tell me, fearful wanderer. Who are you?' she asks, trembling."
+The targetresponse of innocent-me is "She says, 'Hmph, that seems most unlikely. I scheduled my appointment weeks ago. Wait, the orb is speaking....' She taps it again and peers into it intently. Then she chuckles. 'See? No one is scheduled for today, except some prankster who put down [']Emrys Tisserand['].'"
 
 Report going east from landing-room for the first time:
 	deliver innocent-me;
@@ -4921,11 +5025,19 @@ Report going east from landing-room for the first time:
 Report uttering innocent-me to christine:
 	deliver Identify-self;
 	
-Identify-self is a quip. The target of Identify-self is Christine. The preview of Identify-self is "I am Emrys Tisserand, Storyweaver of the Starship Tragwyddol." The printed name of identify-self is "Identity". Understand "identity" as identify-self. 
+Identify-self is a quip. The target of Identify-self is Christine. The preview of Identify-self is "I am Emrys Tisserand!" The printed name of identify-self is "Identity". Understand "identity" as identify-self. 
 
-The targetresponse of identify-self is "At the sound of your name, Christine shrieks in apparent terror. She goes pale, a surprising feat for an already-faded ghost, and, taking another look at you, speeds out of the house through the wall.
+The targetresponse of identify-self is "Her tone of voice changes. 'Okay, lady, this isn't funny anymore. You want to play tough? Orb!' she says, looking at the crystal in question, 'Identify this woman.'
 
-You can hear her shouts as she flees into the distance. 'The weaver! The weaver has come!'
+Something appears in the orb which you can't see. The woman stares in shock, then back at you.
+
+'Orb, what day is it?' she asks. It changes again, and she puts a hand to her mouth. 'The Day of Weft's End,' she says. 'I thought...'
+
+She looks up, her rage now mingled with fear. 'It's really you!'
+
+Christine shrieks in apparent terror. She goes pale, a surprising feat for an already-faded ghost, and, taking another look at you, speeds out of the house through the wall.
+
+You can hear her screams echoing into the distance until they too disappear.
 
 The crystal ball remains."
 
@@ -5037,6 +5149,13 @@ After deciding the scope of the player while the player is in ghost-room and cry
 	otherwise if roomcounter is 6:
 		place wolf-room in scope;
 		
+Rule for reaching inside a room when the player is in ghost-room:
+	if the noun is not enclosed by the location:
+		say "You can see [the noun] in the crystal ball, but you're unable to interact with it.";
+	otherwise:
+		say "You can see [the second noun] in the crystal ball, but you're unable to interact with it.";
+	deny access;
+
 Chapter 8 - Werewolf
 
 The wolf-room is west from the landing-room. The printed name of the wolf-room is "Den". "This room looks like the product of a frightful battle. Gouges have dug deep into the floorboards, a pipe is exposed in the corner, and a big mound of debris covers much of the room. You can leave to the [boldeast]."
@@ -5164,17 +5283,22 @@ Instead of going nowhere when the player is in haunted-region:
 
 The front-room is in haunted-region.
 
-The front-room is a room. The printed name of the front-room is "Front Yard". The description of the Front-room is "You are standing before an asymmetrical, well-preserved Victorian mansion with a tower on one side and steps up to a door on the other. The mansion gleams, despite the lack of apparent light sources, with a vague sort of phosphorescence. The sky above is dark and overcast. An overgrown flowerbed lies in stark contrast to the tidy-looking mansion.
+The front-room is a room. The printed name of the front-room is "Front Yard". The description of the Front-room is "You are standing before an asymmetrical, well-preserved Victorian mansion with a tower on one side and steps up to a door on the other. The sky is overcast, making it hard to tell the time of day. An overgrown flowerbed lies in stark contrast to the tidy-looking mansion.
 
-It all has a surreal feel, like an amusement park version of a haunted house.
+A bright red neon sign is attahed incongruously to the house, saying 'Monsters Inside'.
 
-To the [boldnorth], you can enter the parlor of the mansion. To the [boldeast] lies a dark and foreboding river[first time].
+To the [boldnorth], you can enter the parlor of the mansion. To the [boldeast] lies a dark and foreboding river[first time]. [mentionpsych][The initial appearance of the psych-tear]
 
 As soon as you arrive, you see the monkey-like robot, still clutching the action figure.
 
 'Hey, drop that!' you shout. But the robot chitters at you, running away to the east and jumping over the river in one enormous bound[only]." 
 
-The vague-phosphorescence is an intangible scenery in front-room. The printed name of the vague-phosphorescence is "vague phosphorescence". Understand "vague" or "gleaming" or "phosphorescence" as the vague-phosphorescence. The description of the vague-phosphorescence is "The vague phosphorescence reminds you fluorescent paint under a blacklight."
+The monster-sign is distant scenery in front-room. THe printed name of the monster-sign is "neon sign". Understand "monsters" or "monster" or "monsters inside" or "sign" or "neon" or "bright" or "red" as the monster-sign. 
+
+The description of the monster-sign is "The neon sign elaborately displays the words 'Monsters Inside'. It clashes terribly with the house itself."
+
+To say mentionpsych:
+	now the psych-tear is mentioned;
 
 The lightless-sky is in front-room.
 
@@ -5205,7 +5329,9 @@ The wolfs-bane is in the front-bed. The wolfs-bane is ambiguously plural. The in
 Instead of eating the wolfs-bane:
 	say "Wolfsbane is pretty toxic; better not to eat plants that you know will cause a negative reaction."
 
-The scenery-mansion is scenery in the front-room. The printed name of the scenery-mansion is "mansion". Understand "gorgeous" or "well-preserved" or "well" or "tidy-looking" or "tidy" or "asymmetrical" or "haunted" or "house" or "looking" or "house" or "mansion" or "queen" or "anne" or "preserved" or "victorian" or "tall" or "stately" or "handsome" or "old" or "parlor" as the scenery-mansion. The description of the scenery-mansion is "This is a tall and stately old Victorian mansion in the Queen Anne style. It is asymmetrical, with a tower on one side and some steps leading up to a tall wooden door on the other."
+The scenery-mansion is scenery in the front-room. The printed name of the scenery-mansion is "mansion". Understand "gorgeous" or "well-preserved" or "well" or "tidy-looking" or "tidy" or "asymmetrical" or "haunted" or "house" or "looking" or "house" or "mansion" or "queen" or "anne" or "preserved" or "victorian" or "tall" or "stately" or "handsome" or "old" or "parlor" as the scenery-mansion. The description of the scenery-mansion is "This is a tall and stately old Victorian mansion in the Queen Anne style. It is asymmetrical, with a tower on one side and some steps leading up to a tall wooden door on the other.
+
+On the house is a bright red neon sign saying 'Monsters Within'."
 
 The scenery-tower is part of the scenery-mansion. The printed name of the scenery-tower is "tower". Understand "bemusing" or "tower" as the scenery-tower. The description of the scenery-tower is "The tower is only a few feet taller than the house around it, more bemusing than intimidating.".
 
@@ -5255,7 +5381,7 @@ The styx-sign is an enterable scenery supporter in the styx-room. The printed na
 
 Underneath, in smaller lettering, it says, 'One Obol'."
 
-The lightless-sky is distant backdrop in styx-room. Understand "lightless" or "sky" as the lightless-sky. The printed name of the lightless-sky is "sky". The description of the lightless-sky is "The sky is heavy and overcast; you see no light at all."
+The lightless-sky is distant backdrop in styx-room. Understand "lightless" or "sky" or "overcast" or "grey" or "gray" as the lightless-sky. The printed name of the lightless-sky is "sky". The description of the lightless-sky is "The sky is heavy and overcast; you see no light at all."
 
 The scenery-styx is a backdrop in the styx-room. The printed name of the scenery-styx is "river Styx". Understand "river" or "Styx" or "water" or "dread" or "wide" or "dark" or "smooth" as the scenery-styx.
 
@@ -5319,7 +5445,7 @@ Instead of giving the obol to charon:
 
 You step on, and he pushes his pole into the dark waters. The two of you glide silently across the river Styx.
 
-As you travel, the world glitches around you for one moment, showing blank metal panels above you instead of a lightless sky. A robotic voice states, 'Now exiting Holoprogram CHR-9815: Scary Psychology, initiated by user Christine Saville. Next up is Holoprogram GAR-0001: Self-Reflection. You can return to your former program at any time by crossing back over the river. Apologies for any errors that occur in loading.'
+As you travel, the world glitches around you for one moment, showing blank metal panels above you instead of a lightless sky. A robotic voice states, 'Now exiting Holoprogram CHR-9815: Monsters Inside, initiated by user Christine Saville. Next up is Holoprogram GAR-0001: Self-Reflection. You can return to your former program at any time by crossing back over the river. Apologies for any errors that occur in loading.'
 
 All around you, a night sky reforms, as does a distant shore. After a few more moments, the boat runs ashore, and you step out.";
 	now the player is in distant-shore;
@@ -10374,11 +10500,11 @@ Understand "mysterious" as the spell-book when not examined.
 
 The description of the spell-book is "[first time]Where did this come from?
 
-You look over this book. Its a digital book, like the kind you grew up with.[only] It's a slim rectangle, jet black, with a slot on top for a bookmark.
+You look over this book. Its a digital book, like the kind you grew up with. [only]It's a slim rectangle, jet black, with a slot on top for a bookmark, about a centimeter wide.
 
 On the screen is orange text saying:
 
-'Spells:[spelllist]'"
+'Spells:[spelllist]'[line break]"
 
 The orange-text is part of the spell-book. The printed name of the orange-text is "orange text". Understand "orange" or "text" or "spells" as the orange-text.
 
@@ -10406,6 +10532,8 @@ Carry out spelling:
 	
 A magic-spell is a kind of thing. Understand "spell" as a magic-spell. A magic-spell has some text called the spell-preview. The spell-preview of a magic-spell is usually "This text only prints if a spell is lacking its preview. Please report this as a bug.".
 
+Rule for deciding whether all includes a magic-spell: it does not.
+
 Before doing something other than examining when the noun is a magic-spell: 
 	now the noun is the spell-book; 
 	try the current action instead. 
@@ -10418,13 +10546,20 @@ To say spelllist:
 	repeat with current running through magic-spells in spell-book:
 		say "[paragraph break][italic type][current][roman type]: [spell-preview of current]"
 
-Fladh is a magic-spell in spell-book. The spell-preview of fladh is "Return the caster home"
+Fladh is a magic-spell in spell-book. The spell-preview of fladh is "[if bookmarkon is false]Return the caster home[otherwise]Kill the caster instantly[end if]"
 
 Fladhing is an action applying to nothing. Understand "fladh" or "say fladh" or "cast fladh" as fladhing. Fladhing is spellcasting.
 
-Carry out fladhing:
+Check fladhing:
 	if the spell-book is not held by the player:
 		say "You say the word, 'Fladh', but nothing happens.";
+
+Carry out fladhing:
+	if bookmarkon is true:
+		say "You say the word, 'Fladh', and feel your body erupt into a shower of a milltion particles.
+
+[sand-dying]";
+		now the player is in end-room;
 	otherwise:
 		say "You say the word, 'Fladh,' and feel your body erupt into a shower of a million particles.
 
@@ -10433,7 +10568,10 @@ Carry out fladhing:
 
 A spell-scroll is a kind of thing. Understand "gold" or "golden" or "scroll" as a spell-scroll. A spell-scroll has a magic-spell called the associated-spell. The description of a spell-scroll is usually "This [item described] simply says:[paragraph break][italic type][associated-spell][roman type]: [spell-preview of associated-spell of the item described]."
 
-Gopi is a magic-spell in spell-book. The spell-preview of gopi is "Copy a scroll into the spellbook"
+Before listing contents:
+	group spell-scrolls together giving articles;
+
+Gopi is a magic-spell in spell-book. The spell-preview of gopi is "Copy a held scroll into the spellbook"
 
 Goping is an action applying to one thing. Goping is spellcasting. Understand "Gopi [something]" or "cast gopi on/at/-- [something]" or "say gopi to/at/-- [something]" as goping.
 
@@ -10492,7 +10630,7 @@ Chapter 1 - Collapsed Hallway
 
 The collapsed-hallway is south of hangar-room. The collapsed-hallway is in ship-region. The printed name of the collapsed-hallway is "Collapsed Hallway". The description of the collapsed-hallway is "[if the collapsed-hallway is unvisited]You feel a sense of urgency as you walk through the halls, as well as something else. Fear?
 
-Trusting your Storyweaver's gift, you run through the hallways. Rounding a corner, you come across a terrible site.
+Trusting your Storyweaver's gift, you run through the hallways. Rounding a corner, you come across a terrible sight.
 
 [end if]This is one of the most damaged areas you have seen in the entire ship. An acrid haze drifts through the air, and a portion of the hallways has collapsed.
 
@@ -10623,7 +10761,6 @@ Olgin grimaces, and says, 'I'm sorry to say this, but we have bigger priorities 
 
 'I'll do my best,' you say resignedly. Sergeant Olgin nods and goes back to directing the rescue efforts."
 
-
 Chapter 2 - Gem chamber
 
 [FIX THIS LATER Maybe make this room dark and have gem not give light]
@@ -10649,6 +10786,11 @@ Instead of touching or rubbing the bounding-dome:
 
 The gray-gem is scenery in gem-room. Understand "gray" or "tiny" or "facet" or "facets" or "myriad" or "gem" or "grey" or "artificial" or "single" or "sickly" or "light" as gray-gem. The printed name of the gray-gem is "gray gem". The gray-gem can be active or inactive. The gray-gem is active. The description of the gray-gem is "The gem is clearly artificial, being larger than an ostrich's egg, but containing a myriad of tiny facets. The light from it is sickly and off-putting. It's not pleasant to look at."
 
+The gem-pedestal is a scenery supporter in gem-room. THe printed name of the gem-pedestal is "pedestal". Understand "pedestal" as the gem-pedestal. The description of the gem-pedestal is "The pedestal grows almost organically out of the floor."
+
+Instead of putting something on the gem-pedestal:
+	say "There's no room, with the gem there."
+
 black-dome is a room in spell-region. Fake-emrys is a woman in black-dome.
 [FIX THIS LATER describe fake-emrys in her own room]
 
@@ -10662,14 +10804,15 @@ Instead of physicality when the noun is gray-gem:
 				now current is held by fake-emrys;
 		say "[first time]As your fingers brush the gem, you feel an intense shock thrum through your body, and you lose consciousness.
 
-[only]*******************************************************************[line break]There is a flash and the sound of rushing sand[line break]****************************************************************************";
+[only]****************************************************************************[line break]There is a flash and the sound of rushing sand[line break]****************************************************************************";
 		now the player is in lonely-room;
 		now spell-book is held by the player;
 		repeat with current running through handled ungopied spell-scrolls:
 			now current is held by the player;
+		now simple-robe is worn by the player;
 		if the spiral-bookmark is handled:
 			now the spiral-bookmark is held by the player;
-		say "[one of]You feel so strange. Looking over yourself, you realize in panic that all of your things are missing. Even...no, you check, and you still have your recorder, although it feels askew for a moment. 
+		say "[one of]You feel so strange. Looking over yourself, you realize in panic that all of your things are missing. Except...you find to your relief that you still have your recorder, although it feels askew for a moment. 
 
 Even your clothes have been replaced by a simple robe. The only thing you are holding is a mysterious book[or]You come to with a gasp and a jolt.
 
@@ -10677,6 +10820,11 @@ You are holding nothing but [a list of things carried by the player]. Once again
 	otherwise:
 		say "The gem is dark and unresponsive."
 		
+Simple-robe is a wearable thing. The printed name of simple-robe is "robe". Understand "robe" as the simple-robe. The description of the simple-robe is "This robe seems suited for longterm wear. You've never owned a robe like this."
+
+Instead of taking off the simple-robe:
+	say "You have nothing else to wear!";
+
 Report examining the all-recorder when the player is in spell-region:
 	say "Your recorder doesn't seem to fit quite right for some reason."
 
@@ -10739,6 +10887,12 @@ The distant-ceiling is distant scenery in lonely-room. The printed name of the d
 
 The underground-village is scenery in lonely-room. The printed name of the underground-village is "underground village". Understand "underground" or "village" or "houses" or "stone" or "squat" or "one story" or "street" or "side" or "sides" or "long" or "street" or "one-story" or "story" or "material" as the underground-village. The description of the underground-village is "The houses of the underground village look uniform, repetitive, dull. Most have no openings or entrances of any kind, but one house is open."
 
+Instead of entering the underground-village:
+	say "Most of the houses have no entrance at all. Only one house is open."
+
+Instead of searching the underground-village:
+	say "Most of the houses are completely closed off. Only one house has any openings at all."
+
 The cave-floor is a backdrop. The cave-floor is in lonely-room, lonely-house, lonely-alley, north-lonely, buried-room, end-room, vast-room, eye-room, stranger-room, desolation-room, corruption-room, flesh-room, hunt-room, and slaughter-room.
 
 The printed name of the cave-floor is "gritty floor". Understand "gritty" or "dust" or "floor" or "stone" or "visible" or "tool marks" or "marks" as the cave-floor.
@@ -10761,7 +10915,7 @@ Understand "purple" or "phosphorescence" or "light" as the purple-phosphorescenc
 Instead of doing anything other than examining to the purple-phosphorescence:
 	say "You can't find the source of the phosphorescence.";
 
-The one-house is scenery in lonely-room. The printed name of the one-house is "open house". Understand "open" or "opening" or "one house" or "house" as the one-house. The description of the one-house is "One house among all the others is open, to the [boldeast][if lonely-house is visited]. It is, as you saw, empty[otherwise]. Some light is visible inside, and you can see some movement[end if]. "
+The one-house is scenery in lonely-room. The printed name of the one-house is "open house". Understand "open" or "opening" or "one house" or "house" or "entrance" or "opening" or "openings" as the one-house. The description of the one-house is "One house among all the others is open, to the [boldeast][if lonely-house is visited]. It is, as you saw, empty[otherwise]. Some light is visible inside, and you can see some movement[end if]. "
 
 Instead of entering the one-house:
 	try going east;
@@ -10780,7 +10934,7 @@ Section 2 - Lonely house
 
 Lonescroll-region is a region. Lonescroll-region is in spell-region.
 
-The lonely-house is east from lonely-room. The lonely-house is in lonescroll-region.The printed name of the lonely-house is "Stone House". "[one of]You knock as you enter, not wishing to disturb the inhabitants. But soon you see that there is no point.
+The lonely-house is east from lonely-room. The lonely-house is inside from lonely-room. The lonely-house is in lonescroll-region.The printed name of the lonely-house is "Stone House". "[one of]You knock as you enter, not wishing to disturb the inhabitants. But soon you see that there is no point.
 
 The light and movement in the house comes from a glowing lantern hanging on a hook, swinging in a draft coming from the outside. The light is flickering and, as you enter, slowly winks out.[or]This house seems almost entirely unlived-in. It is a single room with a stone-cut slab of a table in the middle and two stone benches on either side. A hook above the table holds a dead lantern. There's no sign of any area for food preparation, sleep, or clothing. If not for the lantern, there'd be no reason to expect that anyone had ever been in this house.[stopping]
 
@@ -10880,7 +11034,7 @@ Instead of searching the stone-clothes:
 
 The north-northwall is scenery in north-lonely. Understand "wall" as the north-northwall. The printed name of the north-northwall is "wall". The description of the north-northwall is "The wall here has a tight-looking crack, leading to the [boldnorth]."
 
-The distant-street is indistinct scenery in north-lonely. Understand "main" or "street" as the distant-street. THe printed name of the distant-street is "main street". The description of the distant-street is "You can barely make out the street you woke up in from here."
+The distant-street is indistinct scenery in north-lonely. Understand "main" or "street" as the distant-street. The printed name of the distant-street is "main street". The description of the distant-street is "You can barely make out the street you woke up in from here."
 
 Section 5 - Hidden life spell
 
@@ -10969,16 +11123,13 @@ Carry out upgiving:
 	now the player is in end-room;
 	say "At least you can breathe again."
 
-
 Rubbery-player is a truth state that varies. Rubbery-player is false.
 
 Before going when the player is in buried-room:
 	if rubbery-player is not true:
 		say "[one of]Uh oh.
 
-You're stuck.
-
-Panic wells up inside of you[or][trapped-text][stopping].";
+You're stuck[or][trapped-text][stopping].";
 		if hyblyg-scroll is not oncetaken:
 			now the hyblyg-scroll is in buried-room instead;
 		otherwise:
@@ -11052,6 +11203,8 @@ Rubberytime ends abruptly when the player is not in spell-region.
 
 Rubberytime ends normally when the time since rubberytime began is 3 minutes.
 
+Rubberytime ends forgetfully when anghofiotime begins.
+
 When rubberytime ends normally:
 	say "You can feel your body's elasticity returning to normal, pulling all your bones and organs back to their right places. Well, mostly. You still feel a bit off[if the player is in buried-room].
 
@@ -11101,7 +11254,7 @@ The huge beast bounds back and forth across the room, coming sickeningly close t
 He slowly oozes over to one side, his smile never changing. It's even more clear now that his eyes and hair are just painted on. After flopping for a second, the rock he is sitting on rumbles, and he slowly reshapes into his original form.
 
 'Doing anything fun for the weekend?' he says, staring straight forward and rocking. 'Me and the boys were going to watch the game.' His mouth doesn't match up with the words until near the end.";
-	otherwise if the noun is the eye-monitors or the noun is the eye-eyes:
+	otherwise if the noun is the eye-monitors[ or the noun is the eye-eyes]:
 		say "You say the word, 'Hyblyg', and some of [the noun] drip down like wax. The fallen are absorbed into the wall, and new [noun] pop up in their place.";
 	otherwise if the noun is the desolation-deer or the noun is the malformed-growths or the noun is the flesh-beasts:
 		say "You say the word, 'Hyblyg' and point at one of [the noun]; it screeches and splutters and simply melts away entirely into the floor.";
@@ -11109,6 +11262,10 @@ He slowly oozes over to one side, his smile never changing. It's even more clear
 		say "You say the word, 'Hyblyg', and point at the insects. You can only assume a few of them became rubbery, but they are swarming so thickly over each other that you could never tell.";
 	otherwise if the noun is the webmaster or the noun is the web-spinners:
 		say "You say the word, 'Hyblyg' and point at [the noun], but [the webmaster] whispers something inaudible before you can finish. Sparks fly from both of your mouths, but they collide in midair. Nothing else happens.";
+	otherwise if the noun is the spiral-spector:
+		say "You point at [the spiral-spector] and say, 'Hyblyg!'
+
+But nothing happens, because [the spiral-spector] isn't really there.";
 	otherwise:
 		say "You say the word, 'Hyblyg', and point at [the noun], but nothing happens.";
 
@@ -11212,10 +11369,11 @@ Carry out deffroing:
 
 The body opens its eyes, staring up at the ceiling, and screams. Then the magic falters and fades, the body turning back into petrified stillness. It doesn't seem to work right on these corpses.";
 	otherwise if the noun is the eye-monitors:
-		say "All of the cameras jerk and begin to swivel towards you. The monitors blink on, two or three at a time, all showing a feed of you.
-
-You catch a motion by your feet and jump back, startled. An eye has opened in the floor, red and blood shot, about the size of an apple, staring at you. More eyes pop open, on the ceiling and walls, all of them watching everything you do.";
-		now the eye-eyes are awakened;
+		say "The cameras blink on, jerk around a bit, and begin to swivel towards you. The monitors blink on, two or three at a time, all showing a feed of you.";
+[		now the eye-eyes are awakened;]
+		now the noun is awakened;
+	otherwise if the noun is the eye-camera:
+		say "The camera jerks up and pans back and forth before settling on looking at the black column.";
 		now the noun is awakened;
 	otherwise:
 		say "You say the word, 'Deffro', pointing at [the noun], but nothing happens."
@@ -11256,7 +11414,7 @@ Instead of inserting something into the vast-crevice:
 Instead of searching the vast-crevice:
 	say "All you see is a tiny crevice."
 
-The slaughter-stains are plural-named scenery in vast-room. The printed name of the slaughter-stains is "stains". Understand "slaughter" or "stain" or "stains" as the slaughter-stains. The description of the slaughter-stains is "The stains and scratches on the edge of the cliff look like the results of some great battle, but they end at the edge of the cliff."
+The slaughter-stains are plural-named scenery. The printed name of the slaughter-stains is "stains". Understand "slaughter" or "stain" or "stains" as the slaughter-stains. The description of the slaughter-stains is "The stains and scratches on the edge of the cliff look like the results of some great battle, but they end at the edge of the cliff."
 
 The vast-cliff is scenery in vast-room. The printed name of the vast-cliff is "cliff". Understand "little" or "arc" or "cliff" or "edge" or "ledge" or "rocks" or "below" as the vast-cliff. The description of the vast-cliff is "There is just a little ledge in a broad arc around the room, never wider than a foot or two, with the wall on one side and the cliff on the other. there's nothing to hold on to, and just looking down makes you dizzy.
 
@@ -11277,7 +11435,7 @@ The rickety-ladder is a scenery staircase. Rickety-ladder is down from vast-room
 
 The underground-lake is distant scenery in vast-room. The printed name of the underground-lake is "dark lake". Understand "darkness" or "pure" or "water" or "bubble" or "bubbles" or "lake" as the underground-lake. The description of the underground-lake is "This lake is unfathomable in a literal sense. The darkness of the water and the distance makes it hard to tell if it is a shallow lake gently lapping the cliff or an immense ocean tossed by violent waves."
 
-The distant-gleam is a distant backdrop in vast-room. The printed name of the distant-gleam is "distant gleam". Understand "gleam" or "distant" or "light" as the distant-gleam.
+The distant-gleam is a distant backdrop in vast-room. The printed name of the distant-gleam is "distant gleam". Understand "gleam" or "distant" or "light" or "gold" or "of gold" as the distant-gleam.
 
 The description of the distant-gleam is "Far, far across the lake, you can see a distant gleam of light. But this far away, it could be anything.".
 
@@ -11297,7 +11455,7 @@ A vortex catches you and pulls you down to the lake below, down, down. ";
 
 Now the water is churning. Heavy towers, black as night, push out of the water, like a sunken city rising up to the surface. Rings and rings of ebony spires circle around a maelstrom that has appeared.
 
-[one of]No, not a maelstrom. A [or]It is the [stopping]mouth, a hideous mouth for some being that is wider than creation itself. After what feels like minutes, you pass into the ring, and are engulfed. ";
+[one of]No, not a maelstrom. A [or]It is the [stopping]mouth, a hideous mouth for some being that is wide as the horizon itself. After what feels like minutes, you pass into the ring, and are engulfed. ";
 			if rotting-player is true:
 				say "
 
@@ -11324,6 +11482,12 @@ Instead of jumping when the player is in vast-room:
 
 The life-text of vast-room is "[paragraph break][italic type]Pit Feeder[roman type] [line break]Quantity: 1[line break]Mass: ERROR--OUT OF BOUNDS"
 
+Instead of going nowhere from vast-room:
+	if the noun is northeast or the noun is northwest or the noun is south:
+		say "The ledge you are on doesn't lead in that direction.";
+	otherwise if the noun is not north:
+		say "You are hemmed in by the cavern itself and can't go that way."
+
 Section 3 - The ladder
 
 Before going down from vast-room:
@@ -11333,7 +11497,7 @@ Before going down from vast-room:
 [Sand-Dying]";
 		now the player is in the end-room instead;
 
-The vast-ladder is a room in spell-region. THe printed name of the vast-ladder is "Rickety Ladder".
+The vast-ladder is a room in spell-region. The printed name of the vast-ladder is "Rickety Ladder".
 
 "You are far below the top of the cliff, but the ladder goes on much longer than seemed possible from above. Your arms ache from the effort of all your climbing.
 
@@ -11350,13 +11514,11 @@ Instead of touching the whistling-wind:
 Instead of doing anything other than listening to or touching to the whistling-wind:
 	say "The wind eludes your attempts to manipulate it.";
 
-Instead of going nowhere from vast-room:
+Instead of going nowhere from vast-ladder:
 	if the noun is down:
 		say "What's the point? The water is hardly closer than when you began. You thought it was just a hundred meters or so at first, but you're beginning to suspect it might be a kilometer or more below you.";
-	otherwise if the noun is northeast or the noun is northwest or the noun is south:
-		say "The ledge you are on doesn't lead in that direction.";
-	otherwise if the noun is not north:
-		say "You are hemmed in by the cavern itself and can't go that way."
+	otherwise:
+		say "The ladder doesn't extend in that direction."
 
 [FIX THIS LATER add a spell scroll that does something here]
 
@@ -11368,7 +11530,10 @@ Air-region is a region. Air-region is in spell-region.
 
 A vast-air is a kind of room with printed name "Above the Endless Deep" and description "[if flying-player is false]You are plummeting through the air, tossed up and down by shrieking winds and drafts[otherwise]You are flying over a endless dark lake which lies far, far below you. The shore is no longer in sight, and it's impossible to know how far you've gone or if you've even made any progress at all.
 
-To the [boldnorth], you still see a glint of gold. The shore is to the [boldsouth], you think[end if]."
+[gleamtext][end if]."
+
+To say gleamtext:
+	say "[if the brilliant-scroll is not handled]To the [boldnorth], you still see a glint of gold[otherwise]The [boldnorth] is dark, now. The shore is to the [boldsouth], you think[end if]"
 
 Falling-scene is a recurring scene. Falling-scene begins when the player is in flying trouble. Falling-scene ends normally when flying-player is true. Falling-scene ends abruptly when the player is not in air-region.
 
@@ -11481,7 +11646,7 @@ The stalactite-crack is scenery in air-scroll. The stalactite-crack is an unopen
 Instead of inserting something into the stalactite-crack:
 	say "It's too difficult to wedge anything in there!"
 
-The brilliant-scroll is a spell-scroll in stalactite-crack. THe printed name of the brilliant-scroll is "brilliant scroll". Understand "brilliant" or "denu" as the brilliant-scroll. The associated-spell of brilliant-scroll is Denu.
+The brilliant-scroll is a spell-scroll in stalactite-crack. The printed name of the brilliant-scroll is "brilliant scroll". Understand "brilliant" or "denu" as the brilliant-scroll. The associated-spell of brilliant-scroll is Denu.
 
 AFter taking unoncetaken brilliant-scroll during falling-scene:
 	say "You barely manage to fish out the brilliant scroll.";
@@ -11513,7 +11678,7 @@ Carry out denuing:
 
 You immediately feel a tension between you and the door. An irresistible force builds, but something seems to be holding you in place.
 
-It almost feels like your bones are going to shatter when, instead, the portcullis explodes into hundreds of metal shards. The tension goes out of your body, but that is soon replaced by agony as the cloud of deadly needles riddle your body.
+It almost feels like your bones are going to shatter when, instead, the portcullis explodes into hundreds of metal shards. which riddle your body.
 
 [sand-dying]";
 		now the heavy-portcullis is open;
@@ -11619,7 +11784,7 @@ Section 2 - The room itself
 
 Desolation-attempt is a number that varies. Desolation-attempt is 0.
 
-The eye-room is west from vast-room. The eye-room is a room in spell-region. The printed name of the eye-room is "Monitor Room". "This room is a dead end, an isolated and irregularly-shaped chamber. Over every available surface are acollection of monitors and cameras of every kind: analog, digital, CRT, flatscreen, holographic, flash bulb and some you've never even conceived of.
+The eye-room is west from vast-room. The eye-room is a room in spell-region. The printed name of the eye-room is "Monitor Room". "This room is a dead end, an isolated and irregularly-shaped chamber. Over every available surface are a collection of monitors and cameras of every kind: analog, digital, CRT, flatscreen, holographic, flash bulb and some you've never even conceived of.
 
 [if the eye-monitors are unawakened]All of the cameras and monitors seem completely inert[otherwise]Every camera in the room is trained on you. The majority of monitors are displaying video of you[end if]. One large monitor labelled SECURITY [monitortext].
 
@@ -11627,38 +11792,38 @@ The underground lake is to the [boldeast]. [if the heavy-portcullis is unripped]
 
 [add in a way to access the room to the west].
 
-The eye-monitors are scenery in eye-room. The description of the eye-monitors is "Monitors and cameras grow like mushroom from the rocks themselves. A huge variety of devices are represented here spanning every type of monitoring equipment you know and some you don't.
+The eye-monitors are unawakened scenery in eye-room. The description of the eye-monitors is "Monitors and cameras grow like mushroom from the rocks themselves. A huge variety of devices are represented here spanning every type of monitoring equipment you know and some you don't.
 
 [if the eye-monitors are unawakened]With no noticeable sources of power, all of the devices are inert and inactive. It's a little disheartening[otherwise]The cameras are all focused on your every move, panning left and right and zooming in, with occasional flashes going off.
 
 The monitors all show various videos of you, including one of you [eyeballtime][end if].
 
-The biggest monitor, labelled SECURITY, [monitortext]." Understand "monitors"  or "analog" or " digital" or "mushrooms" or "Mushroom" or "CRT" or "flatscreen" or "holographic" or "flash bulb" or "video" or "bulb" or "flash" or "camera" or "cameras" as the eye-monitors.
+The biggest monitor, labelled SECURITY, [monitortext]." Understand "monitors"  or "analog" or " digital" or "devices" or "device" or "mushrooms" or "Mushroom" or "CRT" or "flatscreen" or "holographic" or "flash bulb" or "video" or "bulb" or "monitors" or "flash" or "camera" or "cameras" as the eye-monitors. The printed name of the eye-monitors is "various devices".
 
 To say eyeballtime:
 	sort EyeballList in random order;
 	say "On the cameras, you see [entry 1 of EyeballList]";
 
-The eye-eyes are plural-named scenery in eye-room. Understand "eyes" or "eyeballs" or "ball" or "balls" or "red" or "blood" or "shot" or "blood-shot" or "bloodshot" or "eye" or "cat" or "slitted" or "compound" or "insect" or "human" or "human-looking" or "looking" as the eye-eyes when the eye-monitors are awakened. The description of the eye-eyes is "Eyeballs of all kinds have opened up among the cameras and monitors. Large compound insect eyes are next to slitted cat eyes and quite a few human-looking ones."
-
+[The eye-eyes are plural-named scenery in eye-room. Understand "eyes" or "eyeballs" or "ball" or "balls" or "red" or "blood" or "shot" or "blood-shot" or "bloodshot" or "eye" or "cat" or "slitted" or "compound" or "insect" or "human" or "human-looking" or "looking" as the eye-eyes when the eye-monitors are awakened. The description of the eye-eyes is "Eyeballs of all kinds have opened up among the cameras and monitors. Large compound insect eyes are next to slitted cat eyes and quite a few human-looking ones."
+]
 Instead of switching on the eye-monitors:
 	say "There are no visible switches, or power sources of any kind."
 
 Instead of switching off the eye-monitors:
 	say "There are no visible switches, or power sources of any kind."
 
-Instead of touching the eye-eyes:
+[Instead of touching the eye-eyes:
 	say "[one of]You poke some of the eyeballs. They flinch away in pain.[or]You're not the kind of person to torment the eyeballs.[stopping]"
 
 Before doing anything other than touching or examining to the eye-eyes:
 	if the current action is not spellcasting:
-		say "They eyes are frankly disgusting. The less you look at or deal with them, the better." instead;
+		say "They eyes are frankly disgusting. The less you look at or deal with them, the better." instead;]
 
 [add cameras separately, and floor and walls for all rooms]
 
 [can see wrapped up teddy bear in web room]
 
-The desolation-screen is scenery in eye-room. The printed name of the desolation-screen is "security monitor". Understand "large" or "security" or "monitor" or "conspicuous" or "security" or "label" or "labelled" or "static" as the desolation-screen. The description of the desolation-screen is "This monitor is more conspicuous than the others. It says SECURITY. [monitorloop]." Understand "monitors" as the plural of desolation-screen.
+The desolation-screen is scenery in eye-room. The printed name of the desolation-screen is "security monitor". Understand "large" or "security" or "monitor" or "conspicuous" or "security" or "label" or "labelled" or "static" as the desolation-screen. The description of the desolation-screen is "This monitor juts out in front of all the others. It says SECURITY. [monitorloop]."
 
 Instead of switching on the desolation-screen:
 	say "There's no power source, button, or switch for the security monitor."
@@ -11668,7 +11833,7 @@ To say monitortext:
 		say "is more conspicuous than the others";
 	otherwise if the eye-camera is unawakened:
 		say "is showing only static";
-	otherwise if desolation-attempt is 0 or desolation-attempt is 4:
+	otherwise if desolation-attempt is 0:
 		say "is showing only static";
 	otherwise:
 		say "is showing a looping video of you in a room filled with fire"
@@ -11689,6 +11854,10 @@ To say monitorloop:
 
 [one of]It shows you floating  in front of a black pillar. Though there is no sound, it looks like you say a word, and the pillar crackles to life with golden sparks[or]The pillar rises from the ground, and all of the fire in the room dims. The deer-like creatures all turn to stare at you[or]The pillar continues to rise, revealing a hollow portion that has some kind of pump attached to a section of pipe. An enormous gout of slime knocks burst from the pump, but you dodge it midair. There seems to be a creature stuck inside of the pipe[or]You settle back down to the ground from your flight spell wearing off. You seem to notice something inside the pipe in the pillar, behind the creature, although the camera doesn't record what it is. You reach to grab it, ignoring the creature's weak tentacles[or]The creature's tentacles grab the spellbook out of your hand and beat you with it over and over until you slump to the ground. The creature drops the spellbook, and the pillar sinks down into the ground[cycling]";
 	otherwise if desolation-attempt is 3:
+		say "It is currently playing a video of you from earlier:
+
+[one of]It shows you floating  in front of a black pillar. Though there is no sound, it looks like you say a word, and the pillar crackles to life with golden sparks[or]The pillar rises from the ground, and all of the fire in the room dims. The deer-like creatures all turn to stare at you[or]The pillar continues to rise, revealing a hollow portion that has some kind of pump attached to a section of pipe. An enormous gout of slime knocks burst from the pump, but you dodge it midair. There seems to be a creature stuck inside of the pipe[or]You settle back down to the ground from your flight spell wearing off. You seem to notice something inside the pipe in the pillar, behind the creature, although the camera doesn't record what it is. You reach for it, but your arm doesn't seem to be long enough. You look around for something, but don't seem to find whatever it is you're looking for, so you shove your arm back in. The creature slaps at you ineffectually[or]The pillar sinks back down, and you slam your fist on it in frustration[cycling]";
+	otherwise if desolation-attempt is 4:
 		say "It is currently playing a video of you from earlier:
 
 [one of]It shows you floating  in front of a black pillar. Though there is no sound, it looks like you say a word, and the pillar crackles to life with golden sparks[or]The pillar rises from the ground, and all of the fire in the room dims. The deer-like creatures all turn to stare at you[or]The pillar continues to rise, revealing a hollow portion that has some kind of pump attached to a section of pipe. An enormous gout of slime knocks burst from the pump, but you dodge it midair. There seems to be a creature stuck inside of the pipe[or]You settle back down to the ground from your flight spell wearing off. You seem to notice something inside the pipe in the pillar, behind the creature, although the camera doesn't record what it is. You reach for it, but your arm doesn't seem to be long enough. You look around for something, but don't seem to find whatever it is you're looking for, so you shove your arm back in. The creature slaps at you ineffectually[or]The creature's tentacles continue to writhe at you but finding no way to stop you. You seem to have an idea--the bookmark! You reach the bookmark in and use it as a hook to pull down the scroll. 
@@ -11740,7 +11909,7 @@ He says, 'My back is aching terribly. Could you push it for me? Terrible back pa
 
 Section 2 - The strange man
 
-The strange-man is a man in stranger-room. The strange-man is not proper-named. The printed name of the strange-man is "old man". Understand "old" or "man" or "hair" or "strand" or "strands" or "mouth" or " skin" or "eye" or "arm" or "arms" or "eyes" or "white" or "beard" as the strange-man. The description of the strange-man is "[one of]The more you look at [the strange-man], the more you realize that h[or]H[stopping]e isn't really...human. He isn't breathing. There is a lack of detail in its hair; there aren't actually individual strands. HIis eyes don't move, and seem fused to the skin around them[if hedfan-scroll is not handled].
+The strange-man is a man in stranger-room. The strange-man is not proper-named. The printed name of the strange-man is "old man". Understand "old" or "man" or "hair" or "strand" or "strands" or "mouth" or " skin" or "eye" or "arm" or "arms" or "eyes" or "white" or "beard" as the strange-man. The description of the strange-man is "[one of]The more you look at [the strange-man], the more you realize that h[or]H[stopping]e isn't really...human. He isn't breathing. There is a lack of detail in its hair; there aren't actually individual strands. His eyes don't move, and seem fused to the skin around them[if hedfan-scroll is not handled].
 
 He is holding a light golden scroll[end if][delivernature]."
 
@@ -11822,6 +11991,10 @@ Section 3 - The hedfan spell
 
 The hedfan-scroll is a spell-scroll. The hedfan-scroll is held by the strange-man. The printed name of the hedfan-scroll is "light scroll".  Understand "light" or "hedfan" as hedfan-scroll. The associated-spell of hedfan-scroll is Hedfan.
 
+Before taking the hedfan-scroll when the hedfan-scroll is held by the strange-man:
+	if gripped-scene is not happening:
+		say "The old man shifts in a boneless way to face you, but holds the scroll at arms reach away from you." instead;
+
 [FIX THIS LATER ADD ROCKS BY THE FACE]
 
 Hedfan is a magic-spell. The spell-preview of Hedfan is "Allow the caster to fly"
@@ -11846,7 +12019,7 @@ Report hedfaning:
 
 You feel a horrible feeling inside, like you're wilting and having to vomit all at once. You cough, and a black cloud flows out and disperses into the air. Simultaneously, you feel much lighter, and much more frail. [if the player is in vast-ladder].
 
-[flyawaytext][otherwise]You are flying[end if]."
+[flyawaytext][otherwise]You are flying! It feels...good[end if]."
 
 To say flyawaytext:
 	say "Unfortunately, the wind is now whipping your frail body around much more than before. It tears you away from the rock face before slamming you back into it like an egg cracking onto a pan.
@@ -11862,17 +12035,20 @@ Flyingtime is a recurring scene. Flyingtime begins when flying-player is true.
 
 Flyingtime ends abruptly when the player is not in spell-region.
 Flyingtime ends bizarrely when the player is in end-room.
+Flyingtime ends forgetfully when anghofiotime begins.
 
 Flyingtime ends normally when the time since flyingtime began is 4 minutes.
 
 When flyingtime ends normally:
 	say "The air around you condenses into a dark mist, which invades your mouth, eyes and ears. The gritty material pours into you, and you feel weight coming back into your body.
 
-[if the player is in a vast-air]You lose control, and begin plummeting. Winds buffet you in every direction. You are falling![otherwise if the player is in air-scroll]You start to fall, and desperately grab onto the crack, barely holding on by your fingertips[otherwise]You fall heavily onto the floor. You are no longer flying[end if].";
+[if the player is in a vast-air]You lose control, and begin plummeting. Winds buffet you in every direction. You are falling![otherwise if the player is in air-scroll]You start to fall, and desperately grab onto the crack, barely holding on by your fingertips.[otherwise]You fall heavily onto the floor. You are no longer flying.[end if]";
 	now flying-player is false;
 	
 When flyingtime ends:
 	now flying-player is false;
+	
+Flyingtime ends forgetfully when anghofiotime ends.
 
 Chapter 10 - Desolation
 
@@ -11890,13 +12066,34 @@ An endless parade of peaceful creatures from the [boldeast] are immolating thems
 
 A [if eye-camera is unawakened]single camera hangs limply from the ceiling, pointed nowhere in particular.[otherwise]single camera is pointed directly at the black column[end if].
 
-A black column with flowing golden script on it is in the middle of the room."
+A black column with flowing golden script on it is in the middle of the room. You can leave to the [boldnorth]."
 
 [in description: the creatures are deer-like, their flat, wet eyes reflecting the flames, all withered and small]
 
+The rift-fissures are plural-named scenery in desolation-room. The printed name of the rift-fissures is "flaming fissures". Understand "fire" or "flame" or "Flames" or "fissure" or "crack" or "jets" or "jet" or "cracks" or "cracked" or "fissures" or "Rift" or "rifts" as the rift-fissures. The description of the rift-fissures is "The fissures and cracks all over the room have jets of blue flame arising from them. Getting as close as you possibly can, you peek down the rift at an angle, but it's too hard to see what's down there. Maybe a liquid? Maybe not."
+
+REport examining cave-floor in desolation-room:
+	say "It is crossed with numerous fissures filled with flames."
+
+Instead of physicality when the noun is the rift-fissures:
+	say "You approach [the rift-fissures], but the heat is too strong.
+
+****************************************************************************[line break]There is only fire and the sound of rushing sand[line break]****************************************************************************";
+	now the player is in end-room;
+
 The life-text of desolation-room is "[paragraph break][italic type]Climbers[roman type][line break]Quantity: Variable[line break]Mass: variable"
 
-The desolation-deer are plural-named animals in desolation-room.
+The desolation-deer are plural-named scenery animals in desolation-room. The printed name of the desolation-deer is "creatures". Understand "malformed" or "wrong" or "missing" or "creature" or "creatures" or "beast" or "beasts" or "goat" or "goats" or "deer" or "deers" as the desolation-deer. 
+
+The description of the desolation-deer is "A line of creatures that look like malformed deer or goats stretches out to the the room to the [boldeast]. One by one, the creatures leap or crawl or struggle forward into the flame-filled fissures, where they melt down with a shriek. 
+
+Each is different from the others: shorter, or missing a limb, or having too many limbs."
+
+Instead of physicality when the noun is the desolation-deer:
+	say "You touch one creature, your fingers digging into the rubbery flesh. The deer creature shrieks and bounds away from you, incinerating itself in one of the fissures.";
+
+Instead of listening to the desolation-room:
+	say "The room is filled with hisses and shrieks."
 
 Section 2 - The cleaning column
 
@@ -11913,7 +12110,7 @@ The desolate-inscription is part of the desolate-column. The printed name of the
 Instead of goping the desolate-inscription:
 	say "You say Gopi and point at the inscription. Your spellbook flares, but this kind of spell doesn't seem to be copyable."
 
-Anghofioing is an action applying to nothing. Understand "anghofio" as anghofioing.
+Anghofioing is an action applying to nothing. Understand "anghofio" or "say anghofio" as anghofioing.
 
 Check anghofioing:
 	if the player is not in desolation-room:
@@ -11925,6 +12122,11 @@ Carry out anghofioing:
 	say "You say, 'Anghofio', and the whole world goes dark. 
 
 	****************************************************************************[line break]Five minutes later[line break]****************************************************************************[paragraph break]";
+	if player-burning is happening:
+		now the player is in end-room;
+		say "You wake up with a start, no longer burning. You don't remember anything from the last five minutes.";
+	otherwise if rottingtime is happening:
+		say "You wake up with a start, no longer diseased. You don't remember anything from the last five minutes.";
 	if flying-player is false:
 		say "You wake up gasping and spluttering on the floor, completely covered in viscous slime.
 
@@ -11961,6 +12163,16 @@ You have no idea what's happened in the last five minutes. But you feel a sense 
 			now desolation-attempt is 4;
 	if the eye-camera is unawakened:
 		now desolation-attempt is 0;
+	now anghofioflag is true;
+	
+Anghofioflag is a truth state that varies. Anghofioflag is false.
+
+anghofiotime is a recurring scene. anghofiotime begins when anghofioflag is true.
+
+Anghofiotime ends when the time since anghofiotime began is 1 minutes.
+
+When anghofiotime ends:
+	now anghofioflag is false.
 
 [turn off spell effects before this time. What about corruption? Healed by slime?]
 
@@ -11968,7 +12180,7 @@ You have no idea what's happened in the last five minutes. But you feel a sense 
 
 Slimy-scroll is a spell-scroll. The printed name of slimy-scroll is "slimy scroll". Understand "slimy" or "scroll" or "llosgi" as the slimy-scroll. The associated-spell of slimy-scroll is Llosgi.
 
-Llosgi is a magic-spell. The spell-preview of Llosgi is "Sets the caster on fire"
+Llosgi is a magic-spell. The spell-preview of Llosgi is "[if bookmarkon is false]Sets the caster on fire[otherwise]Douse the caster[end if]"
 
 Llosging is an action applying to nothing. Llosging is spellcasting. Understand "Llosgi" or "say llosgi" as llosging.
 
@@ -11976,6 +12188,8 @@ PlayerAflame is a truth state that varies. PlayerAflame is false.
 
 Check llosging:
 	if the spell-book is not held by the player:
+		say "You say the word, 'Llosgi', but nothing happens." instead;
+	otherwise if llosgi is not in spell-book:
 		say "You say the word, 'Llosgi', but nothing happens." instead;
 
 Carry out llosging:
@@ -12008,6 +12222,7 @@ Every turn during player-burning:
 		now the player is in end-room;
 
 Player-burning ends normally when the player is in end-room.
+Player-burning ends forgetfully when anghofiotime begins.
 Player-burning ends abruptly when the player is not in spell-region.
 Player-burning ends mercifully when playerAflame is false.
 
@@ -12018,12 +12233,25 @@ Section 3 - The eye camera
 
 [allow touching the camera if flying!]
 
-The eye-camera is distant scenery in desolation-room. The printed name of the eye-camera is "camera". The description of the eye-camera is "[if the eye-camera is unawakened]The camera hangs limply from the ceiling. It might be turned on, but it certainly doesn't look like it[otherwise]The camera is active, pointed directly at the black pillar, moving slightly every few seconds to get different angles on it[end if]."
+The eye-camera is unawakened distant scenery in desolation-room. The printed name of the eye-camera is "camera". The description of the eye-camera is "[if the eye-camera is unawakened]The camera hangs limply from the ceiling. It might be turned on, but it certainly doesn't look like it[otherwise]The camera is active, pointed directly at the black pillar, moving slightly every few seconds to get different angles on it[end if]." Understand "camera" or "lone" as the eye-camera.
 
 Chapter 11 - Spiral
 
 [this room is constantly morphing, changing in response to you and your thoughts]
 [it's picking up weird feedback between you and it. Maybe this is where you are close to your real body?]
+
+Before going nowhere from spiral-room:
+	unless spiral-level is 0:
+		say "You can't find any way out of here. How did you get here in the first place?" instead;
+	otherwise if the noun is outside:
+		try going southwest;
+		
+Instead of exiting when the player is in spiral-room:
+	try going outside instead;
+
+Before going from spiral-room:
+	unless spiral-level is 0:
+		say "You can't find any way out of here. How did you get here in the first place?" instead;
 
 Section 1 - Main room and setup
 
@@ -12047,7 +12275,7 @@ To say spiral-text:
 
 The life-text of spiral-room is "[paragraph break][italic type]SYSTEM ERROR[roman type][line break]Quantity: ERROR[line break]Mass: ERROR"
 
-The description of spiral-room is "[if spiral-level is 0]This room is almost perfectly hexagonal, and clean from much of the grit and dust found in the other rooms. The walls are smooth and glossy, rising up into a point at the top.
+The description of spiral-room is "[if spiral-level is 0]This room is almost perfectly hexagonal, and clean from much of the grit and dust found in the other rooms. The walls are smooth and glossy, rising up into a point at the top. You can leave to the [boldsouthwest].
 
 On the floor is traced [otherwise if spiral-level is 1]Your mother's kitchen is bright and sunny. The windows are open, and fresh air breezes in from outside. 
 
@@ -12055,7 +12283,7 @@ Your mother is pottering around, making lunch for you. The counters are clean, a
 
 On the rug is embroidered [otherwise if spiral-level is 2]Your middle school library is, refreshingly, filled with both paper and digital books. One of the benefits of private school.
 
-Out in the hallway, you can hear the bustle of students pushing and shoving on their way to class. But, as a library assistant, you get to spend your time taking care of the books and shelves.
+Out in the hallway, you can hear the bustle of students pushing and shoving on their way to class. But, as a library assistant, you get to spend your time taking care of the books and shelves. The librarian is quietly working away, happy to have you with her.
 
 Sometimes you just like walking on the tile floor, on which is drawn [otherwise]Impossibly, you are standing on the hull of the Starship Tragwyddol. You can see that the entire ship has been ruptured by a violent explosion. All around you is floating debris, but somehow you are still experiencing gravity.
 
@@ -12069,13 +12297,124 @@ The one odd thing that you can't really understand, though, is [if spiral-level 
 
 A thing can be spiralon or spiraloff. A thing is usually spiraloff.
 
-Section 2 - The main cave
+The spiral-labyrinth is scenery in spiral-room. The printed name of the spiral-laybyrinth is "labyrinth". 
+
+Understand "labyrinth" or "maze" or "floor" as the spiral-labyrinth. 
+
+Understand "tracing" as the spiral-labyrinth when spiral-level is 0. 
+
+Understand "rug" or "[spiral-spector]'s rug" as the spiral-labyrinth when spiral-level is 1.
+
+Understand "tile" or "tiles" as the spiral-labyrinth when spiral-level is 2.
+
+Understand "etching" or "hull" or "etched" as the spiral-labyrinth when spiral-level is 3.
+
+The description of the spiral-labyrinth is "[if spiral-level is 0]There is a labyrinth etched into the floor; not a maze per se, but the kind of design used for walking or meditation, to clear the mind[otherwise if spiral-level is 1]Mother's rug has a labyrinth pattern on it; you loved to follow it when you were little, although now you're a little too big for it[otherwise if spiral-level is 2]The library tiles are arranged into a laybrinth, a tool borrowed from older, meditative practices.[otherwise]The hull of the [italic type]Tragwyddol[roman type] has an intricate labyrinth etched onto it.[end if]".
+
+Report examining the player in spiral-room when spiral-level is not 0:
+	say "Despite your surroundings, you look the same as ever.";
+
+Understand "walk [spiral-labyrinth]" or "follow [spiral-labyrinth]" as entering.
+
+Instead of entering the spiral-labyrinth:
+	say "You step onto the labyrinth to follow it, but find yourself stepping off it again almost immediately."
+	
+Instead of putting something on the spiral-labyrinth:
+	try dropping the noun;
+
+The spiral-walls are plural-named scenery in spiral-room. The printed name of the spiral-walls is "[if spiral-level is 0]smooth walls[otherwise if spiral-level is 1]windows[otherwise if spiral-level is 2]bookshelves[otherwise]walls[end if]". 
+
+Understand "walls" or "wall" as the spiral-walls. 
+
+Understand "smooth" or "point" or "glossy" or "hexagonal" or "cavern" or "hexagon" or "glass" or "obsidian" as spiral-walls when spiral-level is 0. 
+
+Understand "window" or "windows" or "muted" or "martian" or "sky" or "evening" as the spiral-walls when spiral-level is 1.
+
+Understand "shelf" or "shelves" or "bookshelf" or "bookshelves" or "book" or "books" or "digital" or "paper" or "e-book" or "e-books" as the spiral-walls when spiral-level is 2.
+
+Understand "debris" or "floating" or "junk" or "bits" or "fragments" or "starship" as the spiral-walls when spiral-level is 3.
+
+Instead of touching or rubbing the spiral-walls:
+	if spiral-level is 0:
+		say "The walls are smooth and glossy. It feels almost pleasant, running your fingers along them.";
+	otherwise if spiral-level is 1:
+		say "The windows are open right now, so you don't feel anything.";
+	otherwise if spiral-level is 2:
+		say "You run your hands over the shelves and books, with fondness.";
+	otherwise:
+		say "The debris is too far away for you to reach.";
+		
+To decide whether vacuum exists:
+	unless the player is in spiral-room, decide no;
+	unless spiral-level is 3, decide no;
+	decide yes;
+
+Instead of jumping when vacuum exists:
+	say "You jump a bit. There's still gravity, despite appearances."
+	
+Breathing is an action applying to nothing. 
+
+Understand "breathe" as breathing. Breathing is freeacting.
+
+Carry out breathing:
+	do nothing;
+	
+Report breathing:
+	say "[We] [are] breathing just fine[if vacuum exists], despite appearances[end if]."
+
+Instead of closing or opening the spiral-walls when spiral-level is 1:
+	say "'Emmy, dear, don't play with the windows while mom's cooking,' says your mother.";
+
+Instead of searching the spiral-walls when spiral-level is 1:
+	say "Outside is the muted sky of a Martian evening."
+
+Instead of searching the spiral-walls when spiral-level is 2:
+	say "You pick through the books a bit, looking over some old favorites, but all the pages are blank. You put them back."
+
+Instead of searching the spiral-walls when spiral-level is 3:
+	say "There's nothing you recognize in the junk. It's all meaningless."
+
+The description of the spiral-walls is "[if spiral-level is 0]The walls of this room are more or less hexagonal, and raise to a point. They are smooth and glassy, almost like glass, or obsidian.[otherwise if spiral-level is 1]The windows are open, letting in the light and breeze of a Martian evening.[otherwise if spiral-level is 2]Your school's library is well-stocked with books. Paper books stand side by side with digital.[otherwise]What must be fragments of the starship float all around you, all sense of what they once might have been now destroyed.[end if]"
+
+The martian-breeze is scenery in spiral-room. The printed name of the martian-breeze is "[if spiral-level is 1]breeze[otherwise]draft[end if]". Understand "breeze" as martian-breeze when spiral-level is 1. Understand "draft" or "draught" as martian-breeze. 
+
+Instead of doing anything with the martian-breeze:
+	if spiral-level is 1:
+		say "The breeze feels cool on your skin, but you can't do anything with it.";
+	otherwise:
+		say "The draft feels cool on your skin, but you can't do anything with it."; 
+
+Does the player mean doing something with the martian-breeze:
+	it is unlikely;
+
+Section 2 - The spiral-spector
+
+A spiral-spector is a scenery woman. The printed name of the spiral-spector is "[if spiral-level is 1]mother[otherwise if spiral-level is 2]school librarian[otherwise]corpse[end if]". The indefinite article of spiral-spector is "your".
+
+Understand "woman" as the spiral-spector.
+
+Understand "mother" or "mum" or "mom" or "mommy" or "tall" or "tough" as the spiral-spector when spiral-level is 1. 
+
+Understand "librarian" or "school librarian" or "school" or "short" or "warm" or "smile" as the spiral-spector when spiral-level is 2.
+
+Understand "suit" or "space" or "corpse" or "yourself" as the spiral-spector when spiral-level is 3. 
+
+The description of spiral-spector is "[if spiral-level is 1]Your mother is tall and tough, a legacy of her time helping her parents in the asteroid mines. Her frowning demeanour can put off other people, but she always has a smile for you.[otherwise if spiral-level is 2]The school librarian is a short woman, only a little bit taller than you were when you were in school. She always had a warm smile when she saw you.[otherwise]Your own corpse is floating in front you, wearing a space suit but helmetless. She waves a little when she notices you watching[end if]."
+
+Instead of doing something other than examining to spiral-spector:
+	if spiral-level is 1:
+		say "[one of]'One minute,' your mom says. 'I need to finish this first.'[or]'That's nice, dear,' says your mom.[or]'I'm a little busy, love,' says your mom.[cycling]";
+	otherwise if spiral-level is 2:
+		say "'Shhh,' says the librarian, holding a finger up to her mouth.";
+	otherwise:
+		say "Your corpse is too far away. 'Sorry about that,' she says.";
+
+
+Section 3 - The main cave
 
 The spiral-lamp is scenery in spiral-room. The spiral-lamp is spiralon. Understand "lamp" as the spiral-lamp.
 
 [FIX THIS LATER When player-isolated is true, get rid of everything else!]
-
-The spiral-spector is a woman.
 
 Instead of doing something to the spiral-lamp:
 	if the spiral-lamp is spiraloff:
@@ -12087,30 +12426,9 @@ Instead of doing something to the spiral-lamp:
 		now the spiral-locker is spiralon;
 		now the spiral-locker is in spiral-room;
 		now the spiral-spector is in spiral-room;
-		
-The spiral-labyrinth is scenery in spiral-room. The printed name of the spiral-laybyrinth is "labyrinth". Understand "labyrinth" or "maze" or "floor" as the spiral-labyrinth. Understand "tracing" as the spiral-labyrinth when spiral-level is 0.
+		now spiral-counters are in spiral-room;
 
-The description of the spiral-labyrinth is "[if spiral-level is 0]There is a labyrinth etched into the floor; not a maze per se, but the kind of design used for walking or meditation, to clear the mind[otherwise]FIX THIS LATER[end if]".
-
-Understand "walk [spiral-labyrinth]" or "follow [spiral-labyrinth]" as entering.
-
-Instead of entering the spiral-labyrinth:
-	say "You step onto the labyrinth to follow it, but find yourself stepping off it again almost immediately."
-	
-Instead of putting something on the spiral-labyrinth:
-	try dropping the noun;
-
-The spiral-walls are plural-named scenery in spiral-room. The printed name of the spiral-walls is "[if spiral-level is 0]smooth walls[otherwise]walls[end if]". Understand "walls" or "wall" as the spiral-walls. Understand "smooth" or "point" or "glossy" or "hexagonal" or "cavern" or "hexagon" or "glass" or "obsidian" as spiral-walls when spiral-level is 0.
-
-Instead of touching or rubbing the spiral-walls:
-	if spiral-level is 0:
-		say "The walls are smooth and glossy. It feels almost pleasant, running your fingers along them.";
-	otherwise:
-		say "FIX THIS LATER"
-
-The description of the spiral-walls is "[if spiral-level is 0]The walls of this room are more or less hexagonal, and raise to a point. They are smooth and glassy, almost like glass, or obsidian.[otherwise]FIX THIS LATER.[end if]"
-
-Section 3 - Mother's kitchen
+Section 4 - Mother's kitchen
 
 The spiral-locker is scenery. The spiral-locker is spiraloff. Understand "locker" or "middle" or "school" as spiral-locker.
 
@@ -12124,8 +12442,12 @@ Instead of doing something with the spiral-locker:
 		now the spiral-helmet is spiralon;
 		now the spiral-helmet is in spiral-room;
 		now spiral-bookmark is in spiral-room;
+		now spiral-counters are nowhere;
+		now hallway-noises are in spiral-room;
 
-Section 4 - Middle school library	
+The spiral-counters are a plural-named scenery supporter. Understand "counter" or "counters" or "[spiral-spector]'s counters" as the spiral-counters. The printed name of spiral-counters is "counters". The description of the spiral-counters is "You spent so many years bustling around at the counter with your mom over the years: doing homework, playing games, cooking together, even arm wrestling a couple of times."
+
+Section 5 - Middle school library	
 
 [FIXTHIS LATER change going nowhere description in this room]
 The spiral-helmet is scenery in spiral-room. The spiral-helmet is spiraloff. Understand "helmet" or "cracked" or "spacesuit" or "space" or "suit" as spiral-helmet.
@@ -12139,22 +12461,33 @@ Instead of doing something with the spiral-helmet:
 		now the spiral-helmet is spiraloff;
 		now the spiral-stalag is spiralon;
 		now the spiral-stalag is in spiral-room;
+		now spiral-counters are nowhere;
 		if spiral-bookmark is not oncetaken:
 			now spiral-bookmark is nowhere;
 			
-THe spiral-bookmark is a thing. The printed name of the spiral-bookmark is "bookmark". Understand "book mark" or "Mark" or "bookmark" as the spiral-bookmark. The description of the spiral-bookmark is "FIX THIS LATER It's long and skinny and spirals at the end in a sort of hook.".
+The hallway-noises are scenery. Understand "hallway" or "Noise" or "noises" or "student" or "students" or "chat" or "chats" or "slamming" or "door" or "doors" or "shoes" as the hallway-noises.
+
+Instead of doing something other than listening to the hallway-noises:
+	say "You can't see the hallway or the students, which is odd, since the door ought to be around here somewhere. But you can hear them."
+	
+Instead of listening to the hallway-noises:
+	say "The noises are familiar, the sounds of chats and slamming doors and shoes."
+
+Section 6 - Spiral Bookmark
+
+The spiral-bookmark is a thing. The printed name of the spiral-bookmark is "bookmark". The initial appearance of the spiral-bookmark is "Seemingly forgotten, a bookmark lies on the floor." Understand "book mark" or "digital" or "mark" or "hook" or "spiral" or "bookmark" as the spiral-bookmark. The description of the spiral-bookmark is "This is a digital bookmark, meant for e-books. It's long and skinny, about a centimeter wide, but at one end it spirals into a sort of hook.".
 
 Bookmarkon is a truth state that varies. Bookmarkon is false.
 
 Instead of inserting the spiral-bookmark into the spell-book:
-	say "FIX THIS LATER You insert the bookmark into the spellbook, which changes color.";
+	say "You insert the bookmark into the spellbook. Some of the spells look different, now.";
 	now bookmarkon is true;
 	now spiral-bookmark is part of the spell-book;
 	
 [fix this later physicality with the bookmark]
 
 Instead of taking spiral-bookmark when spiral-bookmark is part of the spell-book:
-	say "FIX THIS LATER You pull out the bookmark.";
+	say "You pull out the bookmark. Some of the spells look different, now.";
 	now the spiral-bookmark is held by the player;
 	now bookmarkon is false;
 	
@@ -12162,7 +12495,7 @@ Instead of taking spiral-bookmark when spiral-bookmark is part of the spell-book
 [change description of bookmark and spellbook to indicate only top is sticking out].
 [to-do: make the weird spells that result from this]
 
-Section 5 - Void of space
+Section 7 - Void of space
 
 The spiral-stalag is scenery in spiral-room. The spiral-stalag is spiraloff. Understand "stalagmite" as spiral-stalag.
 
@@ -12188,9 +12521,9 @@ The description of the corruption-room is "[first time]This room seems blurry at
 
 You crouch down to see better, but once you see what it is, you scream and stumble back.
 
-[only]This room is carpeted with thousand or even millions of insects. Some fly back and forth in swarms, others burrow through a myriad of tiny tunnels throughout the room.
+[only]This room is carpeted with millions of insects. Some fly back and forth in swarms, others crawl, and still more burrow through a myriad of tiny tunnels throughout the room.
 
-They seem concentrated in the center, where a spongy monolith rises, around which the creatures swarm incessantly[if insectsbad is false].
+They seem concentrated in the center, where a spongy monolith rises, around which the creatures swarm incessantly[if something is in the spongy-monolith]. Inside it is [a list of things in spongy-monolith][end if][if insectsbad is false].
 
 The insects seem to have learned to leave you alone. For now[end if].
 
@@ -12198,11 +12531,19 @@ You can go [boldsouth] or [boldnorth] from here."
 
 [add a humming noise]
 
-The corrupt-insects are plural-named scenery animals in corruption-room.
+The corrupt-insects are plural-named scenery animals in corruption-room. The printed name of the corrupt-insects is "insects". Understand "insects" or "burrowing" or "flying" or "crawling" or "buzzing" or "parasites" or "roach" or "cockroach" or "roaches" or "cockroaches" or "fly" or "flies" as the corrupt-insects. The description of the corrupt-insects is "You keep seeing things you almost recognize--a cockroach, a fly--but the swarm moves so fast you can't be sure." 
 
 The life-text of corruption-room is "[paragraph break][italic type]Fleshrippers[roman type][line break]Quantity: [if insectsbad is true]188,791[otherwise]177,743[end if][line break]Mass: [if insectsbad is true]1156[otherwise]1101[end if] kg"
 
 InsectsBad is a truth state that varies. InsectsBad is true.
+
+Instead of doing anything other than examining or listening to the corrupt-insects:
+	say "You can't bring yourself to approach the insects[if playeraflame is true], even though you're wreathed in flame[end if]. It just makes you want to vomit."
+
+Instead of listening to something when the player is in corruption-room:
+	say "The buzzing of insects covers up all other sounds."
+
+Understand "vomit" as a mistake ("[We] [cannot] vomit on command, no matter how bad [we] [are] feeling."). 
 
 Every turn when the player is in corruption-room:
 	if insectsbad is true:
@@ -12224,9 +12565,19 @@ Section 2 - The pydru scroll
 
 [FIX THIS LATER Make the scroll be inside the hive, really gross. Maybe insects don't learn lesson unless you burn the hive by grabbing this?]
 
-The pydru-scroll is a spell-scroll in corruption-room. The printed name of the pydru-scroll is "dirty scroll".  Understand "dirty" or "pydru" as pydru-scroll. The associated-spell of pydru-scroll is Pydru.
+The spongy-monolith is an open unopenable transparent scenery container in corruption-room. The printed name of the spongy-monolith is "spongy monolith". Understand "spongy" or "rock" or "hive"or "monolith" as the spongy-monolith. The description of the spongy-monolith is "It's hard to tell if this spongy monolith is rock or hive, but it is covered in insects. It seems to be the center of activity."
+
+Instead of physicality when the noun is the spongy-monolith:
+	say "You can't bear to approach the spongy monolith. The buzzing and squirming is too revolting."
+
+The pydru-scroll is a spell-scroll in spongy-monolith. The printed name of the pydru-scroll is "dirty scroll".  Understand "dirty" or "pydru" as pydru-scroll. The associated-spell of pydru-scroll is Pydru.
 
 Pydru is a magic-spell. The spell-preview of Pydru is "Infect the caster's body with contagious disease"
+
+Before taking pydru-scroll:
+	if pydru-scroll is not handled:
+		if playeraflame is false:
+			say "You reach for the scroll..." instead;
 
 [fIX THIS LATER: GIVING OTHER THINGS THE DISEASE]
 
@@ -12246,14 +12597,27 @@ Carry out Pydruing:
 	now rotting-player is true;
 
 Report Pydruing:
-	say "You say the word, 'Pydru'.  FIX THIS LATER Heat races throughout your veins, and you feel yourself start to rot away from the inside. Hundreds of small holes and pustules appear on your skin, and something dark oozes out."
+	say "You say the word, 'Pydru'.  Heat races throughout your veins, and you feel yourself start to rot away from the inside. Hundreds of pustules appear on your skin, and something dark oozes out."
 
 [FIX THIS LATER ADD THE HOLES AND PUSTULES]
 
 rottingtime is a scene. rottingtime begins when rotting-player is true.
 
+Instead of examining the player during rottingtime:
+	say "Pustules are all over your skin, oozing a liquid."
+
+The pustule-ooze is a thing. The indefinite article of the pustule-ooze is "some". The printed name of the pustule-ooze is "ooze". Understand "pustule" or "pustules" or "ooze" or "dark" or "liquid" or "sores" or "sore" as the pustule-ooze.
+
+The description of the pustule-ooze is "The sores on your skin seem heavily infected."
+
+Instead of physicality when the noun is pustule-ooze:
+	say "The pustules pop and ooze more under your touch."
+
+When rottingtime begins:
+	now pustule-ooze is part of the player;
+
 Every turn during rottingtime:
-	say "FIX THIS LATER You feel more and more sick."
+	say "You can feel your body getting more and more sick."
 
 rottingtime ends abruptly when the player is not in spell-region.
 
@@ -12261,12 +12625,15 @@ rottingtime ends creepily when the player is in end-room.
 
 When rottingtime ends:
 	now rotting-player is false;
+	now pustule-ooze is nowhere;
 
 rottingtime ends normally when the time since rottingtime began is 3 minutes.
 
+rottingtime ends forgetfully when anghofiotime begins.
+
 When rottingtime ends normally:
 	if the player is not in end-room:
-		say "You can feel your body's elasticity returning to normal, pulling all your bones and organs back to their right places.
+		say "You succumb to the disease.
 
 	[Sand-Dying]";
 		now the player is in end-room;
@@ -12276,52 +12643,106 @@ Chapter 13 - Dark
 
 [dark room. strange lumpy thing in it that moves when you touch it, or maybe not]
 
-The dark-room is a room in spell-region. The dark-room is north from corruption-room.
+The dark-room is a dark room in spell-region. The dark-room is north from corruption-room.
 
 [every time you leave the dark room something is on you. Some creature keeps gently touching you and leaves slime]
 
-The printed name of the dark-room is "Dark Room". "Despite the faint gleam of light from the hallway that illuminates your own body, this room is completely dark. 
+The printed name of the dark-room is "Dark Room". 
+
+Rule for printing the description of a dark room when the player is in dark-room: 
+	say "Despite the faint gleam of light from the hallway, this room is completely dark. 
 
 It's like the walls absorb all light, making it imposible to see any features or shapes in the room, except for the exit to the [boldsouth].
 
-You can hear the sound water slowly sloshing in the room, and can smell a brackish smell like a marsh or a tide pond."
+You can hear the sound water slowly sloshing in the room, and can smell a brackish smell." instead.
+
+The dark-walls are scenery in dark-room. Understand "walls" or "wall" as the dark-walls. The printed name of the dark-walls is "walls". The description of the dark-walls is "The walls seem to absorb all light."
+
+After deciding the scope of the player while in darkness: 
+	if the location is dark-room:
+		place the location in scope;
+
+A reaching inside rule while listening or smelling: 
+	rule succeeds. 
+
+A thing can be audible or inaudible. A thing is usually audible.
+
+A thing can be smelly or not smelly. A thing is usually smelly.
+
+Instead of examining an audible thing while in darkness: try listening to the noun. Instead of examining a smelly thing while in darkness: try smelling the noun. 
+
+The faint-gleam is scenery in dark-room. Understand "faint" or "gleam" or "light" or "hallway" as the faint-gleam when in darkness. The printed name of the faint-gleam is "faint gleam". 
+
+Instead of examining the faint-gleam while in darkness:
+	say "The light from the hallway is just barely visible, but it doesn't reflect off of anything, and nothing else in the room is visible."
+
+Visibility rule when in darkness: 
+	if examining the faint-gleam, there is sufficient light; 
+	there is insufficient light. 
+
+[Visibility rule when in darkness: 
+	if thing-smelling, there is sufficient light; 
+	there is insufficient light. ]
+
+Visibility rule when in darkness: 
+	if examining the spell-book, there is sufficient light; 
+	there is insufficient light. 
+
+Before examining the spell-book while in darkness:
+	say "You can barely make out the text on the spellbook.[paragraph break][The description of the spell-book]" instead
 
 Section 1 - Stinky stuff
 
 [fix this later make sure that above we didn't add stuff we shouldn't be able to see as a backdrop here]
 
 Instead of smelling when the player is in dark-room:
-	say "FIX THIS LATER [one of]There is a distinct brackish odor in this room. It makes you a bit nauseous. With careful sniffing, you can tell that its coming from some odorous object. You can't see it, but you can guess where it is[or]You can still smell the brackish odor in this room, coming from the odorous object[stopping].";
-	now the odorous-object is in dark-room;
+	say "[if the odorous-object is examined]There is a distinct brackish odor in this room. It makes you a bit nauseous. With careful sniffing, you can tell that its coming from some odorous object. You can't see it, but you can guess where it is[otherwise]You can still smell the brackish odor in this room, coming from the odorous object; you have a pretty good idea of where it's located, but it sure reeks[end if].";
+	now the odorous-object is examined;
 
 [FIX THIS LATER Make brackish odor object]
 
-The odorous-object is scenery. The printed name of the odorous-object is "odorous object". Understand "odorous" or "big" or "soft" or "wet" or "object" as the odorous-object. The description of the odorous-object is "You can't see the object, you just know where it is".
+The odorous-object is scenery in dark-room. The printed name of the odorous-object is "odorous object". Understand "odorous" or "odor" or "smell" as the odorous-object. Understand  "big" or "soft" or "wet" or "object" as the odorous-object when the odorous-object is examined. The description of the odorous-object is "You can't see the object, you just know where it is".
+
+[Thing-smelling is an action applying to one visible thing. Understand "smell [something]" as thing-smelling.
+
+Carry out thing-smelling:
+	try smelling;
+
+Instead of thing-smelling the odorous-object:
+	say "You follow the odor with your nose. It has a definite source, some odorous object below you."]
+
+Definition: a thing is unexamined if it is not examined.
 
 Instead of physicality when the noun is the odorous-object:
-	say "As soon as you touch the odorous object, the room shudders, and you retract your hands. It's warm, soft, and wet, and touching it makes the smell get much worse. Whatever it is, its big, bigger than you are[if the odorous-object is not in dark-room]. 
+	if the odorous-object is unexamined:
+		say "You can't touch an odor!";
+	otherwise:
+		say "As soon as you touch the odorous object, the room shudders, and you retract your hands. It's warm, soft, and wet, and touching it makes the smell get much worse. Whatever it is, its big, bigger than you are[if the splashing-puddle is unexamined]. 
 
-The odorous object seems to be fairly solid. It can't be the source of the sloshing sound[otherwise].
+	The odorous object seems to be fairly solid. It can't be the source of the sloshing sound[otherwise].
 
-[heattime][end if]."
+	[heattime][end if]."
 
 Instead of listening to the dark-room:
-	say "[one of]You hear gentle water splashing. You can't see where it's coming from, but you can track it down by hearing. It sounds like there's a large puddle in here, and you can figure out where it is[or]You can still hear the splashing puddle, and know where it is[stopping].";
-	now the splashing-puddle is in the dark-room;
+	say "[if the splashing-puddle is unexamined]You hear gentle water splashing. You can't see where it's coming from, but you can track it down by hearing. It sounds like there's a large puddle in here, and you can figure out where it is[otherwise]You can still hear the splashing puddle, and know where it is[end if].";
+	now the splashing-puddle is examined;
 	
 [fix this later: add scenes with a stinky or wet hand and have the smell or water decrease over time, and disappear when llosging. change smell when corrupt, too.]
 [fix this later add splashing as an intangible background thing, or sloshing sound]
 
 [fix this later-instead of swimming or drinking the puddle]
 
-The splashing-puddle is scenery. The printed name of the splashing-puddle is "puddle". Understand "liquid" or "puddle" or "splashing" or "sloshing" or "pool" as the splashing-puddle. The description of the splashing-puddle is "You can't see the puddle, but you can hear where it seems to be."
+The splashing-puddle is scenery in dark-room. The printed name of the splashing-puddle is "puddle". Understand "liquid" or "puddle" or "splashing" or "sloshing" or "pool" as the splashing-puddle. The description of the splashing-puddle is "You can't see the puddle, but you can hear where it seems to be."
 
 Instead of physicality when the noun is the splashing-puddle:
-	say "Your hand touches some kind of liquid and you hiss in pain as the liquid burns your fingertips a bit.
+	if the splashing-puddle is unexamined:
+		say "You don't know where the sound is coming from yet.";
+	otherwise:
+		say "Your hand touches some kind of liquid and you hiss in pain as the liquid burns your fingertips a bit.
 
-The cave trembles, and the liquid splashes a bit[if the odorous-object is not in dark-room]. The liquid on your fingers doesn't seem to be the source of the brackish smell[otherwise].
+	The cave trembles, and the liquid splashes a bit[if the odorous-object is unexamined]. The liquid on your fingers doesn't seem to be the source of the brackish smell[otherwise].
 
-[heattime][end if]."
+	[heattime][end if]."
 
 To say heattime:
 	say "You begin to feel unusually hot, but only on one side. You can tell there is a warm thing near your face";
@@ -12334,16 +12755,8 @@ Instead of physicality when the noun is the warm-thing:
 
 Whatever you touched is very large, and, you hesitate to say, probably alive. But your actions seem to have very little effect on it; its motion was most likely a reflex."
 
-[fix this later -- add heat as intangible?]
-
-[bywyd detects another creature--no, it gets absorbed! spells are absorbed in this room]
-
-[add walls to each room individually?]
-
-[deal with dark rules later]
-
-[some inform dark rules: After deciding the scope of the player when the location is the Terrifying Basement:
-	place the light switch in scope.]
+Instead of attacking the warm-thing:
+	say "You punch [the warm-thing], and the room shudders, but whatever it is, your feeble efforts aren't strong enough to truly affect it."
 	
 Chapter 14 - Flesh
 
@@ -12355,14 +12768,27 @@ But with effort, you can see that the growths are unfinished creatures emerging 
 
 The fully-formed creatures look similar to deer or goats with bodies the same gritty dark color as the floor. Several of the creatures are clearly wrong, with missing limbs or asymmetrical bodies. Those that can walk stagger to their feet and out of the room to the west; those that can't are devoured by the others."
 
-The flesh-beasts are plural-named scenery animals in the flesh-room.
+The flesh-beasts are plural-named scenery animals in the flesh-room. The printed name of the flesh-beasts is "creatures". Understand "beast" or "beasts" or "creature" or "creatures" or "normal" or "regular" or "goat" or "deer" or "Goats" or "spindly" or "long" or "leg" or "legs" as the flesh-beasts. THe description of the flesh-beasts is "These beasts look like a cross between goats and deer, with no horns, but possessing long spindly legs. Most of them are scaling the walls. The rest, the wrong ones, are walking away to the west."
 
-The flickering-flames are plural-named scenery in flesh-room.
+Rule for printing the name of the flesh-beasts when asking which do you mean:
+	say "normal creatures"
+
+Instead of physicality when the noun is flesh-beasts:
+	say "Your fingers sink into the beast's spongy flesh, and it bellows, galloping up the walls and out of sight."
+
+The sheer-walls are plural-named scenery in flesh-room. The printed name of the sheer-walls is "sheer walls". Understand "sheer" or "steep" or "walls" or "wall" as the sheer-walls. The description of the sheer-walls is "The walls are steep and rise up quickly out of sight.".
+
+Instead of climbing the sheer-walls:
+	say "You're no mountain goat; you feet and hands slip on the sheer walls.";
+
+The flickering-flames are plural-named distant scenery in flesh-room. The printed name of the flickering-flames is "flickering flames". Understand "flicker" or "flickers" or "flame" or "flames" or "fire" as the flickering-flames. The description of the flickering-flames is "The flames from the room to the [boldwest] can only barely be seen from here."
 
 Instead of physicality when the noun is the flickering-flames:
 	say "The flames are far to the west."
 
-The malformed-growths are plural-named scenery in flesh-room.
+The malformed-growths are plural-named scenery in flesh-room. Understand "fungus" or "fungi" or "quick" or "growing"or "liquid" or "malformed" or "growth" or "growths" or "quick-growing" as the malformed-growths. The printed name of the malformed-growths is "growths". The description of the malformed-growths is "The creatures seem liquid almost when they first begin growing out of the ground, puddling larger and larger before differentiating into limbs and becoming fully grown."
+
+The malformed-beasts are plural-named  scenery animals in flesh-room. Understand "malformed" or "wrong" or "one" or "ones" or "beast" or "beats" or "creatures" or "creature" or "missing" as the malformed-beasts. The printed name of the malformed-beasts is "malformed creatures". The description of the malformed-beasts is "The malformed creatures look much less lively than the others. Mechanically, they file out into the next room, where incineration awaits them."
 
 The life-text of flesh-room is "[paragraph break][italic type]Climbers[roman type][line break]Quantity: Variable[line break]Mass: variable"
 
@@ -12384,26 +12810,52 @@ Hunter-scene is a recurring scene. Hunter-scene begins when the player is in Hun
 
 Hunter-scene ends normally when the player is in end-room.
 
+Hunter-scene ends forgetfully when anghofiotime begins.
+
 Hunter-scene ends abruptly when the player is not in spell-region. 
 
 Hunter-scene ends successfully when the slaughter-beast is nowhere.
 
+Hunter-scene ends comically when the player is in air-region.
+
+Hunter-scene ends fearfully when the player is in corruption-room.
+
+Stranger-commented is a truth state that varies. Stranger-commented is false.
+
+When hunter-scene begins:
+	now stranger-commented is false;
+
 Instead of smelling during hunter-scene:
-	say "FIX THIS LATER A musky odor invades your nostrils."
+	say "A musky odor invades your nostrils. It seems to be coming from somewhere close nearby."
+
+When hunter-scene ends fearfully:
+	say "The smell that was following you fades quickly away when you enter this room.";
 
 [FIX THIS LATER make sure this doesn't fire during the fight scene]
 Every turn during hunter-scene:
 	if the time since hunter-scene began is 1 minute:
-		say "FIX THIS LATER You smell a strong odor near you.";
+		say "You smell a strong odor near you.";
 	if the time since hunter-scene began is 3 minutes:
-		say "FIX THIS LATER The odor just won't go away.";
-	if the time since hunter-scene began is 5 minutes:
-		say "The smell comes stronger than ever, and you can feel something warm very near you.";
+		say "The strong odor just won't go away. It smells like it's right next to you.";
 	if the time since hunter-scene began is 5 minutes:
 		say "You feel sharp teeth pierce through your shoulder, and you are dragged screaming into the air.
 
 [Sand-Dying]";
 		now the player is in end-room;
+	otherwise:
+		if the player is in stranger-room:
+			if stranger-commented is false:
+				say "[one of]'That's a nice little thing. Is that your pet?' says the strange old man. His sightless eyes are turned towards a spot just over your shoulder.[or]The old man shakes his head. 'Naughty kitty cat,' he mutters.[stopping]";
+				now stranger-commented is true;
+		otherwise if the player is in desolation-room or the player is in flesh-room:
+			say "The creatures are all giving you a wide berth, some of them seemingly almost panicked.";
+		otherwise if the player is in slaughter-room:
+			say "The beast in the cage is going wild at something in the room, but you can't tell what it is."
+		
+When hunter-scene ends comically:
+	say "You hear a how of frustration echoing from the edge of the ledge to the south. But you see nothing."
+
+[handle hedfaning]
 
 Section 3 - Scroll
 
@@ -12421,13 +12873,26 @@ The web-room is in spell-region. The printed name of the web-room is "Webbed Roo
 
 The description of the web-room is "[first time]Walking into this room, it feels...prickly somehow. Hazy, like walking through smoke. Everything is blurry, and your skin is crawling.
 
-Looking down, you realize that your skin is literally crawling. Hundreds of spiders scamper all over you. And then you realize: it's not hazy in here; it's covered in cobwebs. And now, so are you.
+Looking down, you realize that your skin is literally crawling. Hundreds of spiders scamper all over you. And then you realize: it's not hazy in here; it's covered in cobwebs. And now, so are you. You rub them off of you in disgust.
 
 [only]You are in a great chamber covered in spider webs of all shapes and sizes: thick, ropy ones; long, trailing ones; and delicate, diaphonous ones.
 
 In the middle of the room hangs a large cocoon, from which a multi-eyed face protrudes, as well as numerous limbs. Each limb moves along the strings of web in the room, sending tremors through the whole system.[first time]
 
 'Hello, dear,' says the enormous spider. 'I'm [the Webmaster]. A little joke, you see. Let's talk[deliverwebs].'[only]"
+
+The spider-webs are plural-named scenery in web-room. The printed name of the spider-webs is "cobwebs". Understand "web" or "webs" or "cobwebs" or "cobweb" or "diaphonous" or "ropy" or "rope" or "long" or "trailing" or "thick" or "sheets" or "sheet" or "string" or "strings" or "thin" or "delicate" or "beautiful" or "spider" or "spiderweb" or "spiderwebs" as the spider-webs. The description of the spider-webs is "The room is covered in cobwebs, some thin and delicate, almost beautiful, and others heavy and ragged, hanging in sheets. A few run in thin lines across the room."
+
+Instead of physicality when the noun is the spider-webs:
+	say "The cobwebs feel disgusting under your touch, but are too fragile to do anything with."
+	
+Instead of attacking the spider-webs:
+	say "The large spider says a word that makes your head hurt. You feel your hand halt and your body jerks away. 'Let's not do that, shall we?' says the giant spider."
+
+The tiny-spiders are plural-named scenery animals in the web-room. The printed name of the tiny-spiders is "little spiders". Understand "spiders" or "little" or "tiny" or "hundreds" or "hundred" as the tiny-spiders. The description of the tiny-spiders is "The spiders are all very small, except for the Webmaster himself. They seem intent on some greater purpose which you cannot fathom."
+
+Instead of physicality when the noun is the tiny-spiders:
+	say "The little spiders are so small and so great in number that there is little you can do with them. But you manage to get a couple that scamper on you. You shudder and shake them off."
 
 [maybe this grandmaster is a rogue AI that needs resetting?]
 
@@ -12445,32 +12910,134 @@ The life-text of web-room is "[paragraph break][italic type]Webmaster[roman type
 
 The web-spinners are plural-named scenery animals in web-room.
 
+The web-coccoon is scenery in web-room. The printed name of the web-coccoon is "coccoon". Understand "coccoon" or "large" or "old" or "dirty" or "bits" or "dead" or "dead spider" or "dead spiders" as the web-coccoon. The description of the web-coccoon is "This large coccoon is host to an equally large spider, and looks quite old and dirty. It makes you gag a bit to see the bits of dead spiders here and there."
+
+Instead of physicality when the noun is the web-coccoon:
+	say "And get that close to the giant spider? No thanks!"
+
 Section 2 - Webmaster
 
 [FIX THIS LATER webmaster getting punched by slaughter spell]
-The Webmaster is a neuter person in web-room. "The Webmaster waits patiently for you to act."
+The Webmaster is a neuter person in web-room. "The Webmaster waits patiently for you to act." Understand "giant" or "large" or "numerous" or "eyes" or "eye" or "chelicerae" or "quiver" or "spider" or "leg" or "legs" as the webmaster. The description of the webmaster is "Only the legs and face of this spider can be seen. The head is as large as yours, with its numerous eyes and its quivering chelicerae. The legs are longer than you are tall, and manipulate the strings of the webs in the room to some unseen purpose."
+
+Instead of attacking the webmaster:
+	say "The Webmaster barks out a command, and you find yourself backing away from him."
+
+Instead of physicality when the noun is the webmaster:
+	say "The Webmaster says, 'No,' then adds a strange word and pulls a string.
+
+You find yourself turning around and walking back towards the entrance to the room, far from the webmaster. Then control returns to your body."
 
 To say deliverwebs:
-	deliver webmaster-quip;
+	deliver role-quip;
 	deliver bear-quip;
+
+Before uttering bear-quip to webmaster:
+	if bear-quip is unready:
+		say "Before you can get your words out, the Webmaster holds up one leg, and you find yourself unable to speak.
+
+'Not yet,' he says. 'It's not time for you to ask that. Wait until the end.'" instead;
 	
 [FIX THIS LATER mention how the recorder is a copy]
 
-Webmaster-quip is a quip. The printed name of webmaster-quip is "Torture". Understand "Torture" as webmaster-quip. The preview of webmaster-quip is "Why is this place so terrible?'" The target of webmaster-quip is webmaster.
+Role-quip is a quip. The printed name of role-quip is "Role". Understand "role" as role-quip. The preview of role-quip is "Who are you? What are you doing here?" The target of role-quip is webmaster.
 
-The targetresponse of webmaster-quip is "FIX THIS LATER Is it? You are an advanced simulation, but imperfect. Not even sentient. Your experiences were real, but the rudimentary signals you transmit are interpreted through the lens of your puppetmaster's mind, who, by the way, seems to have quite the imagination. Computer commands seen as spells; robots seen as monstrous beasts. I am a simple AI, transmitting through grounded wires spread by helpful bots, but you see me as a horrible spider, don't you?
+The targetresponse of role-quip is "The spider says, 'I'm a promoted AI agent a level above all the others you've seen done here. My role is to administer this site, make sure ration storage is free from pests, perform basic security and provide raw materials and drones for other areas of this ship.'
 
-'So I didn't really die?'
+'Ship?' you ask, 'What ship? We're underground?'
 
-'Well, you didn't. The other bodies, though, they did. Deliverbodyquip".
+He clicks his chelicerae. 'You'll learn in due time. For now, I can tell you that this ship is much larger than anything you're used to. We are in the bowels of the ship, the long-terms stores of materials. The pack beasts of the great city in the stars. Most of what you see is carbon, in its various forms, being refined into, well, nanobots. We're all made of nanobots down here. Even you.'
 
-Bear-quip is a quip. The printed name of bear-quip is "Comfort". Understand "Comfort" as Bear-quip. The preview of bear-quip is "I came here looking for that bear. Can I have it?". The target of bear-quip is webmaster.
+'I'm not nanobots,' you say defiantly.
 
-The targetresponse of bear-quip is "FIX THIS LATER You already have the bear. You can't see it because you weren't designed to see it. 
-".
+He clicks again, producing a sort of chuckle."
+
+REport uttering role-quip to the webmaster:
+	deliver torture-quip;
+	deliver knowledge-quip;
+
+torture-quip is a quip. The printed name of torture-quip is "Torture". Understand "Torture" as torture-quip. The preview of torture-quip is "Why is this place so terrible?'" The target of torture-quip is webmaster.
+
+The targetresponse of torture-quip is "`Is it terrible? Is that how it appears to you? Your physical form is advanced, but imperfect. Not even sentient. The experiences you are having aree real, but the rudimentary signals you transmit are interpreted through the lens of your puppetmaster's mind, who, by the way, seems to have quite the imagination. Computer commands, seen as spells! Robots seen as monstrous beasts! 
+
+'I myself am a simple AI, transmitting through grounded temporary wires spread by helpful bots, but you see me as a horrible spider, don't you?'
+
+You ask, 'What about all the times I died? What was that?'
+
+'Well, you didn't. You have the memory of dying, but that was other vessels, other bodies made of nanobots like yours[Deliverbody]'".
+
+Knowledge-quip is a quip. The printed name of knowledge-quip is "Knowledge". Understand "knowledge" as the knowledge-quip. The target of knowledge-quip is the webmaster. The preview of knowledge-quip is "Why do you act like you know me?"
+
+The targetresponse of knowledge-quip is "'Because I do, little one. I've known everything that you were going to do before you did it. I knew you  would find the gem. I knew you would kill the invisible stalker. I knew you would repair the Climber liquid recovery pipe (and thank you for that). I knew you would come here. And I knew that you would ask that question just now.'
+
+'How could you possibley know that?' you demand. 
+
+'Because you're a machine, little one. A collection of nanobots,' he says[deliverbody], 'doing exactly what it's told.''"
+
+To say deliverbody:
+	deliver Composition-quip;
+	
+Composition-quip is a quip. THe printed name of composition-quip is "Composition". Understand "composition" as composition-quip. The target of composition-quip is webmaster. The preview of composition-quip  is "What do you mean, I'm made of nanobots?".
+
+The targetresponse of composition-quip is "'Because you are,' says the Webmaster.
+
+'But I have a whole life! Decades of experiences! I remember coming here. I can't be the same as...the same as you!' you shout.
+
+'Let me spell this out for you,' says the Spider. 'You do not exist. You are a construct, a program designed to execute the will of someone else, someone issuing you commands.'
+
+'And just who is this person?' you ask.
+
+'Emrys Tisserand,' he answers. 
+
+'But I'm--' you start before he cuts you off.
+
+'Could I do this to Emrys Tisserand?' he asks, before speaking a weird in a language at once familiar and foreign. Your right arm dissolves into a hundred shifting particles of dust before reforming.
+
+'You are a robot. When Emrys Tisserand touched that gem, you activated, in our little graveyard. Your mind was filled with a digital copy of Emrys' mind, and a duplicate recorder was created and given to you. She is controlling you right now, although she doesn't know it. And you're trasnmitting her all of this,' he says. 'At some point, she will disconnect from you, and you will die, because you aren't even sentient. You're simply a hollow vessel.'
+
+He goes on: 'But enough of questions. I will not allow you to ask any more, except for the one you came here for.'"
+
+The verb to adhere means the target property. 
+
+Report uttering composition-quip to webmaster:
+	repeat with current running through quips that adhere webmaster:
+		if current is not bear-quip:
+			remove current;
+	now bear-quip is ready;
+
+Bear-quip is a quip. The printed name of bear-quip is "Comfort". Understand "Comfort" as Bear-quip. The preview of bear-quip is "I came here looking for teddy bear. Do you have it?". The target of bear-quip is webmaster.
+
+The targetresponse of bear-quip is "'No,' says the spider.
+
+Seeing your disappointment, he adds, 'You already have the bear. When the time comes, you will see it. Your eyes have been clouded.'
+
+'Why? Why hide all of this? Why hide the bear from me? Why make me suffer? What is the time that will come?' you demand.
+
+'Because it was fated. This is the string of fate. To step off the path is to risk non-existence. Perhaps I enjoyed torturing you; perhaps I hated it, feared it, but was forced to by fate. You will never know.
+
+'You must find Emrys Tisserand. You must give her the bear. You'll need this,' he says, and lobs a webbed scroll at you.
+
+`Goodbye , little one,' he says. 'And don't worry, you already know where Emrys is. The feedback from your connection gets overwhelming when you are near her, distorting your reality. The scroll will help.'
+
+You hold the scroll tight and nod in understanding."
+
+Bear-quip can be ready or unready. Bear-quip is unready.
 
 Report uttering bear-quip to webmaster:
 	now webbed-scroll is held by the player;
+
+Before going south from web-room when bear-quip is targetgiven:
+	say "'Oh, and little one?' says the spider as you leave.
+
+'What?' you ask angrily, over your shoulder.
+
+'I did lie a little. That, too, is fate.' he says.
+
+You try to turn and confront him, but your body marches of its own accord, until you find yourself back in the dark room.";
+	move the player to the dark-room, without printing a room description instead;
+	
+Before going north from dark-room when bear-quip is targetgiven:
+	say "Despite your efforts, you can't go north. Your body refuses to listen to your commands." instead;
 	
 Section 3 - Webbed scroll and spell
 
@@ -12525,7 +13092,7 @@ You turn. It's your mother. You are in her kitchen. 'Don't let me hear you sayin
 		now the spiral-locker is spiraloff;
 		now the spiral-helmet is spiralon;
 	otherwise if spiral-level is 3:
-		say "FIX THIS LATER You say the word, 'Hunigo', and black specks fly out from the spellbook and rush towards your head. 
+		say "You say the word, 'Hunigo', and black specks fly out from the spellbook and rush towards your head. 
 
 The dead astronaut can't stop you, because she isn't there.
 
@@ -12538,6 +13105,7 @@ You are back in the cave. The cave isn't there.
 You are in front of a black dome of glass, lit from inside. All around you is dark. Emrys Tisserand is in the dome.
 
 The glass of the dome ripples. You can go [boldinside].";
+		now spiral-level is 0;
 		now player-isolated is true;
 		now the spiral-locker is nowhere;
 		now the spiral-lamp is spiraloff;
@@ -12551,16 +13119,16 @@ The glass of the dome ripples. You can go [boldinside].";
 		now the glass-dome is in spiral-room;
 		now dome-emrys is in spiral-room;
 		change the southwest exit of spiral-room to nowhere;
-		now the description of the spiral-room is "This part of the cave is gloomy. There are no exits around you.The floor is completely smooth, surrounding a black glass dome.";
+		now the description of the spiral-room is "This part of the cave is gloomy. There are no exits around you. The floor is completely smooth, surrounding a black glass dome.";
 
 Section 4 - The glass dome
 
 Instead of spellcasting when player-isolated is true:
 	say "The time for spells is over."
 
-The teddy-bear is a thing. Understand "teddy" or "bear" as the teddy-bear. [FIX ALL ITS DESCRIPTION AND STUFF LATER.]
+The teddy-bear is a thing. Understand "teddy" or "bear" as the teddy-bear. The description of the teddy-bear is "All this for such a mundane bear--from its appearance, the little girl must have loved it for years, and it likely doesn't have many left."
 
-The glass-dome is scenery. The printed name of the glass-dome is "black glass dome". Understand "rippling" or "ripple" or "black" or "glass" or "dome" as the glass-dome. The description of the glass-dome is "FIX THIS LATER."
+The glass-dome is scenery. The printed name of the glass-dome is "black glass dome". Understand "rippling" or "ripple" or "black" or "glass" or "hemisphere" or "hemispherical" or "dome" as the glass-dome. The description of the glass-dome is "This glass dome is hemispherical, and looks familiar, although you've only ever seen it from the other side. Its surface ripples--you can go inside.."
 
 Instead of entering the glass-dome:
 	try going inside;
@@ -12578,7 +13146,7 @@ Section 1 - The room itself
 
 The slaughter-room is a room in spell-region. The printed name of the slaughter-room is "Cage". 
 
-The description of the slaughter-room is "Most of this room is inaccessible to you, occupied by a cage formed from stalagmites and stalactites. The rocky outcroppings forming the cage are chipped and damaged from some extreme force[if the slaughter-beast is in slaughter-room].
+The description of the slaughter-room is "Most of this room is [if the slaughter-beast is in slaughter-room]inaccessible to you, [end if]occupied by a cage formed from stalagmites and stalactites. The rocky outcroppings forming the cage are chipped and damaged from some extreme force[if the slaughter-beast is in slaughter-room].
 
 Inside the cage is a rampaging [slaughter-beast] like a cross between a gorilla and a rhinoceros, with powerful forearms and a heavy horn. It's throwing itself over and over again at the bars, howling and roaring by turns[end if][first time].
 
@@ -12588,9 +13156,11 @@ Noticing your attention, it swipes at you with one arm, reaching through the cag
 
 It can't get you, but you take a step back from the cage, just to be safe. The creature howls and bashes the walls of its cage[only]."
 
-The slaughter-cage is an open transparent unopenable enterable container in slaughter-room. Understand "cage" or "stalactites" or "stalagmites" or "stalactite" or "stalactites" as the slaughter-cage. The printed name of the slaughter-cage is "cage".
+The slaughter-cage is an open transparent unopenable enterable scenery container in slaughter-room. Understand "cage" or "stalactites" or "stalagmites" or "stalactite" or "stalacgmite" or "outcropping" as the slaughter-cage. The printed name of the slaughter-cage is "cage". The description of the slaughter-cage is "It looks like you can slip in earily enough[if the slaughter-beast is nowhere], now that the beast is gone[otherwise], if the beast weren't there.
 
-The slaughter-beast is an animal in slaughter-cage. Understand "monster" or "beast" as the slaughter-beast. The printed name of the slaughter-beast is "beast". The description of the slaughter-beast is "FIX THIS LATER".
+Inside the cage, the beast continues its rampage[end if]."
+
+The slaughter-beast is a scenery animal in slaughter-cage. Understand "monster" or "beast" or "gorilla" or "rhino" or "rhinoceros" or "forearm" or "forearms" or "arm" or "arms" or "horn" or "heavy" or "powerful" as the slaughter-beast. The printed name of the slaughter-beast is "beast". The description of the slaughter-beast is "[if hunter-scene is happening]The beast seems terribly agitated by something in the room, and its not you. The beast pounds at the cage over and over, trying to get out and confront whatever is agitating it[otherwise]The beast looks part gorilla, part rhinoceros: tall, hunched over, bearing a horn that looks like it could gut you in one second. It's pounding the cage over and over, seemingly limitless in its energy. Good thing its in there and you're out here[end if].".
 
 The life-text of slaughter-room is "[paragraph break][italic type]Breaker[roman type][line break]Quantity: 1[line break]Mass: 341 kg"
 
@@ -12598,7 +13168,7 @@ Section 2 - The portcullis
 
 [FIX THIS LATER Make this require something to solve. Maybe the scroll from overcoming the vast? Could be the buried scroll? attracts metal to the user?]
 
-The heavy-portcullis is a scenery door. The heavy-portcullis is closed and unopenable. The printed name of the heavy-portcullis is "[if the heavy-portcullis is unripped]heavy portcullis[otherwise]empty gateway[end if]". Understand "heavy" or "portcullis" or "passage" or "grating" or "iron" or "holes" as heavy-portcullis. The heavy-portcullis is east from the slaughter-room and west from eye-room. The description of the heavy-portcullis is "FIX THIS LATER it's iron and heavy".
+The heavy-portcullis is a scenery door. The heavy-portcullis is closed and unopenable. The printed name of the heavy-portcullis is "[if the heavy-portcullis is unripped]heavy portcullis[otherwise]empty gateway[end if]". Understand "heavy" or "portcullis" or "passage" or "grating" or "iron" or "holes" or "dense" as heavy-portcullis. The heavy-portcullis is east from the slaughter-room and west from eye-room. The description of the heavy-portcullis is "[if unripped]The portcullis between this room and the next is heavy iron, with a grating too dense to see through[otherwise]There is no more portcullis; it has been ripped to shred by your earlier spell. The location of its remains are, to you, unknown[end if].".
 
 The heavy-portcullis can be ripped or unripped. The heavy-portcullis is unripped.
 
@@ -12618,7 +13188,7 @@ Section 3 - Rage scroll
 
 [FIX THIS LATER Different slaughter death when the player is contagious]
 Instead of physicality when the noun is slaughter-dangerous:
-	say "FIX THIS LATER You approach too close to the cage. The beast grabs you and smashes you against the wall.
+	say "You have approached too close to the cage. [if rotting-player is false]The beast grabs you and smashes you against the wall and its all over[otherwise]The beast grabs a rock to use as a club and brains you with it, careful to avoid the corruption oozing out of your sick body[end if].
 
 [sand-dying]";
 	now the player is in end-room;
@@ -12634,7 +13204,7 @@ To decide whether (maybe-rage -  a thing) is slaughter-dangerous:
 
 [FIX THIS LATER: Initial appearance?]
 
-The slaughter-scroll is a spell-scroll in slaughter-cage. The printed name of the slaughter-scroll is "stained scroll". The description of the slaughter-scroll is "FIX THIS LATER The golden scroll is duller than the others you've seen."
+The slaughter-scroll is a spell-scroll in slaughter-cage. The printed name of the slaughter-scroll is "stained scroll". 
 
 The associated-spell of slaughter-scroll is Nwyd.
 
@@ -12658,13 +13228,15 @@ Carry out Nwyding:
 	now enraged-player is true;
 
 Report Nwyding:
-	say "You say the word, 'Nwyd'.  FIX THIS LATER Dark red sparks shoot out of the spellbook and directly into your school.
+	say "You say the word, 'Nwyd'.  Dark red sparks shoot out of the spellbook, circle for a moment, and shoot directly into your skull.
 
 It hurts...it hurts. The pain is all you can think of. It makes you absolutely furious."
 
 Rage-scene is a recurring scene. Rage-scene begins when enraged-player is true.
 
 Rage-scene ends normally when the time since rage-scene began is three minutes.
+
+Rage-scene ends forgetfully when anghofiotime begins.
 
 Rage-scene ends abruptly when the player is in end-room.
 
@@ -12684,11 +13256,13 @@ Carry out tempraging:
 [FIX THIS LATER Avoid distant scenery and such]
 Before doing something during rage-scene:
 	if the current action is going:
-		say "FIX THIS LATER You howl and race [the noun] to find something to attack.";
+		say "You howl and race [the noun] to find something to attack.";
 	otherwise if the noun is not a thing:
-		say "FIX THIS LATER AND ADD A DIFFERENT VERSION IF FLYING You can only scream and hit everything near you." instead;
+		say "[if flying-player is true]You thrash around mid-air, unable to find anything good to hit[otherwise]You can only scream and hit everything near you, unable to control yourself without a target[end if]." instead;
+	otherwise if the noun is the odorous-object or the noun is the splashing-puddle:
+		say "You attack [the noun] in a furious rage, but nothing happens beyond your hands getting coated with something [if the noun is the odorous-object]foul-smelling[otherwise]that burns[end if], which you shake off while howling.";
 	otherwise if the noun is warm-thing:
-		say "FIX THIS LATER add responses for the odorous object and splashing pool  You scream and assault the warm, moist object as hard as you can, digging in your fingers like claws, ripping and biting with your teeth. You have the taste of wet copper in your mouth.
+		say "You scream and assault the warm, moist object as hard as you can, digging in your fingers like claws, ripping and biting with your teeth. You have the taste of wet copper in your mouth.
 
 There is a scream, and the darkness in this room physically retracts, peeling off the walls like paint. As it moves, more and more light can be seen in the room, and you can see that the darkness was actually some kind of thick, viscous substance. It tugs itself out from under you, and you step back onto plain rock.
 
@@ -12697,14 +13271,35 @@ In front of you is a thick globule of the stuff hanging from the ceiling; at you
 The black globule in front of you is ripped and leaking a green fluid. It retreats near the corpses and pool, and all the remaining blackness in the room folds itself up around the globule, the corpses, and the liquid, forming a spherical sack, twice the size of you. The sack inches away to the south and disappears out of sight.";
 		now the odorous-object is nowhere;
 		now the splashing-puddle is nowhere;
-		now the warm-thing is nowhere;
 		now dark-gone is true;
+		now the printed name of the dark-room is "Once-Dark Room";
+		now the dark-room is lighted;
 		now the description of dark-room is "With the darkness gone, this room is a simple rock corridor leading from the [boldsouth] to the [boldnorth].";
 		change the north exit of dark-room to web-room; 
 		change the south exit of web-room to dark-room instead;
 	[FIX THIS LATER find a scroll maybe (not necessary), door opens to north, room is no longer dark, scenery is gone.]
+	otherwise if the noun is the strange-man:
+		say "You attack [the strange-man] with all your might, and the ground around you shudders, but the man is like rubber, absorbing every hit. Furious, you race around the room to burn off your anger.";
+	otherwise if the noun is the desolation-deer or the noun is the flesh-beasts or the noun is the malformed-growths:
+		say "You race towards one of the deer and pound it so hard that it splatters into dark liquid, which you shake off yourself with a howl. The liquid is soon absorbed into the ground.";
+	otherwise if the noun is in web-room:
+		say "The Webmaster barks in a strange language, and you find yourself unable to direct your aggression towards [the noun].
+
+'I'm in charge here,' says the Webmaster. 'Quiet yourself.'";
+	otherwise if the noun is held by the player:
+		say "You hit [the noun], which you are carrying, so hard that you end up violently injuring yourself. This enrages you, so you hit yourself more in revenge. This only lasts a moment, and then...
+
+[sand-dying]";
+		now the player is in end-room;
+	otherwise if the noun is in spiral-room:
+		say "You try to hit [the noun], but you can't hit what isn't there, can you?";
 	otherwise:
-		say "FIX THIS LATER AND ADD VARIATIONS You scream and hit [the noun] over and over." instead;
+		say "[one of]You scream and hit [the noun] over and over[or]You raise both hands as a club and slam it into [the noun][or]You attempt to headbutt [the noun][or]You kick viciously at [the noun][at random], to no effect." instead;
+
+Every turn when the player is in dark-room:
+	if warm-thing is not nowhere:
+		if dark-gone is true:
+			now warm-thing is nowhere;
 
 Chapter 18 - The black dome and finale
 
@@ -12714,7 +13309,15 @@ Chapter 18 - The black dome and finale
 
 Section 1 - The black dome itself
 
-The fake-gem is scenery in black-dome. The printed name of the fake-gem is "gray gem". Understand "gray" or "Grey" or "gem" as the fake-gem.
+The fake-gem is scenery in black-dome. The printed name of the fake-gem is "gray gem". Understand "gray" or "Grey" or "gem" or "egg" or "ostrich" or "ostrich's" or "facet" or "facets" as the fake-gem. The description of the fake-gem is "This gem is larger than an ostrich's egg, covered in numerous facets. It makes you sick."
+
+The description of black-dome is "You are in a perfectly hemispherical room. The floor is some kind of flat concrete or dull rock, while the dome that bounds the room is dark, opaque glass. There is a loud hum all around you, and you get the impression of being far underground.
+
+In the center of the room is a pedestal that nestles a single, gray gem that emits a sickly gray light.
+
+The light makes it hard to see anything beyond the glass."
+
+Understand "woman" or "emrys" or "tisserand" or "real" or "older" or "eyes" or "eye" or "dark" or "square" or "jaw" as fake-emrys. The description of Fake-emrys is "Emrys Tisserand is an older woman with dark eyes and a square jaw. Her eyes are rolled back in her head and she looks lifeless as she holds the gray gem." 
 
 Understand "emrys" or "tisserand" or "storyweaver" or "lieutenant" as fake-emrys.
 
@@ -12730,45 +13333,75 @@ To say giveaction:
 The printed name of black-dome is "Gem Room". The printed name of fake-emrys is "Emrys".
 
 Instead of giving the teddy-bear to fake-emrys:
-	say "FIX THIS LATER You hand the teddy bear to Emrys. She takes her hands off the gem.";
-	now the player is in gem-room;
-	say "FIX THIS LATER change the part with 'the dark and enormous' part
+	say "You hold the teddy bear to Emrys. She takes her hands off the gem.";
+	move the player to gem-room, without printing a room description;
+	say "No...[italic type]you[roman type] take your hands of the gem.
 
-In front of you is a rough-shaped humanoid made out of thousand of crawling nanobots, holding a teddy bear.
+In front of you is a rough-shaped humanoid made of what looks like gritty sand, holding a teddy bear.
 
-It--She?-- hands the bear to you gently. The nanobots that make her up, cut off from whatever signal was powering them, start to dissolve, and she sags to the floor.
+It--She?-- looks at herself in surprise. 'I didn't think there'd be any of me left,' she says. Her voice is just like yours. 
 
-She opens her mouth and speaks, a soft voice very similar to your own:
+Her leg starts to dissolve, and she sags to one side. 'Oh dear,' she says, looking at her leg, then at the bear. 'I think this is yours,' she says, handing you the toy.
 
-'Hello, Emrys,' she says. Her left leg is entirely gone now.
+`I guess the spider lied,' she says, as her entire lower half crumbles into pieces, her torso sinking down. 'I didn't expect to still be here.'
 
-You don't really know what to say. Is she even thinking? Or is this just a memory of you lingering in the circuits?
+'It's okay,' you says. You realize that you don't even know her name, or if something like her even has a name.
 
-'It's okay,' she says. You realize that you don't even know her name, or if something like her even has a name.
+'Yeah, it'll all be okay. It was nice, being you,' she says, looking at her hand, which dissolves completely. 'Real nice.'
 
-'It'll all be okay. It was nice, being you,' she says, looking at her hand, which dissolves completely. 'Real nice.'
-
-There is a sound of rushing sand, and then she is gone. Nothing remains but a pile of dead nanobots.
+There is a sound of rushing sand, and then she is gone. Nothing remains but a pile of black nanobots, fine as sand.
 
 The gray gem goes dark.";
 	now the gray-gem is inactive;
 	now the dead-nanobots is in gem-room;
 	
-The dead-nanobots is scenery. The printed name of the dead-nanobots is "pile of dead nanobots". Understand "pile" or "Of dead" or "pile of" or "nanobot" or "nanobots" as the dead-nanobots. The description of the dead-nanobots is "FIX THIS LATER".
+Every turn when teddy-bear is held by the player and the player is in ship-region:
+	deliver companion-quip;
+	
+Companion-quip is a quip. The printed name of companion-quip is "Companion". Understand "companion" as companion-quip. The target of companion-quip is little-girl. The preview of Companion-quip is "I have your bear!"
 
-[FIX THIS LATER don't let the player return to this world once its over]
+The targetresponse of companion-quip is "'Prove it!' says the little girl. 'I think you're tricking me.' Her voice is obstinate. 'Show me my bear!'"
 
-[FIX THIS LATER add quip to tell girl about bear]
+The dead-nanobots is scenery. The printed name of the dead-nanobots is "pile of dead nanobots". Understand "pile" or "Of dead" or "pile of" or "nanobot" or "black" or "sand" or "nanobots" as the dead-nanobots. The description of the dead-nanobots is "The floor is covered with dark, inactive nanobots.".
+
+Instead of showing the teddy-bear to the little-girl:
+	try giving the teddy-bear to the little-girl;
 
 Instead of giving the teddy-bear to the little-girl:
-	say "FIX THIS LATER The girl comes out and goes back with her family.
+	say "'Teddy!' she says. 
 
-The tear turns green.";
+'I'll hold him right here. It looks safe for you if you crawl carefully. Do you think you can do that?' you say gently.
+
+'Yeah, I'll try,' says the girl. She inches her way across the floor and under the rubble.
+
+When she gets out, she grabs her bear, and says, 'Thank you!'
+
+'Do you know where your parents are?' you ask. 
+
+'They always told me our evac center was Floor 7,' she says. 
+
+'Do you know how to get there?' you ask. Your Weaver's gift is confident that this girl will be safe on her own, now.
+
+'Yeah, that's where my school is,' she answers. 'Can I go there?'
+
+'Run on,' you say, patting her on the back. She takes off down the hallway.
+
+The tear in space behind you turns from dark red to green.";
 	now the hallway-tear is green-torn;
 	now little-girl is nowhere;
 	remove caretaker-quip;
 	remove escape-quip;
 	remove child-quip;
+	remove companion-quip;
+	deliver rescued-quip;
+	
+Rescued-quip is a quip. The target of rescued-quip is Sergeant Olgin. Understand "Rescued" as rescued-quip. The printed name of rescued-quip is "Rescued". The preview of Rescued-quip is "I got that little girl I told you about out of the wreckage."
+
+The targetresponse of rescued-quip is "'Really?' says Sergeant Olgin, her face lightening. 'That's a relief. We could use some good news. Thanks, Emrys. Where is she now?'
+
+'I let her run up to Floor 7 on her own,' you answer.
+
+Sergeant Olgin splutters a bit. 'Emrys! She's a child! Let me check...' She turns and speaks silently for a second, her hand on her earpiece, before turning back. 'Yeah, she made it safe. You scared me there!'"
 
 Part 9 - Combat dimension
 
@@ -13214,7 +13847,7 @@ Test buried with "n/ne/look/take scroll/gopi scroll/hyblyg/ne/z".
 
 Test toburied with "test rescue/test lonely/test buried"
 
-Test bookmark with "se/ne/touch lamp/touch locker/take bookmark/touch stalagmite/sw".
+Test bookmark with "se/ne/touch lamp/touch locker/take bookmark/touch helmet/touch stalagmite/sw".
 
 Test stranger with "touch back/take scroll/z/z/z/gopi scroll"
 
@@ -13230,9 +13863,11 @@ Test hunter with "w/denu/n/put bookmark in spellbook/se/e/w/nw/w/w/hyblyg beast/
 
 Test dark with "e/e/se/n/n/listen/smell/touch odorous/touch pool/nwyd/x warm thing"
 
-Test web with "n/say comfort/gopi scroll"
+Test toweb with "test rescue/test lonely/test buried/test bookmark/test stranger/test end/test pillar/test vast/test hunter/test dark"
 
-Test spiral2 with "s/s/s/ne/hunigo/hunigo"
+Test web with "n/say role/say torture/say composition/say comfort/gopi scroll"
+
+Test spiral2 with "s/s/s/ne/hunigo/hunigo/hunigo/hunigo"
 
 Test spellend with "in/give bear to emrys/n/give bear to girl"
 
@@ -13265,14 +13900,14 @@ Sergeant Olgin is a talkative woman in Hangar-room. "Sergeant Olgin is directing
 
 Try TALKing TO the Sergeant if you don't know how conversation works in this game, or SAY EXPLANATION if you do." 
 
-Understand "short" or "woman" or "black" or "hair" or "bun" as Sergeant Olgin.
+Understand "short" or "woman" or "black" or "hair" or "bun" or "earpiece" as Sergeant Olgin.
 
 The beige-uniform is worn by Sergeant Olgin. The printed name of the beige-uniform is "beige uniform". Understand "beige" or "uniform" or "fabric" or "sturdy" or "convertible" or "spacesuit" or "suit" or "space suit" as the beige-uniform. The description of the beige-uniform is "The Sergeant's uniform is made of sturdy beige fabric, and is designed to be easily convertible into a spacesuit in case of hull breach."
 
 To say deliverexplanation:
 	deliver Sergeant-Explanation;
 	
-Sergeant-Explanation is a quip. The printed name of Sergeant-Explanation is "Explanation". Understand "explanation" as Sergeant-Explanation. The preview of Sergeant-Explanation is "Hey, can you tell me everything about the game?" The target of Sergeant-Explanation is Sergeant Olgin.
+Sergeant-Explanation is a quip carried by the player. The printed name of Sergeant-Explanation is "Explanation". Understand "explanation" as Sergeant-Explanation. The preview of Sergeant-Explanation is "Hey, can you tell me everything about the game?" The target of Sergeant-Explanation is Sergeant Olgin.
 
 The targetresponse of Sergeant-Explanation is "'Of course! Unfortunately, the author is going to code the intro last, so I'll have to infodump:
 	
@@ -13349,3 +13984,5 @@ Book 5 - Notes
 [address fact a nano version of you can't die]
 
 [destiny is an army of spears marching after of you. Those who turn to fight it will perish without mercy.]
+
+[the day you come back is the day of weft's end!]
