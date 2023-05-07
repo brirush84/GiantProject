@@ -6,11 +6,12 @@ Finished areas:
 
 -Haunted House (tested)
 -Murder mystery (tested)
--Wax Museum Escape room (partially tested)
+-Wax Museum Escape room (tested)
+-Horror spells region (mostly tested)
 
 Areas under construction:
 
--Horror spell scroll dimension
+-Combat area
 
 Remaining areas:
 
@@ -22,6 +23,4 @@ Remaining areas:
 
 -world monuments
 
--combat zone
-
--TBD
+-Opening, megaship and final puzzle
