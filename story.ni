@@ -19,11 +19,11 @@ Part 1 - Metadata
 
 Chapter 1 - Game essentials
 
-Release along with a solution.
+[Release along with a solution.]
 
 Section 1 - Genre, description, etc
 
-The story genre is "Science Fiction". The story description is "Hop through dimensions to save your ship." The story creation year is 2023. The release number is 15.
+The story genre is "Science Fiction". The story description is "Hop through dimensions to save your ship." The story creation year is 2023. The release number is 16.
 
 Section 2 - Increasing memory sizes
 
@@ -222,9 +222,10 @@ To clear personlists:
 			now current is not talkative;
 	repeat with current running through quips carried by the player:
 		repeat with currentregion running through regions:
-			if target of current is in currentregion:
-				if the player is in currentregion:
-					now target of current is talkative;
+			if target of current is not nothing:
+				if target of current is in currentregion:
+					if the player is in currentregion:
+						now target of current is talkative;
 
 Before Uttering a quip to someone:
 	if the second noun is the target of the noun:
@@ -262,7 +263,10 @@ To clear the flags:
 	repeat with currentquip running through once-delivered deliveryflagged quips:
 		now currentquip is not deliveryflagged;
 	repeat with currentquip running through deliveryflagged quips:
-		say "[bracket]New [if currentquip is a squip]Clue [otherwise]Topic [end if][if the target of currentquip is not in the location]for [the Target of currentquip] [end if]- [currentquip][close bracket][roman type]";
+		if the target of currentquip is not nothing:
+			say "[bracket]New [if currentquip is a squip]Clue [otherwise]Topic [end if][if the target of currentquip is not in the location]for [the Target of currentquip] [end if]- [currentquip][close bracket][roman type]";
+		otherwise:
+			say "[bracket]New [if currentquip is a squip]Clue [otherwise]Topic [end if]- [currentquip][close bracket][roman type]";
 		say "[line break]";
 		now history of currentquip is "[currentquip] - [preview of currentquip][line break]";
 		now currentquip is carried by the emrys-weaver;
@@ -939,9 +943,9 @@ Instead of pushing the khufu-pyramid:
 Instead of turning the khufu-pyramid:
 	say "[first time]The pyramid wobbles. Encouraged, you discover that it can rotate it in either direction. [only]It can rotate either left or right."
 
-RIght-turning is an action applying to one thing. Understand "turn [something] right" or "turn [something] to the right" or "right [something]" as right-turning.
+RIght-turning is an action applying to one thing. Understand "turn [something] right" or "turn [something] to the right" as right-turning.
 
-Left-turning is an action applying to one thing. Understand "turn [something] left" or "turn [something] to the left" or "left [something]" as left-turning.
+Left-turning is an action applying to one thing. Understand "turn [something] left" or "turn [something] to the left" as left-turning.
 
 Does the player mean left-turning the khufu-pyramid:
 	it is likely;
@@ -2080,7 +2084,7 @@ Carry out mudremoval:
 
 Understand "rinse [something] in [the scenery-nile]" as inserting it into.
 
-Washing is an action applying to one thing. Understand "wash [something preferably held]" as washing when the player is in lust-room.
+Washing is an action applying to one thing. Understand "wash [something preferably held]" as washing when the player is in lust-room or the player is in combat-kitchen.
 
 Carry out washing:
 	try inserting the noun into the scenery-nile;
@@ -5950,7 +5954,7 @@ Check clone-you inserting something into something:
 		otherwise if the second noun is not a container:
 			say "Your clone[setcloneact] tries to put [the noun] into [the second noun] but fails miserably." instead;
 
-The print protagonist internal rule response (B) is "[if currentactor is clone-you]you[otherwise]yourself"
+The print protagonist internal rule response (B) is "[if currentactor is not the player]you[otherwise]yourself[end if]"
 
 Currentactor is a person that varies. Currentactor is yourself.
 Currentactee is a person that varies. Currentactee is yourself.
@@ -7596,6 +7600,8 @@ Carry out ceasing:
 		now playerswapped is false;
 		try looking;
 		now currentswap does not forsake statement-quip;
+	otherwise:
+		try waiting;
 
 A person can be onceseen or unonceseen. A person is usually unonceseen. Maeve is onceseen. Arthur is onceseen.
 
@@ -10533,7 +10539,9 @@ You look over this book. It's a digital book, like the kind you grew up with. [o
 
 On the screen is orange text saying:
 
-'Spells:[spelllist].'"
+'Spells:[spelllist].'[if bookmarkon is true]
+
+The bookmark is in the spellbook.[end if]"
 
 The orange-text is part of the spell-book. The printed name of the orange-text is "orange text". Understand "orange" or "text" or "spells" as the orange-text.
 
@@ -10558,7 +10566,9 @@ The description of the orange-text is "The text glows, but only barely. It's jus
 
 'Spells:[spelllist].'"
 
-The description of the spellbook-slot is "It looks designed to hold a digital bookmark, a modern replacement for the USB drives of old days."
+The description of the spellbook-slot is "It looks designed to hold a digital bookmark, a modern replacement for the USB drives of old days[if bookmarkon is true].
+
+Such a bookmark has been placed deep inside the slot, now[end if]."
 
 The examine containers rule does nothing when the current action is examining the spell-book.
 
@@ -10637,7 +10647,7 @@ Carry out teloxing:
 *******************************************************************[line break]There is a flash and the sound of rushing sand[line break]****************************************************************************";
 		now the player is in gem-room;
 
-A spell-scroll is a kind of thing. Understand "gold" or "golden" or "scroll" as a spell-scroll. A spell-scroll has a magic-spell called the associated-spell. The verb to cast means the associated-spell property. The description of a spell-scroll is usually "This [item described] simply says:[paragraph break][italic type][associated-spell][roman type]: [spell-preview of associated-spell of the item described]."
+A spell-scroll is a kind of thing. Understand "gold" or "golden" or "scroll" as a spell-scroll. A spell-scroll has a magic-spell called the associated-spell. The verb to cast means the associated-spell property. The description of a spell-scroll is usually "[if the item described is carried]This [item described] simply says:[paragraph break][italic type][associated-spell][roman type]: [spell-preview of associated-spell of the item described][otherwise]It's hard to make out any details since you're not holding it[end if]."
 
 Before listing contents:
 	group spell-scrolls together giving articles;
@@ -10913,6 +10923,7 @@ Every turn when the player is not in spell-region and the number of things enclo
 	repeat with current running through things held by fake-emrys:
 		now current is held by the player;
 	now spell-book is nowhere;
+	now simple-robe is nowhere;
 
 Instead of listening to the gem-room:
 	try listening to the loud-hum;
@@ -10949,12 +10960,15 @@ Most of the houses have no discernible opening. To the [boldeast], [if lonely-ho
 
 A thing can be indistinct or distinct. A thing is usually distinct.
 
+Instead of listening to lonely-room:
+	say "[if lonely-alley is visited]All you hear is the wind blowing[otherwise]You hear what sounds like voices from the [boldsouthwest].."
+
 Instead of doing anything other than examining to an indistinct thing:
 	say "[The noun] [are] hard to make out from here."
 
 The distant-stones are plural-named indistinct scenery in lonely-room. The printed name of the distant-stones is "hat-wearing figures". Understand "hat" or "hats" or "hat-wearing" or "wearing" or "figure" or "figures" as the distant-stones. The description of the distant-stones is "Far away to the [boldnorth], you can see [if north-lonely is visited]stone[otherwise]vague[end if] figures wearing hats."
 
-The voice-murmurs are plural-named scenery in lonely-room. The printed name of the voice-murmurs is "murmurs". Understand "voice" or "voices" or "murmur" or "murmurs" as the voice-murmurs. The description of the voice-murmurs is "You can hear murmurs to the [boldsouthwest][if lonely-alley is visited], but you know it's just the wind[otherwise] that sound like voices[end if]."
+The voice-murmurs are plural-named scenery in lonely-room. The printed name of the voice-murmurs is "murmurs". Understand "voice" or "voices" or "murmur" or "murmurs" or "wind" or "sound" as the voice-murmurs. The description of the voice-murmurs is "You can hear murmurs to the [boldsouthwest][if lonely-alley is visited], but you know it's just the wind[otherwise] that sound like voices[end if]."
 
 Instead of doing anything other than listening to or examining to the voice-murmurs:
 	say "The murmurs are too far away to do anything with them."
@@ -11021,12 +11035,15 @@ You can return to the [boldwest]."
 
 The lonely-hook is a scenery supporter in lonely-house. Understand "hook" as the lonely-hook. The printed name of the lonely-hook is "hook". The description of the lonely-hook is "A hook juts from the wall here, serving no other purpose than to hold a lantern. Given that the lantern is dead, the hook would have to question its value in life, if it had the ability to reason."
 
+Does the player mean examining the lonely-hook:
+	it is likely;
+
 Understand "hang [something] on [the lonely-hook]" as putting it on.
 
 Instead of putting something on the lonely-hook:
 	say "There's not a good way to put anything on the hook, with the lantern on the way."
 
-The lonely-lantern is scenery on the lonely-hook. Understand "glowing" or "lantern" or "swinging" or "dead" as the lonely-lantern. The description of the lonely-lantern is "The dead lantern swings slowly back and forth in the draft."
+The lonely-lantern is scenery on the lonely-hook. Understand "glowing" or "lantern" or "swinging" or "dead" as the lonely-lantern. The description of the lonely-lantern is "The dead lantern swings slowly back and forth in the draft." The printed name of the lonely-lantern is "lantern".
 
 Instead of taking or pushing or pulling the lonely-lantern:
 	say "It's attached in a way that you just can't get it off. Eventually your hands hurt from trying."
@@ -11047,7 +11064,7 @@ Instead of going nowhere from lonely-house:
 	say "The house blocks you from going that way."
 
 Instead of burning the lonely-lantern:
-	say "Its not a flame-using lantern; it seems like it had its own power source, now exhausted and gone."
+	say "It's not a flame-using lantern; it seems like it had its own power source, now exhausted and gone."
 
 Section 3 - Lonely alley
 
@@ -11068,6 +11085,9 @@ The wind-sound is scenery in lonely-alley. The printed name of the wind-sound is
 The alley-houses are plural-named scenery in lonely-alley. Understand "houses" or "house" or "wall" or "walls" or "alley" as the alley-houses.
 
 The description of the alley-houses is "All you can see of the houses in this part of the alley are the walls, with no discernible openings."
+
+Instead of listening to the lonely-alley:
+	try listening to the wind-sound.
 
 Instead of doing anything other than listening to or examining to the wind-sound:
 	say "You can't see or touch the wind, but you can hear it.";
@@ -11350,7 +11370,7 @@ With a howl of triumph it pounces at you. ";
 
 An unholy screeching comes now, far louder than the beast you can see. There must be something else here, because two voices scream above you, engaged in a deadly struggle. 
 
-The huge beast bounds back and forth across the room, coming sickeningly close to crushing you. It finally bursts out of it, seemingly taking its invisible opponent with it. You hear the screeching suddenly ride to a fever pitch and the fade quickly.";
+The huge beast bounds back and forth across the room, coming sickeningly close to crushing you. It finally bursts out of the room, seemingly taking its invisible opponent with it. You hear the screeching suddenly ride to a fever pitch and then fade quickly.";
 			now slaughter-beast is nowhere;
 			now slaughter-stains are in vast-room;
 			now stalker-dead is true;
@@ -11439,7 +11459,7 @@ In the fragments, you find a little box labelled ADMIN.";
 	otherwise:
 		try touching the noun;
 		
- The printed name of the admin-container is "box labelled ADMIN". Understand "box" or "little" or "label" or "ADMIN" or "labelled" or "soot" or "sooty" as the admin-container.  The description of the admin-container is "Like everything else in this room, the box is made of some sooty material. About the size of a takeout food container, the box looks like it is either ancient of burnt. It has ADMIN stencilled on one side."
+ The printed name of the admin-container is "box labelled ADMIN". Understand "box" or "little" or "label" or "ADMIN" or "labelled" or "soot" or "sooty" as the admin-container.  The description of the admin-container is "Like everything else in this room, the box is made of some sooty material. About the size of a takeout food container, the box looks like it is either ancient or burnt. It has ADMIN stencilled on one side."
 
 Instead of physicality when the noun is the admin-container:
 	say "At your touch, the box crumbles to pieces, and is lost. Its contents are revealed: a shiny scroll.";
@@ -11502,7 +11522,7 @@ The vast-room is a room in spell-region. The vast-room is northeast from the bur
 
 [only]You are on the rim of a vast chamber that stretches off beyond the range of your vision. The rocks below you form a cliff that goes down at least a hundred meters, maybe more. At the bottom lies an underground lake of pure blackness which laps gently up and down despite the lack of any breeze[if beastgone is true].
 
-The rooms smells awful now, and the water bubbles from time to time[end if][if the distant-gleam is in vast-room].
+The roomsy smells awful now, and the water bubbles from time to time[end if][if the distant-gleam is in vast-room].
 
 Far to the north, there is a distant gleam of gold[end if].
 
@@ -11550,7 +11570,7 @@ The underground-lake is distant backdrop in vast-room. The printed name of the u
 
 The distant-gleam is a distant backdrop in vast-room. The printed name of the distant-gleam is "distant gleam". Understand "gleam" or "distant" or "light" or "gold" or "of gold" as the distant-gleam.
 
-The description of the distant-gleam is "Far, far across the lake, you can see a distant gleam of light. But this far away, it could be anything.".
+The description of the distant-gleam is "Far, far across the lake, to the [boldnorth], you can see a distant gleam of light. But this far away, it could be anything.".
 
 Section 2 - The beast
 
@@ -11708,7 +11728,7 @@ Instead of going nowhere from a vast-air:
 	otherwise if the noun is up:
 		say "You fly up as best as you can, but there is nothing you can see above you, and the lake before you is just as far aways as it ever is. The scale of this place is mind-boggling.";
 	otherwise:
-		say "You fly and fly and fly, but nothing seems all that different from when you started. You still see the gleam, far ahead."
+		say "You fly and fly and fly, but nothing seems all that different from when you started[if the brilliant-scroll is not handled]. You still see the gleam, far ahead[end if]."
 
 Flying is an action applying to one visible thing. Understand the command "fly" as "go"
 
@@ -11800,7 +11820,7 @@ Check colloxing:
 	otherwise if the spell-book is not held by the player:
 		nobook collox instead;
 	otherwise if the player is not in eye-room:
-		say "You say the word, 'Collox', but nothing around your responds. There must not be a lot of ferrous metal around here." instead;
+		say "You say the word, 'Collox', but nothing around you responds. There must not be a lot of ferrous metal around here." instead;
 
 Carry out colloxing:
 	if the heavy-portcullis is unripped:
@@ -11808,10 +11828,11 @@ Carry out colloxing:
 
 You immediately feel a tension between you and the door. An irresistible force builds, but something seems to be holding you in place.
 
-It almost feels like your bones are going to shatter when, instead, the portcullis explodes into hundreds of metal shards. which riddle your body.
+It almost feels like your bones are going to shatter when, instead, the portcullis explodes into hundreds of metal shards, which riddle your body.
 
 [sand-dying]";
 		now the heavy-portcullis is open;
+		now the heavy-portcullis is ripped;
 		now the player is in end-room;
 	otherwise:
 		say "You say the word, 'collox', but nothing happens. Thankfully.";
@@ -11985,15 +12006,15 @@ To say monitorloop:
 	otherwise if desolation-attempt is 2:
 		say "It is currently playing a video of you from earlier: 
 
-[one of]It shows you floating  in front of a black pillar. Though there is no sound, it looks like you say a word, and the pillar crackles to life with golden sparks[or]The pillar rises from the ground, and all of the fire in the room dims. The deer-like creatures all turn to stare at you[or]The pillar continues to rise, revealing a hollow portion that has some kind of pump attached to a section of pipe. An enormous gout of slime knocks burst from the pump, but you dodge it midair. There seems to be a creature stuck inside of the pipe[or]You settle back down to the ground from your flight spell wearing off. You seem to notice something inside the pipe in the pillar, behind the creature, although the camera doesn't record what it is. You reach to grab it, ignoring the creature's weak tentacles[or]The creature's tentacles grab the spellbook out of your hand and beat you with it over and over until you slump to the ground. The creature drops the spellbook, and the pillar sinks down into the ground[cycling]";
+[one of]It shows you floating in front of a black pillar. Though there is no sound, it looks like you say a word, and the pillar crackles to life with golden sparks[or]The pillar rises from the ground, and all of the fire in the room dims. The deer-like creatures all turn to stare at you[or]The pillar continues to rise, revealing a hollow portion that has some kind of pump attached to a section of pipe. An enormous gout of slime knocks burst from the pump, but you dodge it midair. There seems to be a creature stuck inside of the pipe[or]You settle back down to the ground from your flight spell wearing off. You seem to notice something inside the pipe in the pillar, behind the creature, although the camera doesn't record what it is. You reach to grab it, ignoring the creature's weak tentacles[or]The creature's tentacles grab the spellbook out of your hand and beat you with it over and over until you slump to the ground. The creature drops the spellbook, and the pillar sinks down into the ground[cycling]";
 	otherwise if desolation-attempt is 3:
 		say "It is currently playing a video of you from earlier:
 
-[one of]It shows you floating  in front of a black pillar. Though there is no sound, it looks like you say a word, and the pillar crackles to life with golden sparks[or]The pillar rises from the ground, and all of the fire in the room dims. The deer-like creatures all turn to stare at you[or]The pillar continues to rise, revealing a hollow portion that has some kind of pump attached to a section of pipe. An enormous gout of slime knocks burst from the pump, but you dodge it midair. There seems to be a creature stuck inside of the pipe[or]You settle back down to the ground from your flight spell wearing off. You seem to notice something inside the pipe in the pillar, behind the creature, although the camera doesn't record what it is. You reach for it, but your arm doesn't seem to be long enough. You look around for something, but don't seem to find whatever it is you're looking for, so you shove your arm back in. The creature slaps at you ineffectually, trying to find something to use against you, but finding nothing[or]The pillar sinks back down, and you slam your fist on it in frustration[cycling]";
+[one of]It shows you floating in front of a black pillar. Though there is no sound, it looks like you say a word, and the pillar crackles to life with golden sparks[or]The pillar rises from the ground, and all of the fire in the room dims. The deer-like creatures all turn to stare at you[or]The pillar continues to rise, revealing a hollow portion that has some kind of pump attached to a section of pipe. An enormous gout of slime knocks burst from the pump, but you dodge it midair. There seems to be a creature stuck inside of the pipe[or]You settle back down to the ground from your flight spell wearing off. You seem to notice something inside the pipe in the pillar, behind the creature, although the camera doesn't record what it is. You reach for it, but your arm doesn't seem to be long enough. You look around for something, but don't seem to find whatever it is you're looking for, so you shove your arm back in. The creature slaps at you ineffectually, trying to find something to use against you, but finding nothing[or]The pillar sinks back down, and you slam your fist on it in frustration[cycling]";
 	otherwise if desolation-attempt is 4:
 		say "It is currently playing a video of you from earlier:
 
-[one of]It shows you floating  in front of a black pillar. Though there is no sound, it looks like you say a word, and the pillar crackles to life with golden sparks[or]The pillar rises from the ground, and all of the fire in the room dims. The deer-like creatures all turn to stare at you[or]The pillar continues to rise, revealing a hollow portion that has some kind of pump attached to a section of pipe. An enormous gout of slime knocks burst from the pump, but you dodge it midair. There seems to be a creature stuck inside of the pipe[or]You settle back down to the ground from your flight spell wearing off. You seem to notice something inside the pipe in the pillar, behind the creature, although the camera doesn't record what it is. You reach for it, but your arm doesn't seem to be long enough. You look around for something, but don't seem to find whatever it is you're looking for, so you shove your arm back in. The creature slaps at you ineffectually[or]The creature's tentacles continue to writhe at you but finding no way to stop you. You seem to have an idea--the bookmark! You reach the bookmark in and use it as a hook to pull down the scroll. 
+[one of]It shows you floating in front of a black pillar. Though there is no sound, it looks like you say a word, and the pillar crackles to life with golden sparks[or]The pillar rises from the ground, and all of the fire in the room dims. The deer-like creatures all turn to stare at you[or]The pillar continues to rise, revealing a hollow portion that has some kind of pump attached to a section of pipe. An enormous gout of slime knocks burst from the pump, but you dodge it midair. There seems to be a creature stuck inside of the pipe[or]You settle back down to the ground from your flight spell wearing off. You seem to notice something inside the pipe in the pillar, behind the creature, although the camera doesn't record what it is. You reach for it, but your arm doesn't seem to be long enough. You look around for something, but don't seem to find whatever it is you're looking for, so you shove your arm back in. The creature slaps at you ineffectually[or]The creature's tentacles continue to writhe at you but finding no way to stop you. You seem to have an idea--the bookmark! You reach the bookmark in and use it as a hook to pull down the scroll. 
 
 The scroll comes out, but the whole creature comes with it! Free from the machine, you see it is a deformed version of one of the deer creatures. It stumbles toward you, tentacles flaying. You kick it, and it flies into the fire as the pillar sinks back down[cycling]";
 	otherwise:
@@ -12136,7 +12157,7 @@ When gripped-scene ends:
 
 Section 3 - The exklip spell
 
-The exklip-scroll is a spell-scroll. The exklip-scroll is held by the strange-man. The printed name of the exklip-scroll is "light scroll".  Understand "light" or "exklip" as exklip-scroll. The associated-spell of exklip-scroll is Exklip.
+The exklip-scroll is a spell-scroll. The exklip-scroll is held by the strange-man. The printed name of the exklip-scroll is "light scroll". Understand "light" or "exklip" as exklip-scroll. The associated-spell of exklip-scroll is Exklip.
 
 Before taking the exklip-scroll when the exklip-scroll is held by the strange-man:
 	if gripped-scene is not happening:
@@ -12169,9 +12190,9 @@ Carry out Exkliping:
 Report exkliping:
 	say "You say the word, 'Exklip'. Golden sparks ignite all over your body, then disappear, burrowing into your skin. 
 
-[first time]You feel a horrible feeling inside, like you're wilting and having to vomit all at once. [only]You cough, and a black cloud flows out and disperses into the air. Simultaneously, you feel much lighter, and much more frail. [if the player is in vast-ladder]
+[first time]You feel a horrible feeling inside, like you're wilting and having to vomit all at once. [only]You cough, and a black cloud flows out and disperses into the air[first time]. Simultaneously, you feel much lighter, and much more frail[only]. [if the player is in vast-ladder]
 
-[flyawaytext][otherwise]You are flying several feet off the ground. It feels...good[end if]."
+[flyawaytext][otherwise][briefflying][end if]."
 
 To say flyawaytext:
 	say "Unfortunately, the wind is now whipping your frail body around much more than before. It tears you away from the rock face before slamming you back into it like an egg cracking onto a pan.
@@ -12180,6 +12201,9 @@ To say flyawaytext:
 	now the player is in end-room;
 	say "At least your body feels normal again"
 	
+To say briefflying:
+	say "You are flying several feet off the ground[first time]. It feels...good[only]"
+
 Before going down from vast-room when flying-player is true:
 	say "[flyawaytext]." instead;
 
@@ -12369,14 +12393,16 @@ Carry out remoxng:
 		if playeraflame is true:
 			say "You say the word, 'Remox', but nothing happens.";
 		otherwise:
-			say "You say the word, 'Remox'. Golden sparks erupt out of your spellbook and towards you. Everywhere they touch you, flames burst out of your body. You feel warm, but only that.";
+			say "You say the word, 'Remox'. Golden sparks erupt out of your spellbook and towards you. Everywhere they touch you, flames burst out of your body. You feel warm, but only that[if in darkness].
+
+The dark absorbs all the light instantly, leaving the flames visible but unhelpful[end if].";
 			now playerAflame is true;
 	otherwise:
 		if playeraflame is false:
 			say "You say the word, 'Remox', but nothing happens.";
 		otherwise:
 			now playerAflame is false;
-			say "You say the word, 'Remox', and the flames over your body diminish and flicker out. You collapse to the floor with relief. Your skin crackles and crisps as it smooths itself out. It stings quite a bit as your nerve endings grow back.";
+			say "You say the word, 'Remox', and the flames over your body diminish and flicker out. You collapse to the floor with relief. Your skin crackles and crispens as it smooths itself out. It stings quite a bit as your nerve endings grow back.";
 
 Player-burning is a recurring scene. Player-burning begins when playeraflame is true.
 
@@ -12662,15 +12688,18 @@ Instead of listening to the hallway-noises:
 
 Section 6 - Spiral Bookmark
 
-The spiral-bookmark is a thing. The printed name of the spiral-bookmark is "bookmark". The initial appearance of the spiral-bookmark is "Seemingly forgotten, a bookmark lies on the floor." Understand "book mark" or "digital" or "mark" or "hook" or "spiral" or "bookmark" as the spiral-bookmark. The description of the spiral-bookmark is "This is a digital bookmark, meant for e-books. It's long and skinny, about a centimeter wide, but at one end it spirals into a sort of hook.".
+The spiral-bookmark is a thing. The printed name of the spiral-bookmark is "bookmark". The initial appearance of the spiral-bookmark is "Seemingly forgotten, a bookmark lies on the floor." Understand "book mark" or "digital" or "mark" or "hook" or "spiral" or "bookmark" or "long" or "hooklike" as the spiral-bookmark. The description of the spiral-bookmark is "This is a digital bookmark, meant for e-books. It's long and skinny, about a centimeter wide, but at one end it spirals into a sort of hook.".
 
 Bookmarkon is a truth state that varies. Bookmarkon is false.
 
 Instead of inserting something into the spell-book:
 	if the noun is the spiral-bookmark :
-		say "You insert the bookmark into the spellbook. Some of the spells look different, now.";
-		now bookmarkon is true;
-		now spiral-bookmark is part of the spell-book;
+		if bookmarkon is true:
+			say "That's already in the spellbook!";
+		otherwise:
+			say "You insert the long, hooklike bookmark into the spellbook. Some of the spells look different, now.";
+			now bookmarkon is true;
+			now spiral-bookmark is part of the spell-book;
 	otherwise:
 		say "[The noun] [don't] seem to fit."
 	
@@ -12760,7 +12789,7 @@ The spongy-monolith is an open unopenable transparent scenery container in corru
 Instead of physicality when the noun is the spongy-monolith:
 	say "You can't bear to approach the spongy monolith. The buzzing and squirming is too revolting."
 
-The virox-scroll is a spell-scroll in spongy-monolith. The printed name of the virox-scroll is "dirty scroll".  Understand "dirty" or "virox" as virox-scroll. The associated-spell of virox-scroll is Virox.
+The virox-scroll is a spell-scroll in spongy-monolith. The printed name of the virox-scroll is "dirty scroll". Understand "dirty" or "virox" as virox-scroll. The associated-spell of virox-scroll is Virox.
 
 Virox is a magic-spell. The spell-preview of Virox is "Infect the caster's body with contagious disease"
 
@@ -12788,7 +12817,7 @@ Carry out Viroxing:
 	now rotting-player is true;
 
 Report Viroxing:
-	say "You say the word, 'Virox'.  Heat races throughout your veins, and you feel yourself start to rot away from the inside. Hundreds of pustules appear on your skin, and something dark oozes out."
+	say "You say the word, 'Virox'. Heat races throughout your veins, and you feel yourself start to rot away from the inside. Hundreds of pustules appear on your skin, and something dark oozes out."
 
 [FIX THIS LATER ADD THE HOLES AND PUSTULES]
 
@@ -12880,7 +12909,7 @@ Visibility rule when in darkness:
 	there is insufficient light. 
 
 Before examining the spell-book while in darkness:
-	say "You can barely make out the text on the spellbook.[paragraph break][The description of the spell-book]" instead
+	say "You can barely make out the text on the spellbook.[paragraph break][The description of the spell-book][line break]" instead
 
 Section 1 - Stinky stuff
 
@@ -12892,7 +12921,7 @@ Instead of smelling when the player is in dark-room:
 
 [FIX THIS LATER Make brackish odor object]
 
-The odorous-object is scenery in dark-room. The printed name of the odorous-object is "odorous object". Understand "odorous" or "odor" or "smell" as the odorous-object. Understand  "big" or "soft" or "wet" or "object" as the odorous-object when the odorous-object is examined. The description of the odorous-object is "You can't see the object, you just know where it is".
+The odorous-object is scenery in dark-room. The printed name of the odorous-object is "odorous object". Understand "odorous" or "odor" or "smell" as the odorous-object. Understand "big" or "soft" or "wet" or "object" as the odorous-object when the odorous-object is examined. The description of the odorous-object is "You can't see the object, you just know where it is".
 
 [Thing-smelling is an action applying to one visible thing. Understand "smell [something]" as thing-smelling.
 
@@ -12908,11 +12937,14 @@ Instead of physicality when the noun is the odorous-object:
 	if the odorous-object is unexamined:
 		say "You can't touch an odor!";
 	otherwise:
-		say "As soon as you touch the odorous object, the room shudders, and you retract your hands. It's warm, soft, and wet, and touching it makes the smell get much worse. Whatever it is, its big, bigger than you are[if the splashing-puddle is unexamined]. 
+		say "As soon as you touch the odorous object, the room shudders, and you retract your hands. It's warm, soft, and wet, and touching it makes the smell get much worse. Whatever it is, it's big, bigger than you are[if the splashing-puddle is unexamined]. 
 
 	The odorous object seems to be fairly solid. It can't be the source of the sloshing sound[otherwise].
 
 	[heattime][end if]."
+
+Before examining the odorous-object while in darkness:
+	try smelling the noun instead
 
 Instead of listening to the dark-room:
 	say "[if the splashing-puddle is unexamined]You hear gentle water splashing. You can't see where it's coming from, but you can track it down by hearing. It sounds like there's a large puddle in here, and you can figure out where it is[otherwise]You can still hear the splashing puddle, and know where it is[end if].";
@@ -12924,6 +12956,9 @@ Instead of listening to the dark-room:
 [fix this later-instead of swimming or drinking the puddle]
 
 The splashing-puddle is scenery in dark-room. The printed name of the splashing-puddle is "puddle". Understand "liquid" or "puddle" or "splashing" or "sloshing" or "pool" or "water" as the splashing-puddle. The description of the splashing-puddle is "You can't see the puddle, but you can hear where it seems to be."
+
+Instead of listening to the splashing-puddle:
+	try listening to the dark-room;
 
 Instead of physicality when the noun is the splashing-puddle:
 	if the splashing-puddle is unexamined:
@@ -12949,6 +12984,12 @@ Whatever you touched is very large, and, you hesitate to say, probably alive. Bu
 Instead of attacking the warm-thing:
 	say "You punch [the warm-thing], and the room shudders, but whatever it is, your feeble efforts aren't strong enough to truly affect it."
 	
+Instead of going nowhere from dark-room:
+	if the noun is outside:
+		try going south;
+	otherwise:
+		say "You stumble around but find no exit in that direction.";
+
 Chapter 14 - Flesh
 
 [You have to give up some of your nanoflesh to help]
@@ -12982,7 +13023,7 @@ Instead of physicality when the noun is the flickering-flames:
 
 The malformed-growths are plural-named scenery in flesh-room. Understand "fungus" or "fungi" or "quick" or "growing"or "liquid" or "malformed" or "growth" or "growths" or "quick-growing" as the malformed-growths. The printed name of the malformed-growths is "growths". The description of the malformed-growths is "The creatures seem almost liquid when they first begin growing out of the ground, puddling larger and larger before differentiating into limbs and becoming fully grown."
 
-The malformed-beasts are plural-named  scenery animals in flesh-room. Understand "malformed" or "wrong" or "one" or "ones" or "beast" or "beats" or "creatures" or "creature" or "missing" as the malformed-beasts. The printed name of the malformed-beasts is "malformed creatures". The description of the malformed-beasts is "The malformed creatures look much less lively than the others. Mechanically, they file out into the next room, where incineration awaits them."
+The malformed-beasts are plural-named scenery animals in flesh-room. Understand "malformed" or "wrong" or "one" or "ones" or "beast" or "beats" or "creatures" or "creature" or "missing" as the malformed-beasts. The printed name of the malformed-beasts is "malformed creatures". The description of the malformed-beasts is "The malformed creatures look much less lively than the others. Mechanically, they file out into the next room, where incineration awaits them."
 
 The life-text of flesh-room is "[paragraph break][italic type]Climbers[roman type][line break]Quantity: Variable[line break]Mass: variable"
 
@@ -12996,7 +13037,7 @@ The hunt-room is a room in spell-region. The hunt-room is east from stranger-roo
 
 The description of the hunt-room is "You seem to have taken a wrong turn. This room is a dead end, a small, rocky chamber with an exit to the [boldwest].
 
-There is nothing in this room, but you do detect a kind of musky odor with a metallic undertone."
+There is nothing in this room[unless the slaughter-beast is nowhere], but you do detect a kind of musky odor with a metallic undertone[end if]."
 
 Section 2 - The hunting scene
 
@@ -13029,9 +13070,9 @@ When hunter-scene ends fearfully:
 Every turn during hunter-scene:
 	if the time since hunter-scene began is 1 minute:
 		say "You smell a strong odor near you.";
-	if the time since hunter-scene began is 3 minutes:
+	otherwise if the time since hunter-scene began is 3 minutes:
 		say "The strong odor just won't go away. It smells like it's right next to you.";
-	if the time since hunter-scene began is 5 minutes:
+	otherwise if the time since hunter-scene began is 5 minutes:
 		say "You feel sharp teeth pierce through your shoulder, and you are dragged screaming into the air.
 
 [Sand-Dying]";
@@ -13138,9 +13179,9 @@ Role-quip is a quip. The printed name of role-quip is "Role". Understand "role" 
 
 The targetresponse of role-quip is "The spider says, 'I'm a promoted AI agent a level above all the others you've seen done here. My role is to administer this site, make sure ration storage is free from pests, perform basic security and provide raw materials and drones for other areas of this ship.'
 
-'Ship?' you ask, 'What ship? We're underground?'
+'Ship?' you ask. 'What ship? We're underground?'
 
-He clicks his chelicerae. 'You'll learn in due time. For now, I can tell you that this ship is much larger than anything you're used to. We are in the bowels of the ship, the long-terms stores of materials. The pack beasts of the great city in the stars. Most of what you see is carbon, in its various forms, being refined into, well, nanobots. We're all made of nanobots down here. Even you.'
+He clicks his chelicerae. 'You'll learn in due time. For now, I can tell you that this ship is much larger than anything you're used to. We are in the bowels of the ship, the long-term stores of materials. The pack beasts of the great city in the stars. Most of what you see is carbon, in its various forms, being refined into, well, nanobots. We're all made of nanobots down here. Even you.'
 
 'I'm not nanobots,' you say defiantly.
 
@@ -13162,16 +13203,16 @@ You ask, 'What about all the times I died? What was that?'
 
 Knowledge-quip is a quip. The printed name of knowledge-quip is "Knowledge". Understand "knowledge" as the knowledge-quip. The target of knowledge-quip is the webmaster. The preview of knowledge-quip is "Why do you act like you know me?"
 
-The targetresponse of knowledge-quip is "'Because I do, little one. I've known everything that you were going to do before you did it. I knew you  would find the gem. I knew you would kill the invisible stalker. I knew you would repair the Climber liquid recovery pipe (and thank you for that). I knew you would come here. And I knew that you would ask that question just now.'
+The targetresponse of knowledge-quip is "'Because I do, little one. I've known everything that you were going to do before you did it. I knew you would find the gem. I knew you would kill the invisible stalker. I knew you would repair the Climber liquid recovery pipe (and thank you for that). I knew you would come here. And I knew that you would ask that question just now.'
 
-'How could you possibley know that?' you demand. 
+'How could you possibly know that?' you demand. 
 
-'Because you're a machine, little one. A collection of nanobots,' he says[deliverbody], 'doing exactly what it's told.''"
+'Because you're a machine, little one. A collection of nanobots,' he says[deliverbody], 'doing exactly what it's told.'"
 
 To say deliverbody:
 	deliver Composition-quip;
 	
-Composition-quip is a quip. THe printed name of composition-quip is "Composition". Understand "composition" as composition-quip. The target of composition-quip is webmaster. The preview of composition-quip  is "What do you mean, I'm made of nanobots?".
+Composition-quip is a quip. THe printed name of composition-quip is "Composition". Understand "composition" as composition-quip. The target of composition-quip is webmaster. The preview of composition-quip is "What do you mean, I'm made of nanobots?".
 
 The targetresponse of composition-quip is "'Because you are,' says the Webmaster.
 
@@ -13185,9 +13226,9 @@ The targetresponse of composition-quip is "'Because you are,' says the Webmaster
 
 'But I'm--' you start before he cuts you off.
 
-'Could I do this to Emrys Tisserand?' he asks, before speaking a weird in a language at once familiar and foreign. Your right arm dissolves into a hundred shifting particles of dust before reforming.
+'Could I do this to Emrys Tisserand?' he asks, before speaking a word in a language at once familiar and foreign. Your right arm dissolves into a hundred shifting particles of dust before reforming.
 
-'You are a robot. When Emrys Tisserand touched that gem, you activated, in our little graveyard. Your mind was filled with a digital copy of Emrys' mind, and a duplicate recorder was created and given to you. She is controlling you right now, although she doesn't know it. And you're transmitting her all of this,' he says. 'At some point, she will disconnect from you, and you will die, because you aren't even sentient. You're simply a hollow vessel.'
+'You are a robot. When Emrys Tisserand touched that gem, you activated, in our little graveyard. Your mind was filled with a digital copy of Emrys['] mind, and a duplicate recorder was created and given to you. She is controlling you right now, although she doesn't know it. And you're transmitting her all of this,' he says. 'At some point, she will disconnect from you, and you will die, because you aren't even sentient. You're simply a hollow vessel.'
 
 He goes on: 'But enough of questions. I will not allow you to ask any more, except for the one you came here for.'"
 
@@ -13235,7 +13276,7 @@ Before going north from dark-room when bear-quip is targetgiven:
 	
 Section 3 - Webbed scroll and spell
 
-Webbed-scroll is a spell-scroll. The printed name of webbed-scroll is "webbed scroll". Understand "webbed" as the webbed-scroll. The description of the webbed-scroll is "FIX THIS LATER". The associated-spell of webbed-scroll is Sanox.
+Webbed-scroll is a spell-scroll. The printed name of webbed-scroll is "webbed scroll". Understand "webbed" as the webbed-scroll. The associated-spell of webbed-scroll is Sanox.
 
 Sanox is a magic-spell. The spell-preview of Sanox is "Isolate the caster"
 
@@ -13341,7 +13382,7 @@ Section 1 - The room itself
 
 The slaughter-room is a room in spell-region. The printed name of the slaughter-room is "Cage". 
 
-The description of the slaughter-room is "Most of this room is [if the slaughter-beast is in slaughter-room]inaccessible to you, [end if]occupied by a cage formed from stalagmites and stalactites. The rocky outcroppings forming the cage are chipped and damaged from some extreme force[if the slaughter-beast is in slaughter-room].
+The description of the slaughter-room is "Most of this room is [if the slaughter-beast is in slaughter-room]inaccessible to you, [end if]occupied by a cage formed from stalagmites and stalactites. The rocky outcroppings forming the cage are chipped and damaged from some extreme force[if the slaughter-beast is enclosed by slaughter-room].
 
 Inside the cage is a rampaging [slaughter-beast] like a cross between a gorilla and a rhinoceros, with powerful forearms and a heavy horn. It's throwing itself over and over again at the bars, howling and roaring by turns[end if][first time].
 
@@ -13351,11 +13392,16 @@ Noticing your attention, it swipes at you with one arm, reaching through the cag
 
 It can't get you, but you take a step back from the cage, just to be safe. The creature howls and bashes the walls of its cage[only]."
 
-The slaughter-cage is an open transparent unopenable enterable scenery container in slaughter-room. Understand "cage" or "stalactites" or "stalagmites" or "stalactite" or "stalacgmite" or "outcropping" as the slaughter-cage. The printed name of the slaughter-cage is "cage". The description of the slaughter-cage is "It looks like you can slip in earily enough[if the slaughter-beast is nowhere], now that the beast is gone[otherwise], if the beast weren't there.
+The slaughter-cage is an open transparent unopenable enterable scenery container in slaughter-room. Understand "cage" or "stalactites" or "stalagmites" or "stalactite" or "stalacgmite" or "outcropping" as the slaughter-cage. The printed name of the slaughter-cage is "cage". The description of the slaughter-cage is "It looks like you could slip in and out easily enough[if the slaughter-beast is nowhere], now that the beast is gone[otherwise], if the beast weren't there.
 
 Inside the cage, the beast continues its rampage[end if]."
 
-The slaughter-beast is a scenery animal in slaughter-cage. Understand "monster" or "beast" or "gorilla" or "rhino" or "rhinoceros" or "forearm" or "forearms" or "arm" or "arms" or "horn" or "heavy" or "powerful" as the slaughter-beast. The printed name of the slaughter-beast is "beast". The description of the slaughter-beast is "[if hunter-scene is happening]The beast seems terribly agitated by something in the room, and its not you. The beast pounds at the cage over and over, trying to get out and confront whatever is agitating it[otherwise]The beast looks part gorilla, part rhinoceros: tall, hunched over, bearing a horn that looks like it could gut you in one second. It's pounding the cage over and over, seemingly limitless in its energy. Good thing its in there and you're out here[end if].".
+Instead of going nowhere when the player is in slaughter-cage:
+	say "There's nowhere for you to go except back [boldeast], or trying to enter the cage."
+
+The slaughter-beast is a scenery animal in slaughter-cage. Understand "monster" or "beast" or "creature" or "gorilla" or "rhino" or "rhinoceros" or "forearm" or "forearms" or "arm" or "arms" or "horn" or "heavy" or "powerful" as the slaughter-beast. The printed name of the slaughter-beast is "beast". The description of the slaughter-beast is "[if hunter-scene is happening]The beast seems terribly agitated by something in the room, and its not you. The beast pounds at the cage over and over, trying to get out and confront whatever is agitating it[otherwise]The beast looks part gorilla, part rhinoceros: tall, hunched over, bearing a horn that looks like it could gut you in one second. It's pounding the cage over and over, seemingly limitless in its energy. Good thing it's in there and you're out here[end if].
+
+It has scars all over its body. Remnants of some ancient fight[first time]? But what would be big enough to hurt it[only]?".
 
 The life-text of slaughter-room is "[paragraph break][italic type]Breaker[roman type][line break]Quantity: 1[line break]Mass: 341 kg"
 
@@ -13386,12 +13432,18 @@ Section 3 - Rage scroll
 
 [FIX THIS LATER Different slaughter death when the player is contagious]
 Instead of physicality when the noun is slaughter-dangerous:
-	say "You have approached too close to the cage. [if rotting-player is false]The beast grabs you and smashes you against the wall and its all over[otherwise]The beast grabs a rock to use as a club and brains you with it, careful to avoid the corruption oozing out of your sick body[end if].
+	say "You have approached too close to the cage. [if rotting-player is false]The beast grabs you and smashes you against the wall and its all over[otherwise][flamebeast]beast grabs a rock to use as a club and brains you with it, careful to avoid the corruption oozing out of your sick body[end if].
 
 [sand-dying]";
 	now the player is in end-room;
 
-To decide whether (maybe-rage -  a thing) is slaughter-dangerous:
+To say flamebeast:
+	if playeraflame is true:
+		say "Ignoring the flames that wrap your body, the ";
+	otherwise:
+		say "The";
+
+To decide whether (maybe-rage - a thing) is slaughter-dangerous:
 	if the slaughter-beast is nowhere:
 		decide no;
 	if maybe-rage is the slaughter-cage:
@@ -13402,11 +13454,11 @@ To decide whether (maybe-rage -  a thing) is slaughter-dangerous:
 
 [FIX THIS LATER: Initial appearance?]
 
-The slaughter-scroll is a spell-scroll in slaughter-cage. The printed name of the slaughter-scroll is "stained scroll". 
+The slaughter-scroll is a spell-scroll in slaughter-cage. The printed name of the slaughter-scroll is "stained scroll". Understand "stained" or "quadox" as the slaughter-scroll.
 
 The associated-spell of slaughter-scroll is Quadox.
 
-Quadox is a magic-spell. The spell-preview of Quadox is "Enrages the caster beyond control."
+Quadox is a magic-spell. The spell-preview of Quadox is "Enrages the caster beyond control"
 
 [fIX THIS LATER: GIVING OTHER THINGS THE DISEASE]
 
@@ -13426,7 +13478,7 @@ Carry out Quadoxing:
 	now enraged-player is true;
 
 Report Quadoxing:
-	say "You say the word, 'Quadox'.  Dark red sparks shoot out of the spellbook, circle for a moment, and shoot directly into your skull.
+	say "You say the word, 'Quadox'. Dark red sparks shoot out of the spellbook, circle for a moment, and shoot directly into your skull.
 
 It hurts...it hurts. The pain is all you can think of. It makes you absolutely furious."
 
@@ -13541,9 +13593,9 @@ It--She?--looks at herself in surprise. 'I didn't think there'd be any of me lef
 
 Her leg starts to dissolve, and she sags to one side. 'Oh dear,' she says, looking at her leg, then at the bear. 'I think this is yours,' she says, handing you the toy.
 
-`I guess the spider lied,' she says, as her entire lower half crumbles into pieces, her torso sinking down. 'I didn't expect to still be here.'
+'I guess the spider lied,' she says, as her entire lower half crumbles into pieces, her torso sinking down. 'I didn't expect to still be here.'
 
-'It's okay,' you says. You realize that you don't even know her name, or if something like her even has a name.
+'It's okay,' you say. You realize that you don't even know her name, or if something like her even has a name.
 
 'Yeah, it'll all be okay. It was nice, being you,' she says, looking at her hand, which dissolves completely. 'Real nice.'
 
@@ -13605,9 +13657,16 @@ Part 9 - Combat dimension
 
 Chapter 1 - Brig
 
+Before going south to brig-room for the first time:
+	say "'Watch out! Medical coming through!' shouts someone before you can enter. A medical team is carting out an injured guard; you step to the side to let them through.
+
+'Be careful in their, Storyweaver,' says one of the team, a woman you don't recognize. 'FIX THIS LATER A prisoner got loose and got a hold of this guy's weapon. She let us take him out, but she has some demands. Maybe you can talk some sense into her.'
+
+Then they move out of the way and out of sight. The path to the south is now open." instead;
+
 The brig-room is south from transit-room. The printed name of the brig-room is "Brig". "There isn't really any kind of prison on board; troublemakers tend to get refrozen. But there is a small, temporary brig for use in emergencies.
 
-Unfortunately, the crash has caused damage to this room. The prisoner Tiffany is holed up in the cell with a gun taken from a guard.
+Unfortunately, the crash has damaged this room. The one cell the ship had lies open, its bars irretrievably bent[if tiffany is in the location]. The prisoner Tiffany is holed up in the cell with a gun taken from a guard. Around the room are several other guards, each with their own weapons trained on her. It's a standoff[end if].
 
 The transit hub is back to the [boldnorth]."
 
@@ -13615,17 +13674,57 @@ The brig-room is in ship-region.
 
 Section 1 -Tear in space
 
-The brig-tear is a space-tear. "[one of]FIX THIS LATER Stuff happens and a tear in space opens to the [boldsouth][or][if the player is in ship-region]A tear in space has opened up here[otherwise]A tear in space leading back to the ship is here[end if], to the [if the player is in brig-room][boldsouth][otherwise][boldnorth][end if]. It glows [if the brig-tear is red-torn]red[otherwise]green[end if][stopping]." The brig-tear is south of brig-room and north of the combat-lobby.
+The brig-tear is a space-tear. "[one of]'FIX THIS LATER Are you a negotiator[delivernegotiator]?' asks Tiffany. 'I know you guys don't have the resources to deal with me right now. Give me my equipment back and a ten minute head start and I'll be out of your hair'
 
-Section 2 - Tiffany
+One of the guards say, 'What, and let you crack more cryotubes? We're not stupid!'
 
-Tiffany is a woman in brig-room.
+Tiffany shoots out a bolt towards the guard in question, who ducks down.
 
-Section 3 -Guards
+Unseen by the others, a tear in space opens to the [boldsouth]. Out of it creeps a small monkey-like robot that grabs hold of a grey duffel bag labelled PERSONAL BELONGINGS. It pulls it back into the tear and out of sight[or][if the player is in ship-region]A tear in space has opened up here[otherwise]A tear in space leading back to the ship is here[end if], to the [if the player is in brig-room][boldsouth][otherwise][boldnorth][end if]. It glows [if the brig-tear is red-torn]red[otherwise]green[end if][stopping]." The brig-tear is south of brig-room and north of the combat-lobby.
 
-The brig-guards are plural-named people in brig-room.
+Section 2 - Cell and other scenery
 
-Chapter 2 - Preliminaries
+The bent-cell is an open unopenable transparent enterable scenery container in the brig-room. The printed name of the bent-cell is "cell". Understand "cell" or "wall" or "one cell" or "open cell" as the bent-cell. The description of the bent-cell is "This cell was recessed into to the wall, with the bars flush with the rest of the room, but the accident has bent the bars out of place."
+
+Before entering bent-cell:
+	if tiffany is in the brig-room:
+		say "'Don't even think about it!' shouts Tiffany, waving her weapon at you."
+
+The bent-bars are plural-named. The bent-bars are part of the bent-cell. The printed name of the bent-bars is "bent bars". Understand "bent" or "bars" or "warped" as the bent-bars. The description of the bent-bars is "These bars were intended to be very solid; the damage must have been intense to warp these so much."
+
+Instead of opening or closing the bent-bars:
+	say "The damage has warped them enough that they can't be moved at all."
+
+Section 3 - Tiffany
+
+Tiffany is a scenery woman in brig-room. The description of Tiffany is "Tiffany is a short woman with thick, dark hair pulled back into a ponytail. She's wearing a prisoner's jumpsuit and holding a gun."
+ Understand "short" or "woman" or "prison" or "jumpsuit" or "prisoner" or "prisoner's" or "thick" or "dark" or "hair" or "ponytail" as Tiffany.
+
+Instead of physicality when the noun is tiffany:
+	say "She holds up her gun and says, 'Back off!'"
+
+Negotiation-quip is a quip. The printed name of negotiation-quip is "Negotiation". Understand "negotiation" as negotiation-quip. The target of negotiation-quip is Tiffany. The preview of negotiation-quip is "Yes, I am a trained negotiator."
+
+The targetresponse of negotiation-quip is "'Then listen. I'm not leaving here without you meeting my demands,' says Tiffany.
+
+You answer, 'Wait, I'm a negotiator, but only by training. I'm not actually authorized right now to...'
+
+'Doesn't matter. Listen, the cryotubes are a living hell; mankind was NOT MEANT to live for decades with a frozen brain! You have to deactivate all of them, put the people out of their misery,' says Tiffany.
+
+'So your demands are that we kill almost everyone on the ship?' you ask incredulously.
+
+'We've been trying to explain that we can't do that,' volunteers one of the guards. 'But she won't listen. We'd like to take her peacefully, but there's no backup, and if she starts shooting...'
+
+'I'll see what I can do,' you answer."
+
+To say delivernegotiator:
+	deliver negotiation-quip;
+
+Section 4 - Guards
+
+The brig-guards are plural-named scenery people in brig-room. The printed name of the brig-guards is "brig guards". Understand "brig" or "guard" or "brig guards" as the brig-guards. The description of the brig-guards is "These look like just the guards that would have been on today this shift, minus the one who left. No reinforcements; everyone else is probably dealing with the collision."
+
+Chapter 2 - Preliminaries and Max and Dan
 
 The combat-region is a region. 
 
@@ -13637,15 +13736,17 @@ Instead of going nowhere when the player is in combat-region:
 	otherwise:
 		say "You don't see any exit that way; you can only go [exit list] from here."
 
-Section 1 - Max and Dan
+Section 1 - Max and Dan basics
 
 A robot is a kind of man. Understand "robot" or "droid" as a robot.
 
-Combat-kitchen is a room. Max is a robot in combat-kitchen. Dan is a robot in combat-kitchen. The description of Max is "Max is a boxy, armored robot with crimson and navy markings spelling MAX on his chest. He wears a lugubrious expression that seems to be part of his face". The description of Dan is "Dan is a tall, lithe robot with the word DAN painted in black on his silver body. He has no recognizable facial features outside of a single eye.".
+Combat-kitchen is a room. The Glassed-kitchen is a closed unopenable transparent container in combat-kitchen. Max is a robot in glassed-kitchen. Dan is a robot. The description of Max is "Max is a boxy, armored robot with crimson and navy markings spelling MAX on his chest. He wears a lugubrious expression that seems to be part of his face". The description of Dan is "Dan is a tall, lithe robot with the word DAN painted in black on his silver body.".
 
 Understand "boxy" or "armor" or "armored" or "crimson" or "navy" or "markings" or "marking" or "chest" or "lugubrious" or "expression" or "face" as max.
 
-Understand "tall" or "lithe" or "paint" or "black" or "silver" or "body" or "single" or "eye" as Dan.
+Understand "tall" or "lithe" or "paint" or "black" or "silver" or "body" as Dan.
+
+Section 2 - Persuasion rules and responses
 
 A persuasion rule for asking max to try doing something: persuasion succeeds.
 
@@ -13655,20 +13756,24 @@ A persuasion rule for asking Dan to try doing something: persuasion succeeds.
 
 [Dan is warmhearted and dumb]
 
-Unsuccessful attempt by Max doing something:
+Definition: a robot is nonrecording if it is not recording.
+
+Unsuccessful attempt by nonrecording Max doing something:
 	repeat through table of Max Retorts:
 		if the reason the action failed is the cause entry:
 			say "[response entry][paragraph break]";
 			rule succeeds;
-	say "'I don't think I'm programmed to do that,' says Max dubiously."
+	say "'I don't think I'm programmed to do that,' says Max dubiously.";
+	rule succeeds;
 
-Unsuccessful attempt by Dan doing something:
+Unsuccessful attempt by nonrecording Dan doing something:
 	repeat through table of Dan Retorts:
 		if the reason the action failed is the cause entry:
 			say "[response entry][paragraph break]";
 			rule succeeds;
-	say "'Sorry boss, I don't really know how to do that,' says Dan."
-
+	say "'Sorry boss, I don't really know how to do that,' says Dan.";
+	rule succeeds;
+	
 Carry out max singing:
 	say "Max sings 'The Fall of the Station', a heartrending song about the death of a beloved robot named Floyd.
 
@@ -13680,7 +13785,7 @@ Carry out Dan singing:
 'That's enough,' you say.[or]Not after his last performance.[stopping]";
 
 Instead of answering Max that something:
-	say "'I don't think I heard you right,' says Max."
+	say "'I couldn't recognize that as an order,' says Max."
 
 Table of Max Retorts
 cause	response
@@ -13702,6 +13807,9 @@ can't drop yourself rule	"'Now that makes no sense,' says Max. 'I can't drop mys
 can't drop what's already dropped rule	"[already done]"
 can't drop what's not held rule	"'I can't drop [the noun] if I don't have [the noun],' says Max."
 can't drop clothes being worn rule	"[salacious retort]"
+can't push what's fixed in place rule	"Max struggles unsuccessfully to push [the noun]."
+can't pull what's fixed in place rule	"Max struggles unsuccessfully to pull [the noun]."
+can't turn what's fixed in place rule	"Max struggles unsuccessfully to turn [the noun]."
 can't put something on itself rule	"'That does not compute,' says Max."
 can't put onto what's not a supporter rule	"'[The second noun] isn't great for putting things on,' says Max reprovingly."
 can't put clothes being worn rule	"[salacious retort]"
@@ -13717,6 +13825,17 @@ can't switch off what's already off rule	"[already done]"
 can't switch on what's already on rule	"[already done]"
 can't unlock what's already unlocked rule	"[already done]"
 can't lock what's already locked rule	"[already done]"
+can't enter what's not enterable rule	"'There's not much room for me,' says Max."
+can't get off things rule	"'But I'm not on that!' says Max."
+can't search closed opaque containers rule	"'I can't see inside it!' says Max."
+can't switch on unless switchable rule	"'I can't find any way to turn that on,' says Max."
+can't switch off unless switchable rule	"'I can't find any way to turn that off,' says Max."
+can't open unless openable rule	"'I can't figure out how to open this,' says Max."
+can't close unless openable rule	"'I can't figure out how to close this,' says Max."
+can't give to yourself rule	"'But I already have that!' says Max."
+can't pull people rule	"[unwanted touch]"
+can't push people rule	"[unwanted touch]"
+can't turn people rule	"[unwanted touch]"
 
 To say salacious retort:
 	say "'I want to keep my clothes on!' says Max."
@@ -13749,12 +13868,14 @@ response
 "Max just shakes his head."
 "Max says, 'I swear you're just making stuff up now.'"
 
+To drop is a verb.
+
 Table of Dan Retorts
 cause	response
 can't take yourself rule	"'That doesn't make much sense, boss. I [italic type]am[roman type] Dan; why would I take myself?' he says."
 can't take other people rule	"'Taking sentient things is agains union rules, boss,' he says."
 can't take component parts rule	"'[The noun] is hooked to something else,' says Dan."
-can't take people's possessions rule	"'I'll take it once they drop it. I'm not thief,' says Dan."
+can't take people's possessions rule	"'I'll take it once [if the holder of the noun is the player]you drop[otherwise][the holder of the noun] [adapt the verb drop][end if] it. I'm not thief,' says Dan."
 can't take what you're inside rule	"'Dan says, 'Hey, boss, I'm inside the thing! How can I take it?'"
 can't take what's already taken rule	"[already done1]"
 can't take scenery rule	"'What, is this made of lead?' Dan asks."
@@ -13769,6 +13890,9 @@ can't drop yourself rule	"'You want to drop Dan? I am Dan!' shouts the robot."
 can't drop what's already dropped rule	"[already done1]"
 can't drop what's not held rule	"''You want me to drop [the noun]? I don't even have [those],' says Dan."
 can't drop clothes being worn rule	"[salacious retort1]"
+can't push what's fixed in place rule	"Dan struggles unsuccessfully to push [the noun]."
+can't pull what's fixed in place rule	"Dan struggles unsuccessfully to pull [the noun]."
+can't turn what's fixed in place rule	"Dan struggles unsuccessfully to turn [the noun]."
 can't put something on itself rule	"Dan stares at [the noun] for a bit. 'I honestly don't that's possible,' he says."
 can't put onto what's not a supporter rule	"'It's not up to code to put things on [the second noun],' says Dan reprovingly."
 can't put clothes being worn rule	"[salacious retort1]"
@@ -13784,6 +13908,19 @@ can't switch off what's already off rule	"[already done1]"
 can't switch on what's already on rule	"[already done1]"
 can't unlock what's already unlocked rule	"[already done1]"
 can't lock what's already locked rule	"[already done1]"
+can't enter what's not enterable rule	"'Don't think I can fit, boss,' says Dan."
+can't get off things rule	"'I wasn't there in the first place, boss,' says Dan."
+can't search closed opaque containers rule	"'I'd have to open it first, boss,' says Dan."
+can't switch on unless switchable rule	"'I can't find any way to turn that on,' says Dan."
+can't switch off unless switchable rule	"'I can't find any way to turn that off,' says Dan."
+can't open unless openable rule	"'I don't see how to open that, boss,' says Dan."
+can't close unless openable rule	"'I don't see how to close that, boss,' says Dan."
+can't give to yourself rule	"'But I already have that!' says Dan."
+can't pull people rule	"[unwanted touch1]"
+can't push people rule	"[unwanted touch1]"
+can't turn people rule	"[unwanted touch1]"
+
+The block giving rule does nothing when the actor is a robot.
 
 To say salacious retort1:
 	say "'Whoa! No nudity at the rate they're paying me,' says Dan."
@@ -13816,9 +13953,18 @@ response
 "Dan refuses to even try."
 "Dan says, 'I can't reach through physical things!'"
 
+To say unwanted touch:
+	say "'Yeah, I'm not putting my hands on [the noun],' says Max. "
+
+To say unwanted touch1:
+	say "'Yeah, I'm not putting my hands on [the noun],' says Dan. "
+
 [The block giving rule is not listed in the check giving it to rules when the second noun is a robot. The block showing rule is not listed in the check showing it to rules when the second noun is a robot. ]
 
 Instead of asking a robot for something: try asking the noun to try giving the second noun to the player.
+
+After a robot (called currentbot) taking inventory:
+	say "[The actor] looks through his possessions. 'I'm carrying [a list of things carried by the actor].'"
 
 Carry out a robot (called Currentbot) showing something to someone:
 	if the second noun is the player:
@@ -13829,14 +13975,20 @@ Carry out a robot (called Currentbot) showing something to someone:
 
 Instead of asking someone to try saying yes: try saying yes. Instead of asking someone to try saying no: try saying no. Instead of asking someone to try saying sorry, try saying sorry.
 
-Burning something is useless action. Waking up is useless action. Thinking is useless action. Cutting is useless action. Jumping is useless action. Tying something to something is useless action. Drinking something is useless action. Swinging is useless action.  Rubbing is useless action. Setting something to something is useless action. Waving hands is useless action. Buying is useless action. Climbing is useless action. Sleeping is useless action. Kissing is useless action. Throwing something at something is useless action. Attacking is useless action. Asking something about something is useless action. Telling something about something is useless action. Answering something that something is useless action. Waking something is useless action.
+Burning something is useless action. Waking up is useless action. Thinking is useless action. Cutting is useless action. Tying something to something is useless action. Drinking something is useless action. Swinging is useless action. Rubbing is useless action. Setting something to something is useless action. Waving hands is useless action. Buying is useless action. Climbing is useless action. Sleeping is useless action. Kissing is useless action. Asking something about something is useless action. Telling something about something is useless action. Answering something that something is useless action. Waking something is useless action. Locking something with something is useless action. Unlocking something with something is useless action. Touching something is useless action. Unlocking keylessly is useless action. Locking keylessly is useless action.
 
 A persuasion rule for asking Max to try useless action:
-	say "'I think we can find better uses for my time,' says Max.";
+	if max is recording:
+		say "'That's not something I can record,' says Max.";
+	otherwise:
+		say "'I think we can find better uses for my time,' says Max.";
 	persuasion fails.
 
 A persuasion rule for asking Dan to try useless action:
-	say "'Sorry, that's not in my contract,' says Dan.";
+	if dan is recording:
+		say "'That's not something I can record,' says Dan.";
+	otherwise:
+		say "'Sorry, that's not in my contract,' says Dan.";
 	persuasion fails.
 
 [Your robot followers learn from your actions. They are called Max and Dan.
@@ -13856,6 +14008,127 @@ The enemies are autonomous]
 [guns are pulled out and they shoot targets, which are maybe the deer creatures from the spell section?]
 
 [add taunt command]
+
+Section 3 - Recording
+
+A memory-slot is a kind of thing. Understand "memory" or "slot" as a memory-slot. 
+
+Slot-A is a memory-slot. Slot-B is a memory-slot. Slot-C is a memory-slot. Slot-A, Slot-B, and Slot-C are part of Dan. Understand "A" as slot-A. Understand "B" as slot-B. Understand "C" as slot-C.
+
+Definition: a memory-slot is a dan-slot if it is part of Dan.
+
+Slot-X is a memory-slot. Slot-Y is a memory-slot. Slot-Z is a memory-slot. Slot-X, Slot-Y, and Slot-Z are part of Max. Understand "X" as slot-X. Understand "Y" as slot-Y. Understand "Z" as slot-Z.
+
+The printed name of slot-a is "Slot A". The printed name of slot-b is "Slot B". The printed name of slot-c is "Slot C".
+The printed name of slot-x is "Slot X". The printed name of slot-Y is "Slot B". The printed name of slot-c is "Slot C".
+
+Definition: a memory-slot is a max-slot if it is part of Max.
+
+A memory-slot has a list of actions called command-list. 
+
+A robot can be recording, playing back, or neutral. A robot is usually neutral.
+
+A robot has a memory-slot called currentslot. Currentslot of dan is slot-a. Currentslot of Max is slot-x.
+
+transcribing is an action applying to nothing. Understand "record" as transcribing. 
+
+Carry out an actor transcribing:
+	if the actor is the player:
+		say "You're always recording. That's what Storyweavers do.";
+	otherwise if the actor is clone-you:
+		say "'Recording is your job,'[setcloneact] says your clone.";
+	otherwise if the actor is a robot:
+		if the number of entries in command-list of currentslot of the actor > 4:
+			say "'That slot is full. Would you like to write over the old recording?' asks [the actor].";
+			if the player consents:
+				now command-list of currentslot of the actor is {};
+				say "[The actor] says, 'Recording on.'";
+				now the actor is recording;
+			otherwise:
+				say "'Recording cancelled,' says [the actor].";
+		otherwise:
+			say "[The actor] says, 'Recording on.'";
+			now the actor is recording;
+		
+Oval-Office is a room.
+
+Nothingaction is an action applying to nothing. [This is only for tricking the game into thinking an action was successful when redirecting it via before clauses, thus avoiding our unsuccessful attempt clauses.]
+
+Carry out nothingaction:
+	do nothing;
+
+Before a recording robot (called currentbot) doing anything (this is the robot recording rule):
+	if the number of entries in command-list of currentslot of currentbot < 5:
+		add the current action to command-list of currentslot of currentbot;
+		say "'Recorded,' says [currentbot].";
+		try nothingaction instead;
+	otherwise:
+		say "'That slot is full,' says [currentbot]." ;
+		try nothingaction instead;
+	if the number of entries in command-list of currentslot of currentbot is 5:
+		say "[line break]'Recording of [currentslot of currentbot] is now full. Recording off,' says [currentbot].";
+		now currentbot is neutral;
+		try nothingaction instead;
+	otherwise:
+		try nothingaction instead;
+
+replaying is an action applying to one thing. Understand "replay [something]" as replaying. 
+
+Carry out a robot trying playing something:
+	try the actor replaying the noun;
+
+Check an actor replaying:
+	if the noun is not a memory-slot:
+		say "That's not something [the actor] can replay." instead;
+		
+Carry out an actor replaying:
+	if the actor is the player:
+		say "That's not something you are capable of.";
+	otherwise if the actor is clone-you:
+		say "'I don't think I can do that,' [setcloneact]says your clone.";
+	otherwise if the actor is a robot:
+		if the noun is not part of the actor:
+			say "'Hey, that's not my memory slot!' says [the actor]. 'That belongs to the other guy!'";
+		otherwise if the command-list of the noun is empty:
+			say "'Sorry, that slot's empty,' says [the actor].";
+		otherwise:
+			say "'Got it! Playing back now,' says [the actor].";
+			now the actor is playing back;
+	otherwise:
+		say "[The actor] [are] confused.";
+
+A scene can be replayful or not replayful. A scene is usually not replayful.
+	
+Every turn when a robot is playing back:
+	if a replayful scene is happening:
+		if a replayful scene was happening:
+			repeat with currentbot running through playing back robots:
+				try entry 1 of command-list of currentslot of currentbot;
+				rotate command-list of currentslot of currentbot backwards;
+		otherwise:
+			repeat with currentbot running through playing back robots:
+				say "'Okay, getting ready to execute [currentslot of currentbot]!' says [currentbot].";
+		
+Carry out a robot trying ceasing:
+	say "I'm stopping!";
+	now the actor is neutral;
+
+[When play begins:
+	repeat with current running through dan-slot memory-slots:
+		add { dan waiting, dan waiting, dan waiting, dan waiting, dan waiting} to command-list of current;]
+
+[When play begins:
+	repeat with current running through max-slot memory-slots:
+		add { max waiting, max waiting, max waiting, max waiting, max waiting} to command-list of current;]
+
+Section 4 - Robot responses
+
+The can't take people's possessions rule does nothing if the noun is held by a robot.
+
+All-topicing is useless action. Singlequipping is useless action. Withplaying is useless action. Repairing is useless action. Reading is useless action. Numbersetting some number on something is useless action. RIght-turning is useless action. Left-turning is useless action. Mallethitting is useless action. Withpoking is useless action. Shaking is useless action. Mudremoval is useless action.  Intensemudremoval is useless action. Withcutting something with something is useless action. Using is useless action. Setting something animally to some animal-code is useless action. Sodaemptying is useless action. Typing is useless action. Ragequitting is useless action. LetterTyping is useless action. Clapping is useless action. Tuning something to some tool-mode is useless action. AtPointing is useless action. Withtaking something with something is useless action. Shivering is useless action. Playing is useless action. Cuffing is useless action. Stamping is useless action. Notesinging is useless action. WIthstriking is useless action. Basking is useless action. Linking something to something is useless action. Arresting is useless action. Booksigning is useless action. Atwaving is useless action. Licking is useless action. Marking something with something is useless action. Spelling is useless action. Teloxing is useless action. Denoxng is useless action. Diroxing is useless action. Upgiving is useless action. Malloxing is useless action. TargetMalloxing is useless action. exfiling is useless action. Flying is useless action. Singleflying is useless action. Colloxing is useless action. Splashing is useless action. Exkliping is useless action. Anghofioing is useless action. Remoxng is useless action. Breathing is useless action. Viroxing is useless action. Sanoxing is useless action. Quadoxing is useless action. Singleuttering is useless action.
+
+Instead of showing something to a robot:
+	say "[The second noun] says, 'Huh, interesting. I guess.'"
 
 Chapter 3 - The combat lobby
 
@@ -13892,59 +14165,331 @@ The east-checkpoint is a checkpoint-door. It is south from combat-east and north
 
 Chapter 5 - Robot kitchen
 
+[add a poster with robot instructions for recording, overwriting, etc.]
+
 combat-kitchen is in combat-region. The printed name of combat-kitchen is "Test Kitchen". 
 
-"FIX THIS LATER There is a counter and a refrigerator and a stove and a sink and boiling water and shelves."
+"FIX THIS LATER Most of this room is taken up by a kitchen on the other side of a glass wall. There is a counter and a refrigerator and a stove and a sink and boiling water and shelves."
 
-The kitchen-counter is a scenery enterable supporter in combat-kitchen. Understand "counter" as the kitchen-counter.
+Section 1 - The kitchen
 
-The kitchen-fridge is an openable closed opaque scenery container in combat-kitchen. Understand "fridge" or "refrigerator" as the kitchen-fridge.
+The printed name of the glassed-kitchen is "glass-walled kitchen". Understand "glass" or "wall" or "kitchen" or "walled" or "glass-walled" as the glassed-kitchen.
 
-The kitchen-stove is a scenery device in combat-kitchen. Understand "stove" as the kitchen-stove.
+The glassed-kitchen is scenery.
+
+[FIX THIS LATER add descriptions for everything in this section]
+
+Rule for reaching inside the glassed-kitchen:
+	if the glassed-kitchen is opaque:
+		deny access;
+	otherwise if the current action is asking a robot to try doing something:
+		allow access;
+	otherwise if the current action is chatty behavior:
+		allow access;
+	otherwise if the current action is uttering:
+		allow access;
+	otherwise if the current action is singleuttering:
+		allow access;
+	otherwise if the current action is answering someone that something:
+		allow access;
+	say "The glass wall prevents you from interacting directly with objects in the kitchen.";
+	deny access;
+
+Section 2 - Scenery
+
+The kitchen-counter is a scenery enterable supporter in glassed-kitchen. Understand "counter" as the kitchen-counter.
+
+The kitchen-fridge is an openable closed opaque scenery container in glassed-kitchen. Understand "fridge" or "refrigerator" as the kitchen-fridge.
+
+The kitchen-stove is a scenery supporter in glassed-kitchen. Understand "stove" as the kitchen-stove.
+
+[The kitchen-switch is part of the kitchen-stove. Understand "switch" as the kitchen-switch. The printed name of the kitchen-switch is "switch".]
+
+[Before someone switching on the kitchen-stove:
+	try the actor switching on the kitchen-switch instead;
+	
+Before someone switching off the kitchen-stove:
+	try the actor switching off the kitchen-switch instead;]
 
 The kitchen-sink is a scenery device in combat-kitchen. Understand "sink" as the kitchen-sink.
 
-The kitchen-shelves are a plural-named scenery supporter in combat-kitchen. Understand "shelf" or "shelves" as the kitchen-shelves.
+Before a robot (called currentrobot) switching on a device:
+	if the noun is switched off:
+		now the noun is switched on;
+		say "'Got it,' says Max, as he turns on [the noun].";
+		try nothingaction instead;
+	otherwise:
+		say "'It's already turned on, boss!' says Max.";
+		try nothingaction instead;
 
-The lettuce is in the combat-kitchen.
+Before a robot (called currentrobot) switching off a device:
+	if the noun is switched on:
+		now the noun is switched off;
+		say "'Got it,' says Max, as he turns off [the noun].";
+		try nothingaction instead;
+	otherwise:
+		say "'It's already turned off, boss!' says Max.";
+		try nothingaction instead;
 
-Chapter 6 - Gun show
+Before a robot (called currentrobot) switching on the kitchen-stove:
+	if the noun is switched off:
+		now the noun is switched on;
+		say "'Got it,' says Max, as he turns on [the noun].";
+		try nothingaction instead;
+	otherwise:
+		say "'It's already turned on, boss!' says Max.";
+		try nothingaction instead;
 
-Tutorial-combat is in combat-region. The printed name of tutorial-combat is "Tutorial Room". "FIX THIS LATER This is a big empty room with a target in it."
+Before a robot (called currentrobot) switching off the kitchen-stove:
+	if the noun is switched on:
+		now the noun is switched off;
+		say "'Got it,' says Max, as he turns off [the noun].";
+		try nothingaction instead;
+	otherwise:
+		say "'It's already turned off, boss!' says Max.";
+		try nothingaction instead;
 
-The laser-gun is in tutorial-combat. Understand "laser" or "gun" as the laser-gun.
+[FIX THIS LATER add running water sounds and sights when sink is turned on]
 
-The laser-target is scenery in tutorial-combat.
+The kitchen-shelves are a plural-named scenery supporter in glassed-kitchen. Understand "shelf" or "shelves" as the kitchen-shelves.
 
-Shooting is an action applying to one visible thing.
+The kitchen-lettuce is in the kitchen-fridge. Understand "lettuce" as the kitchen-lettuce. The raw-meat is in the kitchen-fridge.  The raw-meat can be cooked or uncooked. The raw-meat is uncooked. The printed name of the raw-meat is "[if the raw-meat is uncooked]raw [otherwise]cooked [end if]meat". Understand the cooked property as describing the raw-meat. Understand "raw" as uncooked. Understand "meat" as the raw-meat. The hamburger-bun is on the kitchen-shelves. Understand "bun" or "Hamburger" as the hamburger-bun. The printed name of the hamburger-bun is "hamburger bun". The kitchen-cheese is in the kitchen-fridge. Understand "cheese" as the kitchen-cheese. The printed name of the kitchen-cheese is "cheese". The kitchen-pan is on the kitchen-shelves. Understand "pan" as the kitchen-pan. The printed name of the kitchen-pan is "pan".
 
-Understand "shoot [something]" as shooting when the player is in combat-region.
+The kitchen-lettuce can be kitchen-washed or kitchen-unwashed. Understand the kitchen-washed property as describing the kitchen-lettuce. Understand "washed" as kitchen-washed. Understand "unwashed" as kitchen-unwashed. The kitchen-lettuce is kitchen-unwashed.
 
-Check shooting:
-	if the laser-gun is not held by the player:
-		say "You have nothing to shoot with!";
+The hamburger-bun is a closed openable container.
 
-Carry out shooting:
-	say "FIX THIS LATER DONT SAY NOTHING HAPPENS You shoot the laser at [the noun]."
+The kitchen-pan is an open unopenable container. 
 
-Instead of shooting the laser-target:
-	say "FIX THIS LATER Ding ding ding! You got a point!"
+Before someone putting something on the kitchen-pan:
+	try the actor inserting the noun into the kitchen-pan instead;
+
+Before someone putting something on the kitchen-stove when the kitchen-stove is switched on:
+	if the noun is not the kitchen-pan:
+		say "[The actor] says 'Whoa, that's a fire hazard! The only thing I'm putting on that stove is a pan!'";
+		try nothingaction instead;
+
+[FIX THIS LATER add code so they can't put the pan or other big things in the hamburger]
+
+Before someone putting something on the hamburger-bun:
+	try the actor inserting the noun into the hamburger-bun instead; 
+
+Before someone inserting something into a closed hamburger-bun:
+	say "(first opening the hamburger bun)[paragraph break]";
+	try the actor opening the hamburger-bun;
+
+Before someone washing the kitchen-lettuce:
+	if the kitchen-sink is switched off:
+		say "'Sink's off, boss. I can't wash anything!' says [the actor].";
+		try nothingaction instead;
+	otherwise if the kitchen-lettuce is kitchen-washed:
+		say "'Sure. Kinda weird to wash it again but I don't see why not,' says [the actor].";
+		try nothingaction instead;
+	otherwise:
+		say "[The actor] washes the lettuce in the sink. 'Gotta scrub, gotta scrub, gotta scrub,' he says atonally.";
+		now the kitchen-lettuce is kitchen-washed;
+		try nothingaction instead;
+
+Before someone inserting something into the kitchen-pan when its frying time:
+	if the noun is the uncooked raw-meat:
+		say "[The actor] tosses in the raw meat and cooks it for a while, before turning off the stove and setting the pan aside to cool.
+
+'Don't worry, boss,' says Max. 'I don't have to wait for it to cool, I can't sense pain. I hope.'";
+		now the kitchen-stove is switched off;
+		now the raw-meat is cooked;
+		try nothingaction instead;
+	otherwise:
+		say "[The actor] says, 'Whoa! Only uncooked meats are going in this pan!'";
+		try nothingaction instead;
 	
-Chapter 6 - Battle droids
+To decide whether its frying time:
+	unless the kitchen-stove is switched on:
+		decide no;
+	unless the kitchen-pan is on the kitchen-stove:
+		decide no;
+	decide yes;
+
+The kitchen-stove can be switched on or switched off.
+
+A person can be following or not following.
+
+Every turn when a person is following:
+	repeat with current running through following people:
+		if current is not in the location:
+			let way be the best route from the location of current to the location;
+			if way is not nothing:
+				try current going way;
+
+Every turn when the player is in combat-kitchen:
+	if the glassed-kitchen is transparent:
+		if the burger is ready:
+			say "FIX THIS LATER Shutters roll down, and a voice says 'Great job! Proceed to the next area.'";
+			now the glassed-kitchen is transparent;
+			now max is in the location;
+			now max is following;
+
+To decide whether the burger is ready:
+	unless the cooked raw-meat is in the hamburger-bun:
+		decide no;
+	unless the kitchen-washed kitchen-lettuce is in the hamburger-bun:
+		decide no;
+	unless the kitchen-cheese is in the hamburger-bun:
+		decide no;
+	decide yes;
+
+[FIX THIS LATER let shutters disambiguate the glassed kitchen and change description of glassed-kitchen. Also change exits and stuff.]
+
+Chapter 6 - Assembly line
+
+Assembly-line is south from combat-kitchen.
+
+Section 1 - Scenery
+
+The conveyor-belt is a scenery supporter in assembly-line.
+
+The conveyor-button is a scenery device in assembly-line. Understand "white" or "button" as the conveyor-button. The printed name of the conveyor-button is "white button".
+
+Before an actor pushing the conveyor-button:
+	if the conveyor-button is switched on:
+		try the actor switching off the conveyor-button instead;
+	if the conveyor-button is switched off:
+		try the actor trying switching on the conveyor-button instead;
+
+Section 2 - Scene details
+
+Assembly-over is a truth state that varies. Assembly-over is false.
+
+Assembly-scene is a recurring scene. Assembly-scene begins when assembly is required.
+
+To decide whether assembly is required:
+	if assembly-over is true:
+		decide no;
+	unless the robot-torso is nowhere:
+		decide no;
+	if the conveyor-button is switched off:
+		decide no;
+	decide yes;
+
+A robot-piece is a kind of thing.
+
+A robot-piece can be importante or unimportante. A robot-piece is usually unimportante.
+
+The robot-torso is an importante robot-piece. The robot-lefthand is a robot-piece. The robot-righthand is a robot-piece. The robot-leftarm is a robot-piece. The robot-rightarm is a robot-piece. The robot-leftleg is a robot-piece. The robot-rightleg is a robot-piece. The robot-head is a robot-piece. The robot-face is a robot-piece. The robot-rightfoot is a robot-piece. The robot-leftfoot is a robot-piece.
+
+The printed name of robot-torso is "torso". The printed name of robot-lefthand is "left hand". The printed name of robot-righthand is "right hand". The printed name of robot-leftarm is "left arm". The printed name of robot-rightarm is "right arm". The printed name of robot-leftleg is "left leg". The printed name of robot-rightleg is "right leg". The printed name of robot-head is "head". The printed name of robot-face is "face". The printed name of robot-rightfoot is "right foot". The printed name of robot-leftfoot is "left foot".
+
+Understand "torso" as robot-torso. Understand "left" or "hand" as robot-lefthand. Understand "right" or "hand" as robot-righthand. Understand "left" or "arm" as robot-leftarm. Understand "right" or "arm" as robot-rightarm. Understand "left" or "leg" as robot-leftleg. Understand "right" or "leg" as robot-rightleg. Understand "head" as robot-head. Understand "face" as robot-face. Understand "right" or "foot" as robot-rightfoot. Understand "left" or "foot" as robot-leftfoot.
+
+Assembly-timer is a number that varies.
+
+Assembly-scene is replayful.
+
+When assembly-scene begins:
+	say "The conveyor starts up!
+
+A robot torso appears, slowly moved forward by the conveyor.";
+		
+Every turn during assembly-scene:
+	now assembly-timer is 5 - the minutes part of the time since assembly-scene began;
+	say "You have [assembly-timer] minutes remaining!";
+
+Assembly-scene ends normally when the time since assembly-scene began is 6 minutes.
+
+When assembly-scene ends normally:
+	say "FIX THIS LATER Time's up!";
+	repeat with current running through robot-pieces:
+		now current is nowhere;
+	now conveyor-button is switched off;
+
+Assembly-scene ends beautifully when every unimportante robot-piece is part of robot-torso.
+
+When assembly-scene ends beautifully:
+	say "FIX THIS LATER Lightning strikes! Dan is born!";
+	repeat with current running through robot-pieces:
+		now current is nowhere;
+	now assembly-over is true;
+	now Dan is in the location;
+	now Dan is following;
+
+An assembly-button is a kind of thing. Understand "button" as an assembly-button.
+
+An assembly-button has a robot-piece called the button-piece. 
+
+To try is a verb.
+
+Instead of an actor taking an assembly-button:
+	say "[The actor] [adapt the verb try] to take [the noun], but fails."
+
+[FIX THIS LATER Can't go here until you finish previous room]
+
+[FIX THIS LATER make a console]
+
+Before listing nondescript items when the player is in assembly-line: 
+	say "You can see numerous buttons corresponding to different body parts here on the console."; 
+	repeat with current running through assembly-buttons: 
+		now current is not marked for listing; 
+
+The button-lefthand is an assembly-button. The button-righthand is an assembly-button. The button-leftarm is an assembly-button. The button-rightarm is an assembly-button. The button-leftleg is an assembly-button. The button-rightleg is an assembly-button. The button-head is an assembly-button. The button-face is an assembly-button. The button-rightfoot is an assembly-button. The button-leftfoot is an assembly-button.
+
+The printed name of button-lefthand is "left hand button". The printed name of button-righthand is "right hand button". The printed name of button-leftarm is "left arm button". The printed name of button-rightarm is "right arm button". The printed name of button-leftleg is "left leg button". The printed name of button-rightleg is "right leg button". The printed name of button-head is "head button". The printed name of button-face is "face button". The printed name of button-rightfoot is "right foot button". The printed name of button-leftfoot is "left foot button".
+
+Understand "left" or "hand" as button-lefthand. Understand "right" or "hand" as button-righthand. Understand "left" or "arm" as button-leftarm. Understand "right" or "arm" as button-rightarm. Understand "left" or "leg" as button-leftleg. Understand "right" or "leg" as button-rightleg. Understand "head" as button-head. Understand "face" as button-face. Understand "right" or "foot" as button-rightfoot. Understand "left" or "foot" as button-leftfoot.
+
+The button-piece of button-lefthand is robot-lefthand. The button-piece of button-righthand is robot-righthand. The button-piece of button-leftarm is robot-leftarm. The button-piece of button-rightarm is robot-rightarm. The button-piece of button-leftleg is robot-leftleg. The button-piece of button-rightleg is robot-rightleg. The button-piece of button-head is robot-head. The button-piece of button-face is robot-face. The button-piece of button-rightfoot is robot-rightfoot. The button-piece of button-leftfoot is robot-leftfoot.
+
+Preceding relates a robot-piece to a robot-piece. The verb to precede means the preceding relation.
+
+The robot-leftarm precedes the robot-lefthand.
+The robot-rightarm precedes the robot-righthand.
+The robot-leftleg precedes the robot-leftfoot.
+The robot-rightleg precedes the robot-rightfoot.
+The robot-head precedes the robot-face.
+
+Does the player mean pushing an assembly-button:
+	it is likely;
+
+[FIX THIS LATER Make these statements below more exciting]
+After an actor pushing an assembly-button (called currentbutton):
+	if assembly-scene is not happening:
+		say "A harsh buzzing is all that results from your efforts.";
+	otherwise:
+		say "[The actor] [adapt the verb push] [the currentbutton].[paragraph break]";
+		let currentpiece be the button-piece of the currentbutton;
+		if currentpiece is part of the robot-torso:
+			say "But nothing happens, as [the currentpiece] is already attached!";
+		otherwise if the number of things that precedes currentpiece is 0:
+			say "[The currentpiece] comes down out of the ceiling and attaches to the torso!";
+			now currentpiece is part of the robot-torso;
+		otherwise:
+			let currentpiece2 be a random robot-piece that precedes currentpiece;
+			unless currentpiece2 is part of robot-torso:
+				say "[The currentpiece] comes down out of the ceiling, but can't find a good spot to attach!";
+			otherwise:
+				say "[The currentpiece] comes down out of the ceiling and attaches to [the currentpiece2]!";
+				now currentpiece is part of the robot-torso;
+
+When play begins:
+	now every assembly-button is in assembly-line;
+
+Chapter 7 - Battle
 
 Section 1 - Basics
 
-A battle-bot is a kind of neuter person. Understand "enemy" or "bot" or "robot" as a battle-bot.
+A thing can be shootable or not shootable.
+
+A battle-bot is a kind of neuter person. Understand "enemy" or "bot" or "robot" as a battle-bot. A battle-bot is usually shootable.
 
 Section 2 - Basics of programming
 
 A battle-bot has a list of actions called the programming. 
 
+A battle-bot can be paused or unpaused. A battle-bot is usually paused.
+
 When play begins:
 	repeat with currentbot running through battle-bots:
-		add currentbot jumping to programming of currentbot;
+		add currentbot shooting the player to programming of currentbot;
 
-Every turn when a battle-bot (called currentbot) is in the location:
+Every turn when an unpaused battle-bot (called currentbot) is in the location:
 	try entry 1 of programming of currentbot;
 	rotate programming of currentbot;
 
@@ -13955,35 +14500,437 @@ Section 3 - Types of bots
 
 A boss-bot is a kind of battle-bot.
 
-Chapter 7 - Combat arena
+Section 4 - Laser gun and shooting
+
+The laser-gun is in tutorial-combat. Understand "laser" or "gun" as the laser-gun. The printed name of the laser-gun is "laser gun".
+
+Shooting is an action applying to one visible thing.
+
+Understand "shoot [something]" as shooting when the player is in combat-region.
+
+Check shooting:
+	if the noun is enclosed by the player:
+		say "It's hard to shoot [the noun], given the angle." instead;
+	otherwise if the noun is the player:
+		say "It's hard to shoot yourself, given the angle." instead;
+
+Carry out shooting:
+	say "You shoot the gun, and a red light appears on [the noun] for a brief moment."
+
+Instead of someone shooting something:
+	say "[The actor] shoots at [if the noun is the player]you[otherwise][the noun][end if].";
+	if the noun is the player:
+		if currentcover of the player is fakecover:
+			now the laser-vest is switched off;
+		otherwise:
+			say "[The currentcover] blocks the shots!"
+
+A thing has a number called the laserscore. The laserscore is usually 0.
+
+A thing has a number called the lasergoal. The lasergoal is usually 1.
+
+Aiming is an action applying to one visible thing. Understand "aim at [something]" as aiming when the player is in combat-region.
+
+Aiming it at is an action applying to one thing and one visible thing. Understand "aim [something preferably held] at [something]" as aiming it at.
+
+Check aiming it at:
+	if the noun is not the laser-gun:
+		say "[The noun] [don't] benefit from aiming." instead;
+
+Carry out aiming it at:
+	if the noun is not the laser-gun:
+		say "[The noun] [don't] really need aiming[if the noun is an unarmed flash-grenade]. It does need to be armed, though[end if].";
+	otherwise:
+		try aiming the second noun;
+
+A thing can be aimedat or not aimedat. A thing is usually not aimedat.
+
+Check aiming:
+	if the laser-gun is not held by the player:
+		say "You don't really have a precision weapon to aim." instead;
+	otherwise if the noun is enclosed by the player:
+		say "It's difficult to aim at [the noun], given the angle." instead;
+	otherwise if the noun is the player:
+		say "It's difficult to aim at yourself, given the angle." instead;
+		
+Carry out aiming:
+	repeat with current running through aimedat things:
+		now current is not aimedat;
+	now the noun is aimedat;
+
+Report aiming:
+	say "You carefully point the laser gun at [the noun].";
+
+Every turn when the number of aimedat things > 0:
+	repeat with current running through aimedat things:
+		if current is not visible:
+			now current is not aimedat;
+
+Does the player mean shooting an aimedat thing:
+	it is likely;
+	
+Report shooting an aimedat thing:
+	now the noun is not aimedat;
+
+Section 5 - Flash grenade
+
+A flash-grenade is a kind of thing. Understand "flash" or "grenade" as a flash-grenade. The printed name of a flash-grenade is "grenade". The description of a flash-grenade is "FIX THIS LATER".
+
+A flash-grenade can be armed or unarmed. A flash-grenade is usually unarmed.
+
+Arming is an action applying to one thing. Understand "arm [something preferably held]" as arming when the player is in combat-region. 
+
+Check arming:
+	if the noun is not a flash-grenade:
+		say "That can't be armed." instead;
+	otherwise if the noun is armed:
+		say "That's already armed!" instead;
+
+Carry out arming:
+	now the noun is armed;
+
+Report arming:
+	say "[The noun] pulses in acknowledgment. It is now armed."
+
+Does the player mean throwing a flash-grenade at something:
+	it is likely;
+	
+Definition: a thing is playerly:
+	if it is the player, decide yes;
+	if it is enclosed by the player, decide yes;
+	decide no;
+
+Instead of throwing a flash-grenade at something:
+	if the noun is unarmed:
+		say "The grenade isn't armed yet!";
+	otherwise if the noun is playerly:
+		say "That seems like a really bad idea!";
+	otherwise:
+		try throwing the noun;
+		
+Understand the command "throw" as something new.
+
+Throwing is an action applying to one thing. Understand "throw [something preferably held]" as throwing.
+
+Check throwing:
+	if the noun is not held by the player:
+		say "But [we] [are] not holding [the noun]!"
+
+Carry out throwing:
+	try dropping the noun;
+
+Instead of throwing a flash-grenade:
+	if the noun is unarmed:
+		say "The flash grenade isn't armed!";
+	otherwise:
+		say "You chuck [the noun], turning your face. It bursts into bright red light, hitting [the list of shootable things enclosed by the location].";
+		repeat with current running through shootable things enclosed by the location:
+			increment laserscore of current;
+		now the noun is in the location;
+
+Chapter 8 - Gun show
+
+Tutorial-combat is in combat-region. The printed name of tutorial-combat is "Tutorial Room". "FIX THIS LATER This is a big empty room with a target in it. There is a hatch on the wall. You can go back [boldnorth]."
+
+Section 1 - Hatch
+
+The tutorial-hatch is a closed scenery enterable container in tutorial-combat. Understand "hatch" as the tutorial-hatch. The printed name of the tutorial-hatch is "hatch".
+
+Instead of opening the tutorial-hatch:
+	say "You can't find any way to open it."
+
+Section 2 - Laser target
+
+The laser-target is in tutorial-combat. The printed name of the laser-target is "target". Understand "target" as the laser-target.
+
+Instead of physicality when the noun is laser-target:
+	say "A pleasant voice says, 'Please refrain from touching the target, in order to keep it in good condition for future trainees.'"
+	
+Instead of shooting the laser-target:
+	say "FIX THIS LATER Ding ding ding! Excellent work!";
+	increment the laserscore of laser-target;
+
+Targeting-scene is a scene. Targeting-scene begins when the player is in tutorial-combat.
+
+Targeting-scene ends when the laserscore of laser-target > 0.
+
+When targeting-scene ends:
+	say "A robotic monkey-like creature comes out of the hatch and grabs the target before pulling it back into the hatch with it.";
+	now the laser-target is nowhere;
+
+Section 3- Moving target
+
+The moving-target is thing. The printed name of the moving-target is "moving target". Understand "target" or "moving" as the moving-target. [fix this later: add a bullseye and description to this and the other target]
+
+Instead of physicality when the noun is moving-target:
+	say "A pleasant voice says, 'Please refrain from touching the target, in order to keep it in good condition for future trainees.'"
+
+Aiming-scene is a scene. Aiming-scene begins when targeting-scene ends.
+
+When aiming-scene begins:
+	say "After a few seconds, the hatch briefly opens to release another target, this one rolling.";
+	now moving-target is in tutorial-combat.
+	
+Instead of physicality when the noun is moving-target:
+	say "It's moving too quickly for you to get hold of it."
+	
+Instead of shooting the moving-target:
+	if the moving-target is not aimedat:
+		say "You take your shot, but you miss. You take a deep breath. [first time]You actually did some shooting in camp as a kid, and later as a counselor, but it's been while. [only]You just need to remember to aim.";
+	otherwise:
+		say "Having carefully aimed, you shoot the gun, nailing the moving target right in the bullseye.";
+		increment the laserscore of the moving-target;
+		now moving-target is nowhere;
+		
+Aiming-scene ends when the laserscore of moving-target > 0.
+
+When aiming-scene ends:
+	say "FIX THIS LATER Ding ding ding! The target immediately rolls to the hatch, which opens to admit it."
+
+Section 4 - Multitargets
+
+A target-color is a kind of value. The target-colors are targetred, targetblue, and targetgreen. 
+
+A healing-target is a kind of thing. Understand "target" as a healing-target. The printed name of a healing-target is "target".
+
+A healing-target has a target-color. Understand the target-color property as describing a healing-target. Understand "red" as targetred. Understand "blue" as targetblue. Understand "green" as targetgreen. The description of a healing-target is usually "FIX THIS LATER Make it either cute and animal looking or like a criminal or just give it a healing ray."
+
+A healing-target is usually shootable.
+
+Before printing the name of a healing-target (called currenttarget):
+	say "[if target-color of currenttarget is targetred]red[otherwise if target-color of currenttarget is targetblue]blue[otherwise if target-color of currenttarget is targetgreen]green[end if] "
+
+Grenade-scene is a scene. Grenade-scene begins when aiming-scene ends.
+
+There is a flash-grenade. There is a targetred healing-target. There is a targetblue healing-target. There is a targetgreen healing-target.
+
+When grenade-scene begins:
+	say "Out of the still-open hatch pop two more of the robotic monkeys from earlier. Between them, they carry three different targets which they set up, spaced out from each other.
+
+The monkeys then retreat into the hatch, which starts sliding closed. Right when it's almost closed, one of the monkeys peeks out and tosses you a grenade. Fortunately, you catch it. More fortunately it doesn't seem to be armed.";
+	now a random flash-grenade is held by the player;
+	repeat with current running through healing-targets:
+		now current is in tutorial-combat;
+
+Instead of shooting a healing-target:
+	if the laserscore of the noun > 0:
+		say "You shoot [the noun], but it's already deactivated!";
+	otherwise:
+		say "You shoot [the noun], and it powers down.";
+		increment laserscore of the noun;
+		
+Definition: a thing (called currenttarget) is deactivated if laserscore of currenttarget is at least lasergoal of currenttarget.
+Definition: a thing (called currenttarget) is activated if laserscore of currenttarget < lasergoal of currenttarget.
+
+To reactivate is a verb.
+
+Every turn when a healing-target is in the location:
+	repeat with current running through healing-targets:
+		if current is activated:
+			if the number of deactivated healing-targets > 0:
+				say "[The current], still active, points its FIX THIS LATER at [a list of deactivated healing-targets], and [those] in turn [adapt the verb reactivate].";
+				repeat with current2 running through deactivated healing-targets:
+					now the laserscore of current2 is 0;
+			stop;
+
+Grenade-scene ends when every healing-target is deactivated.
+
+When grenade-scene ends:
+	repeat with current running through deactivated healing-targets:
+		now current is nowhere;
+	say "The two monkeys from earlier--at least you assume they're the same--pop out of the hatch, grab the targets, and pull them back inside."
+
+Chapter 9 - Combat arena
+
+Section 1 - Basics
 
 Tutorial-battle is in combat-region. Tutorial-battle is south from tutorial-combat. The printed name of tutorial-battle is "Solo Arena".
 
+A battle-pillar is a kind of thing. A battle-pillar is usually scenery. Understand "pillar" as a battle-pillar. A battle-pillar can be covering or not covering. A battle-pillar is usually not covering. The description of a battle-pillar is usually "FIX THIS LATER You can hide behind this."
+
+The left-pillar is a battle-pillar in tutorial-battle. The right-pillar is a battle-pillar in tutorial-battle. Understand "left" as the left-pillar. Understand "right" as the right-pillar. The printed name of the left-pillar is "left pillar". The printed name of the right-pillar is "right pillar".
+
+Hiding behind is an action applying to one thing. Understand "hide behind [something]" as hiding behind. 
+
+A thing can be cover-providing or not cover-providing. A thing is usually not cover-providing. A battle-pillar is usually cover-providing.
+
+Fakecover is a thing. fakecover is cover-providing.
+
+A person has a thing called the currentcover. The currentcover of a person is usually fakecover.
+
+Check hiding behind:
+	if the noun is not cover-providing:
+		say "That's not suitable for hiding behind, unfortunately." instead;
+		
+Carry out hiding behind:
+	now currentcover of the player is the noun;
+	
+Report hiding behind:
+	say "You duck behind [the noun], taking cover."
+
+Aiming is freeacting. Aiming something at something is freeacting. Arming is freeacting. 
+
+Before doing anything other than freeacting or hiding behind when the currentcover of the player is not fakecover:
+	say "You pop out from behind [the currentcover of the player].";
+	now currentcover of the player is fakecover;
+
+Section 2 - Laser Vest
+
 The laser-vest is a wearable thing in tutorial-battle. The printed name of the laser-vest is "combat vest". Understand "vest" or "combat" as the laser-vest. The description of the laser-vest is "FIX THIS LATER."
 
-There is a battle-bot in tutorial-battle.
+The laser-vest can be switched on or switched off. The laser-vest is switched off.
+
+Instead of switching on the laser-vest:
+	if the laser-vest is switched on:
+		say "It's already on!";
+	otherwise:
+		say "FIX THIS LATER The vest powers on.";
+		if baby-bot is in the location:
+			say "FIX THIS LATER The training will now commence. Better hide!";
+		now the laser-vest is switched on;
+	
+Instead of switching off the laser-vest:
+	if the laser-vest is switched off:
+		say "It's already off!";
+	otherwise:
+		say "FIX THIS LATER The vest powers off.";
+		now the laser-vest is switched off;
+
+Section 3 - First bot scene
+
+The Baby-bot is a battle-bot in tutorial-battle. The printed name of baby-bot is "bot". The indefinite article of baby-bot is "a single". Understand "single" as baby-bot.
+
+First-bot is a recurring scene. First-bot begins when baby is ready.
+
+To decide whether baby is ready:
+	unless baby-bot is in the location, decide no;
+	unless the laser-vest was worn, decide no;
+	unless the laser-vest was switched on, decide no;
+	unless the laser-vest is switched on, decide no;
+	decide yes;
+
+When first-bot begins:
+	now baby-bot is unpaused;
+
+First-bot ends abruptly when caught shorthanded.
+
+To decide whether caught shorthanded:
+	if the laser-vest is not worn by the player, decide yes;
+	if the laser-vest is switched off, decide yes;
+	decide no;
+
+First-bot ends normally when baby-bot is deactivated.
+
+When first-bot ends:
+	now baby-bot is paused;
+	
+When first-bot ends normally:
+	say "FIX THIS LATER The robot flashes red, and then wheels out of sight to the east.";
+	now baby-bot is nowhere;
+
+When first-bot ends abruptly:
+	say "FIX THIS LATER Training cancelled."
+
+Before shooting a paused battle-bot:		
+	say "'The battle is currently on pause,' says a voice FIX THIS LATER." instead;
+
+
+Before shooting baby-bot:
+	if currentcover of the player is fakecover:
+		say "You shoot at the robot, but it shoots you at the same time!
+
+The laser vest powers down, and the bot pauses, waiting for you to fight." ;
+		now the laser-vest is switched off instead;
 
 Instead of shooting a battle-bot:
-	say "FIX THIS LATER It blows up and disappears";
-	now the noun is nowhere;
+	say "FIX THIS LATER It's a hit!";
+	increment laserscore of the noun;
 
-Chapter 8 - Bot training
+[FIX THIS LATER WHAT IF GRENADE IS USED]
+
+Section 4 - Fast-bot
+
+A fast-bot is a kind of battle-bot. The lasergoal of a fast-bot is usually 2.
+
+The Mama-bot is a fast-bot. The printed name of mama-bot is "speedy bot". Understand "speedy" as the mama-bot. The description of the mama-bot is "FIX THIS LATER".
+
+Dodging is an action applying to nothing.
+
+A battle-bot can be active-dodging or not active-dodging. A battle-bot is usually not active-dodging.
+
+Carry out someone dodging:
+	say "[The actor] is moving quickly around the room.";
+	now the actor is active-dodging;
+
+Before shooting an active-dodging battle-bot:
+	if the noun is not aimedat:
+		say "Your shot goes wild!" instead;
+
+Before a battle-bot (called currentbot) doing anything:
+	now currentbot is not active-dodging;
+
+When play begins:
+	repeat with currentbot running through fast-bots:
+		add currentbot dodging to programming of currentbot;
+
+When first-bot ends normally:
+	say "FIX THIS LATER A second bot wheels into sight! This one looks a big bigger than the last one.
+
+Your vest powers down. A voice says, 'The next phase will commence when you turn your vest back on.'
+
+The bot waits in anticipation.";
+	now the laser-vest is switched off;
+	now mama-bot is in the location;
+
+Second-bot is a recurring scene.
+
+Second-bot begins when it's payback time.
+
+To decide whether it's payback time:
+	unless mama-bot is in the location, decide no;
+	unless the laser-vest was worn, decide no;
+	unless the laser-vest was switched on, decide no;
+	unless the laser-vest is switched on, decide no;
+	decide yes;
+
+When second-bot begins:
+	now mama-bot is unpaused;
+
+Second-bot ends abruptly when caught shorthanded.
+
+Second-bot ends normally when mama-bot is deactivated.
+
+When second-bot ends:
+	now mama-bot is paused;
+	
+When second-bot ends normally:
+	say "FIX THIS LATER The robot flashes red, and then wheels out of sight to the east.";
+	now mama-bot is nowhere;
+
+When second-bot ends abruptly:
+	say "FIX THIS LATER Training cancelled.";
+	now laserscore of mama-bot is 0;
+
+Report shooting mama-bot for the first time:
+	say "Whoa! That wasn't enough! "
+
+Chapter 10 - Bot training
 
 Bot-training is east from tutorial-battle and west from combat-kitchen. The description of bot-training is "FIX THIS LATER You can go back [boldeast] or [boldwest], or further [boldsouth]."
 
-Chapter 9 - Wood tier
+Chapter 11 - Wood tier
 
 wood-tier is south from bot-training. wood-tier is in combat-region.
 
-Chapter 10 - Bronze tier
+Chapter 12 - Bronze tier
 
 Bronze-tier is south from wood-tier. bronze-tier is in combat-region.
 
-Chapter 11 - Silver tier
+Chapter 13 - Silver tier
 
 Silver-tier is south from bronze-tier. Silver-tier is in combat-region.
 
-Chapter 12 - Gold tier
+Chapter 14 - Gold tier
 
 Gold-tier is south from silver-tier. Gold-tier is in combat-region.
 
@@ -13993,11 +14940,13 @@ Every turn when the player is in gold-tier:
 	if the number of battle-bots in gold-tier is 0:
 		end the story finally saying "You won!";
 
-Part 10 - Wildcard dimension
+Part 10 - Opening scene and Future ship dimension
 
 The wildcard-region is a region.
 
 [This can be the finale part. It can include the player's own memorial, the engine in the main ship they go through, and in any case can include a book that includes the player most recent actions.]
+
+[The final engine puzzle should include one interaction based on each of the areas we've visited]
 
 Part 11 - Intership parts 
 
@@ -14100,7 +15049,7 @@ The block swinging rule response (A) is "Swinging [aren't] the best option here.
 The can't rub another person rule response (A) is "[if the player is emrys-weaver]That might get you in trouble[otherwise]This isn't role-play, Detective[end if]."
 
 The block buying rule response (A) is "[if the player is emrys-weaver]Any financial transactions you have can be accomplished by the physical transfer of legal tender[otherwise]I didn't buy anything at the time[end if]."
-The block climbing rule response (A) is "[if the noun is a person]People aren't for climbing[otherwise][We] [don't] see a clear path upwards[end if]."
+The block climbing rule response (A) is "[if the noun is an animal]Animals aren't for climbing[otherwise if the noun is a person]People aren't for climbing[otherwise][We] [don't] see a clear path upwards[end if]."
 
 To seem is a verb.
 
@@ -14114,7 +15063,7 @@ The block sleeping rule response (A) is "[if the player is emrys-weaver]Despite 
 
 The can't go that way rule response (A) is "It [don't] look like [we] [can] go that way."
 
-Asking someone for something is chatty behavior. Telling someone about something is chatty behavior.  Asking someone about something is chatty behavior.
+Asking someone for something is chatty behavior. Telling someone about something is chatty behavior. Asking someone about something is chatty behavior.
 
 Instead of chatty behavior:
 	if the player is emrys-weaver:
@@ -14237,6 +15186,8 @@ Instead of examining a room:
 Part 3 - Stuff that has to be at the end because it won't compile right otherwise
 
 Singlequipping is freeacting. ragequitting is freeacting. spelling is freeacting. crying is freeacting. Singing is freeacting.
+
+Shouting is useless action. Swimming is useless action. xyzzying is useless action. Crying is useless action. Singing is useless action. Dancing is useless action. Digging is useless action. Thingexiting is useless action. 
 
 Book 2 - Endgame text
 
@@ -14582,7 +15533,7 @@ Book 5 - Notes
 	
 4. 'We lost you.' (to unseen other: she seems to be stabilizing. Keep track of everywhere else she's appeared.)
 
-5.  First scene you can act in, one action only. opening a door or looking at window: 'in memory of emrys tisserand'
+5. First scene you can act in, one action only. opening a door or looking at window: 'in memory of emrys tisserand'
 
 6. 'It's hard to hold you here, but I'll try to explain. You died almost 200 years ago.'
 
