@@ -33,6 +33,7 @@ Use MAX_INDIV_PROP_TABLE_SIZE of 60000.
 Use MAX_STATIC_DATA of 500000.
 Use MAX_DICT_ENTRIES of 8000.
 Use MAX_OBJECTS of 4000.
+Use MAX_ACTIONS of 1000.
 Use MAX_SYMBOLS of 40000.
 
 Part 2 - Out of world actions
@@ -9716,7 +9717,7 @@ The description of fake-elen is "[if elen-level is 2]I started out clean, you kn
 
 [otherwise]I consider myself an upstanding citizen and a keeper of the law, and I expect others to do the same[end if]. I am fairly tall, rather plain, but have a strong chin. I have no pretensions about myself, Officer."
 
-The fake-uniform is worn by Elen. The printed name of the fake-uniform is "sleek black uniform". Understand "sleek" or "black" or "uniform" or "well" or "designed" or "well-designed" or "newer" or "model" as the fake-uniform. 
+The fake-uniform is worn by fake-Elen. The printed name of the fake-uniform is "sleek black uniform". Understand "sleek" or "black" or "uniform" or "well" or "designed" or "well-designed" or "newer" or "model" as the fake-uniform. 
 
 The description of the fake-uniform is "My uniform was the newer model, much better than the bulky old ones. It was sleek and black, and designed not to catch the attention of others and not to catch on the many protuberances that exist in a train car."
 
@@ -13740,7 +13741,13 @@ Section 1 - Max and Dan basics
 
 A robot is a kind of man. Understand "robot" or "droid" as a robot.
 
-Combat-kitchen is a room. The Glassed-kitchen is a closed unopenable transparent container in combat-kitchen. Max is a robot in glassed-kitchen. Dan is a robot. The description of Max is "Max is a boxy, armored robot with crimson and navy markings spelling MAX on his chest. He wears a lugubrious expression that seems to be part of his face". The description of Dan is "Dan is a tall, lithe robot with the word DAN painted in black on his silver body.".
+A memory-slot is a kind of thing. 
+
+Combat-kitchen is a room. The Glassed-kitchen is a closed unopenable transparent container in combat-kitchen. Max is a robot in glassed-kitchen. Dan is a robot. The description of Max is "Max is a boxy, armored robot with crimson and navy markings spelling MAX on his chest. He wears a lugubrious expression that seems to be part of his face.
+
+You can see three memory slots on Max, labelled [the list of memory-slots incorporated by Max]." The description of Dan is "Dan is a tall, lithe robot with the word DAN painted in black on his silver body.
+
+You can see three memory slots on Dan, labelled [the list of memory-slots incorporated by Dan].".
 
 Understand "boxy" or "armor" or "armored" or "crimson" or "navy" or "markings" or "marking" or "chest" or "lugubrious" or "expression" or "face" as max.
 
@@ -13787,6 +13794,10 @@ Carry out Dan singing:
 Instead of answering Max that something:
 	say "'I couldn't recognize that as an order,' says Max."
 
+Instead of answering Dan that something:
+	say "'Sorry, boss, I can't recognize that as an order,' says Dan."
+
+
 Table of Max Retorts
 cause	response
 can't take yourself rule	"Max looks down at himself. 'You want me to take myself? Okay,' he says, grabbing his own arm for a second."
@@ -13797,13 +13808,13 @@ can't take what you're inside rule	"'That's against the laws of physics,' says M
 can't take what's already taken rule	"[already done]"
 can't take scenery rule	"'Yeah, there's no way I can move that,' says Max."
 can't take what's fixed in place rule	"'Yeah, there's no way I can move that,' says Max."
-can't exceed carrying capacity rule	"'I've got my hands full, boss,' says Max."
+can't exceed carrying capacity rule	"'I've got my hands full,' says Max."
 can't insert into closed containers rule	"[physical impossibility]"
 can't go that way rule	"[physical impossibility]"
 can't go through closed doors rule	"[physical impossibility]"
 can't enter closed containers rule	"[physical impossibility]"
 can't exit closed containers rule	"[physical impossibility]"
-can't drop yourself rule	"'Now that makes no sense,' says Max. 'I can't drop myself.'"
+can't drop yourself rule	"'Now, that makes no sense,' says Max. 'I can't drop myself.'"
 can't drop what's already dropped rule	"[already done]"
 can't drop what's not held rule	"'I can't drop [the noun] if I don't have [the noun],' says Max."
 can't drop clothes being worn rule	"[salacious retort]"
@@ -13921,6 +13932,7 @@ can't push people rule	"[unwanted touch1]"
 can't turn people rule	"[unwanted touch1]"
 
 The block giving rule does nothing when the actor is a robot.
+The block giving rule does nothing when the second noun is a robot.
 
 To say salacious retort1:
 	say "'Whoa! No nudity at the rate they're paying me,' says Dan."
@@ -13991,10 +14003,6 @@ A persuasion rule for asking Dan to try useless action:
 		say "'Sorry, that's not in my contract,' says Dan.";
 	persuasion fails.
 
-[Your robot followers learn from your actions. They are called Max and Dan.
-
-The enemies are autonomous]
-
 [multiple opponents is the only way to make it interesting, someone said. I like that]
 
 [maybe you're combatting service drones?]
@@ -14011,16 +14019,15 @@ The enemies are autonomous]
 
 Section 3 - Recording
 
-A memory-slot is a kind of thing. Understand "memory" or "slot" as a memory-slot. 
-
-Slot-A is a memory-slot. Slot-B is a memory-slot. Slot-C is a memory-slot. Slot-A, Slot-B, and Slot-C are part of Dan. Understand "A" as slot-A. Understand "B" as slot-B. Understand "C" as slot-C.
+Understand "memory" or "slot" as a memory-slot. 
+Slot-A is a memory-slot. Slot-B is a memory-slot. Slot-C is a memory-slot. Slot-A, Slot-B, and Slot-C are part of Dan. 
 
 Definition: a memory-slot is a dan-slot if it is part of Dan.
 
-Slot-X is a memory-slot. Slot-Y is a memory-slot. Slot-Z is a memory-slot. Slot-X, Slot-Y, and Slot-Z are part of Max. Understand "X" as slot-X. Understand "Y" as slot-Y. Understand "Z" as slot-Z.
+Slot-X is a memory-slot. Slot-Y is a memory-slot. Slot-Z is a memory-slot. Slot-X, Slot-Y, and Slot-Z are part of Max. 
 
-The printed name of slot-a is "Slot A". The printed name of slot-b is "Slot B". The printed name of slot-c is "Slot C".
-The printed name of slot-x is "Slot X". The printed name of slot-Y is "Slot B". The printed name of slot-c is "Slot C".
+The nickname of slot-a is "A". The nickname of slot-b is "B". The nickname of slot-c is "C".
+The nickname of slot-x is "X". The nickname of slot-Y is "Y". The nickname of slot-z is "Z".
 
 Definition: a memory-slot is a max-slot if it is part of Max.
 
@@ -14029,6 +14036,29 @@ A memory-slot has a list of actions called command-list.
 A robot can be recording, playing back, or neutral. A robot is usually neutral.
 
 A robot has a memory-slot called currentslot. Currentslot of dan is slot-a. Currentslot of Max is slot-x.
+
+The description of a memory-slot is usually "[The printed name] is a memory slot embedded within [the holder of item described].  It is item describedly displaying the following information:
+
+This slot is [if item described is not currentslot of the holder of the noun]not [end if]currently selected. 
+
+This slot contains [the number of entries in command-list of the noun] recorded actions out of 5 possible[if the number of entries in command-list of the noun > 0]. Those actions are: [command-list of the noun][end if].
+
+This slot can be renamed by the command 'rename [the item described] [italic type]your new name[roman type]'."
+
+Naming it with is an action applying to one thing and one topic. Understand "rename [something] [text]" as naming it with when the player is in combat-region. Check naming it with: say "Naming only applies to memory slots." 
+
+A memory-slot has some text called the nickname. 
+
+The printed name of a memory-slot is usually "Slot [the nickname]".
+
+Understand the nickname property as describing a memory-slot.
+
+Instead of naming a memory-slot (called tempslot) with something: 
+	let N be "[the topic understood]"; 
+	replace the text "'" in N with ""; 
+	now the nickname of tempslot is "[N]"; 
+	say "The memory-slot is now known as [nickname of tempslot].";
+	now the printed name of tempslot is "Slot [the nickname of tempslot]";
 
 transcribing is an action applying to nothing. Understand "record" as transcribing. 
 
@@ -14039,7 +14069,9 @@ Carry out an actor transcribing:
 		say "'Recording is your job,'[setcloneact] says your clone.";
 	otherwise if the actor is a robot:
 		if the number of entries in command-list of currentslot of the actor > 4:
-			say "'That slot is full. Would you like to write over the old recording?' asks [the actor].";
+			say "'That slot is full. Would you like to write over the old recording?' asks [the actor].
+
+Yes/no?>";
 			if the player consents:
 				now command-list of currentslot of the actor is {};
 				say "[The actor] says, 'Recording on.'";
@@ -14058,21 +14090,35 @@ Carry out nothingaction:
 	do nothing;
 
 Before a recording robot (called currentbot) doing anything (this is the robot recording rule):
-	if the number of entries in command-list of currentslot of currentbot < 5:
+	if the number of entries in command-list of currentslot of currentbot < 4:
 		add the current action to command-list of currentslot of currentbot;
 		say "'Recorded,' says [currentbot].";
+		try nothingaction instead;
+	otherwise if the number of entries in command-list of currentslot of currentbot is 4:
+		add the current action to command-list of currentslot of currentbot;
+		say "[line break]'Recorded.
+
+Recording of [currentslot of currentbot] is now full. Recording off,' says [currentbot].";
+		now currentbot is neutral;
 		try nothingaction instead;
 	otherwise:
 		say "'That slot is full,' says [currentbot]." ;
 		try nothingaction instead;
-	if the number of entries in command-list of currentslot of currentbot is 5:
-		say "[line break]'Recording of [currentslot of currentbot] is now full. Recording off,' says [currentbot].";
+
+Before asking a robot (called currentbot) to try doing something:
+	if currentbot is playing back:
+		say "'New command detected. Playing back turned off.";
 		now currentbot is neutral;
-		try nothingaction instead;
-	otherwise:
-		try nothingaction instead;
 
 replaying is an action applying to one thing. Understand "replay [something]" as replaying. 
+
+Does the player mean an actor replaying a memory-slot:
+	if the noun is currentslot of the actor:
+		it is likely;
+
+[FIX THIS LATER replaying works for one thing but recording for none; maybe switch around or have a default]
+
+[fix this later allow replaying to have a base list and then that gets copied to a variable list every time 'replay'gets typed.]
 
 Carry out a robot trying playing something:
 	try the actor replaying the noun;
@@ -14092,17 +14138,20 @@ Carry out an actor replaying:
 		otherwise if the command-list of the noun is empty:
 			say "'Sorry, that slot's empty,' says [the actor].";
 		otherwise:
-			say "'Got it! Playing back now,' says [the actor].";
+			if a replayful scene is happening:
+				say "'Got it! Playing back now,' says [the actor].";
+			otherwise:
+				say "'Got it! I'll start replaying the next time we enter an active situation,' says [the actor].";				
 			now the actor is playing back;
 	otherwise:
 		say "[The actor] [are] confused.";
 
 A scene can be replayful or not replayful. A scene is usually not replayful.
 	
-Every turn when a robot is playing back:
+Every turn when a robot is playing back (this is the robot fighting rule):
 	if a replayful scene is happening:
 		if a replayful scene was happening:
-			repeat with currentbot running through playing back robots:
+			repeat with currentbot running through activated playing back robots:
 				try entry 1 of command-list of currentslot of currentbot;
 				rotate command-list of currentslot of currentbot backwards;
 		otherwise:
@@ -14125,16 +14174,115 @@ Section 4 - Robot responses
 
 The can't take people's possessions rule does nothing if the noun is held by a robot.
 
-All-topicing is useless action. Singlequipping is useless action. Withplaying is useless action. Repairing is useless action. Reading is useless action. Numbersetting some number on something is useless action. RIght-turning is useless action. Left-turning is useless action. Mallethitting is useless action. Withpoking is useless action. Shaking is useless action. Mudremoval is useless action.  Intensemudremoval is useless action. Withcutting something with something is useless action. Using is useless action. Setting something animally to some animal-code is useless action. Sodaemptying is useless action. Typing is useless action. Ragequitting is useless action. LetterTyping is useless action. Clapping is useless action. Tuning something to some tool-mode is useless action. AtPointing is useless action. Withtaking something with something is useless action. Shivering is useless action. Playing is useless action. Cuffing is useless action. Stamping is useless action. Notesinging is useless action. WIthstriking is useless action. Basking is useless action. Linking something to something is useless action. Arresting is useless action. Booksigning is useless action. Atwaving is useless action. Licking is useless action. Marking something with something is useless action. Spelling is useless action. Teloxing is useless action. Denoxng is useless action. Diroxing is useless action. Upgiving is useless action. Malloxing is useless action. TargetMalloxing is useless action. exfiling is useless action. Flying is useless action. Singleflying is useless action. Colloxing is useless action. Splashing is useless action. Exkliping is useless action. Anghofioing is useless action. Remoxng is useless action. Breathing is useless action. Viroxing is useless action. Sanoxing is useless action. Quadoxing is useless action. Singleuttering is useless action.
+All-topicing is useless action. Singlequipping is useless action. Withplaying is useless action. Repairing is useless action. Reading is useless action. Numbersetting some number on something is useless action. RIght-turning is useless action. Left-turning is useless action. Mallethitting is useless action. Withpoking is useless action. Shaking is useless action. Mudremoval is useless action.  Intensemudremoval is useless action. Withcutting something with something is useless action. Using is useless action. Setting something animally to some animal-code is useless action. Sodaemptying is useless action. Typing is useless action. Ragequitting is useless action. LetterTyping is useless action. Clapping is useless action. Tuning something to some tool-mode is useless action. AtPointing is useless action. Withtaking something with something is useless action. Shivering is useless action. Playing is useless action. Cuffing is useless action. Stamping is useless action. Notesinging is useless action. WIthstriking is useless action. Basking is useless action. Linking something to something is useless action. Arresting is useless action. Booksigning is useless action. Atwaving is useless action. Licking is useless action. Marking something with something is useless action. Spelling is useless action. Teloxing is useless action. Denoxng is useless action. Diroxing is useless action. Upgiving is useless action. Malloxing is useless action. TargetMalloxing is useless action. exfiling is useless action. Flying is useless action. Singleflying is useless action. Colloxing is useless action. Splashing is useless action. Exkliping is useless action. Anghofioing is useless action. Remoxng is useless action. Breathing is useless action. Viroxing is useless action. Sanoxing is useless action. Quadoxing is useless action. Singleuttering is useless action. Naming is useless action.
 
 Instead of showing something to a robot:
 	say "[The second noun] says, 'Huh, interesting. I guess.'"
 
 Chapter 3 - The combat lobby
 
-The combat-lobby is a room in combat-region. The printed name of the combat-lobby is "Lobby". "FIX THIS LATER According to a large sign, there are two training areas: the Robot Kitchen to the [boldeast], and the Gun Show to the [boldwest][first time].
+The combat-lobby is a room in combat-region. The printed name of the combat-lobby is "Lobby". "[first time]Thick foliage surrounds you, and you hear the sound of running water and the call of wild animals.
 
-As you come in, a sleazy gentleman comes up and vigorouly shakes your hands in both of his. 'Emrys, darling, I'm so glad you've made it! We've all been terribly excited about your visit. Now, I know talent when I see it, and I see talent now! It's time for your training. Everything's been arranged. Just take your pick of which one you want to start first. Tata! See you soon!' he says, and trundles off to the north, walking through the portal and to the other side as if it didn't exist at all time. Which, you reflect, it probably doesn't[only]."
+Pushing your way through the leaves, you stumble forward into a clearing...
+
+no...
+
+[only]You are standing in a lobby. A hanging sign proclaims 'Welcome to ADVENTURELAND!'
+
+Around the edges of the room is scattered jungle foliage, and the whole room is painted in pastel blues and greens. There are numerous exits, but most are boarded over, and all furniture has been stripped out. 
+
+Your only remaining options are 'Robot Kitchen' (to the [boldeast]), and the 'Gun Show' (to the [boldwest])."
+
+The boarded-exits are plural-named scenery in combat-lobby. Understand "boarded" or "nail" or "nails" or "boards" or "board" or "boarded-up" or "up" or "exit" or "exits" as the boarded-exits. The printed name of the boarded-exits is "boarded-up exits". The description of the boarded-exits is "Most exits seem to have been recently closed up, with boards nailed up over them."
+
+Instead of physicality when the noun is the boarded-exits:
+	say "These exits are boarded up and nailed firmly shut."
+
+The lush-scenery is scenery in combat-lobby. The indefinite article of the lush-scenery is "some". Understand "lush" or "scenery" or "scattered" or "foliage" or "jungle" as the lush-scenery. The printed name of the lush-scenery is "jungle foliage". The description of the lush-scenery is "This must be where you appeared from originally. Around the room are strategically placed jungle plants. Fake, probably, but hard to tell."
+
+Instead of physicality when the noun is the lush-scenery:
+	say "Either it's real, and you might be allergic, or it's fake, and could be covered in dust. You're not interested in messing with it either way."
+
+The lobby-walls are plural-named scenery in combat-lobby. Understand "green" or "blue" or "pastel" or "paint" or "painted" or "wall" or "walls" or "ceiling" or "floor" as the lobby-walls. The description of the lobby-walls is "The walls are painted in pastel blue and green, almost reminiscent of a children's nursery or a toy store.".
+
+Instead of physicality when the noun is the lobby-walls:
+	say "While your physical contact with the lobby walls is reassuring, it is not illuminating."
+
+DOes the player mean doing something with the lobby-walls:
+	it is unlikely;
+
+The adventure-sign is distant scenery in combat-lobby. The printed name of the adventure-sign is "Adventureland sign".
+
+Understand "adventure" or "adventureland" or "sign" or "neon" or "red" as the adventure-sign. The description of the adventure-sign is "The sign is neon red, most likely actual neon. It spells out, 'Welcome to ADVENTURELAND.'"
+
+The nature-sounds is scenery in combat-lobby. THe printed name of the nature-sounds is "sound of nature". Understand "sound" or "sounds" or "nature" or "sounds of " or "sound of " or "running" or "water" or "ambient" or "call" or "call of " or "wild" or "animal" or "animals" or "various" as the nature-sounds. The description of the nature-sounds is "Some ambient noises are playing in the lobby, sounding like various animals in the wild, and running water."
+
+Instead of listening to combat-lobby:
+	try examining nature-sounds;
+	
+Instead of listening to nature-sounds:
+	try examining nature-sounds;
+
+Instead of physicality when the noun is the nature-sounds:
+	say "The sounds don't exist physically; you can only hear them."
+
+The kitchen-lexit is distant scenery in combat-lobby. The printed name of the kitchen-lexit is "Robot Kitchen sign". Understand "robot" or "kitchen" or "sign" as the kitchen-lexit. The description of the kitchen-lexit is "The sign to the [boldeast] says, 'Robot Kitchen'."
+
+The gun-lexit is distant scenery in combat-lobby. The printed name of the gun-lexit is "Gun Show sign". Understand "gun" or "show" or "sign" as the gun-lexit. The description of the gun-lexit is "The sign to the [boldwest] says, 'Gun Show'."
+
+Section 1 - Andy
+
+Andyknown is a truth state that varies. Andyknown is false.
+
+The Andy is a man in combat-lobby. The printed name of Andy is "[if andyknown is true]Andy[otherwise]beaming man[end if]". "[The andy] bobs back and forth excitedly[first time]. 'Hello, Emrys!' he says from afar, wiggling his fingers at you[deliverpardon][only]."
+
+Understand "beaming" or "Man" or "blue" or "bright" or "toupee" or "suit" or "waist" or "bunch" or "bunches" or "Feet" as andy. THe description of andy is "Andy is a short man wearing a suit that bulges tight around his waist and bunches up near his feet."
+
+To say deliverpardon:
+	deliver pardon-quip;
+
+Pardon-quip is a quip. The printed name of pardon-quip is "Pardon". Understand "pardon" as pardon-quip. The target of pardon-quip is andy. The preview of pardon-quip is "Pardon, but do you know me?"
+
+The targetresponse of pardon-quip is "'Do I know Emry Tisserand?' roars the man, holding his sides. 'Do I know you? Ha!' He throws his head back, laughing long and loud.
+
+He wipes his tears with his eyes, and says, 'I'd say so. But you don't know me, do you? Dearie, I'm the best thing that ever happened to you.'
+
+You furrow your brows. 'In what way, exactly?'
+
+'Aye, well, there's the rub. The truth is that you have a problem, and that I have a problem. And we are both here, in my stately pleasure dome!' says the man. 'Name's Andy, by the way.'"
+
+Report uttering pardon-quip to Andy:
+	now andyknown is true;
+	now andy is proper-named;
+	deliver difficulties-quip;
+	deliver pleasure-quip;
+	
+Difficulties-quip is a quip. The printed name of difficulties-quip is "Difficulties". Understand "Difficulties" as difficulties-quip. The target of difficulties-quip is Andy. THe preview of Difficulties-quip is "What problems are you referring to?"
+
+The targetresponse of difficulties-quip is "'A little bird told me about your problem,' he says. 'There's something that was taken, something you need returned. Is that right?' he asks.
+
+'Yes,' you say. 'Can I presume you're not the one at fault?'
+
+'Why of course not,' answers the man. 'It's destiny at fault my dear, not me. But that brings me to my own problem. I would like to be substantially better off than I am now. And you may not know it, love, but you are quite a subject of interest among my clientele.'
+
+'That seems highly implausible,' you say frostily. 
+
+'Well, be it as it may, I will tell you what I will do. You are free to use my facility to your utmost desire. However, I will retain control over all footage and recordings of today's events, and have full distribution rights, including use in advertising for Adventureland,' he rattles off quickly.
+
+'And if I refuse?' you ask.
+
+'That's the thing, Emrys,' he says, flashing a brilliant smile at you. 'It's destiny. I already know you're going to go in. In any case, I've fulfilled my legal obligation, and I must inform you that from this point on, everything you say and do may be used in glorious, fun, and exciting advertisements for Adventureland. I hope you have a splendid day,' he says, and wanders down the hall to the east before disappearing."
+
+Report uttering difficulties-quip to Andy:
+	now andy is nowhere;
+
+Pleasure-quip is a quip. The printed name of pleasure-quip is "Pleasure". Understand "pleasure" as pleasure-quip. The target of pleasure-quip is Andy. The preview of pleasure-quip is "What did you call this place?  A pleasure dome?"
+
+The targetresponse of pleasure-quip is "'Well, I was being a bit theatrical. It's no Xanadu, is it? You'd likely call this an arcade, if my information on you is correct,' says the man.
+
+'And you own this arcade?' you ask.
+
+He smiles broadly. 'Of course, of course. Got it ready years ago, just waiting for today.'"
 
 Chapter 4 -The corners
 
@@ -14189,6 +14337,8 @@ Rule for reaching inside the glassed-kitchen:
 	otherwise if the current action is uttering:
 		allow access;
 	otherwise if the current action is singleuttering:
+		allow access;
+	otherwise if the current action is naming:
 		allow access;
 	otherwise if the current action is answering someone that something:
 		allow access;
@@ -14341,7 +14491,9 @@ To decide whether the burger is ready:
 
 Chapter 6 - Assembly line
 
-Assembly-line is south from combat-kitchen.
+[FIX THIS LATER add memory slots now and not earlier]
+
+Assembly-line is south from combat-kitchen. Assembly-line is in combat-region.
 
 Section 1 - Scenery
 
@@ -14487,20 +14639,33 @@ A battle-bot can be paused or unpaused. A battle-bot is usually paused.
 
 When play begins:
 	repeat with currentbot running through battle-bots:
-		add currentbot shooting the player to programming of currentbot;
+		add currentbot botshooting to programming of currentbot;
 
-Every turn when an unpaused battle-bot (called currentbot) is in the location:
-	try entry 1 of programming of currentbot;
-	rotate programming of currentbot;
+Every turn when an unpaused activated battle-bot (called currentbot) is in the location (this is the bot programming rule):
+	repeat with realbot running through unpaused activated battle-bots in the location:
+		try entry 1 of programming of realbot;
+		rotate programming of realbot;
+
+The robot fighting rule is listed before the bot programming rule in the every turn rulebook.
 
 Instead of a battle-bot (called currentbot) jumping:
 	say "[The currentbot] jumps up and down."
 
-Section 3 - Types of bots
+Botshooting is an action applying to nothing.
 
-A boss-bot is a kind of battle-bot.
+Definition: a thing (called current) is a good-guy:
+	if current is the player:
+		decide yes;
+	if current is max, decide yes;
+	if current is dan, decide yes;
+	decide no;
 
-Section 4 - Laser gun and shooting
+Carry out someone botshooting:
+	if the number of activated good-guy people in the location > 0:
+		let randomtarget be a random activated good-guy in the location;
+		try the actor shooting randomtarget; 
+
+Section 3 - Laser gun and shooting
 
 The laser-gun is in tutorial-combat. Understand "laser" or "gun" as the laser-gun. The printed name of the laser-gun is "laser gun".
 
@@ -14508,22 +14673,58 @@ Shooting is an action applying to one visible thing.
 
 Understand "shoot [something]" as shooting when the player is in combat-region.
 
+Does the player mean an actor shooting something:
+	if the noun is enclosed by the actor:
+		it is unlikely;
+	if the noun is a battle-bot:
+		it is likely;
+
 Check shooting:
 	if the noun is enclosed by the player:
 		say "It's hard to shoot [the noun], given the angle." instead;
 	otherwise if the noun is the player:
 		say "It's hard to shoot yourself, given the angle." instead;
+	otherwise if the player is deactivated:
+		say "FIX THIS LATER You can't shoot anything, you're deactivated!" instead;
+
+Check someone shooting:
+	if the noun is enclosed by the player:
+		say "[The actor] tries his best but it's hard to shoot [the noun], given the angle." instead;
+	otherwise if the noun is the actor:
+		say "It's hard to shoot [the actor] to shoot himself, given the angle." instead;
+	otherwise if the actor is deactivated:
+		say "FIX THIS LATER He can't shoot anything, he's deactivated!";
+		do nothing instead;
 
 Carry out shooting:
-	say "You shoot the gun, and a red light appears on [the noun] for a brief moment."
+	if the noun is a battle-bot:
+		bothit the noun;
+	otherwise:
+		say "You shoot the gun, and a red light appears on [the noun] for a brief moment."
 
-Instead of someone shooting something:
+Carry out someone shooting something:
 	say "[The actor] shoots at [if the noun is the player]you[otherwise][the noun][end if].";
 	if the noun is the player:
 		if currentcover of the player is fakecover:
-			now the laser-vest is switched off;
+			increment laserscore of the player;
+			say "FIX THIS LATER Holy guacomole you got shot!";
 		otherwise:
-			say "[The currentcover] blocks the shots!"
+			say "[The currentcover] blocks the shots!";
+	otherwise if the noun is a robot:
+		if currentcover of the noun is fakecover:
+			increment laserscore of the noun;
+			say "FIX THIS LATER It's a hit! [The noun] got gobsmacked by [the actor]!";
+		otherwise:
+			say "[The currentcover] blocks the shots!";
+	otherwise if the noun is a battle-bot:
+		bothit the noun;
+		
+To bothit (currentbot - a battle-bot):
+	if currentbot is deactivated:
+		say "[The currentbot] is already deactivated!";
+	otherwise:
+		say "FIX THIS LATER It's a hit!";
+		increment laserscore of the currentbot;	
 
 A thing has a number called the laserscore. The laserscore is usually 0.
 
@@ -14543,7 +14744,7 @@ Carry out aiming it at:
 	otherwise:
 		try aiming the second noun;
 
-A thing can be aimedat or not aimedat. A thing is usually not aimedat.
+AimTargeting relates various people to one thing. The verb to aimtarget means the aimtargeting relation.
 
 Check aiming:
 	if the laser-gun is not held by the player:
@@ -14554,23 +14755,124 @@ Check aiming:
 		say "It's difficult to aim at yourself, given the angle." instead;
 		
 Carry out aiming:
-	repeat with current running through aimedat things:
-		now current is not aimedat;
-	now the noun is aimedat;
+	now the player aimtargets the noun;
 
 Report aiming:
 	say "You carefully point the laser gun at [the noun].";
 
-Every turn when the number of aimedat things > 0:
+Definition: a thing (called possibletarget) is aimedat:
+	repeat with current running through people in the location:
+		if current aimtargets possibletarget:
+			decide yes;
+	decide no;
+
+[Every turn when the number of aimedat things > 0:
 	repeat with current running through aimedat things:
-		if current is not visible:
-			now current is not aimedat;
+		if current is not in the location:
+			repeat with current2 running through people in the location:
+				now current2 does not aimtarget current;]
 
 Does the player mean shooting an aimedat thing:
-	it is likely;
+	if the player aimtargets the noun:
+		it is likely;
 	
+Does the player mean an actor shooting an aimedat thing:
+	if the actor aimtargets the noun:
+		it is likely;
+
+Report someone shooting an aimedat thing:
+	if the actor aimtargets the noun:
+		now the actor does not aimtarget the noun;
+
 Report shooting an aimedat thing:
-	now the noun is not aimedat;
+	if the player aimtargets the noun:
+		now the player does not aimtarget the noun;
+
+A robot-blaster is a kind of thing. The max-blaster is a robot-blaster. The dan-blaster is a robot-blaster.
+
+Carry out someone aiming something at someone:
+	if the noun is not a robot-blaster:
+		say "[The actor] says, '[The noun] [don't] really need aiming[if the noun is an unarmed flash-grenade]. It does need to be armed, though[end if].'";
+	otherwise:
+		try aiming the second noun;
+
+
+Section 4 - Types of bots
+
+A boss-bot is a kind of battle-bot. The lasergoal of a boss-bot is 3. The description of a boss-bot is usually "FIX THIS LATER This boss has a target on it." Understand "boss" as a boss-bot.
+
+A boss-target is a kind of thing. Understand "target" as a boss-target. The printed name of a boss-target is "target".
+
+A boss-target is part of every boss-bot.
+
+A boss-bot has a number called the stuncounter. The stuncounter is usually 0.
+
+To shoot is a verb.
+
+Report an actor shooting a boss-target that is incorporated by a boss-bot (called currentboss):
+	if currentboss is paused:
+		say "[The actor] [adapt the verb shoot] [the currentboss], but nothing happens, as the fight is paused.";
+	otherwise:
+		if the stuncounter of currentboss > 0:
+			say "[The currentboss] is already stunned!";
+		otherwise:
+			now stuncounter of currentboss is 2;
+			say "[The actor] hits the target of [the currentboss], who is now stunned!"
+			
+Every turn when a boss-bot (called currentboss) is in the location:
+	if stuncounter of currentboss > 0:
+		now  stuncounter of currentboss is stuncounter of currentboss minus 1;
+		if stuncounter of currentboss  is 0:
+			say "[The currentboss] is no longer stunned!"
+
+Before a boss-bot (called currentboss) doing something:
+	if stuncounter of currentboss > 0:
+		say "[The currentboss] is stunned, and cannot act!" instead;
+
+A fast-bot is a kind of battle-bot. The lasergoal of a fast-bot is usually 2.
+
+Dodging is an action applying to nothing.
+
+A battle-bot can be active-dodging or not active-dodging. A battle-bot is usually not active-dodging.
+
+Carry out someone dodging:
+	say "[The actor] is moving quickly around the room.";
+	now the actor is active-dodging;
+
+Before shooting an active-dodging battle-bot:
+	if the noun is not aimedat:
+		say "Your shot goes wild!" instead;
+
+Before a battle-bot (called currentbot) doing anything:
+	now currentbot is not active-dodging;
+
+When play begins:
+	repeat with currentbot running through fast-bots:
+		add currentbot dodging to programming of currentbot;
+		
+An aim-bot is a kind of battle-bot. The lasergoal of an aim-bot is usually 2.
+
+Before an aim-bot (called currentbot) botshooting:
+	repeat with current running through activated good-guy people in the location:
+		if the actor aimtargets current:
+			try the actor shooting current instead;
+	try the actor botaiming instead;
+
+A heal-bot is a kind of battle-bot. The lasergoal of a heal-bot is usually 2.
+
+Instead of a heal-bot (called currenthealer) shooting something:
+	repeat with current running through heal-bots in the location:
+		if current is activated:
+			let L be a list of things;
+			repeat with current2 running through activated battle-bots:
+				if laserscore of current2 > 0:
+					add current2 to L;
+			if the number of entries in L > 0:
+				say "[The current] points its FIX THIS LATER at [L], and [those] in turn [are] healed.";
+				repeat with current2 running through L:
+					now the laserscore of current2 is 0;
+			otherwise:
+				say "[The current] looks for someone to heal.";
 
 Section 5 - Flash grenade
 
@@ -14586,10 +14888,10 @@ Check arming:
 	otherwise if the noun is armed:
 		say "That's already armed!" instead;
 
-Carry out arming:
+Carry out an actor arming:
 	now the noun is armed;
 
-Report arming:
+Report an actor arming:
 	say "[The noun] pulses in acknowledgment. It is now armed."
 
 Does the player mean throwing a flash-grenade at something:
@@ -14600,13 +14902,13 @@ Definition: a thing is playerly:
 	if it is enclosed by the player, decide yes;
 	decide no;
 
-Instead of throwing a flash-grenade at something:
+Instead of an actor throwing a flash-grenade at something:
 	if the noun is unarmed:
 		say "The grenade isn't armed yet!";
 	otherwise if the noun is playerly:
 		say "That seems like a really bad idea!";
 	otherwise:
-		try throwing the noun;
+		try the actor throwing the noun;
 		
 Understand the command "throw" as something new.
 
@@ -14619,14 +14921,26 @@ Check throwing:
 Carry out throwing:
 	try dropping the noun;
 
-Instead of throwing a flash-grenade:
+To chuck is a verb.
+Instead of an actor throwing a flash-grenade:
 	if the noun is unarmed:
 		say "The flash grenade isn't armed!";
 	otherwise:
-		say "You chuck [the noun], turning your face. It bursts into bright red light, hitting [the list of shootable things enclosed by the location].";
+		say "[The actor] [adapt the verb chuck] [the noun], turning [our] face. It bursts into bright red light, hitting [the list of shootable things enclosed by the location].";
 		repeat with current running through shootable things enclosed by the location:
 			increment laserscore of current;
 		now the noun is in the location;
+		now the noun is unarmed;
+
+Section 6 - Good guys
+
+The lasergoal of Max is 1. The lasergoal of Dan is 1. The lasergoal of the player is 1.
+
+Every turn:
+	if every good-guy in the location is deactivated:
+		now the laser-vest is switched off;
+	if the laser-vest is switched off:
+		now the laserscore of the player is 1;
 
 Chapter 8 - Gun show
 
@@ -14746,7 +15060,7 @@ Section 1 - Basics
 
 Tutorial-battle is in combat-region. Tutorial-battle is south from tutorial-combat. The printed name of tutorial-battle is "Solo Arena".
 
-A battle-pillar is a kind of thing. A battle-pillar is usually scenery. Understand "pillar" as a battle-pillar. A battle-pillar can be covering or not covering. A battle-pillar is usually not covering. The description of a battle-pillar is usually "FIX THIS LATER You can hide behind this."
+A battle-pillar is a kind of thing. A battle-pillar is usually scenery. Understand "pillar" or "column" as a battle-pillar. The description of a battle-pillar is usually "FIX THIS LATER You can hide behind this."
 
 The left-pillar is a battle-pillar in tutorial-battle. The right-pillar is a battle-pillar in tutorial-battle. Understand "left" as the left-pillar. Understand "right" as the right-pillar. The printed name of the left-pillar is "left pillar". The printed name of the right-pillar is "right pillar".
 
@@ -14758,21 +15072,51 @@ Fakecover is a thing. fakecover is cover-providing.
 
 A person has a thing called the currentcover. The currentcover of a person is usually fakecover.
 
-Check hiding behind:
+Report examining someone (called examinee):
+	if currentcover of the noun is not fakecover:
+		say "[The noun] has taken cover behind [the currentcover].";
+
+Check an actor hiding behind:
+	if currentcover of the actor is the noun:
+		say "[The actor] [are] already hiding behind [the noun]!" instead;
 	if the noun is not cover-providing:
 		say "That's not suitable for hiding behind, unfortunately." instead;
-		
-Carry out hiding behind:
-	now currentcover of the player is the noun;
+	repeat with current running through people in the location:
+		if currentcover of current is the noun:
+			say "[The current] is already hiding behind [the noun], so there isn't enough room!" instead;
+
+Carry out an actor hiding behind:
+	now currentcover of the actor is the noun;
 	
-Report hiding behind:
-	say "You duck behind [the noun], taking cover."
+To duck is a verb.
+Report an actor hiding behind:
+	say "[The actor] [adapt the verb duck] behind [the noun], taking cover."
 
-Aiming is freeacting. Aiming something at something is freeacting. Arming is freeacting. 
+Aiming is freeacting. Aiming something at something is freeacting. Arming is freeacting.  Looking is freeacting. Transcribing is freeacting. Replaying is freeacting.
 
-Before doing anything other than freeacting or hiding behind when the currentcover of the player is not fakecover:
-	say "You pop out from behind [the currentcover of the player].";
-	now currentcover of the player is fakecover;
+Switching on something is freeacting. Switching off something is freeacting.
+
+To pop is a verb.
+Before an actor doing anything other than freeacting or hiding behind when the currentcover of the actor is not fakecover:
+	say "[The actor] [adapt the verb pop] out from behind [the currentcover of the actor].";
+	now currentcover of the actor is fakecover;
+
+An aim-bot has a person called the bottarget. The bottarget of an aim-bot is usually emrys-weaver.
+
+Botaiming is an action applying to nothing.
+
+Definition: a person (called hidingperson) is uncovered if currentcover of hidingperson is fakecover.
+
+Carry out someone botaiming:
+	if the number of activated uncovered good-guy people in the location > 0:
+		let randomtarget be a random uncovered activated good-guy in the location;
+		try the actor aiming randomtarget; 
+	otherwise:
+		say "FIX THIS LATER [The actor] waits patiently for someone to aim at.";
+
+Carry out someone aiming:
+	say "[The actor] aims at [the noun].";
+	now the actor aimtargets the noun;
 
 Section 2 - Laser Vest
 
@@ -14783,11 +15127,15 @@ The laser-vest can be switched on or switched off. The laser-vest is switched of
 Instead of switching on the laser-vest:
 	if the laser-vest is switched on:
 		say "It's already on!";
+	otherwise if an activated good-guy is in the location:
+		say "The previous battle hasn't ended yet! [A random activated good-guy] is still fighting!";
 	otherwise:
 		say "FIX THIS LATER The vest powers on.";
-		if baby-bot is in the location:
+		if a battle-bot is in the location:
 			say "FIX THIS LATER The training will now commence. Better hide!";
 		now the laser-vest is switched on;
+		repeat with current running through good-guy people in the location:
+			now laserscore of current is 0;
 	
 Instead of switching off the laser-vest:
 	if the laser-vest is switched off:
@@ -14834,44 +15182,19 @@ When first-bot ends abruptly:
 Before shooting a paused battle-bot:		
 	say "'The battle is currently on pause,' says a voice FIX THIS LATER." instead;
 
-
 Before shooting baby-bot:
 	if currentcover of the player is fakecover:
 		say "You shoot at the robot, but it shoots you at the same time!
 
 The laser vest powers down, and the bot pauses, waiting for you to fight." ;
-		now the laser-vest is switched off instead;
-
-Instead of shooting a battle-bot:
-	say "FIX THIS LATER It's a hit!";
-	increment laserscore of the noun;
+		now the laser-vest is switched off;
+		increment laserscore of the player instead;
 
 [FIX THIS LATER WHAT IF GRENADE IS USED]
 
 Section 4 - Fast-bot
-
-A fast-bot is a kind of battle-bot. The lasergoal of a fast-bot is usually 2.
-
+		
 The Mama-bot is a fast-bot. The printed name of mama-bot is "speedy bot". Understand "speedy" as the mama-bot. The description of the mama-bot is "FIX THIS LATER".
-
-Dodging is an action applying to nothing.
-
-A battle-bot can be active-dodging or not active-dodging. A battle-bot is usually not active-dodging.
-
-Carry out someone dodging:
-	say "[The actor] is moving quickly around the room.";
-	now the actor is active-dodging;
-
-Before shooting an active-dodging battle-bot:
-	if the noun is not aimedat:
-		say "Your shot goes wild!" instead;
-
-Before a battle-bot (called currentbot) doing anything:
-	now currentbot is not active-dodging;
-
-When play begins:
-	repeat with currentbot running through fast-bots:
-		add currentbot dodging to programming of currentbot;
 
 When first-bot ends normally:
 	say "FIX THIS LATER A second bot wheels into sight! This one looks a big bigger than the last one.
@@ -14880,6 +15203,7 @@ Your vest powers down. A voice says, 'The next phase will commence when you turn
 
 The bot waits in anticipation.";
 	now the laser-vest is switched off;
+	increment laserscore of the player;
 	now mama-bot is in the location;
 
 Second-bot is a recurring scene.
@@ -14914,21 +15238,283 @@ When second-bot ends abruptly:
 Report shooting mama-bot for the first time:
 	say "Whoa! That wasn't enough! "
 
+Section 5 - Boss-bot
+
+The Papa-bot is a boss-bot. The printed name of papa-bot is "big bot". Understand "big" or "boss" as the papa-bot. The description of the papa-bot is "FIX THIS LATER".
+
+When second-bot ends normally:
+	say "FIX THIS LATER A third bot thunders onto the stage! This one is huge.
+
+Your vest powers down. A voice says, 'The next phase will commence when you turn your vest back on.'
+
+The bot stares at you grimly.";
+	now the laser-vest is switched off;
+	increment laserscore of the player;
+	now papa-bot is in the location;
+
+Third-bot is a recurring scene.
+
+Third-bot begins when it's papatime.
+
+To decide whether it's papatime:
+	unless papa-bot is in the location, decide no;
+	unless the laser-vest was worn, decide no;
+	unless the laser-vest was switched on, decide no;
+	unless the laser-vest is switched on, decide no;
+	decide yes;
+
+When third-bot begins:
+	now papa-bot is unpaused;
+
+Third-bot ends abruptly when caught shorthanded.
+
+third-bot ends normally when papa-bot is deactivated.
+
+When third-bot ends:
+	now papa-bot is paused;
+	
+When third-bot ends normally:
+	say "FIX THIS LATER The robot flashes red, and then collapses. Helper bots appear to roll it away.";
+	now papa-bot is nowhere;
+	now laser-vest is switched off;
+	increment laserscore of the player;
+
+When third-bot ends abruptly:
+	say "FIX THIS LATER Training cancelled.";
+	now laserscore of papa-bot is 0;
+
+Before going east from tutorial-battle when a battle-bot is in the location:
+	say "Your enemy blocks your way!" instead;
+
 Chapter 10 - Bot training
 
-Bot-training is east from tutorial-battle and west from combat-kitchen. The description of bot-training is "FIX THIS LATER You can go back [boldeast] or [boldwest], or further [boldsouth]."
+Bot-training is east from tutorial-battle and west from assembly-line. The description of bot-training is "FIX THIS LATER You can go back [boldeast] or [boldwest], or further [boldsouth]." 
+
+bot-training is in combat-region.
+
+Report looking in bot-training:
+	say "FIX THIS LATER The robots get guns!";
+	now the dan-blaster is held by dan;
+	now the max-blaster is held by max;
 
 Chapter 11 - Wood tier
 
 wood-tier is south from bot-training. wood-tier is in combat-region.
 
+Section 1 - Scenery
+
+REport going to wood-tier:
+	repeat with current running through good-guy people:
+		increment laserscore of current;
+		now laser-vest is switched off;
+
+The joshua-tree is a battle-pillar in wood-tier. Understand "tree" as the joshua-tree.
+
+The water-barrel is a battle-pillar in wood-tier. Understand "barrel" as the water-barrel.
+
+The overturned-wagon is a battle-pillar in wood-tier. Understand "wagon" as the overturned-wagon.
+
+Dusty-bot is a battle-bot in wood-tier. Lanky-bot is a battle-bot in wood-tier. Lonesome-bot is a battle-bot in wood-tier. Robber-bot is a boss-bot in wood-tier. Understand "robber" as robber-bot.
+
+wood-fight is a recurring replayful scene.
+
+Wood-fight begins when it's woodtime.
+
+To decide whether it's woodtime:
+	unless a battle-bot is in the location, decide no;
+	unless the laser-vest was worn, decide no;
+	unless the laser-vest was switched on, decide no;
+	unless the laser-vest is switched on, decide no;
+	unless the player is in wood-tier, decide no;
+	decide yes;
+
+Every turn:
+	say "Laserscore of dan is [laserscore of dan].";
+	say "Laserscore of max is [laserscore of max].";
+
+When wood-fight begins:
+	repeat with current running through battle-bots in wood-tier:
+		now current is unpaused;
+
+Wood-fight ends abruptly when caught shorthanded.
+
+wood-fight ends normally when every battle-bot in wood-tier is deactivated.
+
+When wood-fight ends:
+	repeat with current running through battle-bots in wood-tier:
+		now current is paused;
+	now laser-vest is switched off;
+	repeat with current running through good-guy people in the location:
+		increment laserscore of current;
+	
+When wood-fight ends normally:
+	say "FIX THIS LATER You won!";
+	repeat with current running through battle-bots in wood-tier:
+		now current is nowhere;
+
+When wood-fight ends abruptly:
+	say "FIX THIS LATER Training cancelled.";
+	repeat with current running through battle-bots in wood-tier:
+		now laserscore of current is 0;
+
+[FIX THIS LATER what if the player walks away]
+
 Chapter 12 - Bronze tier
 
 Bronze-tier is south from wood-tier. bronze-tier is in combat-region.
 
+Section 1 - scenery
+
+The fallen-chandelier is a battle-pillar in bronze-tier. Understand "fallen" or "chandelier" as fallen-chandelier. The colonnade-spot is a battle-pillar in bronze-tier. Understand "colonnade" as the colonnade-spot. The flying-buttress is a battle-pillar in bronze-tier. Understand "flying" or "Buttress" as the flying-buttress.
+
+REport going to bronze-tier:
+	repeat with current running through good-guy people:
+		increment laserscore of current;
+		now laser-vest is switched off;
+
+Section 2 - Bots
+
+Athos-bot is an aim-bot in bronze-tier. Porthos-bot is an aim-bot in bronze-tier. Aramis-bot is an aim-bot in bronze-tier. Darty-bot is a heal-bot in bronze-tier.
+
+Before an actor shooting activated darty-bot:
+	if the actor is not a recording robot:
+		if the number of activated aim-bots in the location > 0:
+			let current be a random activated aim-bot;
+			say "[The current] blocks your attack from damaging young Darty!";
+			do nothing instead;
+
+Section 3 - Scene
+
+bronze-fight is a recurring replayful scene.
+
+bronze-fight begins when it's bronzetime.
+
+To decide whether it's bronzetime:
+	unless a battle-bot is in the location, decide no;
+	unless the laser-vest was worn, decide no;
+	unless the laser-vest was switched on, decide no;
+	unless the laser-vest is switched on, decide no;
+	unless the player is in bronze-tier, decide no;
+	decide yes;
+
+When bronze-fight begins:
+	repeat with current running through battle-bots in bronze-tier:
+		now current is unpaused;
+
+bronze-fight ends abruptly when caught shorthanded.
+
+bronze-fight ends normally when every battle-bot in bronze-tier is deactivated.
+
+When bronze-fight ends:
+	repeat with current running through battle-bots in bronze-tier:
+		now current is paused;
+	now laser-vest is switched off;
+	repeat with current running through good-guy people in the location:
+		increment laserscore of current;
+	
+When bronze-fight ends normally:
+	say "FIX THIS LATER You won!";
+	repeat with current running through battle-bots in bronze-tier:
+		now current is nowhere;
+
+When bronze-fight ends abruptly:
+	say "FIX THIS LATER Training cancelled.";
+	repeat with current running through battle-bots in bronze-tier:
+		now laserscore of current is 0;
+
 Chapter 13 - Silver tier
 
 Silver-tier is south from bronze-tier. Silver-tier is in combat-region.
+
+Section 1 - scenery
+
+The evil-altar is a battle-pillar in silver-tier. Understand "altar" as the evil-altar.
+
+The guardian-statue is a battle-pillar in silver-tier. Understand "guardian" or "statue" as the guardian-statue.
+
+The shattered-gates are a plural-named battle-pillar in silver-tier. Understand "gate" or "gates" as the shattered-gates.
+
+The broken-seal is a battle-pillar in silver-tier. Understand "seal" or "broken" as the broken-seal.
+
+Pillarlist is a list of things that varies. Pillarlist is {evil-altar, guardian-statue, shattered-gates, broken-seal}
+
+[Add a tip-moving from pillar to pillar doesn't use up any actions]
+
+Report going to silver-tier:
+	repeat with current running through good-guy people:
+		increment laserscore of current;
+		now laser-vest is switched off;
+
+Section 2 - Bots
+
+The air-bot is a fast-bot in silver-tier. Understand "air" as the air-bot.
+
+The earth-bot is a boss-bot in silver-tier. Understand "earth" as the boss-bot.
+
+The water-bot is a heal-bot in silver-tier. Understand "water" as the water-bot.
+
+The fire-bot is a battle-bot in silver-tier. Understand "fire" as the fire-bot. The lasergoal of the fire-bot is 2.
+
+When play begins:
+	add fire-bot desolating to the programming of fire-bot;
+	
+Desolating is an action applying to nothing.
+
+Flame-pillar is a thing. "A huge pillar of flame has surrounded [the entry 1 of Pillarlist], blocking it from view."
+
+Carry out someone desolating:
+	if entry 1 of pillarlist is not in the location:
+		say "FIX THIS LATER The pillar of flames dies down.";
+		now entry 1 of pillarlist is in the location;
+		rotate pillarlist backwards;
+	otherwise:
+		say "A pillar of flames springs up around [the entry 1 of pillarlist].";
+		repeat with current running through good-guy people in the location:
+			if currentcover of current is entry 1 of pillarlist:
+				increment laserscore of current;
+				say "[The Current] [adapt the verb get] burned!";
+				if current is the player:
+					now the laser-vest is switched off;
+		now entry 1 of pillarlist is nowhere;
+
+Section 3 - Scene
+
+silver-fight is a recurring replayful scene.
+
+silver-fight begins when it's silvertime.
+
+To decide whether it's silvertime:
+	unless a battle-bot is in the location, decide no;
+	unless the laser-vest was worn, decide no;
+	unless the laser-vest was switched on, decide no;
+	unless the laser-vest is switched on, decide no;
+	unless the player is in silver-tier, decide no;
+	decide yes;
+
+When silver-fight begins:
+	repeat with current running through battle-bots in silver-tier:
+		now current is unpaused;
+
+silver-fight ends abruptly when caught shorthanded.
+
+silver-fight ends normally when every battle-bot in silver-tier is deactivated.
+
+When silver-fight ends:
+	repeat with current running through battle-bots in silver-tier:
+		now current is paused;
+	now laser-vest is switched off;
+	repeat with current running through good-guy people in the location:
+		increment laserscore of current;
+	
+When silver-fight ends normally:
+	say "FIX THIS LATER You won!";
+	repeat with current running through battle-bots in bronze-tier:
+		now current is nowhere;
+
+When bronze-fight ends abruptly:
+	say "FIX THIS LATER Training cancelled.";
+	repeat with current running through battle-bots in silver-tier:
+		now laserscore of current is 0;
 
 Chapter 14 - Gold tier
 
@@ -15078,7 +15664,6 @@ Instead of answering a non-robot that something:
 		say "In this game, conversation is handled by SAYING a topic TO another person. Available topics can be seen by typing TOPICS, or just T.";
 	otherwise:
 		say "In flashbacks, all conversation is handled by typing TALK TO [bracket]the person you are talking to[close bracket]."
-	
 
 Part 2 - Special kinds of responses
 
@@ -15409,6 +15994,38 @@ Test spellend with "in/give bear to emrys/n/give bear to girl"
 
 Test allspells with "test rescue/test lonely/test buried/test bookmark/test stranger/test end/test pillar/test vast/test hunter/test dark/test web/test spiral2/test spellend"
 
+Chapter 9 - Combat dimension
+
+Test tiffany with "s/s/s"
+
+Test andy with "say pardon/say difficulties/"
+
+Test combatintro with "test tiffany/test andy"
+
+Test shootingtime with "w/drop rucksack/s/take gun/shoot target/aim at target/shoot target/arm grenade/throw grenade/take grenade"
+
+Test vesttime with "s/wear vest/hide behind left pillar/turn on vest/shoot bot/hide behind left pillar/turn on vest/z/aim/shoot bot/hide behind left pillar/aim/shoot bot"
+
+Test bosstime with "turn on vest/hide behind left pillar/shoot target/shoot bot/hide behind left/shoot target/shoot boss/hide behind left/shoot target/shoot boss"
+
+Test kitchen with "n/drop vest, gun, grenade/n/e/e/e/s/max, open fridge/max, take cheese/max, take lettuce/max, turn on sink/max, wash lettuce/max, take meat/max, turn on stove/max, take pan/max, put pan on stove/max, put meat in pan/max, take hamburger/max, open hamburger/max, put hamburger on counter/max, put meat on hamburger/max, put lettuce on hamburger/max, put cheese on hamburger"
+
+Test dan with "s/max, record/max, push left hand/max, push right hand/max, push left foot/max, push right foot/max, push face/max, replay X/push white button/push left arm/push right arm/push left leg/push right leg/push head"
+
+Test robotpart with "test kitchen/test dan"
+
+Test trainingpart with "test shootingtime/test vesttime/test bosstime"
+
+Test wood with "w/w/n/take all/wear vest/s/e/s/dan, hide behind wagon/max, hide behind tree/hide behind barrel/turn on laser-vest/arm grenade/throw grenade/dan, shoot target/dan, shoot robber/dan, shoot target/dan, shoot robber"
+
+Test bronze with "s/max, hide behind colonnade/dan, hide behind buttress/max, record/yes/max, shoot athos-bot/max, hide behind colonnade/max, shoot porthos-bot/max, hide behind colonnade/max, shoot aramis-bot/max, replay x/dan, record/dan, shoot darty-bot/g/g/g/g/hide behind chandelier/turn on vest/z/shoot athos-bot/hide behind chandelier/shoot porthos-bot/hide behind chandelier/shoot aramis-bot/dan, replay a/shoot darty-bot"
+
+Test silver with "s/dan, record/y/dan, shoot target/dan, hide behind statue/dan, shoot target/dan, hide behind statue/dan, shoot target/max, record/y/max, shoot fire-bot/max, hide behind gates/max, shoot water-bot/max, hide behind gates/max, shoot air-bot/dan, hide behind statue/max, hide behind gates/dan, replay a/max, replay x/hide behind seal/turn on vest/z/shoot fire-bot/hide behind seal/shoot water-bot/hide behind seal/shoot air-bot/shoot earth-bot/shoot earth-bot/shoot earth-bot"
+
+Test mutualpart with "test wood/test bronze/test silver"
+
+Test combatall with "test combatintro/test trainingpart/test robotpart/test mutualpart"
+
 Part 3 - Checking missing stuff
 
 Alldescriptioning is an action out of world. Understand "alldesc" as alldescriptioning.
@@ -15542,8 +16159,5 @@ Book 5 - Notes
 8. Turns on recorder, and plays your death: 'your sacrifice means everything to us'.
 
 9. actually enter other spaceship. removes skull mask: 'welcome to the Starship Tisserand. We've been waiting for you'.
-
-
 ]
-
 [ADD THat otistdog code but only for stuff that i want people to look at]
