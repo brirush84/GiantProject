@@ -7,20 +7,16 @@ Finished areas:
 -Haunted House (tested)
 -Murder mystery (tested)
 -Wax Museum Escape room (tested)
--Horror spells region (mostly tested)
+-Horror spells region (tested)
+-Combat area (tested)
+-garden/plants (tested)
+-zoo (partially tested)
 
 Areas under construction:
 
--Combat area
+-world monuments
 
 Remaining areas:
 
--Forest/biomes/animals
-
 -toolroom
-
--garden/plants
-
--world monuments
-
 -Opening, megaship and final puzzle
