@@ -10,11 +10,11 @@ Finished areas:
 -Horror spells region (tested)
 -Combat area (tested)
 -garden/plants (tested)
--zoo (partially tested)
+-zoo (tested tested)
+-world monuments (untested)
 
 Areas under construction:
 
--world monuments
 
 Remaining areas:
 
