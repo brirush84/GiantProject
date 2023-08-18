@@ -25,7 +25,7 @@ Release along with cover art.
 
 Section 1 - Genre, description, etc
 
-The story genre is "Science Fiction". The story description is "Hop through dimensions to save your ship." The story creation year is 2023. The release number is 31.
+The story genre is "Science Fiction". The story description is "Hop through dimensions to save your ship." The story creation year is 2023. The release number is 32.
 
 Section 2 - Increasing memory sizes
 
@@ -75,9 +75,9 @@ Crediting is an action out of world. Understand "Credits" as crediting.
 Carry out crediting:
 	say "This game was written by Brian Rushton/Mathbrush using Inform 7 (by Graham Nelson). Beta testers include Amanda Walker, the Xenographer, John Ziegler, Jade, Christopher Merriner, Patrick Mooney, Brett Witty, Rovarsson, E. Joyce, Max Fouquet O'Garra, Dee Cooke, Ian Greener, Chandler Groover, Lance Cirone, Zed Lopez, Cody Gaisser, Alex Proudfoot, Radioactive Crow, and LAST_TESTER_HERE. 
 
-Hanon Ondricek gave helpful advice about the concept and title. Phil Riley and Peter Bates made suggestions about coding.
+Hanon Ondricek gave helpful advice about the concept and title. Phil Riley and Peter Bates made suggestions about coding. Mike Russo and Garry Francis gave poetry tips.
 
-Matt Weiner, N. Comier, Mike Sousa, Austin Auclair and Pinkunz served as inspiration for some puzzle content. Many of the standard Inform examples were used, but a lot of code was directly lifted from Under Contract, Example 205; Lethal Concentration 1 and 2, examples 255 and 257; Nickel and Dimed, example 262; Robo1 and Robo 2, examples 426 and 429; Entropy, example 182; The Cow Exonreated, example 401; In Fire or in Flood, example 401.
+Matt Weiner, N. Comier, Mike Sousa, Austin Auclair, Doug Egan and Pinkunz served as inspiration for some puzzle content. Many of the standard Inform examples were used, but a lot of code was directly lifted from Under Contract, Example 205; Lethal Concentration 1 and 2, examples 255 and 257; Nickel and Dimed, example 262; Robo1 and Robo 2, examples 426 and 429; Entropy, example 182; The Cow Exonreated, example 401; In Fire or in Flood, example 401.
 
 Cover art was made from photographs by NASA and the Space Telescope Science Institute (STScI) and by Sandra Rushton, my mother."
 [Code from Otistdog was used for overly elaborate looking.]
@@ -808,7 +808,7 @@ Instead of wearing the antique-watch:
 Instead of giving the antique-watch to the captain:
 	say "The Captain looks at you with surprise. 'My watch? When did you...' He grasps it tightly. 'Thank you Storyweaver.'
 
-He looks at it for a moment, then says, 'This watch belongs to a long line of heroes. My ancestors won this in the first war, the one they called the Great War, before they had to resort to numbers. My grandfather had it, one of the first asteroid miners. My father had it, a heart surgeon who saved thousands. And I...I have no child to give it to. And I am not a hero.'
+He looks at it for a moment, then says, 'This watch belongs to a long line of heroes. My ancestors won this in the first war, the one they called the Great War, before they had to resort to numbers. My grandfather had it, one of the first asteroid miners. My father had it, a heart surgeon who saved thousands. But I...I have no child to give it to. And I am not a hero.'
 
 'That is your choice,' you say. 'No one can stop you. A true hero is anyone willing to risk himself to save his friends. If you're going to go down in history, make it be for something good.'
 
@@ -941,6 +941,7 @@ He nods. 'I've got to get this to others. Thanks again, Emrys,' he says, and wal
 
 The rift behind you turns from red to green.";
 	now rhys is nowhere;
+	now the sketch-pad is nowhere;
 	now the garden-tear is green-torn;
 
 Before going south from sensors-room:
@@ -1275,7 +1276,7 @@ Keep it civil, please--dewdrop[roman type]
 
 It seems there are more pages[or]The next page says: 
 
-[italic type]Anyone figured out how to get below Paris yet?--why's 1
+[italic type]Anyone figured out how to get below Paris yet?--why's1
 
 Yeah, you can usually find a path down the debris, but it shifts every few weeks. I usually just need a minute or two with the telescope to find it--aLiteralBaby[roman type]
 
@@ -1291,7 +1292,7 @@ It seems there are more pages[or]The next page says:
 
 I heard the Eiffel guy likes it. Besides, it's fun to collect retro stuff like coins. Also, you're nowhere near the bottom--why's 1
 
-Ha, if you guys like cash that much, I'll hide some for you. I put it in thehoneysuckle by the giant sword...if any of you ever get that far!-expertclimber[roman type]
+Ha, if you guys like cash that much, I'll hide some for you. I put it in the honeysuckle by the giant sword...if any of you ever get that far!-expertclimber[roman type]
 
 It seems there are more pages[or]The next page says: 
 
@@ -1313,7 +1314,7 @@ There is one more page[or]The last page says:
 
 [italic type]It's in hyperbolic space. Good luck, Emrys!--SpikySpiderSkull[roman type]
 
-This final page looks fresher than the rest.[cycling]."
+This final page looks fresher than the rest[cycling]."
 
 [at the end: monkey lets you write what you want in it]
 
@@ -1963,7 +1964,7 @@ The antique-watch is a thing in gift-cage. The indefinite article of the antique
 
 The gift-room is in wax-region. The printed name of gift-room is "Gift Shop".
 
-The coin-machine is scenery in Gift-room. The printed name of the coin-machine is "coin machine". Understand "coin" or "machine" or "somber" or "obol" or "incongruously" or "black" or "white" or "spider" or "web" or "webs" or "spiderwebs" as the coin-machine. The description of the coin-machine is "This coin machine is painted in black with white spiderwebs, with the slogan TOKENS FOR OBOLS. In front, it has a little tray and a slot with a little sign on it."
+The coin-machine is scenery in Gift-room. The printed name of the coin-machine is "coin machine". Understand "coin" or "machine" or "somber" or "obol" or "incongruously" or "black" or "white" or "spider" or "web" or "webs" or "spiderwebs" as the coin-machine. The description of the coin-machine is "This coin machine is painted in black with white spiderwebs, with the slogan TOKENS FOR OBOLS. In front, it has a little tray and a slot with a little sign on it. It doesn't look like it belongs here."
 
 The coin-sign is part of the coin-machine. Understand "little" or "sign" as the coin-sign. The printed name of the coin-sign is "little sign". The description of the coin-sign is "The little sign says:
 
@@ -2136,6 +2137,9 @@ The printed name of the left-stake is "left stake". The printed name of the midd
 
 A music-helm is a kind of thing. Understand "helm" or "helms" or "helmets" or "plume" or "plumed" or "helmet" or "black" or "black-dyed" or "dyed" or "bronze" as a music-helm. The left-helm is a music-helm. The right-helm is a music-helm. The description of a music-helm is usually "These helms are bronze or some imitation, with black-dyed plumes. They look similar to some of the black figure Greek pottery you saw when watching a documentary a few years back."
 
+Does the player mean attacking the achilles-figure:
+	it is unlikely;
+
 Understand "left" or "plume" or "LH" as the left-helm. Understand "right" or "plume" or "RH" as the right-helm.
 
 The printed name of the left-helm is "left helm". The printed name of the right-helm is "right helm".
@@ -2299,6 +2303,9 @@ The shadow-greeks are distant scenery. The shadow-british are distant scenery. T
 
 A wrath-balloon is a kind of thing. A wrath-balloon is usually distant. Understand "balloon" or "balloons" or "colored" as a wrath-balloon. 
 
+Does the player mean attacking a wrath-balloon:
+	it is likely;
+
 The orange-wrathbloon is a wrath-balloon. The red-wrathbloon is a wrath-balloon. The yellow-wrathbloon is a wrath-balloon. Understand "red" as the red-wrathbloon. Understand "yellow" as the yellow-wrathbloon. Understand "orange" as the orange-wrathbloon.
 
 The printed name of the red-wrathbloon is "red balloon". The printed name of the orange-wrathbloon is "orange balloon". The printed name of the yellow-wrathbloon is "yellow balloon".
@@ -2385,18 +2392,18 @@ Instead of listening when the player is in lust-room:
 
 [interpret lust as debasing the value of seeing; as seeing something just as a means to an end rather than having value. Maybe breaking open chest of a figure? must break vluable things and even depreciate yourself. A shameful section.]
 
-A gold-ring is a kind of thing. Understand "ring" or "gold" or "band" or "engraving" as a gold-ring. A gold-ring is usually wearable.
+A gold-ring is a kind of thing. Understand "ring" or "gold" or "band" or "engraving" as a gold-ring. A gold-ring is usually wearable. Understand "rings" as the plural of gold-ring.
 
 The poem-sign is scenery in lust-room. The printed name of the poem-sign is "sign". Understand "poem" or "warning" or "sign" as the poem-sign. The description of the poem-sign is "The sign says:
 
-'Four jeweled rings are lovely things[line break]
-Electric, magic, lovely rings![line break]
-But seekers weary first must query.[line break]
-Where to find the rings that vary?[line break]
-One ring plain and put on show,[line break]
+'Four jeweled rings that you must find[line break]
+(Lovely things that please the mind)[line break]
+Can be sought, in places varied.[line break]
+Foolish seekers will be wearied.[line break]
+One ring plain is put on show,[line break]
 One ring buried deep below.[line break]
 A ring for each these figures' deaths:[line break]
-find them in that which took their breaths.'
+Found in that which took their breaths.'
 
 At the bottom it adds, 'WARNING. REMOVING ANYTHING OF VALUE OUT OF THIS ROOM WILL RESULT IN PROSECUTION. IT IS NOT NECESSARY TO USE ITEMS FROM THIS ROOM IN ANY OTHER AREA OF THE MUSEUM.'"
 
@@ -2744,7 +2751,7 @@ Instead of inserting something into the circuit-box when the circuit-box is open
 	
 A thing can be circuit-filled or uncircuit-filled. A thing is usually uncircuit-filled.
 
-A circuit-board is in circuit-box. The circuit-board is not portable. The printed name of the circuit-board is "circuit board". Understand "board" or "circuit" or "resin" or "gold" as the circuit-board. The description of the circuit-board is "[first time]How odd. [only]This is a circuit board encased in resin. While you suspect there is more to it outside of your view, what you are able to see is a yellowish metal circuit running through it. The circuit is broken by four different slots, [if the number of uncircuit-filled gold-rings is 4]all of which [otherwise if the number of uncircuit-filled gold-rings > 0]of which [the number of uncircuit-filled gold-rings] [otherwise]none of which [end if]are empty.".
+A circuit-board is in circuit-box. The circuit-board is not portable. The printed name of the circuit-board is "circuit board". Understand "board" or "circuit" or "resin" or "gold" as the circuit-board. The description of the circuit-board is "[first time]How odd. [only]This is a circuit board encased in resin. While you suspect there is more to it outside of your view, what you are able to see is a yellowish metal circuit running through it. The circuit is broken by four different slots, [if the number of uncircuit-filled gold-rings is 4]all of which [otherwise if the number of uncircuit-filled gold-rings > 0]of which [the number of uncircuit-filled gold-rings] [otherwise]none of which [end if][if the number of uncircuit-filled gold-rings is 1]is[otherwise]are[end if] empty.".
 
 A circuit-slot is a kind of container. Understand "slot" or "slots" as a circuit-slot. The description of a circuit-slot is usually "[The noun] is a thin slot that seems like its intended for a thin disk, like a wafer or coin."
 
@@ -3178,7 +3185,7 @@ Chapter 6 - Greed
 
 [collecting scraps of paper--the greed.]
 
-The greed-room is north from envy-room. The greed-room is in wax-region. The printed name of the Greed-room is "Fish Blade room". "[first time]'Interesting', you think, as you enter the room. They actually have a more modern figure here. Fish Blade, the notorious mime, only died a few years ago, soon after the second Mars colony was established. Too bad they picked such a jerk.
+The greed-room is north from envy-room. The greed-room is in wax-region. The printed name of the Greed-room is "Fish Blade Room[if the revolving-door is not nowhere] ([title-compass])[end if]". "[first time]'Interesting', you think, as you enter the room. They actually have a more modern figure here. Fish Blade, the notorious mime, only died a few years ago, soon after the second Mars colony was established. Too bad they picked such a jerk.
 
 [only]In the west side of the room there [mansatext].
 
@@ -3296,12 +3303,12 @@ The greed-inscription is part of the greed-vault. Understand "inscription" or "p
 and brought them here, this vault to see.[line break]
 He asked them all, the student herd,[line break]
 To sum this vault up in a word.[line break]
-One spoke of a place deep in the ground,[line break]
-where lots of secret wealth is found.[line break]
-One spoke of a bomb to rend and tear,[line break]
-opening metal, if one may dare.[line break]
-One only said [']it belongs to me.['][line break]
-But there was only one answer, not three.[line break]
+One named a place deep in the ground,[line break]
+where secret gems and wealth are found.[line break]
+One named a bomb to rend and tear,[line break]
+In land and sea and, rarely, air.[line break]
+One said this: [']it belongs to me.['][line break]
+There was one answer, and not three.[line break]
 One single word, with letters four.[line break]
 Enter the word, and open the door.'
 
@@ -3318,7 +3325,7 @@ Greed-done is a truth state that varies. Greed-done is false.
 
 After opening the greed-vault when greed-done is false:
 	now greed-done is true;
-	say "The vault opens, revealing nothing but trash.
+	say "The vault opens. It is much smaller than you expected, and full of nothing but trash.
 
  You hear a bell and a voice says 'One man's treasure is another man's trash! But in any case, you've beaten this room! Check the gift shop to monitor your progress.'";
 	increment prize-level;
@@ -3370,6 +3377,20 @@ To say revolving-compass:
 		say "north";
 	if revolving-pos is 4:
 		say "east";
+	if revolving-pos is 5:
+		say "south";
+
+To say title-compass:
+	if revolving-pos is 1:
+		say "South";
+	if revolving-pos is 2:
+		say "West";
+	if revolving-pos is 3:
+		say "North";
+	if revolving-pos is 4:
+		say "East";
+	if revolving-pos is 5:
+		say "South";
 
 [This stuff was only here because I didn't know about 'without printing a room description]
 
@@ -3483,6 +3504,12 @@ The rotating-keyhole is part of the revolving-door. The printed name of the rota
 
 Instead of unlocking the revolving-door with something:
 	try unlocking the rotating-keyhole with the noun.
+
+Instead of unlocking keylessly the revolving-door :
+	try unlocking keylessly the rotating-keyhole.
+
+Instead of unlocking keylessly the rotating-keyhole when the stuck-key is enclosed by the player:
+	try unlocking the rotating-keyhole with the stuck-key;
 
 Instead of unlocking the rotating-keyhole with the curious-tool:
 	say "The keyhole looks entirely mechanical on a large scale, nothing an electronic device can manipulate." 
@@ -3623,7 +3650,7 @@ The henry-wires are plural-named scenery in gluttony-room. The printed name of t
 
 Section 3 -Turntables
 
-An elvis-table is a kind of device. An elvis-table is usually scenery. An elvis-table has some text called the song-first. Understand the song-first property as describing an elvis-table. An elvis-table has some text called the song-second. Understand the song-second property as describing an elvis-table. The printed name of an elvis-table is usually "[song-first of the item described] [song-second of the item described] turntable". Understand "table" or "turn" or "record" or "table" or "turntable" as an elvis-table. The song-first of an elvis-table is usually "Can't help falling in love". The song-second of an elvis-table is usually "Can't help falling in love". An elvis-table has a number called song-length. The song-length of an elvis-table is usually 4. An elvis-table has a number called air-time. The air-time of an elvis-table is usually 0. The description of an elvis-table is usually "This is a turntable with a record on it labelled [song-first of the item described] [song-second of the item described]. The record seems firmly attached to the turntable at the center, but still able to spin. The turntable has the number [song-length of the item described] on it."
+An elvis-table is a kind of device. An elvis-table is usually scenery. An elvis-table has some text called the song-first. Understand the song-first property as describing an elvis-table. An elvis-table has some text called the song-second. Understand the song-second property as describing an elvis-table. The printed name of an elvis-table is usually "[song-first of the item described] [song-second of the item described] turntable". Understand "table" or "turn" or "record" or "table" or "turntable" or "records"as an elvis-table. The song-first of an elvis-table is usually "Can't help falling in love". The song-second of an elvis-table is usually "Can't help falling in love". An elvis-table has a number called song-length. The song-length of an elvis-table is usually 4. An elvis-table has a number called air-time. The air-time of an elvis-table is usually 0. The description of an elvis-table is usually "This is a turntable with a record on it labelled [song-first of the item described] [song-second of the item described]. The record seems firmly attached to the turntable at the center, but still able to spin. The turntable has the number [song-length of the item described] on it."
 
 Instead of taking an elvis-table:
 	say "The turntable and record are all attached together and are immobile, other from turning when switched on."
@@ -3723,7 +3750,7 @@ To say sodalevels:
 
 The brown-soda is a soda-button. The brown-soda is part of the soda-machine. The printed name of the brown-soda is "brown button". Understand "brown" as the brown-soda. The soda-type of brown-soda is "cola". 
 The purple-soda is a soda-button. The purple-soda is part of the soda-machine. The printed name of the purple-soda is "purple button". Understand "purple" or "grape" as the purple-soda. The soda-type of purple-soda is "grape soda".
-The blue-soda is a soda-button. The blue-soda is part of the soda-machine. The printed name of the blue-soda is "blue button". Understand "blue" or "ime" as the blue-soda. The soda-type of the blue-soda is "lime soda".
+The blue-soda is a soda-button. The blue-soda is part of the soda-machine. The printed name of the blue-soda is "blue button". Understand "blue" or "lime" as the blue-soda. The soda-type of the blue-soda is "lime soda".
 
 The green-soda is part of the soda-machine. The printed name of the green-soda is "green button". Understand "go" or "green" or "button" as the green-soda. The description of the the green-soda is "This is a green button labelled GO.".
 
@@ -4193,7 +4220,7 @@ The medium-disk is a sloth-disk on left-slpost. The disk-label of the medium-dis
 The small-disk is a sloth-disk on left-slpost. The disk-label of the small-disk is "small".
 The smallest-disk is a sloth-disk on left-slpost. The disk-label of the smallest-disk is "smallest".
 
-The letter-levers are plural-named scenery. The letter-levers are part of the hideous-contraption. The printed name of the letter-levers is "letter levers". Understand "letter" or "lever" or "levers" as the letter-levers. The description of the letter-levers is "The collection of letter levers can be configured into any combination you like. You can SET the LEVERS TO any word, as long as it doesn't repeat any letters."
+The letter-levers are plural-named scenery. The letter-levers are part of the hideous-contraption. The printed name of the letter-levers is "letter levers". Understand "letter" or "lever" or "levers" or "controls" as the letter-levers. The description of the letter-levers is "The collection of letter levers can be configured into any combination you like. You can SET the LEVERS TO any word, as long as it doesn't repeat any letters."
 
 LetterTyping is an action applying to one thing and one topic. 
 
@@ -4252,7 +4279,7 @@ Before physicality when the noun is a sloth-wire:
 	if the current action is not pulling:
 		say "There is little you can do with the wires beyond PULLing them." instead;
 
-The contraption-directions are part of the hideous-contraption. The contraption-directions are plural-named. The printed name of the contraption-directions is "instructions". Understand "instruction" or "instructions" or "direction" or "manual" or "directions" or "book" as the contraption-directions. The description of the contraption-directions is "The instructions are firmly attached to the contraption. It is labelled 'MANUAL'. 
+The contraption-directions are part of the hideous-contraption. The printed name of the contraption-directions is "manual". Understand "instruction" or "instructions" or "direction" or "manual" or "directions" or "book" as the contraption-directions. The description of the contraption-directions is "The instructions are firmly attached to the contraption. It is labelled 'MANUAL'. 
 
 Underneath that is printed: 'Please read completely before beginning operation.'"
 
@@ -6326,6 +6353,8 @@ The strange-device is scenery in the device-room. The printed name of the strang
 
 [one part of the device section could be where you get miniaturized and have to use NESW commands. You don't get miniaturized, but you control a robot or miniaturized avatar]
 
+[add a spiderweb map here. The map indicates items brought from one area to another.]
+
 Chapter 2 - Tool room
 
 Tool-room is a room in the tool-region. Tool-room is north from device-room. The printed name of tool-room is "Tool Room". "This bare room contains a single black pedestal. You can return to the device room to the [boldsouth]."
@@ -6799,7 +6828,9 @@ for primer:[line break]-some turpentine,[line break]-flaxseed oil, and[line brea
 
 For the top coat:[line break]-flaxseed oil[line break]-rust, and [line break]-talc powder
 
-Fortunately, I've been able to source all these things locally. [roman type][bracket]There are some images showing the relative proportions of each ingredient, which you noted down in your memory[close bracket][italic type].
+Fortunately, I've been able to source all these things locally. [roman type]
+
+[bracket]There are some images showing the relative proportions of each ingredient, which you note down in your memory[close bracket][italic type].
 
 I spent the rest of the time on my hill sculpture. Pretty fun. We Storyweavers all have to use our gift one way or another; I know the others like stories, but I prefer to preserve our history through art and craft. I want to make this cabin beautiful, a cabin to last the ages.[roman type]"
 
@@ -7136,7 +7167,7 @@ Section 4 - Page
 
 The 11-page is a journal-page. The page-number of 11-page is 11. The description of the 11-page is "The elections are over. I'm the Pilot, now. I shouldn't be surprised, given that it was already in the Record.
 
-But there's always that fear that we'll have deviated somehow. But no, there was no catastrophe, no changing the tides of history. That's a relief; but now it is time to work. The Day of Weft's End is approaching. 
+There's always that fear that we'll have deviated somehow. But no, there was no catastrophe, no changing the tides of history. That's a relief; but now it is time to work. The Day of Weft's End is approaching. 
 
 Whether it was destiny or not, the people voted for me; this community wants me; and I realize more than ever that I have to preserve it. The anonymity of my role has given me an idea, and I intend to pursue it to its fullest, no matter what it costs. But if it works, it means my time is short. And so I'm spending a few weeks in the cabin. Mostly because the Record seems to require it, and partly because this place is where I feel most at home.
 
@@ -7152,6 +7183,12 @@ The fireplace is burning cheerfully[end if]."
 
 Instead of physicality when the noun is the cabin-fire:
 	say "You find no hidden passages."
+
+Instead of burning the cabin-fire:
+	if the cabin-fire is not enflamed:
+		say "Good idea, but it's not clear how to do that.";
+	otherwise:
+		say "Already done."
 
 Instead of entering the cabin-fire:
 	say "While being a reverse Santa sounds kind of fun, this fireplace isn't large enough to crawl into yourself."
@@ -7285,7 +7322,7 @@ Of course I freaked out after he left. The Cents? Did they think I was some kind
 
 I do not want to end up in prison in Central. I want to blame it all on Mr. Stevens. He said that he saw something in my sketchbook and had to send it in. So apparently my art is freaking someone out. He wouldn't tell me anything else, just mumbled something about the Record again and wandered off. 
 
-I wonder what got them so upset. It was just some of my helmet designs--I've been working on skulls and spikes a lot recently. This one was all-white, with a big cape behind. I don't get it.
+I wonder what got them so upset. It was just some of my helmet designs--I've been working on skulls and spikes a lot recently. This one was all white, with a big cape behind. I don't get it.
 
 [roman type]This page has been laminated, unlike the others.[roman type]"
 
@@ -7603,7 +7640,9 @@ The hidden-compartment is a container. The Hidden-compartment is fixed in place.
 
 The simulated sky here is done very well. It looks just like earth's sky does in the movies. It even tracks the moon and the sun correctly.
 
-I've spent my time drawing, mostly. [roman type][bracket]Here there are several sketches of clothing, mostly outfits with lots of buckles and spikes[close bracket][italic type]
+I've spent my time drawing, mostly. [roman type]
+
+[bracket]Here there are several sketches of clothing, mostly outfits with lots of buckles and spikes[close bracket][italic type]
 
 I'm keeping this journal to help me remember that my past is behind me, my present is now, and my future is bright. Here's to a great adventure![roman type]"
 
@@ -7916,7 +7955,7 @@ The river-side is in garden-region. "The river runs deep and strong[rivdesc in r
 
 To the [boldeast], you can see a kind of path up some limestone rocks, but they look steep and slippery. There's an etching on the rocks, near a vein of lighter material.
 
-A [one of]contraption you recognize as a primitive[or][stopping]sawmill has been built, standing in the water. Most of it is inaccessible to you, but there are two chutes, one sloping towards the sawmill and one sloping out, lower down the steep bank. There is also a rope nearby attached via pulley to the sawmill."
+A [one of]contraption you recognize as a primitive [or][stopping]sawmill has been built, standing in the water. Most of it is inaccessible to you, but there are two chutes, one sloping towards the sawmill and one sloping out, lower down the steep bank. There is also a rope nearby attached via pulley to the sawmill."
 
 Instead of listening to river-side:
 	say "The water makes a sound like a thousand cats purring at once."
@@ -8036,7 +8075,7 @@ Instead of inserting the river-mud into the plaster-tub when the river-mud is un
 
 Section 5 - The limestone
 
-The limestone-rocks are plural-named scenery open unopenable door. The limestone-rocks are east of river-side and west from cabin-cellar. The printed name of the limestone-rocks is "limestone rocks". Understand "limestone" or "rock" or "rocks" or "slippery" or "formation" or "steep" or "slippery" or "path" as the limestone-rocks. The description of the limestone-rocks is "This formation of rocks is steep and angled, and the rocks themselves look slippery[if the player is in river-side]. There's an etching of the Eiffel Tower on one part of the rocks.
+The limestone-rocks are plural-named scenery open unopenable door. The limestone-rocks are east of river-side and west from cabin-cellar. The printed name of the limestone-rocks is "limestone rocks". Understand "limestone" or "rock" or "rocks" or "slippery" or "formation" or "steep" or "slippery" or "path" as the limestone-rocks. The description of the limestone-rocks is "This formation of rocks is steep and angled, and the rocks themselves look slippery[if the player is in river-side]. There's an etching of Stonehenge on one part of the rocks.
 
 There is [a talc-vein] going through one part of the limestone[end if]."
 
@@ -8099,7 +8138,7 @@ The description of the paper-sheet is "This is a very large sheet of paper, abou
 
 Due to the oil you applied, the paper is now transparent, like foldable glass[end if]."
 
-The paper-sheet can be oiled or unoiled. The paper-sheet is unoiled.
+The paper-sheet can be oiled or unoiled. The paper-sheet is unoiled. Understand the oiled property as describing the paper-sheet.
 
 The cellar-sunlight is scenery in cabin-cellar. The printed name of the cellar-sunlight is "sunlight". Understand "sunlight" or "cellar" or "sun" or "light" as the cellar-sunlight. The description of the cellar-sunlight is "Sunlight is peeking in from outside, illuminating the area around you."
 
@@ -8466,7 +8505,9 @@ Section 1 - The page
 
 The 3-page is a journal-page. The page-number of 3-page is 3. The description of the 3-page is "Went into town today; took me long enough. I've begun to miss people a bit out here. I still don't know why they want me to be here. I asked one of the older men in town; he had to be at least forty. I asked why they kept asking us to come out here. He got a funny look on his face and told me it was in the record. I said, 'What record?' and he said, 'No, not just some record. The Record.' Don't know what he means by that. 
 
-Had to oil the gate. I've been using oil for everything, so I've started growing flax in the garden. I comb it first then press it; it's pretty convenient. I plan to grow flax pretty much forever, given how much oil I use. [roman type][bracket]Here, there are several sketches of flax plants. They look familiar, as if you've seen them recently.[close bracket]"
+Had to oil the gate. I've been using oil for everything, so I've started growing flax in the garden. I comb it first then press it; it's convenient. I plan to grow flax pretty much forever, given how much oil I use. [roman type]
+
+[bracket]Here, there are several sketches of flax plants. They look familiar, as if you've seen them recently.[close bracket]"
 
 Section 2 - Scenery and the gate
 
@@ -8728,7 +8769,9 @@ Instead of going nowhere when the player is in monument-region:
 
 The distant-pillar is in wall-room. The distant-pillar is in london-room. The distant-pillar is in stonehenge-east, stonehenge-center, stonehenge-north, stonehenge-south, eiffel-room, spike-room, liberty-room, crown-room, motherland-room, opera-room, yang-room.
 
-The description of the warm-pillar is "Running up from the depths and past you into the heights is a pillar as wide around as a house. It emanates warmth, quite a bit at this close range, but not enough to burn."
+The description of the warm-pillar is "Running up from the depths and past you into the heights is a pillar as wide around as a house. It emanates warmth, quite a bit at this close range, but not enough to burn[if the player is in alexandria-room].
+
+There is a door in the pillar[end if]."
 
 Instead of touching the warm-pillar:
 	say "It's about as warm as the stones they use in spas. Although you haven't been to one in decades."
@@ -9020,7 +9063,7 @@ Instead of rubbing the stonehenge-graffiti:
 	say "It would take forever to clean all of this off."
 
 To say testername:
-	say "[one of]Amanda[or]Xenographer[or]John[or]Jade[or]Christopher[or]Lance[or]Zed[or]Cody[or]Alex[or]Radioactive Crow[or]Patrick[or]Brett[or]Rovarsson[or]Joyce[or]Max[or]Dee[or]Ian[or]Chandler[or]Spike[cycling]"
+	say "[one of]Amanda[or]Xenographer[or]John[or]Jade[or]Christopher[or]Lance[or]Zed[or]Cody[or]Alex[or]Radioactive Crow[or]Patrick[or]Brett[or]Rovarsson[or]Joyce[or]Max[or]Dee[or]Ian[or]Chandler[or]Spike[or]Lazzah[or]Doug[cycling]"
 
 The east-collector is a light-collector in stonehenge-east.
 
@@ -9789,7 +9832,8 @@ Section 1 - Money
 
 Price is a kind of value. ET10.99 specifies a price with parts rystis and cents. A thing has a price. The price of a thing is usually ET0.00. 
 
-Money is a kind of thing. Coin is a kind of money.  Understand "money" as money.
+Money is a kind of thing. Coin is a kind of money.  Understand "money" as money. Understand "coins" as the plural of coin.
+
 Definition: money is non-coin if it is not coin.
 
 Does the player mean doing anything to money:
@@ -10004,11 +10048,14 @@ Instead of examining the ship-itself:
 
 The scenery-galleon is a distant backdrop. The scenery-galleon is in ring-region.  The printed name of the scenery-galleon is "galleon". Understand "galleon" or "central" or "center" as the scenery-galleon. The description of the scenery-galleon is "The galleon at the center is [if inner-vel < -3]revolving clockwise very rapidly[otherwise if inner-vel < -1]revolving clockwise rapidly[otherwise if inner-vel < 0]slowly revolving clockwise[otherwise if inner-vel < 1]not revolving at all[otherwise if inner-vel < 2]slowly revolving counterclockwise [otherwise if inner-vel < 4]revolving counterclockwise rapidly[otherwise]revolving counterclockwise very rapidly[end if]."
 
-The other-carracks is a distant backdrop. The other-carracks is in vortex-region.  The printed name of the other-carracks is "other carracks". Understand "carracks" or "other" or "ring" or "outer" or "chains" or "chained" or "chain" as the other-carracks. The description of the other-carracks is "The other carracks all look slightly different from the one you're on. They are chained together and rotating as a ring around the galleon. Currently, they are [if outer-vel < -3]revolving clockwise very rapidly[otherwise if outer-vel < -1]revolving clockwise rapidly[otherwise if outer-vel < 0]slowly revolving clockwise[otherwise if outer-vel < 1]not revolving at all[otherwise if outer-vel < 2]slowly revolving counterclockwise [otherwise if outer-vel < 4]revolving counterclockwise rapidly[otherwise]revolving counterclockwise very rapidly[end if]."
+The other-carracks is a distant backdrop. The other-carracks is in vortex-region.  The printed name of the other-carracks is "other carracks". Understand "carracks" or "other" or "ring" or "outer" or "chains" or "chained" or "chain" as the other-carracks. The description of the other-carracks is "The other carracks all look slightly different from the one you're on. They are chained together and rotating as a ring around the galleon. Currently, they are [if outer-vel < -3]revolving clockwise very rapidly[otherwise if outer-vel < -1]revolving clockwise rapidly[otherwise if outer-vel < 0]slowly revolving clockwise[otherwise if outer-vel < 1]not revolving at all[otherwise if outer-vel < 2]slowly revolving counterclockwise [otherwise if outer-vel < 4]revolving counterclockwise rapidly[otherwise]revolving counterclockwise very rapidly[end if][if outer-vel is not 0], about [outer-vel in words] rotations per minute[end if]."
+
+Instead of climbing or entering the other-carracks:
+	say "You can move from ship to ship using directional commands."
 
 Before going nowhere when the player is in a vortex-ship:
 	if the noun is outside:
-		say "There's nothing but endless void that way.";
+		say "There's nothing but endless void that way." instead;
 	if the noun is up:
 		say "It's hard to get back up from this location. You'll have to wait or try another ship to find a way back up." instead;
 	otherwise if the noun is down:
@@ -10023,6 +10070,18 @@ To say genship:
 
 [only]You are in a carrack, an old sailing vessel and part of the Spanish Armada. "
 
+To say abs-inner:
+	let temp be inner-vel;
+	if temp < 0:
+		now temp is 0 minus temp;
+	say "[temp in words]"
+
+To say abs-outer:
+	let temp be outer-vel;
+	if temp < 0:
+		now temp is 0 minus temp;
+	say "[temp in words]"
+
 To say midship:
 	say "It is circling with seven other carracks in a vortex centered on an old galleon. The carracks are all connected by chains and are [if outer-vel < -3]revolving clockwise very rapidly[otherwise if outer-vel < -1]revolving clockwise rapidly[otherwise if outer-vel < 0]slowly revolving clockwise[otherwise if outer-vel < 1]not revolving at all[otherwise if outer-vel < 2]slowly revolving counterclockwise [otherwise if outer-vel < 4]revolving counterclockwise rapidly[otherwise]revolving counterclockwise very rapidly[end if], [if outer-vel is inner-vel]matching the galleon in the center which is[otherwise]while the galleon in the center is[end if] [if inner-vel < -3]revolving clockwise very rapidly[otherwise if inner-vel < -1]revolving clockwise rapidly[otherwise if inner-vel < 0]slowly revolving clockwise[otherwise if inner-vel < 1]not revolving at all[otherwise if inner-vel < 2]slowly revolving counterclockwise [otherwise if inner-vel < 4]revolving counterclockwise rapidly[otherwise]revolving counterclockwise very rapidly[end if].
 
@@ -10033,7 +10092,7 @@ To say shot-stuff:
 	repeat through the table of cannon states:
 		if loaded entry is false:
 			increment current;
-	say "You can see [current in words] cannonball[if current > 1]s[end if] spinning around in the air"
+	say "You can see [current in words] cannonball[if current > 1]s[end if] spinning around in the air; if you look close enough you can see where they came from"
 
 A direction has some text called boldedtext. 
 
@@ -10180,7 +10239,7 @@ Instead of pulling the harpoon-lever:
 			say "You pull the lever, and all the harpoons fire at once, embedding into the carracks! Now all nine ships move as one piece.";
 			now the galleon-harpoons are expended;
 		otherwise:
-			say "You pull the lever, but the harpoons miss, and retract back. It'll be hard to hit the carracks while they're circling.";
+			say "You pull the lever, but the harpoons miss, and retract back. It'll be hard to hit the carracks while they're circling at a different rate than you.";
 	otherwise:
 		say "You pull the lever, but nothing happens.";
 
@@ -10210,9 +10269,9 @@ Before going nowhere from central-ship:
 	if the noun is up:
 		say "You can't go up from here, but you could from the carrack to the [boldsouth]." instead;
 	otherwise if the noun is inside:
-		say "You're as far in as you can go, in the center of the vortex.";
+		say "You're as far in as you can go, in the center of the vortex." instead;
 	otherwise:
-		say "You can't go that way, unfortunately."
+		say "You can't go that way, unfortunately." instead;
 
 Section 3 - Rotation
 
@@ -10244,7 +10303,7 @@ Every turn when the player is in a ship-adjacent room (this is the rotation rule
 			let temp1 be the substituted form of "[ship-feature of current]";
 			if tempname is temp1:
 				move player to current, without printing a room description;
-		say "The carrack you're in [if outer-vel < -3]revolves clockwise very rapidly[otherwise if outer-vel < -1]revolves clockwise rapidly[otherwise if outer-vel < 0]slowly revolves clockwise[otherwise if outer-vel < 1]stands still[otherwise if outer-vel < 2]slowly revolves counterclockwise [otherwise if outer-vel < 4]revolves counterclockwise rapidly[otherwise]revolves counterclockwise very rapidly[end if], and the center ship [if the galleon-harpoons are expended]does so as well, attached by the harpoons[otherwise if inner-vel < -3]revolves clockwise very rapidly[otherwise if inner-vel < -1]revolves clockwise rapidly[otherwise if inner-vel < 0]slowly revolves clockwise[otherwise if inner-vel < 1]does not revolve at all[otherwise if inner-vel < 2]slowly revolves counterclockwise [otherwise if inner-vel < 4]revolves counterclockwise rapidly[otherwise]revolves counterclockwise very rapidly[end if]. [vortexit].[first time][line break][bracket]You can also move clockwise along the ships using CW and counterclockwise using CCW.[close bracket][line break][only]"
+		say "The carrack you're in [if outer-vel < -3]revolves clockwise very rapidly[otherwise if outer-vel < -1]revolves clockwise rapidly[otherwise if outer-vel < 0]slowly revolves clockwise[otherwise if outer-vel < 1]stands still[otherwise if outer-vel < 2]slowly revolves counterclockwise [otherwise if outer-vel < 4]revolves counterclockwise rapidly[otherwise]revolves counterclockwise very rapidly[end if][if outer-vel is not 0], about [abs-outer] rotations per minute[end if], and the center ship [if the galleon-harpoons are expended]does so as well, attached by the harpoons[otherwise if outer-vel is inner-vel]matching the galleon in the center which[otherwise]while the galleon in the center[end if][if the galleon-harpoons are expended][otherwise if inner-vel < -3] revolves clockwise very rapidly[otherwise if inner-vel < -1] revolves clockwise rapidly[otherwise if inner-vel < 0] slowly revolves clockwise[otherwise if inner-vel < 1] does not revolve at all[otherwise if inner-vel < 2] slowly revolves counterclockwise [otherwise if inner-vel < 4] revolves counterclockwise rapidly[otherwise] revolves counterclockwise very rapidly[end if][if inner-vel is not 0], about [abs-inner] rotations per minute[end if]. [vortexit].[first time][line break][bracket]You can also move clockwise along the ships using CW and counterclockwise using CCW.[close bracket][line break][only]"
 
 [fix this later Change this and the levertext if they match speeds]
 
@@ -10931,17 +10990,14 @@ The printed name of the em-meter is "[if handled]Yang Field Meter[otherwise]dust
 
 [italic type]Requires one M battery[roman type]
 
- is [if switched off]turned off[otherwise]turned on. Currently it is reading at [meter-setting][end if]." 
+It is [if switched off]turned off[otherwise]turned on. Currently it is reading at [meter-setting][end if]." 
 
 Rule for warning about failure of the em-meter:
 	if a random battery-compartment which is part of the em-meter contains a battery (called the power source):
 		if the charge of the power source is 2, say "The display on [the em-meter] begins to flicker ominously."
 
 After switching on the em-meter: 
-	say "You turn on the meter. The display reads [meter-setting]." 
-
-After switching on the em-meter: 
-	say "You turn on the meter. The display reads [meter-setting]." 
+	say "You turn on the meter." 
 
 Every turn  when the em-meter is switched on:
 	say "[The em-meter] reads [meter-setting]." 
@@ -11105,7 +11161,7 @@ Before going from opera-region to a room not in opera-region:
 		let currentthing be a random flammable thing that is enclosed by the player;
 		say "The containment field flickers and holds tight. 'FLAMMABLE ITEMS DETECTED,' says a polite voice.
 
-Looking over yourself, you see that you're carrying [the currentthing],which is flammable.";
+Looking over yourself, you see that you're carrying [the currentthing], which is flammable." instead;
 
 Section 3 - Simple Burning
 
@@ -11138,6 +11194,8 @@ Check burning something with something (this is the burn only tinder rule):
 	if the second noun is a strikable-match:
 		if the endurance of the noun > 1:
 			say "The match's flame isn't strong enough to light [the noun]. You may need to put some tinder on [if the noun is part of the concert-desk][the concert-desk][otherwise][them][end if] first." instead;
+
+The matchbox has endurance 1.
 
 Definition: a thing is slippery:
 	if it is the single-panel, decide yes;
@@ -11458,15 +11516,19 @@ Understand "panel" as the mega-timber when the single-panel is nowhere.
 
 The single-panel is a flammable thing. The printed name of the single-panel is "birch panel". Understand "birch" or "panel" or "light" or "dry" or "strip" as the single-panel. The description of the single-panel is "This is a single panel of birch, thin and dry, that's small enough to fit on the desk.". The single-panel is a portable supporter.
 
-Instead of taking the mega-timber:
+Before taking the mega-timber:
 	if the single-panel is not nowhere:
-		say "You already have a panel you pulled off, which you might as well use first.";
+		say "You already have a panel you pulled off, which you might as well use first." instead;
 	otherwise:
 		reset-burn the single-panel;
 		now the single-panel is in the location;
-		say "You peel off [one of]a [or]another [stopping]birch panel from the wall. It is light and dry."
+		say "You peel off [one of]a [or]another [stopping]birch panel from the wall. It is light and dry.";
 
 There are two s-matches in concert-room. The matchbox is an open flammable openable container. It contains five s-matches. The matchbox is in concert-room. The description of the matchbox is "This matchbox looks fairly new."
+
+Before inserting something into the matchbox:
+	if the noun is not a strikable-match:
+		say "[The noun] [don't] really fit in the matchbox."
 
 Rule for printing room description details of something (called currentthing):
 	if the player is in opera-region:
@@ -11492,7 +11554,7 @@ Check burning something with something:
 	if the noun is distant:
 		say "[The noun] [are] too far away."
 
-The concert-frame is plural-named distant scenery. The printed name of the concert-frame is "metal supports". Understand "metal" or "supports" or "support" or "skeleton" as the concert-frame when the concert-roof is nowhere. The description of the concert-frame is "The metal supports the concert hall is built around have been exposed and charred by flame."
+The concert-frame is plural-named distant scenery. The printed name of the concert-frame is "metal supports". Understand "metal" or "supports" or "support" or "skeleton" as the concert-frame. The description of the concert-frame is "[if the concert-roof is not nowhere]You can barely see the supports behind the roof[otherwise]The metal supports the concert hall is built around have been exposed and charred by flame[end if]."
 
 The wooden-door cheattouches the mega-timber.
 
@@ -25564,3 +25626,15 @@ Book 5 - Notes
 [My original plan was to have a ship that was collapsing and where everybody needed to sacrifice their own lives, but were scared to. Going to portals let you see memorials left for those people, which would encourage them to give their lives. You would have the grandest memorial.]
 
 [make custom descriptions for each of the tears in space]
+
+[Test game in this order:
+6 garden
+3 wax
+8 monuments
+5 combat
+2 mystery
+7 animals
+4 spells
+1 haunted house
+
+No more working on dimension 9 until this is done!]
