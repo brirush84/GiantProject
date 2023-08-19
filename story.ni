@@ -25,7 +25,7 @@ Release along with cover art.
 
 Section 1 - Genre, description, etc
 
-The story genre is "Science Fiction". The story description is "Hop through dimensions to save your ship." The story creation year is 2023. The release number is 32.
+The story genre is "Science Fiction". The story description is "Hop through dimensions to save your ship." The story creation year is 2023. The release number is 33.
 
 Section 2 - Increasing memory sizes
 
@@ -2396,14 +2396,14 @@ A gold-ring is a kind of thing. Understand "ring" or "gold" or "band" or "engrav
 
 The poem-sign is scenery in lust-room. The printed name of the poem-sign is "sign". Understand "poem" or "warning" or "sign" as the poem-sign. The description of the poem-sign is "The sign says:
 
-'Four jeweled rings that you must find[line break]
-(Lovely things that please the mind)[line break]
-Can be sought, in places varied.[line break]
-Foolish seekers will be wearied.[line break]
+'Four jeweled rings are lovely things,[line break]
+ Electric, magic, lovely rings![line break]
+But seekers weary first must query,[line break]
+Where to find the rings that vary.[line break]
 One ring plain is put on show,[line break]
-One ring buried deep below.[line break]
-A ring for each these figures' deaths:[line break]
-Found in that which took their breaths.'
+One ring buried deep below,[line break]
+A ring marks each one’s royal end;[line break]
+To their means of death attend.'
 
 At the bottom it adds, 'WARNING. REMOVING ANYTHING OF VALUE OUT OF THIS ROOM WILL RESULT IN PROSECUTION. IT IS NOT NECESSARY TO USE ITEMS FROM THIS ROOM IN ANY OTHER AREA OF THE MUSEUM.'"
 
@@ -11078,7 +11078,9 @@ To say fieldstatus:
 	let temp be the number of energy-ready rooms in energy-region;
 	let temp2 be 4 minus temp;
 	if temp2 > 0:
-		say "The monitor says 'Yang Field at dangerous levels. [temp2] spikes detected."
+		say "The monitor says 'Yang Field at dangerous levels. [temp2] spike[unless temp2 is 0][end if] detected";
+	otherwise:
+		say "The monitor says 'Yang Field stable. You may proceed.";
 
 Definition: a room is energy-ready:
 	if it is unenergized, decide no;
@@ -11546,6 +11548,9 @@ Report examining a flammable thing when something is part of the noun:
 
 There are four field-dampers in the concert-drawer. A field-damper is impervious.
 
+Instead of pushing or opening a field-damper:
+	say "From what you understand, these act passively, like a Farraday cage of sorts."
+
 [The trapdoor is up of the Library and east of the Plaza. The trapdoor is a door. It is flammable, closed, lockable, and locked. "A trapdoor in the ceiling is your only hope of escape[if flaming]. Fortunately, it is rapidly burning through[end if]." The trapdoor has endurance 15.]
 
 The concert-roof is a distant flammable scenery thing in concert-room. The concert-roof cheattouches the mega-timber. The printed name of the concert-roof is "wooden roof[if the player is not in the concert-room] of the concert hall[end if]". Understand "roof" as the concert-roof. The description of the concert-roof is "The roof looks dry and ready to burn." 
@@ -11625,9 +11630,11 @@ Section 1 - Dimensional chamber
 
 Chamberknown is a truth state that varies. Chamberknown is false.
 
-The dimensional-chamber is a scenery device in yang-room. Understand "large" or "machine" or "sphere" or "submarine" or "Metal" or "plating" as the dimensional-chamber. Understand "dimensional" or "chamber" or "yang" or "engine" or "mk i" as the dimensional-chamber when chamberknown is true. The printed name of the dimensional-chamber is "[if chamberknown is true]dimensional chamber[otherwise]large machine[end if]". The description of the dimensional-chamber is "This machine is a large sphere built like a submarine, with metal plating and a porthole-like scope. Next to the scope is a hole labelled FUEL INTAKE. It has a circular door, and is labelled YANG ENGINE MK I: DIMENSIONAL CHAMBER."
+The dimensional-chamber is a scenery device in yang-room. Understand "large" or "machine" or "sphere" or "submarine" or "Metal" or "plating" as the dimensional-chamber. Understand "dimensional" or "chamber" or "yang" or "engine" or "mk i" as the dimensional-chamber when chamberknown is true. The printed name of the dimensional-chamber is "[if chamberknown is true]dimensional chamber[otherwise]large machine[end if]". The description of the dimensional-chamber is "This machine is a large sphere built like a submarine, with metal plating and a porthole-like scope. Next to the scope is a hole labelled FUEL INTAKE. It has a circular door, and is labelled YANG ENGINE MK I: DIMENSIONAL CHAMBER.
 
-The dimension-lever is part of the dimensional-chamber. Understand "lever" or "curvature" as the dimension-lever. The printed name of the dimension-lever is "lever". The description of the dimension-lever is "This lever is labelled CURVATURE, and looks like it can be pushed or pulled. Its settings are-1, 0, and 1. It is currently set to [dimension-level]."
+There is also a lever that can be pushed or pulled, with settings at -1, 0, and 1. It is currently set to [dimension-level]."
+
+The dimension-lever is part of the dimensional-chamber. Understand "lever" or "curvature" as the dimension-lever. The printed name of the dimension-lever is "lever". The description of the dimension-lever is "This lever is labelled CURVATURE, and looks like it can be pushed or pulled. Its settings are -1, 0, and 1. It is currently set to [dimension-level]."
 Instead of setting the dimension-lever to some topic:
 	say "The lever can only be set by being pushed or pulled."
 
@@ -11721,11 +11728,11 @@ Section 2 - Inside the chamber
 
 The chamber-door is a scenery door. The chamber-door is closed. The chamber-door is inside from yang-room and outside from yang-chamber. Understand "door" or "circular" or "thick" as the chamber-door when the x-spot is unaltered. Understand "missing" as the chamber-door when the x-spot is altered. The description of the chamber-door is "This door is circular and very thick. Great for withstanding a lot of pressure[if the player is in yang-chamber]. It's floating in space[end if]." THe printed name of the chamber-door is "[if the x-spot is altered]missing [otherwise]chamber door[end if]"
 
-Instead of opening the chamber-door when the player is in yang-room:
-	say "The door seems to be operated by the machine."
+Instead of opening the closed chamber-door when the player is in yang-room:
+	try switching on the dimensional-chamber;
 
-Instead of closing the chamber-door when the player is in yang-room:
-	say "The door seems to be operated by the machine."
+Instead of closing the open chamber-door when the player is in yang-room:
+	try switching off the dimensional-chamber;
 
 Before going through chamber-door when x-spot is altered:
 	say "The chamber door is far away!" instead;
@@ -25285,6 +25292,8 @@ test getice with "d/d/e/n/u/u/u/s/u/u/u/take ice/open pouch/put chunk in pouch/c
 test torussia with "d/d/d/in/d/d/d/s/d/d"
 
 test detour with "search honeysuckle/e/remove gas mask/remove grip shoes/drop all/s/push dispenser/e/take panel/put panel on desk/put paper on panel/light paper/z/z/z/z/z/z/z/z/z/z/drop all/take all dampers/w/n/take all/w"
+
+[Here you turn on the EM meter to find the spikes]
 
 test russia with "n/w/drop damper/n/drop damper/e/n/drop damper/e/s/drop damper/w/press button"
 
