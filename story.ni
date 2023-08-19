@@ -25,7 +25,7 @@ Release along with cover art.
 
 Section 1 - Genre, description, etc
 
-The story genre is "Science Fiction". The story description is "Hop through dimensions to save your ship." The story creation year is 2023. The release number is 33.
+The story genre is "Science Fiction". The story description is "Hop through dimensions to save your ship." The story creation year is 2023. The release number is 34.
 
 Section 2 - Increasing memory sizes
 
@@ -9852,13 +9852,13 @@ A thousand-rysti bill is a kind of money. The price of the thousand-rysti bill i
 
 Understand "geometric" or "image" as a coin.
 
-A 20-cent coin is a kind of coin. The price of a 20-cent coin is ET0.20. The description of a 20-cent coin is "This coin has a geometric image on it and the number 20." 
+A 20-cent coin is a kind of coin. The price of a 20-cent coin is ET0.20. The description of a 20-cent coin is "This coin has a geometric image on it and the number 20."  Understand "20" as a 20-cent coin.
 
-A 10-cent coin is a kind of coin. The price of a 10-cent coin is ET0.10. The description of a 10-cent coin is "This coin has a geometric image on it and the number 10." 
+A 10-cent coin is a kind of coin. The price of a 10-cent coin is ET0.10. The description of a 10-cent coin is "This coin has a geometric image on it and the number 10."  Understand "10" as a 10-cent coin.
 
-A 5-cent coin is a kind of coin. The price of a 5-cent coin is ET0.05. The description of a 5-cent coin is "This coin has a geometric image on it and the number 5." 
+A 5-cent coin is a kind of coin. The price of a 5-cent coin is ET0.05. The description of a 5-cent coin is "This coin has a geometric image on it and the number 5."  Understand "5" as a 5-cent coin.
 
-A 1-cent coin is a kind of coin. The price of a 1-cent coin is ET0.01. The description of the 1-cent coin is "This coin has a geometric image on it and the number 1." 
+A 1-cent coin is a kind of coin. The price of a 1-cent coin is ET0.01. The description of the 1-cent coin is "This coin has a geometric image on it and the number 1." Understand "1" as a 1-cent coin.
 
 Ownership relates one person (called the owner) to various things. The verb to own means the ownership relation. 
 
@@ -10806,6 +10806,12 @@ The calc-display is a real number that varies. The calc-display is 0.0000.
 
 Calcinputting is an action applying to a real number and one thing. Understand "type [a real number] on/in/onto/into [busted-calculator]" or "enter [a real number] on/in/onto/into [busted-calculator]" or "push [a real number] on/in/onto/into [busted-calculator]" or "input [a real number] on/in/onto/into [busted-calculator]" as calcinputting when the busted-calculator is held by the player.
 
+Does the player mean pushing a journal-page:
+	it is very unlikely;
+	
+Does the player mean entering a journal-page:
+	it is very unlikely;
+
 Carry out calcinputting:
 	if last-button is an arithmetic-button:
 		if calc-display is nonexistent:
@@ -11072,13 +11078,13 @@ After dropping a field-damper in energy-region:
 
 The energy-button is a thing in center-energy. The energy-button is fixed in place. The printed name of the energy-button is "giant button". Understand "giant" or "button" as the energy-button. The description of the energy-button is "This button is at least 15 cm across. It's set horizontally into the ground, and overall looks like it was designed to interface with the machinery." The initial appearance of the energy-button is "There is a button larger than your hand set into the machinery in the ground. Next to it is a cracked monitor."
 
-The energy-monitor is a scenery thing in center-energy. The printed name of the energy-monitor is "cracked monitor". Understand "cracked" or "monitor" as the energy-monitor. The description of the energy-monitor is "[fieldstatus]."
+The energy-monitor is a scenery thing in center-energy. The printed name of the energy-monitor is "cracked monitor". Understand "cracked" or "monitor" as the energy-monitor. The description of the energy-monitor is "[fieldstatus].'"
 
 To say fieldstatus:
 	let temp be the number of energy-ready rooms in energy-region;
 	let temp2 be 4 minus temp;
 	if temp2 > 0:
-		say "The monitor says 'Yang Field at dangerous levels. [temp2] spike[unless temp2 is 0][end if] detected";
+		say "The monitor says 'Yang Field at dangerous levels. [temp2] spike[unless temp2 is 0]s[end if] detected";
 	otherwise:
 		say "The monitor says 'Yang Field stable. You may proceed.";
 
@@ -11473,7 +11479,9 @@ Every turn when there is a flaming strikable-match:
 
 Section 6 - Opera Theater
 
-The Theater-room is a room in opera-region. The Theater-room is south from opera-room. The printed name of the Theater-room is "Opera Theater". "This theatre room has mostly been stripped clear, leaving only the metal supports and the wooden ceiling panels. A dispenser is fixed to the wall, filled with flyers for their last show. You can go [boldnorth] to leave the opera house, and the concert hall is through [a wooden-door] to the [boldeast]. "
+The Theater-room is a room in opera-region. The Theater-room is south from opera-room. The printed name of the Theater-room is "Opera Theater". "This theatre room has mostly been stripped clear, leaving only the metal supports and the wooden ceiling panels. A dispenser is fixed to the wall, filled with flyers for their last show. 
+
+You can go [boldnorth] to leave the opera house, and the concert hall is through [a wooden-door] to the [boldeast]. "
 
 The flyer-dispenser is a flammable scenery thing in theater-room. The printed name of the flyer-dispenser is "flyer dispenser". Understand "dispenser" or "flyer dispenser" or "flyers" or "flyer" as the flyer-dispenser. Understand "flyer" as the flyer-dispenser when the concert-flyer is not nowhere. The description of the flyer-dispenser is "The flyer dispenser is an opaque container on the wall that says 'PUSH FOR A FLYER.'" The endurance of the flyer-dispenser is 2.
 
@@ -11523,8 +11531,8 @@ Before taking the mega-timber:
 		say "You already have a panel you pulled off, which you might as well use first." instead;
 	otherwise:
 		reset-burn the single-panel;
-		now the single-panel is in the location;
-		say "You peel off [one of]a [or]another [stopping]birch panel from the wall. It is light and dry.";
+		now the single-panel is carried by the player;
+		say "You peel off [one of]a [or]another [stopping]birch panel from the wall. It is light and dry." instead;
 
 There are two s-matches in concert-room. The matchbox is an open flammable openable container. It contains five s-matches. The matchbox is in concert-room. The description of the matchbox is "This matchbox looks fairly new."
 
@@ -11580,7 +11588,10 @@ Last fire rule:
 		now the concert-drawer is mentioned;
 	if an unmentioned visible thing is flaming:
 		now flaming-printed is true;
-		say "[one of][The list of unmentioned visible flaming things] [are] on fire[or]You watch [the list of unmentioned visible flaming things] burn[or][The list of unmentioned visible flaming things] [are] still on fire[then at random]."
+		say "[one of][The list of unmentioned visible flaming things] [are] on fire[or]You watch [the list of unmentioned visible flaming things] burn[or][The list of unmentioned visible flaming things] [are] still on fire[then at random]";
+		if a distant visible thing is flaming:
+			say ". [one of]There is a lot more fire here than you originally intended[or]It's getting pretty hot in here[or]Just about everything is ablaze[or]You have to dodge a bit of flaming wood that falls from above, but it soon burns away[or]Hopefully the worst is past[cycling]";
+		say ".";
 
 Definition: a thing is concert-important:
 	if it is the concert-roof, decide yes;
@@ -11847,7 +11858,7 @@ Carry out travelling:
 		otherwise if the yang-laptop is not handled:
 			say "You travel forward at an amazing rate.
 
-When you stop, there is something there: a laptop. [paragraph break]";
+When you stop, there is something there: a laptop, unremarkable, lying on the tiled floor. [paragraph break]";
 			now the yang-laptop is in yang-chamber;
 		otherwise:
 			say "You travel forward at an amazing rate, but encounter nothing. ";
