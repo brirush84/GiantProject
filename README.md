@@ -16,9 +16,9 @@ Finished areas:
 
 -garden/plants (tested)
 
--zoo (tested tested)
+-zoo (tested)
 
--world monuments (untested)
+-world monuments (mostly tested)
 
 Areas under construction:
 
