@@ -5,18 +5,25 @@ This is a big sci-fi interactive fiction game designed to last 20+ hours. It's s
 Finished areas:
 
 -Haunted House (tested)
+
 -Murder mystery (tested)
+
 -Wax Museum Escape room (tested)
+
 -Horror spells region (tested)
+
 -Combat area (tested)
+
 -garden/plants (tested)
+
 -zoo (tested tested)
+
 -world monuments (untested)
 
 Areas under construction:
 
+-toolroom
 
 Remaining areas:
 
--toolroom
 -Opening, megaship and final puzzle
