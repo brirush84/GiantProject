@@ -25,7 +25,7 @@ Release along with cover art.
 
 Section 1 - Genre, description, etc
 
-The story genre is "Science Fiction". The story description is "Hop through dimensions to save your ship." The story creation year is 2023. The release number is 37.
+The story genre is "Science Fiction". The story description is "Hop through dimensions to save your ship." The story creation year is 2023. The release number is 38.
 
 Section 2 - Increasing memory sizes
 
@@ -111,7 +111,7 @@ Section 1 -Definition
 
 A space-tear is a kind of door. A space-tear is usually unopenable. A space-tear is usually open. A space-tear can be disguised or undisguised. A space-tear is usually undisguised. 
 
-Understand "tear" or "space" or "rift" or "rip" or "hole" as a space-tear when the item described is undisguised.
+Understand "tear" or "space" or "rift" or "rip" as a space-tear when the item described is undisguised.
 
 A space-tear can be red-torn or green-torn. A space-tear is usually red-torn. Understand "red" as red-torn. Understand "green" as green-torn. Understand the red-torn property as describing a space-tear.
 
@@ -381,7 +381,7 @@ The player is emrys-weaver.
 
 The description of emrys-weaver is "You are Emrys Tisserand, and you are the active Storyweaver of the seedship Tragwyddol. It is your job to preserve and share the history of this people in the form of stories. 
 
-They say that Storyweavers have the Gift, but what that gift is, all disagree on. For most of your career, you haven't noticed anything strange or supernatural about you. But all that has changed today."
+They say that Storyweavers have the Gift, but the Gift can take many forms. For most of your career, you haven't noticed anything strange or supernatural about you. But all that has changed today."
 
 Chapter 2 - Recorder
 
@@ -1275,6 +1275,17 @@ You can make out some lettering on the cover of the book: EXPLORATION NOTEBOOK.
 
 Antonio doesn't even notice the book. He looks deeply concerned about the cryotubes[delivercryo][only]." The description of Antonio Yang is "Antonio Yang is a young man who was just out of college when he went into the ice. Since he's been thawed, Antonio has been working for the cryostorage team as an intern." Understand "intern" or "cryostorage intern" or "young" or "man" as antonio yang.
 
+Understand "pages" as a book.
+
+Instead of turning a book:
+	try examining the noun;
+	
+Instead of opening a book:
+	Try examining the noun;
+
+Instead of closing a book:
+	say "If you want to read an earlier part of a book, you can continue reading it.";
+
 Understand "write [text] in [something]" as a mistake ("You don't have anything suitable to write with.")
 
 To say delivercryo:
@@ -1292,7 +1303,7 @@ He laughs, and says, 'Not unless you can design and implement an algorithm for m
 
 Section 4 - Exploration notebook
 
-The exploration-notebook is a book in cryo-storage. The printed name of the exploration-notebook is "[one of]book[or]book[or]exploration notebook[stopping]". Understand "exploration" or "cover" or "lettering" or "note book" or "notebook" as the exploration-notebook. "The book the creature dropped is still on the floor." The description of the exploration-notebook is "[one of]You go to the first page. It reads:
+The exploration-notebook is a book in cryo-storage. The printed name of the exploration-notebook is "[one of]book[or]book[or]exploration notebook[stopping]". Understand "exploration" or "cover" or "lettering" or "note book" or "notebook" or "collaborative" or "journal" as the exploration-notebook. "The book the creature dropped is still on the floor." The description of the exploration-notebook is "[one of]You go to the first page. It reads:
 
 [italic type]NOTICE: This is a collaborative journal! Anyone exploring the PF3 waste dump can contribute their discoveries and theories here. No trolling! And please add your callsign after each entry!--dewdrop[roman type]
 
@@ -2097,8 +2108,6 @@ The foos-poster is a gift-poster in gift-room. The printed name of the foos-post
  'The foosball game cheats! If they're gonna cheat, I'm gonna cheat too!'
 
 The only part still legible underneath the graffiti is the phrase 'Read the [bracket]obscured text[close bracket] manual!'".
-
-The employee-door is a scenery door. The employee-door is north of gift-room and south of wax-office. The employee-door is closed and locked. The printed name of the employee-door is "octagon door". Understand "octagon" or  "mark" or "nondescript" or "door" as the employee-door. The description of the employee-door is "This nondescript door blends almost perfectly into the wall. It is marked with an octagon."
 
 Chapter 3 - Wrath
 
@@ -4536,12 +4545,12 @@ Instead of inserting something into a zoo-water:
 
 Section 6 - Zoo sign
 
-A zoo-sign is a kind of thing. A zoo-sign is usually scenery. Understand "sign" or "information" or "slender" or "plastic" or "pedestal" as a zoo-sign.
+A zoo-sign is a kind of thing. A zoo-sign is usually scenery. Understand "sign" or "information" or "slender" or "plastic" or "rectangle" or "pedestal" as a zoo-sign.
 
 A zoo-sign has some text called the sign-text. The printed name of a zoo-sign is usually "informational sign". 
 
 Before examining a zoo-sign:
-	say "The sign is a slender plastic pedestal. At the top, it says '[sign-text  in upper case]'. The text reads:[line break][italic type]"; 
+	say "The sign is a slender plastic pedestal topped by a rectangle. At the top, it says '[sign-text  in upper case]'. The text reads:[line break][italic type]"; 
 
 When play begins:
 	repeat with current running through zoo-signs:
@@ -4568,7 +4577,7 @@ The wasphawk-bottle is a thing in the dry-storage. The printed name of the wasph
 
 The bottle has the following writing: 
 
-SPECIMEN - Some kind of wasphawk[line break]REASON FOR CONTAINMENT - Invasive species. Kills wasps on sight.[line break]RECOMMENDATION - Remit to FB zoo. Or sell it to people with wasp infestations. [bracket]This last bit is crossed off[close bracket][line break]DANGER LEVEL - Low.".
+SPECIMEN - Some kind of wasphawk.[line break]REASON FOR CONTAINMENT - Invasive species. Kills wasps on sight.[line break]RECOMMENDATION - Remit to FB zoo. Or sell it to people with wasp infestations. [bracket]This last bit is crossed off[close bracket][line break]DANGER LEVEL - Low.".
 
 Instead of inserting something into the wasphawk-bottle:
 	say "The bottle is sealed. For now."
@@ -4841,7 +4850,7 @@ Finally, the repair bay opens again, and a fully restored zookeeper drone appear
 
 'Thanks, Emrys,' says the Curator. 'What do you think of my real body?' She executes some aerial maneuvers.
 
-'Very impressive,' you say diplomatically, although in truth she is much better at controlling herself than the snake was. 'I enjoyed seeing your zoo. It's the largest one I've ever been to.'
+'Very impressive,' you say diplomatically, although in truth she is not much better at controlling herself than the snake was. 'I enjoyed seeing your zoo. It's the largest one I've ever been to.'
 
 'Oh, this is just the Aft Central Zoo, says the robot. 'It's almost the smallest zoo in the whole ship!'";
 	now every keeper-device is nowhere;
@@ -5024,7 +5033,7 @@ To say owlrandom:
 
 Section 2 - Owl Nest 
 
-The cactus-nest is a distant scenery supporter in desert-room. Understand "nest" or "owl's" or "materials" as the cactus-nest. The printed name of the cactus-nest is "owl's nest". The description of the cactus-nest is "The materials in this nest owl look slightly different than those of the surrounding area. It must have brought them in at some point in the past."
+The cactus-nest is a distant scenery supporter in desert-room. Understand "nest" or "owl's" or "materials" as the cactus-nest. The printed name of the cactus-nest is "owl's nest". The description of the cactus-nest is "The materials in this owl's nest look slightly different than those of the surrounding area. It must have brought them in at some point in the past."
 
 The hover-module is a keeper-device on the cactus-nest. The printed name of the hover-module is "hover module". Understand "hover" or "module" as the hover-module. The description of the hover-module is "Judging from its similarity to parts you've seen on the mobility suits of your own ship, this is the part of the drone that was designed to help it hover.".
 
@@ -5124,7 +5133,7 @@ After a few minutes, the rope breaks and the baby gorilla leaps free. The silver
 			say "You shake the box, scattering a few seeds around, which the desert mice scramble to eat.";
 	otherwise if the player is in mesa-room:
 		if the desert-mice are nowhere:
-			say "You shake the box of mesquite seeds all around, scattering a few seeds around. Several desert mice pop out to nibble on the seeds.";
+			say "You shake the box of mesquite seeds all around, scattering a few seeds. Several desert mice pop out to nibble on the seeds.";
 			now the desert-mice are in mesa-room;
 		otherwise:
 			say "You shake the box, scattering a few seeds around, which the desert mice scramble to eat.";
@@ -5633,9 +5642,9 @@ Instead of taking the penn-trees:
 
 Chapter 11 - Swamp
 
-The swamp-room is south from Savanna-room. The printed name of the swamp-room is "Swamp". The swamp-room is in ecocosm-region. The description of the swamp-room is "This swamp is densely shaded by [if moss-clumps are part of the man-groves]moss-covered[end if] mangrove trees, their roots standing out of the ground and intertwining one with another. Despite the large amounts of water, it is fairly easy to travel about by standing on roots[if the swamp-room is stinky]. A single log floats on the swamp.
+The swamp-room is south from Savanna-room. The printed name of the swamp-room is "Swamp". The swamp-room is in ecocosm-region. The description of the swamp-room is "This swamp is densely shaded by [if moss-clumps are part of the man-groves]moss-covered[end if] mangrove trees, their roots standing out of the ground and intertwining one with another. Despite the large amounts of water, it is fairly easy to travel about by standing on roots. A single log floats on the swamp.
 
-The water stinks here. Even more than you'd expect, in a swamp. An informational sign sticks out of the water[end if][if the croaking unlured common-frog is in the location]. A [common-frog] is sitting on a log, croaking loudly[end if].
+[if the location is stinky]The water stinks here. Even more than you'd expect, in a swamp[otherwise]The water is clear, now[end if]. An informational sign sticks out of the water[if the croaking unlured common-frog is in the location]. A [common-frog] is sitting on a log, croaking loudly[end if].
 
 Many areas connect together here. The swamp becomes drier and more firm to the [boldwest], while to the [boldsouth] things open up a bit more. The swamp ends to the [boldnorth]."
 
@@ -5709,6 +5718,7 @@ Instead of inserting something into the muck-pipe:
 There is a loud chugging sound and the water stirs, moving rapidly. Within a few minutes, the smell goes away and the swamp water is noticeably clearer. In fact, you can see a recon scope here!";
 		now the recon-scope is in the location;
 		now the pond-filter is nowhere;
+		now the location is not stinky;
 		now the muck-pipe is nowhere;
 
 Definition: a thing is unhandled if it is not handled.
@@ -5729,12 +5739,12 @@ Instead of entering the swamp-water:
 
 The man-groves are plural-named scenery zoo-trees in swamp-room. The printed name of the man-groves is "mangroves". Understand "root" or "branch" or "branches" or "roots" or "mangroves" or "mangroves" or "mossy" as the man-groves. Understand "moss-covered" as the man-groves when the moss-clumps are part of the man-groves. The description of the man-groves is "You've always been fascinated by the way that mangrove trees stand out of the water, their roots almost like a second set of branches[if the moss-clumps are part of the man-groves].
 
-Clumps of moss cover these trees[end if]."
+Clumps of moss cover these trees; they look soft, almost like a blanket[end if]."
 
 Instead of entering the man-groves:
 	say "You're already standing on the roots."
 
-The moss-clumps are part of the man-groves. The moss-clumps are plural-named. The printed name of the moss-clumps is "clumps of moss". Understand "clump" or "clumps" or "moss" or "thick" or "small" or "blanket" as the moss-clumps. The description of the moss-clumps is "The clumps of moss are thisk, like a small blanket."
+The moss-clumps are part of the man-groves. The moss-clumps are plural-named. The printed name of the moss-clumps is "clumps of moss". Understand "clump" or "clumps" or "moss" or "thick" or "small" or "blanket" or "soft"  as the moss-clumps. The description of the moss-clumps is "The clumps of moss are thick. If you had something strong and sharp enough you could get it all off, but it would be hard by yourself."
 
 Instead of scraping the moss-clumps with something when the moss-clumps are part of the man-groves:
 	say "Despite the aid of [the second noun], you are unable to get much of the moss off at all. A much stronger hand would be needed to get this off.";
@@ -6354,7 +6364,7 @@ The fescue-grass is scenery zoo-grass in parkland-room. The indefinite article o
 
 Section 3 - Sign
 
-The deer-sign is a zoo-sign in parkland-room. The sign-text of deer-sign is "deer". The description of the deer-sign is "Our deer may be hard to find this time of you. Some of them are going through deep biological changes. Throughout the summer, antlers grow from the males, covered and nurtured by a specialized layer of skin called velvet. In the fall, the velvet's blood flow is constricted, and the velvet begins to peel off.
+The deer-sign is a zoo-sign in parkland-room. The sign-text of deer-sign is "deer". The description of the deer-sign is "Our deer may be hard to find this time of year. Some of them are going through deep biological changes. Throughout the summer, antlers grow from the males, covered and nurtured by a specialized layer of skin called velvet. In the fall, the velvet's blood flow is constricted, and the velvet begins to peel off.
 
 To help this, the deer will scrape their antlers against trees, and some will even consume the velvet once it falls off. The scraping is so powerful it can sometimes strip bark or other covering off of trees."
 
@@ -6374,11 +6384,23 @@ Chapter 1 - Main room
 
 Device-room is a room in the tool-region. The printed name of Device-room is "The Device". "FIX THIS LATER This is a small room with a simple black pedestal, which is labeleld YANG ENGINE MK XCI. On the wall next to the rift is a map of an octagonal spiderweb, its eight points labelled from 1 to 8, with a point labelled 9 in the center. [The number of red-torn space-tears] [are] glowing red, while [the number of green-torn space-tears] [are] glowing green."
 
-The tool-pedestal is an enterable scenery supporter in the device-room. The printed name of the tool-pedestal is "pedestal". Understand "single" or "simple" or "black" or "pedestal" as the tool-pedestal. The description of the tool-pedestal is "This is a solid black pedestal whose sole purpose seems to be display."
+Section 1 - The tool pedestal
+
+The tool-pedestal is an enterable scenery supporter in the device-room. The printed name of the tool-pedestal is "pedestal". Understand "single" or "simple" or "black" or "pedestal" as the tool-pedestal. The description of the tool-pedestal is "This is a solid black pedestal with a screen. There is a tiny hole in the top labelled CRYSTAL FRAGMENT."
+
+The pedestal-screen is part of the tool-pedestal. [FIX THIS LATER] Understand "screen" or "display" as the pedestal-screen. The printed name of the pedestal-screen is "screen". The description of the pedestal-screen is "FIX THIS LATER  [pedestal-text]"
+
+Pedestal-text is some text that varies. Pedestal-text is "The next tool upgrade requires one crystal fragment."
 
 [add a spiderweb map here. The map indicates items brought from one area to another.]
 
-Section 1 - The curious tool itself
+The crystal-hole is a container. The crystal-hole is part of the tool-pedestal. The printed name of the crystal-hole is "tiny hole". Understand "tiny" or "hole" as the crystal-hole. The description of the crystal-hole is "FIX THIS LATER".
+
+Before inserting something into the crystal-hole:
+	if the noun is not a crystal-shard:
+		say "The hole is too small for [the noun] to fit." instead;
+
+Section 2 - The curious tool itself
 
 [setttings could include counting number of life forms in the area, altering electronics, breaking glass, unscrewing]
 
@@ -6418,8 +6440,11 @@ Report tuning it to:
 			now curious-tool does not unlock current;
 		now curious-tool does not unlock treasure-case;
 	if the curious-tool is flashlight:
-		now curious-tool is lit;
-		say "[line break]The tool brightens up the surrounding area considerably.";
+		if the first-shard is not part of the curious-tool:
+			say "That setting is currently restricted FIX THIS LATER.";
+		otherwise:
+			now curious-tool is lit;
+			say "[line break]The tool brightens up the surrounding area considerably.";
 	otherwise:
 		now curious-tool is not lit;
 
@@ -6438,42 +6463,377 @@ Carry out atpointing:
 
 [Big idea: the rooms from the other 8 dimensions form an octagon with the 8 standard directions going around it. Each has a one-way unlockable door from a secret room in that dimension. In the center is a device talking about temporal energy, with portals being easier to open if they have less effect on the past, so the first 8 portals open more easily but meeting the queen is hard. Turning each portal from red to green boosts the engine in the center of the tool dimension, until all 8 are ready and you can be sucked in to fully see the queen. That's why she wants to see you.]
 
-[turning the knob is just like electromagnetic spectrum:
-radio-signals
-microwave-cooking/heat
-infrared-seeing in dark, heat
-visual light-seeing
-uv-reveal hidden, sunburn
-x-ray-see inside
-gamma-destroy
-]
-
 [make rifts, move rifts, close rifts, ]
 
 [open rift on the machine]
+
+Section 3 - The first upgrade
+
+After inserting the first-shard into the crystal-hole:
+	now the pedestal-text is "Place the tool on the pedestal to proceed with upgrade.";
+	say "You insert the crystal into the hole. The display changes to say '[pedestal-text].'";
+
+[keep player from removing thrings from crystal-hole]
+[move shard to nowhere or into tool?]
+
+[fix this later in case the tool is already on the pedestal]
+[Make doors lock during the scene or prevent leaving while wearing apron? Or make it recurring?]
+
+First-upgrade is a scene. First-upgrade begins when the first-shard is in crystal-hole and the curious-tool is on the tool-pedestal.
+
+When first-upgrade begins:
+	now pedestal-text is "This upgrade will allow your tool to serve as a flashlight. Press Confirm to begin calibration for this upgrade.";
+	say "fix this later The pedestal opens up and pulls the tool inside, closing up again after it.
+
+The display changes to say '[pedestal-text]'. A button labelled Confirm emerges from the pedestal.";
+	now the curious-tool is nowhere;
+	now the confirm-button is part of the tool-pedestal;
+
+A pedestal-button is a kind of thing. Understand "button" as a pedestal-button. Understand "buttons" as the plural of pedestal-button. A pedestal-button is never proper-named. 
+
+The confirm-button is a pedestal-button. The printed name of the confirm-button is "Confirm button". Understand "confirm" as the confirm-button. The description of the confirm-button is "This is a button with the word Confirm printed on it."
+
+After pushing the confirm-button when first-upgrade is happening:
+	now pedestal-text is "FIX THIS LATER Please wear the apron before proceeding.";
+	say "The pedestal beeps, and the button disappears. The floor rumbles as the pedestal rises, revealing that it was larger than you had expected. On top of the newly revealed portion of the pedestal is a lead apron. The display updates to say [pedestal-text].";
+	now the confirm-button is nowhere;
+	now the lead-apron is on the tool-pedestal;
+	
+The lead-apron is a wearable thing. THe printed name of the lead-apron is "lead apron". Understand "lead" or "apron" as the lead-apron. The description of the lead-apron is "FIX THIS LATER".
+
+After wearing the lead-apron for the first time:
+	now the pedestal-text is "FIX THIS LATER For calibration of electromagnetic emissions, you will be provided with five different test settings, which we have designated as A, B, C, D, and E. 
+
+For each setting that you experience, select the setting on the dial that most clearly represents the type of electromagnetic radiation being admitted. Some additional diagnostic tools have been provided you in the form of buttons.
+
+Test setting A will now begin.";
+	say "A dial appears on the pedestal, as do several buttons.
+
+The display changes to say, '[pedestal-text]'
+	
+As soon as the text displays, there is a 'click' and glowing purple drawings appear on the pedestal.";
+	now the purple-drawings are part of the tool-pedestal;
+	now the radiation-dial is part of the tool-pedestal;
+	now the emf-button is part of the tool-pedestal;
+	now the receiver-button is part of the tool-pedestal;
+	now the photo-button is part of the tool-pedestal;
+	
+The purple-drawings are a thing. [fix this later]
+
+A tool-freq is a kind of value. A tool-freq has some text called the printed name. The tool-freqs are uv-ray, vis-light, x-ray, rad-io, and infra-red. Understand "jagged" or "sunlight" or "symbol" as uv-ray. Understand "rainbow" or "symbol" as vis-light. Understand "thermometer" or "symbol" as infra-red. Understand "skull" as x-ray. Understand "radio" or "tower" or "symbol" as rad-io. 
+
+To say (x - a tool-freq):
+	if x is uv-ray:
+		say "jagged sunlight symbol"; 
+	if x is vis-light: 
+		say "rainbow symbol";
+	if x is infra-red: 
+		say "thermometer symbol";
+	if x is rad-io:
+		say "radio tower symbol";
+	if x is x-ray:
+		say "skull symbol";
+
+A pedestal-button has some text called the button-name. A pedestal-button has some text called the button-desc. The printed name of a pedestal-button is usually "[button-name] button". Understand the button-name property as describing a pedestal-button. The description of a pedestal-button is usually "This button on the pedestal is labelled with [button-desc]."
+
+The radiation-dial is a thing. The printed name of the radiation-dial is "dial". Understand "dial" as the radiation-dial.
+
+The radiation-dial has a list of tool-freqs called the current-freq. 
+
+The radiation-dial has a list of tool-freqs called the true-freqs. The true-freqs of the radiation-dial is {uv-ray, rad-io, vis-light, infra-red, x-ray}. 
+
+Before switching on the radiation-dial:
+	say "There's no obvious way to switch on the dial." instead;
+
+Before switching off the radiation-dial:
+	say "There's no obvious way to switch off the dial." instead;
+
+Understand "set [something] to [a tool-freq]" or  "turn [something] to [a tool-freq]" as setting it frequencely to when the radiation-dial is enclosed by the location. Setting it frequencely to is an action applying to one thing and one tool-freq. 
+
+Instead of examining the radiation-dial: 
+	if the number of entries in the current-freq of the radiation-dial is 0: 
+		say "You haven't set the dial to any combination yet. You can SET it TO the skull symbol, the jagged sunlight symbol, the rainbow symbol, the thermometer symbol, or the radio tower symbol."; 
+	otherwise:
+		 say "The dial is current pointing to [the current-freq of the radiation-dial][if the number of entries in current-freq of radiation-dial > 1], in that order[end if].". 
+
+Check setting something frequencely to (this is the block setting frequencely rule): 
+	say "[The noun] cannot be set." 
+
+Radio-on is a truth state that varies. Radio-on is false.
+Antenna-extended is a truth state that varies. Antenna-extended is false.
+xrays-present is a truth state that varies. xrays-present is false.
+
+Instead of setting the radiation-dial frequencely to the tool-freq understood: 
+	add the tool-freq understood to the current-freq of the radiation-dial; 
+	if the current-freq of the radiation-dial is the true-freqs of the radiation-dial: 
+		say "You set the dial to [the tool-freq understood], and FIX THIS LATER you solve the puzzle and the tool comes out and the message changes"; 
+		now the curious-tool is held by the player;
+	otherwise: 
+		say "You turn the dial to [the tool-freq understood].";
+		if the number of entries in current-freq is 1:
+			now the pedestal-text is "Testing setting B.";
+			say "There is a click, and the purple lines disappear. There is another click, but nothing apparent happens FIX THIS LATER IF ANTENNA IS UP. The display updates to say, '[pedestal-text].'";
+			now the purple-drawings are nowhere;
+			now radio-on is true;
+		otherwise if the number of entries in current-freq is 2:
+			now the pedestal-text is "Now testing setting C.";
+			say "There is a click[if antenna-extended is true], and the music stops[end if]. 
+
+There is another click, and bright light envelopes the pedestal. The display updates to say, '[pedestal-text].'";
+			now radio-on is false;
+			now the bright-light is in the location;
+		otherwise if the number of entries in current-freq is 3:
+			now the pedestal-text is "Now testing setting D.";
+			say "There is a click and the lights turn off. There is another click, and you feel sudden warmth. The display updates to say, '[pedestal-text].'";
+			now the sudden-warmth is in the location;
+		otherwise if the number of entries in current-freq is 4:
+			now the pedestal-text is "Now testing setting E.";
+			say "There is a click and the warmth disappears. There is another click, but nothing seems to happen. The display updates to say, '[pedestal-text].'";
+			now the sudden-warmth is nowhere;
+			now xrays-present is true;
+		otherwise:
+			say "The display changes to say FIX THIS LATER Calibration has failed. Retrying.";
+			truncate current-freq to the first  0 entries;
+			say "FIX THIS LATER Emitting A again.";
+
+The ant-enna is a thing.
+
+The radio-music is an intangible scenery thing. Understand "music" as the radio-music. [fix this later]
+
+Every turn when first-upgrade is happening:
+	if (radio-on is true) and (ant-enna is enclosed by the location):
+		now radio-music is in device-room;
+		say "You can hear classical music emanating from the pedestal.";
+	otherwise:
+		now radio-music is nowhere;
+		
+The bright-light is an intangible thing. Understand "light" as the bright-light. [fix this later]
+The sudden-warmth is an intangible scenery thing. Understand "warmth" as the sudden-warmth. [fix this later, add to room description]
+
+The polar-oid is a thing. [fix this later] The polar-oid can be foggy or normal. The polar-oid is normal. Understand the foggy property as describing a polar-oid.
+
+Some pedestal-buttons are defined by the table of pedestal buttons. [FIX THIS LATER add them to description of the pedestal, maybe a general statement to show all parts of the pedestal.]
+
+Table of pedestal buttons
+pedestal-button	button-name	 button-desc
+emf-button	"question mark"	"a question mark"
+receiver-button	"antenna"	"an image of an antenna" 
+photo-button	"camera"	"an image of a camera"
+diagnosis-button	"diagnosis"	"the word Diagnosis";
+
+Instead of pushing the emf-button:
+	say "FIX THIS LATER TEXT DUMP THAT REPLACES TEXT ON SCREEN temporarily so don't update pedestal-text.";
+
+Instead of pushing the receiver-button:
+	if the ant-enna is nowhere:
+		say "FIX THIS LATER An antenna pops up.";
+		now the ant-enna is part of the tool-pedestal;
+	otherwise:
+		now the ant-enna is nowhere;
+
+Instead of pushing the photo-button:
+	if xrays-present is true:
+		now the polar-oid is foggy;
+	now the polar-oid is part of the tool-pedestal;
+	say "FIX THIS LATER  There is a flash. [if the polar-oid is not nowhere]The old polaroid disappears into the pedestal, and a new one[otherwise]A polaroid[end if] pops out. It is a [if the item described is foggy]somehow foggy[otherwise]normal[end if]picture of you.";
+
+Instead of taking off the lead-apron:
+	say "It may be dangerous to remove the lead apron. There's a reason they wanted you to wear it, right?"
+	
+First-upgrade ends when the curious-tool is held by the player.
+
+When first-upgrade ends:
+	say "The crystal shard in the tool turns green.";
+	now the radiation-dial is nowhere;
+	now every pedestal-button is nowhere;
+	now the first-shard is green-sharded;
+	now the first-shard is part of the curious-tool;
+	now the lead-apron is nowhere;
+
+[fix lead disappearing]
+
+Section 4 - The second upgrade
+
+Second-upgrade is a scene. Second-upgrade begins when second-shard is in the crystal-hole and the curious-tool is on the tool-pedestal.
+
+When second-upgrade begins:
+	now pedestal-text is "This upgrade will allow your tool to diagnose the status of rifts. Due to the dangers of non-closed time loops, the upgrade process will take place in standard Spherical Space. 
+
+This training is limited to those with clearance level 3-Alpha. Unauthorized use of this training may result in fines, imprisonment, and, in extreme cases, capital punishment. Press Confirm to begin calibration and training for this upgrade.";
+	say "fix this later The pedestal opens up and pulls the tool inside, closing up again after it.
+
+The display changes to say '[pedestal-text]'. A button labelled Confirm emerges from the pedestal.";
+	now the curious-tool is nowhere;
+	now the confirm-button is part of the tool-pedestal;
+
+After pushing the confirm-button when second-upgrade is happening:
+	now the tool-pedestal is in sphere-room;
+	now the player is in sphere-room;
+	now the confirm-button is nowhere;
+	now the meter-rings are part of the tool-pedestal;
+	now the diagnosis-button is part of the tool-pedestal;
+	now pedestal-text is "Training and calibration will now commence. 
+
+Rifts, or interdimensional portals, are changes in spacetime. For instance, this training chamber is contained in a rift. Press the Diagnosis button to obtain information on this rift."
+
+[make actual yang chamber diagnosable in monuments dimension]
+The meter-rings are a thing. [fix this later]
+
+Sphere-room is a room. The description of sphere-room is "[first time]Everything rushes around you, and you find yourself somewhere else. [only]You are in a vast white space that curves in on itself in bizarre ways. Everywhere you look you see distorted reflections. There are no exits.
+
+[first time]The pedestal shakes and extends further from the floor, revealing a large platform surrounding it. The screen on the pedestal changse to say '[pedestal-text].' [only]The pedestal is the only thing you can see. The platform it is on is marked in concentric lines."
+
+The sphere-space is scenery in the sphere-room. [fix this later to make it be more sensical]
+The distorted-reflections are plural-named scenery in the sphere-room.
+
+Second-upgrade ends when the tool-pedestal is in device-room.
+
+[Template:
+Creation date: 1205/51
+Type: Black (Interior)
+Separation type: None
+Separation distance: None	
+]
+
+[check periods in periodtext]
+
+To say timestamp:
+	let temp be the time of day;
+	say the substituted form of "[temp]";
+
+Instead of pushing diagnosis-button for the first time:
+	now pedestal-text is "DIAGNOSIS:
+Creation date: 1205/51 [timestamp]
+Type: Black (Interior)
+Separation type: None
+Separation distance: None
+
+As you can see, we are inside this rift; we usually refer to such a thing as a [']closed space[']. This is used to protect baseline reality from the effects of this testing. We can create rifts within this rift. Let's diagnosis this next one";
+	say "The display updates to say:
+
+'[pedestal-text].'
+
+A black rift appears, roughly spherical and completely impenetrable to your sight, centered on the top of the pedestal.";
+	now the black-rift is in sphere-room;
+
+The black-rift is scenery. The printed name of the black-rift is "black-rift". Understand "black" or "Rift" as the black-rift. The description of the black-rift is "FIX THIS LATER."
+
+Instead of putting something on the tool-pedestal when the player is in the sphere-room:
+	say ""
+
+Instead of pushing diagnosis-button for the second time:
+	now pedestal-text is "DIAGNOSIS:
+Creation date: 1205/51 [timestamp]
+Type: Black (Exterior)
+Separation type: None
+Separation distance: None
+
+This is what a black rift looks like from the outside. It is essentially a hole in space, the part that's left over when a closed space like ours is scooped out.
+
+Creating these portals requires an immense energy source, but, once created, opening and closing them requires less energy.
+
+We will now close the black portal, and open a blue portal. You can DIAGNOSE These portals as well.";
+	say "The display updates to say:
+
+'[pedestal-text]'
+
+The black rift disappears. In its stead, two small blue rifts appear, one on top of the pedestal and one down on the spaced rings of the pedestal.";
+	now the black-rift is nowhere;
+	now the blue-entrance is on the tool-pedestal;
+	now the blue-exit is in the location;
+
+The blue-entrance is a scenery thing. [fix this later]
+The blue-exit is a scenery thing. [fix this later] The description of the blue-exit is "FIX THIS LATER It is on ring 3 of the space rings."
+
+Instead of pushing diagnosis-button for the third time:
+	now pedestal-text is "DIAGNOSIS:
+
+Creation date: 1205/51 [timestamp]
+Type: Blue
+Separation type: Spatial
+Separation distance: ???
+
+Note that only the rift nearest to the pedestal is diagnosed. This is also why the closed space we are in does not interfere with the diagnosis.
+
+Note that the separation distance is not confirmed. Please observe the physical separation measure by the spaced rings and enter the distance on the dial. You do not need to factor in vertical height; this has been accounted for in the rings.";
+	say "The display updates to say:
+
+'[pedestal-text]'
+
+A dial appears on the surface of the pedestal.";
+	now the number-dial is part of the tool-pedestal; 
+
+The number-dial is a thing.
+
+Spinning it to is an action applying to one thing and one number. Check spinning it to: if the noun is not the number-dial, say "[The noun] does not turn." instead. 
+
+Report spinning it to: 
+	now pedestal-text is "That seems to be incorrect Please calibrate carefully.'";
+	say "You turn [the number-dial].
+
+A metal ball pops out of the pedestal and into the ring labelled [the number understood]. It circles the track, but misses the blue portal. It then sinks back into the pedestal.
+
+The display now says: '[pedestal-text]'" 
+
+Understand "turn [number-dial] to [a number]" as spinning it to. 
+
+[allow putting something in the blue portals?]
+
+Instead of spinning the number-dial to 3 when the blue-exit is in the location:
+	now pedestal-text is "Correct.
+
+Blue rifts separate things in space only. An object introduced into one of the rifts will appear in the other, as you have seen.
+
+Tiny blue rifts power the simple functions of the tool you have carried, allowing it to unlock mechanical locks or to transmit light from nearby sources.
+
+We now introduce red rifts for you to experiment with. Please take the next few minutes to wait and observe.";
+	say "A metal ball pops out of the pedestal and into the ring labelled [the number understood]. It circles the track, and rolls into the blue rift, disappearing.
+
+Simultaneously, it reappears in the blue rift on top of the pedestal. A chime plays, and the number dial sinks away.
+
+The display changes to say '[pedestal-text].'
+
+The blue portals both disappear. The ball is left alone.";
+	now the number-dial is nowhere;
+	now a random metal-ball is on the tool-pedestal;
+	
+[rule for reaching top of tool pedestal? for metal ball at least]
+
+A metal-ball is a kind of thing.
+
+Red-scene is a recurring scene. Red-scene begins when a metal-ball is on the tool-pedestal. Red-scene ends when the number of metal-balls on the tool-pedestal is 0.
+
+[FOr tomorrow: add the timed sequence]
+
+[FIX THIS LATER make sure player doesn't drop anything here. Maybe make them drop all possessions, or take away possessions? That would help a lot.]
 
 Chapter 2 - Wax Back Office
 
 Hidden-region is a region. 
 A crystal-room is a kind of room.
+A crystal-door is a kind of door. A crystal-door has a room called the door-room.
 
 [This stuff will be added later: the secret second section]
 [I don't think we actually need this second section, this is already a really big section]
 [instead, this is just the shortcut to the other dimensions. Include the wax figure of you here!]
 
-The wax-office is a crystal-room in hidden-region. "FIX THIS LATER. You are in a back office for the wax museum. It has a wax figure of you in it! And links to other stuff later on. Not important for this part of the game."
+The wax-office is a crystal-room in hidden-region. "FIX THIS LATER. You are in a back office for the wax museum. It has a wax figure of you in it! And links to other stuff later on. Not important for this part of the game." The printed name of the wax-office is "Office".
+
+The employee-door is a scenery crystal-door. The employee-door is north of gift-room and south of wax-office. The employee-door is closed and locked. The printed name of the employee-door is "octagon door". Understand "octagon" or  "mark" or "nondescript" or "door" as the employee-door. The description of the employee-door is "This nondescript door blends almost perfectly into the wall. It is marked with an octagon." The door-room of the employee-door is wax-office.
 
 Emrys-figure is a wax-figure in wax-office. The printed name of the emrys-figure is "wax figure of you". Understand "of you" or "you" or "emrys" or "tisserand" as the emrys-figure.
 
 Chapter 3 - Under the Zoo
 
-The penn-hatch is a closed locked openable lockable door. The penn-hatch is down from penn-room and up from under-zoo. The printed name of the penn-hatch is "metal hatch". Understand "metal" or "hatch" or "octagon" as the penn-hatch. The description of the penn-hatch is "This metal hatch has an octagon displayed on it. It is [if open]open[otherwise]closed[end if] and [if locked]locked[otherwise]unlocked[end if]."
+The penn-hatch is a closed locked openable lockable crystal-door. The penn-hatch is down from penn-room and up from under-zoo. The printed name of the penn-hatch is "metal hatch". Understand "metal" or "hatch" or "octagon" as the penn-hatch. The description of the penn-hatch is "This metal hatch has an octagon displayed on it. It is [if open]open[otherwise]closed[end if] and [if locked]locked[otherwise]unlocked[end if]." The door-room of the penn-hatch is under-zoo.
 
-Under-zoo is a crystal-room in hidden-region.
+Under-zoo is a crystal-room in hidden-region. The printed name of the under-zoo is "Under the Zoo".
 
 Chapter 4 - Cabin office
 
-The cabin-office is a crystal-room in hidden-region. "There are controls for the sun and moon and stuff."
+The cabin-office is a crystal-room in hidden-region. "There are controls for the sun and moon and stuff." The printed name of the cabin-office is "Office".
+
+The cellar-door is a scenery crystal-door. The cellar-door is east from cabin-cellar and west from cabin-office. The printed name of the cellar-door is "metal door". The cellar-door is locked and closed. Understand "plain" or "metal" or "octagon" or "door" as the cellar-door. The description of the cellar-door is "This metal door looks like it would belong in an office building, not the middle of nowhere. It has an octagon on it, but otherwise is plain." The door-room of the cellar-door is cabin-office.
 
 Chapter 5 - Inside the Pillar
 
@@ -6481,7 +6841,7 @@ The pillar-room is a crystal-room in hidden-region. The printed name of the pill
 
 The currency-book is a book in pillar-room. The printed name of the currency-book is "book about currency". Understand "book about" or "currency" as the currency-book. The description of the currency-book is "FIX THIS LATER Currency is named after Emrys Tisserand, with ET formed from her initials and Rysti from 'emRYS TIsserand'."
 
-The pillar-door is a closed, locked scenery door. The pillar-door is west from alexandria-room and east from pillar-room. The printed name of the pillar-door is "metal door". Understand "metal" or "door" or "octagon" or "symbol" as the pillar-door. The description of the pillar-door is "This metal door has an octagon symbol on it.".
+The pillar-door is a closed, locked scenery crystal-door. The pillar-door is west from alexandria-room and east from pillar-room. The printed name of the pillar-door is "metal door". Understand "metal" or "door" or "octagon" or "symbol" as the pillar-door. The description of the pillar-door is "This metal door has an octagon symbol on it." The door-room of the pillar-door is pillar-room.
 
 Chapter 6 - Tower room
 
@@ -6489,23 +6849,25 @@ The tower-room is a crystal-room. The tower-room is in hidden-region. The printe
 
 Sorry, testers; this connects to areas that haven't been implemented. Shouldn't matter for this part of the game, though!"
 
+The landing-trap is a closed locked openable lockable scenery crystal-door. The landing-trap is up from the landing-room and down from the tower-room. The printed name of the landing-trap is "trapdoor". Understand "trap" or "door" or "trapdoor" as the landing-trap. The description of the landing-trap is "The trapdoor is within reach, due to the low height of the landing you are on." The door-room of the landing-trap is tower-room.
+
 Chapter 7 - Police back office
 
-The police-door is a scenery closed  locked  door. The police-door is west from police-station and east from police-back. The printed name of the police-door is "metal door". Understand "metal" or "octagon" or "mark" or "door" or "symbol" as the police-door. The description of the police-door is "This metal door is marked with  an octagon symbol."
+Police-back is a crystal-room in hidden-region. The printed name of police-back is "Hallway".
 
-Police-back is a crystal-room in hidden-region.
+The police-door is a scenery closed locked crystal-door. The police-door is west from police-station and east from police-back. The printed name of the police-door is "metal door". Understand "metal" or "octagon" or "mark" or "door" or "symbol" as the police-door. The description of the police-door is "This metal door is marked with  an octagon symbol." The door-room of the police-door is the police-back.
 
 Chapter 8 - Under the quarry
 
-The spell-hatch is a scenery closed locked door. The spell-hatch is down from gem-room and up from under-quarry. The printed name of the spell-hatch is "hatch". The description of the spell-hatch is "This metal hatch has an octagon symbol on it." Understand "metal" or "hatch" or "octagon" or "symbol" as the spell-hatch.
+Under-quarry is a crystal-room in hidden-region. The printed name of the under-quarry is "Under the Quarry".
 
-Under-quarry is a crystal-room in hidden-region.
+The spell-hatch is a scenery closed locked crystal-door. The spell-hatch is down from gem-room and up from under-quarry. The printed name of the spell-hatch is "hatch". The description of the spell-hatch is "This metal hatch has an octagon symbol on it." Understand "metal" or "hatch" or "octagon" or "symbol" as the spell-hatch. The door-room of the spell-hatch is the under-quarry.
 
 Chapter 9 - Above the arcade
 
-Security-room is a crystal-room in hidden-region.
+Security-room is a crystal-room in hidden-region. The printed name of the security-room is "Security Room".
 
-The combat-trap is a scenery closed locked door. The combat-trap is up from combat-lobby and down from security-room. The printed name of the combat-trap is "trapdoor". The description of the combat-trap is "This metal trapdoor has an octagon symbol on it." Understand "metal" or "trap" or "door" or "trapdoor" or "octagon" or "symbol" as combat-trap.
+The combat-trap is a scenery closed locked crystal-door. The combat-trap is up from combat-lobby and down from security-room. The printed name of the combat-trap is "trapdoor". The description of the combat-trap is "This metal trapdoor has an octagon symbol on it." Understand "metal" or "trap" or "door" or "trapdoor" or "octagon" or "symbol" as combat-trap. The door-room of the combat-trap is the security-room.
 
 Chapter 10 - Hub Room
 
@@ -6528,9 +6890,77 @@ The southwest-hub is a hub-door with hub-text "southwest". The southwest-hub is 
 The west-hub is a hub-door with hub-text "west". The west-hub is west from hub-room and east from under-zoo.
 The northwest-hub is a hub-door with hub-text "northwest". The northwest-hub is northwest from hub-room and southeast from pillar-room.
 
-
 Instead of opening a closed hub-door:
 	say "You can't see any way to open [the noun]."
+
+Chapter 11 - Outposts
+
+Outpost-list is a list of rooms that varies.
+
+To decide what number is the outpost-level of (currentroom - a crystal-room):
+	let temp be the number of entries in outpost-list;
+	if temp > 0:
+		repeat with comparenum running from 1 to temp:
+			let temproom be entry comparenum of outpost-list;
+			if temproom is currentroom:
+				decide on comparenum;
+	if currentroom is not listed in outpost-list:
+		increment temp;
+		add currentroom to outpost-list;
+		decide on temp;
+
+A crystal-shard is a kind of thing. The printed name of the crystal-shard is "crystal shard". Understand "crystal" or "shard" as a crystal-shard. A crystal-shard can be red-sharded or green-sharded. A crystal-shard is usually red-sharded. The description of a crystal-shard is "FIX THIS LATER". Understand the red-sharded property as describing a crystal-shard. Understand "red" as red-sharded. Understand "green" as green-sharded.
+
+Does the player mean doing something with a crystal-shard:
+	if the noun is green-sharded:
+		it is very unlikely;
+
+The first-shard is a crystal-shard.
+The second-shard is a crystal-shard.
+The third-shard is a crystal-shard.
+The fourth-shard is a crystal-shard.
+The fifth-shard is a crystal-shard.
+The sixth-shard is a crystal-shard.
+The seventh-shard is a crystal-shard.
+The eighth-shard is a crystal-shard.
+
+Section 1 - Outpost 1
+
+Before opening a crystal-door:
+	let temp be the door-room of the noun;
+	let tempnum be the outpost-level of temp;
+	if tempnum is 1:
+		unless we have opened the noun:
+			now the first-shard is in temp;
+
+Section 2 - Outpost 2
+
+Before opening a crystal-door:
+	let temp be the door-room of the noun;
+	let tempnum be the outpost-level of temp;
+	if tempnum is 2:
+		unless we have opened the noun:
+			now temp is dark;
+			now the second-shard is in temp;
+
+Section 3 - Outpost 3
+
+Before opening a crystal-door:
+	let temp be the door-room of the noun;
+	let tempnum be the outpost-level of temp;
+	if tempnum is 3:
+		unless we have opened the noun:
+			now the third-shard is in temp;
+
+Section 4 - Outpost 4
+
+Section 5 - Outpost 5
+
+Section 6 - Outpost 6
+
+Section 7 - Outpost 7
+
+Section 8 - Outpost 8
 
 Part 4 - Garden dimension
 
@@ -8260,11 +8690,7 @@ The cellar-sunlight is scenery in cabin-cellar. The printed name of the cellar-s
 Instead of physicality when the noun is the cellar-sunlight:
 	say "It's just sunlight; you can't really manipulate it."
 
-Section 4 - Metal door
-
-The cellar-door is a scenery door. The cellar-door is east from cabin-cellar and west from cabin-office. The printed name of the cellar-door is "metal door". The cellar-door is locked and closed. Understand "plain" or "metal" or "octagon" or "door" as the cellar-door. The description of the cellar-door is "This metal door looks like it would belong in an office building, not the middle of nowhere. It has an octagon on it, but otherwise is plain."
-
-Section 5 - Big tub and tools
+Section 4 - Big tub and tools
 
 The plaster-tub is a an open unopenable container in cabin-cellar. "A hefty wooden tub lies on the floor, with [a list of things contained by the plaster-tub] in it. It looks movable." The printed name of the plaster-tub is "tub". Understand "tub" or "hefty" or "circular" or "wood" or "wooden" or "container" or "heavy" or "uncomfortably" as the plaster-tub. The description of the plaster-tub is "This is a pretty hefty tub, a circular wooden container." 
 
@@ -9405,7 +9831,9 @@ Section 3 - Lower library
 
 The lower-lib is a room in alexandria-region. The printed name of the lower-lib is "Lower Library". The lower-lib is north from lib-entrance. 
 
-The description of the lower-lib is "This part of the library is sunken down compared to all the rooms around it. It has the same dingy carpet and flickering lights as the rest of the library, but many more chairs and couches next to shelves and shelves of manga. From the wear and tear on the furniture, this must have been one of the most popular places in the library[if the library-mold is not nowhere]. Unfortunately, all of it is covered with the purple mold[end if].
+The description of the lower-lib is "This part of the library is sunken down compared to all the rooms around it. It has the same dingy carpet and flickering lights as the rest of the library, but many more chairs and couches next to shelves and shelves of manga. From the wear and tear on the furniture, this must have been one of the most popular places in the library[if the library-mold is not nowhere]. 
+
+Unfortunately, all of it is covered with the purple mold. For all you know, there could be something useful here, but you'll never find out unless you can find a way to get rid of the mold[end if].
 
 You can leave to the [boldsouth], or explore further to the [boldeast] or [boldwest]. There are stairs leading [boldup], but they are partially filled with rubber hoses coming from above and ending on the floor below."
 
@@ -9564,7 +9992,9 @@ The lib-draft is an intangible backdrop. The lib-draft is in east-wing. The lib-
 
 Section 5 - Upper library
 
-The upper-lib is a room in alexandria-region. The printed name of the upper-lib is "Upper Library". The elevation of upper-lib is 20. The description of the upper-lib is "This upper area of the library is the non-fiction section, full of tomes. [if the library-mold is not nowhere]Despite the mold, [otherwise]Thanks to your efforts, [end if]it is relatively well-preserved compared to the rest of the library. A ladder leads [boldup], while stairs lead back [bolddown]. A large number of rubber hoses snake down from above the ladder to below the stairs."
+The upper-lib is a room in alexandria-region. The printed name of the upper-lib is "Upper Library". The elevation of upper-lib is 20. The description of the upper-lib is "This upper area of the library is the non-fiction section, full of tomes. [if the library-mold is not nowhere]Despite the mold, [otherwise]Thanks to your efforts, [end if]it is relatively well-preserved compared to the rest of the library[if the library-mold is not nowhere]. There has to be something useful for you here, but the mold is too thick to see anything[end if].
+
+ A ladder leads [boldup], while stairs lead back [bolddown]. A large number of rubber hoses snake down from above the ladder to below the stairs."
 
 The upper-hoses are plural-named scenery in the upper-lib. The printed name of the upper-hoses is "rubber hoses". Understand "rubber" or "hose" or "hoses" or "thick" as the upper-hoses. The description of the upper-hoses is "Thick rubber hoses lead from above you to down the stairs. They don't seem to be pumping anything right now[if fumigation-scene is happening]; all the sulfur dioxide is coming from above[end if]."
 
@@ -10205,7 +10635,7 @@ The scenery-galleon is a distant backdrop. The scenery-galleon is in ring-region
 The other-carracks is a distant backdrop. The other-carracks is in vortex-region.  The printed name of the other-carracks is "other carracks". Understand "carracks" or "other" or "ring" or "outer" or "chains" or "chained" or "chain" as the other-carracks. The description of the other-carracks is "The other carracks all look slightly different from the one you're on. They are chained together and rotating as a ring around the galleon. Currently, they are [if outer-vel < -3]revolving clockwise very rapidly[otherwise if outer-vel < -1]revolving clockwise rapidly[otherwise if outer-vel < 0]slowly revolving clockwise[otherwise if outer-vel < 1]not revolving at all[otherwise if outer-vel < 2]slowly revolving counterclockwise [otherwise if outer-vel < 4]revolving counterclockwise rapidly[otherwise]revolving counterclockwise very rapidly[end if][if outer-vel is not 0], about [outer-vel in words] [rotations] per minute[end if]."
 
 To say rotations:
-	say "rotation[unless outer-vel is 0]s[end if]";
+	say "rotation[unless outer-vel is 1]s[end if]";
 
 Instead of climbing or entering the other-carracks:
 	say "You can move from ship to ship using directional commands."
@@ -10400,13 +10830,14 @@ Instead of pulling the harpoon-lever:
 	otherwise:
 		say "You pull the lever, but nothing happens.";
 
+Understand "fire [galleon-harpoons]" as pulling when the galleon-harpoons is in the location.
+Understand "shoot [galleon-harpoons]" as pulling when the galleon-harpoons is in the location.
+
+Instead of pulling the galleon-harpoons:
+	try pulling the harpoon-lever;
+
 Instead of pushing the harpoon-lever:
-	if the galleon-harpoons are unexpended:
-		now the spike-harpoon is in ring-region;
-		say "You push the lever, and all the harpoons fire at once, embedding into the carracks! Now all nine ships move as one piece.";
-		now the galleon-harpoons are expended;
-	otherwise:
-		say "You push the lever, but nothing happens.";
+	try pulling the harpoon-lever;
 
 The galleon-notice is scenery in central-ship. Understand "notice" or "notice of" or "demolition" or "condemnation" or "demo" as the galleon-notice. The description of the galleon-notice is "This notice is torn at the edges and says:
 
@@ -10460,7 +10891,10 @@ Every turn when the player is in a ship-adjacent room (this is the rotation rule
 			let temp1 be the substituted form of "[ship-feature of current]";
 			if tempname is temp1:
 				move player to current, without printing a room description;
-		say "The carrack you're in [if outer-vel < -3]revolves clockwise very rapidly[otherwise if outer-vel < -1]revolves clockwise rapidly[otherwise if outer-vel < 0]slowly revolves clockwise[otherwise if outer-vel < 1]stands still[otherwise if outer-vel < 2]slowly revolves counterclockwise [otherwise if outer-vel < 4]revolves counterclockwise rapidly[otherwise]revolves counterclockwise very rapidly[end if][if outer-vel is not 0], about [abs-outer] rotations per minute[end if], [if the galleon-harpoons are expended]and the center ship does so as well, attached by the harpoons[otherwise if outer-vel is inner-vel]matching the galleon in the center which[otherwise]while the galleon in the center[end if][if the galleon-harpoons are expended][otherwise if inner-vel < -3] revolves clockwise very rapidly[otherwise if inner-vel < -1] revolves clockwise rapidly[otherwise if inner-vel < 0] slowly revolves clockwise[otherwise if inner-vel < 1] does not revolve at all[otherwise if inner-vel < 2] slowly revolves counterclockwise [otherwise if inner-vel < 4] revolves counterclockwise rapidly[otherwise] revolves counterclockwise very rapidly[end if][if inner-vel is not 0], about [abs-inner] rotations per minute[end if]. [vortexit].[first time][line break][bracket]You can also move clockwise along the ships using CW and counterclockwise using CCW.[close bracket][line break][only]"
+		say "The carrack you're in [if outer-vel < -3]revolves clockwise very rapidly[otherwise if outer-vel < -1]revolves clockwise rapidly[otherwise if outer-vel < 0]slowly revolves clockwise[otherwise if outer-vel < 1]stands still[otherwise if outer-vel < 2]slowly revolves counterclockwise [otherwise if outer-vel < 4]revolves counterclockwise rapidly[otherwise]revolves counterclockwise very rapidly[end if][if outer-vel is not 0], about [abs-outer] [rotations] per minute[end if], [if the galleon-harpoons are expended]and the center ship does so as well, attached by the harpoons[otherwise if outer-vel is inner-vel]matching the galleon in the center which[otherwise]while the galleon in the center[end if][if the galleon-harpoons are expended][otherwise if inner-vel < -3] revolves clockwise very rapidly[otherwise if inner-vel < -1] revolves clockwise rapidly[otherwise if inner-vel < 0] slowly revolves clockwise[otherwise if inner-vel < 1] does not revolve at all[otherwise if inner-vel < 2] slowly revolves counterclockwise [otherwise if inner-vel < 4] revolves counterclockwise rapidly[otherwise] revolves counterclockwise very rapidly[end if][if inner-vel is not 0], about [abs-inner] [innerrotations] per minute[end if]. [vortexit].[first time][line break][bracket]You can also move clockwise along the ships using CW and counterclockwise using CCW.[close bracket][line break][only]"
+
+To say innerrotations:
+	say "rotation[unless inner-vel is 1]s[end if]";
 
 [fix this later Change this and the levertext if they match speeds]
 
@@ -10560,6 +10994,8 @@ Instead of removing the inside-cannonball from the vortex-cannon:
 
 The vortex-crank is part of the vortex-cannon. The printed name of the vortex-crank is "crank". Understand "crank" or "catch" or "spring" or "springloaded" or "net" or "paint" or "image" as the vortex-crank. The description of the vortex-crank is "The crank on this cannon is labelled CATCH! and has an image of a net on it. It looks like it could be easily turned."
 
+Understand "catch [something]" as a mistake ("To catch a cannonball, you can turn the crank on the cannon you shot it from.") when the location is a vortex-ship.
+
 Instead of turning the vortex-crank:
 	let temp be the substituted form of "[ship-feature of the location]";
 	choose the row with a adjective of temp in the Table of cannon states;
@@ -10601,7 +11037,7 @@ Instead of turning the vortex-crank:
 Instead of pulling the vortex-crank:
 	try turning the vortex-crank;
 
-The flying-cannons is a backdrop. THe printed name of the flying-cannons is "flying cannonball". Understand "flying" or "cannonball" or "cannonballs" or "cannon ball" or "cannon balls" or "ball" or "balls" as the flying-cannons. The description of the flying-cannons is "[ballstatus].";
+The flying-cannons is a distant backdrop. THe printed name of the flying-cannons is "flying cannonball". Understand "flying" or "cannonball" or "cannonballs" or "cannon ball" or "cannon balls" or "ball" or "balls" as the flying-cannons. The description of the flying-cannons is "[ballstatus].";
 
 To say ballstatus:
 	let L be a list of text;
@@ -12009,7 +12445,7 @@ After switching off the dimensional-chamber:
 Before going inside from yang-room:
 	now the x-spot is in yang-chamber;
 
-The yang-chamber is a room in monument-region. The description of the yang-chamber is "This is a vast white space with a green circle on the tiled floor[if dimension-level is -1]. The space around you is warped in a way that makes your head swim[otherwise if dimension-level is 0]. The space around you looks fairly normal, except that it is much larger than the outside would indicate[otherwise]. The space around folds in on itself in bizarre ways[end if][if the x-spot is unaltered]. The chamber door floats in mid air near you, leading [boldoutside][otherwise]. You can't see the chamber door anywhere[end if].
+The yang-chamber is a room in monument-region. The description of the yang-chamber is "This is a vast white space with a green circle on the tiled floor[if dimension-level is -1]. Everything around you is warped in a way that makes your head swim[otherwise if dimension-level is 0]. Everything around you looks fairly normal, except that it is much larger than the outside would indicate[otherwise]. Everything around you folds in on itself in bizarre ways[end if][if the x-spot is unaltered]. The chamber door floats in mid air near you, leading [boldoutside][otherwise]. You can't see the chamber door anywhere[end if].
 
 A green disc floats above the ground[if the player is on x-spot], with you on it[end if]."
 
@@ -13404,10 +13840,6 @@ Chapter 6 - Upstairs
 The landing-room is a room. "You are standing at the top of a flight of stairs. To the [boldeast] is an old door that has the name 'Christine' engraved on it. An empty doorway leads [boldwest]. A trapdoor leads [bold type]up[roman type]. You can also go back [bold type]down[roman type] the stairs[first time]
 
 Things are a little shabbier up here. It reminds you of the 'mind palaces' Gareth likes to use with his patients. 'We've seen all the thoughts you present to others,' he'd say. 'Now let's see what you keep in your ratty old attic.' It always gave you a laugh[only]." The printed name of the landing-room is "Upstairs Landing".
-
-[add these doors]
-
-The landing-trap is a closed locked openable lockable scenery door. The landing-trap is up from the landing-room and down from the tower-room. The printed name of the landing-trap is "trapdoor". Understand "trap" or "door" or "trapdoor" as the landing-trap. The description of the landing-trap is "The trapdoor is within reach, due to the low height of the landing you are on."
 
 The landing-room is in haunted-region.
 
@@ -22638,6 +23070,9 @@ Before going south from combat-lobby when andy is in the location:
 	say "'Wait one moment, Miss Tisserand!' says [the andy]." instead;
 
 Before going west from combat-lobby when andy is in the location:
+	say "'Wait one moment, Miss Tisserand!' says [the andy]." instead;
+
+Before going up from combat-lobby when andy is in the location:
 	say "'Wait one moment, Miss Tisserand!' says [the andy]." instead;
 
 To say deliverpardon:
