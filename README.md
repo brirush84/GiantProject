@@ -18,11 +18,13 @@ Finished areas:
 
 -zoo (tested)
 
--world monuments (mostly tested)
+-world monuments (tested)
+
+-toolroom (untested)
 
 Areas under construction:
 
--toolroom
+None
 
 Remaining areas:
 
