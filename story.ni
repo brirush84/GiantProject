@@ -4,8 +4,6 @@ Volume 1 - Pre-game setup
 
 [the true point of the game is to help people come to grips with your personal death]
 
-[maybe the recorder can play back memories?]
-
 When play begins:
 	say "You are Emrys Tisserand, a pioneer between the stars. You have left your comfortable retired life and grandchildren behind and embarked on a quest to establish a new colony. Your ship, the Starship Tragwyddol, has thousands of passengers in cold storage. For twenty years you have entertained the crew with your tales while recording the ship's history. As Storyweaver, you keep the thread of history for the ship, to teach the past, record the present, and prepare others for the future. Most of the crew take turns in the cryochambers to lengthen their life span, but you, the heart of the ship, always intended this to be your last voyage. 
 
@@ -25,7 +23,7 @@ Release along with cover art.
 
 Section 1 - Genre, description, etc
 
-The story genre is "Science Fiction". The story description is "Hop through dimensions to save your ship." The story creation year is 2023. The release number is 40.
+The story genre is "Science Fiction". The story description is "Hop through dimensions to save your ship." The story creation year is 2023. The release number is 42.
 
 Section 2 - Increasing memory sizes
 
@@ -160,7 +158,7 @@ Before going nowhere when the noun is outside:
 Instead of exiting when the holder of the player is a room:
 	try going outside instead;
 
-The description of a space-tear is "This is a rift in the fabric of space and time. Going through it will take you to somewhere new and, perhaps, dangerous. It is glowing [if the item described is red-torn]red[otherwise]green[end if]."
+The description of a space-tear is "This is a rift in the fabric of space and time. Going through it will take you to somewhere new and, perhaps, dangerous. It is glowing [rift-style of the item described]."
 
 [change description if you passed through it once]
 
@@ -644,7 +642,7 @@ Section 2 - Rift
 
 The psych-tear is a space-tear. "[one of]The psychologist on duty (and one of your best friends), Gareth Djomo, is in here, huddled on his couch. Oblivious to the chaos outside, or perhaps overwhelmed by it, he stares off into the corner. 
 
-There is a tearing sound, and the fabric of reality rips open to the [boldnorth]. Out of the rift comes a bizarre little creature, a kind of robotic monkey. It leaps up onto Gareth's desk and grabs one of the action figures, then rushes back into the rift. [Gareth] doesn't seem to notice any of this[or][if the player is in ship-region]A rift has opened up[otherwise]A rift leading back to the ship[end if] to the [if the player is in psych-room][boldnorth][otherwise][boldsouth][end if]. It glows [if the psych-tear is red-torn]red[otherwise]green[end if][stopping]." The psych-tear is north of psych-room and south of the front-room.
+There is a tearing sound, and the fabric of reality rips open to the [boldnorth]. Out of the rift comes a bizarre little creature, a kind of robotic monkey. It leaps up onto Gareth's desk and grabs one of the action figures, then rushes back into the rift. [Gareth] doesn't seem to notice any of this[or][if the player is in ship-region]A rift has opened up[otherwise]A rift leading back to the ship[end if] to the [if the player is in psych-room][boldnorth][otherwise][boldsouth][end if]. It glows [rift-style of the psych-tear][stopping]." The psych-tear is north of psych-room and south of the front-room.
 
 Chapter 3 - Engineering room
 
@@ -658,9 +656,11 @@ Ginger is a woman in engineering-room. "[one of]As you walk in, you see an older
 
 'I know, but they took all the arc welders!' shouts Ginger. 'I already told you that!'
 
-'Useless. I'll go look in the aft bay myself. But I'm telling you, there's another welder. Clean up this mess and get it ready for the next guy.' He then stomps off. As he walks away, you see something that was hidden behind him: [an engineering-tear], leading [boldnorth].
+'Useless. I'll go look in the aft bay myself. But I'm telling you, there's another welder. Clean up this mess and get it ready for the next guy.' He then stomps off. 
 
-Ginger cries silently but goes about her task[deliversorting][or]Ginger is here, sorting through the tools and occasionally helping other engineers to grab whatever it is they're looking for[stopping].". The description of ginger is "Ginger is one of the junior engineers, assigned to stay behind and sort through the tools. Her hair is flaming red, and her cheeks are wet with tears."
+As he walks away, you see something that was hidden behind him: [an engineering-tear], leading [boldnorth]. Some kind of curious tool is being pulled through it by a robotic hand. 
+
+Ginger doesn't seem to notice the rift at all. She cries silently but goes about her task[deliversorting][or]Ginger is here, sorting through the tools and occasionally helping other engineers to grab whatever it is they're looking for[stopping].". The description of ginger is "Ginger is one of the junior engineers, assigned to stay behind and sort through the tools. Her hair is flaming red, and her cheeks are wet with tears."
 
 Understand "flaming" or "red hair" or "hair" or "tears" or "wet" or "cheeks" or "cheek" as ginger.
 
@@ -681,7 +681,7 @@ Before writing a paragraph about engineering-tear:
 	if sorting-quip is not once-delivered:
 		now engineering-tear is mentioned;
 
-The engineering-tear is a space-tear. "[if the player is in ship-region]A rift has opened up[otherwise]The rift leading back to the ship is[end if] to the [if the player is in engineering-room][boldnorth][otherwise][boldsouth][end if]. It is glowing [if the engineering-tear is red-torn]red[otherwise]green[end if]." The engineering-tear is north of engineering-room and south of device-room. 
+The engineering-tear is a space-tear. "[if the player is in ship-region]A rift has opened up[otherwise]The rift leading back to the ship is[end if] to the [if the player is in engineering-room][boldnorth][otherwise][boldsouth][end if]. It is glowing [rift-style of the engineering-tear]." The engineering-tear is north of engineering-room and south of device-room. 
 
 Section 3 - Scenery
 
@@ -718,7 +718,7 @@ Flight-room is north from bridge-central.
 
 Section 3 - Mefe
 
-Mefe is a woman in flight-room. "Officer Mefe is here[if the flight-tear is green-torn], calmly working on navigation[otherwise], frantically trying to restore navigation function to the console[end if]." The description of Mefe is "Flight Officer Mefe Azimov is a short woman with wavy blond hair tucked under a cap. An intimidating, reserved woman, Mefe is one of the officers you've spent the least time with[if the flight-tear is green-torn]. But you feel like you've gotte to know her better, now. She seems confident[otherwise]. She tends to be wary of you, but you haven't found out why, yet. While trying to repair the controls, she constantly scans the room, looking for other problems to fix, but finding too many to handle[end if].". Understand "flight" or "officer" or "azimov" or "wavy" or "blond" or "hair" or "short" as Mefe.
+Mefe is a woman in flight-room. "Officer Mefe is here[unless the flight-tear is red-torn], calmly working on navigation[otherwise], frantically trying to restore navigation function to the console[end if]." The description of Mefe is "Flight Officer Mefe Azimov is a short woman with wavy blond hair tucked under a cap. An intimidating, reserved woman, Mefe is one of the officers you've spent the least time with[unless the flight-tear is red-torn]. But you feel like you've gotte to know her better, now. She seems confident[otherwise]. She tends to be wary of you, but you haven't found out why, yet. While trying to repair the controls, she constantly scans the room, looking for other problems to fix, but finding too many to handle[end if].". Understand "flight" or "officer" or "azimov" or "wavy" or "blond" or "hair" or "short" as Mefe.
 
 Section 4 - Scenery
 
@@ -768,7 +768,7 @@ While you watch, a strange robotic monkey-like creature clambers out from behind
 
 It issues a series of beeps, and the space in front of you to the north rips open violently, space itself tearing. The creature dives through the tear. Officer Mefe doesn't seem to notice anything at all[deliverchipless].
 
-[only][if the player is in ship-region]A rift has opened up[otherwise]The rift leading back to the ship is[end if] to the [if the player is in flight-room][boldnorth][otherwise][boldsouth][end if]. It is glowing [if the flight-tear is red-torn]red[otherwise]green[end if]." The flight-tear is north of flight-room and south of lavatory-room.
+[only][if the player is in ship-region]A rift has opened up[otherwise]The rift leading back to the ship is[end if] to the [if the player is in flight-room][boldnorth][otherwise][boldsouth][end if]. It is glowing [rift-style of the flight-tear]." The flight-tear is north of flight-room and south of lavatory-room.
 
 Section 6 - Mefe quips
 
@@ -793,7 +793,7 @@ Living-quarters is north from lower-transit. Living-quarters is in ship-region. 
 
 Section 1 - The rift
 
-The quarters-tear is a space-tear. "[if the player is in ship-region]A rift has opened up[otherwise]The rift back to the ship is[end if] to the [if the player is in living-quarters][boldnorth][otherwise][boldsouth][end if]. It is glowing [if the quarters-tear is red-torn]red[otherwise]green[end if]." The quarters-tear is north from living-quarters and south from Overlook-room. 
+The quarters-tear is a space-tear. "[if the player is in ship-region]A rift has opened up[otherwise]The rift back to the ship is[end if] to the [if the player is in living-quarters][boldnorth][otherwise][boldsouth][end if]. It is glowing [rift-style of the quarters-tear]." The quarters-tear is north from living-quarters and south from Overlook-room. 
 
 Section 2 - Scenery
 
@@ -927,12 +927,12 @@ He stiffens and straightens up. 'You're right. Thank you, Storyweaver,' he says.
 
 He gives you a nod, and walks out of the room.
 
-The rift in this room gently turns from red to green.";
+The rift in this room gently turns from red to green, pulsing with energy.";
 	now the captain-tear is green-torn;
 
 Section 2 - The rift
 
-The captain-tear is a red-torn space-tear. "[if the player is in ship-region]A rift has opened up[otherwise]The rift leading back to the ship is[end if] to the [if the player is in captain-room][boldnorth][otherwise][boldsouth][end if]. It is glowing [if the captain-tear is red-torn]red[otherwise]green[end if]." The captain-tear is north of captain-room and south of wax-entrance. 
+The captain-tear is a red-torn space-tear. "[if the player is in ship-region]A rift has opened up[otherwise]The rift leading back to the ship is[end if] to the [if the player is in captain-room][boldnorth][otherwise][boldsouth][end if]. It is glowing [rift-style of the captain-tear]." The captain-tear is north of captain-room and south of wax-entrance. 
 
 Section 3 - Captain's Desk
 
@@ -1014,7 +1014,7 @@ The sensors-room is in bridge-region. The sensors-room is south from bridge-cent
 
 Section 1 - The rift
 
-The garden-tear is a red-torn space-tear. "[if the player is in ship-region]A rift has already opened up here[otherwise]The rift leading back to the ship is here[end if], to the [if the player is in sensors-room][boldsouth][otherwise][boldnorth][end if]. It is glowing [if the garden-tear is red-torn]red[otherwise]green[end if]." The garden-tear is south of sensors-room and north of vegetable-room. 
+The garden-tear is a red-torn space-tear. "[if the player is in ship-region]A rift has already opened up here[otherwise]The rift leading back to the ship is here[end if], to the [if the player is in sensors-room][boldsouth][otherwise][boldnorth][end if]. It is glowing [rift-style of the garden-tear]." The garden-tear is south of sensors-room and north of vegetable-room. 
 
 Section 2 - Rhys
 
@@ -1050,7 +1050,7 @@ You shake your head.
 
 He nods. 'I've got to get this to others. Thanks again, Emrys,' he says, and walks out.
 
-The rift behind you turns from red to green.";
+The rift behind you fades from red into green.";
 	now rhys is nowhere;
 	now the sketch-pad is nowhere;
 	now the garden-tear is green-torn;
@@ -1073,7 +1073,7 @@ Chapter 8 - Collapsed Hallway
 
 The collapsed-hallway is south of lower-transit. The collapsed-hallway is in ship-region. The printed name of the collapsed-hallway is "Collapsed Hallway". The description of the collapsed-hallway is "[if the collapsed-hallway is unvisited]You feel a sense of urgency as you walk through the halls, as well as something else. Fear?
 
-Trusting your Storyweaver's gift, you run through the hallways. Rounding a corner, you come across a terrible sight.
+Trusting your gut, you run through the hallways. Rounding a corner, you come across a terrible sight.
 
 [end if]This is one of the most damaged areas you have seen in the entire ship. An acrid haze drifts through the air, and a portion of the hallways has collapsed.
 
@@ -1185,9 +1185,9 @@ The slit is pushed open further by impossibly large jet-black insect leg. The le
 'What? I--I think I can get it, but it'll be a little while. Okay?' you say.
 
 'Okay,' she sniffs.";
-	now the initial appearance of the hallway-tear is "[if the player is in ship-region]A rift has opened up[otherwise]The rift leading back to the ship is[end if] to the [if the player is in collapsed-hallway][boldsouth][otherwise][boldnorth][end if]. It is glowing [if the hallway-tear is red-torn]dark red[otherwise]green[end if]."
+	now the initial appearance of the hallway-tear is "[if the player is in ship-region]A rift has opened up[otherwise]The rift leading back to the ship is[end if] to the [if the player is in collapsed-hallway][boldsouth][otherwise][boldnorth][end if]. It is glowing [rift-style of the hallway-tear]."
 
-The description of the hallway-tear is "This rift is a darker red than the other tears you've seen, like drying blood. There is something terrifying about it, but you know you can still go through it, if you're not afraid."
+The description of the hallway-tear is "This rift is [if rift-style of the hallway-tear is red-torn]a darker red than the other tears you've seen, like drying blood. There is something terrifying about it, but you know you can still go through it, if you're not afraid[otherwise][rift-style], now, and more peaceful than before[end if]."
 
 Understand "dark" or "darker" or "terrifying" or "drying" or "blood" as the hallway-tear when the hallway-tear is undisguised.
 
@@ -1234,7 +1234,7 @@ One of the guards says, 'What, and let you crack more cryotubes? We're not stupi
 
 Tiffany shoots out a bolt toward the guard in question, who ducks down.
 
-Unseen by the others, a rift opens to the [boldsouth]. Out of it creeps a small monkey-like robot that grabs hold of a grey duffel bag labelled PERSONAL BELONGINGS. It pulls it back into the rift and out of sight[or][if the player is in ship-region]A rift has opened up[otherwise]A rift leading back to the ship is[end if] to the [if the player is in brig-room][boldsouth][otherwise][boldnorth][end if]. It glows [if the brig-tear is red-torn]red[otherwise]green[end if][stopping]." The brig-tear is south of brig-room and north of the combat-lobby.
+Unseen by the others, a rift opens to the [boldsouth]. Out of it creeps a small monkey-like robot that grabs hold of a grey duffel bag labelled PERSONAL BELONGINGS. It pulls it back into the rift and out of sight[or][if the player is in ship-region]A rift has opened up[otherwise]A rift leading back to the ship is[end if] to the [if the player is in brig-room][boldsouth][otherwise][boldnorth][end if]. It glows [rift-style of brig-tear][stopping]." The brig-tear is south of brig-room and north of the combat-lobby.
 
 The missing-duffel is scenery in the brig-room. The printed name of the missing-duffel is "grey duffel bag". Understand "duffel " or "grey" or "gray" or "bag" or "personal" or "belongings" as the missing-duffel. The missing-monkey is scenery in the brig-room. Understand "monkey" or "monkey-like" or "like" or "creature" as the missing-monkey. The printed name of the missing-monkey is "monkey creature".
 
@@ -1310,7 +1310,7 @@ One of the guards clears his throat and says, 'On her way to a secure location.'
 
 The guard scratches his head. 'It was the strangest thing. There was a flash, and we heard a scuffle. Tiffany was hollering and yelling, but I couldn't hear the other guys. After it was over, we all saw Tiffany handcuffed on the ground. A couple of guards grabbed her before she could do anything else. Looks like we're good for now. I guess we didn't need your help after all, but I appreciate your coming.'
 
-The guards all file out of the room, and the rift turns green.";
+The guards all file out of the room. The red rift changes color, bursting into green.";
 	now the brig-tear is green-torn;
 	now Andy is nowhere;
 	now brig-guards are nowhere;
@@ -1323,7 +1323,7 @@ The description of Cryo-storage is "You stand in a room that stretches further t
 
 Section 1 - Rift
 
-The cryo-tear is a space-tear. "[if the player is in ship-region]A rift has opened up[otherwise]A rift leading back to the ship is[end if] to the [if the player is in cryo-storage][boldwest][otherwise][boldeast][end if]. It glows [if the cryo-tear is red-torn]red[otherwise]green[end if]." The cryo-tear is west of cryo-storage and east of the stonehenge-east. 
+The cryo-tear is a space-tear. "[if the player is in ship-region]A rift has opened up[otherwise]A rift leading back to the ship is[end if] to the [if the player is in cryo-storage][boldwest][otherwise][boldeast][end if]. It glows [rift-style of the cryo-tear]." The cryo-tear is west of cryo-storage and east of the stonehenge-east. 
 
 Section 2 - Scenery
 
@@ -1577,11 +1577,12 @@ Numbersetting it on is an action applying to one number and one thing. Understan
 Digitpowered is a truth state that varies. Digitpowered is true.
 
 Carry out numbersetting it on:
-	if digitpowered is false:
-		say "The keypad is now inert.";
-	otherwise:
-		now currentpad is remainder after dividing the number understood by 100000;
-		say "The keypad buzzes harshly. It now displays '[currentpaddisplay]'."
+	if the second noun is the digit-pad:
+		if digitpowered is false:
+			say "The keypad is now inert.";
+		otherwise:
+			now currentpad is remainder after dividing the number understood by 100000;
+			say "The keypad buzzes harshly. It now displays '[currentpaddisplay]'."
 
 To say currentpaddisplay:
 	if currentpad < 10000:
@@ -2409,7 +2410,7 @@ Instead of going from wrath-room when the achilles-javelin is enclosed by the pl
 
 Section 3 - Bloody Mary
 
-Bloody-figure is a wax-figure. The printed name of Bloody-figure is "Bloody Mary". Understand "mary" or "bloody" or "tudor" or "crues" or "harsh" as bloody-figure. The description of bloody-figure is "The artist seems to have taken several creative liberties. This is Mary Tudor, depicted as harsh and thin-lipped, wearing a sumptuous dress and brocaded mantle, sitting on a throne. Her hands are covered in--or ,at least, painted like--blood."
+Bloody-figure is a wax-figure. The printed name of Bloody-figure is "Bloody Mary". Understand "mary" or "bloody" or "tudor" or "crues" or "harsh" as bloody-figure. The description of bloody-figure is "The artist seems to have taken several creative liberties. This is Mary Tudor, depicted as harsh and thin-lipped, wearing a sumptuous dress and brocaded mantle, sitting on a throne. Her hands are covered in--or,at least, painted like--blood."
 
 The mary-throne is part of the bloody-figure. The printed name of the mary-throne is "throne". Understand "throne" or "sharp" or "edges" or "angle" or "angles" or "iron" as the mary-throne. The description of the mary-throne is "Unlike the traditional thrones of England, like St. Edwards Chair, this throne is made of iron, with sharp edges and square angles. And, again, not very accurate historically."
 
@@ -4461,7 +4462,7 @@ Chapter 9 - Wax Entrance
 
 The wax-entrance is a room. The wax-entrance is in wax-region. The printed name of the wax-entrance is "Entrance". The description of the wax-entrance is "You are standing in a long metallic hallway. To the [boldnorth], the hallway opens up and leads to a set of double doors. Above them in a font that looks half-melted are painted the words 'MYSTERY AND HISTORY'.
 
-To the [boldsouth] is [a captain-tear], glowing [if the captain-tear is red-torn]red[otherwise]green[end if]. It blocks the rest of the hallway[one of], hemming you in.
+To the [boldsouth] is [a captain-tear], glowing [rift-style of the captain-tear]. It blocks the rest of the hallway[one of], hemming you in.
 
 Something else must have been here just moments ago, as the double doors[doorsopen] have swung open, making [a closed-sign] on the doors flutter in the wind[or]. Other than that, there are no sounds around you, no movement, no signs of any human life[stopping]."
 
@@ -5002,7 +5003,7 @@ Harish comes up and puts his hand on your shoulder. 'Did you have something to d
 
 The three file into one of the apartment doors, which closes behind them. The last thing you hear is Divya's voice saying, 'Hey, where did his dog toy go?'
 
-The rift in the room turns green.";
+The rift in the room changes shade from red to green.";
 	now harish is nowhere;
 	now divya is nowhere;
 	now the quarters-tear is green-torn;
@@ -5718,13 +5719,13 @@ Chapter 10 - Peninsula
 
 The penn-room is a room. The printed name of the penn-room is "Peninsula". The penn-room is in ecocosm-region. The description of the penn-room is "This low-lying area is surrounded on three sides by an ocean whose waves are stirred up by a brisk ocean breeze. All sorts of trees grow together here, including banana, mango, and cacao trees, although none look ripe enough to eat.
 
-A metal hatch is set into the ground.
+A metal hatch is set into the ground, leading [bolddown].
 
 The only direction not blocked by the ocean is to the [boldnorth]."
 
 Section 1 - Scenery 
 
-The penn-ocean is scenery zoo-water in the penn-room. The printed name of the penn-ocean is "ocean". Understand "ocean" or "wave" or "waves"or "water"or "choppy" as the penn-ocean. The description of the penn-ocean is "The water is choppy , blown wild by the wind."
+The penn-ocean is scenery zoo-water in the penn-room. The printed name of the penn-ocean is "ocean". Understand "ocean" or "wave" or "waves"or "water"or "choppy" as the penn-ocean. The description of the penn-ocean is "The water is choppy, blown wild by the wind."
 
 Instead of entering the penn-ocean:
 	try swimming;
@@ -6487,9 +6488,21 @@ This is the rifted entering rule:
 		say "*************************************************************************************************[paragraph break]";
 		now the player is in the destination-room of the noun;
 	otherwise:
-		say "You reach toward [the noun], but you are unable to touch it. The rift is not open.";
+		say "You reach toward [the noun], but you are unable to touch it. The rift feels closed off.";
 	
 The standard report entering rule does nothing when entering a scene-rift.
+
+Check an actor going (this is the can't go through closed rifts rule):
+	if the door gone through is rifty:
+		if the door gone through is open, continue the action;
+		if the door gone through is wall-like and the location is hub-room:
+			say "There's only a blank wall in that direction.";
+			stop the action;
+		otherwise:
+			say "You try to enter [the door gone through], but it feels closed off, somehow.";
+			stop the action.
+
+The can't go through closed doors rule does nothing when going through a rifty door.
 
 Chapter 1 - Main room
 
@@ -6497,7 +6510,9 @@ Chapter 1 - Main room
 
 Device-room is a room in the tool-region. The printed name of Device-room is "The Device". The description of Device-room is "This is a small room enclosed entirely by metal. Each of the walls is adorned with a giant octagon, and the floor and ceilings are a kind of steel mesh. Everything is meticulously clean. To one side is a ladder leading [boldup].
 
-In the center is a simple black pedestal which is labelled YANG ENGINE MK XCI. There is a screen on the pedestal[if the purple-drawings are part of the tool-pedestal], and the whole thing is currently covered in purple drawings[end if][if the meter-rings are part of the tool-pedestal]. It is surrounded by a disc inscribed with rings[end if][if a pedestal-button is part of the tool-pedestal]. 
+In the center is a simple black pedestal which is labelled YANG ENGINE MK XCI. There is a screen on the pedestal[one of] that currently says:
+
+[italic-pedestal][or] displaying a message[stopping][if the purple-drawings are part of the tool-pedestal], and the whole thing is currently covered in purple drawings[end if][if the meter-rings are part of the tool-pedestal]. It is surrounded by a disc inscribed with rings[end if][if a pedestal-button is part of the tool-pedestal]. 
 
 [A list of pedestal-buttons that are part of the tool-pedestal] [are] lit up on the pedestal, glowing on its surface[end if][if the radiation-dial is part of the tool-pedestal]. A dial is also lit up[end if]."
 
@@ -6521,7 +6536,7 @@ Section 1 - The tool pedestal
 To say italic-pedestal:
 	say "[italic type][pedestal-text][roman type]";
 
-The tool-pedestal is an enterable scenery supporter in the device-room. The printed name of the tool-pedestal is "pedestal". Understand "single" or "simple" or "black" or "pedestal" as the tool-pedestal. The description of the tool-pedestal is "The pedestal rises out of the floor in the center of the room[if the meter-rings are part of the tool-pedestal], surrounded by a disc inscribed with rings[end if]. It has a simple display on it that reads:
+The tool-pedestal is an enterable scenery supporter in the device-room. The printed name of the tool-pedestal is "pedestal". Understand "single" or "simple" or "black" or "pedestal" or "label" or "labelled" as the tool-pedestal. The description of the tool-pedestal is "The pedestal, labelled YANG ENGINE MK XCI, rises out of the floor in the center of the room[if the meter-rings are part of the tool-pedestal], surrounded by a disc inscribed with rings[end if]. It has a simple display on it that reads:
 
 [italic-pedestal]
 
@@ -6531,20 +6546,17 @@ Near the top of the pedestal is a tiny hole. The top of the pedestal is flat[if 
 
 Purple drawings cover the pedestal[end if]."
 
-Before taking the curious-tool when the pedestal-screen is unexamined:
-	say "As you reach your hand towards the tool, you hear a beep from the screen, so you pause." instead;
-
-The pedestal-screen is part of the tool-pedestal. Understand "screen" or "display" as the pedestal-screen. The printed name of the pedestal-screen is "screen". The description of the pedestal-screen is "The screen on the pedestal displays the following text:
+The pedestal-screen is part of the tool-pedestal. Understand "screen" or "display" or "message" as the pedestal-screen. The printed name of the pedestal-screen is "screen". The description of the pedestal-screen is "The screen on the pedestal displays the following text:
 
  [italic-pedestal]"
 
-Pedestal-text is some text that varies. Pedestal-text is "Welcome. Your presence in this room indicates that you have been approved for the use of the portable Savoy Multitool. 
+Pedestal-text is some text that varies. Pedestal-text is "Welcome to Yang Labs! Your presence in this room indicates that you have been approved for the use of the portable Savoy Multitool, or are a hardened criminal willing to resort to desperate measures. Let's hope for the first one! Please ignore any sirens you may here while you keep you occupied. 
 
-Use of this tool without proper training is prohibited. After feedback from trainees on the length and interest level of the training material, our current procedures have changed. Trainees will gain further abilities in the multi-tool by demonstrating their understanding of its current abilities.
+Use of this tool without proper training is prohibited. Trainees will gain further abilities in the multi-tool by demonstrating their understanding of its current abilities. Training may include mental challenges appropriate for your level.
 
 Your tool is currently limited to its most limited ability: unlocking doors. Demonstrate your ability to use the tool by finding one of our several outposts, each marked with a door with an octagon symbol. Each of these rooms contains a crystal shard, a type of fuel source. Bring the shard and return to this room. 
 
-When you have the shard and are ready for your upgrade, place the tool on top of the pedestal and place the crystal shard in the small hole at the top. "
+Good luck, and thank you for visiting Yang Labs! When you have the shard and are ready for your upgrade, place the crystal shard in the small hole at top."
 
 [add a spiderweb map here. The map indicates items brought from one area to another.]
 
@@ -6566,27 +6578,80 @@ Every turn when the crystal-hole is closed:
 		if the crystal-hole is visible:
 			say "[The crystal-hole] opens again.";
 
+Before putting the curious-tool on the tool-pedestal:
+	if the eighth-shard is part of the curious-tool:
+		 if tool-charge < 9:
+			let temp be 9 minus tool-charge;
+			say "You put the tool on the pedestal, but the pedestal buzzes and tilts forward slightly, knocking the tool back into your hands.
+
+The display briefly changes to say:
+
+ [italic type]All of the major rifts must be harvested before the end. There are currently [temp] rifts remaining to be harvested.[roman type]
+
+It then returns to its previous message." instead;
+	otherwise unless there is a crystal-shard in the crystal-hole:
+		say "You put the tool on the pedestal, but the pedestal buzzes and tilts forward slightly, knocking the tool back into your hands.
+
+The display briefly changes to say:
+
+ [italic type]You must insert a crystal shard into the receptacle before you can proceed with this upgrade.[roman type]
+
+It then returns to its previous message." instead;
+	
+Instead of inserting something into the tool-pedestal:
+	try inserting the noun into the crystal-hole;
+
 Section 2 - The curious tool itself
 
-The curious-tool is on the tool-pedestal. The printed name of the curious-tool is "curious tool". Understand "curious" or "tool" or "cylinder" or "lockpick" or "flashlight" or "savoy" or "niche" or "niches" or "multitool" as the curious-tool. The description of the curious-tool is "This is a cylindrical device with a dial at one end. Eight niches circle the tool[if a crystal-shard is part of the curious-tool], of which [the number of crystal-shards that are part of the curious-tool] are filled with crystal shards[end if].
+The curious-tool is on the tool-pedestal. "A curious tool has been placed on top of the pedestal." The printed name of the curious-tool is "curious tool". Understand "curious" or "tool" or "cylinder" or "lockpick" or "flashlight" or "savoy" or "niche" or "niches" or "multitool" as the curious-tool. The description of the curious-tool is "This is a cylindrical device with a dial at one end. Eight niches circle the tool[if a crystal-shard is part of the curious-tool], of which [the number of crystal-shards that are part of the curious-tool] are filled with crystal shards[end if].
 
-[first time]There are different settings marked at the bottom. [only]The dial is currently set to [tool-mode of the curious-tool]. The available settings are Inert, Lockpick, Flashlight, Diagnose, Locator, and Harvest."
+[first time]There are different settings marked at the bottom. [only]The dial is currently set to [tool-mode of the curious-tool]. [toolmodelist]."
 
-The tool-dial is part of the curious-tool. Understand "dial" as the tool-dial. The printed name of the tool-dial is "dial". The description of the tool-dial is "The dial is currently set to [tool-mode of the curious-tool]. The available settings are Inert, Lockpick, Flashlight, Locator, and Harvest."
+The tool-dial is part of the curious-tool. Understand "dial" as the tool-dial. The printed name of the tool-dial is "dial". The description of the tool-dial is "The dial is currently set to [tool-mode of the curious-tool]. [toolmodelist]."
 
-Tool-Mode is a kind of value. The tool-modes are Inert, Lockpick, Flashlight, Diagnose, Locator, and Harvest. The curious-tool has a tool-mode. The curious-tool is inert. Understand "diagnosis" as diagnose.
+Tool-Mode is a kind of value. The tool-modes are Inert, Lockpick, Flashlight, Diagnose, Locator, Connector, and Harvester. The curious-tool has a tool-mode. The curious-tool is inert. Understand "diagnosis" as diagnose.
 
 Understand "set [curious-tool] to [a tool-mode]" or "turn [curious-tool] to [a tool-mode]" or "set [tool-dial] to [a tool-mode]" or "turn [tool-dial] to [a tool-mode]" as tuning it to. Tuning it to is an action applying to one thing and one tool-mode. 
 
-Instead of setting the curious-tool to something: 
-	say "The only available settings are: Inert, Lockpick, Flashlight, Diagnose, Locator, and Harvest." 
+To say toolmodelist:
+	if the eighth-shard is part of the curious-tool:
+		say "The available settings are Inert, Lockpick, Flashlight, Diagnose, Locator, Connector, and Harvester";
+	otherwise if the fourth-shard is part of the curious-tool:
+		say "The available settings are Inert, Lockpick, Flashlight, Diagnose, Locator, and Connector. There is a Harvester setting that appears unavailable";
+	otherwise if the third-shard is part of the curious-tool:
+		say "The available settings are Inert, Lockpick, Flashlight, Diagnose, and Locator. There are a Connector setting and a Harvester setting that appear unavailable";
+	otherwise if the second-shard is part of the curious-tool:
+		say "The available settings are Inert, Lockpick, Flashlight, and Diagnose. There are other settings that are currently unavailable: Locator, Connector, and Harvester";
+	otherwise if the first-shard is part of the curious-tool:
+		say "The available settings are Inert, Lockpick, and Flashlight. There are other settings that are currently unavailable: Diagnose, Locator, Connector, and Harvester";
+	otherwise:
+		say "The available settings are Inert, and Lockpick. There are other settings that are currently unavailable: Flashlight, Diagnose, Locator, Connector, and Harvester";
+
+Modeswitching is an action applying to one tool-mode. Understand "turn on [a tool-mode]" or "activate [a tool-mode]" or "[tool-mode]" as modeswitching when the curious-tool is visible. 
+
+Carry out modeswitching:
+	try tuning the curious-tool to the tool-mode understood;
+
+Modeoffswitching is an action applying to one tool-mode. Understand "turn off [a tool-mode]" as modeoffswitching when the curious-tool is visible. 
+
+Carry out modeoffswitching:
+	try tuning the curious-tool to Inert;
+	
+Instead of switching off the curious-tool:
+	try tuning the curious-tool to inert;
+	
+Instead of switching on the curious-tool:
+	say "You'll have to pick a setting to turn it to. [toolmodelist]."
+
+Instead of tuning the curious-tool to something: 
+	say "[toolmodelist]." 
 
 Check tuning it to: 
 	if the noun is not the curious-tool and the noun is not the tool-dial, say "Only the curious tool can be set to [the tool-mode understood]." instead;
 	
 Check tuning it to: 
 	if the curious-tool is the tool-mode understood:
-		say  "The lockpick is already set to [the tool-mode understood]." instead;
+		say  "The tool is already set to [the tool-mode understood]." instead;
 
 Carry out tuning it to: 
 	now the tool-mode of the curious-tool is the tool-mode understood. 
@@ -6601,53 +6666,87 @@ Report tuning it to:
 			now curious-tool unlocks current;
 		now curious-tool unlocks treasure-case;
 		now curious-tool unlocks arthur-briefcase;
-		if the fourth-shard is not part of the curious-tool:
-			say "[line break]The tool beeps and a voice says, 'Lockpick activated.'";
-			say "[line break][bracket]To use the lockpick, simply UNLOCK a locked door WITH the tool.[close bracket][line break]";
-		otherwise:
-			say "[line break]The tool beeps and a voice says, 'Lockpick activated. This mode may be used to open rifts. Some rifts may not be openable due to lack of power. You may continue to use the standard lockpick feature in this mode as well.'";
+		say "[line break]The tool beeps and a voice says, 'Lockpick activated.'";
+		say "[line break][bracket]To use the lockpick, simply UNLOCK a locked door WITH the tool.[close bracket][line break]";
 	otherwise:
 		repeat with current running through lockable doors:
 			now curious-tool does not unlock current;
 		now curious-tool does not unlock treasure-case;
-		repeat with current running through hub-doors:
-			now current is wall-like;
 	if the curious-tool is flashlight:
 		if the first-shard is not part of the curious-tool:
-			say "[line break]The tool beeps and a voice says, 'Flashlight setting. You must upgrade your device for this setting to function.'";
+			say "[line break]The tool beeps and a voice says, 'Flashlight setting. You must upgrade your device for this setting to function.'
+
+The tool sets itself to Inert.";
+			now curious-tool is Inert;
 		otherwise:
 			now curious-tool is lit;
 			say "[line break]The tool beeps and a voice says, 'Flashlight activated.'
 
 The tool brightens up the surrounding area considerably.";
+		say "[line break][bracket]The flashlight automatically lightens the surrounding area. There is no need to point it anywhere.[close bracket][line break]";
 	otherwise if the curious-tool is diagnose:
 		if the second-shard is not part of the curious-tool:
-			say "[line break]The tool beeps and a voice says, 'Diagnose setting. You must upgrade your device for this setting to function.'";
+			say "[line break]The tool beeps and a voice says, 'Diagnose setting. You must upgrade your device for this setting to function.'
+
+The tool sets itself to Inert.";
+			now curious-tool is Inert;
 		otherwise if the player is in yang-chamber:
 			say "[line break]The tool beeps and says, 'You are located entirely in a rift.
 
 Creation date: 1205/51
-Type: Black
+Type: White
 Separation type: None
 Separation distance: None'[line break]";
 		otherwise:
-			say "[line break]The tool beeps and a voice says, 'Ready to diagnose. Point this tool at any rift you wish to diagnose.'";
+			say "[line break]The tool beeps and a voice says, 'Diagnose settting activated.'";
+		say "[line break][bracket]To diagnose a rift, simply POINT the tool AT the rift in question.[close bracket][line break]";
 	otherwise if the curious-tool is locator:
 		if the third-shard is not part of the curious-tool:
-			say "[line break]The tool beeps and a voice says, 'Locator setting. You must upgrade your device for this setting to function.'";
+			say "[line break]The tool beeps and a voice says, 'Locator setting. You must upgrade your device for this setting to function.'
+
+The tool sets itself to Inert.";
+			now curious-tool is Inert;
 		otherwise:
-			say "[line break]The tool beeps and a voice says, 'Now locating temporally displaced objects, which will glow. To see the original dimension of a displaced object, simply point the tool at the object.'[paragraph break]";
+			say "[line break]The tool beeps and a voice says, 'Locator activated.'";
 			locate-action;
-	otherwise if the curious-tool is harvest:
-		if the eighth-shard is not part of the curious-tool:
-			say "[line break]The tool beeps and a voice says, 'Harvest setting. You must upgrade your device for this setting to function'";
+			say "[line break][bracket]This setting makes temporally displaced objects glow. To see the original dimension of a displaced object, simply POINT the tool AT any glowing object.[close bracket][line break]";
+	otherwise if the curious-tool is connector:
+		if the fourth-shard is not part of the curious-tool:
+			say "[line break]The tool beeps and a voice says, 'Connector setting. You must upgrade your device for this setting to function.'
+
+The tool sets itself to Inert.";
+			now curious-tool is Inert;
 		otherwise:
-			say "[line break]The tool beeps and a voice says, 'Now able to harvest green rifts. Just point the tool at the rift you wish to harvest. You will not be able to travel through it once you have harvested it.'";
+			say "[line break]The tool beeps and a voice says, 'Connector activated.'";
+			say "[line break][bracket]To use the connector, simply OPEN a black rift while the tool has this setting, or POINT the tool AT the rift.[close bracket][line break]";
+	otherwise if the curious-tool is Harvester:
+		if the eighth-shard is not part of the curious-tool:
+			say "[line break]The tool beeps and a voice says, 'Harvester setting. You must upgrade your device for this setting to function'
+
+The tool sets itself to Inert.";
+			now curious-tool is Inert;
+		otherwise:
+			say "[line break]The tool beeps and a voice says, 'Harvester activated.'";
+			say "[line break][bracket]This setting allows you to harvest green rifts. Just POINT the tool AT the rift you wish to harvest. You will not be able to travel through it once you have harvested it. For safety reasons, you will not be allowed to harvest rifts in a way that could leave you stranded.[close bracket][line break]";
 	otherwise:
 		now curious-tool is not lit;
 
 Report looking when the curious-tool is locator:
 	locate-action;
+
+Instead of unlocking a scene-rift with the curious-tool:
+	try opening the noun;
+Instead of unlocking a hub-door with the curious-tool:
+	try opening the noun;
+Instead of unlocking a space-tear with the curious-tool:
+	try opening the noun;
+
+Instead of locking a scene-rift with the curious-tool:
+	try opening the noun;
+Instead of locking a hub-door with the curious-tool:
+	try opening the noun;
+Instead of locking a space-tear with the curious-tool:
+	try opening the noun;
 
 To locate-action:
 	if the curious-tool is held by the player:
@@ -6692,59 +6791,64 @@ Carry out atpointing it at:
 				say "The tool beeps and says, 'This object belongs temporally to the location you titled '[dimname entry].'";
 			otherwise:
 				say "The tool beeps and says, 'This object is not temporally displaced.'";
+		otherwise if the curious-tool is connector:
+			if the noun is rifty:
+				try opening the noun;
+			otherwise:
+				say "The tool beeps and says, 'That is not a rift and cannot be connected.'";
 		otherwise:
 			say "Nothing [adapt the verb happen].";
 	otherwise:
 		say "Nothing [adapt the verb happen].";
 
+Connecting is an action applying to one visible thing. Understand "connect [something]" as connecting when the fourth-shard is part of the curious-tool.
+
+Carry out connecting:
+	if the curious-tool is not held by the player:
+		say "You're not holding [the curious-tool].";
+	otherwise if the curious-tool is not connector:
+		say "[The curious-tool] is not set to Connector.";
+	otherwise:
+		try atpointing the curious-tool at the noun;
+
 Section 3 - The first upgrade
 
 After inserting the first-shard into the crystal-hole:
-	if the curious-tool is not on the tool-pedestal:
-		now the pedestal-text is "Place the tool on the pedestal to proceed with the upgrade.";
-		say "You insert the crystal into the receptacle. The display changes to say '[italic-pedestal].'";
-	otherwise:
-		say "You insert the crystal into the receptacle, and the hole closes up after it.";
+	now pedestal-text is "This upgrade will allow your tool to serve as a light source, and will allow us to determine your range of vision. Place the tool on the pedestal to begin calibration for this upgrade.";
+	say "You place the crystal shard into the receptacle.
 
-After putting the curious-tool on the tool-pedestal when first-upgrade has not happened:
-	if the first-shard is not in the crystal-hole:
-		now the pedestal-text is "[if the curious-tool is on the tool-pedestal]Place a crystal shard into the receptacle to proceed with the upgrade[otherwise]Return the tool to the pedestal and place a crystal shard into the receptacle to start the next upgrade[end if].";
-		say "You place the tool on the pedestal. The display changes to say:
+The display changes to say:
 
-[italic-pedestal][line break]";
-	otherwise:
-		say "You insert the crystal into the receptacle.";
+ [italic-pedestal] 
+
+The receptacle closes up, the shard still inside.";
 
 Before going from device-room when the lead-apron is enclosed by the player:
 	if first-upgrade is happening:
 		say "There is a harsh buzzing sound as you try to leave. 'Please remain in the safe area during the upgrade.'" instead;
 	otherwise:
 		say "There is a harsh buzzing sound as you try to leave. 'Please do not take the lead apron from the room.'" instead;
-		
+
+Before entering something when the lead-apron is enclosed by the player:
+	if first-upgrade is happening:
+		say "There is a harsh buzzing sound as you try to leave. 'Please remain in the safe area during the upgrade.'" instead;
+	otherwise:
+		say "There is a harsh buzzing sound as you try to leave. 'Please do not take the lead apron from the room.'" instead;
+	
+A pedestal-button is a kind of thing. Understand "button" as a pedestal-button. Understand "buttons" as the plural of pedestal-button. A pedestal-button is never proper-named. 
+
 First-upgrade is a scene. First-upgrade begins when the first-shard is in crystal-hole and the curious-tool is on the tool-pedestal.
 
 When first-upgrade begins:
-	now pedestal-text is "This upgrade will allow your tool to serve as a flashlight. Press Confirm to begin calibration for this upgrade.";
-	say "The pedestal opens up and pulls the tool inside, closing up again after it.
+	now pedestal-text is "Due to the dangers of radiation sickness, please wear the apron before proceeding. Past experience has shown that wearing the lead apron can reduce casualties to 20%, or even lower!";
+	say "The pedestal opens up to pull in the tool before closing again.
 
-The display changes to say:
-
- [italic-pedestal] 
-
-A button labelled Confirm lights up on the pedestal.";
-	now the curious-tool is nowhere;
-	now the confirm-button is part of the tool-pedestal;
-
-A pedestal-button is a kind of thing. Understand "button" as a pedestal-button. Understand "buttons" as the plural of pedestal-button. A pedestal-button is never proper-named. 
-
-After pushing the confirm-button when first-upgrade is happening:
-	now pedestal-text is "Due to the dangers of radiation sickness, please wear the apron before proceeding.";
-	say "The pedestal beeps, and the button disappears. The floor rumbles as the pedestal rises, revealing that it was larger than you had expected. 
+The floor rumbles as the pedestal rises, revealing that it was larger than you had expected. 
 
 On top of the newly revealed portion of the pedestal is a lead apron. The display updates to say:
 
  [italic-pedestal][line break]";
-	now the confirm-button is nowhere;
+	now the curious-tool is nowhere;
 	now the lead-apron is on the tool-pedestal;
 	
 The lead-apron is a wearable thing. The printed name of the lead-apron is "lead apron". Understand "lead" or "apron" or "heavy" as the lead-apron. The description of the lead-apron is "This heavy lead apron seems designed to protect the wearer from radiation.
@@ -6754,7 +6858,9 @@ Someone's written inside of it: 'To return: place on the pedestal once the upgra
 After wearing the lead-apron for the first time:
 	now the pedestal-text is "For calibration of electromagnetic emissions, you will be provided with five different test settings, which we have designated as A, B, C, D, and E. 
 
-For each setting that you experience, select the setting on the dial that most clearly represents the type of electromagnetic radiation being admitted. Some additional diagnostic tools have been provided you in the form of buttons. Press the Help button if you have any questions.
+For each setting that you experience, select the setting on the dial that most clearly represents the type of electromagnetic radiation being admitted.
+
+Most electromagnetic radiation is invisible. To classify the radiation appropriately, some additional diagnostic tools have been provided you in the form of buttons. Press the Help button (indicated by a question mark) if you have any questions.
 
 Now testing setting A. Please turn the dial to the correct setting corresponding to the EM radiation being emitted.";
 	say "Parts of the pedestal light up, including a dial with unusual settings and buttons with images of a camera, a radio antenna, and a question mark.
@@ -6772,7 +6878,7 @@ As soon as the text displays, there is a 'click' and glowing purple drawings app
 	
 The purple-drawings are a thing. Understand "purple" or "drawing" or "drawings" or "fluorescent" or "flourescent" as the purple-drawings. The printed name of the purple-drawings is "purple drawings". The description of the purple-drawings is "These purple drawings are abstract and cover the pedestal. They appear fluorescent, like images under a blacklight."
 
-A tool-freq is a kind of value. A tool-freq has some text called the printed name. The tool-freqs are uv-ray, vis-light, x-ray, rad-io, and infra-red. Understand "jagged" or "sunlight" or "symbol" as uv-ray. Understand "rainbow" or "symbol" as vis-light. Understand "thermometer" or "symbol" as infra-red. Understand "skull" as x-ray. Understand "radio" or "tower" or "symbol" or "radio tower" as rad-io. 
+A tool-freq is a kind of value. A tool-freq has some text called the printed name. The tool-freqs are uv-ray, vis-light, x-ray, rad-io, and infra-red. Understand "jagged" or "sunlight" or "symbol" as uv-ray. Understand "rainbow" or "symbol" as vis-light. Understand "thermometer" or "symbol" as infra-red. Understand "skeleton" as x-ray. Understand "radio" or "tower" or "symbol" or "radio tower" as rad-io. 
 
 To say (x - a tool-freq):
 	if x is uv-ray:
@@ -6784,7 +6890,7 @@ To say (x - a tool-freq):
 	if x is rad-io:
 		say "radio tower symbol";
 	if x is x-ray:
-		say "skull symbol";
+		say "skeleton symbol";
 
 A pedestal-button has some text called the button-name. A pedestal-button has some text called the button-desc. The printed name of a pedestal-button is usually "[button-name] button". Understand the button-name property as describing a pedestal-button. The description of a pedestal-button is usually "This button on the pedestal is labelled with [button-desc]."
 
@@ -6809,8 +6915,11 @@ Instead of examining the radiation-dial:
 		 let N be the number of entries in the current-freq of the radiation-dial; 
 		 say "The dial has several markings on it: a [uv-ray], a [vis-light], a [infra-red], a [rad-io], and a [x-ray]. You can SET or TURN the dial to any of these symbols. The dial is currently pointing to the [entry N of the current-freq of the radiation-dial].". 
 
+Instead of setting the radiation-dial to something:
+	say "You can only set the dial to the [uv-ray], the [vis-light], the [infra-red], the [rad-io], or the [x-ray]."
+
 Check setting something frequencely to (this is the block setting frequencely rule): 
-	say "[The noun] cannot be set." 
+	say "[The noun] cannot be set."  instead;
 
 Radio-on is a truth state that varies. Radio-on is false.
 Antenna-extended is a truth state that varies. Antenna-extended is false.
@@ -6917,7 +7026,7 @@ close-button	"close"	"the word Close"
 harvest-button	"harvest"	"the word Harvest"
 confirm-button	"confirm"	"the word Confirm"
 
-Understand "question" or "mark" as the emf-button. Understand "image" as receiver-button. Understand "image" as photo-button. Understand "word" as diagnosis-button. Understand "word" as repeat-button. Understand "word" as next-pedestal. Understand "word" as back-pedestal. Understand "word" as name-pedestal. Understand "word" as open-button. Understand "close" as the close-button. Understand "word" as harvest-button. Understand "word" as confirm-button. Understand "help" as the emf-button.
+Understand "question" or "mark" or "help" as the emf-button. Understand "image" as receiver-button. Understand "image" as photo-button. Understand "word" as diagnosis-button. Understand "word" as repeat-button. Understand "word" as next-pedestal. Understand "word" as back-pedestal. Understand "word" as name-pedestal. Understand "word" as open-button. Understand "close" as the close-button. Understand "word" as harvest-button. Understand "word" as confirm-button. Understand "help" as the emf-button.
 
 [add buttons as plural of button? allow multiple examines with buttons or create button object?]
 [add buttons to pedestal description]
@@ -6957,6 +7066,8 @@ Instead of pushing the receiver-button:
 Instead of pushing the photo-button:
 	if xrays-present is true:
 		now the polar-oid is foggy;
+	otherwise:
+		now the polar-oid is not foggy;
 	now the polar-oid is part of the tool-pedestal;
 	say "There is a flash. [if the polar-oid is not nowhere]The old polaroid disappears into the pedestal, and a new one[otherwise]A polaroid[end if] pops out. It is a [if the polar-oid is foggy]somehow foggy[otherwise]normal[end if] picture of you.";
 	
@@ -6985,33 +7096,33 @@ Instead of putting the lead-apron on the tool-pedestal when first-upgrade has en
 
 Section 4 - The second upgrade
 
-Second-upgrade is a scene. Second-upgrade begins when second-shard is in the crystal-hole and the curious-tool is on the tool-pedestal.
-
-When second-upgrade begins:
+After inserting the second-shard into the crystal-hole:
 	now pedestal-text is "Due to your progress and your status as Storyweaver, you will now be able to access more in-depth upgrades.
 
 This upgrade will allow your tool to diagnose the status of rifts, which are connections or wormholes in space. These can include spatial and temporal rifts. Due to the dangers of non-closed time loops, the upgrade process will take place in standard Spherical Space, which is a variety of rift. Your tool will need to be properly calibrated to ensure it measures both time and space accurately.
 
-This training is not authorized to be divulged to others. Unauthorized use or sharing of this training may result in fines, imprisonment, and, in extreme cases, capital punishment. Press Confirm to begin calibration and training for this upgrade.";
-	say "The pedestal opens up and pulls the tool inside, closing up again after it.
+This training is not authorized to be divulged to others. Unauthorized use or sharing of this training may result in fines, imprisonment, and, in extreme cases, capital punishment. Place the tool on the pedestal to begin calibration and training for this upgrade.";
+	say "You place the crystal shard into the receptacle.
 
 The display changes to say:
 
-[italic-pedestal]
+ [italic-pedestal] 
 
-A button labelled Confirm lights up on the pedestal.";
-	now the curious-tool is nowhere;
-	now the confirm-button is part of the tool-pedestal;
+The receptacle closes up, the shard still inside.";
 
-After pushing the confirm-button when second-upgrade is happening:
+Second-upgrade is a scene. Second-upgrade begins when second-shard is in the crystal-hole and the curious-tool is on the tool-pedestal.
+
+When second-upgrade begins:
 	now pedestal-text is "Training and calibration will now commence. 
 
 Rifts, or interdimensional portals, are pieces of spacetime that may be connected to one another or exist in isolation. For instance, this training chamber is contained in a rift. Press the Diagnosis button to obtain information on this rift that surrounds you.";
 	now the tool-pedestal is in sphere-room;
+	say "The pedestal opens up to pull in the tool before closing again.";
 	say "[line break]*************************************************************************************************[line break]";
 	say "You are engulfed in a black haze, losing all sense of direction. Slowly the haze clears.";
 	say "*************************************************************************************************[paragraph break]";
 	now the player is in sphere-room;
+	now the curious-tool is nowhere;
 	now the confirm-button is nowhere;
 	now the meter-rings are part of the tool-pedestal;
 	now the diagnosis-button is part of the tool-pedestal;
@@ -7019,7 +7130,7 @@ Rifts, or interdimensional portals, are pieces of spacetime that may be connecte
 [FIX THIS LATER make actual yang chamber diagnosable in monuments dimension, make all other rifts diagnosable]
 The meter-rings are a thing. The printed name of the meter-rings is "meter rings". Understand "metal" or "disc" or "disk"or "ring" or "rings" or "circle" or "label" or "center" as the meter-rings. The description of the meter-rings is "The disc around the pedestal has rings marked on it labelled in meters from the center. It goes, according to the label, eight meters out from the pedestal[if the blue-exit is in the location].
 
-The outer blue rift is on the third ring[end if]."
+The outer blue rift is on the fourth ring[end if]."
 
 Instead of putting something on the meter-rings:
 	try dropping the noun;
@@ -7068,13 +7179,11 @@ To say timestamp:
 	say the substituted form of "[temp]";
 
 Instead of pushing diagnosis-button for the first time:
-	now pedestal-text is "DIAGNOSIS:
-Creation date: 1205/51[line break]
-Type: Black [line break]
-Separation type: None (Interior)[line break]
-Separation distance: None
+	now pedestal-text is "DIAGNOSIS:[line break]Creation date: 1205/51[line break]Type: White [line break]Separation type: None [line break]Separation distance: None
 
-As you can see, this is a black rift, the term used for a chunk of space separated from the rest of reality. We usually refer to such a thing as a [']closed space[']. This is used to protect baseline reality from the effects of this testing. It is called black because that is what it appears as from the outside.
+As you can see, this is a white rift, the term used for a chunk of space separated from the rest of reality. We usually refer to such a thing as a [']closed space[']. This is used to protect baseline reality from the effects of this testing. From an outside perspective, all an observer could see would be an emptiness we call a black rift, which you will soon see.
+
+A black rift is a hole, and a white rift is what is taken out of the hole. If the white rift is replaced in the black rift, reality is restored. But, instead, if two black rifts are sewn together, they create a wormhole, and can take on a variety of colors depending on their attributes.
 
 We can create rifts within this rift. Let's diagnose this next one with the same button.";
 	say "The display updates to say:
@@ -7090,12 +7199,7 @@ Instead of putting something on the tool-pedestal when the player is in the sphe
 	say "There is a harsh buzzing. 'Please keep unauthorized items away from the pedestal,' says a voice."
 
 Instead of pushing diagnosis-button for the second time:
-	now pedestal-text is "DIAGNOSIS:
-
-Creation date: 1205/51[line break]
-Type: Black [line break]
-Separation type: None (Exterior)[line break]
-Separation distance: None
+	now pedestal-text is "DIAGNOSIS:[line break]Creation date: 1205/51[line break]Type: Black [line break]Separation type: None[line break]Separation distance: None
 
 This is what a black rift looks like from the outside. It is essentially a hole in space, the part that's left over when a closed space like ours is scooped out.
 
@@ -7104,7 +7208,7 @@ Creating these portals requires an immense energy source., but most of that ener
 We will now close the black portal, and open a blue rift, which will appear to you as two rifts. You can use the Diagnosis button for these portals as well.";
 	say "The display updates to say:
 
-'[italic-pedestal]'
+[italic-pedestal]
 
 The black rift disappears. In its stead, two small blue rifts appear, one at the base of the pedestal and further out on the spaced rings.";
 	now the black-rift is nowhere;
@@ -7130,19 +7234,15 @@ The blue-exit is a scenery scene-rift. The printed name of the blue-exit is "out
 Understand "Diagnose" as the diagnosis-button.
 
 Instead of pushing diagnosis-button for the third time:
-	now pedestal-text is "DIAGNOSIS:
-
-Creation date: 1205/51 [timestamp][line break]
-Type: Blue[line break]
-Separation type: Spatial[line break]
-Separation distance: ???
+	now pedestal-text is "DIAGNOSIS:[line break]Creation date: 1205/51[line break]
+Type: Blue[line break]Separation type: Spatial[line break]Separation distance: ???
 
 Note that pair are simultaneously diagnosed, as they are essentially the same rift.
 
 Note that the separation distance is not confirmed. Please observe the physical separation measured by the spaced rings and enter the distance on the dial.";
 	say "The display updates to say:
 
-'[italic-pedestal]'
+[italic-pedestal]
 
 A dial appears on the surface of the pedestal.";
 	now the number-dial is part of the tool-pedestal; 
@@ -7179,6 +7279,9 @@ Understand "turn [number-dial] to [a number]" or "set [number-dial] to [a number
 
 [allow putting something in the blue portals?]
 
+Instead of setting the number-dial to something:
+	say "You can only set the dial to a number between 0 and 8."
+
 Instead of spinning the number-dial to 4 when the blue-exit is in the location:
 	now pedestal-text is "Correct.
 
@@ -7186,7 +7289,11 @@ A blue rift separates things in space only. An object introduced into one of the
 
 Tiny blue rifts power the simple functions of the tool you have carried, allowing it to unlock mechanical locks or to transmit light from nearby sources.
 
-We now introduce red rifts for you to experiment with. Please take the next few minutes to wait and observe. You may diagnose the next rift whenever you want, once it has appeared. If you miss your window to diagnose the rift, you will have to repeat the calibration. Note that while you may see two rifts, there is only one rift, separated in time, as well as in space.";
+We now introduce red rifts for you to experiment with. According to Einstein's theory of relativity, the distance between two events have what's known as space-like separation, time-like separation, or light-like separation. When two rifts that have space-like separation are connected, they glow blue from the energy. 
+
+However, when two rifts that have time-like separation are connected, they glow with a color invisible to the naked eye, but which appears red to those with the Storyweaver gene. These red portals create a kind of tension between the past and future; this tension can be called fate, or luck, or a temporal singularity. Once that tension is resolved, the energy level of the rifts increases dramatically, shifting them into a green color.
+
+Please take the next few minutes to wait and observe. You may diagnose the next rift whenever you want, once it has appeared. If you miss your window to diagnose the rift, you will have to repeat the calibration. Note that while you may see two rifts, there is only one rift, separated in time, as well as in space.";
 	say "A metal ball pops out of the pedestal and into the ring labelled [the number understood]. It circles the track, and rolls into the blue rift, disappearing.
 
 Simultaneously, it reappears in the blue rift at the base of the pedestal. A chime plays, and the number dial sinks away.
@@ -7207,7 +7314,7 @@ A metal-ball is a kind of thing. A Ball-1 is a metal-ball. A Ball-2 is a metal-b
 
 Red-scene is a recurring scene. Red-scene begins when a metal-ball is in the location. Red-scene ends when the number of metal-balls in the location is 0.
 	
-The tiny-red is a scenery scene-rift. The printed name of the tiny-red is "tiny red rift". Understand "tiny" or "rift" as the tiny-red. 
+The tiny-red is a scenery scene-rift. The printed name of the tiny-red is "tiny red rift". Understand "tiny" or "rift" as the tiny-red. The description of the tiny-red is "This tiny [rift-style] rift is, according to the message you read, capable of allowing time travel."
 
 Instead of physicality when the noun is the tiny-red:
 	say "The rift is small enough that it's difficult to do anything with it."
@@ -7261,20 +7368,21 @@ Instead of pushing the repeat-button:
 	say "You press the Repeat button, and a metal ball once again arises from the pillar.";
 	now the repeat-button is nowhere;
 
+Before examining the pedestal-screen during red-scene:
+	now pedestal-text is  "DIAGNOSIS:[line break]Creation date: 1205/51[line break]Type: [rift-style of tiny-red][line break]Separation type: Temporal[line break]Separation distance: ??? minutes
+
+	This rift is separated temporally from another red rift. Please set the correct temporal distance in minutes on the number dial. You can find this distance by counting the time between an event on one end of the rift with an event on the other end of the rift.";
+
 Instead of pushing diagnosis-button during red-scene:
 	if the tiny-red is enclosed by the location:
-		now pedestal-text is "DIAGNOSIS:[line break]
-	Creation date: 1205/51 [timestamp][line break]
-	Type: [rift-style of tiny-red][line break]
-	Separation type: Temporal[line break]
-	Separation distance: ??? minutes
+		now pedestal-text is "DIAGNOSIS:[line break]Creation date: 1205/51[line break]Type: [rift-style of tiny-red][line break]Separation type: Temporal[line break]Separation distance: ??? minutes
 
 	This rift is separated temporally from another red rift. Please set the correct temporal distance in minutes on the number dial. You can find this distance by counting the time between an event on one end of the rift with an event on the other end of the rift.";
 		say "The display updates to say:
 
-	'[italic-pedestal]'
+	[italic-pedestal]
 
-	A dial appears on the surface of the pedestal.";
+	A dial appears on the surface of the pedestal. The diagnosis button disappears.";
 		now the number-dial is part of the tool-pedestal; 
 		now the diagnosis-button is nowhere;
 	otherwise:
@@ -7317,7 +7425,7 @@ For now, the Diagnose setting on your tool has been activated. To receive the ne
 The pedestal opens up, revealing your tool, this time with two green shards. You grab the tool.";
 		now the curious-tool is held by the player;
 	otherwise:
-		now pedestal-text is "That seems to be incorrect Please calibrate carefully.";
+		now pedestal-text is "That seems to be incorrect. Please calibrate carefully.";
 		say "You turn [the number-dial]. A ghostly image of metal balls moving around appears, appearing to glitch. The ghostly image then disappears.
 
 	The display now says:
@@ -7326,52 +7434,58 @@ The pedestal opens up, revealing your tool, this time with two green shards. You
 
 Section 5 - The Third upgrade
 
-Third-upgrade is a scene. Third-upgrade begins when third-shard is in the crystal-hole and the curious-tool is on the tool-pedestal.
+After inserting the third-shard into the crystal-hole:
+	now pedestal-text is "Excellent work; you have made steady progress and we are already 45% certain that you are not a hardened criminal or spy breaking into our labs. We will continue to proceed with upgrades.
 
-When third-upgrade begins:
-	now pedestal-text is "This upgrade will allow your tool to detect temporally displaced items. This is a safe upgrade, and does not require security precautions.
+This upgrade will allow your tool to detect temporally displaced items. This is a safe upgrade, and does not require security precautions. 
 
 You be asked to identify temporally important locations aboard this vessel. Once complete, your tool will be able to identify the connection between temporally displaced items and the location they are displaced from.
 
-Press Confirm to begin calibration and training for this upgrade.";
-	say "The pedestal opens up and pulls the tool inside, closing up again after it.
+Place the tool on the pedestal to begin calibration and training for this upgrade.";
+	say "You place the crystal shard into the receptacle.
 
 The display changes to say:
 
-[italic-pedestal]
+ [italic-pedestal] 
 
-A button labelled Confirm emerges from the pedestal.";
+[bracket]This game is split up into several areas, but each one cannot be solved alone. Instead, each area requires an item from one of the other areas. This upgrade will allow you to easily identify such items.[close bracket]
+
+The receptacle closes up, the shard still inside.";
+
+Third-upgrade is a scene. Third-upgrade begins when third-shard is in the crystal-hole and the curious-tool is on the tool-pedestal.
+
+When third-upgrade begins:
 	now the curious-tool is nowhere;
-	now the confirm-button is part of the tool-pedestal;
-
-After pushing the confirm-button when third-upgrade is happening:
 	if next-pedestal is nowhere:
 		now pedestal-text is "Training and calibration will now commence. 
 
 	In this training, you will see images of the temporally important locations on this starship, and you must provide a name for each of them. This name will be used by your tool to identify displaced items. The images were taken before your arrival, and do not reflect changes you may have incurred.
 
 	The first location you must name will now be displayed. Please choose names that are descriptive using the Name button.";
-		say "The display changes to say :
+		say "The pedestal opens up to pull in the tool before closing again.
+
+The display changes to say :
 
 [italic-pedestal]";
 		now the next-pedestal is part of the tool-pedestal;
 		now the back-pedestal is part of the tool-pedestal;
 		now the name-pedestal is part of the tool-pedestal;
 		activate the holo-1;
-		say "As the images appears, the Confirm button blinks off, and three new buttons appear on the pedestal, labelled Next, Back, and Name.";
-	otherwise:
-		now the next-pedestal is nowhere; 
-		now the back-pedestal is nowhere; 
-		now the name-pedestal is nowhere;
-		now the confirm-button is nowhere;
-		now the third-shard is not temporally-displaced;
-		now the third-shard is green-sharded;
-		now the third-shard is part of the curious-tool;
-		now curious-tool is held by the player;
-		now pedestal-text is "Calibration complete. Your tool can now detect items that are temporally displaced. When this setting is on, the displaced items will glow. Pointing the tool at a glowing item will reveal which location it belongs to, using the names that you chose.
+		say "[line break]As the images appear, the Confirm button blinks off, and three new buttons appear on the pedestal, labelled Next, Back, and Name.";
+		
+After pushing the confirm-button during third-upgrade:
+	now the next-pedestal is nowhere; 
+	now the back-pedestal is nowhere; 
+	now the name-pedestal is nowhere;
+	now the confirm-button is nowhere;
+	now the third-shard is not temporally-displaced;
+	now the third-shard is green-sharded;
+	now the third-shard is part of the curious-tool;
+	now curious-tool is held by the player;
+	now pedestal-text is "Calibration complete. Your tool can now detect items that are temporally displaced. When this setting is on, the displaced items will glow. Pointing the tool at a glowing item will reveal which location it belongs to, using the names that you chose.
 
 For the next upgrade, please insert another crystal shard and place the tool on the pedestal.";
-		say "There is a cheerful chirp, and the screen changes to say:
+	say "There is a cheerful chirp, and the screen changes to say:
 
 [italic-pedestal]
 
@@ -7380,24 +7494,30 @@ The pedestal opens up again and you retrieve your tool, which now has three gree
 Dimnum is a number that varies. Dimnum is 1.
 
 Instead of pushing the next-pedestal:
+	choose the row with a dimorder of dimnum in the table of dimension names;
+	next-bump;
+	now pedestal-text is "Now showing the [ordinal entry] location. Press the Name button to name this location, or Next or Back to cycle through the other locations.";
+	say "You press [the next-pedestal]. The screen updates to say:
+
+[italic-pedestal]";	
+	activate the hologram entry;
+
+
+To next-bump:
 	now every hologram-display is nowhere;
 	increment dimnum;
 	if dimnum > 9:
 		now dimnum is 1;
 	choose the row with a dimorder of dimnum in the table of dimension names;
-	now pedestal-text is "Now showing the [ordinal entry] location. Press the Name button to name this location, or Next or Back to cycle through the other locations.";
-	say "You press [the next-pedestal]. The screen updates to say:
-
-[italic-pedestal]";
 	activate the hologram entry;
-
+	
 Instead of pushing the back-pedestal:
 	now every hologram-display is nowhere;
 	decrement dimnum;
 	if dimnum > 9:
 		now dimnum is 1;
 	choose the row with a dimorder of dimnum in the table of dimension names;
-	now pedestal-text is "Now showing the [ordinal entry] location. Press the Name button to name this location, or Next or Back to cycle through the other locations.";
+	now pedestal-text is "Now showing the [ordinal entry] location[if changedname entry is true]. You previously named this area '[dimname entry]'. Press the Name button to change the name of this location[otherwise]. Press the Name button to name this location[end if], or Next or Back to cycle through the other locations.";
 	say "You press [the back-pedestal]. The screen updates to say:
 
  [italic-pedestal]";
@@ -7414,34 +7534,44 @@ Instead of pushing the name-pedestal:
 		say "You previously named this location '[dimname entry]'. Would you like to change the name?";
 		if the player consents:
 			now the command prompt is "What will you name the [ordinal entry] location? >";
+			now namingtime is true;
 		otherwise:
 			say "Name change cancelled.";
 
 Table of dimension names
-dimorder	dimname	ordinal	hologram
-1	""	"first"	holo-1
-2	""	"second"	holo-2
-3	""	"third"	holo-3
-4	""	"fourth"	holo-4
-5	""	"fifth"	holo-5
-6	""	"sixth"	holo-6
-7	""	"seventh"	holo-7
-8	""	"eighth"	holo-8
-9	""	"ninth"	holo-9
+dimorder	dimname	ordinal	hologram	changedname
+1	""	"first"	holo-1	false
+2	""	"second"	holo-2	false
+3	""	"third"	holo-3	false
+4	""	"fourth"	holo-4	false
+5	""	"fifth"	holo-5	false
+6	""	"sixth"	holo-6	false
+7	""	"seventh"	holo-7	false
+8	""	"eighth"	holo-8	false
+9	""	"ninth"	holo-9	false
+
 
 After reading a command when namingtime is true: 
 	let temp be the player's command;
 	choose the row with a dimorder of dimnum in the table of dimension names;
-	say "You have chosen to name this location [temp]. If that is incorrect, you may press the Back button to go back and the Name button to name it again.";
-	try pushing the next-pedestal;
+	now pedestal-text is "You have chosen to name that location '[temp]'. If that is incorrect, you may press the Back button to go back and the Name button to name it again.
+
+Now showing the [ordinal entry] location. Press the Name button to name this location, or use Next and Back to cycle through the others.";
+	say "The display changes to say:
+
+[italic-pedestal]";
+	next-bump;
 	now the dimname entry is temp;
+	now the changedname entry is true;
 	now the command prompt is ">";
 	now namingtime is false;
 	unless "" is a dimname listed in the table of dimension names:
 		now pedestal-text is "All dimensions now have a name. You may now press Confirm at any time to finish calibration.";
-		say "The display changes to say '[italic-pedestal]'.
+		say "The display changes to say:
 
-The Confirm button reappears.";
+[italic-pedestal]
+
+A Confirm button appears.";
 		now the Confirm-button is part of the tool-pedestal;
 		reject the player's command;
 	otherwise:
@@ -7496,36 +7626,36 @@ When third-upgrade ends:
 
 Section 4 - The fourth upgrade
 
+After inserting the fourth-shard into the crystal-hole:
+	now pedestal-text is "Given your positive track record in previous upgrades, and the fact that you have now successfully passed our background checks, your calibration tasks will become more difficult. This upgrade includes a maintenance task to perform in addition to receiving new upgrades.
+
+Please press confirm to verify that you consent to temporary employment on a non-compensatory basis for the 115th Pan-Sector Council, and that you waive indemnity for any losses incurred due to malfunctioning spatial rifts, including loss of personal goods, edema, temporary blindness, loss of limb, and death.";
+	say "You place the crystal shard into the receptacle.
+
+The display changes to say:
+
+ [italic-pedestal] 
+
+The receptacle closes up, the shard still inside.";
+
 Fourth-upgrade is a scene. Fourth-upgrade begins when fourth-shard is in the crystal-hole and the curious-tool is on the tool-pedestal.
 
 Fourth-upgrade ends when the curious-tool is held by the player.
 
 When fourth-upgrade begins:
-	now pedestal-text is "Given your positive track record in previous upgrades, your calibration tasks will become more difficult. This upgrade includes a maintenance task to perform in addition to receiving new upgrades.
-
-Please press confirm to verify that you consent to temporary employment on a non-compensatory basis for the 115th Pan-Sector Council, and that you waive indemnity for any losses incurred due to malfunctioning spatial rifts, including loss of personal goods, edema, temporary blindness, loss of limb, and death.";
-	say "The pedestal opens up and pulls the tool inside, closing up again after it.
-
-The display changes to say:
-
-[italic-pedestal]
-
-A button labelled Confirm lights up on the pedestal.";
 	now the curious-tool is nowhere;
-	now the confirm-button is part of the tool-pedestal;
-
-Instead of pushing confirm-button when fourth-upgrade is happening:
-	now the confirm-button is nowhere;
 	now pedestal-text is "We will now open up several blue rifts that connect to each other. Each of these rifts connects to a different power substation of this starship. The substations are all parts of the same closed circuit, but we need to shut down all of it once for repairs. 
 
 The repairs should only take a few seconds, and will be handled remotely by drones, but we've chosen this assignment to give you some experience with spatial rifts. There are seven substations, each with a manual off switch that we've set to stay off for seven minutes at a time. You'll have to find the most efficent way to pass through the rifts to make sure all of the substations are off at once.
 
 Good luck!";
-	say "The display changes to say:
+	say "The pedestal opens up to pull in the tool before closing again.
+
+The display changes to say:
 
 [italic-pedestal]
 
-A blue rift opens in front of the pedestal.";
+A blue rift opens to the [boldwest].";
 	Now the initial-rift is in the device-room;
 
 The initial-rift is a scene-rift. "A blue rift has opened to the [boldwest]." The printed name of the initial-rift is "blue rift". Understand "blue" or "rift" as the initial-rift. The initial-rift is blue-torn. The description of the initial-rift is "This blue rift, floating in the air, leads to the [boldwest]."
@@ -7655,7 +7785,9 @@ Instead of searching the way-glass:
 	
 THe busy-mall is scenery in the way-glass. Understand "busy" or "mall" or "shop" or "shops" or "stores" or "bustling" or "outdoor" or "restaurant" or "store" as the busy-mall. The description of the busy-mall is "Through the glass, you can see a bustling outdoor mall. Shoppers relax and sit in a restaurant while others walk from store to stores. Business seems to be good."
 
-The mall-shoppers are plural-named scenery in the way-glass. Understand "shopper" or "shoppers" or "people" or "bag" or "bags" or "crying" or "Kid" or "kids" or "bright" or "clothes" or "clothe" or "clothing" as the mall-shoppers. THe description of the mall-shoppers is "Shoppers laden with bags scurry and stroll and strut through the mall, talking and laughing and eating. Outside of the occassional glum shopper or crying kid, the people seem happy."
+The mall-shoppers are plural-named scenery in the way-glass. Understand "shopper" or "shoppers" or "people" or "bag" or "bags" or "crying" or "Kid" or "kids" or "bright" or "clothes" or "clothe" or "clothing" as the mall-shoppers. THe description of the mall-shoppers is "Shoppers laden with bags scurry and stroll and strut through the mall, talking and laughing and eating. Outside of the occassional glum shopper or crying kid, the people seem happy." 
+
+The printed name of the mall-shoppers is "shoppers".
 
 sixth-srift is a station-rift. It is northeast from first-substation and southwest from sixth-substation.
 
@@ -7684,7 +7816,7 @@ A station-switch is a kind of device. Understand "switch" or "electrical" or "do
 
 The description of a station-switch is usually "This is a double pole knife switch with a display mounted above it. Currently, the display [if the item described is switched on]is blank. There is a hum in the room[otherwise] is reading [switch-countdown][end if]."
 
-A station-switch is in every sub-station. A station-switch is usually switched on. The initial appearance of a station-switch is "An electrical switch is visible here, currently [if switched on]switched on[otherwise]switched off[end if]. Above it is a display, which [if the item described is switched on]is blank. There is a hum in the room[otherwise] is reading [switch-countdown][end if]."
+A station-switch is in every sub-station. A station-switch is usually switched on. The initial appearance of a station-switch is "An electrical switch is visible here, currently [if switched on]switched on[otherwise]switched off[end if]. Above it is a display, which [if the item described is switched on]is blank. There is a hum in the room[otherwise]says there are [switch-countdown] minutes remaining for this switch[end if]."
 
 Understand "flip [something]" as pushing. 
 
@@ -7714,17 +7846,18 @@ Every turn when a station-switch is switched off:
 		if current is switched off:
 			decrement the time-counter of current;
 	if the player is in substation-region:
-		if a switched on station-switch is in the location:
+		if a switched off station-switch is in the location:
 			say "A counter on the display now reads [switch-countdown].[line break]";
 		if the number of switched on station-switches is 0:
 			now pedestal-text is "Congratulations! We were able to make repairs while you had all the switches off at once. We appreciate your patience during the extra difficulties we threw at you.
 
-Your lockpick function has now been upgraded to work on closed blue rifts. If you see a black rift that is a closed blue rift, you may OPEN it or CLOSE it when in lockpick mode.
+You may now use the Connector setting on closed blue rifts. If you see a black rift that is a closed blue rift, you may OPEN it when in Connector mode.
 
 You can begin the next upgrade by placing a new crystal shard in the receptacle and placing the tool on the pedestal.";
 			say "Everything is quiet around you for a moment. Then...[paragraph break]*************************************************************************************************[line break]";
 			say "You are engulfed in a [rift-style of initial-rift] haze, losing all sense of direction. Slowly the haze clears.";
 			say "*************************************************************************************************[paragraph break]";
+			now initial-rift is nowhere;
 			now the player is in device-room;
 			say "You reappear in the room you were originally in.
 
@@ -7737,16 +7870,18 @@ The pedestal opens up, returning your tool to you, now with four green shards at
 			now the fourth-shard is not temporally-displaced;
 			now the fourth-shard is part of the curious-tool;
 			now the curious-tool is held by the player;
-			now initial-rift is nowhere;
 		otherwise:
 			repeat with current running through station-switches:
 				if time-counter of current is 0:
 					if current is not in the location:
-						say "Elsewhere, you hear a switch clank back on.";
+						say "Elsewhere, you hear a switch clank back on";
 						now current is switched on;
+						now time-counter of current is 13;
 					otherwise:
-						say "The switch in this room clanks back on.";
+						say "[line break]The switch in this room clanks back on";
 						now current is switched on;
+						now time-counter of current is 13;
+					say ".[line break]";
 			[say "A soft voice says, 'There are currently [the number of switched off station-switches] switches turned off.'";]
 
 Substation-region is a region.
@@ -7761,43 +7896,44 @@ Instead of dropping something when the player is in substation-region:
 
 Section 5 - The fifth upgrade
 
+After inserting the fifth-shard into the crystal-hole:
+	now pedestal-text is "Welcome back. The next upgrade will let you open a limited number of red portals which are currently closed. Recall that red portals connect two events that have timelike separation.
+
+This means time travel, and it is extraordinarily dangerous. Through painful experimentation, we have learned that changes to the time loop can cause a catastrophic restructuring of reality. Thus, there are only two circumstances in which the opening of red rifts is allowed:
+
+First, red rifts can be experimented on inside a white rift or closed space, where it cannot affect the outer world. Timelines can and will collapse in such spaces, but that is what it is designed for, and is where your training will take place. 
+
+Second, some rifts must be opened to protect the time line. This happens when a rift is known to have been opened in the past; to maintain reality as we know it, we must ensure the creation of these rifts.
+
+Almost all such past rifts have been accounted for. The only exceptions are a small number that are to be created by Emrys Tisserand. She is the only one who should be able to reach this part of training.
+
+If you are reading this, Emrys: good luck. Place the tool on the pedestal to begin your next upgrade.";
+	say "You place the crystal shard into the receptacle.
+
+The display changes to say:
+
+ [italic-pedestal] 
+
+The receptacle closes up, the shard still inside.";
+
 Fifth-upgrade is a scene. Fifth-upgrade begins when fifth-shard is in the crystal-hole and the curious-tool is on the tool-pedestal.
 
 Fifth-upgrade ends when the curious-tool is held by the player.
 
 When fifth-upgrade begins:
-	now pedestal-text is "Welcome back. The next upgrade will let you open a limited number of red portals which are currently closed. 
-
-This is time travel, and is extraordinarily dangerous. It is only allowed in two circumstances:
-
-1. Inside a black rift, where it cannot affect the outer world, and[line break]
-2. To ensure a closed time loop, such as when a portal in the past was opened by someone in our future.
-
-This training will be conducted inside another Spherical Space, or black rift, and thus falls under circumstance 1.
-
-As for circumstance 2 (closed time loops), as of today all such known portals have already been created. The only exceptions are a small number that are to be created by Emrys Tisserand. She is the only one who should be able to reach this part of training.
-
-If you are reading this, Emrys: good luck. Press Confirm to begin your upgrade.";
-	say "The pedestal opens up and pulls the tool inside, closing up again after it.
-
-The display changes to say '[italic-pedestal]'
-
-A button labelled Confirm emerges from the pedestal.";
 	now the curious-tool is nowhere;
-	now the confirm-button is part of the tool-pedestal;
-
-Instead of pushing the confirm-button when fifth-upgrade is happening:
 	now pedestal-text is "In just moments, you will be arriving from the future. You must assist your future self, and then you must become her by imitating the actions you saw.
 
 If you deviate from the time loop, this space will collapse, destroying the reality you were in and reforming it from the time the loop began. This may cause nausea.
 
+For your benefit, the time of day will be announced continuously during the experiment.
+
 To start the time loop, press the Diagnosis button.";
-	say "You press the confirm button.[line break]";
+	say "The pedestal opens up to pull in the tool before closing again.[line break]";
 	now the tool-pedestal is in sphere-room;
 	say "[line break]*************************************************************************************************[line break]";
 	say "You are engulfed in a black haze, losing all sense of direction. Slowly the haze clears.";
 	say "*************************************************************************************************[paragraph break]";
-	now the confirm-button is nowhere;
 	now the fifth-uprift is in sphere-room;
 	now the diagnosis-button is part of the tool-pedestal;
 	now the player is in sphere-room;
@@ -7807,23 +7943,23 @@ The display changes to say:
 
 [italic-pedestal][line break]";
 
-The fifth-uprift is a scene-rift. The fifth-uprift is black-torn. Understand the rift-style property as describing the fifth-uprift. Understand "rift" as the fifth-uprift. The printed name of the fifth-uprift is "[rift-style] rift". The description of the fifth-uprift is "This [rift-style] rift floats in the air silently."
+Understand "portal" as a scene-rift. Understand "portal" as a hub-door. Understand "portal" as a space-tear.
 
-Report looking when the player is in sphere-room:
-	if fifth-uprift is in the location:
-		say "A [rift-style of fifth-uprift] rift is present in the room.";
+The fifth-uprift is a scene-rift. The fifth-uprift is black-torn. Understand the rift-style property as describing the fifth-uprift. Understand "rift" as the fifth-uprift. The printed name of the fifth-uprift is "[rift-style of the fifth-uprift] rift". The description of the fifth-uprift is "This [rift-style of the fifth-uprift] rift floats in the air silently."
+
+The initial appearance of the fifth-uprift is "A [rift-style of fifth-uprift] rift is present in the room.";
 
 Time-paradox is a recurring scene. Time-paradox begins when fifth-upgrade is happening and fifth-uprift is not black-torn.
 
+Fifth-time is a time that varies.
+
 Instead of pushing the diagnosis-button when fifth-upgrade is happening:
-	now pedestal-text is "DIAGNOSIS:
-Creation date: 0205/51[line break]
-Type: [if the fifth-uprift is black-torn] Black (originally Red)[otherwise] Red[end if] [line break]
-Separation type: Temporal[line break]
-Separation distance: 9 minutes";
+	now pedestal-text is "DIAGNOSIS:[line break]Creation date: 0205/51[line break]Type: [if the fifth-uprift is black-torn] Black (originally Red)[otherwise] Red[end if] [line break]Separation type: Temporal[line break]Separation distance: 9 minutes";
 	say "You press the Diagnosis button.
 
-The display changes to say, '[italic-pedestal]'
+The display changes to say:
+
+[italic-pedestal]
 
 The Diagnose button disappears.";
 	now the diagnosis-button is nowhere;
@@ -7844,9 +7980,14 @@ When time-paradox begins:
 		say "You are engulfed in a black haze, losing all sense of direction. Slowly the haze clears.";
 		say "*************************************************************************************************";
 		now the player is in sphere-room;
+		now the time of day is fifth-time;
+		now fifthpast is false;
+	otherwise:
+		now fifth-time is the time of day;
 	now timescrambled is false;
 	say "[The tool-pedestal] shakes and rises further out of the ground, rising on columns. Underneath the pedestal is an area surrounded by a glass wall. Inside is a red rift, as well as a bench, on which are several apples, a vat of caramel, and two buttons. You can't reach any of them from outside of the glass.";
 	now the pedestal-columns are in the location;
+	now the glassed-area is closed;
 	now the glassed-area is in the location;
 	now the fifth-uprift is in the glassed-area;
 	now the green-apple is on science-bench;
@@ -7855,6 +7996,13 @@ When time-paradox begins:
 	now the close-button is part of the science-bench; 
 	now the open-button is part of the science-bench;
 	now the caramel-apple is held by temporal-emrys;
+
+Every turn during time-paradox:
+	if fifthpast is true:
+		let temp be 9 minutes before the time of day;
+		say "A voice says, 'The time is [temp].'";
+	otherwise:
+		say "A voice says, 'The time is [time of day].'";
 	
 The pedestal-columns are plural-named scenery. Understand "columns" or "column" as the pedestal-columns. The printed name of the pedestal-columns is "columns". The description of the pedestal-columns is "The columns must have been under the pedestal all this time."
 
@@ -7884,13 +8032,16 @@ Rule for reaching inside the glassed-area:
 
 A food-apple is a kind of thing. Understand "apple" as the food-apple. A food-apple is edible. The caramel-apple is edible.
 
-The science-bench is a scenery supporter in glassed-area. Understand "bench" as the science-bench. The printed name of the science-bench is "bench". The description of the science-bench is "This bench, attached to the floor, seems utilitarian, but it has a few unusual features, like a [food-disposal] and a [caramel-vat].".
+The science-bench is a supporter in glassed-area. It is fixed in place. Understand "bench" as the science-bench. The printed name of the science-bench is "bench". The description of the science-bench is "This bench, attached to the floor, seems utilitarian, but it has a few unusual features, like a [food-disposal] and a [caramel-vat].".
+
+The initial appearance of the science-bench is "A bench takes up much of the room in the glassed area. Set into the bench are two buttons labelled Open and Close, as well as a food disposal and a vat of caramel. [A list of things on the science-bench] [are] on the bench."
+
 The food-disposal is a container. It is part of the science-bench. Understand "food" or "hole" or "label" or "disposal" as the food-disposal. Understand "food disposal" as the food-disposal. The description of the food-disposal is "This is a hole labelled 'Food Disposal'. You can't see anything inside it." The printed name of the food-dispola is "food disposal".
 
 The green-apple is a food-apple on science-bench. Understand "green"or "granny" or "Smith" as the green-apple. The printed name of the green-apple is "green apple". The description of the green-apple is "A perfectly normal green apple. Maybe a Granny Smith?"
 The yellow-apple is a food-apple on science-bench. Understand "yellow" or "smooth" as the yellow-apple. The description of the yellow-apple is "A smooth yellow apple. Nothing special about it, as far as you can see." The printed name of the yellow-apple is "yellow apple".
 The red-apple is a food-apple on science-bench. Understand "red" or "mottled" as the red-apple. The description of the red-apple is "This apple is a bit mottled, but overall looks red." The printed name of the red-apple is "red apple".
-The caramel-vat is a container on science-bench. Understand "caramel" or "recessed" or "vat" or "vat of" or "liquid" as the caramel-vat. The printed name of the caramel-vat is "vat of caramel". The description of the caramel-vat is "This is a recessed vat of liquid caramel, seemingly designed for dipping apples in."
+The caramel-vat is a container. It is part of the science-bench. Understand "caramel" or "recessed" or "vat" or "vat of" or "liquid" as the caramel-vat. The printed name of the caramel-vat is "vat of caramel". The description of the caramel-vat is "This is a recessed vat of liquid caramel, seemingly designed for dipping apples in."
 
 Instead of inserting something into the food-disposal:
 	if the noun is edible:
@@ -7914,7 +8065,11 @@ Understand "dip [something] into/in [something]" as inserting it into when the p
 
 Before going nowhere from sphere-room:
 	if fifth-uprift is enclosed by the location:
-		try entering fifth-uprift instead;
+		if the noun is inside:
+			if the player is in glassed-area:
+				try entering fifth-uprift instead;
+			otherwise:
+				try entering glassed-area instead;
 
 Instead of pushing the open-button:
 	if time-paradox is not happening:
@@ -7944,6 +8099,8 @@ Instead of taking a food-apple when the player is in the closed glassed-area:
 	now timescrambled is true;
 	say "You seem to have taken an apple at the wrong time. Everything warps and crumbles around you";
 
+Fifthpast is a truth state that varies. Fifthpast is false.
+
 Instead of entering the fifth-uprift:
 	if the noun is black-torn:
 		say "You can't enter the black rift. You can't even feel it.";
@@ -7955,6 +8112,7 @@ Instead of entering the fifth-uprift:
 			say "*************************************************************************************************";		
 			now the glassed-area is closed;
 			now every food-apple is on the science-bench;
+			now fifthpast is true;
 			now temporal-emrys is in sphere-room;
 			try looking;
 			say "The haze clears. Your former self is here, outside the glass.";
@@ -7963,6 +8121,7 @@ Instead of entering the fifth-uprift:
 			now the glassed-area is open;
 			now the fifth-uprift is green-torn;
 			now temporal-emrys is nowhere;
+			now fifthpast is false;
 			try looking;
 			say "The rift turns green.";
 		if time-paradox is not happening:
@@ -7986,7 +8145,7 @@ Every turn during time-paradox:
 		say "The copy of you takes the caramel apple and puts it in the food dispenser. The dispenser whirs it away. She sneaks an awkward glance at you.";
 		now the caramel-apple is nowhere;	
 	if the time since time-paradox began is 4 minutes:
-		say "The copy of you disappears into the rift. It looks like she's being swallowed whole[first time]; you hadn't seen what it looks like from the outside, before[only] Once she is gone, the rift slowly turns green.";
+		say "The copy of you disappears into the rift. It looks like she's being swallowed whole[first time]; you hadn't seen what it looks like from the outside, before[only]. Once she is gone, the rift slowly turns green.";
 		now temporal-emrys is nowhere;
 		now the fifth-uprift is green-torn;	
 	if the time since time-paradox began is 5 minutes:
@@ -8037,11 +8196,7 @@ The pedestal opens up, dispensing your tool to you, which you grab. It now has f
 
 Section 6 - The Sixth Upgrade
 
-Sixth-upgrade is a scene. Sixth-upgrade begins when Sixth-shard is in the crystal-hole and the curious-tool is on the tool-pedestal.
-
-Sixth-upgrade ends when the curious-tool is held by the player.
-
-When sixth-upgrade begins:
+After inserting the sixth-shard into the crystal-hole:
 	now pedestal-text is "This upgrade will extend the temporal distance of the portals you create. In essence, it will allow you to travel further backwards in time. 
 
 As we mentioned last time, time loops can be unstable and collapse, leading them only to be used in controlled settings or pre-recorded historic moments.
@@ -8052,27 +8207,29 @@ First, chaos and destruction at the past end of a rift can make a time traveller
 
 Second, major life and death decisions cause less branches as reality converges to one or two options. A crashing airplane is so different from one that doesn't crash that minor differences often slip by, not disturbing time in any significant way.
 
-These remaining upgrades were dictated for us by your recorded historical actions, Emrys. You will see unpleasant things. Press confirm when you're ready.";
-	say "The pedestal opens up and pulls the tool inside, closing up again after it.
+These remaining upgrades were dictated for us by your recorded historical actions, Emrys. You will see unpleasant things. Place the tool on the pedestal when you are ready.";
+	say "You place the crystal shard into the receptacle.
 
 The display changes to say:
 
-[italic-pedestal]
+ [italic-pedestal] 
 
-A button labelled Confirm emerges from the pedestal.";
+The receptacle closes up, the shard still inside.";
+
+Sixth-upgrade is a scene. Sixth-upgrade begins when Sixth-shard is in the crystal-hole and the curious-tool is on the tool-pedestal.
+
+Sixth-upgrade ends when the curious-tool is held by the player.
+
+When sixth-upgrade begins:
 	now the curious-tool is nowhere;
-	now the confirm-button is part of the tool-pedestal;
-
-Instead of pushing the confirm-button when sixth-upgrade is happening:
 	now pedestal-text is "This portal will take you where you need to go. You can Diagnose it, but that is not necessary. Your objective is to retrieve a dimensional stabilizer, which should appear as a mesh ball.";
-	say "You press the confirm button, and a red rift appears.
+	say "The pedestal opens up to pull in the tool before closing again. A red rift appears.
 
 The display changes to say:
 
 [italic-pedestal]
 
 The Diagnosis button lights up on the pedestal.";
-	now the confirm-button is nowhere;
 	now the sixth-uprift is in device-room;
 	now the diagnosis-button is part of the tool-pedestal;
 	
@@ -8102,7 +8259,7 @@ Before going nowhere in device-room:
 Does the player mean entering the engineering-tear:
 	it is unlikely;
 
-The sixth-uprift is a scene-rift. The sixth-uprift is red-torn. Understand the rift-style property as describing the sixth-uprift. The printed name of the sixth-uprift is "[rift-style] rift". The description of the fifth-uprift is "This [rift-style] rift floats in the air silently."
+The sixth-uprift is a scene-rift. The sixth-uprift is red-torn. Understand the rift-style property as describing the sixth-uprift. The printed name of the sixth-uprift is "[rift-style of the sixth-uprift] rift". The description of the sixth-uprift is "This [rift-style of the sixth-uprift] rift floats in the air silently."
 
 Does the player mean doing something with the sixth-uprift:
 	it is very likely;
@@ -8177,7 +8334,7 @@ You lean closer, and he shoves a paper into your hands. 'Take it,' he says. 'We 
 
 You nod. He smiles thinly.
 
-'I'm so glad I got to meet you. But I'm no one to you, am I? Forgive my eagerness. Save the others, the ones you know.'
+'I'm...so glad...to meet you. But...you don't know...me. Save the others...the ones you know.'
 
 He closes his eyes. He doesn't open them again.
 
@@ -8214,20 +8371,24 @@ Instead of climbing the fallen-wreckage:
 	now the player is in wreckage-hole;
 	now the fallen-wreckage is onceclimbed;
 
+Printoutread is a truth state that varies. Printoutread is false.
+
 Sixth-list is a list of text that varies.
 
 After reading a command during sixth-upgrade:
-	let T be the player's command;
-	add T to sixth-list;
-	if the number of entries in sixth-list > 3:
-		truncate sixth-list to the last 3 entries;
+	if printoutread is false:
+		let T be the player's command;
+		add T to sixth-list;
+		if the number of entries in sixth-list > 3:
+			truncate sixth-list to the last 3 entries;
 
-The recorder-printout is a thing. The printed name of the recorder-printout is "printout". Understand "printout" or "paper" or "crumpled" as the recorder-printout. 
+The recorder-printout is a thing. The printed name of the recorder-printout is "printout". Understand "printout" or "paper" as the recorder-printout. 
 
 Instead of examining the recorder-printout:
+	now printoutread is true;
 	say "It says:[fixed letter spacing] [line break]";
 	repeat with current running through sixth-list:
-		say "> [current][paragraph break]";
+		say "> [current in upper case][paragraph break]";
 	say "[bracket]DATA SCRAMBLED[close bracket]
 
 >CLIMB WRECKAGE
@@ -8291,38 +8452,36 @@ When sixth-upgrade ends:
 
 Section 7 - The seventh upgrade
 
-Seventh-upgrade is a scene. Seventh-upgrade begins when Seventh-shard is in the crystal-hole and the curious-tool is on the tool-pedestal.
-
-Seventh-upgrade ends when the curious-tool is held by the player.
-
-When Seventh-upgrade begins:
+After inserting the seventh-shard into the crystal-hole:
 	now pedestal-text is "This upgrade will further increase the distance that you can reach into the past when opening red rifts.
 
 From our previous research in the spherical chambers, we have learned that rifts are easier to form if there is a direct connection between the times and locations being opened, especially a causal connection. For instance, we had a sculptor create a clay figure. We moved the sculpture in spherical space, waited a week, then tried opening various portals near the sculpture. By far the easiest portal to open was one to its original time and location of creation. Of course, this kind of experiment could only take place in spherical space.
 
 We will upgrade your tool to take advantage of such synergies. It will take a great deal of energy to add on this new crystal shard, as the tool is close to reaching its limit. We will create a red rift to a momentous event, have you resolve it, and then, when it turns green, we will harvest the energy that has been generated.
 
-You may press Confirm when you are ready.";
-	say "The pedestal opens up and pulls the tool inside, closing up again after it.
+You may place the tool on the pedestal when you are ready.";
+	say "You place the crystal shard into the receptacle.
 
-The display changes to say 
+The display changes to say:
 
-[italic-pedestal]
+ [italic-pedestal] 
 
-A button labelled Confirm lights up on the pedestal.";
+The receptacle closes up, the shard still inside.";
+
+Seventh-upgrade is a scene. Seventh-upgrade begins when Seventh-shard is in the crystal-hole and the curious-tool is on the tool-pedestal.
+
+Seventh-upgrade ends when the curious-tool is held by the player.
+
+When Seventh-upgrade begins:
 	now the curious-tool is nowhere;
-	now the confirm-button is part of the tool-pedestal;
-
-Instead of pushing the confirm-button when Seventh-upgrade is happening:
 	now pedestal-text is "This rift will take you to an important event in the past that has direct impact on the technology you are using. You can diagnosis the rift, but that is not necessary.";
-	say "You press the confirm button. There is a thrum of energy, and the light in the room flickers. A red rift appears.
+	say "The pedestal opens up to pull in the tool before closing again. There is a thrum of energy, and the light in the room flickers. A red rift appears.
 
 The display changes to say:
 
 [italic-pedestal]
 
 The Diagnosis button lights up.";
-	now the confirm-button is nowhere;
 	now the Seventh-uprift is in device-room;
 	now the diagnosis-button is part of the tool-pedestal;
 	
@@ -8334,7 +8493,7 @@ The display changes to say:
 
 [italic type]DIAGNOSIS:
 Creation date: 0205/51[line break]
-Type: [if the fifth-uprift is black-torn] Black (originally Red)[otherwise] Red[end if] [line break]
+Type: [if the seventh-uprift is black-torn] Black (originally Red)[otherwise] Red[end if] [line break]
 Separation type: Temporal[line break]
 Separation distance: 160 years[roman type]
 
@@ -8342,7 +8501,7 @@ Then the screen changes back to its previous message, and the Diagnosis button d
 
 The initial appearance of the seventh-uprift is "A larger [rift-style of the seventh-uprift] rift has opened up before you, leading to the [boldnorth]."
 
-The seventh-uprift is a scene-rift. The seventh-uprift is red-torn. Understand the rift-style property as describing the seventh-uprift. Understand "rift" or "large" or "larger" as the seventh-uprift. The printed name of the seventh-uprift is "larger [rift-style] rift". The description of the seventh-uprift is "This larger [rift-style of the seventh-uprift] rift floats in the air silently to the [boldnorth]."
+The seventh-uprift is a scene-rift. The seventh-uprift is red-torn. Understand the rift-style property as describing the seventh-uprift. Understand "rift" or "large" or "larger" as the seventh-uprift. The printed name of the seventh-uprift is "larger [rift-style of the seventh-uprift] rift". The description of the seventh-uprift is "This larger [rift-style of the seventh-uprift] rift floats in the air silently to the [boldnorth]."
 
 Before going nowhere from device-room when the seventh-uprift is in the location:
 	if the noun is north:
@@ -8437,11 +8596,11 @@ The targetresponse of arrival-quip is "'From what I've been told, you are on a k
 
 'I guess that makes sense,' you say. 'I've seen a lot of strange stuff. Rifts to different worlds, rifts to different times. But no one else seems to notice them.'
 
-'Your Storyweaver genes gives you sensivity to certain types of radiation associated to temporal events. But as for different worlds, that's not quite true; it's all one world, and mostly all one time,' says Bronwyn. 'You've been to the future. Your future, and mine.''
+'Your Storyweaver genes gives you sensivity to certain types of radiation associated to temporal events. But as for different worlds, that's not quite true; it's all one world, and mostly all one time,' says Bronwyn. 'You've been to the future. Your future, and mine.'
 
 She points to the ship under construction below you. 'I'm jealous, in some ways. You've seen what this will be when it's finished, the fruit of our labors.'"
 
-Passing-quip is a quip. The printed name of Passing-quip is "Passing". Understand "Passing" as Passing-quip. The target of Passing-quip is Bronwyn. The preview of Passing-quip is "So, I'm already dead in this timeline."
+Passing-quip is a quip. The printed name of Passing-quip is "Passing". Understand "Passing" as Passing-quip. The target of Passing-quip is Bronwyn. The preview of Passing-quip is "So, I'm already dead at this point in the timeline."
 
 The targetresponse of passing-quip is "Bronwyn arches her eyebrow in amusement. 'Dead? I'd say so. But not forgotten. They've made legends about you already. I'm worried that by the time you return, they'll treat you like a god. I'm one of the last left alive that knew you, and no one seems to believe it when I say you were just a person. No offense.'
 
@@ -8492,7 +8651,7 @@ Bronwyn rushes over. 'Whoa, what happened there?' she asks.
 
 'The rift in the room turned green,' you say. 'It happens a lot.'
 
-'Oh, man, I always thought that was a metaphor or something when I read about it in the recrods. But it looks like the radiation increased in energy, shifting up the spectrum. Oh man, I never expected it would increase this match. Be careful with that energy!'
+'Oh, man, I always thought that was a metaphor or something when I read about it in the recrods. But it looks like the radiation increased in energy, shifting up the spectrum. Oh man, I never expected it would increase this much. Be careful with that energy!'
 
 Not sure how to answer that, you meekly say, 'Okay.'";
 	now the seventh-uprift is green-torn;
@@ -8520,14 +8679,24 @@ The targetresponse of Proud-quip is "'For what?' she says, her eyes filling with
 
 Ginger takes a deep breath and says, 'You're right. I don't have to do this on my own. I am Bronwyn Savoy, and I can just do the best I can.'
 
-WIth that, she runs off."
+With that, she runs off."
 
 Report uttering proud-quip to Ginger:
-	say "The rift turns green.";
+	say "The rift in this room gains a great deal of energy, turning green.";
 	now ginger is nowhere;
 	now the engineering-tear is green-torn;
 
 Section 8 - Final upgrade
+
+After inserting the eighth-shard into the crystal-hole:
+	now pedestal-text is "This upgrade will be quite simple. Please place the tool on the pedestal.";
+	say "You place the crystal shard into the receptacle.
+
+The display changes to say:
+
+ [italic-pedestal] 
+
+The receptacle closes up, the shard still inside.";
 
 Eighth-upgrade is a scene. Eighth-upgrade begins when Eighth-shard is in the crystal-hole and the curious-tool is on the tool-pedestal.
 
@@ -8536,12 +8705,12 @@ Eighth-upgrade ends when the curious-tool is held by the player.
 When eighth-upgrade begins:
 	now pedestal-text is "This shard has been attached, and will merely be used for storage. There is no need for advanced upgrades.
 
-Emrys Tisserand, it's time to make the final connection between your time and ours. You'll need to harvest all 9 of the great rifts, once they are green. Just turn the setting to harvest and point the tool at each green rift. This will close the rift, but you should be able to use the hub above here to return to any location you need to. Once you're done, return here and place the tool on the pedestal one final time.";
+Emrys Tisserand, it's time to make the final connection between your time and ours. You'll need to harvest all 9 of the great rifts, once they are green. Just turn the setting to Harvester and point the tool at each green rift. This will close the rift, but you should be able to use the hub above here to return to any location you need to. Once you're done, return here and place the tool on the pedestal one final time.";
 	say "The pedestal opens up and pulls the tool inside, closing up again after it. There is a brief, anti-climactic whirring
 
 The display changes to say:
 
-[italic-pedestal][line break]
+[italic-pedestal]
 
 Then the pedestal re-opens, returning the tool to you.";
 	now the curious-tool is held by the player;
@@ -8588,12 +8757,12 @@ Instead of entering the final-rift:
 Harvesting is an action applying to one thing. Understand "harvest [something]" as harvesting when the curious-tool is held by the player.
 
 Carry out harvesting:
-	if the curious-tool is not harvest:
-		say "The tool is not set to Harvest.";
+	if the curious-tool is not harvester:
+		say "The tool is not set to Harvester.";
 	otherwise:
 		try atpointing the curious-tool at the noun;
 
-Instead of atpointing the curious-tool at a space-tear when the curious-tool is harvest:
+Instead of atpointing the curious-tool at a rifty thing when the curious-tool is Harvester:
 	if the second noun is not green-torn:
 		say "The tool beeps and says, 'No harvestable energy detected.'";
 	otherwise:
@@ -8615,7 +8784,7 @@ A crystal-door is a kind of door. A crystal-door has a room called the door-room
 
 The wax-office is a crystal-room in hidden-region. "This is an office room hidden in the back of the wax museum. It looks like it's primarily used for storage. There are some empty filing cabinets and a wax figure of[one of]...[or] [stopping]you. The door to the rest of the wax museum is to the [boldsouth]. [rift-text]." The printed name of the wax-office is "Office".
 
-The employee-door is a scenery crystal-door. The employee-door is north of gift-room and south of wax-office. The employee-door is closed and locked. The printed name of the employee-door is "octagon door". Understand "octagon" or "mark" or "nondescript" or "door" as the employee-door. The description of the employee-door is "This nondescript door blends almost perfectly into the wall. It is marked with an octagon." The door-room of the employee-door is wax-office.
+The employee-door is a scenery crystal-door. The employee-door is north of gift-room and south of wax-office. The employee-door is closed and locked. The printed name of the employee-door is "octagon door". Understand "octagon" or "mark" or "nondescript" or "door" or "mark" or "marking" or "word" or "words" or "employees" or "only" as the employee-door. The description of the employee-door is "This nondescript door blends almost perfectly into the wall. It is marked with an octagon and the words 'Employees Only'." The door-room of the employee-door is wax-office.
 
 Emrys-figure is a wax-figure in wax-office. The printed name of the emrys-figure is "wax figure of you". Understand "of you" or "you" or "emrys" or "tisserand" or "worn" or "down" as the emrys-figure. The description of the emrys-figure is "This wax figure is remarkably accurate. It looks almost exactly like you do today. It does look a bit worn down; it must have been on display in the wax museum for quite some time."
 
@@ -8791,7 +8960,7 @@ The printed name of hub-room is "Hub Room". The description of the hub-room is "
 
 A ladder leads back [bolddown][if an entrance-like hub-door is in the location]. In addition, there [hublist][end if]."
 
-A hub-door is a kind of door. A hub-door is usually scenery and closed. A hub-door has some text called the hub-text. Understand "blue" or "rift" as a hub-door when an open hub-door is in the location. A hub-door has a rift-style. A hub-door is usually black-torn. Understand the rift-style property as describing a hub-door when the player is not in hub-room. Understand "wall" as black-torn when the player is in hub-room. Understand "rift" as a hub-door when the player is not in hub-room.
+A hub-door is a kind of door. A hub-door is usually scenery and closed. A hub-door has some text called the hub-text. Understand "blue" or "rift" as a hub-door when an open hub-door is in the location. A hub-door has a rift-style. A hub-door is usually black-torn. Understand the rift-style property as describing a hub-door when the player is not in hub-room. Understand "wall" or "walls" as black-torn when the player is in hub-room. Understand "rift" as a hub-door when the player is not in hub-room.
 
 The printed name of a hub-door is usually "[if the player is in hub-room][hub-text] [otherwise if the number of scene-rifts in the location > 0]smaller [end if][if open][rift-style of the item described] rift[otherwise][riftwall][end if]". Understand the hub-text property as describing a hub-door. THe description of a hub-door is usually "[if the item described is wall-like and the location is hub-room]All you can see is a wall, unfortunately[otherwise]This is a [rift-style of the item described] rift, leading [bold type][direction of the item described from the location][roman type]. It floats silently in the air[end if].".
 
@@ -8817,9 +8986,9 @@ The northwest-hub is a hub-door with hub-text "northwest". The northwest-hub is 
 Before opening a closed hub-door:
 	unless the curious-tool is held by the player:
 		say "You can't see any way to open [the noun]." instead;
-	unless the curious-tool is lockpick:
+	unless the curious-tool is connector:
 		say "You can't see any way to open [the noun]." instead;
-	unless the curious-tool is lockpick:
+	unless the curious-tool is connector:
 		say "You can't see any way to open [the noun]." instead;
 	unless the fourth-shard is part of the curious-tool:
 		say "You can't see any way to open [the noun]." instead;
@@ -8829,13 +8998,11 @@ Before opening a closed hub-door:
 Before closing an open hub-door:
 	unless the curious-tool is held by the player:
 		say "You can't close [the noun] without the tool." instead;
-	unless the curious-tool is lockpick:
+	unless the curious-tool is harvester:
 		say "You can't close [the noun] in this mode." instead;
-	unless the fourth-shard is part of the curious-tool:
-		say "Your tool is not powerful enough to close [the noun]." instead;
 
 Instead of opening a closed hub-door:
-	say "You bring the lockpick near [the noun], and it flares into life, turning blue.";
+	say "You bring the curious tool near [the noun], and it flares into life, turning blue.";
 	now the noun is open;
 	now the noun is blue-torn;
 	now the noun is entrance-like;
@@ -8928,11 +9095,7 @@ Someone has written on the safe:
 Instead of unlocking the rift-safe with something:
 	say "It looks like this safe is locked with a keypad rather than a mechanical lock."
 
-The diagnose-text of a hub-door is usually "DIAGNOSIS:
-Creation date: 0205/51 [line break]
-Type: [if black-torn]Black (originally Blue)[otherwise]Blue[end if][line break]
-Separation type: None[line break]
-Separation distance: None"
+The diagnose-text of a hub-door is usually "DIAGNOSIS:[line break]Creation date: 0205/51 [line break]Type: [if black-torn]Black (originally Blue)[otherwise]Blue[end if][line break]Separation type: None[line break]Separation distance: None"
 
 Safepad is a number that varies. Safepad is 0.
 
@@ -8941,12 +9104,13 @@ The safe-pad is part of the rift-safe. The printed name of the safe-pad is "keyp
 Understand "type [a number] on [safe-pad]" or "enter [a number] on [safe-pad]" as numbersetting it on when the safe-pad is enclosed by the location.
 
 Carry out numbersetting it on:
-	now Safepad is remainder after dividing the number understood by 1000000;
-	say "The keypad buzzes harshly. It now displays '[safepaddisplay]'";
-	if the rift-safe is closed:
-		now the rift-safe is locked;
-		say ". You hear a click as it locks again";
-	say ".";
+	if the second noun is the safe-pad:
+		now Safepad is remainder after dividing the number understood by 1000000;
+		say "The keypad buzzes harshly. It now displays '[safepaddisplay]'";
+		if the rift-safe is closed:
+			now the rift-safe is locked;
+			say ". You hear a click as it locks again";
+		say ".";
 
 To say safepaddisplay:
 	if Safepad < 10000:
@@ -8975,7 +9139,7 @@ Before opening a crystal-door:
 		unless we have opened the noun:
 			now the shard-trough is in temp;
 
-The shard-trough is a container. The shard-trough is fixed in place. The printed name of the shard-trough is "metal crate". Understand "metal" or "crate" or "heavy" as the shard-trough. The description of the shard-trough is "The crate looks like it was recently placed here. There is no lid, and it is completely full of red crystal shards. The side of the box says '(Mostly) Fake Shards. Good luck!'" The initial appearance of the shard-trough is "A heavy metal crate has been placed here filled with crystal shards."
+The shard-trough is a container. The shard-trough is fixed in place. The printed name of the shard-trough is "metal crate". Understand "metal" or "crate" or "heavy" as the shard-trough. The description of the shard-trough is "The crate looks like it was recently placed here. There is no lid, and it is completely full of red crystal shards. The side of the box says '(Mostly) Fake Shards. One is temporally displaced. Good luck!'" The initial appearance of the shard-trough is "A heavy metal crate has been placed here filled with crystal shards."
 
 The fake-shards are plural-named scenery things in the shard-trough. Understand "shards" or "red" or "crystal" or "fake" or "mostly" as the fake-shards. The printed name of the fake-shards is "fake crystal shards". The description of the fake-shards is "These all look like the other red crystal shards you've seen, but apparently they're [if the fifth-shard is handled]fake[otherwise if the fifth-shard is visible]fake[otherwise]mostly fake. You'll have to find your own way to tell which one is real[end if]."
 
@@ -9010,7 +9174,7 @@ Instead of opening the dormant-rift:
 		say "The rift is already open.";
 	otherwise if the curious-tool is not held by the player:
 		say "You don't have anything to open that with.";
-	otherwise if the curious-tool is not lockpick:
+	otherwise if the curious-tool is not connector:
 		say "The tool is on the wrong setting for opening things.";
 	otherwise if the fourth-shard is not part of the curious-tool:
 		say "The tool isn't powerful enough to open [the noun].";
@@ -9023,7 +9187,7 @@ Instead of opening the dormant-rift:
 		say "The rift is already closed.";
 	otherwise if the curious-tool is not held by the player:
 		say "You don't have anything to close that with.";
-	otherwise if the curious-tool is not lockpick:
+	otherwise if the curious-tool is not connector:
 		say "The tool is on the wrong setting for closing things.";
 	otherwise if the fourth-shard is not part of the curious-tool:
 		say "The tool isn't powerful enough to close [the noun].";
@@ -9073,11 +9237,7 @@ The pizza-box is a closed openable container. Understand "box" or "pizza" as the
 Does the player mean doing something to the pizza-box:
 	it is unlikely;
 
-The pizza-rift is a scene-rift in pizza-parlor. The pizza-rift is blue-torn. The pizza-rift can be open or closed. The pizza-rift is open. Understand "rift" as the pizza-rift. The printed name of the pizza-rift is "[rift-style] rift". The description of the pizza-rift is "This [rift-style] rift should be able to take you back." THe diagnose-text of pizza-rift is "DIAGNOSIS:
-Creation date: 0103/51[line break]
-Type: [if the fifth-uprift is black-torn] Black (originally Blue)[otherwise] Blue[end if] [line break]
-Separation type: Spatial[line break]
-Separation distance: 12000 meters"
+The pizza-rift is a scene-rift in pizza-parlor. The pizza-rift is blue-torn. The pizza-rift can be open or closed. The pizza-rift is open. Understand "rift" as the pizza-rift. The printed name of the pizza-rift is "[rift-style] rift". The description of the pizza-rift is "This [rift-style] rift should be able to take you back." THe diagnose-text of pizza-rift is "DIAGNOSIS:Creation date: 0103/51[line break]Type: [if the fifth-uprift is black-torn] Black (originally Blue)[otherwise] Blue[end if] [line break]Separation type: Spatial[line break]Separation distance: 12000 meters"
 
 The initial appearance of the pizza-rift is "A [rift-style of the pizza-rift] rift in the middle of the parlor leads back [boldoutside]."
 
@@ -9105,22 +9265,15 @@ Before opening a crystal-door:
 			now the dormant-time is in temp;
 			now the slot-box is in temp;
 			now the first-slever is in temp;
+			now the first-clock is in temp;
 			now the scribbled-note is in temp;
 			now the destination-room of the dormant-out is temp;
 
 The dormant-time is a scene-rift. Understand "rift"as the dormant-rift. The dormant-time is black-torn. The printed name of the dormant-time is "[rift-style] rift". Understand "rift" as the dormant-time. The description of the dormant-time is "This [rift-style] rift is in the center of the room, and is larger than the other rift.".
 
-The diagnose-text of dormant-time is "DIAGNOSIS:
-Creation date: 0203/51[line break]
-Type: [if the fifth-uprift is black-torn] Black (originally Red)[otherwise] Red[end if] [line break]
-Separation type: Temporal[line break]
-Separation distance: 3 minutes"
+The diagnose-text of dormant-time is "DIAGNOSIS:[line break]Creation date: 0203/51[line break]Type: [if the fifth-uprift is black-torn] Black (originally Red)[otherwise] Red[end if] [line break]Separation type: Temporal[line break]Separation distance: 3 minutes"
 
-The diagnose-text of dormant-out is "DIAGNOSIS:
-Creation date: 0203/51[line break]
-Type: [if the fifth-uprift is black-torn] Black (originally Red)[otherwise] Red[end if] [line break]
-Separation type: Temporal[line break]
-Separation distance: 3 minutes"
+The diagnose-text of dormant-out is "DIAGNOSIS:[line break]Creation date: 0203/51[line break]Type: [if the fifth-uprift is black-torn] Black (originally Red)[otherwise] Red[end if] [line break]Separation type: Temporal[line break]Separation distance: 3 minutes"
 
 The initial appearance of dormant-time is "Another larger [rift-style of dormant-time] rift is in the room as well, leading [boldinside]." Understand "large" or "larger" as the dormant-time.
 
@@ -9132,11 +9285,19 @@ The adjacent-room is a room. The printed name of the adjacent-room is "Nearby Ro
 
 You can go [boldoutside] through [the dormant-out]."
 
+The second-clock is in adjacent-room.
+
 The scribbled-note is a thing. "A scribbled note has been left here." The printed name of the scribbled-note is "scribbled note". Understand "scribbled" or "note" as the scribbled-note. The description of the scribbled-note is "It reads:
 
 [italic type]Both levers have to be activated at once to open the box. Make sure to diagnose the rift first![roman type]".
 
-The slot-box is a container. The slot-box is fixed in place. "A glass box is attached to one wall, with a lever on it. It has two lights: one, labelled A, is [if the 1-light is switched on]lit[otherwise]dark[end if] while the other, labelled B, is [alsoword][if the 2-light is switched on]lit[otherwise]dark[end if]." The slot-box is closed. The slot-box is transparent. The slot-box is openable. The printed name of the slot-box is "glass box". Understand "box" or "glass "or "wall" as the slot-box. The description of the slot-box is "This glass box has been hooked up to a lever in a somewhat confusing way. It has two lights attached to it labelled A and B."
+The slot-box is a container. The slot-box is fixed in place. "A glass box is attached to one wall, with a lever on it. It has two lights: one, labelled A, is [if the 1-light is switched on]lit[otherwise]dark[end if] while the other, labelled B, is [alsoword][if the 2-light is switched on]lit[otherwise]dark[end if]." The slot-box is closed. The slot-box is transparent. The slot-box is openable. The printed name of the slot-box is "glass box". Understand "box" or "glass "or "wall" as the slot-box. The description of the slot-box is "This glass box has been hooked up to a lever in a somewhat confusing way. It has two lights attached to it labelled A and B. Light A is [if the 1-light is switched on]lit[otherwise]dark[end if] while  B is [alsoword][if the 2-light is switched on]lit[otherwise]dark[end if]."
+
+An upgrade-clock is a kind of thing. An upgrade-clock is usually fixed in place. The printed name of an upgrade-clock is "clock". Understand "clock" or "digital" or "bare-bones" or "bare-bone" as an upgrade-clock. "There is a clock mounted in this room, reading [time of day]." 
+
+The description of an upgrade-clock is usually "This is a bare-bones digital clock. It reads [time of day]. It has been firmly mounted in place."
+
+The first-clock is an upgrade-clock. The second-clock is an upgrade-clock.
 
 To say alsoword:
 	if the 1-light is switched on and the 2-light is switched on:
@@ -9223,12 +9384,12 @@ Instead of opening the dormant-time:
 		say "The rift is already open.";
 	otherwise if the curious-tool is not held by the player:
 		say "You don't have anything to open that with.";
-	otherwise if the curious-tool is not lockpick:
+	otherwise if the curious-tool is not connector:
 		say "The tool is on the wrong setting for opening things.";
 	otherwise if the fourth-shard is not part of the curious-tool:
 		say "The tool isn't powerful enough to open [the noun].";
 	otherwise:
-		say "You bring your tool near the rift, and in an instant it turns bright red.";
+		say "You bring your tool near the larger rift, and in an instant it turns bright red, flaring into life.";
 		now the dormant-time is red-torn;
 		
 The destination-room of the dormant-time is the adjacent-room.
@@ -9259,18 +9420,14 @@ Before going nowhere when dormant-mega is in the location:
 	if the noun is inside:
 		try entering the dormant-mega instead;
 
-The diagnose-text of dormant-mega is "DIAGNOSIS:
-Creation date: 0204/51[line break]
-Type: [if the fifth-uprift is black-torn] Black (originally Red)[otherwise] Red[end if] [line break]
-Separation type: Temporal[line break]
-Separation distance: 105 years"
+The diagnose-text of dormant-mega is "DIAGNOSIS:[line break]Creation date: 0204/51[line break]Type: [if the fifth-uprift is black-torn] Black (originally Red)[otherwise] Red[end if] [line break]Separation type: Temporal[line break]Separation distance: 105 years"
 
 Instead of opening the dormant-mega:
 	if the dormant-mega is open:
 		say "The rift is already open.";
 	otherwise if the curious-tool is not held by the player:
 		say "You don't have anything to open that with.";
-	otherwise if the curious-tool is not lockpick:
+	otherwise if the curious-tool is not connector:
 		say "The tool is on the wrong setting for opening things.";
 	otherwise if the fourth-shard is not part of the curious-tool:
 		say "The tool isn't powerful enough to open [the noun].";
@@ -9290,11 +9447,7 @@ Instead of going nowhere from precarious-room when the noun is outside:
 
 The mega-out is a scene-rift in precarious-room. The mega-out is red-torn. The printed name of the mega-out is "[rift-style] rift". Understand "rift" or "large" as the mega-out. The description of the mega-out is "This large [rift-style] rift leads back [boldoutside]."
 	
-The diagnose-text of mega-out is "DIAGNOSIS:
-Creation date: 0204/51[line break]
-Type: [if the fifth-uprift is black-torn] Black (originally Red)[otherwise] Red[end if] [line break]
-Separation type: Temporal[line break]
-Separation distance: 105 years"
+The diagnose-text of mega-out is "DIAGNOSIS:[line break]Creation date: 0204/51[line break]Type: [if the fifth-uprift is black-torn] Black (originally Red)[otherwise] Red[end if] [line break]Separation type: Temporal[line break]Separation distance: 105 years"
 
 An art-smashand is a kind of thing. An art-smashand can be smashed or pristine. Understand the smashed property as describing an art-smashand. Understand "art" as an art-smashand.
 
@@ -9303,7 +9456,7 @@ The glass-shelving is an art-smashand in precarious-room. The indefinite article
 Rule for writing a paragraph about the glass-shelving:
 	say "Some art is stored in this room: some glass shelving, [if the glass-shelving is smashed]now smashed[otherwise]in good condition[end if]; a [gingerbread-castle], [if the gingerbread-castle is pristine]attached to the wall[otherwise]pulled off and fallen on the floor in pieces[end if]; and [a soup-painting], [if the soup-painting is pristine]in pretty good condition[otherwise]now with a hole in it[end if]."
 
-Instead of pushing the glass-shelving when the glass-shelving is pristine:
+Instead of pushing or pulling or attacking the glass-shelving when the glass-shelving is pristine:
 	now the noun is smashed;
 	say "The shelving falls down and shatters everywhere. It's unbearably loud.";
 	check-seventh;
@@ -9313,14 +9466,14 @@ The gingerbread-castle is an art-smashand in precarious-room. Understand "ginger
 Instead of pushing the gingerbread-castle when the gingerbread-castle is pristine:
 	say "It's attached to the wall so there's nowhere to push it. You might be able to pull it, though."
 
-Instead of pulling the gingerbread-castle when the gingerbread-castle is pristine:
+Instead of pulling or attacking the gingerbread-castle when the gingerbread-castle is pristine:
 	now the noun is smashed;
 	say "You pull down the gingerbread castle, big handfuls at once. It falls to the ground, ruined.";
 	check-seventh;
 
 The soup-painting is an art-smashand in precarious-room. Understand "soup" or "can" or "painting" as the soup-painting. The printed name of the soup-painting is "soup painting". The description of the soup-painting is "This is a painting of a soup can. It looks like a great deal of time went into making this."
 
-Instead of attacking the soup-painting when the soup-painting is pristine:
+Instead of attacking or pulling or pushing the soup-painting when the soup-painting is pristine:
 	now the noun is smashed;
 	say "You punch your fist straight through the soup painting. You wish it hadn't come to this, but history must be maintained.";
 	check-seventh;
@@ -9346,18 +9499,14 @@ The dormant-giga is a scene-rift. Understand "rift" or "large" or "Larger" as th
 
 The initial appearance of the dormant-giga is "A large [rift-style of dormant-giga] rift is also here, leading [boldinside]."
 
-The diagnose-text of dormant-giga is "DIAGNOSIS:
-Creation date: 0205/51[line break]
-Type: [if the fifth-uprift is black-torn] Black (originally Red)[otherwise] Red[end if] [line break]
-Separation type: Temporal[line break]
-Separation distance: 165 years"
+The diagnose-text of dormant-giga is "DIAGNOSIS:[line break]Creation date: 0205/51[line break]Type: [if the fifth-uprift is black-torn] Black (originally Red)[otherwise] Red[end if] [line break]Separation type: Temporal[line break]Separation distance: 165 years"
 
 Instead of opening the dormant-giga:
 	if the dormant-giga is open:
 		say "The rift is already open.";
 	otherwise if the curious-tool is not held by the player:
 		say "You don't have anything to open that with.";
-	otherwise if the curious-tool is not lockpick:
+	otherwise if the curious-tool is not connector:
 		say "The tool is on the wrong setting for opening things.";
 	otherwise if the fourth-shard is not part of the curious-tool:
 		say "The tool isn't powerful enough to open [the noun].";
@@ -9365,6 +9514,10 @@ Instead of opening the dormant-giga:
 		say "You bring your tool near the rift. The tool trembles, drawing on a great deal of power, and the rift turns bright red.";
 		now the dormant-giga is red-torn;
 		
+Before going nowhere when dormant-giga is in the location:
+	if the noun is inside:
+		try entering the dormant-giga instead;
+
 The destination-room of dormant-giga is yang-two.
 
 yang-two is a room. The printed name of the yang-two is "Laboratory". The description of yang-two is "You are in a laboratory scattered with fragments of crystals of various colors, as well as equipment of uncertain use. A desk is prominent in the middle of the room, with an incomplete device labelled Yang Engine Mk III on it.
@@ -9404,7 +9557,7 @@ Every turn when the player is in yang-two:
 
 '...colony is thriving. I think it's time we begin working on...'[or]The voices continue, with this one sounding like Antonio Yang:
 
-'...energy sources. begun creating crystals with that same energy of the Storyweaver...'[or]The next voice you hear is Sanya's voice...or maybe an older version of Divya?
+'...energy sources. We've started creating crystals with that same energy of the Storyweaver...'[or]The next voice you hear is Sanya's voice...or maybe an older version of Divya?
 
 '...all thanks to Emrys. That's why we've agreed to make this the day of Weft's End a holiday...'[or]The Captain's voice returns:
 
@@ -9423,7 +9576,7 @@ Carry out rifttesting:
 [add diagnose-text for the dormant rift and pizza rift and so on]
 
 Instead of going nowhere from yang-two when the noun is outside:
-	try entering the seventh-backrift;
+	try entering the giga-out;
 
 Part 4 - Garden dimension
 
@@ -10220,7 +10373,7 @@ Instead of inserting something into the enflamed cabin-fire:
 	if the noun is not the rotten-beam:
 		say "You have no desire to burn [the noun].";
 	otherwise:
-		say "Your Weaver's gift tells you that this beam may be useful some day.";
+		say "You hesitate; this beam may be useful some day.";
 	
 Instead of taking something when the noun is in the enflamed cabin-fire:
 	say "You can't reach into the fire without burning your hand!"
@@ -11288,7 +11441,7 @@ earlynight	" It is hard to see at times, when clouds pass over the moon"
 
 Section 1 - The page
 
-The 12-page is a journal-page. The page-number of 12-page is 12. The description of the 12-page is "The experiments are a success. Given what the Record says about our guest, she should be here in just a few short years. My time at this cabin has ended. 
+The 12-page is a journal-page. The page-number of 12-page is 12. The description of the 12-page is "The experiments are a success. Some things can be changed after all; or, at least, in some things we have freedom. But others still weigh me down. Given what the Record says about our guest, she should be here in just a few short years. My time at this cabin has ended. 
 
 Our portals only have a short range in time. To avoid destroying our own timeline, we've been restricting our experiments to in-lab. Storyweavers are more sensitive than baseline humans, and emotional ties make the connection stronger; our current theory, based on the Record, is that we might be able to bootstrap our way through close acquaintances before bringing her in for the real deal.
 
@@ -15110,7 +15263,7 @@ Instead of showing the yang-laptop to antonio:
 
 'This...this is perfect! If I create a hyperbolic network it's no longer amenable; I can pump in more electricity from the outskirts than gets pumped out.' He notices you watching him. 'Sorry for rambling, but Storyweaver, you're a treasure!' He folds the laptop under his arm and embraces you for a second before rushing away and out of sight.
 
-The rift in the room turns green.";
+The rift in the room changes from red to green.";
 		now antonio yang is nowhere;
 		now the cryo-tear is green-torn;
 	
@@ -15381,6 +15534,7 @@ To say makepresent:
 Section 3 - XYZZYStein
 
 To say delivermagic:
+	now frankytrue is true;
 	deliver Franken-magic;
 
 Franken-magic is a quip. The printed name of Franken-magic is "Polite". Understand "polite" as Franken-magic. The preview of Franken-magic is "I have to say the magic word? Okay...Please may I have your token?"  The target of Franken-magic is Frankenstein.
@@ -15402,6 +15556,7 @@ He sits down and sulks for an uncomfortably long time, then says 'Fine. You can 
 
 To say tokendeliver:
 	now the green-token is carried by the player;
+	now frankytrue is false;
 	now the description of Frankenstein is "This is a very tall man. He has translucent skin, with a dark web of blood vessels underneath, and black lips. He wears overalls with a nametag that says 'Frankenstein'. He looks a little glum right now, after having to give up his token."
 
 The green-token is a token. The printed name of the green-token is "green token". Understand "green" as the green-token. The token-target of green-token is "Frankenstein".
@@ -18377,6 +18532,12 @@ Unlocking keylessly is an action applying to one thing. Understand "unlock [some
 locked lockable thing]" as unlocking keylessly. Understand "unlock [a lockable
 thing]" as unlocking keylessly.
 
+Definition: a thing (called current) is rifty:
+	if current is a space-tear, decide yes;
+	if current is a hub-door, decide yes;
+	if current is a scene-rift, decide yes;
+	decide no;
+
 Carry out unlocking keylessly:
 	if the noun is the lavatory-latch:
 		try turning the lavatory-latch;
@@ -18385,6 +18546,11 @@ Carry out unlocking keylessly:
 			say "You can't unlock the door from the outside.";
 		otherwise:
 			try turning the lavatory-latch;
+	otherwise if the noun is rifty:
+		if the curious-tool is held by the player:
+			try unlocking the noun with the curious-tool;
+		otherwise:
+			say "You don't have anything to open that with.";
 	otherwise if the noun is not lockable:
 		say "That [are] not something [we] [can] unlock.";
 	otherwise if the noun is unlocked:
@@ -18682,9 +18848,9 @@ Dafyddknown is a truth state that varies. Dafyddknown is false.
 
 The train-corpse is scenery in second-class. Understand "corpse" or "body" or "dead" or "face" or "limb" or "limbs" or "dafydd" or "small" or "short" or "slim" or "man" or "him" or "dafydd's" as the train-corpse. The printed name of the train-corpse is "[if dafyddknown is true]Dafydd[otherwise]dead man[end if]".
 
-The description of the train-corpse is "[if dafyddknown is true]Dafydd was [otherwise]This body belongs to [end if]a short, slender man no older than thirty. He is wearing a tank top and gym shorts. His skin is pale, although remarkably smooth-looking, and his limbs are stiff and clenched. 
+The description of the train-corpse is "[if dafyddknown is true]Dafydd was [otherwise]This body belongs to [end if]a short, slender man no older than thirty. He is wearing a tank top and gym shorts. His skin is pale, although remarkably smooth-looking, and his limbs are stiff and clenched. The chip that the strange creature stole lies near him.
 
-A piece of paper is clenched in his fist. [if the dead-fist is examined]The fist itself is bruised[otherwise]There's something odd about the hand itself, too[end if]."
+A piece of paper is clenched in his fist. [if the dead-fist is examined]The fist itself is bruised[otherwise]There's something odd about the hand itself, too[end if]. "
 
 Report examining the train-corpse:
 	now package-receipt is held by train-corpse.
@@ -18979,7 +19145,7 @@ Section 2 - Author Maeve's apartment
 
 The printed name of Luxury-apartment is "Luxury Apartment". The description of luxury-apartment is "I was in the bedroom of my penthouse apartment, which overlooks the big city below with a magnificent view. That morning, the room was spotless and tidy, empty except for my king-sized hoverbed and my nightstand.
 
-My walk-in closet was to the [boldsouth], and my office to the [boldeast]. I won't bother you with the more private details of my life, like the bathroom or the kitchen or the pool. The paparazzi might be listening you know."
+My walk-in closet was to the [boldsouth], and my office to the [boldeast]. I won't bother you with the more private details of my life, like the bathroom or the kitchen or the pool. The paparazzi might be listening, you know."
 
 The luxury-bathroom is scenery in luxury-apartment. The luxury-pool is scenery in luxury-apartment. The luxury-kitchen is scenery in luxury-apartment.
 
@@ -19358,11 +19524,12 @@ A healthy-breakfast is an edible thing. The printed name of the healthy-breakfas
 
 The Nice-wardrobe is a scenery closed openable container in nice-apartment. Understand "wardrobe" as the nice-wardrobe. The printed name of the nice-wardrobe is "wardrobe". The description of the nice-wardrobe is "The wardrobe came with the apartment; the previous tenant couldn't get it out, and neither could I. It's a wonder how it was brought in in the first place. But it fits my aesthetic, so I kept it."
 
-The other-clothes are plural-named things in the nice-wardrobe. "My other clothes were in the wardrobe, as well." The printed name of the other-clothes is "other clothes". Understand "other" or "clothe" or "clothes" as the other-clothes.
+The other-clothes are plural-named things in the nice-wardrobe. "My other clothes were in the wardrobe, as well." The printed name of the other-clothes is "other clothes". Understand "other" or "clothe" or "clothes" or "jumble of" or "jumble" or "fashionable" as the other-clothes.
 
 Instead of taking the other-clothes:
 	say "My jumpsuit was the only thing that called out to me to wear that day."
 
+ The description of the other-clothes is "Oh, just a fashionable jumble of clothes. Nothing of importance."
 
 After wearing the fake-jumpsuit when the fake-pajamas are worn by the player:
 	now the fake-pajamas are in the location;
@@ -19874,6 +20041,9 @@ Sample-4B is a sample-slide in the samples-fridge. Sample-5C is a sample-slide i
 
 The description of sample-5C is "This was one of the more confusing samples of the experiment, and had been left for last, along with sample 4B. I couldn't see any pertinent details without the use of the microscope."
 
+Report examining a marked sample-slide:
+	say "This sample has already been marked."
+
 The other-slides are plural-named things in samples-fridge. The printed name of the other-slides is "other samples". Understand "slides" or "samples" or "previously" or "Marked" or "other" as the other-slides. The description of the other-slides is "The slides I had previously, painstakingly marked were in the fridge already, where I had carefully placed them after analyzing them."
 
 The lab-micro is a scenery thing in bio-lab. The printed name of the lab-micro is "microscope". Understand "microscope" or "micro" or "scope" as the lab-micro.
@@ -20227,7 +20397,7 @@ You look at her for a while. 'Hey Mefe,' you ask. 'you don't happen to own a rhi
 
 'No reason. Just thinking of a friend of mine,' you answer.
 
-The rift near you turns from red to green";
+The rift near you thrums as it changes color from red to green";
 	now the flight-tear is green-torn;
 
 Section 5 - Department Hallway
@@ -21842,7 +22012,7 @@ You look over this book. It's a digital book, like the kind you grew up with. [o
 
 On the screen is orange text saying:
 
-'Spells:[spelllist].'[if bookmarkon is true]
+[italic type]Spells:[spelllist].[roman type][if bookmarkon is true]
 
 The bookmark is in the spellbook.[end if]"
 
@@ -21867,7 +22037,7 @@ Before doing something other than examining when the current action involves the
 
 The description of the orange-text is "The text glows, but only barely. It's just enough to see the text, not enough to provide illumination of its own. It says:
 
-'Spells:[spelllist].'"
+[italic type]Spells:[spelllist].[roman type]"
 
 The description of the spellbook-slot is "It looks designed to hold a digital bookmark, a modern replacement for the USB drives of old days[if bookmarkon is true].
 
@@ -21948,6 +22118,7 @@ Carry out teloxing:
 		say "You say the word 'Telox,' and feel your body erupt into a shower of a million particles.
 
 *******************************************************************[line break]There is a flash and the sound of rushing sand[line break]****************************************************************************";
+		now the curious-tool is held by the player;
 		now the player is in gem-room;
 
 A spell-scroll is a kind of thing. Understand "gold" or "golden" or "scroll" as a spell-scroll. A spell-scroll has a magic-spell called the associated-spell. The verb to cast means the associated-spell property. The description of a spell-scroll is usually "[if the item described is carried]This [item described] simply says:[paragraph break][italic type][associated-spell][roman type]: [spell-preview of associated-spell of the item described][otherwise]It's hard to make out any details since you're not holding it[end if]."
@@ -23095,13 +23266,13 @@ the wearing action	"[the player] getting dressed"
 
 Table 2 - Room shorthands
 locale	summaries
-black-dome	"standing in a hemispherical dome"
+black-dome	"within a hemispherical dome"
 lonely-room	"in an underground village"
 buried-room	"in an impossibly tight crevice"
 end-room	"in a graveyard of bodies"
 vast-room	"while standing on the edge of a towering cliff"
 eye-room	"in this very room"
-stranger-room	"standing near a humanoid figure"
+stranger-room	"near a humanoid figure"
 desolation-room	"in a room filled with flames"
 corruption-room	"in a room crawling with insects of every kind"
 flesh-room	"in a room filled with bizarre beasts"
@@ -23128,7 +23299,7 @@ The eye-room is west from vast-room. The eye-room is a room in spell-region. The
 
 [if the eye-monitors are unawakened]All of the cameras and monitors seem completely inert[otherwise]Every camera in the room is trained on you. The majority of monitors are displaying video of you[end if]. One large monitor labelled SECURITY [monitortext].
 
-The underground lake is to the [boldeast]. [if the heavy-portcullis is unripped]There is also a heavy portcullis to [otherwise]You can also leave to [end if]the [boldwest]."
+The underground lake is to the [boldeast]. [if the heavy-portcullis is unripped]There is also a heavy portcullis to [otherwise]With the portcullis gone, you can also leave to [end if]the [boldwest]."
 
 [add in a way to access the room to the west].
 
@@ -23254,7 +23425,7 @@ To say deliverstranger:
 	
 Stranger-quip is a quip. The printed name of stranger-quip is "Stranger". Understand "stranger" as stranger-quip. The preview of stranger-quip is "Excuse me, who are you?" The target of stranger-quip is the strange-man.
 
-The targetresponse of stranger-quip is "The old man doesn't look at you, but becomes more active, huffing and puffing and swinging his arms around.
+The targetresponse of stranger-quip is "The old man doesn't look at you, but becomes more active, huffing and puffing and swinging his arms around[if strange-man is not examined]. You notice he is holding a light golden scroll[end if].
 
 He says, 'My back is aching terribly. Could you push it for me? Terrible back pain.'"
 
@@ -23522,7 +23693,7 @@ Carry out anghofioing:
 
 		Fortunately, the intense heat from the flames is evaporating the liquid.
 
-		Before all the slime evaporates, you notice that, on the ground, in your handwriting, is traced out in slime the word 'SPLASH'. But it, too evaporates, and the room is as it was before. You remember nothing of what happened for the last five minutes.";
+		Before all the slime evaporates, you notice that, on the ground, in your handwriting, is traced out in slime the word 'CAMERA'. But it, too, evaporates, and the room is as it was before. You remember nothing of what happened for the last five minutes.";
 		if the eye-camera is awakened:
 			now desolation-attempt is 1;
 	otherwise if the spell-book is enclosed by the player:
@@ -23796,11 +23967,11 @@ Does the player mean doing something with the mom-lunch:
 
 Section 2 - The spiral-spector
 
-A spiral-spector is a scenery woman. The printed name of the spiral-spector is "[if spiral-level is 1]mother[otherwise if spiral-level is 2]school librarian[otherwise]corpse[end if]". The indefinite article of spiral-spector is "your".
+A spiral-spector is a scenery woman. The printed name of the spiral-spector is "[if spiral-level is 1]your mother[otherwise if spiral-level is 2]school librarian[otherwise]corpse[end if]". The indefinite article of spiral-spector is "your".
 
 Understand "woman" as the spiral-spector.
 
-Understand "mother" or "mum" or "mom" or "mommy" or "tall" or "tough" as the spiral-spector when spiral-level is 1. 
+Understand "mother" or "mum" or "mom" or "mommy" or "tall" or "tough" or "your" or "my" as the spiral-spector when spiral-level is 1. 
 
 Understand "librarian" or "school librarian" or "school" or "short" or "warm" or "smile" as the spiral-spector when spiral-level is 2.
 
@@ -23828,6 +23999,7 @@ Instead of doing something to the spiral-lamp:
 		say "There was never a lamp.";
 	otherwise:
 		say "There isn't a lamp there, though.";
+		now spiral-spector is proper-named;
 		increment spiral-level;
 		now the spiral-lamp is spiraloff;
 		now the spiral-locker is spiralon;
@@ -23845,6 +24017,7 @@ Instead of doing something with the spiral-locker:
 	otherwise:
 		say "There isn't a locker there, though.";
 		increment spiral-level;
+		now spiral-spector is not proper-named;
 		now the spiral-locker is spiraloff;
 		now the spiral-helmet is spiralon;
 		now the spiral-helmet is in spiral-room;
@@ -23883,7 +24056,11 @@ Instead of listening to the hallway-noises:
 
 Section 6 - Spiral Bookmark
 
-The spiral-bookmark is a thing. The printed name of the spiral-bookmark is "bookmark". The initial appearance of the spiral-bookmark is "Seemingly forgotten, a bookmark lies on the floor." Understand "book mark" or "digital" or "mark" or "hook" or "spiral" or "bookmark" or "long" or "hooklike" as the spiral-bookmark. The description of the spiral-bookmark is "This is a digital bookmark, meant for e-books. It's long and skinny, about a centimeter wide, but at one end it spirals into a sort of hook.".
+The spiral-bookmark is a thing. The printed name of the spiral-bookmark is "bookmark". The initial appearance of the spiral-bookmark is "Seemingly forgotten, a bookmark lies on the floor." Understand "book mark" or "digital" or "mark" or "hook" or "spiral" or "bookmark" or "long" or "hooklike" as the spiral-bookmark. The description of the spiral-bookmark is "This is a digital bookmark, meant for e-books. It's long and skinny, about a centimeter wide, but at one end it spirals into a sort of hook. It looks sturdy enough that you might be able to grab something with it.".
+
+Instead of withtaking something with the spiral-bookmark:
+	say "You reach for [the noun] with [the spiral-bookmark].";
+	try taking the noun;
 
 Bookmarkon is a truth state that varies. Bookmarkon is false.
 
@@ -23907,7 +24084,6 @@ Instead of taking spiral-bookmark when spiral-bookmark is part of the spell-book
 	
 [FIX THIS LATER change pulling and pushing on bookmark when in spellbook]
 [change description of bookmark and spellbook to indicate only top is sticking out].
-[to-do: make the weird spells that result from this]
 
 Section 7 - Void of space
 
@@ -23993,6 +24169,9 @@ Before taking virox-scroll:
 		if virox-scroll is not handled:
 			if playeraflame is false:
 				say "You reach for the scroll..." instead;
+
+After taking virox-scroll for the first time:
+	say "You reach into the hive, your hand brushing several squirming things, and grab the scroll."
 
 [fIX THIS LATER: GIVING OTHER THINGS THE DISEASE]
 
@@ -24404,7 +24583,7 @@ REport uttering role-quip to the webmaster:
 
 torture-quip is a quip. The printed name of torture-quip is "Torture". Understand "Torture" as torture-quip. The preview of torture-quip is "Why is this place so terrible?'" The target of torture-quip is webmaster.
 
-The targetresponse of torture-quip is "`Is it terrible? Is that how it appears to you? Your physical form is advanced, but imperfect. Not even sentient. The experiences you are having are real, but the rudimentary signals you transmit are interpreted through the lens of your puppetmaster's mind, who, by the way, seems to have quite the imagination. Computer commands, seen as spells! Robots seen as monstrous beasts! 
+The targetresponse of torture-quip is "'Is it terrible? Is that how it appears to you? Your physical form is advanced, but imperfect. Not even sentient. The experiences you are having are real, but the rudimentary signals you transmit are interpreted through the lens of your puppetmaster's mind, who, by the way, seems to have quite the imagination. Computer commands, seen as spells! Robots seen as monstrous beasts! 
 
 'I myself am a simple AI, transmitting through grounded temporary wires spread by helpful bots, but you see me as a horrible spider, don't you?'
 
@@ -24463,7 +24642,7 @@ Seeing your disappointment, he adds, 'You already have the bear. When the time c
 
 'You must find Emrys Tisserand. You must give her the bear. You'll need this,' he says, and lobs a webbed scroll at you.
 
-'Goodbye , little one,' he says. 'And don't worry, you already know where Emrys is. The feedback from your connection gets overwhelming when you are near her, distorting your reality. The scroll will help.'
+'Goodbye, little one,' he says. 'And don't worry, you already know where Emrys is. The feedback from your connection gets overwhelming when you are near her, distorting your reality. The scroll will help.'
 
 You hold the scroll tight and nod in understanding."
 
@@ -24619,8 +24798,6 @@ It has scars all over its body. Remnants of some ancient fight[first time]? But 
 The life-text of slaughter-room is "[if the slaughter-beast is enclosed by slaughter-room][paragraph break][italic type]Breaker[roman type][line break]Quantity: 1[line break]Mass: 341 kg[end if]"
 
 Section 2 - The portcullis
-
-[FIX THIS LATER Make this require something to solve. Maybe the scroll from overcoming the vast? Could be the buried scroll? attracts metal to the user?]
 
 The heavy-portcullis is a scenery door. The heavy-portcullis is closed and unopenable. The printed name of the heavy-portcullis is "[if the heavy-portcullis is unripped]heavy portcullis[otherwise]empty gateway[end if]". Understand "heavy" or "portcullis" or "passage" or "grating" or "iron" or "holes" or "dense" as heavy-portcullis. The heavy-portcullis is east from the slaughter-room and west from eye-room. The description of the heavy-portcullis is "[if unripped]The portcullis between this room and the next is heavy iron, with a grating too dense to see through[otherwise]There is no more portcullis; it has been ripped to shred by your earlier spell. The location of its remains are, to you, unknown[end if].".
 
@@ -24803,7 +24980,7 @@ The printed name of black-dome is "Gem Room". The printed name of fake-emrys is 
 Instead of giving the teddy-bear to fake-emrys:
 	say "You hold the teddy bear to Emrys. She takes her hands off the gem.";
 	move the player to gem-room, without printing a room description;
-	say "No...[italic type]you[roman type] take your hands of the gem.
+	say "No...[italic type]you[roman type] take your hands off the gem.
 
 In front of you is a rough-shaped humanoid made of what looks like gritty sand, holding a teddy bear.
 
@@ -24848,7 +25025,7 @@ When she gets out, she grabs her bear, and says, 'Thank you!'
 
 'They always told me our evac center was Floor 7,' she says. 
 
-'Do you know how to get there?' you ask. Your Weaver's gift is confident that this girl will be safe on her own, now.
+'Do you know how to get there?' you ask. Your feel confident that this girl will be safe on her own, now.
 
 'Yeah, that's where my school is,' she answers. 'Can I go there?'
 
@@ -24927,7 +25104,7 @@ Slots-quip is a quip. The printed name of Slots-quip is "Transcribing". Understa
 
 Max heeds slots-quip. Dan heeds slots-quip.
 
-The targetresponse of slots-quip is "[if the player is in combat-kitchen]'Ask me about that later,' says Max. 'Those are too complex for me to describe in this tutorial area. If you figure them out, you can use them, but otherwise, I vote that we wait.'[otherwise][The currenttarget] assumes a rigid posture, and says in a slightly different voice:
+The targetresponse of slots-quip is "[if the player is in combat-kitchen]'Ask me about that later,' says Max. 'Those recording slots are too complex for me to describe in this tutorial area. If you figure them out, you can use them, but otherwise, I vote that we wait.'[otherwise][The currenttarget] assumes a rigid posture, and says in a slightly different voice:
 
 [italic type]Welcome to Memory Slots Help! Memory slots can be used to help your robot achieve their full potential!
 
@@ -25301,7 +25478,7 @@ Carry out slotactivating:
 Report slotactivating:
 	say "'[The noun] is now activated,' says [if the noun is a dan-slot]Dan[otherwise]Max[end if]."
 
-transcribing is an action applying to nothing. Understand "record" as transcribing. 
+transcribing is an action applying to nothing. Understand "record" as transcribing when record-quip is not enclosed by the location. 
 
 Carry out an actor transcribing:
 	if the actor is the player:
@@ -25935,6 +26112,10 @@ Before someone inserting the kitchen-unwashed kitchen-lettuce into the hamburger
 After someone inserting something into the hamburger-bun:
 	say "[The actor] puts [the noun] on the hamburger bun.";
 	try nothingaction instead;
+
+Before someone putting something on something:
+	if the second noun is in the hamburger-bun:
+		try the actor putting the noun on the hamburger-bun instead;
 
 After someone taking the hamburger-bun for the first time:
 	say "Max picks up the hamburger bun.
@@ -28033,7 +28214,49 @@ The wildcard-region is a region.
 
 Audience-chamber is a room in wildcard-region.
 
-Part 11 - Intership parts 
+Chapter 1 - Reception
+
+Audience-chamber is a room. The printed name of audience-camber is "Audience Chamber".  The description of audience-chamber is "FIX THIS LATER You are in a hall of gleaming crystal, which appears as if it has room for hundreds of visitors. But the only one here is you and a woman in white. Your recorder squeaks for a moment.
+
+'Hello,' says the woman. 'My name is Arawn Webster. I'm so glad to see you[delwelcome]. I'd like to officially welcome you to the Starship Tisserand as our first, and hopefully only, time traveller. I'm sure you must have many questions. This is the time for that. But I must tell you that from this point on, everything in your recorder will be erased once you leave. That's what our Record shows must happen, and it is the end of your record with us.'".
+
+Audtping is an action applying to nothing. Understand "xyaud" as audtping.
+
+Carry out audtping:
+	now the player is in audience-chamber.
+	
+Section 1 - Arawn herself
+
+Arawn Webster is a woman in audience-chamber. The description of Arawn is "FIX THIS LATER". "FIX THIS LATER Arawn is wearing her mask near you."
+
+To say delwelcome:
+	deliver record-quip;
+	
+Record-quip is a quip. Understand "record" as record-quip. The printed name of record-quip is "Record". THe preview of Record-quip is "FIX THIS LATER I want to know everything about this Record." The target of record-quip is Arawn.
+
+The targetresponse of record-quip is "FIX THIS LATER".
+
+Chapter 2 - Museum entrance
+
+Museum-entrance is a room.
+
+Chapter 3 - World map
+
+The map-region is a region. Map-region is in wildcard-region.
+
+The fore-port is a room in map-region. fore-port is east from audience-chamber.
+
+The aft-port is a room in map-region. The aft-port is south from fore-port.
+
+The fore-starboard is a room in map-region.
+
+The aft-starboard is a room in map-region.
+
+[when the party starts:
+	
+	now verbosequips is true;]
+
+[at party tell a ton of stuff but imply there's more]
 
 Volume 3 - Standard responses, endgame text, etc
 
@@ -28404,7 +28627,7 @@ Test firstshard with "s/e/n/n/n/e/set tool to lockpick/unlock door with lockpick
 
 Test qfirstshard with "set tool to lockpick/unlock door with lockpick/n/take shard" in gift-room.
 
-Test firstupgrade with "put shard in hole/put tool on pedestal/push confirm/wear apron/x dial/set dial to jagged/push antenna/set dial to radio tower/set dial to rainbow/set dial to thermometer/set dial to skull/remove apron/drop apron" 
+Test firstupgrade with "put shard in hole/put tool on pedestal/wear apron/x dial/set dial to jagged/push antenna/set dial to radio tower/set dial to rainbow/set dial to thermometer/set dial to skeleton/remove apron/drop apron" 
 
 Test tofirstup with "test totool/test firstshard/test firstupgrade"
 
@@ -28414,7 +28637,7 @@ Test secshard with "s/e/d/s/x whimpering/say escape/s/set tool to lockpick/unloc
 
 Test qsecshard with "set dial to lockpick/unlock hatch/d/set tool to flashlight/take shard" in gem-room.
 
-Test secupgrade with "put shard in hole/put tool on pedestal/push confirm/push diagnosis/g/g/x dial/x rings/turn dial to 4/z/push diagnosis/z/z/z/z/turn dial to 3"
+Test secupgrade with "put shard in hole/put tool on pedestal/push diagnosis/g/g/x dial/x rings/turn dial to 4/z/push diagnosis/z/z/z/z/turn dial to 3"
 
 Test qsecupgrade with "test secupgrade" in device-room.
 
@@ -28422,7 +28645,7 @@ Test thirdshard with "s/e/s/s/s/pardon/difficulties/e/set tool to lockpick/unloc
 
 Test qthirdshard with "set tool to lockpick/unlock door/u/set tool to diagnose/point tool at rift/set keypad to 020551/open safe/take shard" in combat-east.
 
-Test thiupgrade with "put shard in hole/put tool on pedestal/push confirm/push name/house/push name/train/push name/museum/push name/quarry/push name/arcade/push name/cabin/push name/zoo/push name/monuments/push name/tool/push confirm"
+Test thiupgrade with "put shard in hole/put tool on pedestal/push name/house/push name/train/push name/museum/push name/quarry/push name/arcade/push name/cabin/push name/zoo/push name/monuments/push name/tool/push confirm"
 
 Test qthiupgrade with "test thiupgrade" in device-room.
 
@@ -28430,43 +28653,45 @@ Test fourthshard with "s/e/d/n/n/push button/say expedition/d/s/s/s/set tool to 
 
 Test qfourthshard with "set tool to lockpick/unlock hatch/d/set tool to locator/take shard" in penn-room.
 
-Test fourthupgrade with "put shard in hole/put tool on pedestal/push confirm/enter blue rift/nw/push switch/s/push switch/e/push switch/ne/push switch/nw/push switch/e/push switch/s/push switch"
+Test fourthupgrade with "put shard in hole/put tool on pedestal/enter blue rift/nw/push switch/s/push switch/e/push switch/ne/push switch/nw/push switch/e/push switch/s/push switch"
 
 Test qfourthupgrade with "test fourthupgrade" in device-room.
 
-Test fifthshard with "s/e/test firstgareth/test pharaoh/u/set tool to lockpick/unlock trapdoor/open trapdoor/u/take receipt/open rift/enter rift/give receipt to owen/open pizza box/take shard/enter rift/d/d/s/s/s/w/w/n"
+Test fifthshard with "s/e/test firstgareth/test pharaoh/u/set tool to lockpick/unlock trapdoor/open trapdoor/u/take receipt/set tool to connector/open rift/enter rift/give receipt to owen/open pizza box/take shard/enter rift/d/d/s/s/s/w/w/n"
 
-Test qfifthshard with "set tool to lockpick/unlock trapdoor/open trapdoor/u/take receipt/open rift/enter rift/give receipt to owen/open pizza box/take shard/enter rift/d" in landing-room.
+Test qfifthshard with "set tool to lockpick/unlock trapdoor/open trapdoor/u/take receipt/set tool to connector/open rift/enter rift/give receipt to owen/open pizza box/take shard/enter rift/d" in landing-room.
 
-Test fifthupgrade with "put shard in hole/put tool on pedestal/push confirm/push diagnosis/z/z/z/z/z/enter glass/take red apple/put it in caramel/z/push open/enter rift/put caramel apple in disposal/enter rift/push close"
+Test fifthupgrade with "put shard in hole/put tool on pedestal/push diagnosis/z/z/z/z/z/enter glass/take red apple/put it in caramel/z/push open/enter rift/put caramel apple in disposal/enter rift/push close"
 
 Test qfifthupgrade with "test fifthupgrade" in device-room.
 
-Test sixthshard with "s/e/d/w/w/take grip shoes/e/e/u/u/s/say quest/s/w/s/wear shoes/e/set tool to lockpick/unlock door/e/open large rift/enter large rift/pull lever/enter rift/z/pull lever/open box/take shard/w/w/n/e/n/n/d/w/n"
+Test sixthshard with "s/e/d/w/w/take grip shoes/e/e/u/u/s/say quest/s/w/s/wear shoes/e/set tool to lockpick/unlock door/e/set tool to connector/open large rift/enter large rift/pull lever/enter rift/z/pull lever/open box/take shard/w/w/n/e/n/n/d/w/n"
 
-Test qsixthshard with "set tool to lockpick/unlock door/e/open large rift/enter large rift/pull lever/enter rift/z/pull lever/open box/take shard" in cabin-cellar.
+Test qsixthshard with "set tool to lockpick/unlock door/e/set tool to connector/open large rift/enter large rift/pull lever/enter rift/z/pull lever/open box/take shard" in cabin-cellar.
 
-Test sixthupgrade with "put shard in hole/put tool on pedestal/push confirm/push diagnosis/n/say disaster/climb wreckage/turn bar/take ball/u/enter rift/put ball on pedestal"
+Test sixthupgrade with "put shard in hole/put tool on pedestal/push diagnosis/n/say disaster/climb wreckage/turn bar/take ball/u/enter rift/put ball on pedestal"
 
 Test qsixthupgrade with "test sixthupgrade" in device-room.
 
-Test sevshard with "s/e/d/w/w/test stonehenge/set tool to lockpick/unlock door/w/open large rift/enter large rift/push shelving/pull castle/hit painting/take shard/enter rift/e/u/n/e/e/e/u/w/n"
+Test sevshard with "s/e/d/w/w/test stonehenge/set tool to lockpick/unlock door/w/set tool to connector/open large rift/enter large rift/push shelving/pull castle/hit painting/take shard/enter rift/e/u/n/e/e/e/u/w/n"
 
-Test qsevshard with "set tool to lockpick/unlock door/w/open large rift/enter large rift/push shelving/pull castle/hit painting/take shard" in alexandria-room.
+Test qsevshard with "set tool to lockpick/unlock door/w/set tool to connector/open large rift/enter large rift/push shelving/pull castle/hit painting/take shard" in alexandria-room.
 
-Test sevupgrade with "put shard in hole/put tool on pedestal/push confirm/push diagnosis/enter rift/say recognition/say arrival/say passing/say scanning/say farewell/enter rift/push harvest"
+Test sevupgrade with "put shard in hole/put tool on pedestal/push diagnosis/enter rift/say recognition/say arrival/say passing/say scanning/say farewell/enter rift/push harvest"
 
 Test qsevupgrade with "test sevupgrade" in device-room.
 
-Test eighthshard with "s/e/test uptosecond/w/set tool to lockpick/unlock door/w/open large rift/enter large rift/z/z/z/z/z/z/take shard/enter rift/e/e/n/e/s/s/d/w/n"
+Test eighthshard with "s/e/test uptosecond/w/set tool to lockpick/unlock door/w/set tool to connector/open large rift/enter large rift/z/z/z/z/z/z/take shard/enter rift/e/e/n/e/s/s/d/w/n"
 
-Test qeighthshard with "set tool to lockpick/unlock door/w/open large rift/enter large rift/z/z/z/z/z/z/take shard/enter rift" in police-station.
+Test qeighthshard with "set tool to lockpick/unlock door/w/set tool to connector/open large rift/enter large rift/z/z/z/z/z/z/take shard/enter rift" in police-station.
 
-Test eighthupgrade with "put shard in hole/put tool on pedestal/s/say proud/e/d/set tool to harvest/n/cheatrift/point tool at rift/s/s/listen/say escape/point tool at rift/n/w/point tool at rift/e/u/n/point tool at rift/s/e/point tool at rift/w/s/s/point tool at rift/n/u/n/point tool at rift/s/s/say quest/point tool at rift/n/d/w/n/point tool at rift/put tool on pedestal/remove shoes/remove mask/drop all/enter rift"
+Test eighthupgrade with "put shard in hole/put tool on pedestal/s/say proud/e/d/set tool to harvester/n/cheatrift/point tool at rift/s/s/point tool at rift/n/w/point tool at rift/e/u/n/point tool at rift/s/e/point tool at rift/w/s/point tool at rift/n/u/n/point tool at rift/s/s/say quest/point tool at rift/n/d/w/n/point tool at rift/put tool on pedestal/remove shoes/remove mask/drop all/enter rift"
 
-Test qeighthupgrade with "test eighthupgrade" in device-room.
+Test qeighthupgrade with "put shard in hole/put tool on pedestal/s/say proud/e/d/set tool to harvester/n/cheatrift/point tool at rift/s/s/listen/say escape/point tool at rift/n/w/point tool at rift/e/u/n/point tool at rift/s/e/point tool at rift/w/s/s/point tool at rift/n/u/n/point tool at rift/s/s/say quest/point tool at rift/n/d/w/n/point tool at rift/put tool on pedestal/remove shoes/remove mask/drop all/enter rift" in device-room.
 
 Test alltool with "test totool/test firstshard/test firstupgrade/test secshard/test secupgrade/test thirdshard/test thiupgrade/test fourthshard/test fourthupgrade/test fifthshard/test fifthupgrade/test sixthshard/test sixthupgrade/test sevshard/test sevupgrade/test eighthshard/test eighthupgrade"
+
+Test tofourth with "test totool/test firstshard/test firstupgrade/test secshard/test secupgrade/test thirdshard/test thiupgrade/test fourthshard"
 
 Test qalltool with "test totool/test qfirstshard/test qfirstupgrade/test qsecshard/test qsecupgrade/test qthirdshard/test qthiupgrade/test qfourthshard/test qfourthupgrade/test qfifthshard/test qfifthupgrade/test qsixthshard/test qsixthupgrade/test qsevshard/test qsevupgrade/test qeighthshard/test qeighthupgrade"
 
@@ -28812,7 +29037,10 @@ Carry out toolteleporting:
 		now the player is in alexandria-room;
 	otherwise:
 		now the player is in device-room;
-
+	say "[bracket]You have teleported! If you were in the middle of an upgrade or a puzzle found in one of the octagon rooms, it may break the game entirely. Make sure only to teleport 'between upgrades'.[close bracket]";
+	if the player is not in device-room:
+		say "[paragraph break][bracket]Testers: Only the octagon door/hatch/trapdoor is important here. Teleporting to this room causes errors in the surrounding level, but those errors do not affect the material you are testing. You do not need to explore this area or pick up anything or do anything besides open the door and enter.[close bracket]";
+		
 Chapter 3 - Maps
 
 Index map with web-room mapped north of dark-room. 
@@ -28898,3 +29126,5 @@ Book 5 - Notes
 [make custom descriptions for each of the tears in space]
 
 [FIX THIS LATER add accessibility option for hamiltonian path and minesweeper to bypass the puzzles]
+
+[can't harvest green rifts until the blue 'escape' rift is activated.]
