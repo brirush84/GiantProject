@@ -24,8 +24,8 @@ Finished areas:
 
 Areas under construction:
 
-None
+-Opening, megaship and final puzzle
 
 Remaining areas:
 
--Opening, megaship and final puzzle
+-none
