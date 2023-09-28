@@ -23,7 +23,7 @@ Release along with cover art.
 
 Section 1 - Genre, description, etc
 
-The story genre is "Science Fiction". The story description is "Hop through dimensions to save your ship." The story creation year is 2023. The release number is 42.
+The story genre is "Science Fiction". The story description is "Hop through dimensions to save your ship." The story creation year is 2023. The release number is 45.
 
 Section 2 - Increasing memory sizes
 
@@ -82,7 +82,7 @@ The special clue called Statement will transport you into a suspect's past when 
 Crediting is an action out of world. Understand "Credits" as crediting. 
 
 Carry out crediting:
-	say "This game was written by Brian Rushton/Mathbrush using Inform 7 (by Graham Nelson). Beta testers include Amanda Walker, the Xenographer, John Ziegler, Jade, Christopher Merriner, Patrick Mooney, Brett Witty, Rovarsson, E. Joyce, Max Fouquet O'Garra, Dee Cooke, Ian Greener, Chandler Groover, Lance Cirone, Zed Lopez, Cody Gaisser, Alex Proudfoot, Radioactive Crow, Mike Spivey, Larry Horsfield, Dirk Spivey, and LAST_TESTER_HERE. 
+	say "This game was written by Brian Rushton/Mathbrush using Inform 7 (by Graham Nelson). Beta testers include Amanda Walker, the Xenographer, John Ziegler, Jade, Christopher Merriner, Patrick Mooney, Brett Witty, Rovarsson, E. Joyce, Max Fouquet O'Garra, Dee Cooke, Ian Greener, Chandler Groover, Lance Cirone, Zed Lopez, Cody Gaisser, Alex Proudfoot, Radioactive Crow, Mike Spivey, Larry Horsfield, Dirk Spivey, Arthur DiBianca, and LAST_TESTER_HERE. 
 
 Hanon Ondricek gave helpful advice about the concept and title. Phil Riley and Peter Bates made suggestions about coding. Mike Russo and Garry Francis gave poetry tips. Wade Clarke and Mike Russo (again) gave some prose tips.
 
@@ -136,10 +136,10 @@ Instead of closing a space-tear:
 	otherwise:
 		say "It doesn't seem you're able to close [the noun]."
 
-The diagnose-text of a space-tear (called currenttear) is usually "Creation date: 0705/51[line break]
-Type: [rift-style][line break]
+The diagnose-text of a space-tear is usually "Creation date: 0705/51[line break]
+Type: [if red-torn]Red[otherwise if green-torn]Green[otherwise]Black[end if][line break]
 Separation type: Temporal[line break]
-Separation distance: 215 years[line break]"
+Separation distance: 215 years"
 
 Understand "tear" or "space" or "rift" or "rip" as a space-tear when the item described is undisguised.
 
@@ -408,7 +408,7 @@ Chapter 1 - Name and identity
 
 [maybe Angharad instead]
 
-Emrys-weaver is a person. Understand "emrys" or "weaver" or "storyweaver" or "Tisserand" as emrys-weaver when the player is not in black-dome.
+Emrys-weaver is a person. Understand "emrys" or "weaver" or "storyweaver" or "Tisserand" as emrys-weaver when the player is not in black-dome. The printed name of emrys-weaver is "Emrys Tisserand".
 
 The player is emrys-weaver. 
 
@@ -514,9 +514,11 @@ Instead of entering the ship-floor:
 
 Chapter 1 - Transit
 
-Transit-room is a room in ship-region. The printed name of Transit-room is "Transit Hub".   The description of Transit-room is "This room connects all of the ship together. There is a big advertisement on the wall saying '[bold type]TESTERS: THE TOOL AREA IS TO THE WEST[roman type].'
+Transit-room is a room in ship-region. The printed name of Transit-room is "Transit Hub".   The description of Transit-room is "This room connects all of the ship together. 
 
--There is a transport tube going [bolddown]. From there, the [boldsouth] will take you to the horror dimension. [line break]-To the [boldnorth] is the captain's quarters, which is where the wax museum is.[line break]-Going [boldup] through the transport tube to the bridge takes you to the murder mystery area, and from there south to the garden area.[line break]-Going [boldeast] to the psychologist's office takes you to the haunted house area.[line break]-The animals area found going [bolddown] to the living quarters and then [boldnorth], where the wasphawk is found[line break]-Going [bolddown] and to the [boldwest] will take you to where the world monuments/math region is.[line break]-The tool area is to the [boldwest], and has a flashlight/lockpick."
+There is a transport tube going down. From there, the south will take you to the horror dimension.[line break]To the north is the captain's quarters, which is where the wax museum is.[line break]Going up through the transport tube to the bridge takes you to the murder mystery area, and from there south to the garden area.[line break]Going east to the psychologist's office takes you to the haunted house area.[line break]The animals area found going down to the living quarters and then north, where the wasphawk is found[line break]Going down and to the west will take you to where the world monuments/math region is.[line break]The tool area is to the west, and has a flashlight/lockpick.
+
+There is a big advertisement on the wall saying '[bold type]TESTERS: THANK YOU FOR PLAYING![roman type].'"
 
 The big-ad is scenery in transit-room. The printed name of big-ad is "advertisement". Understand "wall" or "ad" or "advertisement" or "big" as the big-ad. The description of the big-ad is "The advertisement on the wall is wise and judicious. It tells you to go [boldwest] to get to the tool area."
 
@@ -1083,7 +1085,7 @@ Trusting your gut, you run through the hallways. Rounding a corner, you come acr
 
 [end if]You can go back [boldnorth] through the maze of hallways to the living quarters."
 
-The acrid-haze is scenery in collapsed-hallway. Understand "acrid" or "thin" or "scent" or "haze" or "fog" as the acrid-haze. The printed name of the acrid-haze is "acrid haze". The description of the acrid-haze is "You don't see any source of the thin acrid haze in the hallway. It smells bad, but it's not thick enough to irritate your throat."
+The acrid-haze is a backdrop. The acrid-haze is in collapsed-hallway. Understand "acrid" or "thin" or "scent" or "haze" or "fog" as the acrid-haze. The printed name of the acrid-haze is "acrid haze". The description of the acrid-haze is "You don't see any source of the thin acrid haze in the hallway. It smells bad, but it's not thick enough to irritate your throat."
 
 Instead of physicality when the noun is the acrid-haze:
 	say "The acrid haze shifts a little as you flail around in it, but it doesn't change at all."
@@ -1466,6 +1468,84 @@ The small-ad is scenery in living-quarters. The printed name of small-ad is "adv
 Chapter 13 - Opening room
 
 [The player is doing something similar to 9:05 but also introducing job as storyteller and having intuition. Hull breaches, sucked into portal where we see arawn standing in darkness near your tomb, says angrily you're not supposed to be there yet, throws you back out.]
+
+Chapter 14 - Your quarters
+
+Personal-quarters is a room in ship-region. THe printed name of personal-quarters is "Your Quarters". The description of personal-quarters is "FIX THIS LATER".
+
+Chapter 15 - Bridge Command
+
+Bridge-command is a room in bridge-region. The printed name of Bridge-command is "Bridge: Command". The description of Bridge-command is "FIX THIS LATER".
+
+Chapter 16 - Officers Quarters
+
+Officers-Quarters is a room in ship-region. The printed name of Officers-Quarters is "Officers['] Quarters". The description of Officers-Quarters is "FIX THIS LATER".
+
+Chapter 17 - Auxiliary Quarters
+
+Auxiliary-Quarters is a room in ship-region. The printed name of Auxiliary-Quarters is "Auxiliary Quarters". The description of Auxiliary-Quarters is "FIX THIS LATER".
+
+Chapter 18 - Medical Bay
+
+Medical-bay is a room in ship-region. The printed name of Medical-bay is "Medical Bay". The description of medical-bay is "FIX THIS LATER".
+
+Chapter 19 - Damaged Quarters
+
+Damaged-quarters is a room in ship-region. The printed name of damaged-quarters is "Damaged Quarters". The description of damaged-quarters is "This area of the ship was hit hard in the attack. While there is nothing as catastrophic as a hull breach, you can still see smoke drifting through the air and the lights above you flicker intermittently.
+
+All around you are tunnels, but many of them have collapsed. Out of the rest comes a small but steady stream of civilians who make their way to safer areas to the [boldnorth]. The only way further in is to the [boldsouth], but you feel a sense of foreboding about that direction."
+
+To decide whether (way - a direction) is horizontal:
+	if the way is north, decide yes;
+	if the way is northeast, decide yes;
+	if the way is east, decide yes;
+	if the way is southeast, decide yes;
+	if the way is south, decide yes;
+	if the way is southwest, decide yes;
+	if the way is west, decide yes;
+	if the way is northwest, decide yes;
+	decide no;
+	
+Before going nowhere from damaged-quarters:
+	if the noun is horizontal:
+		say "The tunnels in that direction are either collapsed or full of civilians." instead;
+	
+The acrid-haze is in damaged-quarters.
+
+The broken-lights are plural-named distant scenery in damaged-quarters. The printed name of the broken-lights is "flickering lights". Understand "flickering" or "light" or "lights" or "Glass" or "dark" as the broken-lights. The description of the broken-lights is "The ceiling lights flicker in this area, over your head. The backup power must be having trouble keeping up.".
+
+The damaged-tunnels are plural-named distant scenery in damaged-quarters. The printed name of the damaged-tunnels is "tunnels". Understand "tunnel" or "tunnels" or "collapsed" or "collapse" as the damaged-tunnels. The description of the damaged-tunnels is "The tunnels that usually lead in here are either damaged or filled with fleeing people."
+
+The fleeing-crowd is a neuter scenery person in damaged-quarters. Understand "fleeing" or "crowd" or "civilians" or "civilian"  or "humanity" or "stream" or "small" or "steady" as the fleeing-crowd. The printed name of the fleeing-crowd is "fleeing crowd". 
+
+Instead of physicality when the noun is the fleeing-crowd:
+	say "The crowd is too dangerous to approach closely. You could swept away or trampled."
+	
+The description of the fleeing-crowd is "People keep coming, seemingly without end, but the fleeing crowd stays at a reasonable size. Most people have either already evacuated or are unable to do so.." 
+
+Chapter 20 - Posh Quarters
+
+Posh-quarters is a room in ship-region. The printed name of posh-quarters is "Evacuation". The description of posh-quarters is "You are in the depths of the ship, in the middle of the living quarters. This area is wide, at least a couple hundred meters across, with the ceiling about twice as high as you. It's designed for heavy foot traffic, but it's currently being overwhelmed.
+
+Tunnels lead in all directions, and most are filled with families pouring in from the damaged areas of the ship and heading towards safety. The only directions free from the pressing crowd are back [boldwest] to the lower transit area and [boldeast] to one of the living quarters.".
+
+The high-ceiling is distant scenery in posh-quarters. The printed name of the high-ceiling is "high ceiling". Understand "high" or "ceiling" as the high-ceiling. The description of the high-ceiling is "The ceiling is higher in this part of the ship to help avoid claustrophobia."
+
+The posh-tunnels are plural-named distant scenery in posh-quarters. The printed name of the posh-tunnels is "tunnels". Understand "tunnel" or "tunnels" as the posh-tunnels. The description of the posh-tunnels is "The tunnels lead into the undamaged portions of the ship. The crowd pushing their way in is almost terrifying in its momentum."
+
+The pushing-crowd is a neuter scenery person in posh-quarters. Understand "pushing" or "crowd" or "pressing" or "momentum" or "hundred" or "hundreds" or "civilians" or "civilian"  or "humanity" or "river" or "flow" as the pushing-crowd. The printed name of the pushing-crowd is "pressing crowd". 
+
+Instead of physicality when the noun is the pushing-crowd:
+	say "The crowd is too dangerous to approach closely. You could swept away or trampled."
+	
+The description of the pushing-crowd is "Hundreds of civilians are flowing into the safe parts of the ship. They aren't in a complete panic, but the flow of humanity is steady and fast." 
+
+Before going nowhere from posh-quarters:
+	unless the noun is up:
+		unless the noun is down:
+			unless the noun is inside:
+				unless the noun is outside:
+					say "You try to go [noun], but too many people get in your way." instead;
 
 Book 2 - Future Ship
 
@@ -6540,9 +6620,7 @@ The tool-pedestal is an enterable scenery supporter in the device-room. The prin
 
 [italic-pedestal]
 
-Near the top of the pedestal is a tiny hole. The top of the pedestal is flat[if a pedestal-button is part of the tool-pedestal]
-
-[A list of pedestal-buttons that are part of the tool-pedestal] [are] lit up on the pedestal, glowing on its surface[end if][if the radiation-dial is part of the tool-pedestal]. A dial is also lit up[end if][if the number-dial is part of the tool-pedestal]. A dial is also lit up[end if][if the purple-drawings are part of the tool-pedestal].
+Near the top of the pedestal is a tiny hole. The top of the pedestal is flat[if the bright-light is in the location]. Bright light shines from the pedestal, illuminating the whole room[end if][if the polar-oid is not nowhere]. A polaroid sticks out of the pedestal[end if][if the radiation-dial is part of the tool-pedestal]. A dial is also lit up[end if][if the number-dial is part of the tool-pedestal]. A dial is also lit up[end if][if the purple-drawings are part of the tool-pedestal].
 
 Purple drawings cover the pedestal[end if]."
 
@@ -6550,7 +6628,14 @@ The pedestal-screen is part of the tool-pedestal. Understand "screen" or "displa
 
  [italic-pedestal]"
 
-Pedestal-text is some text that varies. Pedestal-text is "Welcome to Yang Labs! Your presence in this room indicates that you have been approved for the use of the portable Savoy Multitool, or are a hardened criminal willing to resort to desperate measures. Let's hope for the first one! Please ignore any sirens you may here while you keep you occupied. 
+Report examining the tool-pedestal:
+	if a pedestal-button is visible:
+		say "[buttlist] lit up on the pedestal, glowing on its surface."
+	
+To say buttlist:
+	say "[A list of visible pedestal-buttons] [are]"
+
+Pedestal-text is some text that varies. Pedestal-text is "Welcome to Yang Labs! Your presence in this room indicates that you have been approved for the use of the portable Savoy Multitool, or are a hardened criminal willing to resort to desperate measures. Let's hope for the first one! Please ignore any sirens you may hear while we keep you occupied. 
 
 Use of this tool without proper training is prohibited. Trainees will gain further abilities in the multi-tool by demonstrating their understanding of its current abilities. Training may include mental challenges appropriate for your level.
 
@@ -6559,6 +6644,9 @@ Your tool is currently limited to its most limited ability: unlocking doors. Dem
 Good luck, and thank you for visiting Yang Labs! When you have the shard and are ready for your upgrade, place the crystal shard in the small hole at top."
 
 [add a spiderweb map here. The map indicates items brought from one area to another.]
+
+Instead of entering the tool-pedestal:
+	say "You hop on the pedestal, but the top of it tilts, and you slide off. It then goes back to normal."
 
 The crystal-hole is a container. The crystal-hole is part of the tool-pedestal. The crystal-hole is not openable. The printed name of the crystal-hole is "tiny receptacle". Understand "tiny" or "receptacle" or "hole" or "small" as the crystal-hole. The description of the crystal-hole is "This hole is very small; the receptacle looks like it was designed for inserting a needle or a sliver of some kind.".
 
@@ -6607,7 +6695,7 @@ The curious-tool is on the tool-pedestal. "A curious tool has been placed on top
 
 [first time]There are different settings marked at the bottom. [only]The dial is currently set to [tool-mode of the curious-tool]. [toolmodelist]."
 
-The tool-dial is part of the curious-tool. Understand "dial" as the tool-dial. The printed name of the tool-dial is "dial". The description of the tool-dial is "The dial is currently set to [tool-mode of the curious-tool]. [toolmodelist]."
+The tool-dial is part of the curious-tool. Understand "dial" or "settings" or "setting" as the tool-dial. The printed name of the tool-dial is "settings dial". The description of the tool-dial is "The dial is currently set to [tool-mode of the curious-tool]. [toolmodelist]."
 
 Tool-Mode is a kind of value. The tool-modes are Inert, Lockpick, Flashlight, Diagnose, Locator, Connector, and Harvester. The curious-tool has a tool-mode. The curious-tool is inert. Understand "diagnosis" as diagnose.
 
@@ -6645,6 +6733,9 @@ Instead of switching on the curious-tool:
 
 Instead of tuning the curious-tool to something: 
 	say "[toolmodelist]." 
+
+Instead of setting the curious-tool to some topic:
+	say "[toolmodelist].";
 
 Check tuning it to: 
 	if the noun is not the curious-tool and the noun is not the tool-dial, say "Only the curious tool can be set to [the tool-mode understood]." instead;
@@ -6781,7 +6872,9 @@ Carry out atpointing it at:
 		if the tool-mode of the curious-tool is flashlight:
 			say "You point the flashlight at [the second noun].";
 		otherwise if the curious-tool is diagnose:
-			say "The tool beeps and says, '[diagnose-text of the second noun].'";
+			say "The tool beeps and says:
+
+[italic type][diagnose-text of the second noun][roman type] [line break]";
 		otherwise if the curious-tool is locator:
 			if the second noun is the curious-tool:
 				say "It would be quite a feat to point the tool at itself. But it's safe to say the tool should be involved in quite a few temporal shenanigans.";
@@ -6797,7 +6890,7 @@ Carry out atpointing it at:
 			otherwise:
 				say "The tool beeps and says, 'That is not a rift and cannot be connected.'";
 		otherwise:
-			say "Nothing [adapt the verb happen].";
+			say "Nothing [adapt the verb happen] with this setting.";
 	otherwise:
 		say "Nothing [adapt the verb happen].";
 
@@ -6835,7 +6928,7 @@ Before entering something when the lead-apron is enclosed by the player:
 	otherwise:
 		say "There is a harsh buzzing sound as you try to leave. 'Please do not take the lead apron from the room.'" instead;
 	
-A pedestal-button is a kind of thing. Understand "button" as a pedestal-button. Understand "buttons" as the plural of pedestal-button. A pedestal-button is never proper-named. 
+A pedestal-button is a kind of thing. Understand "button" as a pedestal-button. Understand "buttons" as the plural of pedestal-button. A pedestal-button is never proper-named.
 
 First-upgrade is a scene. First-upgrade begins when the first-shard is in crystal-hole and the curious-tool is on the tool-pedestal.
 
@@ -6894,7 +6987,7 @@ To say (x - a tool-freq):
 
 A pedestal-button has some text called the button-name. A pedestal-button has some text called the button-desc. The printed name of a pedestal-button is usually "[button-name] button". Understand the button-name property as describing a pedestal-button. The description of a pedestal-button is usually "This button on the pedestal is labelled with [button-desc]."
 
-The radiation-dial is a thing. The printed name of the radiation-dial is "dial". Understand "dial" as the radiation-dial. The description of the radiation-dial is "The dial has several markings on it: a [uv-ray], a [vis-light], a [infra-red], a [rad-io], and a [x-ray]. You can SET or TURN the dial to any of these symbols."
+The radiation-dial is a thing. The printed name of the radiation-dial is "dial". Understand "dial" as the radiation-dial. The description of the radiation-dial is "The dial has several markings on it:  a [vis-light], a [infra-red], a [rad-io], a [uv-ray], and a [x-ray]. You can SET or TURN the dial to any of these symbols."
 
 The radiation-dial has a list of tool-freqs called the current-freq. 
 
@@ -6943,32 +7036,40 @@ The tool pops out of the pedestal, and you take it. Looking over it, the only ch
 		say "You turn the dial to [the tool-freq understood].";
 		if the number of entries in current-freq is 1:
 			now the pedestal-text is "Your answer has been recorded and will be scored at the end. Testing setting B. Please turn the dial to the correct setting.";
-			say "[line break]There is a click, and the purple lines disappear. There is another click, but nothing apparent happens. The display updates to say:
+			say "[line break]The screen updates to say:
 
-[italic-pedestal][line break]";
+[italic-pedestal]
+
+As soon as the text displays, there is a click, and the purple lines disappear. There is another click, but nothing apparent happens.";
 			now the purple-drawings are nowhere;
 			now radio-on is true;
 		otherwise if the number of entries in current-freq is 2:
 			now the pedestal-text is "Your answer has been recorded, and will be scored at the end. Now testing setting C. Please turn the dial to the correct setting.";
-			say "[line break]There is a click, [if antenna-extended is true]and the music stops. 
+			say "[line break]The display updates to say:
 
-There is another click, [end if]and bright light envelopes the pedestal. The display updates to say:
+[italic-pedestal]
 
-[italic-pedestal][line break]";
+As soon as the text displays, there is a click, [if antenna-extended is true]and the music stops. 
+
+There is another click, [end if]and bright light envelopes the pedestal.";
 			now radio-on is false;
 			now the bright-light is in the location;
 		otherwise if the number of entries in current-freq is 3:
 			now the pedestal-text is "Your answer has been recorded, and will be scored at the end. Now testing setting D. Please turn the dial to the correct setting.";
-			say "[line break]There is a click and the lights turn off. There is another click, and you feel sudden warmth. The display updates to say: 
+			say "[line break]The display updates to say: 
 
-[italic-pedestal][line break]";
+[italic-pedestal]
+
+As soon as the text displays, there is a click and the lights turn off. There is another click, and you feel sudden warmth.";
 			now the sudden-warmth is in the location;
 			now the bright-light is nowhere;
 		otherwise if the number of entries in current-freq is 4:
 			now the pedestal-text is "Your answer has been recorded, and will be scored at the end. Now testing setting E. Please turn the dial to the correct setting.";
-			say "[line break]There is a click and the warmth disappears. There is another click, but nothing seems to happen. The display updates to say:
+			say "[line break]The display updates to say:
 
-[italic-pedestal][line break]";
+[italic-pedestal]
+
+As soon as the text displays, there is a click and the warmth disappears. There is another click, but nothing seems to happen.";
 			now the sudden-warmth is nowhere;
 			now xrays-present is true;
 		otherwise:
@@ -7016,15 +7117,15 @@ pedestal-button	button-name	 button-desc
 emf-button	"question mark"	"a question mark"
 receiver-button	"antenna"	"an image of an antenna" 
 photo-button	"camera"	"an image of a camera"
-diagnosis-button	"diagnosis"	"the word Diagnosis"
-repeat-button	"repeat"	"the word Repeat"
-next-pedestal	"next"	"the word Next"
-back-pedestal	"back"	"the word Back"
-name-pedestal	"name"	"the word Name"
-open-button	"open"	"the word Open"
-close-button	"close"	"the word Close"
-harvest-button	"harvest"	"the word Harvest"
-confirm-button	"confirm"	"the word Confirm"
+diagnosis-button	"Diagnosis"	"the word Diagnosis"
+repeat-button	"Repeat"	"the word Repeat"
+next-pedestal	"Next"	"the word Next"
+back-pedestal	"Back"	"the word Back"
+name-pedestal	"Name"	"the word Name"
+open-button	"Open"	"the word Open"
+close-button	"Close"	"the word Close"
+harvest-button	"Harvest"	"the word Harvest"
+confirm-button	"Confirm"	"the word Confirm"
 
 Understand "question" or "mark" or "help" as the emf-button. Understand "image" as receiver-button. Understand "image" as photo-button. Understand "word" as diagnosis-button. Understand "word" as repeat-button. Understand "word" as next-pedestal. Understand "word" as back-pedestal. Understand "word" as name-pedestal. Understand "word" as open-button. Understand "close" as the close-button. Understand "word" as harvest-button. Understand "word" as confirm-button. Understand "help" as the emf-button.
 
@@ -7063,6 +7164,9 @@ Instead of pushing the receiver-button:
 		now antenna-extended is false;
 		say ".";
 
+Instead of pulling the ant-enna:
+	say "PTOIOIOING!!!";
+
 Instead of pushing the photo-button:
 	if xrays-present is true:
 		now the polar-oid is foggy;
@@ -7083,16 +7187,17 @@ When first-upgrade ends:
 	now pedestal-text is "Please place the next crystal shard in the receptacle and place the tool on the pedestal to start the next upgrade.";
 	say "Once you have the tool, the screen changes to say:
 
+[italic type]And don't forget to return your apron![roman type]
+
+Spurred on by the reminder, you remove your apron and place it on the pedestal, which opens up to accept it. Then the display changes to say:
+
 [italic-pedestal][line break]";
 	now the radiation-dial is nowhere;
 	now every pedestal-button is nowhere;
 	now the first-shard is green-sharded;
+	now the lead-apron is nowhere;
 	now the first-shard is not temporally-displaced;
 	now the first-shard is part of the curious-tool;
-
-Instead of putting the lead-apron on the tool-pedestal when first-upgrade has ended:
-	say "You place the apron on the pedestal. The pedestal opens up and pulls the apron inside before closing again.";
-	now the lead-apron is nowhere;
 
 Section 4 - The second upgrade
 
@@ -7121,14 +7226,14 @@ Rifts, or interdimensional portals, are pieces of spacetime that may be connecte
 	say "[line break]*************************************************************************************************[line break]";
 	say "You are engulfed in a black haze, losing all sense of direction. Slowly the haze clears.";
 	say "*************************************************************************************************[paragraph break]";
-	now the player is in sphere-room;
 	now the curious-tool is nowhere;
 	now the confirm-button is nowhere;
 	now the meter-rings are part of the tool-pedestal;
 	now the diagnosis-button is part of the tool-pedestal;
+	now the player is in sphere-room;
 
 [FIX THIS LATER make actual yang chamber diagnosable in monuments dimension, make all other rifts diagnosable]
-The meter-rings are a thing. The printed name of the meter-rings is "meter rings". Understand "metal" or "disc" or "disk"or "ring" or "rings" or "circle" or "label" or "center" as the meter-rings. The description of the meter-rings is "The disc around the pedestal has rings marked on it labelled in meters from the center. It goes, according to the label, eight meters out from the pedestal[if the blue-exit is in the location].
+The meter-rings are a thing. The printed name of the meter-rings is "meter rings". Understand "metal" or "disc" or "disk"or "ring" or "rings" or "circle" or "label" or "center" or "platform" or "concentric" or "line" or "lines" as the meter-rings. The description of the meter-rings is "The disc around the pedestal has rings marked on it labelled in meters from the center. It goes, according to the label, eight meters out from the pedestal[if the blue-exit is in the location].
 
 The outer blue rift is on the fourth ring[end if]."
 
@@ -7203,7 +7308,7 @@ Instead of pushing diagnosis-button for the second time:
 
 This is what a black rift looks like from the outside. It is essentially a hole in space, the part that's left over when a closed space like ours is scooped out.
 
-Creating these portals requires an immense energy source., but most of that energy can be recovered by removing the portal or, in the case of non-black portals, severing their connection to create two black portals.
+Creating these portals requires an immense energy source, but most of that energy can be recovered by removing the portal or, in the case of non-black portals, severing their connection to create two black portals.
 
 We will now close the black portal, and open a blue rift, which will appear to you as two rifts. You can use the Diagnosis button for these portals as well.";
 	say "The display updates to say:
@@ -7215,7 +7320,7 @@ The black rift disappears. In its stead, two small blue rifts appear, one at the
 	now the blue-entrance is in the location;
 	now the blue-exit is in the location;
 
-The blue-entrance is a scenery scene-rift. The printed name of the blue-entrance is "central blue rift". Understand "central" as the blue-entrance. The description of the blue-entrance is "This rift is set at the base of the pedestal.";
+The blue-entrance is a scenery scene-rift. The blue-entrance is blue-torn. The printed name of the blue-entrance is "central blue rift". Understand "central" as the blue-entrance. The description of the blue-entrance is "This rift is set at the base of the pedestal.";
 
 Instead of entering the blue-entrance:
 	say "It's too small for you to fit through, but you can poke a few fingers in and see them come out the other rift.";
@@ -7229,7 +7334,13 @@ Instead of physicality when the noun is blue-entrance:
 Instead of physicality when the noun is blue-exit:
 	say "You reach towards the rift, but your hand disappears, appearing in the other rift. You pull it back."
 
-The blue-exit is a scenery scene-rift. The printed name of the blue-exit is "outer blue rift". Understand "outer" as the blue-exit. The description of the blue-exit is "This rift is set on the fourth ring out from the center of the pedestal.";
+The blue-exit is a scenery scene-rift. The blue-exit is blue-torn. The printed name of the blue-exit is "outer blue rift". Understand "outer" as the blue-exit. The description of the blue-exit is "This rift is set on the fourth ring out from the center of the pedestal.";
+
+Instead of inserting something into the blue-exit:
+	say "You put [the noun] into [the blue-exit], and it comes out the [blue-entrance] where you grab it again."
+
+Instead of inserting something into the blue-exit:
+	say "You put [the noun] into [the blue-entrance], and it comes out the [blue-exit] where you grab it again."
 
 Understand "Diagnose" as the diagnosis-button.
 
@@ -7325,6 +7436,7 @@ Every turn during red-scene:
 		now the tiny-red is red-torn;
 		say "A tiny red rift appears on top of the pedestal. The Diagnosis button once again appears on the pedestal.";
 		now the diagnosis-button is part of the tool-pedestal;
+	say "A voice chimes and says, 'The time is [time of day].'"
 
 Instead of physicality when the noun is a metal-ball:
 	say "The ball makes slight movements as you approach, keeping you from grabbing it."
@@ -7353,15 +7465,15 @@ Every turn during red-scene:
 		say "The original ball rolls into the red rift and disappears. The rift turns green.";
 
 Every turn during red-scene:
-	if the time since red-scene began is 6 minutes:
-		now the tiny-red is nowhere;
-		say "Finally, the rift disappears, as does the DIAGNOSIS button. The metal ball sinks back into the base of the pillar";
-		if the number-dial is nowhere:
+	if the time since red-scene began > 5 minutes:
+		if the tiny-red is not nowhere:
+			now the tiny-red is nowhere;
+			say "Finally, the rift disappears, as does the DIAGNOSIS button. The metal ball sinks back into the base of the pillar";
 			say ". A button labelled REPEAT appears on the pedestal";
-		say ".";
-		now every metal-ball is nowhere;
-		now the diagnosis-button is nowhere;
-		now the repeat-button is part of the tool-pedestal;
+			say ".";
+			now every metal-ball is nowhere;
+			now the diagnosis-button is nowhere;
+			now the repeat-button is part of the tool-pedestal;
 
 Instead of pushing the repeat-button:
 	now ball-1 is in the location;
@@ -7439,7 +7551,7 @@ After inserting the third-shard into the crystal-hole:
 
 This upgrade will allow your tool to detect temporally displaced items. This is a safe upgrade, and does not require security precautions. 
 
-You be asked to identify temporally important locations aboard this vessel. Once complete, your tool will be able to identify the connection between temporally displaced items and the location they are displaced from.
+You will be asked to identify temporally important locations aboard this vessel. Once complete, your tool will be able to identify the connection between temporally displaced items and the location they are displaced from.
 
 Place the tool on the pedestal to begin calibration and training for this upgrade.";
 	say "You place the crystal shard into the receptacle.
@@ -7466,12 +7578,12 @@ When third-upgrade begins:
 
 The display changes to say :
 
-[italic-pedestal]";
+[italic-pedestal][paragraph break]";
 		now the next-pedestal is part of the tool-pedestal;
 		now the back-pedestal is part of the tool-pedestal;
 		now the name-pedestal is part of the tool-pedestal;
 		activate the holo-1;
-		say "[line break]As the images appear, the Confirm button blinks off, and three new buttons appear on the pedestal, labelled Next, Back, and Name.";
+		say "[line break]As the images appear, three new buttons light up on the pedestal, labelled Next, Back, and Name.";
 		
 After pushing the confirm-button during third-upgrade:
 	now the next-pedestal is nowhere; 
@@ -7494,33 +7606,32 @@ The pedestal opens up again and you retrieve your tool, which now has three gree
 Dimnum is a number that varies. Dimnum is 1.
 
 Instead of pushing the next-pedestal:
-	choose the row with a dimorder of dimnum in the table of dimension names;
 	next-bump;
-	now pedestal-text is "Now showing the [ordinal entry] location. Press the Name button to name this location, or Next or Back to cycle through the other locations.";
+	choose the row with a dimorder of dimnum in the table of dimension names;
+	now pedestal-text is "Now showing the [ordinal entry] location[if changedname entry is true]. You previously named this area '[dimname entry]'. Press the Name button to change the name of this location[otherwise]. Press the Name button to name this location[end if], or Next or Back to cycle through the other locations.";
 	say "You press [the next-pedestal]. The screen updates to say:
 
-[italic-pedestal]";	
+[italic-pedestal][paragraph break]";	
 	activate the hologram entry;
 
+Understand "images" or "image" as a hologram-display.
 
 To next-bump:
 	now every hologram-display is nowhere;
 	increment dimnum;
 	if dimnum > 9:
 		now dimnum is 1;
-	choose the row with a dimorder of dimnum in the table of dimension names;
-	activate the hologram entry;
 	
 Instead of pushing the back-pedestal:
 	now every hologram-display is nowhere;
 	decrement dimnum;
-	if dimnum > 9:
-		now dimnum is 1;
+	if dimnum < 1:
+		now dimnum is 9;
 	choose the row with a dimorder of dimnum in the table of dimension names;
 	now pedestal-text is "Now showing the [ordinal entry] location[if changedname entry is true]. You previously named this area '[dimname entry]'. Press the Name button to change the name of this location[otherwise]. Press the Name button to name this location[end if], or Next or Back to cycle through the other locations.";
 	say "You press [the back-pedestal]. The screen updates to say:
 
- [italic-pedestal]";
+ [italic-pedestal][paragraph break]";
 	activate the hologram entry;
 
 Namingtime is a truth state that varies.
@@ -7554,15 +7665,17 @@ dimorder	dimname	ordinal	hologram	changedname
 After reading a command when namingtime is true: 
 	let temp be the player's command;
 	choose the row with a dimorder of dimnum in the table of dimension names;
+	now the dimname entry is temp;
+	now the changedname entry is true;
+	next-bump;
+	choose the row with a dimorder of dimnum in the table of dimension names;
 	now pedestal-text is "You have chosen to name that location '[temp]'. If that is incorrect, you may press the Back button to go back and the Name button to name it again.
 
 Now showing the [ordinal entry] location. Press the Name button to name this location, or use Next and Back to cycle through the others.";
 	say "The display changes to say:
 
-[italic-pedestal]";
-	next-bump;
-	now the dimname entry is temp;
-	now the changedname entry is true;
+[italic-pedestal][paragraph break]";
+	activate hologram entry;
 	now the command prompt is ">";
 	now namingtime is false;
 	unless "" is a dimname listed in the table of dimension names:
@@ -7584,8 +7697,10 @@ A hologram-display has some text called the holo-caption. A hologram-display has
 Some hologram-displays are defined by the table of holographical things.
 
 To activate (current - a hologram-display):
+	repeat with current2 running through hologram-displays:
+		now current2 is nowhere;
 	now current is in the device-room;
-	say "[paragraph break]The holographic display changes to show a [holo-caption of current]. [holo-text of current][line break]";
+	say "The holographic display changes to show a [holo-caption of current]. [holo-text of current][line break]";
 
 Table of holographical things
 hologram-display	holo-caption	holo-text
@@ -8735,6 +8850,8 @@ The initial appearance of the final-rift is "A blue rift has opened here to the 
 
 The final-rift is a blue-torn scene-rift. Understand "rift" or "large" as the final-rift. The printed name of the final-rift is "large [rift-style] rift". The description of the final-rift is "This large [rift-style] rift floats in the air silently to the [boldnorth]."
 
+A scene-rift is usually fixed in place.
+
 Before going nowhere from device-room:
 	if the final-rift is in the location:
 		if the noun is north:
@@ -8811,7 +8928,7 @@ The scenery-metal is scenery in cabin-office. Understand "metal" or "wall" or "w
 
 The cabin-console is scenery in the cabin-office. Understand "console" as the cabin-console. The printed name of the cabin-console is "console". The description of the cabin-console is "This console has a large dial that is currently set to [time of day]."
 
-The clock-dial is part of the cabin-console. THe printed name of the clock-dial is "dial". Understand "dial" or "clock" as the clock-dial. The description of the clock-dial is "The dial is designed as a clock. It shows the time to be [the time of day]. You should be able to SET it to any time you want."
+The clock-dial is part of the cabin-console. THe printed name of the clock-dial is "clock dial". Understand "dial" or "clock" as the clock-dial. The description of the clock-dial is "The dial is designed as a clock. It shows the time to be [the time of day]. You should be able to SET it to any time you want."
 
 The caboffice-chair is an enterable scenery supporter in cabin-office. The printed name of the caboffice-chair is "office chair". Understand "office" or "chair" as the caboffice-chair. THe description of the caboffice-chair is "This chair must have been relegated down here due to its lack of comfort."
 
@@ -9048,6 +9165,14 @@ Does the player mean doing something with a crystal-shard:
 	if the noun is green-sharded:
 		it is very unlikely;
 
+Cheattooling is an action applying to nothing. Understand "xyztool" as cheattooling.
+
+Carry out cheattooling:
+	say "Tool is now at max power.";
+	now every crystal-shard is green-sharded;
+	now every crystal-shard is part of the curious-tool;
+	now every crystal-shard is not temporally-displaced;
+
 The first-shard is a crystal-shard. The printed name of the first-shard is "[if second-shard is handled]first [otherwise if second-shard is visible]first [end if]crystal shard". Understand "first" as the first-shard.
 The second-shard is a crystal-shard. The printed name of the second-shard is "second crystal shard". Understand "second" as the second-shard.
 The third-shard is a crystal-shard. The printed name of the third-shard is "third crystal shard". Understand "third" as the third-shard.
@@ -9159,7 +9284,7 @@ Before opening a crystal-door:
 			now the pizza-receipt is in temp;
 			now the destination-room of the pizza-rift is temp;
 
-The dormant-rift is a scene-rift. The printed name of the dormant-rift is "large [rift-style] rift". Understand "inside" or "rift" as the dormant-rift. The description of the dormant-rift is "This [rift-style] rift is in the center of the room, and is larger than the other rift.".
+The dormant-rift is a scene-rift. The dormant-rift is black-torn. The printed name of the dormant-rift is "large [rift-style of the dormant-rift] rift". Understand "inside" or "rift" or "large" or "larger" as the dormant-rift. The description of the dormant-rift is "This [rift-style of the dormant-rift] rift is in the center of the room, and is larger than the other rift.".
 
 The initial appearance of the dormant-rift is  "Another larger [rift-style of the dormant-rift] rift is in the room as well, leading [boldinside]."
 
@@ -9170,7 +9295,7 @@ Before going nowhere when dormant-rift is in the location:
 The pizza-receipt is a thing. The printed name of the pizza-receipt is "receipt for pizza". The pizza-receipt is temporally-displaced. The dimnumber of pizza-receipt is 9. Understand "pizza" or "discarded" or "for pizza" or "paper" or "receipt" as the pizza-receipt. The description of the pizza-receipt is "This receipt is for the Grand Line Pizza Parlor. It looks like a pizza has been ordered there under your name, to be picked up in person.". "A discarded receipt lies on the floor."
 
 Instead of opening the dormant-rift:
-	if the dormant-rift is open:
+	if the dormant-rift is blue-torn:
 		say "The rift is already open.";
 	otherwise if the curious-tool is not held by the player:
 		say "You don't have anything to open that with.";
@@ -9182,18 +9307,16 @@ Instead of opening the dormant-rift:
 		say "You bring your tool near the rift, and in an instant it turns bright blue.";
 		now the dormant-rift is blue-torn;
 
-Instead of opening the dormant-rift:
-	if the dormant-rift is closed:
+Instead of closing a scene-rift:
+	if the noun is black-torn:
 		say "The rift is already closed.";
 	otherwise if the curious-tool is not held by the player:
 		say "You don't have anything to close that with.";
-	otherwise if the curious-tool is not connector:
+	otherwise if the curious-tool is not harvester:
 		say "The tool is on the wrong setting for closing things.";
-	otherwise if the fourth-shard is not part of the curious-tool:
-		say "The tool isn't powerful enough to close [the noun].";
 	otherwise:
-		say "You bring your tool near the rift, and in an instant it darkens and turns black.";
-		now the dormant-rift is black-torn;
+		say "You point the tool at [the noun]. Energy flows from it towards the tool, until the rift is black.";
+		now the noun is black-torn;
 
 The destination-room of the dormant-rift is the pizza-parlor.
 
@@ -9293,9 +9416,21 @@ The scribbled-note is a thing. "A scribbled note has been left here." The printe
 
 The slot-box is a container. The slot-box is fixed in place. "A glass box is attached to one wall, with a lever on it. It has two lights: one, labelled A, is [if the 1-light is switched on]lit[otherwise]dark[end if] while the other, labelled B, is [alsoword][if the 2-light is switched on]lit[otherwise]dark[end if]." The slot-box is closed. The slot-box is transparent. The slot-box is openable. The printed name of the slot-box is "glass box". Understand "box" or "glass "or "wall" as the slot-box. The description of the slot-box is "This glass box has been hooked up to a lever in a somewhat confusing way. It has two lights attached to it labelled A and B. Light A is [if the 1-light is switched on]lit[otherwise]dark[end if] while  B is [alsoword][if the 2-light is switched on]lit[otherwise]dark[end if]."
 
-An upgrade-clock is a kind of thing. An upgrade-clock is usually fixed in place. The printed name of an upgrade-clock is "clock". Understand "clock" or "digital" or "bare-bones" or "bare-bone" as an upgrade-clock. "There is a clock mounted in this room, reading [time of day]." 
+An upgrade-clock is a kind of thing. An upgrade-clock is usually fixed in place. The printed name of an upgrade-clock is "clock". Understand "clock" or "digital" or "bare-bones" or "bare-bone" as an upgrade-clock. 
+
+The initial appearance of first-clock is "There is a clock mounted in this room, reading [time of day]." 
+
+The initial appearance of second-clock is "There is a clock mounted in this room, reading [offsettime]." 
+
+To say offsettime:
+	let temp be three minutes after the time of day;
+	say "[temp]";
 
 The description of an upgrade-clock is usually "This is a bare-bones digital clock. It reads [time of day]. It has been firmly mounted in place."
+
+Instead of examining second-clock:
+	let temp be three minutes after the time of day;
+	say "This is a bare-bones digital clock. It reads [temp]. It has been firmly mounted in place."
 
 The first-clock is an upgrade-clock. The second-clock is an upgrade-clock.
 
@@ -9380,7 +9515,7 @@ Before opening the slot-box:
 The dormant-time can be open or closed. The dormant-time is closed.
 
 Instead of opening the dormant-time:
-	if the dormant-time is open:
+	if the dormant-time is not black-torn:
 		say "The rift is already open.";
 	otherwise if the curious-tool is not held by the player:
 		say "You don't have anything to open that with.";
@@ -9423,7 +9558,7 @@ Before going nowhere when dormant-mega is in the location:
 The diagnose-text of dormant-mega is "DIAGNOSIS:[line break]Creation date: 0204/51[line break]Type: [if the fifth-uprift is black-torn] Black (originally Red)[otherwise] Red[end if] [line break]Separation type: Temporal[line break]Separation distance: 105 years"
 
 Instead of opening the dormant-mega:
-	if the dormant-mega is open:
+	if the dormant-mega is not black-torn:
 		say "The rift is already open.";
 	otherwise if the curious-tool is not held by the player:
 		say "You don't have anything to open that with.";
@@ -9502,7 +9637,7 @@ The initial appearance of the dormant-giga is "A large [rift-style of dormant-gi
 The diagnose-text of dormant-giga is "DIAGNOSIS:[line break]Creation date: 0205/51[line break]Type: [if the fifth-uprift is black-torn] Black (originally Red)[otherwise] Red[end if] [line break]Separation type: Temporal[line break]Separation distance: 165 years"
 
 Instead of opening the dormant-giga:
-	if the dormant-giga is open:
+	if the dormant-giga is not black-torn:
 		say "The rift is already open.";
 	otherwise if the curious-tool is not held by the player:
 		say "You don't have anything to open that with.";
@@ -12216,7 +12351,7 @@ Instead of rubbing the stonehenge-graffiti:
 	say "It would take forever to clean all of this off."
 
 To say testername:
-	say "[one of]Amanda[or]Xenographer[or]John[or]Jade[or]Christopher[or]Lance[or]Zed[or]Cody[or]Alex[or]Radioactive Crow[or]Patrick[or]Brett[or]Rovarsson[or]Joyce[or]Max[or]Dee[or]Ian[or]Chandler[or]Spike[or]Lazzah[or]Doug[or]Dirk[cycling]"
+	say "[one of]Amanda[or]Xenographer[or]John[or]Jade[or]Christopher[or]Lance[or]Zed[or]Cody[or]Alex[or]Radioactive Crow[or]Patrick[or]Arthur[or]Brett[or]Rovarsson[or]Joyce[or]Max[or]Dee[or]Ian[or]Chandler[or]Spike[or]Lazzah[or]Doug[or]Dirk[cycling]"
 
 The east-collector is a light-collector in stonehenge-east.
 
@@ -12506,7 +12641,7 @@ Electron grins and says, 'But I'm farther from the center of the pole! That give
 
 (It looks like there's more to read.)[or]In this page, Positron and Electron, archenemies, are huddled up in a cave together while a storm rages outside.
 
-'We're only working together until this storm is over,' says Positron grumpily. 'Then all best are off.'
+'We're only working together until this storm is over,' says Positron grumpily. 'Then all bets are off.'
 
 'If that's what you want,' says Electron softly.
 
@@ -12635,7 +12770,7 @@ Euclidean geometry: This geometry has constant curvature of 0. It is the geometr
 
 Hyperbolic geometry: This geometry has constant curvature of -1 (or any negative number). It is hard to describe, although it inspired authors like M.C. Escher. It can be modelled in two dimension by the surface of a saddle. It is by far the most common geometry, mathematically.[roman type]
 
-It looks like there's more to read[or]The Poincare disk model is one way of making a 'map' of hyperbolic space. It depicts hyperbolic space as a circle or disk with a small radius (such as a radius of 1). If an outside observer measures a distance of r on the map, then someone inside hyperbolic space would see the same distance as 2*arctanh (r)[roman type].
+It looks like there's more to read[or]The Poincaré disk model is one way of making a 'map' of hyperbolic space. It depicts hyperbolic space as a circle or disk with a small radius (such as a radius of 1). If an outside observer measures a distance of r on the map, then someone inside hyperbolic space would see the same distance as 2*arctanh (r)[roman type].
 
 It looks like there's more to read[or]Antonio Yang was able to recreate hyperbolic space in his early dimensional experiments, but of course in practice this involved paying careful attention to units. A length of 1 in the disk model (such as the scope he used) might be measured in different units than a length of 1 inside the chamber[cycling][roman type]."
 
@@ -12712,7 +12847,7 @@ Section 8 - Fumigation scene
 Fumigation-scene is a recurring scene. Fumigation-scene begins when the sulfur-dispenser is switched on. Fumigation-scene ends when the time since Fumigation-scene began > nine minutes.
 
 When fumigation-scene begins:
-	say "You turn on the fumigator, and clouds of sulfur dioxide begins pumping out of the vent, colored yellow by some dye within the machine. The gas pours down the ladder.";
+	say "Clouds of sulfur dioxide begin pumping out of the vent, colored yellow by some dye within the machine. The gas pours down the ladder.";
 	now the sulfur-dioxide is in alexandria-region;
 	
 The sulfur-dioxide is an intangible backdrop. The printed name of the sulfur-dioxide is "sulfur dioxide". Understand "sulfur" or "dioxide" or "gas" or "yellow" or "dye" or "cloud" or "clouds" as the sulfur-dioxide. The description of the sulfur-dioxide is "While usually colorless, this sulfur dioxide gas has been tinged yellow."
@@ -13004,7 +13139,7 @@ The tower-ads are part of the london-tower. The tower-ads are distant. The print
 
 [italic type][one of]We buy robots! Turn your old-fashioned cyberdog or unwanted scrub bot into cash![or]Digital currency is the future! With CitizenLink, all your money is tied to your face! Never be caught empty-pocketed again! (Paid for by the 85th Pan-Sector Council).[or]Do you want to be your own boss? Do you work well with others? Call today to join our sales team offering time-share holographic vacations![or]We are hiring nanobeast techs! Must be willing to work in a remote body. Must not have fears of tight spaces, slime, unconscious control or fire.[then at random][roman type]"
 
-The tower-remnants are plural-named scenery in london-room. The printed name of the tower-remnants is "remnants". Understand "remnant" or "wall" or "walls" or "remnants" or "stone" or "outbuildings" or "outbuilding" or "stones" or "masonry" or "fragment" or "Fragments" as the tower-remnants. The description of the tower-remnants is "The outer wall and outbuildings of the tower don't seem to have come with it. All that is left is remnants of masonry and stone."
+The tower-remnants are plural-named scenery in london-room. The printed name of the tower-remnants is "remnants". Understand "remnant" or "wall" or "walls" or "remnants" or "stone" or "outbuildings" or "outbuilding" or "stones" or "masonry" or "fragment" or "Fragments" or "broken" as the tower-remnants. The description of the tower-remnants is "The outer wall and outbuildings of the tower don't seem to have come with it. All that is left is remnants of masonry and stone."
 
 The london-island is scenery in the london-room. The printed name of the london-island is "floating island". Understand "floating" or "island" as the london-island. The description of the london-island is "This island either was broken off of a larger piece or has been partially demolished, as many parts of the Tower of London are missing."
 
@@ -13166,7 +13301,7 @@ Instead of giving money to someone:
 	
 Section 2 - The white tower
 
-The white-tower is a room in monument-region. White-tower is north from london-room. The printed name of the white-tower is "White Tower". The description of the white-tower is "Inside the tower, almost everything has been stripped out. There are, however, two historical displays that have remained untouched: a knight's armor, and a WWII soldier uniform[if the gas-mask is part of the soldier-uniform] with a gas mask[end if].
+The white-tower is a room in monument-region. White-tower is north from london-room. White-tower is inside from london-room. The printed name of the white-tower is "White Tower". The description of the white-tower is "Inside the tower, almost everything has been stripped out. There are, however, two historical displays that have remained untouched: a knight's armor, and a WWII soldier uniform[if the gas-mask is part of the soldier-uniform] with a gas mask[end if].
 
 You can leave the tower to the [boldsouth], or go deeper in to the [boldeast]."
 
@@ -13203,7 +13338,7 @@ Understand "follow [something]" as entering when the player is in jewel-house.
 Instead of entering the floor-markings:
 	say "The floor markings don't lead anywhere."
 
-The tip-jar is a closed unopenable transparent scenery container in jewel-house. The tip-jar can be broken or unbroken. The tip-jar is unbroken. The printed name of the tip-jar is "[if broken]broken [end if]tip jar". Understand "tip" or "jar" or "glue" or "glued" or "glass" or "lid" as the tip-jar. Understand "shattered" or "remain" or "remains" as the tip-jar when the tip-jar is broken. The description of the tip-jar is "[if broken]The shattered remains of the glass jar litter the floor[otherwise]The glass jar which was once used for monetary tips is glued to the floor. It looks like the lid was glued, too. But the glass doesn't look especially strong."
+The tip-jar is a closed unopenable transparent scenery container in jewel-house. The tip-jar can be broken or unbroken. The tip-jar is unbroken. The printed name of the tip-jar is "[if broken]broken [end if]tip jar". Understand "tip" or "jar" or "glue" or "glued" or "glass" or "lid" as the tip-jar. Understand "shattered" or "remain" or "remains" as the tip-jar when the tip-jar is broken. The description of the tip-jar is "[if broken]The shattered remains of the glass jar litter the floor[otherwise]The glass jar which was once used for monetary tips is glued to the floor. It looks like the lid was glued, too. But the glass doesn't look especially strong[end if]."
 
 Instead of attacking the unbroken tip-jar:
 	say "You smash the tip jar, freeing the money within.";
@@ -13425,7 +13560,7 @@ Before going to central-ship:
 	if temp is not 0:
 		say "The galleon at the center is rotating relative to you and is hard to climb on to. If you can match speeds, it would be easier to get on, but you manage to do so.";
 
-The galleon-harpoons are a plural-named scenery thing in central-ship. The printed name of the galleon-harpoons is "harpoon launchers". Understand "harpoons" or "harpoon" or "launcher" or "launchers" as the galleon-harpoons. Understand "ropes" or "rope" as the galleon-harpoons when the galleon-harpoons are expended. The description of the galleon-harpoons is "These harpoons are mounted immovably to the deck. Each is [if unexpended]loaded[otherwise]unloaded, the harpoon ropes trailing from this gallen to the carracks[end if].".
+The galleon-harpoons are a plural-named scenery thing in central-ship. The printed name of the galleon-harpoons is "harpoon launchers". Understand "harpoons" or "harpoon" or "launcher" or "launchers" as the galleon-harpoons. Understand "ropes" or "rope" as the galleon-harpoons when the galleon-harpoons are expended. The description of the galleon-harpoons is "These harpoons are mounted immovably to the deck. Each is [if unexpended]loaded[otherwise]unloaded, the harpoon ropes trailing from this galleon to the carracks[end if].".
 
 Instead of taking or pushing or pulling the galleon-harpoons:
 	say "The harpoon launchers are mounted to the deck and can't be moved."
@@ -13448,7 +13583,7 @@ Instead of pulling the harpoon-lever:
 		otherwise:
 			say "You pull the lever, but the harpoons miss, and retract back. It'll be hard to hit the carracks while they're circling at a different rate than you.";
 	otherwise:
-		say "You pull the lever, but nothing happens.";
+		say "You pull the lever, but nothing happens. It looks like the harpoons can't be unshot.";
 
 Understand "fire [galleon-harpoons]" as pulling when the galleon-harpoons is in the location.
 Understand "shoot [galleon-harpoons]" as pulling when the galleon-harpoons is in the location.
@@ -13916,13 +14051,13 @@ When play begins:
 	now every thing on the shop-stand is owned by the shop-keeper; 
 	now every thing on the shop-stand is for sale; 
 
-The busted-calculator is on the shop-stand. Understand "busted" or "marker" or "calculator" or "display" as the busted-calculator. The printed name of the busted-calculator is "busted calculator". The price of the busted-calculator is ET50.00. The description of the busted-calculator is "This is a scientific calculator, with the regular buttons for numbers and the decimal point. However, the keys for exponential and logarithmic functions are missing, along with others. Instead, all that are available are SIN, COS, TAN, SINH, COSH, and TANH. There are also a CLEAR button and an INVERSE toggle near the top.
+The busted-calculator is on the shop-stand. Understand "busted" or "marker" or "calculator" or "display" as the busted-calculator. The printed name of the busted-calculator is "busted calculator". The price of the busted-calculator is ET50.00. The description of the busted-calculator is "This is a scientific calculator, with the regular buttons for numbers and the decimal point. However, the keys for exponential and logarithmic functions are missing, along with others. Instead, all that are available are PLUS, MINUS, TIMES, DIVIDE, SIN, COS, TAN, SINH, COSH, and TANH. There are also a CLEAR button and an INVERSE toggle near the top.
 
 The display currently says '[error-display]'.
 
-On the back of the calculator is scrawled in marker: 'Operating manual not included'.[if the busted-calculator is not for sale]
+On the back of the calculator is scrawled in marker: 'Operating manual not included.'[if the busted-calculator is not for sale]
 
-[bracket]Instead of pushing individual keys for numbers, you can simply ENTER the entire number. For instance, you can ENTER 3.1415. All other buttons can simply be pushed[close bracket][end if]"
+[bracket]Instead of pushing individual keys for numbers, you can simply ENTER the entire number. For instance, you can ENTER 3.1415. All other buttons can simply be pushed.[close bracket][end if]"
 
 Does the player mean buying the calc-manual:
 	it is unlikely;
@@ -14873,13 +15008,14 @@ Definition: a thing is concert-important:
 
 Chapter 10 - The Yang Lab
 
-The yang-room is a room in monument-region. The printed name of the yang-room is "Yang Lab". The description of the yang-room is "This laboratory is a self-contained room coated in a thick layer of dust, with a pile of dirt just below the Great Gate. Chalkboards line the walls, and in the center of the room is a spherical machine the size and build of a submarine."
+The yang-room is a room in monument-region. The printed name of the yang-room is "Yang Lab". The description of the yang-room is "This laboratory is a self-contained room coated in a thick layer of dust, with a pile of dirt just below the Great Gate. Chalkboards line the walls, and in the center of the room is a spherical machine the size and build of a bathysphere."
 
 [extreme size of this spaceship; overall model]
 [add a shower of dirt]
 
 Before going down from center-energy:
-	say "You jump down through the gate, the low gravity softening your fall."
+	if the mother-gate is open:
+		say "You jump down through the gate, the low gravity softening your fall."
 
 Before going up from center-energy:
 	say "You jump upwards, the low energy helping you make it through the gate."
@@ -14919,7 +15055,7 @@ Section 1 - Dimensional chamber
 
 Chamberknown is a truth state that varies. Chamberknown is false.
 
-The dimensional-chamber is a scenery device in yang-room. Understand "large" or "machine" or "sphere" or "bathysphere" or "Metal" or "plating" as the dimensional-chamber. Understand "dimensional" or "chamber" or "yang" or "engine" or "mk i" as the dimensional-chamber when chamberknown is true. The printed name of the dimensional-chamber is "[if chamberknown is true]dimensional chamber[otherwise]large machine[end if]". The description of the dimensional-chamber is "This machine is a large sphere built like a bathysphere, with metal plating and a porthole-like scope on which [if the red-dot is nowhere]you see a green dot[otherwise]are two dots, one red and one green[end if]. Next to the scope is a hole labelled FUEL INTAKE. It has a circular door, and is labelled YANG ENGINE MK I: DIMENSIONAL CHAMBER.
+The dimensional-chamber is a scenery device in yang-room. Understand "large" or "machine" or "sphere" or "bathysphere" or "Metal" or "plating" as the dimensional-chamber. Understand "dimensional" or "chamber" or "yang" or "engine" or "mk i" as the dimensional-chamber when chamberknown is true. The printed name of the dimensional-chamber is "[if chamberknown is true]dimensional chamber[otherwise]large machine[end if]". The description of the dimensional-chamber is "This machine is a large sphere built like a bathysphere, with metal plating and a radar-like scope on which [if the red-dot is nowhere]you see a green dot[otherwise]are two dots, one red and one green[end if]. Next to the scope is a hole labelled FUEL INTAKE. It has a circular door, and is labelled YANG ENGINE MK I: DIMENSIONAL CHAMBER.
 
 There is also a lever that can be pushed or pulled, with settings at -1, 0, and 1. It is currently set to [dimension-level]."
 
@@ -14982,11 +15118,11 @@ Instead of pushing the dimension-lever:
 		increment dimension-level;
 		say "You push the lever, setting it to [dimension-level]";
 	if the red-dot is part of the dimension-scope:
-		say "The red dot on [the dimension-scope] blinks off";
+		say ". The red dot on [the dimension-scope] blinks off";
 		now the red-dot is nowhere;
 	say ".";
 
-The dimension-scope is part of the dimensional-chamber. The printed name of the dimension-scope is "scope". Understand "scope" or "porthole" or "porthole-like" or "porthole like" as the dimension-scope. The description of the dimension-scope is "This is a tiny scope, less than 2cm wide. There is a green dot in the center[if dimension-level is -1] and a red dot on the edge, but it's hard to be more precise without a measuring tool[end if].
+The dimension-scope is part of the dimensional-chamber. The printed name of the dimension-scope is "scope". Understand "scope" or "porthole" or "radar" or "radar-like" or "radar like" or "porthole-like" or "porthole like" as the dimension-scope. The description of the dimension-scope is "This is a tiny scope, less than 2cm wide. There is a green dot in the center[if dimension-level is -1] and a red dot on the edge, but it's hard to be more precise without a measuring tool[otherwise]. If there were any other thing on the scope, you could measure it, but the green dot itself is right in the middle, so it's not worth measuring[end if].
 
 Below, it says:
 
@@ -15096,6 +15232,9 @@ Understand "triangles" as tiled-floor when dimension-level is 1.
 Instead of putting something on the tiled-floor:
 	try dropping the noun;
 
+Before going nowhere when the player is in yang-chamber:
+	say "You find it difficult to travel without using the disk[if the x-spot is unaltered] or the door[end if][if dimension-level is 1]. The space just seems to wrap around itself[otherwise]. You try, but it just seems endless, so you come right back[end if]." instead;
+
 The x-spot is scenery in yang-chamber. Understand "green" or "disc" or "disk" or "spot" or "circle" or "two" or "shoes" as the x-spot. The printed name of the x-spot is "green disc". The description of the x-spot is "A green disc is hovering over the floor. It has two shoes drawn on it.".
 
 The x-spot is an enterable supporter.
@@ -15104,9 +15243,13 @@ After entering the x-spot:
 	if the x-spot is unaltered:
 		say "You stand on the disc.
 
-A voice speaks out of the emptiness. 'Welcome, traveller. You are authorized for round trips. Please give me the bearing and distance you wish to travel. You can instruct me by saying commands, such as BEARING 1.45 or DISTANCE 4.35. Distances are measured in kilometers. Once you have chosen your bearing and distance, you can TRAVEL. To repeat these instructions, exit this disc and get back on.'
+A voice speaks out of the emptiness. 'Welcome, traveller. You are authorized for round trips. Please give me the bearing and distance you wish to travel. You can instruct me by saying commands, such as BEARING 1.45 or DISTANCE 4.35. Distances are measured in kilometers. Once you have chosen your bearing and distance, you can TRAVEL. To repeat these instructions, exit this disc and get back on[if chamber-distance is not 0]. 
 
-[bracket]This game uses the decimal point . rather than the decimal comma , to indicate decimals.[close bracket]";
+The distance is currently set to [chamber-distance][end if][if chamber-bearing is not 0].
+
+The bearing is currently set to [chamber-bearing][end if].'
+
+[bracket]This game uses the decimal point . rather than the decimal comma , to indicate decimals.[close bracket][line break]";
 	otherwise:
 		now the x-spot is unaltered;
 		say "Standing on the disc again, it instantly moves and you are brought back by the chamber door. 'Round trip complete,' says the voice."
@@ -15140,7 +15283,7 @@ Carry out bearing:
 	let temp be the real number understood;
 	let tempround be temp to the nearest 0.01;
 	now the chamber-bearing is the tempround;
-	say "'You have changed your bearing to [the chamber-bearing], to the nearest hundredth of a radian' says the voice.";
+	say "'You have changed your bearing to [the chamber-bearing], to the nearest hundredth of a radian,' says the voice.";
 	
 Carry out navigating:
 	let temp be the real number understood;
@@ -15149,6 +15292,10 @@ Carry out navigating:
 	say "'You have changed your distance to [the chamber-distance], to the nearest hundredth of a kilometer' says the voice.";
 
 Travelling is an action applying to nothing. Understand "travel" or "say travel" as travelling when the player is enclosed by yang-chamber.
+
+Check travelling:
+	if the player is not on the x-spot:
+		say "The voice says, 'You must be on the disc before travel can commence.'" instead;
 
 Carry out travelling:
 	if the chamber-distance is 0:
@@ -17390,7 +17537,7 @@ Check clone-you inserting something into something:
 		otherwise if the second noun is not a container:
 			say "Your clone[setcloneact] tries to put [the noun] into [the second noun] but fails miserably." instead;
 
-The print protagonist internal rule response (B) is "[if currentactor is not the player]you[otherwise]yourself[end if]"
+The print protagonist internal rule response (B) is "[if currentactor is not the player]you[otherwise][ourselves][end if]"
 
 Currentactor is a person that varies. Currentactor is yourself.
 Currentactee is a person that varies. Currentactee is yourself.
@@ -17612,8 +17759,6 @@ Instead of clone-you squeezing something:
 Instead of clone-you waving:
 	if clone-you is enclosed by the location:
 		say "Your clone[setcloneact] waves back at you cheerfully."
-
-
 
 Instead of clone-you burning something:
 	if clone-you is enclosed by the location:
@@ -28212,13 +28357,15 @@ The wildcard-region is a region.
 
 [I'm not a despot, and this is not a utopia--explanation for things that aren't perfect]
 
-Audience-chamber is a room in wildcard-region.
+Audience-chamber is a room in wildcard-region. 
 
 Chapter 1 - Reception
 
 Audience-chamber is a room. The printed name of audience-camber is "Audience Chamber".  The description of audience-chamber is "FIX THIS LATER You are in a hall of gleaming crystal, which appears as if it has room for hundreds of visitors. But the only one here is you and a woman in white. Your recorder squeaks for a moment.
 
-'Hello,' says the woman. 'My name is Arawn Webster. I'm so glad to see you[delwelcome]. I'd like to officially welcome you to the Starship Tisserand as our first, and hopefully only, time traveller. I'm sure you must have many questions. This is the time for that. But I must tell you that from this point on, everything in your recorder will be erased once you leave. That's what our Record shows must happen, and it is the end of your record with us.'".
+'Hello,' says the woman. 'My name is Arawn Webster. I'm so glad to see you[delwelcome]. I'd like to officially welcome you to the Starship Tisserand as our first, and hopefully only, time traveller. I'm sure you must have many questions. This is the time for that. But I must tell you that from this point on, everything in your recorder will be erased once you leave. That's what our Record shows must happen, and it is the end of your record with us.'
+
+There is an exit to the [boldeast].".
 
 Audtping is an action applying to nothing. Understand "xyaud" as audtping.
 
@@ -28238,25 +28385,282 @@ The targetresponse of record-quip is "FIX THIS LATER".
 
 Chapter 2 - Museum entrance
 
-Museum-entrance is a room.
+Museum-entrance is a room. It is east from audience-chamber. "FIX THIS LATER There are exits to the [boldwest] and [boldeast]."
 
 Chapter 3 - World map
 
 The map-region is a region. Map-region is in wildcard-region.
 
-The fore-port is a room in map-region. fore-port is east from audience-chamber.
+The fore-port is a room in map-region. "FIX THIS LATER There are exits to the [boldsouth] and [boldeast]."
 
-The aft-port is a room in map-region. The aft-port is south from fore-port.
+The aft-port is a room in map-region. aft-port is east from museum-entrance. The aft-port is south from fore-port. "FIX THIS LATER There are exits to the [boldwest], [boldnorth] and [boldeast]."
 
-The fore-starboard is a room in map-region.
+The fore-starboard is a room in map-region. The fore-starboard is east from fore-port."FIX THIS LATER There are exits to the [boldwest], [boldnorth] and [boldsouth]."
 
-The aft-starboard is a room in map-region.
+The aft-starboard is a room in map-region. The aft-starboard is south from fore-starboard and east from aft-port. "FIX THIS LATER There are exits to the [boldwest] and [boldnorth]."
+
+Chapter 4 - Timeline
+
+The ancient-timeline is in wildcard-region. The ancient-timeline is north from fore-starboard. "FIX THIS LATER There are exits to the [boldsouth] and [boldnorth]."
+
+The trag-timeline is in wildcard-region. The trag-timeline is north from ancient-timeline. "FIX THIS LATER There are exits to the [boldsouth] and [boldnorth]."
+
+The yang-timeline is in wildcard-region. The yang-timeline is north from trag-timeline. "FIX THIS LATER There are exits to the [boldsouth] and [boldnorth]."
+
+The arawn-timeline is in wildcard-region. The arawn-timeline is north from yang-timeline. "FIX THIS LATER There are exits to the [boldsouth] and [boldnorth]."
+
+Chapter 5 - Party
+
+Party-scene is a scene. Party-scene begins when the player is in party-region.
+
+Instead of going nowhere from arawn-timeline when the noun is north:
+	say "FIX THIS LATER you go to a party.";
+	now the player is in by the banquet table;
 
 [when the party starts:
 	
 	now verbosequips is true;]
 
 [at party tell a ton of stuff but imply there's more]
+
+Party-region is a region.
+
+A p-room is a kind of room.
+
+by the banquet table is a p-room in party-region. at the corner is a p-room in party-region. next to the doorway is a p-room in party-region. by the window is a p-room in party-region.
+
+Social clump is a kind of value. The social clumps are vacancy, lone person, couple, cluster, group.
+
+A p-room has a social clump. Understand the social clump property as describing a p-room.
+
+Before printing the name of a p-room:
+	say "a [social clump] ".
+
+After looking when party-scene is happening:
+	assign clumping;
+	say "Elsewhere in the room, you can see [the list of p-rooms which are not the location]."
+
+Understand "go to [any p-room]" as joining when the player is in party-region. Joining is an action applying to one visible thing. Carry out joining: move player to the noun. Report joining: do nothing.
+
+Understand "examine [any p-room]" as looking toward when the player is in party-region. Looking toward is an action applying to one visible thing. Carry out looking toward a p-room: say "In that direction you see [a list of other people in the noun]."
+
+When party-scene begins: assign clumping. Every turn during party-scene: assign clumping.
+
+To assign clumping:
+	repeat with space running through p-rooms:
+		now the social clump of the space is vacancy;
+		if the space contains exactly 1 person, now the social clump of the space is Lone person;
+		if the space contains exactly 2 people, now the social clump of the space is Couple;
+		if the space contains more than 2 people and the space contains fewer than 5 people, now the social clump of the space is cluster;
+		if the space contains more than 4 people, now the social clump of the space is group.
+
+The room description heading rule does nothing when the player is in party-region.
+
+A person has a number called longevity. The longevity of a person is usually 0. A person can be enacting or passive.
+
+Definition: a person is other if it is not the player.
+
+Every turn when the player is in party-region:
+	repeat with mover running through other people in party-region:
+		now the mover is enacting;
+		increment the longevity of mover;
+		if longevity of mover is greater than 3 or the mover is bored:
+			assign value of spaces for the mover;
+			let destination be the nicenicest p-room;
+			if the destination is not the location of the mover:
+				if the player can see the mover, say "[The mover] makes excuses and drifts off to join [the destination].[paragraph break]";
+				move the mover to the destination;
+				now the mover is complacent;
+				now the longevity of the mover is 0;
+				if the player can see the mover, say "[The mover] wanders over.[paragraph break]";
+				assign clumping;
+				now mover is passive.
+
+A p-room has a number called attractiveness.
+
+Definition: a p-room is nicenice if its attractiveness is 1 or more.
+
+To assign value of spaces for (mover - a person):
+	repeat with space running through p-rooms:
+		now attractiveness of the space is 0;
+		repeat with figure running through people in the space:
+			if the mover is bored, decrease attractiveness of the space by 2;
+			if the mover likes the figure, increment attractiveness of the space;
+			if the mover dislikes the figure, decrement attractiveness of the space;
+			if the mover desires the figure, increase attractiveness of the space by 2.
+
+Liking relates various people to various people. The verb to like means the liking relation.
+
+Disliking relates various people to various people. The verb to dislike means the disliking relation.
+
+Attraction relates various people to various people. The verb to desire means the attraction relation.
+
+Mr Weston, Mr Woodhouse, Mr Elton, Mr Knightley, and Frank Churchill are men in by the banquet table. Mrs Weston, Mrs Bates, Miss Bates, Harriet Smith, Emma Woodhouse, and Jane Fairfax are women in by the banquet table.
+
+Harriet Smith likes Mr Elton. Harriet Smith desires Mr Elton. Harriet Smith likes Emma Woodhouse.
+
+Mr Elton desires Emma Woodhouse.
+
+Emma Woodhouse likes Harriet Smith and Mr Knightley. Emma Woodhouse dislikes Jane Fairfax.
+
+Mr Knightley likes Emma Woodhouse, Mr Weston, and Mrs Weston. Mr Knightley desires Emma Woodhouse.
+
+Jane Fairfax desires Frank Churchill. Jane Fairfax likes Frank Churchill.
+
+Frank Churchill desires Jane Fairfax and Emma Woodhouse. Frank Churchill likes Jane Fairfax.
+
+Miss Bates likes Jane Fairfax, Emma Woodhouse, and Mrs Bates.
+
+Mr Weston likes Frank Churchill, Emma, Knightley, and Mrs Weston.
+
+Mrs Weston likes Frank Churchill, Emma, Knightley, and Mr Weston.
+
+Mrs Bates likes Miss Bates.
+
+A person can be complacent or bored.
+
+When party-scene begins:
+	now verbosequips is true;
+	repeat with character running through other people in party-region:
+		let space be a random p-room;
+		move character to space.
+
+[And now we use writing a paragraph about... to describe character behavior in groups, when we join them:]
+
+Rule for writing a paragraph about Frank Churchill:
+	if the location contains a woman (called flirt) who is desired by Frank:
+		say "[Frank Churchill] is talking with great animation and slightly more than becoming warmth to [the flirt][if an unmentioned other person is in the location], while [the list of unmentioned other people in the location] look on with varying degrees of amusement or irritation[end if].";
+		repeat with character running through people in the location:
+			if the character is not Churchill and the character is not the flirt, now the character is bored.
+
+Rule for writing a paragraph about Mr Elton:
+	if the location contains an unmentioned woman (called flirt) who is desired by Elton:
+		say "[Mr Elton] hangs on the sleeve of [the flirt], offering an assortment of studied gallantries that make you wonder about his good sense.";
+		repeat with character running through people in the location:
+			if the character is not Elton and the character is not the flirt, now the character is bored.
+
+Rule for writing a paragraph about Harriet Smith:
+	if the location contains Emma and Emma is unmentioned:
+		say "[Harriet] and [Emma] are conversing in low tones -- Harriet, apparently, being too shy to speak so that everyone can hear her."
+
+Rule for writing a paragraph about Mr Knightley:
+	if the location contains an unmentioned man (called the listener) who is not Mr Knightley:
+		say "[Mr Knightley] is speaking with [the listener] about agricultural matters.";
+		now the listener is complacent.
+
+Rule for writing a paragraph about Miss Bates:
+	say "[Miss Bates] is giggling about the weather[if an unmentioned other person is in the location]. This does not seem to compel the interest of [the list of unmentioned other people in the location][end if].";
+	repeat with character running through people in the location:
+		if the character is not Miss Bates and character is not Mrs Bates, now the character is bored.
+
+Party-scene ends when the time since party-scene began is 20 minutes.
+
+When party-scene ends:
+	now the player is in emrys-memorial;
+	now Arawn Webster is in emrys-memorial;
+	
+Chapter 6 - Grave
+
+Emrys-memorial is a room in wildcard-region. The printed name of emrys-memorial is "Memorial". "FIX THIS LATER You are standing over your grave. It says:
+
+This monument is erected for Emrys Tisserand. She served as Storyweaver of the Starship Tragwyddol, discovered time travel, left a record of the future and introduced countless technologies.
+
+In the end, she made the ultimate sacrifice and gaver her life to prevent the engines from exploding. We all owe our lives to her, and await her return.
+
+Oh crap. You freak out![deliversac]"
+
+To say deliversac:
+	deliver sacrifice-quip;
+	
+Sacrifice-quip is a quip. The printed name of sacrifice-quip is "Sacrifice". Understand "sacrifice" as sacrifice-quip. The target of sacrifice-quip is Arawn. The preview of sacrifice-quip is "FIX THIS LATER So I have to die for this future not to exist?".
+
+The targetresponse of sacrifice-quip is "FIX THIS LATER 'Yes. Well, no,' says Arawn.
+
+'It seems like this is a point you could be more confident on,' you say.
+
+'From our experiments, changes to the timeline don't matter if no one knows they changed. All that history knows is that a figure in a radiation suit entered the engine area and died. The body was burnt to a crisp and was identified via dental records and the recorder you wear, which was badly damaged,' she says.
+
+'So?' you ask. 'What does that mean?'
+
+'My whole life I was worried that I might mess up, that you might not want to make that sacrifice if I said the wrong thing. So I decided to become that sacrifice. I've had my teeth modified to match yours. I could be you.'
+
+'That's crazy!'
+
+'Yes. But I'll leave the choice with you. You can give me the recorder, and I will save us all. Or you can wear the recorder and save us all. Or you can break it. All of the energy we harvested from the other rifts was designed to stabliize the past. But without the recorder, this timeline cannot survive, and it will all collapse back to the beginning, before the rifts.[make-rift].'
+
+[bracket]You may want to save your game. Whether you destroy the recorder or not gives two very different endings, but it doesn't matter much whether you or Arawn goes back; after all, the point is that you are indistinguishable.[close bracket][line break]"
+
+[maybe mention all the other areas were about fakeness and replacements?]
+
+To say make-rift:
+	now the all-recorder is held by the player;
+
+After wearing the all-recorder:
+	say "FIX THIS LATER 'Let's begin,' says Arawn. She presses a button and the pedestal you saw earlier rises out of the ground, with the tool attached. 'Activating the portal now,' she says, turning a dial.
+
+A violent storm of red surrounds you as the largest rift you have seen to date swirls into existence around you. As you disappear, you see Emrys looking at you with a mix of gratitude, envy, hope, and emptiness. 'Thank you,' she mouths.";
+
+After wearing the all-recorder:
+	say "FIX THIS LATER 'Let's begin,' says Arawn. She presses a button and the pedestal you saw earlier rises out of the ground, with the tool attached. 'Activating the portal now,' she says, turning a dial.
+
+A violent storm of red surrounds you as the largest rift you have seen to date swirls into existence around you. As you disappear, you see Emrys looking at you with a mix of gratitude, envy, hope, and emptiness. 'Thank you,' she mouths.";
+	now the player is in engine-closet;
+
+The block giving rule does nothing when the noun is the all-recorder.
+
+After giving the all-recorder to arawn:
+	say "FIX THIS LATER You give the recorder to Arawn.
+
+Emrys, this is the story of how you die. But that is no longer your story. Now it belongs to Arawn.
+
+'Let's begin,' says Arawn. She presses a button and the pedestal you saw earlier rises out of the ground, with the tool attached. 'Activating the portal now,' she says, turning a dial.
+
+A violent storm of red surrounds you as the largest rift has ever seen to date swirls into existence around her. As shedisappear, she looks at you, her eyes a mix of triumph and fear. 'Thank you,' she says, and she means it.";
+	now the all-recorder is worn by arawn webster;
+	now arawn webster is in engine-closet;
+	now the story viewpoint is third person singular; 
+	now the player is arawn webster;
+	try looking;
+
+After attacking the all-recorder when the all-recorder is not worn by the player:
+	say "FIX THIS LATER Everything breaks apart. You wake up in the sick bed.";
+	now the player is in medical-cot;
+
+Chapter 7 - Engine Closet
+
+Finale1-region is a region.
+
+The engine-closet is a room in finale1-region..
+
+Chapter 8 - Main Engine
+
+The main-engine is west from engine-closet. It is in finale1-region.
+
+Chapter 9 - Robot Room
+
+The robot-room is west from main-engine. It is in finale1-region.
+
+Chapter 10 - Coolant Room
+
+The coolant-room is north from main-engine. It is in finale1-region.
+
+Chapter 11 - Fuel Room
+
+The fuel-room is south from main-engine. It is in finale1-region.
+
+Chapter 12 - Logic Room
+
+The logic-room is up from main-engine. It is in finale1-region.
+
+Chapter 13 - Medical bay
+
+Finale2-region is a region.
+
+The Medical-redux is a room in finale2-region.
+
+Section 1 - Scenery
+
+Medical-cot is an enterable scenery supporter in medical-redux.
 
 Volume 3 - Standard responses, endgame text, etc
 
@@ -28627,7 +29031,7 @@ Test firstshard with "s/e/n/n/n/e/set tool to lockpick/unlock door with lockpick
 
 Test qfirstshard with "set tool to lockpick/unlock door with lockpick/n/take shard" in gift-room.
 
-Test firstupgrade with "put shard in hole/put tool on pedestal/wear apron/x dial/set dial to jagged/push antenna/set dial to radio tower/set dial to rainbow/set dial to thermometer/set dial to skeleton/remove apron/drop apron" 
+Test firstupgrade with "put shard in hole/put tool on pedestal/wear apron/x dial/set dial to jagged/push antenna/set dial to radio tower/set dial to rainbow/set dial to thermometer/set dial to skeleton" 
 
 Test tofirstup with "test totool/test firstshard/test firstupgrade"
 
@@ -28657,9 +29061,9 @@ Test fourthupgrade with "put shard in hole/put tool on pedestal/enter blue rift/
 
 Test qfourthupgrade with "test fourthupgrade" in device-room.
 
-Test fifthshard with "s/e/test firstgareth/test pharaoh/u/set tool to lockpick/unlock trapdoor/open trapdoor/u/take receipt/set tool to connector/open rift/enter rift/give receipt to owen/open pizza box/take shard/enter rift/d/d/s/s/s/w/w/n"
+Test fifthshard with "s/e/test firstgareth/test pharaoh/u/set tool to lockpick/unlock trapdoor/open trapdoor/u/take receipt/set tool to connector/open large rift/enter rift/give receipt to owen/open pizza box/take shard/enter rift/d/d/s/s/s/w/w/n"
 
-Test qfifthshard with "set tool to lockpick/unlock trapdoor/open trapdoor/u/take receipt/set tool to connector/open rift/enter rift/give receipt to owen/open pizza box/take shard/enter rift/d" in landing-room.
+Test qfifthshard with "set tool to lockpick/unlock trapdoor/open trapdoor/u/take receipt/set tool to connector/open large rift/enter rift/give receipt to owen/open pizza box/take shard/enter rift/d" in landing-room.
 
 Test fifthupgrade with "put shard in hole/put tool on pedestal/push diagnosis/z/z/z/z/z/enter glass/take red apple/put it in caramel/z/push open/enter rift/put caramel apple in disposal/enter rift/push close"
 
@@ -29039,7 +29443,7 @@ Carry out toolteleporting:
 		now the player is in device-room;
 	say "[bracket]You have teleported! If you were in the middle of an upgrade or a puzzle found in one of the octagon rooms, it may break the game entirely. Make sure only to teleport 'between upgrades'.[close bracket]";
 	if the player is not in device-room:
-		say "[paragraph break][bracket]Testers: Only the octagon door/hatch/trapdoor is important here. Teleporting to this room causes errors in the surrounding level, but those errors do not affect the material you are testing. You do not need to explore this area or pick up anything or do anything besides open the door and enter.[close bracket]";
+		say "[paragraph break][bracket]Testers: Only the octagon door/hatch/trapdoor is important here. Teleporting to this room causes errors in the surrounding level, but those errors do not affect the material you are testing. You do not need to explore this area or pick up anything or do anything besides open the door and enter.[close bracket][line break]";
 		
 Chapter 3 - Maps
 
