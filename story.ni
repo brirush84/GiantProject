@@ -23,7 +23,7 @@ Release along with cover art.
 
 Section 1 - Genre, description, etc
 
-The story genre is "Science Fiction". The story description is "Hop through dimensions to save your ship." The story creation year is 2023. The release number is 49.
+The story genre is "Science Fiction". The story description is "Hop through dimensions to save your ship." The story creation year is 2023. The release number is 50.
 
 Section 2 - Increasing memory sizes
 
@@ -33,6 +33,7 @@ Use MAX_INDIV_PROP_TABLE_SIZE of 60000.
 Use MAX_STATIC_DATA of 2000000.
 Use MAX_DICT_ENTRIES of 8000.
 Use ALLOC_CHUNK_SIZE of 40000.
+Use MAX_ARRAYS of 40000.
 Use MAX_OBJECTS of 4000.
 Use MAX_ACTIONS of 1000.
 Use MAX_ARRAYS of 30000.
@@ -82,7 +83,7 @@ The special clue called Statement will transport you into a suspect's past when 
 Crediting is an action out of world. Understand "Credits" as crediting. 
 
 Carry out crediting:
-	say "This game was written by Brian Rushton/Mathbrush using Inform 7 (by Graham Nelson). Beta testers include Amanda Walker, the Xenographer, John Ziegler, Jade, Christopher Merriner, Patrick Mooney, Brett Witty, Rovarsson, E. Joyce, Max Fouquet O'Garra, Dee Cooke, Ian Greener, Chandler Groover, Lance Cirone, Zed Lopez, Cody Gaisser, Alex Proudfoot, Radioactive Crow, Mike Spivey, Larry Horsfield, Dirk Spivey, Arthur DiBianca, and LAST_TESTER_HERE. 
+	say "This game was written by Brian Rushton/Mathbrush using Inform 7 (by Graham Nelson). Beta testers include Amanda Walker, the Xenographer, John Ziegler, Jade, Christopher Merriner, Patrick Mooney, Brett Witty, Rovarsson, E. Joyce, Max Fouquet O'Garra, Dee Cooke, Ian Greener, Chandler Groover, Lance Cirone, Zed Lopez, Cody Gaisser, Alex Proudfoot, Radioactive Crow, Mike Spivey, Larry Horsfield, Dirk Spivey, Arthur DiBianca, Hal Rushton, Hidnook, and LAST_TESTER_HERE. 
 
 Hanon Ondricek gave helpful advice about the concept and title. Phil Riley and Peter Bates made suggestions about coding. Mike Russo and Garry Francis gave poetry tips. Wade Clarke and Mike Russo (again) gave some prose tips.
 
@@ -321,7 +322,7 @@ Carry out all-topicing:
 		now target of current is talkative;
 	try topicing;
 
-The standard singleuttering rule response (B) is "Your recorder beeps. This is a message meant for [The target of the noun], who isn't here.";
+The standard singleuttering rule response (B) is "[if the all-recorder is worn by the player]Your recorder beeps. This is a message meant for [The target of the noun], who isn't here[otherwise if the player is in party-region]You want to talk to [the target of the noun], but [they] [are] across the room. You can JOIN [them], if you wish.[otherwise][The target of the noun] isn't here right now[end if].";
 
 The advice on talking to just one person rule response (A) is "[We] [can] see just the topics for one person at a time by TALKing TO that person[first time]
 
@@ -353,9 +354,9 @@ To clear the flags:
 		now currentquip is not deliveryflagged;
 	repeat with currentquip running through deliveryflagged quips:
 		if the target of currentquip is not nothing:
-			say "[bracket]New [if currentquip is a squip]Clue [otherwise]Topic [end if][if the target of currentquip is not in the location]for [the Target of currentquip] [end if]- [currentquip]";
+			say "[bracket]New [if currentquip is a squip]Clue [otherwise]Topic for [the Target of currentquip] [end if]- [currentquip]";
 		otherwise:
-			say "[bracket]New [if currentquip is a squip]Clue [otherwise]Topic [end if]- [currentquip]";
+			say "[bracket]New [if currentquip is a squip]Clue [otherwise]Topic for everyone [end if]- [currentquip]";
 		if verbosequips is true:
 			say ": '[preview of currentquip]'";
 		say "[close bracket][roman type][line break]";
@@ -2376,7 +2377,7 @@ Gift-entryway is a scenery open unopenable door. Gift-entryway is east from prid
 
 Gift-room is a room. "[first time]The gift shop brings back a flood of memories. When you were younger, even in college, this part always seemed so fun: a way to buy something so that you could always hold onto the memory. Even then, you were concerned with the preservation of knowledge. Only now, you've seen too many material reminders decay or get left behind. Only the stories really last.
 
-[only]The gift shop for the wax museum is colorful and whimsical, to the point of being a little gaudy. 'MYSTERY AND HISTORY', the name of the museum, is displayed proudly. Much of the room is empty, perhaps due to being closed. What's left is scattered around the edges of the room. There are a lot of informational posters on the wall[one of], about the wildest topics[or][stopping]: NATO, Bloody Mary, gold panning, [one of]even foosball![or]and foosball[stopping][paragraph break]An incongruously somber coin machine stands neglected in one corner, labelled 'TOKENS FOR OBOLS'. Next to it is a door marked 'EMPLOYEES ONLY' leading [boldnorth].
+[only]The gift shop for the wax museum is colorful and whimsical, to the point of being a little gaudy. 'MYSTERY AND HISTORY', the name of the museum, is displayed proudly. Much of the room is empty, perhaps due to being closed. What's left is scattered around the edges of the room. There are a lot of informational posters on the wall[one of], about the wildest topics[or][stopping]: NATO, Bloody Mary, gold panning, [one of]even foosball![or]and foosball[stopping][paragraph break]An incongruously somber coin machine stands neglected in one corner, labelled 'TOKENS FOR OBOLS'. Next to it is a door marked marked with an octagon, leading [boldnorth].
 
 A meter stretches up the entire side of one wall: a sort of long indentation with seven marks at the side and an indicator. Right now, the indicator is at the mark labelled '[prize-level]'. 
 
@@ -6963,6 +6964,12 @@ Instead of tuning the curious-tool to something:
 Instead of setting the curious-tool to some topic:
 	say "[toolmodelist].";
 
+Instead of tuning the tool-dial to something: 
+	say "[toolmodelist]." 
+
+Instead of setting the tool-dial to some topic:
+	say "[toolmodelist].";
+
 Check tuning it to: 
 	if the noun is not the curious-tool and the noun is not the tool-dial, say "Only the curious tool can be set to [the tool-mode understood]." instead;
 	
@@ -7003,7 +7010,7 @@ The tool sets itself to Inert.";
 			say "[line break]The tool beeps and a voice says, 'Flashlight activated.'
 
 The tool brightens up the surrounding area considerably.";
-		say "[line break][bracket]The flashlight automatically lightens the surrounding area. There is no need to point it anywhere.[close bracket][line break]";
+			say "[line break][bracket]The flashlight automatically lightens the surrounding area. There is no need to point it anywhere.[close bracket][line break]";
 	otherwise if the curious-tool is diagnose:
 		if the second-shard is not part of the curious-tool:
 			say "[line break]The tool beeps and a voice says, 'Diagnose setting. You must upgrade your device for this setting to function.'
@@ -7019,7 +7026,7 @@ Separation type: None
 Separation distance: None'[line break]";
 		otherwise:
 			say "[line break]The tool beeps and a voice says, 'Diagnose settting activated.'";
-		say "[line break][bracket]To diagnose a rift, simply POINT the tool AT the rift in question.[close bracket][line break]";
+			say "[line break][bracket]To diagnose a rift, simply POINT the tool AT the rift in question.[close bracket][line break]";
 	otherwise if the curious-tool is locator:
 		if the third-shard is not part of the curious-tool:
 			say "[line break]The tool beeps and a voice says, 'Locator setting. You must upgrade your device for this setting to function.'
@@ -7412,6 +7419,26 @@ close-button	"Close"	"the word Close"
 harvest-button	"Harvest"	"the word Harvest"
 confirm-button	"Confirm"	"the word Confirm"
 
+Buttonnameing is an action applying to nothing. Understand "name" as buttonnameing when the name-pedestal is enclosed by the location.
+
+Carry out buttonnameing:
+	try pushing the name-pedestal;
+
+Buttonnexting is an action applying to nothing. Understand "next" as buttonnexting when the next-pedestal is enclosed by the location.
+
+Carry out buttonnexting:
+	try pushing the next-pedestal;
+
+Buttonbacking is an action applying to nothing. Understand "back" as buttonbacking when the back-pedestal is enclosed by the location.
+
+Carry out buttonbacking:
+	try pushing the back-pedestal;
+
+Buttonharvesting is an action applying to nothing. Understand "harvest" as buttonharvesting when the harvest-button is enclosed by the location.
+
+Carry out buttonharvesting:
+	try pushing the harvest-button;
+	
 Understand "question" or "mark" or "help" as the emf-button. Understand "image" as receiver-button. Understand "image" as photo-button. Understand "word" as diagnosis-button. Understand "word" as repeat-button. Understand "word" as next-pedestal. Understand "word" as back-pedestal. Understand "word" as name-pedestal. Understand "word" as open-button. Understand "close" as the close-button. Understand "word" as harvest-button. Understand "word" as confirm-button. Understand "help" as the emf-button.
 
 [add buttons as plural of button? allow multiple examines with buttons or create button object?]
@@ -7517,8 +7544,13 @@ Rifts, or interdimensional portals, are pieces of spacetime that may be connecte
 	now the diagnosis-button is part of the tool-pedestal;
 	now the player is in sphere-room;
 
+Buttondiagnosing is an action applying to nothing. Understand "diagnose" as buttondiagnosing when the diagnosis-button is enclosed by the location.
+
+Carry out buttondiagnosing:
+	try pushing the diagnosis-button;
+
 [FIX THIS LATER make actual yang chamber diagnosable in monuments dimension, make all other rifts diagnosable]
-The meter-rings are a thing. The printed name of the meter-rings is "meter rings". Understand "metal" or "disc" or "disk"or "ring" or "rings" or "circle" or "label" or "center" or "platform" or "concentric" or "line" or "lines" as the meter-rings. The description of the meter-rings is "The disc around the pedestal has rings marked on it labelled in meters from the center. It goes, according to the label, eight meters out from the pedestal[if the blue-exit is in the location].
+The meter-rings are a thing. The printed name of the meter-rings is "meter rings". Understand "metal" or "disc" or "disk"or "ring" or "rings" or "circle" or "label" or "center" or "platform" or "concentric" or "line" or "lines" or "spaced" or "fourth" or "meter" as the meter-rings. The description of the meter-rings is "The disc around the pedestal has rings marked on it labelled in meters from the center. It goes, according to the label, eight meters out from the pedestal[if the blue-exit is in the location].
 
 The outer blue rift is on the fourth ring[end if]."
 
@@ -7607,7 +7639,7 @@ The black rift disappears. In its stead, two small blue rifts appear, one at the
 	now the blue-entrance is in the location;
 	now the blue-exit is in the location;
 
-The blue-entrance is a scenery scene-rift. The blue-entrance is blue-torn. The printed name of the blue-entrance is "central blue rift". Understand "central" as the blue-entrance. The description of the blue-entrance is "This rift is set at the base of the pedestal.";
+The blue-entrance is a scenery scene-rift. The blue-entrance is blue-torn. The printed name of the blue-entrance is "central blue rift". Understand "central" or "center" or "rifts" as the blue-entrance. The description of the blue-entrance is "This rift is set at the base of the pedestal.";
 
 Instead of entering the blue-entrance:
 	say "It's too small for you to fit through, but you can poke a few fingers in and see them come out the other rift.";
@@ -7621,7 +7653,7 @@ Instead of physicality when the noun is blue-entrance:
 Instead of physicality when the noun is blue-exit:
 	say "You reach towards the rift, but your hand disappears, appearing in the other rift. You pull it back."
 
-The blue-exit is a scenery scene-rift. The blue-exit is blue-torn. The printed name of the blue-exit is "outer blue rift". Understand "outer" as the blue-exit. The description of the blue-exit is "This rift is set on the fourth ring out from the center of the pedestal.";
+The blue-exit is a scenery scene-rift. The blue-exit is blue-torn. The printed name of the blue-exit is "outer blue rift". Understand "outer" or "rifts" as the blue-exit. The description of the blue-exit is "This rift is set on the fourth ring out from the center of the pedestal.";
 
 Instead of inserting something into the blue-exit:
 	say "You put [the noun] into [the blue-exit], and it comes out the [blue-entrance] where you grab it again."
@@ -7754,17 +7786,23 @@ Every turn during red-scene:
 	if the time since red-scene began > 5 minutes:
 		if the tiny-red is not nowhere:
 			now the tiny-red is nowhere;
-			say "Finally, the rift disappears, as does the DIAGNOSIS button. The metal ball sinks back into the base of the pillar";
+			say "Finally, the rift disappears[if the diagnosis-button is part of the tool-pedestal], and the DIAGNOSIS button turns off[end if]. The metal ball sinks back into the base of the pillar";
 			say ". A button labelled REPEAT appears on the pedestal";
 			say ".";
 			now every metal-ball is nowhere;
 			now the diagnosis-button is nowhere;
 			now the repeat-button is part of the tool-pedestal;
 
+Buttonrepeating is an action applying to nothing. Understand "repeat" as buttonrepeating when the repeat-button is enclosed by the location.
+
+Carry out buttonrepeating:
+	try pushing the repeat-button;
+
 Instead of pushing the repeat-button:
 	now ball-1 is in the location;
 	say "You press the Repeat button, and a metal ball once again arises from the pillar. The Diagnosis button lights up again.";
 	now the repeat-button is nowhere;
+	now the diagnosis-button is part of the tool-pedestal;
 
 Before examining the pedestal-screen during red-scene:
 	now pedestal-text is  "DIAGNOSIS:[line break]Creation date: 1205/51[line break]Type: [rift-style of tiny-red][line break]Separation type: Temporal[line break]Separation distance: ??? minutes
@@ -7775,12 +7813,12 @@ Instead of pushing diagnosis-button during red-scene:
 	if the tiny-red is enclosed by the location:
 		now pedestal-text is "DIAGNOSIS:[line break]Creation date: 1205/51[line break]Type: [rift-style of tiny-red][line break]Separation type: Temporal[line break]Separation distance: ??? minutes
 
-	This rift is separated temporally from another red rift. Please set the correct temporal distance in minutes on the number dial. You can find this distance by counting the time between an event on one end of the rift with an event on the other end of the rift.";
+	This rift is separated temporally from another red rift. Please set the correct temporal distance in minutes on the number dial. You can find this distance by counting the time between an event on one end of the rift with an event on the other end of the rift. For instance, you could count the time between when the ball rolls out of the rift in the past and when it rolls ino the rift in the future.";
 		say "The display updates to say:
 
 	[italic-pedestal]
 
-	A dial appears on the surface of the pedestal. The diagnosis button disappears.";
+	[if the number-dial is not part of the tool-pedestal]A dial appears on the surface of the pedestal[otherwise]The dial on the pedestal flashes[end if]. The Diagnosis button disappears.";
 		now the number-dial is part of the tool-pedestal; 
 		now the diagnosis-button is nowhere;
 	otherwise:
@@ -8347,7 +8385,7 @@ The display changes to say:
 
 [italic-pedestal][line break]";
 
-Understand "portal" as a scene-rift. Understand "portal" as a hub-door. Understand "portal" as a space-tear.
+Understand "portal" or "rifts" as a scene-rift. Understand "portal" or "rifts" as a hub-door. Understand "portal" or "rifts" as a space-tear.
 
 The fifth-uprift is a scene-rift. The fifth-uprift is black-torn. Understand the rift-style property as describing the fifth-uprift. Understand "rift" as the fifth-uprift. The printed name of the fifth-uprift is "[rift-style of the fifth-uprift] rift". The description of the fifth-uprift is "This [rift-style of the fifth-uprift] rift floats in the air silently."
 
@@ -8691,7 +8729,9 @@ Instead of dropping something when the player is in catastrophe-room:
 Instead of dropping something when the player is in wreckage-hole:
 	say "Losing something back here in the past might mean it's lost forever."
 
-Catastrophe-room is a room. The printed name of the catastrophe-room is "Catastrophe". The description of catastrophe-room is "This room looks much like the pedestal room from your own time frame, but something has gone terribly wrong. A huge pillar has fallen into the room, crushing through the walls and ceiling and blocking off access in almost all directions. The floor has blossomed upwards, likely as the result of an explosion. A smoky haze fills the room and sparks shower down randomly. You can leave through [the sixth-backrift] to the [boldsouth]."
+Misc-region is a region.
+
+Catastrophe-room is a room in misc-region. The printed name of the catastrophe-room is "Catastrophe". The description of catastrophe-room is "This room looks much like the pedestal room from your own time frame, but something has gone terribly wrong. A huge pillar has fallen into the room, crushing through the walls and ceiling and blocking off access in almost all directions. The floor has blossomed upwards, likely as the result of an explosion. A smoky haze fills the room and sparks shower down randomly. You can leave through [the sixth-backrift] to the [boldsouth]."
 
 The catast-walls are plural-named scenery in catastrophe-room. The printed name of the catast-walls is "walls". Understand "wall" or "walls" or "metal" or "octagon" as the catast-walls. The description of the catast-wall is "These metal walls have been crushed by the huge pillar, but you can tell they once bore an octagon symbol."
 
@@ -8826,7 +8866,7 @@ It's difficult to understand."
 Before going down from catastrophe-room when fallen-wreckage is not onceclimbed:
 	say "You can't see any good way to go down." instead;
 
-The wreckage-hole is down from catastrophe-room. THe printed name of the wreckage-hole is "Hole". The description of the wreckage-hole is "You are in a kind of hole or pit under the main room. This seems to be where the blast originated from. Red dust is everywhere, and a heavy bar crosses the pit. You can go back [boldup] when you're ready.".
+The wreckage-hole is down from catastrophe-room. Wreckage-hole is in misc-region. THe printed name of the wreckage-hole is "Hole". The description of the wreckage-hole is "You are in a kind of hole or pit under the main room. This seems to be where the blast originated from. Red dust is everywhere, and a heavy bar crosses the pit. You can go back [boldup] when you're ready.".
 
 The actual-hole is scenery in the wreckage-hole. The printed name of the actual-hole is "hole". Understand "hole" or "pit" as the actual-hole. 
 
@@ -8939,7 +8979,7 @@ Report looking in past-construction for the first time:
 	deliver Recognition-quip;
 	say "Bronwyn says, 'Hello Emrys. Long time no see.' She smiles, but there is little warmth."	
 
-The past-construction is a room. THe printed name of the past-construction is "Construction Zone". The description of the past-construction is "You are in a past version of the pedestal room you were in before. This room is still under construction, and mostly consists of girders with little connection between them outside of a mesh floor. Through the gaps you can see that you are floating in space above an unfinished but enormous starship[first time], larger than you had ever heard of or even thought possible, at least as large as a moon[only].
+The past-construction is a room in misc-region. THe printed name of the past-construction is "Construction Zone". The description of the past-construction is "You are in a past version of the pedestal room you were in before. This room is still under construction, and mostly consists of girders with little connection between them outside of a mesh floor. Through the gaps you can see that you are floating in space above an unfinished but enormous starship[first time], larger than you had ever heard of or even thought possible, at least as large as a moon[only].
 
 [The seventh-backrift] you entered from floats to the [boldsouth].".
 
@@ -9074,7 +9114,7 @@ Bronwyn rushes over. 'Whoa, what happened there?' she asks.
 
 'The rift in the room turned green,' you say. 'It happens a lot.'
 
-'Oh, man, I always thought that was a metaphor or something when I read about it in the records. But it looks like the radiation increased in energy, shifting up the spectrum. Oh man, I never expected it would increase this much. Be careful with that energy!'
+'Oh, man, I always thought that was a metaphor or something when I read about it in the records. But it looks like the radiation increased in energy, shifting up the spectrum. I never expected it would increase this much. Be careful with that energy!'
 
 Not sure how to answer that, you meekly say, 'Okay.'";
 	now the seventh-uprift is green-torn;
@@ -9172,12 +9212,12 @@ Instead of entering the final-rift:
 	if a nonvital physical thing is enclosed by the player:
 		say "A gentle voice from the pedestal says, 'Outside item detected. Please leave all items you are holding or wearing behind, besides your recorder. You will not have the opportunity to return.'";
 	otherwise:
-		end the story finally saying "This is the end of the beta."
-
-[		say "You are whisked away. Do the dots transition thing. You have basically won the main game. There is a big crowd applauding you.";
 		repeat with current running through quips enclosed by the player:
 			remove current;
-		now the player is in audience-chamber;]
+		say "[line break]*************************************************************************************************[line break]";
+		say "You are engulfed in a blue haze, losing all sense of direction. Slowly the haze clears.";
+		say "*************************************************************************************************[paragraph break]";
+		now the player is in audience-chamber;
 	
 Harvesting is an action applying to one thing. Understand "harvest [something]" as harvesting when the curious-tool is held by the player.
 
@@ -9209,7 +9249,7 @@ A crystal-door is a kind of door. A crystal-door has a room called the door-room
 
 The wax-office is a crystal-room in hidden-region. "This is an office room hidden in the back of the wax museum. It looks like it's primarily used for storage. There are some empty filing cabinets and a wax figure of[one of]...[or] [stopping]you. The door to the rest of the wax museum is to the [boldsouth]. [rift-text]." The printed name of the wax-office is "Office".
 
-The employee-door is a scenery crystal-door. The employee-door is north of gift-room and south of wax-office. The employee-door is closed and locked. The printed name of the employee-door is "octagon door". Understand "octagon" or "mark" or "nondescript" or "door" or "mark" or "marking" or "word" or "words" or "employees" or "only" as the employee-door. The description of the employee-door is "This nondescript door blends almost perfectly into the wall. It is marked with an octagon and the words 'Employees Only'." The door-room of the employee-door is wax-office.
+The employee-door is a scenery crystal-door. The employee-door is north of gift-room and south of wax-office. The employee-door is closed and locked. The printed name of the employee-door is "octagon door". Understand "octagon" or "mark" or "nondescript" or "door" or "mark" or "marking" or "word" or "words" or "employees" or "only" as the employee-door. The description of the employee-door is "This nondescript door blends almost perfectly into the wall. It is marked with an octagon." The door-room of the employee-door is wax-office.
 
 Emrys-figure is a wax-figure in wax-office. The printed name of the emrys-figure is "wax figure of you". Understand "of you" or "you" or "emrys" or "tisserand" or "worn" or "down" as the emrys-figure. The description of the emrys-figure is "This wax figure is remarkably accurate. It looks almost exactly like you do today. It does look a bit worn down; it must have been on display in the wax museum for quite some time."
 
@@ -9651,7 +9691,7 @@ Instead of closing a scene-rift:
 
 The destination-room of the dormant-rift is the pizza-parlor.
 
-The pizza-parlor is a room. The printed name of the pizza-parlor is "Pizza Parlor". The description of the pizza-parlor is "You stand in the middle of the Grand Line Pizza Parlor, according to the signage. The parlor has some scattered chairs and tables but is empty of patrons. A counter separates you from the rest of the establishment[deliver-est]."
+The pizza-parlor is a room in misc-region. The printed name of the pizza-parlor is "Pizza Parlor". The description of the pizza-parlor is "You stand in the middle of the Grand Line Pizza Parlor, according to the signage. The parlor has some scattered chairs and tables but is empty of patrons. A counter separates you from the rest of the establishment[deliver-est]."
 
 Owen is a talkative man in pizza-parlor. "A scrawny youth with a nametag reading Owen stands across the counter from you." Understand "scrawny" or "short" or "small" or "youth" or "employee" or "nametag" as owen. The description of Owen is "Owen is a small young man that looks like he's barely even old enough to hold this job. His expression is fairly bored.".
 
@@ -9710,6 +9750,9 @@ A pizza-slice is a kind of thing. A pizza-slice is edible. There are 5 pizza-sli
 Instead of eating the pizza-box:
 	say "It's hard to eat a pizza box! The pizza slices usually tastes better."
 
+Does the player mean eating the pizza-box:
+	it is unlikely;
+
 The fifth-shard is in the pizza-box.
 
 Section 6 - Outpost 6
@@ -9730,7 +9773,7 @@ The dormant-time is a scene-rift. Understand "rift"as the dormant-rift. The dorm
 
 The diagnose-text of dormant-time is "DIAGNOSIS:[line break]Creation date: 0203/51[line break]Type: [if the fifth-uprift is black-torn] Black (originally Red)[otherwise] Red[end if] [line break]Separation type: Temporal[line break]Separation distance: 3 minutes"
 
-The diagnose-text of dormant-out is "DIAGNOSIS:[line break]Creation date: 0203/51[line break]Type: [if the dormant-out is black-torn] Black (originally Red)[otherwise] Red[end if] [line break]Separation type: Temporal[line break]Separation distance: 3 minutes"
+The diagnose-text of dormant-out is "DIAGNOSIS:[line break]Creation date: 0203/51[line break]Type: [if the dormant-out is black-torn] Black (originally Red)[otherwise] Red[end if] [line break]Separation type: Temporal[line break]Separation distance: 3 minutes". The dormant-out is improper-named.
 
 The initial appearance of dormant-time is "Another larger [rift-style of dormant-time] rift is in the room as well, leading [boldinside]." Understand "large" or "larger" as the dormant-time.
 
@@ -9738,7 +9781,7 @@ Before going nowhere when dormant-time is in the location:
 	if the noun is inside:
 		try entering dormant-time instead;
 
-The adjacent-room is a room. The printed name of the adjacent-room is "Nearby Room". The description of the adjacent-room is "This room is tiny and has no discernible entrances or exits. The only permanent feature is a [second-slever].
+The adjacent-room is a room in misc-region. The printed name of the adjacent-room is "Nearby Room". The description of the adjacent-room is "This room is tiny and has no discernible entrances or exits. The only permanent feature is a [second-slever].
 
 You can go [boldoutside] through [the dormant-out]."
 
@@ -9917,7 +9960,7 @@ Instead of closing the dormant-mega:
 
 The destination-room of the dormant-mega is the precarious-room.
 	
-Precarious-room is a room. The printed name of the precarious-room is "Art Storage". "This room looks like it's merely being used for storage. There are no obvious exits, except for [a mega-out] that rift leads back [boldoutside]."
+Precarious-room is a room in misc-region. The printed name of the precarious-room is "Art Storage". "This room looks like it's merely being used for storage. There are no obvious exits, except for [a mega-out] that rift leads back [boldoutside]."
 
 Instead of going nowhere from precarious-room when the noun is outside:
 	try entering the mega-out;
@@ -9936,7 +9979,7 @@ Instead of physicality when the noun is a smashed art-smashand:
 Rule for writing a paragraph about the glass-shelving:
 	say "Some art is stored in this room: some glass shelving, [if the glass-shelving is smashed]now smashed[otherwise]in good condition[end if]; a [gingerbread-castle], [if the gingerbread-castle is pristine]attached to the wall[otherwise]pulled off and fallen on the floor in pieces[end if]; and [a soup-painting], [if the soup-painting is pristine]in pretty good condition[otherwise]now with a hole in it[end if]."
 
-Instead of pushing or pulling or attacking the glass-shelving when the glass-shelving is pristine:
+Instead of pushing or pulling or attacking or taking the glass-shelving when the glass-shelving is pristine:
 	now the noun is smashed;
 	say "The shelving falls down and shatters everywhere. It's unbearably loud.";
 	check-seventh;
@@ -9946,14 +9989,14 @@ The gingerbread-castle is an art-smashand in precarious-room. Understand "ginger
 Instead of pushing the gingerbread-castle when the gingerbread-castle is pristine:
 	say "It's attached to the wall so there's nowhere to push it. You might be able to pull it, though."
 
-Instead of pulling or attacking the gingerbread-castle when the gingerbread-castle is pristine:
+Instead of pulling or attacking or taking the gingerbread-castle when the gingerbread-castle is pristine:
 	now the noun is smashed;
 	say "You pull down the gingerbread castle, big handfuls at once. It falls to the ground, ruined.";
 	check-seventh;
 
 The soup-painting is an art-smashand in precarious-room. Understand "soup" or "can" or "painting" as the soup-painting. The printed name of the soup-painting is "soup painting". The description of the soup-painting is "This is a painting of a soup can. It looks like a great deal of time went into making this."
 
-Instead of attacking or pulling or pushing the soup-painting when the soup-painting is pristine:
+Instead of attacking or pulling or pushing or taking the soup-painting when the soup-painting is pristine:
 	now the noun is smashed;
 	say "You punch your fist straight through the soup painting. You wish it hadn't come to this, but history must be maintained.";
 	check-seventh;
@@ -10000,7 +10043,7 @@ Before going nowhere when dormant-giga is in the location:
 
 The destination-room of dormant-giga is yang-two.
 
-yang-two is a room. The printed name of the yang-two is "Laboratory". The description of yang-two is "You are in a laboratory scattered with fragments of crystals of various colors, as well as equipment of uncertain use. A desk is prominent in the middle of the room, with an incomplete device labelled Yang Engine Mk III on it.
+yang-two is a room in misc-region. The printed name of the yang-two is "Laboratory". The description of yang-two is "You are in a laboratory scattered with fragments of crystals of various colors, as well as equipment of uncertain use. A desk is prominent in the middle of the room, with an incomplete device labelled Yang Engine Mk III on it.
 
 There is [a giga-out] here leading back [boldoutside]."
 
@@ -10031,7 +10074,7 @@ The mk-iii is scenery on yang-desk. The printed name of the mk-iii is "Yang Engi
 The eighth-shard is on the yang-desk.
 
 Every turn when the player is in yang-two:
-	say "[one of]Voice echo from somewhere nearby, though you can't discern the source. You can hear a voice that sounds quite a bit like you Captain, but older: You can only make out bits and pieces:
+	say "[one of]Voice echo from somewhere nearby, though you can't discern the source. You can hear a voice that sounds quite a bit like your Captain, but older: You can only make out bits and pieces:
 
 '...everyone for coming. It's good to see you all again...'[or]The voices continue. This time you can make out a voice like Gareth's
 
@@ -12691,7 +12734,7 @@ Instead of rubbing the stonehenge-graffiti:
 	say "It would take forever to clean all of this off."
 
 To say testername:
-	say "[one of]Amanda[or]Xenographer[or]John[or]Jade[or]Christopher[or]Lance[or]Zed[or]Cody[or]Alex[or]Radioactive Crow[or]Patrick[or]Arthur[or]Brett[or]Rovarsson[or]Joyce[or]Max[or]Dee[or]Ian[or]Chandler[or]Spike[or]Lazzah[or]Doug[or]Dirk[cycling]"
+	say "[one of]Amanda[or]Xenographer[or]John[or]Jade[or]Christopher[or]Lance[or]Zed[or]Cody[or]Alex[or]Radioactive Crow[or]Patrick[or]Arthur[or]Brett[or]Rovarsson[or]Joyce[or]Max[or]Dee[or]Ian[or]Chandler[or]Spike[or]Lazzah[or]Doug[or]Dirk[or]Dee[or]Hidnook[cycling]"
 
 The east-collector is a light-collector in stonehenge-east.
 
@@ -18843,7 +18886,7 @@ Check linking it to:
 	otherwise if the noun is the second noun:
 		say "You don't get any new information from linking something to itself.";
 
-The standard topicing rule response (B) is "[bold type]Clues and Questions[roman type]";
+The standard topicing rule response (B) is "[if a squip is enclosed by the player][bold type]Clues and Questions[roman type][otherwise][bold type]Topics for Everyone[roman type][end if]";
 
 Carry out linking it to:
 	say "For some reason or another, you can't find any contradictions in these two clues.";
@@ -18877,7 +18920,7 @@ Before singleuttering something when the player is not emrys-weaver:
 Check topicing when the player is not emrys-weaver:
 	say "[bracket]Because you are in a flashback, all conversation is handled by TALK TO.[close bracket][paragraph break]" instead;
 
-Arresting is an action applying to one thing. Understand "arrest [someone]" as arresting.
+Arresting is an action applying to one thing. Understand "arrest [someone]" as arresting when the player is in train-region.
 
 Carry out arresting:
 	say "While you have the detective's badge, your actual legal status here is uncertain. Better to amount overwhelming evidence against someone and get them to confess themselves!"
@@ -28711,9 +28754,9 @@ The woman in white that you've been seeing in your visions is here, wearing her 
 
 'Hello, Emrys. Welcome to your future[delwelcome],' says the woman. 'My name is [Arawn Webster]. There's just one thing that we need to do before we begin.'
 
-She taps something on her wrist, and your recorder squeaks. 'Ow,' you say, holding your ear.
+She reaches towards your head, and a silver device on her wrist whirrs. To your shock, the recorder you had implanted years ago comes off in her hand. 'Ow,' you say, holding your ear.
 
-'Don't worry, I'm just temporarily deactivating your recorder. I'm sure you'll see the wisdom of that in a few minutes; the Record is quite long enough as it is. Now, I'm sure that you have many questions. I'm happy to answer them, but I have to tell you that there are guests waiting to meet you as well. However, I do have time for a few brief questions at this moment.'
+'Don't worry, I'm just temporarily removing your recorder. The process is quite safe, I assure you. I'm sure you'll see the wisdom of that in a few minutes; the Record is quite long enough as it is. Now, I'm sure that you have many questions. I'm happy to answer them, but I have to tell you that there are guests waiting to meet you as well. However, I do have time for a few brief questions at this moment.'
 
 She folds her arms and leans back against the marble desk[only].".
 
@@ -28724,7 +28767,11 @@ Carry out audtping:
 	
 Section 1 - Arawn herself
 
-Arawn Webster is a woman in audience-chamber. Understand "short" or "woman" or "in white" or "tunic" or "white tunic" or "floor-length" or "floor length" or "length" or "head" or "feet" or "eyes" or "dark" or "thoughtful" as arawn. The description of Arawn is "Arawn is a short woman, like you, almost the same height, but with a commanding presence. She wears a floor-length white tunic that covers her feet, and her head is covered by a white spiked skull mask. Through the mask you can see her eyes, dark and thoughtful. On her wrist is a silver device.". "Arawn Webster, the woman in white, is standing here, watching you through her mask."
+Arawn Webster is a woman in audience-chamber. Understand "short" or "woman" or "in white" or "tunic" or "white tunic" or "floor-length" or "floor length" or "length" or "head" or "feet" or "eyes" or "dark" or "thoughtful" as arawn. The description of Arawn is "Arawn is a short woman, like you, almost the same height, but with a commanding presence. She wears a floor-length white tunic that covers her feet[if unmasked], but her head is now free of the mask, which she holds in her hand. Her face is both unassuming and unfamiliar, with faint scars on the cheekbones and a ridged nose[otherwise], and her head is covered by a white spiked skull mask. Through the mask you can see her eyes, dark and thoughtful[end if]. On her wrist is a silver device.". "Arawn Webster, the woman in white, is standing here[if masked], watching you through her mask[otherwise], now unmasked[end if][if the giant-rift is in the location].
+
+She's waiting for you to give her the recorder, or for you to wear it. Of course, you could also destroy it[end if]."
+
+Arawn can be masked or unmasked. Arawn is masked.
 
 The skull-mask is worn by arawn. The printed name of the skull-mask is "white skull mask". Understand "white" or "skull" or "mask" or "spike" or "line" or "top of" or "back" or "spiked" or "spikes" as the skull-mask. The description of the skull-mask is "Arawn's mask is made of some white fabric, made in the shape of a skull. Spikes arise in a line on the top of the skull, trailing off towards the back."
 
@@ -28737,7 +28784,7 @@ After printing the name of the all-recorder when taking inventory:
 		say " (inactive)";
 
 To say delwelcome:
-	now the all-recorder is inactive;
+	now the all-recorder is held by Arawn;
 	deliver record-quip;
 	deliver loc-quip;
 	deliver rec-quip;
@@ -28746,7 +28793,7 @@ Record-quip is a quip. Understand "record" as record-quip. The printed name of r
 
 The targetresponse of record-quip is "'That's the real crux of things, isn't it? I'm sure you picked up pieces of it here and there,' she says. 'Maybe you know it all already.'
 
-She points to the recorder you're wearing. 'You are the only person in recorded history who has travelled to the future. After your trip, your recorder was analyzed and preserved, its data extracted. The extracted data is called The Record. It's been both a blessing and a heavy curse.'
+She holds up the recorder she took off you. 'You are the only person in recorded history who has travelled to the future. After your trip, your recorder was analyzed and preserved, its data extracted. The extracted data is called The Record. It's been both a blessing and a heavy curse.'
 
 'Because of the technology?' you ask. 'You were able to reverse engineer everything?'
 
@@ -28833,7 +28880,10 @@ Instead of pushing or pulling or turning or taking the aud-chairs:
 The aud-desk is an enterable scenery supporter in audience-chamber. The printed name of the aud-desk is "marble-topped desk". Understand "marble-topped" or "marble" or "top" or "topped" or "desk" as the aud-desk. The description of the aud-desk is "The desk has a marble top, which must make it very heavy. There's absolutely nothing on it, which makes you wonder what its purpose is. Just for show? Or does it belong to an orderly person?"
 
 Instead of entering the aud-desk:
-	say "You start lifting your leg onto the desk when Arawn sees what you're doing and does a double-take. You back away."
+	if arawn is in the location:
+		say "You start lifting your leg onto the desk when Arawn sees what you're doing and does a double-take. You back away.";
+	otherwise:
+		say "On second thought, Arawn is waiting for you."
 	
 The aud-doors are plural-named closed locked openable scenery doors. THe aud-doors are east from audience-chamber and west from glass-hallway. Understand "doors" or "door" or "double" as the aud-doors. The printed name of the aud-doors is "double doors". The description of the double-doors is "These doors look slightly newer than the rest of the room. Perhaps they were recently remodeled?".
 
@@ -28851,6 +28901,7 @@ When depart-audience begins:
 	now the aud-doors are unlocked;
 	now the aud-doors are open;
 	now arawn webster is in glass-hallway;
+	now all-recorder is nowhere;
 	say "There is a chime. 
 
 'It seems it's time to go. Here,' she says, tapping the device on her wrist. You hear a 'click' from the doors. 'Let's go. Please follow me.'
@@ -28895,7 +28946,7 @@ Every turn during depart-audience:
 		if the player is in glass-hallway:
 			now the aud-doors are closed;
 			now the aud-doors are locked;
-			say "She checks to see if you are following. Once you are through the doors, she presses a button, and the doors close and lock behind you.
+			say "She checks to see if you are following. Once you are through the doors, she presses a button on her device, and the doors close and lock behind you.
 
 'Feel free to take a look,' she says, waving her arms, 'but I'll go on ahead. We're going to be headed to the museum to wait for the reception to start. It should answer most of your questions.'
 
@@ -28926,13 +28977,13 @@ Chapter 2 - Museum entrance
 
 Museum-entrance is a room in wildcard-region. The printed  name of the museum-entrance is "Museum Entrance". "You are just outside the doors to a museum to the [boldeast], which has the words STARSHIP TISSERAND HISTORICAL MUSEUM on it. It looks quite a bit better funded than the wax museum you visited earlier. 
 
-There is a larger area to the [boldwest][if receptionready is false], but it has been roped off[otherwise]which is no longer roped off, the velvet rope having been moved aside[end if]. The escalator goes back [boldup], although there's not much reason for you to go that way[first time]
+There is a larger area to the [boldwest][if receptionready is false], but it has been roped off[otherwise] which is no longer roped off, the velvet rope having been moved aside[end if]. The escalator goes back [boldup], although there's not much reason for you to go that way[first time]
 
 Arawn pauses outside the museum. 'I have arranged a reception for you. I figure the least we can do is to have a little celebration for you. You should see some familiar faces there. However, I know you must have questions. The museum should be able to help you. I'll let you know in about twenty minutes or so when we're ready.'
 
 'Thank you, I suppose, although I do want to make sure that my ship is alright,' you say. 'There's still a crisis going on.'
 
-Arawn tenses up and is silent for a moment. 'I know. And we can talk about that; everything will be fine. But this isn't just frivolity. Saving your ship will be somewhat complex. It will be nice to have input from everyone. And if you don't want to look around, feel free to take a nap on the bench inside. I'm sure you've deserved it.'
+She tenses up and is silent for a moment. 'I know. And we can talk about that; everything will be fine. But this isn't just frivolity. Saving your ship will be somewhat complex. It will be nice to have input from everyone. And if you don't want to look around, feel free to take a nap on the bench inside. I'm sure you've deserved it.'
 
 She opens the rope and crosses it to the west, reattaching it behind her. She then strides out of sight. The museum awaits you to the [boldeast][only]."
 
@@ -28948,10 +28999,10 @@ Every turn when hist-doors was open:
 	if the player can see the hist-doors:
 		say "The double doors swing closed."
 
-The foyer-rope is a closed openable scenery door. THe foyer-rope is west from museum-entrance and east from near the entrance. The printed name of the foyer-rope is "velvet rope". Understand "red" or "velvet" or "rope" as the foyer-rope. The description of the foyer-rope is "[if closed]This is a red velvet rope, currently blocking the way west[otherwise]The rope has been moved aside, leaving the way [boldwest] open [end if]."
+The foyer-rope is a closed openable scenery door. THe foyer-rope is west from museum-entrance and east from by the dessert table. The printed name of the foyer-rope is "velvet rope". Understand "red" or "velvet" or "rope" as the foyer-rope. The description of the foyer-rope is "[if closed]This is a red velvet rope, currently blocking the way west[otherwise]The rope has been moved aside, leaving the way [boldwest] open [end if]."
 
 Before physicality when the noun is the foyer-rope:
-	say "Despite its unassuming presence, you find yourself unable to bypass or adjust the rope[if the foyer-rope is open], even with the rope moved aside[end if]. It seems that despite your warm welcome from Arawn, you aren't entirely trusted to do as you please."
+	say "Despite its unassuming presence, you find yourself unable to bypass or adjust the rope[if the foyer-rope is open], even with the rope moved aside[end if]. It seems that despite your warm welcome from Arawn, you aren't entirely trusted to do as you please." instead;
 
 Before going west from museum-entrance when the foyer-rope is closed:
 	say "The velvet rope holds you back." instead;
@@ -28964,7 +29015,9 @@ Section 1 - Fore port
 
 The fore-port is a room in map-region. The printed name of the fore-port is "Museum (Northwest)". "The double doors lead back outside to the [boldwest].
 
-You are in the northwest corner of a grand hall. The lighting is dim and the walls and ceiling are painted to look like stars. This corner of the museum has a map on the wall and an exhibit about the construction of the ship.
+You are in the northwest corner of a grand hall. The lighting is dim and the walls and ceiling are painted to look like stars. 
+
+This corner of the museum has a map on the wall and an exhibit about the construction of the ship.
 
 A model of the Starship Tisserand is the centerpiece of the museum, and can be viewed from every angle. From this angle, you can see a diagram describing agriculture and ecosystems on the ship. You can get a better view by going [boldup].
 
@@ -29049,7 +29102,9 @@ Up from fore-port is cent-room.
 
 Section 2 - Aft Port
 
-The aft-port is a room in map-region. The printed name of aft-port is "Museum (Southwest)". The aft-port is south from fore-port. "You are in the southwest corner of a grand hall. The lighting is dim and the walls and ceiling are painted to look like stars. This corner of the museum has an exhibit on robots and artificial intelligence.
+The aft-port is a room in map-region. The printed name of aft-port is "Museum (Southwest)". The aft-port is south from fore-port. "You are in the southwest corner of a grand hall. The lighting is dim and the walls and ceiling are painted to look like stars. 
+
+This corner of the museum has an exhibit on robots and artificial intelligence.
 
 A model of the Starship Tisserand is the centerpiece of the museum, and can be viewed from every angle. From this angle, you can see a diagram describing the political system on the ship. You can get a better view by going [boldup].
 
@@ -29075,7 +29130,9 @@ Section 3 - Fore Starboard
 
 [FIX THIS LATER Maybe vary description of stars and stuff?]
 
-The fore-starboard is a room in map-region. The printed name of fore-starboard is "Museum (Northeast)". The fore-starboard is east from fore-port."You are in the northeast corner of a grand hall. The lighting is dim and the walls and ceiling are painted to look like stars. This corner of the museum has an exhibit on rifts and their uses and dangers.
+The fore-starboard is a room in map-region. The printed name of fore-starboard is "Museum (Northeast)". The fore-starboard is east from fore-port."You are in the northeast corner of a grand hall. The lighting is dim and the walls and ceiling are painted to look like stars. 
+
+This corner of the museum has an exhibit on rifts and their uses and dangers.
 
 A model of the Starship Tisserand is the centerpiece of the museum, and can be viewed from every angle. From this angle, you can see a diagram describing the roles of Storyweavers. You can get a better view by going [boldup].
 
@@ -29093,11 +29150,13 @@ The sto-diagram is scenery in fore-starboard. The printed name of the sto-diagra
 
 It describes how Storyweavers have remained remarkably stable in their base duties over time. For centuries they have functioned as authors, orators, and artists in preserving the history of their people and sharing and creating their culture
 
-It describes how Emrys Tisserand was the first to discover the interactions between rifts and Storyweavers due to their slightly different absorption spectra for radiation. Since then, Storyweavers have expanded into roles in technology and governance in addition to the storytelling role."
+It goes on to say how Emrys Tisserand was the first to discover the interactions between rifts and Storyweavers due to their slightly different absorption spectra for radiation. Since then, Storyweavers have expanded into roles in technology and governance in addition to the storytelling role."
 
 Section 4 - Aft Starboard
 
-The aft-starboard is a room in map-region. The printed name of the aft-starboard is "Museum (Southeast)". The aft-starboard is south from fore-starboard and east from aft-port. "You are in the southeast corner of a grand hall. The lighting is dim and the walls and ceiling are painted to look like stars. This corner of the museum has an exhibit on entertainment.
+The aft-starboard is a room in map-region. The printed name of the aft-starboard is "Museum (Southeast)". The aft-starboard is south from fore-starboard and east from aft-port. "You are in the southeast corner of a grand hall. The lighting is dim and the walls and ceiling are painted to look like stars. 
+
+This corner of the museum has an exhibit on entertainment.
 
 A model of the Starship Tisserand is the centerpiece of the museum, and can be viewed from every angle. From this angle, you can see a diagram describing waste management on the ship. You can get a better view by going [boldup].
 
@@ -29151,7 +29210,7 @@ Timeline-region is a region. Timeline-region is in wildcard-region.
 
 The ancient-timeline is in timeline-region. The printed name of ancient-timeline is "Timeline (Early Period)". The ancient-timeline is north from fore-starboard. "This part of the museum has a timeline on the wall that extends to the [boldnorth] down a short, empty hallway. This is the start of the timeline, dating back to your own ship.The rest of the museum is to the [boldsouth]."
 
-The anc-timeline is scenery in ancient-timeline. The printed name of the anc-timeline is "timeline". Understand "time" or "line" or "timeline" or "tragwyddol" or "yourself" or "2320" or "2340" or "departure" or "ceremony" or "corner" or "arrival" or "wall" or "hall" or "ad" or "hallway" or "record" or "delivered" or "memorial" or "park" or "image" as the anc-timeline. The description of the anc-timeline is "This part of the timeline begins in 2320 AD, the year that the Tragwyddol, your original ship, left Earth. You were around 50 at that time. It shows the departure ceremony, and you can make out yourself standing in one corner, much younger of course than you are now.
+The anc-timeline is scenery in ancient-timeline. The printed name of the anc-timeline is "timeline". Understand "time" or "line" or "timeline" or "tragwyddol" or "yourself" or "2320" or "2340" or "departure" or "ceremony" or "corner" or "arrival" or "wall" or "hall" or "ad" or "hallway" or "record" or "delivered" or "memorial" or "park" or "image" or "start" or "start of" or "own" or "ship" as the anc-timeline. The description of the anc-timeline is "This part of the timeline begins in 2320 AD, the year that the Tragwyddol, your original ship, left Earth. You were around 50 at that time. It shows the departure ceremony, and you can make out yourself standing in one corner, much younger of course than you are now.
 
 In 2340 was the asteroid strike that damaged the Tragwyddol. It was the same years as your time travel and the subsequent arrival of the Record, delivered by you. It was the year of the Tragwyddol's landing on its target planet.
 
@@ -29161,17 +29220,15 @@ The trag-timeline is in timeline-region. The printed name of the trag-timeline i
 
 This part of the timeline covers the construction of the Starship Tisserand."
 
-The con-timeline is scenery in trag-timeline. The printed name of the con-timeline is "timeline". Understand "time" or "line" or "timeline" or "yang" or "labs" or "lab" or "antonio" or "starship" or "2350" or "tisseran" or "pan-sector" or "council" or "bronwyn" or "ad" as the con-timeline. The description of the con-timeline is "This part of the timeline begins in 2350 AD, with the establishment of Yang Labs by Antonio Yang.
+The con-timeline is scenery in trag-timeline. The printed name of the con-timeline is "timeline". Understand "time" or "line" or "timeline" or "construction" or "construction of" or "yang" or "labs" or "lab" or "antonio" or "starship" or "2350" or "tisserand" or "pan-sector" or "council" or "bronwyn" or "ad" as the con-timeline. The description of the con-timeline is "This part of the timeline begins in 2350 AD, with the establishment of Yang Labs by Antonio Yang.
 
 It displays a bewildering display of new technologies coming from a variety of research institutions and corporations in a short time. Telecommunications, artificial intelligence, and robotics all took off in a very short time.
 
 All of these were used in the construction of the Starship Tisserand, which took roughly forty years, involving the gathering of numerous asteroids and comets, as well as production of an atmosphere. The ship itself launched in 2390 under the supervision of a Pan-Sector Council. That was also the year that you travelled to see Bronwyn, which is marked in red."
 
-The yang-timeline is in timeline-region. The yang-timeline is north from trag-timeline. The printed name of the yang-timeline is "Timeline (Journey's Start)". "The timeline continues here both to the [boldnorth] and [boldsouth].
+The yang-timeline is in timeline-region. The yang-timeline is north from trag-timeline. The printed name of the yang-timeline is "Timeline (Journey's Start)". "This part of the timeline deals with the early journeys of the Starship Tisserand. There are exits to the [boldnorth] and [boldsouth]."
 
-This part of the timeline deals with the early journeys of the Starship Tisserand. There are exits to the [boldnorth] and [boldsouth]."
-
-The ear-timeline is scenery in yang-timeline. The printed name of the ear-timeline is "timeline". Understand "time" or "line" or "timeline" or "pilot" or "starship" or "tisserand" or "tragwyddol" or "record" or "central" or "lance" or "franklin" or "stabilizer" or "red" or "2455" or "2400" or "ad" as the ear-timeline. The description of the ear-timeline is "This part of the timeline begins in 2400 AD, describing the early travels of the Starship Tisserand.
+The ear-timeline is scenery in yang-timeline. The printed name of the ear-timeline is "timeline". Understand "time" or "line" or "timeline" or "pilot" or "starship" or "tisserand" or "journey" or "Journeys" or "travel" or "travels" or "tragwyddol" or "record" or "central" or "lance" or "franklin" or "stabilizer" or "red" or "2455" or "2400" or "ad" as the ear-timeline. The description of the ear-timeline is "This part of the timeline begins in 2400 AD, describing the early travels of the Starship Tisserand.
 
 It describes early arguments about the role of the Pilot, and a few issues with trying to make sure the Record was strictly followed. 
 
@@ -29181,7 +29238,7 @@ Near the end of this period, around 2455, there was a massive tech disaster in C
 
 The arawn-timeline is in timeline-region. The printed name of the arawn-timeline is "Timeline (Modern Day)". The arawn-timeline is north from yang-timeline. "This is the end of the timeline. It described everything up to the current day. The only way back is to the [boldsouth]."
 
-The late-timeline is scenery in arawn-timeline. The printed name of the late-timeline is "timeline". Understand "time" or "line" or "timeline" or "2480" or "discovery" or "election" or "lady" or "lady in" or "white" or "pilot" or "record" or "arawn" or "webster" or "modern"  or "day" or "ad" or "day" or "weft" or "weft's" or "end" or "panel" or "last" as the late-timeline. The description of the late-timeline is "This part of the timeline begins around 2480, describing everything up to the modern day.
+The late-timeline is scenery in arawn-timeline. The printed name of the late-timeline is "timeline". Understand "time" or "line" or "timeline" or "2480" or "current" or "everything" or "up to" or "discovery" or "election" or "lady" or "lady in" or "white" or "pilot" or "record" or "arawn" or "webster" or "modern"  or "day" or "ad" or "day" or "weft" or "weft's" or "end" or "panel" or "last" as the late-timeline. The description of the late-timeline is "This part of the timeline begins around 2480, describing everything up to the modern day.
 
 It describes the excitement surrounding the discovery of and election of Arawn Webster, the Lady in White, who fit the descriptions of the Pilot in the Record. It was the beginning of many signs that the time of the Record was approaching.
 
@@ -29193,7 +29250,12 @@ Instead of going nowhere from timeline-region:
 To trigger-reception:
 	now receptionready is true;
 	now foyer-rope is open;
-	say "There is a chime, and you hear Arawn's voice over an intercom.
+	if the foyer-rope is in the location:
+		say "There is a chime. An attendant comes and opens the rope to the [boldwest].
+
+'This way, Ms Tisserand,' she says, and then disappears.";
+	otherwise:
+		say "There is a chime, and you hear Arawn's voice over an intercom.
 
 'Emrys, the reception is ready. Please return to the outside of the museum, when you are ready.'";
 
@@ -29211,8 +29273,8 @@ When museum-scene ends:
 		move character to space.
 				
 At the time when the reminder hits:
-	say "You remember that you heard Arawn's voice telling you the reception was ready outside.";
 	if the player is not in party-region:
+		say "You remember that you heard Arawn's voice telling you the reception was ready outside.";
 		the reminder hits in ten turns from now;		
 
 Chapter 5 - Party
@@ -29223,7 +29285,9 @@ Every turn during party-scene:
 	if the foyer-rope is open:
 		say "An attendant comes and closes the rope behind you.";
 		now the foyer-rope is closed;
-
+	if arawn webster is in the location:
+		deliver intent-quip;
+		
 [at party tell a ton of stuff but imply there's more]
 
 Party-region is a region.
@@ -29232,7 +29296,126 @@ A p-room is a kind of room.
 
 Section 1 - The party
 
-by the dessert table is a p-room in party-region. near the middle is a p-room in party-region. near the entrance is a p-room in party-region. by the fountain is a p-room in party-region.
+The indefinite article of the party-webmaster is "the". The indefinite article of the party-curator is "the".
+
+The central-hall is a distant backdrop in party-region. The printed name of central-hall is "central hall". Understand "central" or "hall" or "party" or "hollow" or "spire" or "tall" or "center" as the central-hall. The description of the central-hall is "The hall is tall enough that its difficult to see the top. You are in the center of the spire, large enough to accomodate the whole party".
+
+Instead of listening when the player is in party-region:
+	say "All you can hear is the chatter of guests and the quiet music in the background."
+
+Instead of listening to the quiet-music:
+	try examining the quiet-music;
+
+The quiet-music is an intangible backdrop in party-region. The printed name of quiet-music hall is "quiet music". Understand "quiet" or "music" or "old" or "bach" as the quiet-music. The description of the quiet-music is "Quiet music is coming from somewhere in the chamber. It is something old; Bach, perhaps?".
+
+After going through foyer-rope:
+	say "[bold type]At the Party, By the Dessert Table[roman type]";
+	say "As you walk past the rope, an attendant comes and closes it behind you.
+
+You are in the center of the spire, near a buffet of desserts. Arawn Webster is here, along with many of the people you've met today, and a new man, as well. According to the nametags everyone is wearing, they are: [a list of other people in party-region].
+
+Arawn Webster steps forward and says, 'Attention, guests, and welcome. We are here to celebrate the true, and final, Day of Weft's End. From this day on, we will be free from the tyranny of fate. And we can celebrate with the hero of our little world: Emrys Tisserand.' Here she gestures towards you, and the crowd claps.
+
+'Feel free to talk amongst yourselves and to try the refreshments,' she says, going on. 'Our engineers are making their final calculations before we open the final rift that can send Emrys home. Our time here will be short, but I hope it is memorable. Thank you.'
+
+Quiet music begins to play. Arawn pauses by you and says, 'We have twenty minutes or so. I hope you enjoy,' before breaking off."
+
+by the dessert table is a p-room in party-region. "You are in the central hall of a tall, hollow spire, by the dessert table.
+
+A buffet has been set up here with a variety of desserts: cookies, baklava, and macarons. A rope to the [boldeast] has been closed off[if party-scene is happening].
+
+The room is large enough that everyone is spread out. You are free to join anyone you want[otherwise].
+
+The room is now empty[end if]."
+
+Instead of going nowhere from party-region:
+	say "You find that compass directions are not as useful in this large room.
+
+[bracket]During the party, you can GO TO or JOIN any person you see, or any area. So you could JOIN WEBMASTER or GO TO MIDDLE[close bracket][line break]";
+
+The buffet-spread is a scenery supporter in by the dessert table. The printed name of the buffet-spread is "buffet". Understand "buffet" or "dessert" or "table" as the buffet-spread. The description of the buffet-spread is "The buffet has a variety of small desserts: cookies, baklava, and macarons. There's more than enough for everyone."
+
+The cookie-pile is on buffet-spread. The printed name of the cookie-pile is "pile of cookies". Understand "pile" or "pile of" or "cookies" as the cookie-pile. Understand "cookie" as the cookie-pile when the single-cookie is nowhere. The description of the cookie-pile is "You can't tell what type of cookie this is, but it sure looks good."
+
+Instead of taking the cookie-pile:
+	if the single-cookie is not nowhere:
+		say "You've already taken one; you might as well finish that first.";
+	otherwise:
+		say "You grab one of the cookies.";
+		now the single-cookie is held by the player;
+		
+Instead of eating the cookie-pile:
+	try taking the cookie-pile;
+
+The single-cookie is an edible thing. The printed name of the single-cookie is "single cookie". Understand "single" or "cookie" as the single-cookie. The description of the single-cookie is "This cookie is perfectly made. Should taste great!"
+
+The baklava-pile is on buffet-spread. The printed name of the baklava-pile is "pile of baklavas". Understand "pile" or "pile of" or "baklava" or "honey" as the baklava-pile. The description of the baklava-pile is "The baklava is positively dripping with honey."
+
+Instead of taking the baklava-pile:
+	if the single-baklava is not nowhere:
+		say "You've already taken one. You might as well finish that first.";
+	otherwise:
+		say "You grab a piece of the baklava.";
+		now the single-baklava is held by the player;
+		
+Instead of eating the baklava-pile:
+	try taking the baklava-pile;
+
+The single-baklava is an edible thing. The printed name of the single-baklava is "piece of baklava". Understand "piece" or "piece of" or "baklava" as the single-baklava. The description of the single-baklava is "Fortunately, it looks like you can hold this without getting your hand all sticky."
+
+The macaron-pile is on buffet-spread. The printed name of the macaron-pile is "pile of macarons". Understand "pile" or "stack" or "pile of" or "macarons" or "pink" as the macaron-pile. Understand "macaron" as the macaron-pile when the single-macaron is nowhere. The description of the macaron-pile is "The macarons are all pink, stacked neatly in a pile."
+
+Instead of taking the macaron-pile:
+	if the single-macaron is not nowhere:
+		say "You've already taken one, you might as well finish that first.";
+	otherwise:
+		say "You grab one of the macarons.";
+		now the single-macaron is held by the player;
+
+Instead of eating the macaron-pile:
+	try taking the macaron-pile;
+		
+The single-macaron is an edible thing. The printed name of the single-macaron is "single macaron". Understand "single" or "macaron" or "raspberry" as the single-macaron. The description of the single-macaron is "Looks like raspberry. Your favorite!"
+
+After eating an edible thing when the player is in party-region:
+	say "You eat [the noun]. It tastes great!"
+
+Instead of smelling something enclosed by the buffet-spread:
+	say "Smells delicious!"
+
+Instead of smelling something edible when the player is in party-region:
+	say "Smells delicious!"
+
+near the middle is a p-room in party-region. "You are in the center hall of a tall, hollow spire, in the middle of the room. 
+
+This space in the middle has been cleared out to allow people to mingle.
+
+The room is large enough that everyone is spread out. You are free to join anyone you want."
+
+Instead of dancing when the player is in party-region:
+	say "You bust out your best seguedilla. Everyone seems fully impressed.";
+
+near the entrance is a p-room in party-region.  "You are in the center hall of a tall, hollow spire, near the main entrance. 
+
+To the [boldsouth], heavy doors [if the spire-doors are open]are open, leading outside[otherwise]lie closed[end if].
+
+The room is large enough that everyone is spread out. You are free to join anyone you want."
+
+Instead of going outside from near the entrance:
+	try going south;
+
+by the fountain is a p-room in party-region. "You are in the center hall of a tall, hollow spire, near the fountain.
+
+An abstract fountain rises up near you, with water spilling out of the top and running over formless shapes.
+
+The room is large enough that everyone is spread out. You are free to join anyone you want."
+
+The abs-fountain is a scenery thing in by the fountain. Understand "fountain" or "abstract" or "water" or "top" or "formless" or "shapes" or "white" or "people" or "clouds" or "cloud" or "broken" or "pillar" as the abs-fountain. The printed name of the abs-fountain is "abstract fountain". The description of the abs-fountain is "The fountain is abstract, white shapes suggesting people or clouds forming a broken pillar. Water spills out from the top and trickles down.".
+
+Instead of physicality when the noun is the abs-fountain:
+	say "The fountain looks like an art piece; it's not the kind that you touch or mess with.";
+
+The spire-doors are a plural-named closed locked openable scenery door. The spire-doors are south from near the entrance and north from garden-path. Understand "heavy" or "ceremonial" or "entrance" or "doors" or "door" or "outside" as the spire-doors. The description of the spire-doors is "The doors look more ceremonial than useful, tall and heavy. They are currently [if the spire-doors are open]open[otherwise]closed[end if].".
 
 Social clump is a kind of value. The social clumps are vacancy, lone person, couple, cluster, group.
 
@@ -29241,24 +29424,87 @@ A p-room has a social clump. Understand the social clump property as describing 
 Before printing the name of a p-room while constructing the status line:
 	say "A [social clump] ";
 
-Before printing the name of a p-room while not constructing the status line:
-	say "a [social clump] ";
+Quietpeople is initially false.
+
+Before printing the name of a p-room (called currentroom) while not constructing the status line:
+	if quietpeople is false:
+		if the number of other people in currentroom > 0:
+			say "[the list of other people in the currentroom] ";
+		otherwise:
+			say "an empty spot ";
 
 After looking when party-scene is happening:
 	assign clumping;
 	say "Elsewhere in the room, you can see [the list of p-rooms which are not the location]."
 
-Understand "go to [any p-room]" as joining when the player is in party-region. Joining is an action applying to one visible thing. Carry out joining: move player to the noun. Report joining: do nothing.
+After deciding the scope of the player: 
+	if the player is in party-region:
+		repeat with current running through p-rooms:
+			repeat with current2 running through people in current:
+				place current2 in scope;
 
-Understand "examine [any p-room]" as looking toward when the player is in party-region. Looking toward is an action applying to one visible thing. Carry out looking toward a p-room: say "In that direction you see [a list of other people in the noun]."
+Rule for reaching inside a room when the player is in party-region:
+	if the current action is uttering to:
+		allow access;
+	if the current action is talking to:
+		allow access;
+	if the current action is personjoining:
+		allow access;
+	otherwise:
+		say "You can only look from this distance."; 
+		deny access;
+
+Before uttering something to someone in party-region:
+	if the second noun is not in the location:
+		if the second noun heeds the noun:
+			say "(first joining [the second noun])[command clarification break]";
+			try personjoining the second noun;
+		otherwise if the target of the noun is the second noun:
+			say "(first joining [the second noun])[command clarification break]";
+			try personjoining the second noun;
+
+Understand "go to [any p-room]" or "join [any p-room]" as joining when the player is in party-region. Joining is an action applying to one visible thing. 
+
+Before joining: 
+	if party-scene is happening:
+		say "You walk over.";
+	otherwise:
+		say "Everyone seems to have left." instead; 
+
+Carry out joining: move player to the noun. Report joining: do nothing.
+
+Understand "go to [someone]" or "join [someone]" as personjoining when the player is in party-region. Personjoining is an action applying to one visible thing. Before personjoining: say "You join [the location of the noun]." Carry out personjoining: move player to the location of the noun, without printing a room description. Report personjoining: do nothing.
+
+Understand "examine [any p-room]" as looking toward when the player is in party-region. Looking toward is an action applying to one visible thing. 
+
+Carry out looking toward a p-room: 
+	if the player is in the noun:
+		try looking;
+	otherwise:
+		say "In that direction you see [a list of other people in the noun]."
 
 When party-scene begins: 
 	assign clumping;
-	say "FIX THIS LATER A party begins. Everyone has nametags.";
 	now arawn webster is in by the fountain;
 
-Every turn during party-scene: assign clumping.
+Every turn during party-scene: 
+	assign clumping;
+	if the time since party-scene began > 9 minutes:
+		if party-andy is in party-region:
+			now party-andy is nowhere;
+			now party-max is in the location of the player;
+			say "There is a bit of a commotion coming from the entrance. You turn to see Max the robot striding towards you surrounded by dour-looking men in suits.
 
+They walk by Arawn, their leader giving her a nod as they pass. But they move straight on to Andy.
+
+'Sir, you're going to have to come with us. Some information has come to light regarding your business practices that the regulators are going to be [italic type]very[roman type] interested in,' you overhear the leader say.
+
+Andy splutters.'Now this is just a mistake. You hear?' he says, turning to everyone, 'a simple misunderstanding. I'll be back before you know it.'
+
+'Hey,' says Max, waving at you.";
+		deliver arrest-quip;
+		deliver reunion-quip;
+	
 To assign clumping:
 	repeat with space running through p-rooms:
 		now the social clump of the space is vacancy;
@@ -29267,7 +29513,13 @@ To assign clumping:
 		if the space contains more than 2 people and the space contains fewer than 5 people, now the social clump of the space is cluster;
 		if the space contains more than 4 people, now the social clump of the space is group.
 
-The room description heading rule does nothing when the player is in party-region.
+The party room description heading rule substitutes for the room description heading rule when the player is in party-region.
+
+This is the party room description heading rule:
+	now quietpeople is true;
+	let temp be "[the location of the player]";
+	say "[bold type]At the Party, [temp in title case][roman type] ";
+	now quietpeople is false;
 
 A person has a number called longevity. The longevity of a person is usually 0. A person can be enacting or passive.
 
@@ -29281,11 +29533,11 @@ Every turn when the player is in party-region:
 			assign value of spaces for the mover;
 			let destination be the nicenicest p-room;
 			if the destination is not the location of the mover:
-				if the player can see the mover, say "[The mover] makes excuses and drifts off to join [the destination].[paragraph break]";
+				if mover is in the location of the player, say "[The mover] makes excuses and drifts off to [if the number of people in destination > 0]join [end if][the destination].[paragraph break]";
 				move the mover to the destination;
 				now the mover is complacent;
 				now the longevity of the mover is 0;
-				if the player can see the mover, say "[The mover] wanders over.[paragraph break]";
+				if the mover is in the location of the player, say "[The mover] wanders over.[paragraph break]";
 				assign clumping;
 				now mover is passive.
 
@@ -29297,164 +29549,740 @@ To assign value of spaces for (mover - a person):
 	repeat with space running through p-rooms:
 		now attractiveness of the space is 0;
 		repeat with figure running through people in the space:
-			if the mover is bored, decrease attractiveness of the space by 2;
+			if the mover is bored, decrease attractiveness of the space by 3;
 			if the mover likes the figure, increment attractiveness of the space;
 			if the mover dislikes the figure, decrement attractiveness of the space;
-			if the mover desires the figure, increase attractiveness of the space by 2.
+			if the mover desires the figure, increase attractiveness of the space by 2;
 
 Liking relates various people to various people. The verb to like means the liking relation.
 
 Disliking relates various people to various people. The verb to dislike means the disliking relation.
 
 Attraction relates various people to various people. The verb to desire means the attraction relation.
+ 
+Report examining someone in party-region:
+	say "[regarding the noun][They] [are] wearing a nametag reading [italic type][the noun][roman type]."
+
+Understand "nametag" or "name tag" or "name tags" or "nametags" as a person when the player is in party-region.
 
 Section 2 - Christine 
 
-party-christine is a woman in by the dessert table. THe printed name of party-christine is "Christine". Understand "Christine" as christine.
+party-christine is a woman in by the dessert table. THe printed name of party-christine is "Christine". Understand "Christine" or "middle-aged" or "middle aged" or "aged" or "woman" or "dark" or "worn" or "woolen" or "dress" as party-christine. The description of party-christine is "Christine is a middle-aged woman wearing a dark, worn woolen dress. She looks much less transparent than the last time you saw her."
+
+Rule for writing a paragraph about party-christine:
+	if the location contains a man (called flirt) who is desired by party-christine:
+		say "[party-Christine] is talking excitedly with [the flirt], to the exclusion of everyone else[if an unmentioned other person is in the location]. [The list of unmentioned other people in the location] stand about awkwardly[end if].";
+		repeat with character running through people in the location:
+			if the character is not party-christine and the character is not the flirt, now the character is bored.
+
+party-christine likes arawn webster, Morgan, and party-owen. Party-christine desires morgan. party-christine dislikes party-andy and the party-webmaster.
 
 Section 3 - Maeve
 
-party-Maeve is a woman in by the dessert table. The printed name of party-maeve is "Maeve". Understand "Maeve" as party-maeve.
+party-Maeve is a woman in by the dessert table. The printed name of party-maeve is "Maeve". Understand "Maeve" or "younger" or "woman" or "sqaure" or "chin" or "curiously" or "small" or "ears" or "blonde" or "hair" or "rhinestone" or "jumpsuit" or "dangly" or "sapphire" or "earrings" or "thick" or "sunglasses" as party-maeve. The description of party-Maeve is "Maeve is a younger woman with a square chin, curiously small ears, and blonde hair. She is dressed glamorously, with a rhinestone jumpsuit, dangly sapphire earrings, and thick sunglasses."
 
-Section 4 - Wax guy
+party-maeve likes the party-curator, morgan, party-webmaster, and party-max. Maeve dislikes party-andy and party-owen.
 
-Morgan is a man in by the dessert table.
+A person can be robotic or not robotic.
+
+Rule for writing a paragraph about party-maeve:
+	if the location contains an unmentioned robotic person (called the listener):
+		say "[party-maeve] is speaking with [the listener] about life as a robot.";
+		now the listener is complacent;
+		deliver Androids-quip;
+		
+Androids-quip is a quip. The printed name of androids-quip is "Androids". Understand "androids" as androids-quip. The target of androids-quip is party-maeve. The preview of androids-quip is "Are you interested in robots in general?"
+
+The targetresponse of androids-quip is "'Oh, yes,' says Maeve, turning to you. 'With all of the advances in AI, robots now deserve equal rights as sentient creatures. The laws haven't caught up to the reality, I'm afraid.'
+
+'Are you just interested, or do you do activism, or...?' you ask.
+
+'Both. I think we're almost there; we already have people like the Webmaster and Curators that have positions of authority. We just need to offer protections for robots like Max who aren't as advanced but still deserve autonomy.' She speaks confidently, and the robots in the room are all clearly listening to her."
+
+Section 4 - Morgan
+
+Morgan is a man in by the dessert table. Understand "man" or "salt" or "salt and" or "pepper" or "hair" or "trimmed" or "beard" or "mildly" or "overweight" or "tailored" or "old" or "patched" or "suit" as Morgan. The description of Morgan is "Morgan is a man with salt and pepper hair and a trimmed beard. He's mildly overweight, and wearing a tailored (but old and patched) suit.".
+
+Morgan desires arawn webster. Morgan likes arawn webster, party-max, party-maeve, and party-owen. Morgan dislikes party-andy.
+
+Rule for writing a paragraph about Morgan:
+	if the location contains an unmentioned woman (called flirt) who is desired by Morgan:
+		say "[Morgan] stays close to [the flirt], whispering and sharing inside jokes in a way that makes you feel like an outsider.";
+		deliver amusing-quip;
+		repeat with character running through people in the location:
+			if the character is not Morgan and the character is not the flirt, now the character is bored;
+
+Amusing-quip is a quip. The target of amusing-quip is Morgan. The printed name of amusing-quip is "Amusing". Understand "amusing" as amusing-quip. The preview of Amusing-quip is "You and Arawn seem to be having a good time together."
+
+The targetresponse of amusing-quip is "He smiles, and says quietly, 'Is that so? I'm glad. This is her life's work, bringing you here. I'm happy to help her all I can.'
+
+'Are the two of you together?' you ask.
+
+'No,' he says, looking over at her. 'Arawn would never allow herself a family, not when she feels such a heavy weight of responsibility. I'm just a friend, but I do care deeply about her. I hope you make the right decisions.'
+
+'What kind of decision?' you ask. But he's already moved on to talk to the others.";
 
 Section 5 - Webmaster
 
-Party-webmaster is a man in by the dessert table. The printed name of party-webmaster is "Webmaster". Understand "webmaster" as the party-webmaster.
+The Party-webmaster is a robotic man in by the dessert table. The printed name of party-webmaster is "Webmaster". Understand "webmaster" or "spider" or "anthropomorphic" or "head" or "numerous" or "eyes" or "quivering" or "chelicerae" or "legs" as the party-webmaster. The description of party-webmaster is "This is a robot shaped like an anthropomorphic spider. His head is as large as yours, with its numerous eyes and quivering chelicerae. The legs are longer than you are tall."
+
+Party-Webmaster desires party-curator. Party-webmaster likes max, arawn, and party-maeve. Party-webmaster likes party-andy.
 
 Section 6 - Andy and Max
 
-Party-andy is a man in by the dessert table. The printed name of party-andy is "Andy". Understand "andy" as party-andy.
+Party-andy is a man in by the dessert table. The printed name of party-andy is "Andy". Understand "andy" or "short" or "man" or "waist" or "feet" or "smug" as party-andy. The description of party-andy is "[The Andy] is a short man wearing a suit that bulges tight around his waist and bunches up near his feet. He looks very smug right now."
 
-Party-max is a man in by the dessert table. The printed name of party-max is "Max". Understand "max" as party-max.
+Party-andy desires party-maeve, party-christine, and arawn. Party-andy likes party-maeve, morgan, party-christine, arawn, and party-owen. Party-andy dislikes party-webmaster and party-curator.
+
+Rule for writing a paragraph about party-andy:
+	say "[Party-andy] is bragging about his business exploits[if an unmentioned other person is in the location]. This does not seem to compel the interest of [the list of unmentioned other people in the location][end if].";
+	repeat with character running through people in the location:
+		if the character is not party-andy and the character is not party-webmaster, now the character is bored.
+
+Party-max is a robotic man. The printed name of party-max is "Max". Understand "max" or "boxy" or "armored" or "crimson" or "navy" or "markings" or "stoic" or "expression" or "face" as party-max. The description of party-max is "Max is a boxy, armored robot with crimson and navy markings spelling MAX on his chest. He wears a stoic expression that seems to be built into his face."
+
+Party-max likes party-webmaster, party-curator, party-maeve and arawn. party-max dislikes morgan.
+
+Rule for writing a paragraph about party-max:
+	if the location contains party-owen and party-owen is unmentioned:
+		say "[party-max] and [party-owen] are conversing in low tones -- Max is apparently trying to understand the complexities of pizza flavors."
+
+Reunion-quip is a quip. The printed name of reunion-quip is "Reunion". Understand "reunion" as reunion-quip. The target of reunion-quip is party-Max. The preview of reunion-quip is "Hey, Max! Long time no see! How's Dan?".
+
+The targetresponse of reunion-quip is "Max waves. 'Hey, Emrys, it's good to see you again! Didn't expect to end up here. As for Dan, well, half of his life has happened since we saw you, so he's going through a lot of changes, as one does at that time of life.'
+
+'Puberty?' you ask with a smile.
+
+'Mid-life crisis,' says Max. 'He's trying to replace his legs with motorcycle wheels.'".
 
 Section 7 - Arawn at party
 
+arawn likes morgan and party-webmaster. Arawn dislikes party-andy and party-maeve.
+
+Intent-quip is a quip. The target of intent-quip is arawn webster. Understand "Intent" as the intent-quip. The printed name of intent-quip is "Intent". The preview of intent-quip is "Why are we having a party right now?".
+
+The targetresponse of intent-quip is "'For several reasons. One is to celebrate the true Day of Weft's End; we've been waiting for it for centuries, after all.
+
+'Another is provide a record of you in this time. Everything is being uploaded to holographic cameras. I'm sure that all of our citizens would love to see, but you would be swamped.
+
+'But I suppose that most of all, I didn't want to be alone right now. And if I invited anyone, I wanted it to be people that you knew. As well as Morgan,' she says.
+
+'Do we have time for this?' you ask.
+
+'We have just enough time for this,' she says. She doesn't elaborate, and seems lost in thought."
+
+Arrest-quip is a quip. The printed name of arrest-quip is "Arrest". The target of arrest-quip is Arawn. Understand "arrest" as arrest-quip. The preview of arrest-quip is "So, were you the one that got Andy arrested?"
+
+The targetresponse of arrest-quip is "'Well, yes and no,' says Arawn. 'Andy has been a major thorn in my side for years due to his unethical business practices. We've had numerous complaints about him.'
+
+'Why didn't you act before?' you ask.
+
+'It was shown in the Record that you would meet him as a free man, a business man. And we couldn't risk changing that. So I've had orders protecting him from prosecution. Those orders expired the minute we turned off your recorder.'
+
+'Is it that important to protect the Record?' you ask.
+
+Arawn stares at you through her mask. 'Changing the record would mean the complete destruction of our society. It would wipe us all from existence. You have no idea what I would be willing to do to stop it from changing.'".
+
 Section 8 - Owen the pizza guy
 
-Party-Owen is a man in by the dessert table. The printed name of party-owen is "Owen". Understand "owen" as party-owen.
+Party-Owen is a man in by the dessert table. The printed name of party-owen is "Owen". Understand "owen" or "small" or "young" or "man" as party-owen. The description of party-owen is "Owen is a small young man that looks like he's barely even old enough to be out and about without a parent's permission. He looks mildly uncomfortable."
+
+party-owen likes party-maeve and party-max. party-owen dislikes party-andy.
 
 Section 9 - Curator
 
-The party-curator is a woman in by the dessert table. The printed name of the party-curator is "Curator". Understand "Curator" or "Drone" as the party-curator.
+The party-curator is a robotic woman in by the dessert table. The printed name of the party-curator is "Curator". Understand "Curator" or "Drone" or "humanoid" or "zookeeper" or "body" or "curator's" as the party-curator. The description of the party-curator is "The curator's body is a zookeeper drone, a roughly humanoid drone floating in the air".
+
+Party-curator likes party-max, party-maeve, and morgan. Party-curator dislikes arawn.
 
 Section 10 - Social Dynamics
 
-[Harriet Smith likes Mr Elton. Harriet Smith desires Mr Elton. Harriet Smith likes Emma Woodhouse.
-
-Mr Elton desires Emma Woodhouse.
-
-Emma Woodhouse likes Harriet Smith and Mr Knightley. Emma Woodhouse dislikes Jane Fairfax.
-
-Mr Knightley likes Emma Woodhouse, Mr Weston, and Mrs Weston. Mr Knightley desires Emma Woodhouse.
-
-Jane Fairfax desires Frank Churchill. Jane Fairfax likes Frank Churchill.
-
-Frank Churchill desires Jane Fairfax and Emma Woodhouse. Frank Churchill likes Jane Fairfax.
-
-Miss Bates likes Jane Fairfax, Emma Woodhouse, and Mrs Bates.
-
-Mr Weston likes Frank Churchill, Emma, Knightley, and Mrs Weston.
-
-Mrs Weston likes Frank Churchill, Emma, Knightley, and Mr Weston.
-
-Mrs Bates likes Miss Bates.]
-
 A person can be complacent or bored.
-
-[And now we use writing a paragraph about... to describe character behavior in groups, when we join them:]
-
-[Rule for writing a paragraph about Frank Churchill:
-	if the location contains a woman (called flirt) who is desired by Frank:
-		say "[Frank Churchill] is talking with great animation and slightly more than becoming warmth to [the flirt][if an unmentioned other person is in the location], while [the list of unmentioned other people in the location] look on with varying degrees of amusement or irritation[end if].";
-		repeat with character running through people in the location:
-			if the character is not Churchill and the character is not the flirt, now the character is bored.
-
-Rule for writing a paragraph about Mr Elton:
-	if the location contains an unmentioned woman (called flirt) who is desired by Elton:
-		say "[Mr Elton] hangs on the sleeve of [the flirt], offering an assortment of studied gallantries that make you wonder about his good sense.";
-		repeat with character running through people in the location:
-			if the character is not Elton and the character is not the flirt, now the character is bored.
-
-Rule for writing a paragraph about Harriet Smith:
-	if the location contains Emma and Emma is unmentioned:
-		say "[Harriet] and [Emma] are conversing in low tones -- Harriet, apparently, being too shy to speak so that everyone can hear her."
-
-Rule for writing a paragraph about Mr Knightley:
-	if the location contains an unmentioned man (called the listener) who is not Mr Knightley:
-		say "[Mr Knightley] is speaking with [the listener] about agricultural matters.";
-		now the listener is complacent.
-
-Rule for writing a paragraph about Miss Bates:
-	say "[Miss Bates] is giggling about the weather[if an unmentioned other person is in the location]. This does not seem to compel the interest of [the list of unmentioned other people in the location][end if].";
-	repeat with character running through people in the location:
-		if the character is not Miss Bates and character is not Mrs Bates, now the character is bored.]
 
 Party-scene ends when the time since party-scene began is 20 minutes.
 
 When party-scene ends:
-	now the player is in emrys-memorial;
+	say "Everything flickers into darkness for a moment, and the whole spire shudders. Everyone goes silent.
+
+There is a chime. Arawn webster stops what she's doing and walks towards you.
+
+She says, 'Emrys, it's time for us to go. Meet me outside. I'll lay all my cards on the table.'
+
+She strolls towards the entrance and pushes the double doors open, then steps outside.
+
+You follow her towards the doors to the [boldsouth], but stop just inside the doors. Whatever's waiting for you outside, there's no turning back.";
+	move the player to near the entrance, without printing a room description;
+	repeat with current running through other people in party-region:
+		now current is nowhere;
+	repeat with current running through quips:
+		if target of current is arawn:
+			now current is MeihTarget;
+			now current is nowhere;
 	now Arawn Webster is in emrys-memorial;
+	now the spire-doors are open;
+	now the spire-doors are unlocked;
 	
+When party-scene begins:
+	deliver invitation-quip;
+	
+Invitation-quip is a quip. The printed name of invitation-quip is "Invitation". Understand "invitation" as invitation-quip. The party-curator heeds invitation-quip. Party-owen heeds invitation-quip. party-andy heeds invitation-quip. Party-max heeds invitation-quip. party-webmaster heeds invitation-quip.  Morgan heeds invitation-quip. Party-maeve and party-christine heed invitation-quip.
+
+The preview of invitation-quip is "How did you end up here? Do you know what's going on?"
+
+Instead of uttering invitation-quip to Arawn:
+	say "That question might be a bit silly to ask Arawn."
+	
+The targetresponse of invitation-quip is "[invite-text]."
+
+To say invite-text:
+	if currenttarget is party-curator:
+		say "'When you walked in my zoo, I knew who you were right away. And I knew I wasn't supposed to talk to you too much, if you get my drift. Had to play dumb,' she says.
+
+'For time travel reasons? Or were they threatening you?' you ask.
+
+'Oh time travel, of course,' says the bot, fluttering about nervously. 'Yeah, some humans don't seem to like robots much, but thankfully I've never been threatened. No, some stuff has to--I mean, had to be kept from you until the right time.'
+
+'Right,' you say";
+	otherwise if currenttarget is party-owen:
+		say "'Man, I don't really know,' says Owen, looking kind of nervous. 'I got a delivery order for Central and once I got here they gave me this nametag. And one of the robots told me you're like super famous, but I'm really sorry, I haven't actually heard of you. Do you have an album out or something?'
+
+'I...not really. I do more spoken stuff. I'm a Storyweaver,' you say. 'So, I tell stories.'
+
+'Like that hero lady they buried outside of here,' he says. 'I always hear about her on Weft's End day.'
+
+'Yeah, kind of like her,' you say, nodding, your face neutral";
+	otherwise if currenttarget is party-andy:
+		say "'Well, I am a rising star in the Central scene,' says Andy, chortling. 'With my new videos starring you, my market share might even double!'
+
+'So you don't actually know why they invited you,' you say.
+
+He glares at you. 'I admit that this group is missing most of the movers and shakers around here, although I do espy our beloved Pilot and her left-hand man Morgan here. But whatever I'm here for, it'll give me a better opportunity to network my growing collection of videos.'
+
+'Hmm,' you say";
+	otherwise if currenttarget is party-max:
+		say "'They said they wanted to round up most of the people that met with you today,' says Max. 'It made sense to me, but they pulled me aside before I got here and asked me to talk to them about Andy first.'
+
+'What'd you tell them about Andy?' you ask.
+
+'You know, just normal stuff. Like how he kept me in the dark kitchen for hours. Once he forget me for three months!'
+
+'Wow. That really sucks,' you say.
+
+'Eh. It's all I've really known,' says Max. 'But it sounds like the same guys wanted to talk to Andy. I wonder what he'll say.'
+
+'Yeah, I wonder,' you say";
+	otherwise if currenttarget is party-webmaster:
+		say "'Oh, I just pulled some strings,' he says.
+
+'You wanted to be here? What's this meeting even about?' you ask.
+
+'Have you considered it's not actually about you?' asks the Webmaster. 'From your perspective, this meeting may seem pointless. But maybe it's really meant for someone else.'
+
+'Do you actually know anything or are you just spitballing?' you ask.
+
+'What an excellent questions,' says the Webmaster, his face turning in a spiky approximation of a grin. You roll your eyes";
+	otherwise if currenttarget is morgan:
+		say "'I work with Arawn,' he says, looking at you closely. He stares uncomfortably long.
+
+'In government?' you ask, breaking the silence.
+
+He blinks, breaking his gaze. 'Yes. Sorry, Arawn has talked about you so much. I have to wonder if you're what she expected.' He sees your look and hastens to say, 'Not in a bad way. She's had to make some...dificult decisions to get you here.'
+
+'I can imagine,' you say. 
+
+He cocks his head. 'Maybe,' he says";
+	otherwise if currenttarget is party-maeve:
+		say "'I heard about it just after we finished the murder mystery,' she said. 'I couldn't believe you were [italic type]the[roman type] Emrys Tisserand! In the flesh! I had to come!'
+
+'So you've heard of me?' you ask.
+
+'Heard of you? Of course, dear! You're the national hero! Although I have to admit, I didn't think that the time travel part was real...'
+
+'What about the others that were with you?' you ask.
+
+She shrugs. 'They may have been invited. I'm not sure. I'm just SO excited to meet you. And our Pilot! And all of these lovely robots. Big fan of robots, I am,' she says.
+
+'Well, I'm glad you're here' you say";
+	otherwise if currenttarget is party-Christine:
+		say "'When I found out you were in my holoprogram, I freaked out. I thought you were a ghost! The real Emrys Tisserand, on the Day of Weft's End!'
+
+'Weren't you dressed as a ghost yourself?' you ask.
+
+'Well, yes. I had been waiting months to run that program. I'm really into horror, but I can't handle jumpscares. So this was perfect,' she says. Then she flushes and says, 'Sorry, I'm rambling. I shouldn't be babbling in front of the original Storyweaver!'
+
+'I'm not the original,' you say. 'There were a lot of Storyweavers before me; some were pretty good!'
+
+'Huh,' says Christine. 'Did any of them time travel like you?'
+
+'Not that I know,' you say";
+	otherwise:
+		say "They look a little embarassed. After all, they shouldn't be here."
+
+Understand "pilot" as arawn webster.
+
+Understand "left-hand" or "left hand" as morgan.
+
 Chapter 6 - Grave
 
-Emrys-memorial is a room in wildcard-region. The printed name of emrys-memorial is "Memorial". "FIX THIS LATER You are standing over your grave. It says:
+Report looking in garden-path for the first time:
+	say "The doors close behind you.
 
-This monument is erected for Emrys Tisserand. She served as Storyweaver of the Starship Tragwyddol, discovered time travel, left a record of the future and introduced countless technologies.
+To your surprise, it is now dark outside, with only moonlight to light your way. There is no sign of Arawn Webster";
+	now the spire-doors are closed;
+	now the spire-doors are locked;
 
-In the end, she made the ultimate sacrifice and gaver her life to prevent the engines from exploding. We all owe our lives to her, and await her return.
+Section 1 - Garden Path
 
-Oh crap. You freak out![deliversac]"
+Garden-path is a room in wildcard-region. The printed name of garden-path is "Garden Path". "You are in the park between the two spires. Flowers lay all around you, but most are closed in the darkness. 
+
+The most prominent object in the park is a large obelisk, some distance away. A path winds through the flowers,  leading to the to the [boldsouthwest], and towards the obelisk."
+
+The two-spires are a plural-named distant backdrop. The two-spires are in garden-path and emrys-memorial. The printed name of the two-spires is "two spires". Understand "two" or "spire" or "spires" or "2" or "horns" or "great" or "bull" as the two-spires. The description of the two-spires is "The two spires curve up into night like the horns of a great bull. They only reflect the dark."
+
+The spire-moon is a distant backdrop. The spire-moon is in two-spires and emrys-memorial. Understand "moonlight" or "crescent" or "waning" or "moon" as the spire-moon. The description of the spire-moon is "The crescent moon above you is waning."
+
+The garden-obelisk is distant scenery in garden-path. The printed name of the garden-obelisk is "obelisk". Understand "obelisk" or "dark" or "stone" or "memorial" as the garden-obelisk. The description of the garden-obelisk is "The obelisk is made of some stone that looks dark in this light. You can only see the back of it from here."
+
+The scene-path is scenery in garden-path. The printed name of the scene-path is "garden path". Understand "garden" or "path" as the scene-path. The description of the scene-path is "The garden path is the only walkable area here, due to the numerous flowers."
+
+Instead of entering the scene-path:
+	try going southwest;
+	
+Instead of putting something on the scene-path:
+	try dropping the noun;
+
+Understand "follow [something]" as entering when the player is in garden-path.
+
+The garden-flowers are scenery in garden-path. The printed name of the garden-flowers is "flowers". Understand "flower" or "flowers" or "garden" or "park" or "closed" or "variety" as the garden-flowers. The description of the garden-flowers is "A variety of flowers fill the garden in this part of the park. Almost all of them are closed in the darkness, making it hard to identify them. But they still manage to look beautiful.".
+
+Instead of smelling the garden-flowers:
+	say "The flowers smell sweet to you."
+
+Instead of taking the garden-flowers:
+	say "You don't feel like picking these flowers; tonight, you'd like them to live.";
+
+Section 2 - The memorial and scenery
+
+Emrys-memorial is a room in wildcard-region. It is southwest from garden-path. The printed name of emrys-memorial is "Memorial". "You are in the center of the memorial. [if spot-light is switched on]A spotlight shines on the obelisk in front of you, highlighting the words that are written on it[otherwise]You can see a spotlight here, but it is turned off. There is no light but the moon, and the obelisk before you is dark[end if].
+
+You are standing on a path. The ground around you is freshly dug, with newly planted flowers filling the beds[delivergrave]."
+
+The memorial-path is scenery in emrys-memorial. The printed name of the memorial-path is "garden path". Understand "garden" or "path" as the memorial-path. The description of the memorial-path is "The garden path is the only walkable area here, due to the numerous flowers."
+
+Instead of entering the memorial-path:
+	try going northwest;
+	
+Instead of putting something on the memorial-path:
+	try dropping the noun;
+
+Understand "follow [something]" as entering when the player is in emrys-memorial.
+
+The spot-light is a scenery device in emrys-memorial. The spot-light is switched off. The printed name of the spot-light is "spotlight". Understand "spotlight" or "spot light" or "recessed" as the spot-light. The description of the spot-light is "This recessed spotlight is trained on the obelisk."
+	
+Instead of switching on or switching off the spot-light:
+	say "There's no visible way to operate the spotlight.";
+
+Before going northeast from emrys-memorial:
+	say "Emrys says, 'Please, stay.'";
+
+The memorial-obelisk is scenery in emrys-memorial. The printed name of the memorial-obelisk is "[if the spot-light is switched on]illuminated [otherwise]dark [end if]obelisk". Understand "dark" as the memorial-obelisk when the spot-light is switched off. Understand "illuminated" or "word" or "words" or "engraving" as the memorial-obelisk when the spot-light is switched on. Understand "obelisk" or "memorial" or "stone" as the memorial-obelisk.
+
+The description of the memorial-obelisk is "This obelisk stands at the center of the whole city and, by extension, the whole ship[if the spot-light is switched off].
+
+It is currently too dark to read what is on the obelisk. But you remember having been here before[otherwise].
+
+It is is illuminated now. You can read the words engraved on it:
+
+[italic type]In Memory of Emrys Tisserand, Storweaver of the Starship Tragwyddol.
+
+She travelled through time, left a record of infinite potential, and saved her ship.
+
+She gave her life to stop the engines of her ship from exploding, saving countless lives. We all owe our existence to her sacrifice.
+
+'There is no greater love than this, than to give your life for your friends.'[roman type][firsttime][end if]."
+
+To say firsttime:
+	say ".
+
+The words hit you like cold water. You turn to Emrys, who is silent[deliversac]"
+
+The memorial-flowers are scenery in memorial-path. The printed name of the memorial-flowers is "flowers". Understand "flower" or "flowers" or "garden" or "park" or "closed" or "variety" or "fresh" or "freshly" or "dug" or "ground" as the memorial-flowers. The description of the memorial-flowers is "The flowers here are newly planted. The ground still looks freshly dug[deliverplanting].".
+
+Instead of smelling the memorial-flowers:
+	say "The flowers smell sweet to you."
+
+Instead of taking the memorial-flowers:
+	say "You don't feel like picking these flowers; tonight, you'd like them to live.";
+
+Section 3 - Topics
+
+To say delivergrave:
+	deliver grave-quip;
+	
+Grave-quip is a quip. Understand "grave" as grave-quip. The printed name of grave-quip is "Grave". The target of grave-quip is arawn. The preview of grave-quip is "This is my grave, isn't it?".
+
+The targetresponse of grave-quip is "Arawn says, 'Yes. Would you like to see it?' she asks. Her voice is tight with tension.
+
+'I think so,' you say. But you aren't quite sure.
+
+Arawn kneels down and turns on the spotlight, illuminating the obelisk. You can make out the words, now[lightson]."
+
+To say lightson:
+	now the spot-light is switched on;
+
+To say deliverplanting:
+	deliver planting-quip;
+
+planting-quip is a quip. 
 
 To say deliversac:
 	deliver sacrifice-quip;
 	
-Sacrifice-quip is a quip. The printed name of sacrifice-quip is "Sacrifice". Understand "sacrifice" as sacrifice-quip. The target of sacrifice-quip is Arawn. The preview of sacrifice-quip is "FIX THIS LATER So I have to die for this future not to exist?".
+Sacrifice-quip is a quip. The printed name of sacrifice-quip is "Sacrifice". Understand "sacrifice" as sacrifice-quip. The target of sacrifice-quip is Arawn. The preview of sacrifice-quip is "So when I go back...I have to die?".
 
-The targetresponse of sacrifice-quip is "FIX THIS LATER 'Yes. Well, no,' says Arawn.
+The targetresponse of sacrifice-quip is "'That's how the story of Emrys Tisserand ends. Travelling through time. Rescuing her friends. Valiantly sacrificing her life in the main engine room. Keeping the reactors from exploding. And being burnt to death in the process. There wasn't much of you to bury when they moved you to this obelisk,' says Arawn[deliverresponse]."
 
-'It seems like this is a point you could be more confident on,' you say.
+To say deliverresponse:
+	deliver sad-quip;
+	deliver angry-quip;
+	deliver resigned-quip;
 
-'From our experiments, changes to the timeline don't matter if no one knows they changed. All that history knows is that a figure in a radiation suit entered the engine area and died. The body was burnt to a crisp and was identified via dental records and the recorder you wear, which was badly damaged,' she says.
+Angry-quip is a quip. The printed name of angry-quip is "Angry". Understand "angry" as angry-quip. The target of angry-quip is arawn. The preview of angry-quip is "How dare you talk about me like that?"
 
-'So?' you ask. 'What does that mean?'
+The targetresponse of angry-quip is "'I am sorry,' says Arawn. 'I've thought about it for so long, I didn't realize how my phrasing would affect you.'
 
-'My whole life I was worried that I might mess up, that you might not want to make that sacrifice if I said the wrong thing. So I decided to become that sacrifice. I've had my teeth modified to match yours. I could be you.'
+'Phrasing? You're talking about me dying in a fiery inferno. I think [']sorry for phrasing['] doesn't cut it,' you say bitingly[clearemotions]."
 
-'That's crazy!'
+Sad-quip is a quip. The printed name of sad-quip is "Sad". Understand "sad" as sad-quip. The target of sad-quip is arawn. The preview of sad-quip is "That's horrible! That can't be the ending!"
 
-'Yes. But I'll leave the choice with you. You can give me the recorder, and I will save us all. Or you can wear the recorder and save us all. Or you can break it. All of the energy we harvested from the other rifts was designed to stabliize the past. But without the recorder, this timeline cannot survive, and it will all collapse back to the beginning, before the rifts.[make-rift].'
+The targetresponse of sad-quip is "'I'm afraid so,' says Arawn. 'If it helps you, you should know that much of my research has been spent trying to find a way to keep anyone from dying.'
 
-[bracket]You may want to save your game. Whether you destroy the recorder or not gives two very different endings, but it doesn't matter much whether you or Arawn goes back; after all, the point is that you are indistinguishable.[close bracket][line break]"
+'And...?' you ask hopefully.
 
-[maybe mention all the other areas were about fakeness and replacements?]
+'The story of Emrys Tisserand must end with her death,' she says[clearemotions]."
+
+Resigned-quip is a quip. The printed name of resigned-quip is "Resigned". Understand "resigned" as resigned-quip. The target of resigned-quip is arawn. The preview of resigned-quip is "I guess it makes sense, in the end."
+
+The targetresponse of resigned-quip is "Arawn nods and says, 'That is the same conclusion I came to. It's good to know that we think the same.'
+
+'I mean, what else can I say?' you ask.
+
+She is silent for a moment[clearemotions]."
+
+To say clearemotions:
+	remove angry-quip;
+	remove sad-quip;
+	remove resigned-quip;
+	deliver whatnext-quip;
+	deliver refuse-quip;
+	
+whatnext-quip is a quip. The printed name of whatnext-quip is "Consequence". Understand "consequence" as whatnext-quip. The target of whatnext-quip is arawn. The preview of whatnext-quip is "So what's next, then? You just send me back?"
+
+The targetresponse of whatnext-quip is "'It is vital that Emrys Tisserand returns to her starship to die,' says Arawn. 'And not just that, but to die correctly. It is by far the most impactful moment in the timeline.'
+
+She points to the ground. 'Right now, below us, the tool that you retrieved is channeling the full power of the nine green rifts that you harvested into the Yang Engine. When it is complete, we will open the final rift. With that much energy, plus the stabilizer you retrieved, we can ensure that you are far more likely to succeed. Like a hand of fate guiding you[otherway][if refuse-quip is targetgiven].'
+
+She is quiet for a moment, then says, 'But there is another way[end if].'"
+
+refuse-quip is a quip. The printed name of refuse-quip is "Refuse". Understand "refuse" as refuse-quip. The target of refuse-quip is arawn. The preview of refuse-quip is "And if I refuse?"
+
+The targetresponse of refuse-quip is "'Without you to save the ship; without the discovery of your recorder, and the story it told; without the sacrifice of your life; none of what you see today would be possible,' she says. 'You refuse, and my world, everyone's entire existence, ends[if refuse-quip is targetgiven].'
+
+She is quiet for a moment, then says, 'But there is another way[otherway][end if].'"
+
+To say otherway:
+	deliver timing-quip;
+	deliver skeptical-quip;
+	deliver relieved-quip;
+	
+Timing-quip is a quip. The printed name of Timing-quip is "Timing". Understand "Timing" as Timing-quip. The target of Timing-quip is arawn. The preview of Timing-quip is "I would have led with that!"
+
+The targetresponse of Timing-quip is "'It isn't easy for me to talk about it,' she says. 'The only way I can see out of this, is for me to take your place[clearreactions].'"
+
+Skeptical-quip is a quip. The printed name of Skeptical-quip is "Skeptical". Understand "Skeptical" as Skeptical-quip. The target of Skeptical-quip is arawn. The preview of Skeptical-quip is "I don't see how; you said that I had to die."
+
+The targetresponse of Skeptical-quip is "'Well, Emrys Tisserand has to die. Or someone everyone thinks is Emrys Tisserand.'
+
+'You mean--' you say.
+
+'I could take your place[clearreactions].'"
+
+Relieved-quip is a quip. The printed name of Relieved-quip is "Relieved". Understand "Relieved" as Relieved-quip. The target of Relieved-quip is arawn. The preview of Relieved-quip is "Oh thank heavens, I was panicking!"
+
+The targetresponse of Relieved-quip is "Arawn's jaw tightens. 'But it won't be easy. The only way I can think of saving you is if I take your place.[clearreactions].'"
+
+To say clearreactions:
+	remove timing-quip;
+	remove skeptical-quip;
+	remove relieved-quip;
+	deliver substitute-quip;
+
+Substitute-quip is a quip. The printed name of substitute-quip is "Proxy". Understand "Proxy" as Substitute-quip. The target of Substitute-quip is arawn. The preview of Substitute-quip is "What do you mean, take my place?"
+
+The targetresponse of substitute-quip is "'Listen, Emrys, all that history knows is that a figure in a radiation suit entered the engine area and died. The body was burnt to a crisp. They were identified via dental records and the recorder you were wearing, which was badly damaged,' she says. 'I believe that, with all the energy you've harvested and the precautions we've taken, we can make the switch[delhowwhy].'"
+
+To say delhowwhy:
+	deliver how-quip;
+	deliver why-quip;
+	
+how-quip is a quip. The printed name of how-quip is "How". Understand "How" as how-quip. The target of how-quip is arawn. The preview of how-quip is "How?"
+
+The targetresponse of how-quip is "'Time loops are based on information,' says Arawn. 'The more a time traveller causes deviation from the future, the less stable the loop is, until it collapses. But it's not the actual state of the universe that matters, just the information that is imparted.'
+
+You shake you head. 'I have no idea what you're talking about.'
+
+Arawn reaches up and unbuckles her mask, pulling it away from her face.
+
+Underneath, she is just a woman, a little younger than you. Her eyes are dark, as is her hair, which is matted from the mask. 
+
+'Look at me, Emrys. Do you know me?' she says. 'Look close.'
+
+You look over her face, with its ridged nose and faintly scarred cheekbones. 'No.'
+
+'Then neither will they. I've thought about this. Remember when you did the time travel calibration with the apples dipped in caramel? It didn't matter which apple you put in caramel, because that information wasn't preserved. If I look like you, I can [italic type]be[roman type] you. I even had my teeth replaced to match your records. It is my utmost belief that, if I take your place, no one will ever know the difference. And you could take mine. I've worn a mask my whole career, and my term ends in just a few days. I have a retirement planned[changeface].".
+
+To say changeface:
+	now arawn is unmasked;
+	now the skull-mask is worn by arawn;
+	if why-quip is targetgiven:
+		deliver choice-quip;
+
+Understand "ridged" or "nose" or "faintly" or "faint" or "scar" or "scarred" or "scars" or "cheek bones" or "cheekbones" or "cheek bone" or "cheekbone" or "hair" or "matted" as arawn when arawn is unmasked.
+
+why-quip is a quip. The printed name of why-quip is "Why". Understand "why" as why-quip. The target of why-quip is arawn. The preview of why-quip is "Why?"
+
+The targetresponse of why-quip is "Arawn says, 'When I was a child and first learned about the Record, it terrified me. It still does. Imagine that if you do something wrong, even on accident, then the entire history of your family and people could be destroyed. To me, destiny is an army with spears marching after you. Those who turn to fight will perish without mercy.'
+
+'But wouldn't this change destiny?' you ask.
+
+'Maybe not. Because I began to realize something about you over time. About your story. Who you are...you're not who I thought you are. You're not how I thought you were.'
+
+'Who did you think I was?' you ask[delStory].
+
+'Well, we are Storyweavers,' she says. 'Let me weave you a story. Your story, as I perceived it growing up.'".
+
+To say delstory:
+	deliver story-quip;
+	
+Story-quip is a quip. The printed name of story-quip is "Story". Understand "Story" as story-quip. The target of story-quip is arawn. The preview of story-quip is "Tell me your story, Weaver."
+
+The targetresponse of story-quip is "*************************************************************************************************[line break]As you listen to her story, you can imagine what it would be like...*************************************************************************************************
+
+Claxons sound on the bridge of the Starship Tragwyddol. The navigator shouts out in fear:
+
+'Captain! Asteroid approaching off the starboard bow!'
+
+The Captain, a tall man with a peg leg and a pea coat, pales. 'We're doomed,' he moans.
+
+'Not on my watch,' says a voice. 
+
+Everyone turns. The Captain gasps: 'Storyweaver! You've arrived!'
+
+There you stand, Emrys Tisserand, a bionic woman with a camera embedded in your eye.
+
+As you stand on the bridge, the asteroid strikes the side of the ship, knocking everyone off their feet. 
+
+Except for you.
+
+You raise one hand and freeze time itself. You raise the other, and rip open a portal into space and time to save the ship.
+
+Who do you help first?
+
+1)The Captain, so he can lead the ship.[line break]2)My friends, to make sure they survive.[line break]3)The frozen settlers, to ensure their future[choiceprompt]."
+
+To say choiceprompt:
+	now the command prompt is "Choose 1, 2, or 3>";
+
+Choiceprogress is initially 0.
+
+After reading a command when the command prompt is "Choose 1, 2, or 3>":
+	if the player's command matches "UNDO":
+		do nothing;
+	otherwise if the player's command matches "SAVE":
+		do nothing;
+	otherwise if the player's command matches "RESTORE":
+		do nothing;
+	otherwise if the player's command matches "1":
+		if choiceprogress is 0:
+			say "You grab the Captain and take him on a magical journey through space of time, helping him meet great leaders of the past.
+
+You and the Captain help negotiate with King Arthur and come to mourn the death of Queen Cleopatra. You solve the riddle of Khufu's Sphinx and dance with Elvis.
+
+By the time you bring him back to the present, the Captain has regained his resolve. 'Thanks, Storyweaver! I couldn't have done it without you,' he says.
+
+[secondchunk]";
+			reject the player's command;
+		otherwise if choiceprogress is 1:
+			say "The ship needs to fly, but the computers have been damaged! You open up another portal to the only place in the multiverse that has another copy of the flight program: a speeding train in the middle of the wilderness.
+
+But once you arrive, you're embroiled in the aftermath of a murder. As one of the greatest detectives of all time, it's up to you to solve the case! Through your careful investigation and hard-hitting questioning, you manage to corner the murderer and pry the flight program out of his hands!
+
+Back on the ship, you install the program and pilot the Starship Tragwyddol to safety!
+
+[thirdchunk]";
+			reject the player's command;
+		otherwise if choiceprogress is 2:
+			say "You rush to the brig, where you are immediately pinned down by enemy fire. The prisoner is armed!
+
+Unable to fight back, you are determined to train your skills in combat. You use the portals to enter a war-ravaged world where gangs of robots fight in endless battle.
+
+Leading an army of robots, you plunge into battle against the foe. After an agonizing series of battles, you emerge from the portal, armed and ready!
+
+The prisoner is easy to recapture, and the crew is safe once more!
+
+[fourthchunk]";
+			reject the player's command;
+	otherwise if the player's command matches "2":
+		if choiceprogress is 0:
+			say "It seems your friend Gareth has had his motivation stolen by a demonic monkey being. You jump in a portal to chase after it!
+
+Your chase takes to a land of monsters. You duel with Dracula in a room filled with swirling bats, beat a yeti at an archery contest, and go toe to toe with a werewolf!
+
+Determined to restore Gareth's will, you buy passage over the river of death itself, where you encounter your mirror-self. Together, the two of you use the power of of a magical song to defeat the great evil and return Gareth's will to him!
+
+[secondchunk]";
+			reject the player's command;
+		otherwise if choiceprogress is 1:
+			say "The ship needs to fly, but the computers have been damaged! You open up another portal to the only place in the multiverse that has another copy of the flight program: a speeding train in the middle of the wilderness.
+
+But once you arrive, you're embroiled in the aftermath of a murder. As one of the greatest detectives of all time, it's up to you to solve the case! Through your careful investigation and hard-hitting questioning, you manage to corner the murderer and pry the flight program out of his hands!
+
+Back on the ship, you install the program and pilot the Starship Tragwyddol to safety!
+
+[thirdchunk]";
+			reject the player's command;
+		otherwise if choiceprogress is 2:
+			say "All of the sensor equipment is damaged, unfortunately, so you have to go off visuals alone.
+
+You rack your brain, trying to find any way that you can do this. Fearful that you will never succeed, you exile yourself to a lone cabin in an isolated world. There you farm, and build, and grow, and begin to draw: the trees, the woods, the stars. 
+
+Over time you realize that you have developed a connection to nature, to the universe itself. Your artist's eye can see more clearly! You return, and pilot the ship to safety!
+
+[fourthchunk]";
+			reject the player's command;
+	otherwise if the player's command matches "3":
+		if choiceprogress is 0:
+			say "You leap into the portal, and find yourself in a topsy turvy world, filled with the fragments of all histories past. Yours is the power to restore and destroy; you cleanse an ancient library from a curse, and you set flame to a stronghold.
+
+At the center of this star-filled world, you find the ancient source of wisdom inside a machine that can bend space and time. With that wisdom in store, you return to the mortal world, teaching the technicians how to save the settlers!
+
+[secondchunk]";
+			reject the player's command;
+		otherwise if choiceprogress is 1:
+			say "You try to find all the animals on the ship and lead them to safety, but some are afraid and others you can't find.
+
+Determined to learn the ways of the animals and calm their fears, you enter a portal to a world filled with beasts. You swim with sea snakes and splash with turtles; you run and howl with a wolf pack on your heels, and tame the mightiest mountain goats!
+
+With your newfound knowledge, you return to the ship and lead all the animals to safety!
+
+[thirdchunk]";
+			reject the player's command;
+		otherwise if choiceprogress is 2:
+			say "Searching for the children, you realize that they can't be found. Something has taken the children!
+
+You stumble across a portal that is dark as blood, and you dive in. You enter a world of horrifying abominations, with monsters larger that your own ship and others that can vanish from sight.
+
+Terriified beyond all measure, you discover the ability to cast magical spells. With an arsenal of flame, flight, and ferocity, you destroy the monsters and rescue the children from a spider's web!
+
+[fourthchunk]";
+			reject the player's command;
+	otherwise:
+		say "Please type one of the following numerals: 1, 2, or 3.";
+		reject the player's command;
+
+To say secondchunk:
+	increment choiceprogress;
+	say "You have made a difference, but a hero's work is never finished. With that first task completed, who will you help next?
+
+1)We need to move the ship out of the asteroid field.[line break]2)We have to repair the ship! I help the engineers.[line break]3)I make sure the animals on board are safe.";
+
+To say thirdchunk:
+	increment choiceprogress;
+	say "The ship is in much better shape now. What are you going to do to finish things off?
+
+1)I stop an escaped criminal who is terrifying the crew![line break]2)I pinpoint the last remaining asteroids so we can steer clear![line break]3)I make sure all the children on board are safe.";
+
+To say fourthchunk:
+	increment choiceprogress;
+	say "But just when things seem to be fixed, the ship rocks again. Another asteroid?
+
+No! The ship itself is exploding! The engines are overloaded! There is only one thing to do!
+
+1)Sacrifice myself to save the ship[singleprompt]!";
+
+To say singleprompt:
+	now the command prompt is "Choose 1>";
+
+After reading a command when the command prompt is "Choose 1>":
+	if the player's command matches "UNDO":
+		do nothing;
+	otherwise if the player's command matches "SAVE":
+		do nothing;
+	otherwise if the player's command matches "RESTORE":
+		do nothing;
+	otherwise if the player's command matches "1":
+		say "*************************************************************************************************[line break]As Arawn finishes her story, you return from your imagination...[line break]*************************************************************************************************
+
+'And then you flew into the engines of the ship, sacrificing your own life to stop the explosion,' says Arawn, her story finished.
+
+Nothing disturbs the silence around you, here in the moonlight at your own grave.
+
+'You were my hero, Emrys. And in a way, you still are. But as I grew older, I realized how wrong I was. So many things that happened to you weren't real; so many fakes. The heroes were wax; the animals were in captivity; the robots were part of a game; the murder wasn't real; the haunted house was a hologram.'
+
+She looks up at you. 'It almost broke me, realizing that my childhood stories weren't real. I realized that you were in many ways a victim of circumstance. I realized that, when the time came, it might be hard for you to do the right thing. And that's when I realized that, if everything else was fake, what if your death was as well? What if someone else died the death of a the great hero Emrys Tisserand?'
+
+And,' she adds, 'what if that person was me?'";
+		now the command prompt is ">";
+		if how-quip is targetgiven:
+			deliver choice-quip;
+			clear the flags;
+		reject the player's command;
+	otherwise:
+		say "You have no choice. You must type the numeral 1.";
+
+choice-quip is a quip. The printed name of choice-quip is "Choice". Understand "Choice" as choice-quip. The target of choice-quip is arawn. The preview of choice-quip is "You're willing to sacrifice your life?".
+
+The targetresponse of choice-quip is "'I'm willing, yes,' says Arawn. 'But I don't want to. I would only do it if I had to, to save my people.'
+
+She presses the silver device on her wrist, and the ground shakes. The pedestal you saw earlier when you were upgrading your tool rises from the garden path, with your tool placed on top. Your recorder is there as well, which she grabs.
+
+'It is time,' she says, and taps several buttons on the pedestal.
+
+The tool begins, to flash, and Arawn backs away, pulling you with her. Then with a completely silent and still explosion, the largest rift you've ever seen opens in front of you, a red rift with a trail of energy that extends up into the sky. The pedestal lowers again, taking the tool with it.
+
+Arawn looks at you and holds up your recorder in her hand, the one she took from you earlier. 'This is what changed history,' she said. 'This is what matters. It's time to make your choice. Either you can wear the recorder, and sacrifice yourself to save your ship, or you can give it back to me, and I can do it for you. It will cost you nothing: merely a stranger's death.'
+
+You think through your options. To complete the time loop, one of you will have to put on the recorder and go in. So, like Arawn said, you can either wear the recorder or give it to here. 
+
+But there's a third option you don't dare say aloud: you could destroy the recorder, and erase this entire time loop. Start over fresh, but destroy her world[make-rift].
+
+[bracket]This would be a good time to save the game.[close bracket]";
 
 To say make-rift:
 	now the all-recorder is held by the player;
+	now the giant-rift is in the location;
+
+The giant-rift is a thing. It is fixed in place. The printed name of the giant-rift is "giant red rift". Understand "giant" or "red" or "rift" or "enormous" or "trail of " or "large" or "largest" or "big" or "portal" or "Tendril" or "tendrils" or "energy" or "trail" or "tendrils of" or "trails" as the giant-rift. The description of the giant-rift is "This is by far the largest rift you have seen, with tendrils of energy whipping about it. And it means death for one of you.".
+
+Instead of physicality when the noun is the giant-rift:
+	say "Not yet. You have to decide what to do with the recorder first: wear it, give it, or break it."
 
 After wearing the all-recorder:
-	say "FIX THIS LATER 'Let's begin,' says Arawn. She presses a button and the pedestal you saw earlier rises out of the ground, with the tool attached. 'Activating the rift now,' she says, turning a dial.
+	say "You place the recorder back on your head, and feel it attaching itself to you. Then you turn and face the rift.
 
-A violent storm of red surrounds you as the largest rift you have seen to date swirls into existence around you. As you disappear, you see Emrys looking at you with a mix of gratitude, envy, hope, and emptiness. 'Thank you,' she mouths.";
+It's enormous, with tendrils that whip around, and yet it makes no sound.
 
-After wearing the all-recorder:
-	say "FIX THIS LATER 'Let's begin,' says Arawn. She presses a button and the pedestal you saw earlier rises out of the ground, with the tool attached. 'Activating the rift now,' she says, turning a dial.
-
-A violent storm of red surrounds you as the largest rift you have seen to date swirls into existence around you. As you disappear, you see Emrys looking at you with a mix of gratitude, envy, hope, and emptiness. 'Thank you,' she mouths.";
+'Wish me luck,' you say, and you step forward. As you disappear, you turn to see Emrys looking at you with a mix of gratitude, envy, hope, and emptiness. 'Thank you,' she mouths. Then everything is red.";
 	now the player is in engine-closet;
 
 The block giving rule does nothing when the noun is the all-recorder.
 
 After giving the all-recorder to arawn:
-	say "FIX THIS LATER You give the recorder to Arawn.
+	say "You give the recorder to Arawn. Her hands tremble as she places it on her head. 
 
-Emrys, this is the story of how you die. But that is no longer your story. Now it belongs to Arawn.
+She removes her tunic, and hands it and the mask to you. She also removes her silver device and hands it to you. 'I suppose you'll need these now,' she says. 'Morgan knows about this. He can help you with the transition.'
 
-'Let's begin,' says Arawn. She presses a button and the pedestal you saw earlier rises out of the ground, with the tool attached. 'Activating the rift now,' she says, turning a dial.
-
-A violent storm of red surrounds you as the largest rift has ever seen to date swirls into existence around her. As shedisappear, she looks at you, her eyes a mix of triumph and fear. 'Thank you,' she says, and she means it.";
+Then she squares up her shoulders, and steps into the rift. As she disappeas, she looks at you, her eyes a mix of triumph and fear. 'Thank you,' she says, and she means it.";
 	now the all-recorder is worn by arawn webster;
 	now arawn webster is in engine-closet;
 	now the story viewpoint is third person singular; 
@@ -29462,7 +30290,9 @@ A violent storm of red surrounds you as the largest rift has ever seen to date s
 	try looking;
 
 After attacking the all-recorder when the all-recorder is not worn by the player:
-	say "FIX THIS LATER Everything breaks apart. You wake up in the sick bed.";
+	say "Arawn sees what you are doing, but cannot stop you in time.
+
+'Emrys, no!' she shrieks, but everything around you is folding into itself in a red haze.";
 	now the player is in medical-cot;
 
 Chapter 7 - Engine Closet
@@ -30264,7 +31094,19 @@ Test uptofighting with "test combatintro/test trainingpart/test combattokitchen/
 
 Test uptobronze with "test combatintro/test trainingpart/test combattokitchen/test robotpart/test wood"
 
-Chapter 10 - Overall testing
+Chapter 10 - Finale stuff
+
+Test arawn with "gonear arawn/say record/say location/say recognition/e/e/d/e"
+
+Test museum with "x map/x exhibit/x diagram/x model/s/x exhibit/x diagram/e/x exhibit/x diagram/u/x exhibit/x diagram/ne/x exhibit/x diagram/z/w/w"
+
+Test party with "w/join arawn/say intent/join table/take cookie/eat cookie/take baklava/eat baklava/take macaron/eat macaron/l/join max/reunion/join arawn/arrest/join fountain/x fountain/join entrance/x entrance/l/z"
+
+Test memorial with "s/sw/say grave/x obelisk/say sacrifice/say angry/say refuse/say consequence/say timing/say proxy/say how/say why/say story/1/1/1/1/say choice"
+
+Test finale with "test arawn/test museum/test party/test memorial"
+
+Chapter 11 - Overall testing
 
 Test me with "test allwax/test allgareth/test allmurder/test allspells/test combatall/test allgarden/test allzoo/test allmonuments"
 
@@ -30349,7 +31191,7 @@ Check toolteleporting:
 	otherwise if the number understood > 8:
 		say "You must use a number from 0 to 8." instead;
 	otherwise if the curious-tool is not held by the player:
-		say "Teleporting is only for in between upgrades. Teleporting now would break the game. If you're stuck, please check the walkthrough instead."
+		say "Teleporting is only for in between upgrades. Teleporting now would break the game. If you're stuck, please check the walkthrough instead." instead;
 		
 Carry out toolteleporting:
 	if the number understood is 1:
@@ -30370,7 +31212,7 @@ Carry out toolteleporting:
 		now the player is in alexandria-room;
 	otherwise:
 		now the player is in device-room;
-	say "[bracket]You have teleported! If you were in the middle of an upgrade or a puzzle found in one of the octagon rooms, it may break the game entirely. Make sure only to teleport 'between upgrades'.[close bracket]";
+	say "[bracket]You have teleported! If you were in the middle of an upgrade or a puzzle found in one of the octagon rooms, it may break the game entirely. Make sure only to teleport between upgrades.[close bracket]";
 	if the player is not in device-room:
 		say "[paragraph break][bracket]Testers: Only the octagon door/hatch/trapdoor is important here. Teleporting to this room causes errors in the surrounding level, but those errors do not affect the material you are testing. You do not need to explore this area or pick up anything or do anything besides open the door and enter.[close bracket][line break]";
 		
@@ -30412,8 +31254,6 @@ Book 5 - Notes
 
 [give a hint about linking early on]
 
-[remove all clues and questions when the player is not in statement zone]
-
 [probably need a better response to asking for a statement from characters who are not here ("you can't ask them for a statement because they're not here")]
 
 [As you progress, you capture visions of a terrifying white-masked and pointy-crowned figure that you know represents death during the visions. This turns out to be the future queen. She is not related to you. She says that you came here to die to save the future, but you have option not to, letting most people die. She gives you a third option: to take her place. She wore the mask so that others wouldn't know if you two switched, having planned for this her whole life. If you play as her, the game goes to third person. incremental storytelling until very end.]
@@ -30428,7 +31268,6 @@ Book 5 - Notes
 
 [destiny is an army of spears marching after of you. Those who turn to fight it will perish without mercy.]
 
-[the day you come back is the day of weft's end!]
 
 [shold each dimension have its own queen vignettes?]
 
@@ -30459,5 +31298,3 @@ Book 5 - Notes
 [make custom descriptions for each of the tears in space]
 
 [FIX THIS LATER add accessibility option for hamiltonian path and minesweeper to bypass the puzzles]
-
-[can't harvest green rifts until the blue 'escape' rift is activated.]
