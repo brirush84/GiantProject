@@ -83,7 +83,7 @@ The special clue called Statement will transport you into a suspect's past when 
 Crediting is an action out of world. Understand "Credits" as crediting. 
 
 Carry out crediting:
-	say "This game was written by Brian Rushton/Mathbrush using Inform 7 (by Graham Nelson). Beta testers include Amanda Walker, the Xenographer, John Ziegler, Jade, Christopher Merriner, Patrick Mooney, Brett Witty, Rovarsson, E. Joyce, Max Fouquet O'Garra, Dee Cooke, Ian Greener, Chandler Groover, Lance Cirone, Zed Lopez, Cody Gaisser, Alex Proudfoot, Radioactive Crow, Mike Spivey, Larry Horsfield, Dirk Spivey, Arthur DiBianca, Hal Rushton, Hidnook, and LAST_TESTER_HERE. 
+	say "This game was written by Brian Rushton/Mathbrush using Inform 7 (by Graham Nelson). Beta testers include Amanda Walker, the Xenographer, John Ziegler, Jade, Christopher Merriner, Patrick Mooney, Brett Witty, Rovarsson, E. Joyce, Max Fouquet O'Garra, Dee Cooke, Ian Greener, Chandler Groover, Lance Cirone, Zed Lopez, Cody Gaisser, Alex Proudfoot, Radioactive Crow, Mike Spivey, Larry Horsfield, Dirk Spivey, Arthur DiBianca, Hal Rushton, Hidnook, Charm Cochran, and LAST_TESTER_HERE. 
 
 Hanon Ondricek gave helpful advice about the concept and title. Phil Riley and Peter Bates made suggestions about coding. Mike Russo and Garry Francis gave poetry tips. Wade Clarke and Mike Russo (again) gave some prose tips.
 
@@ -144,6 +144,7 @@ Instead of opening a space-tear:
 		say "It looks like you can already pass through [the noun].";
 	otherwise if the curious-tool is connector and the curious-tool is held by the player:
 		now the noun is green-torn;
+		now the noun is open;
 		say "[The curious-tool] releases some of its stored energy, restoring [the noun].";
 	otherwise:
 		say "It doesn't seem you're able to open [the noun]."
@@ -1537,7 +1538,7 @@ After entering the you-bed:
 Instead of sleeping when the player is in the you-bed:
 	say "Too many thoughts are in your head to sleep.";
 
-After exiting when the player was in you-bed:
+after getting off when the player was in you-bed:
 	say "You rise out of your bed once more.".
 
 The gran-comf is on the you-bed. The printed name of the gran-comf is "grandmother's comforter". Understand  "comforter" or "blanket" or "grandmother's" or "grandmother" or "granny" or "granny's" or "gran's" or "gran" or "gramma" or "gramma's" or "nana" or "nana's" as the gran-comf. The description of the gran-comf is "This is the handmade comforter your grandmother gave you decades ago. Its worn and faded now, but you've cared for it and it should last the rest of your life.". The indefinite article of the gran-conf is "your".
@@ -1583,7 +1584,7 @@ The off-chairs are plural-named scenery supporters in officers-quarters. The pri
 After entering the off-chairs:
 	say "You sink into an armchair. Very nice!"
 	
-After exiting when the player was on the off-chairs:
+after getting off when the player was on the off-chairs:
 	say "Reluctantly, you push yourself out of the chair."
 
 Instead of pushing or pulling or turning or taking the off-chairs:
@@ -1623,7 +1624,7 @@ The aux-couches are plural-named enterable scenery supporter in auxiliary-quarte
 After entering the aux-couches:
 	say "You flop onto a couch with a sigh."
 	
-After exiting when the player was on the aux-couches:
+after getting off when the player was on the aux-couches:
 	say "It's a little awkward to stand up, but you manage to do it."
 
 Instead of pushing or pulling or turning or taking the aux-couches:
@@ -1634,7 +1635,7 @@ The aux-chairs are plural-named enterable scenery supporter in auxiliary-quarter
 After entering the aux-chairs:
 	say "You sit at one of the chairs. It's already uncomfortable."
 	
-After exiting when the player was on the aux-chairs:
+after getting off when the player was on the aux-chairs:
 	say "You get up, relieved to get off the uncomfortable chair."
 
 Instead of pushing or pulling or turning or taking the aux-chairs:
@@ -6895,7 +6896,7 @@ Before putting the curious-tool on the tool-pedestal:
 
 The display briefly changes to say:
 
- [italic type]All of the major rifts must be harvested before the end. There are currently [temp] rifts remaining to be harvested.[roman type]
+ [italic type]All of the major rifts must be harvested before the end. There [if temp > 1]are[otherwise]is[end if] currently [temp] rift[if temp > 1]s[end if] remaining to be harvested.[roman type]
 
 It then returns to its previous message." instead;
 	otherwise unless there is a crystal-shard in the crystal-hole:
@@ -10706,7 +10707,7 @@ Before physicality when the player is on the cabin-chairs:
 		say "(first getting off the chair)[command clarification break]";
 		move the player to cabin-interior, without printing a room description;
 
-After exiting when the player was on the cabin-chairs:
+After getting off when the player was on the cabin-chairs:
 	say "You hop off the chair."
 
 Instead of taking or pushing or pulling the cabin-chairs:
@@ -12734,7 +12735,7 @@ Instead of rubbing the stonehenge-graffiti:
 	say "It would take forever to clean all of this off."
 
 To say testername:
-	say "[one of]Amanda[or]Xenographer[or]John[or]Jade[or]Christopher[or]Lance[or]Zed[or]Cody[or]Alex[or]Radioactive Crow[or]Patrick[or]Arthur[or]Brett[or]Rovarsson[or]Joyce[or]Max[or]Dee[or]Ian[or]Chandler[or]Spike[or]Lazzah[or]Doug[or]Dirk[or]Dee[or]Hidnook[cycling]"
+	say "[one of]Amanda[or]Xenographer[or]John[or]Jade[or]Christopher[or]Lance[or]Zed[or]Cody[or]Alex[or]Radioactive Crow[or]Patrick[or]Arthur[or]Brett[or]Rovarsson[or]Joyce[or]Max[or]Dee[or]Ian[or]Chandler[or]Spike[or]Lazzah[or]Doug[or]Dirk[or]Dee[or]Hidnook[or]Eddie[cycling]"
 
 The east-collector is a light-collector in stonehenge-east.
 
@@ -26256,7 +26257,7 @@ Andyknown is a truth state that varies. Andyknown is false.
 
 An Andy is a man in combat-lobby. The printed name of Andy is "[if andyknown is true]Andy[otherwise]beaming man[end if]". "[An andy] bobs back and forth excitedly[first time]. 'Hello, Emrys! Looks like we're right on schedule,' he says from afar, wiggling his fingers at you[deliverpardon][only]."
 
-Understand "beaming" or "Man" or "blue" or "bright" or "toupee" or "suit" or "waist" or "bunch" or "bunches" or "Feet" as andy. The description of andy is "[The Andy] is a short man wearing a suit that bulges tight around his waist and bunches up near his feet."
+Understand "beaming" or "Man" or "blue" or "bright" or "toupee" or "suit" or "waist" or "bunch" or "bunches" or "Feet" as andy. The description of andy is "[The Andy] is a short, wearing a suit that bulges tight around his waist and bunches up near his feet."
 
 Before going east from combat-lobby when andy is in the location:
 	say "'Wait one moment, Miss Tisserand!' says [the andy]." instead;
@@ -28754,7 +28755,7 @@ The woman in white that you've been seeing in your visions is here, wearing her 
 
 'Hello, Emrys. Welcome to your future[delwelcome],' says the woman. 'My name is [Arawn Webster]. There's just one thing that we need to do before we begin.'
 
-She reaches towards your head, and a silver device on her wrist whirrs. To your shock, the recorder you had implanted years ago comes off in her hand. 'Ow,' you say, holding your ear.
+She reaches towards your head, and a silver device on her wrist whirrs. To your shock, the recorder you had implanted years ago comes off in her hand. You frantically run your hand over the area, but your skin is smooth and unaffected.
 
 'Don't worry, I'm just temporarily removing your recorder. The process is quite safe, I assure you. I'm sure you'll see the wisdom of that in a few minutes; the Record is quite long enough as it is. Now, I'm sure that you have many questions. I'm happy to answer them, but I have to tell you that there are guests waiting to meet you as well. However, I do have time for a few brief questions at this moment.'
 
@@ -28767,13 +28768,20 @@ Carry out audtping:
 	
 Section 1 - Arawn herself
 
-Arawn Webster is a woman in audience-chamber. Understand "short" or "woman" or "in white" or "tunic" or "white tunic" or "floor-length" or "floor length" or "length" or "head" or "feet" or "eyes" or "dark" or "thoughtful" as arawn. The description of Arawn is "Arawn is a short woman, like you, almost the same height, but with a commanding presence. She wears a floor-length white tunic that covers her feet[if unmasked], but her head is now free of the mask, which she holds in her hand. Her face is both unassuming and unfamiliar, with faint scars on the cheekbones and a ridged nose[otherwise], and her head is covered by a white spiked skull mask. Through the mask you can see her eyes, dark and thoughtful[end if]. On her wrist is a silver device.". "Arawn Webster, the woman in white, is standing here[if masked], watching you through her mask[otherwise], now unmasked[end if][if the giant-rift is in the location].
+Arawn Webster is a woman in audience-chamber. Understand "short" or "woman" or "in white" or "head" or "feet" or "eyes" or "dark" or "thoughtful" as arawn. The description of Arawn is "Arawn is a short woman, almost the same height as you, but with a commanding presence. She wears a floor-length white tunic that covers her feet[if unmasked], but her head is now free of the mask, which she holds in her hand. Her face is both unassuming and unfamiliar, with faint scars on the cheekbones and a ridged nose[otherwise], and her head is covered by a white spiked skull mask. Through the mask you can see her eyes, dark and thoughtful[end if]. On her wrist is a silver device.". "Arawn Webster, the woman in white, is standing here[if masked], watching you through her mask[otherwise], now unmasked[end if][if the player is in emrys-memorial].
+
+Here, under the obelisk, she seems to be in her element. She stands taller, speaks more calmly, looks more intently than before[end if][if the giant-rift is in the location].
 
 She's waiting for you to give her the recorder, or for you to wear it. Of course, you could also destroy it[end if]."
 
 Arawn can be masked or unmasked. Arawn is masked.
 
+The arawn-tunic is worn by arawn. The printed name of the arawn-tunic is "white tunic". Understand "white" or "tunic" or "floor length" or "floor-length" or "forearms" or "fore arms" or "forearm" or "fore arm" or "seamless" as the arawn-tunic. The description of the arawn-tunic is "Arawn's tunic is seamless and white, falling to the floor and extendings to forearms."
+
 The skull-mask is worn by arawn. The printed name of the skull-mask is "white skull mask". Understand "white" or "skull" or "mask" or "spike" or "line" or "top of" or "back" or "spiked" or "spikes" as the skull-mask. The description of the skull-mask is "Arawn's mask is made of some white fabric, made in the shape of a skull. Spikes arise in a line on the top of the skull, trailing off towards the back."
+
+Before taking the skull-mask when the skull-mask is worn by arawn:
+	say "She deftly avoids your hand. 'Please, be serious,' she says." instead;
 
 The silver-device is worn by arawn. The printed name of the silver-device is "silver device". Understand "arawn's" or "silver" or "device" or "wrist" or "bracelet" or "watch" or "mix" as the silver-device. The description of the silver-device is "The device on Arawn's wrist looks like a mix between a bracelet and a watch. She refers to it from time to time."
 
@@ -28791,7 +28799,7 @@ To say delwelcome:
 	
 Record-quip is a quip. Understand "record" as record-quip. The printed name of record-quip is "Record". The preview of Record-quip is "I want to know everything about this Record." The target of record-quip is Arawn.
 
-The targetresponse of record-quip is "'That's the real crux of things, isn't it? I'm sure you picked up pieces of it here and there,' she says. 'Maybe you know it all already.'
+The targetresponse of record-quip is "'That's the real crux of things, isn't it? I'm sure you've picked up pieces of it here and there,' she says. 'Maybe you know it all already.'
 
 She holds up the recorder she took off you. 'You are the only person in recorded history who has travelled to the future. After your trip, your recorder was analyzed and preserved, its data extracted. The extracted data is called The Record. It's been both a blessing and a heavy curse.'
 
@@ -28815,21 +28823,21 @@ rec-quip is a quip. Understand "recognition" as rec-quip. The printed name of re
 
 The targetresponse of rec-quip is "'Yes, and I didn't quite expect that,' she says. 'Our first meeting, when the crash happened...that wasn't in the record. I can only assume your recorder was faulting out. As for the others, I can only assume that your connection as Storyweavers allowed us to communicate in a way not recorded by devices.'
 
-'So you're a Storyweaver too,' you point out. 'Are we...?'
+'So you're a Storyweaver, too,' you point out. 'Are we...?'
 
 'Related? No. As far as I can tell, your descendants remained on earth and are quite ordinary. No, I am just a person, like you. Quite a bit like you, in fact, which I'd like to talk about later. But I've been sending you messages in the other areas. Journal pages, for instance. And hints under the name SpikySpiderSkull.'
 
 'About that, what's up with the skull mask?' you ask.
 
-'Part of it is to preserve anonymity. Part of it is because it is in the Record. And part of it is...I like the way it looks.'
+'Part of it is to preserve anonymity. Part of it is because it is in the Record. And part of it is... I like the way it looks.'
 
-'So what's your position exactly? Scientist? President? Priestess?' you say.
+'So what's your position, exactly? Scientist? President? Priestess?' you say.
 
 'Pilot is what we call it, similar to your Captain. I'm in charge of this vessel, though I've done everything I could in the last few years to transfer more power to the Pan-Sector Council.'".
 
 Section 2 - Scenery 
 
-The white-carpet is scenery in audience-chamber. The printed name of the white-carpet is "white carpet". Understand "flatweave" or "white" or "carpet" or "rug" or "floor" as the white-carpet. The description of the white-carpet is "This white carpet looks like a type of flatweave rug that covers the whole floor.".
+The white-carpet is scenery in audience-chamber. The printed name of the white-carpet is "white carpet". Understand "flatweave" or "white" or "carpet" or "floor" as the white-carpet. The description of the white-carpet is "This white carpet looks like a type of flatweave that covers the whole floor.".
 
 Instead of looking under the white-carpet:
 	say "Lifting up a carpet of over a dozen square meters with heavy furniture on it isn't looking possible right now."
@@ -28845,7 +28853,7 @@ Instead of touching the white-carpet:
 
 The aud-ceiling is distant scenery in audience-chamber. Understand "high" or "ceiling" as the aud-ceiling. The printed name of the aud-ceiling is "ceiling". The description of the aud-ceiling is "The ceiling is about three times your height, if you had to guess."
 
-The tall-windows are plural-named scenery in audience-chamber. The printed name of the tall-windows is "windows". Understand "window" or "windows" or "tall" or "wall" or "glass" or "whole" as the tall-windows. The description of the tall-windows is "One whole wall is completely filled with tall glass windows, giving you a dazzling view of the city beneath."
+The tall-windows are plural-named scenery in audience-chamber. The printed name of the tall-windows is "windows". Understand "window" or "windows" or "tall" or "wall" or "walls" or "glass" or "whole" as the tall-windows. The description of the tall-windows is "One whole wall is completely filled with tall glass windows, giving you a dazzling view of the city beneath."
 
 Instead of opening the tall-windows:
 	say "They're not the type of window you can open."
@@ -28860,7 +28868,7 @@ The aud-couches are plural-named enterable scenery supporter in audience-chamber
 After entering the aud-couches:
 	say "You settle quietly onto the couch, which is surprisingly comfortable."
 	
-After exiting when the player was on the aud-couches:
+after getting off when the player was on the aud-couches:
 	say "You push yourself off the couch."
 
 Instead of pushing or pulling or turning or taking the aud-couches:
@@ -28869,9 +28877,9 @@ Instead of pushing or pulling or turning or taking the aud-couches:
 The aud-chairs are plural-named enterable scenery supporter in audience-chamber. The printed name of aud-chairs is "white chairs". Understand "chair"  or "white" or "circle" or "semi-circle" or "semicircle" or "semi" or "individual" or "chairs" as the aud-chairs. The description of the aud-chairs is "The individual chairs are arranged in a semicircle, focusing on the desk."
 
 After entering the aud-chairs:
-	say "You sit at one of the chairs. It's not bad."
+	say "You sit on one of the chairs. It's not bad."
 	
-After exiting when the player was on the aud-chairs:
+after getting off when the player was on the aud-chairs:
 	say "You get up off the chair."
 
 Instead of pushing or pulling or turning or taking the aud-chairs:
@@ -28885,7 +28893,7 @@ Instead of entering the aud-desk:
 	otherwise:
 		say "On second thought, Arawn is waiting for you."
 	
-The aud-doors are plural-named closed locked openable scenery doors. THe aud-doors are east from audience-chamber and west from glass-hallway. Understand "doors" or "door" or "double" as the aud-doors. The printed name of the aud-doors is "double doors". The description of the double-doors is "These doors look slightly newer than the rest of the room. Perhaps they were recently remodeled?".
+The aud-doors are plural-named closed locked openable scenery doors. THe aud-doors are east from audience-chamber and west from glass-hallway. Understand "doors" or "door" or "double" as the aud-doors. The printed name of the aud-doors is "double doors". The description of the aud-doors is "These doors look slightly newer than the rest of the room. Perhaps they were recently remodeled?".
 
 Section 3 - Departure scene
 
@@ -28912,13 +28920,18 @@ Depart-audience ends when the player is in museum-entrance.
 
 Section 4 - Glass Hallway
 
-Glass-hallway is a room in wildcard-region.The printed name of glass-hallway is "Glass Hallway". The description of glass-hallway is "The doors to the [boldwest] have opened up onto this long glass hallway. Through the glass you can see the hallway goes between two tall spires, the one that you left being slightly shorter than the one you are currently headed to. The sunlight gleams through the glass, and it looks like there's a park of some sort far below you.
+Glass-hallway is a room in wildcard-region.The printed name of glass-hallway is "Glass Hallway". The description of glass-hallway is "The doors to the [boldwest] have opened up into this long glass hallway. Through the glass you can see the hallway connects two tall spires, the one that you left being slightly shorter than the one you are currently headed to. The sunlight gleams through the glass, and, looking through the floor, it looks like there's a park of some sort far below you.
 
 Potted plants line the sides of the glass hallway. You can enter the other building to the [boldeast]; there are no doors.".
 
 The hall-glass is scenery in glass-hallway. The printed name of the hall-glass is "glass hallway". Understand "glass" or "hallway" or "hall" or "tempered" or "sky" or "skyway" as the hall-glass. The description of the hall-glass is "This looks like some kind of tempered glass, and presumably its been strong enough to hold up the pots and foot traffic, but its still a bit frightening to you."
 
-Instead of putting something on the hall-glass:
+The glass-floor is scenery in glass-hallway. The printed name of the glass-floor is "floor". Understand "glass" or "floor"as the glass-floor. The description of the glass-floor is "The floor being glass is the one thing that makes you the most uneasy.".
+
+Instead of entering the glass-floor:
+	say "You're already on the glass floor!"
+
+Instead of putting something on the glass-floor:
 	try dropping the noun;
 	
 Instead of attacking the hall-glass:
@@ -28931,7 +28944,7 @@ The potted-plants are plural-named scenery in glass-hallway. The printed name of
 Instead of physicality when the noun is the potted-plants:
 	say "Messing around with the plants feels awkward with Arawn watching you."
 	
-The gleam-light is distant scenery in the glass-hallway. The printed name of the gleam-light is "gleaming sun". Understand "light" or "gleam" or "gleams" or "gleaming" or "sunlight" or "sun" as the gleam-light. The description of the gleam-light is "The sun is directly overhead, its light gleaming through the glass around you. It's warm."
+The gleam-light is distant scenery in the glass-hallway. The printed name of the gleam-light is "sun". Understand "light" or "gleam" or "gleams" or "gleaming" or "sunlight" or "sun" as the gleam-light. The description of the gleam-light is "The sun is directly overhead, its light gleaming through the glass around you. It's warm."
 
 The short-spire is distant scenery in glass-hallway. The tall-spire is distant scenery in glass-hallway. Understand "short" or "shorter" or "small" or "smaller" or "spire" or "spires" or "building" as the short-spire. Understand "tall" or "taller" or "big" or "bigger" or "spire" or "spires" or "building" as the tall-spire. The printed name of the short-spire is "shorter spire". The printed name of the tall-spire is "taller spire".
 
@@ -28939,7 +28952,7 @@ The description of the short-spire is "The shorter spire is the one to the [bold
 
 The description of the tall-spire is "The taller spire is the one to the [boldeast] that you are headed towards. It looks to be made of some reflective metal and glass, but you can't see through it to the inside."
 
-The distant-park is scenery in glass-hallway. The printed name of the distant-park is "distant park". Understand "far" or "below" or "distant" or "park" or "greenery" or "monument" as the distant-park. THe description of the distant-park is "All you can make out of the park is some greenery and a kind of monument in the middle."
+The distant-park is scenery in glass-hallway. The printed name of the distant-park is "distant park". Understand "far" or "below" or "distant" or "park" or "greenery" or "monument" as the distant-park. THe description of the distant-park is "All you can make out of the park is some greenery and a kind of monument in the middle. The city itself spreads out all around it."
 
 Every turn during depart-audience:
 	if arawn is in glass-hallway:
@@ -28963,7 +28976,13 @@ The scenery-rotunda is distant scenery in the rotunda-room. The printed name of 
 
 The description of the scenery-rotunda is "The spacious interior might be designed to allow more rooms to have windows, as several of them do. However, the building seems quiet. Not empty, but below capacity, like on a holiday."
 
-The spiral-escalator is a scenery staircase. The spiral-escalator is down from rotunda-room and up from museum-entrance. The printed name of the spiral-escalator is "spiral escalator". Understand "ladder" as the spiral-escalator when the spiral-escalator is open. Understand "spiral" or "escalator" or "double" or "helix" or "entrance" or "other" or "another" or "entrances" as the spiral-escalator. The description of the spiral-escalator is "The escalator wraps all around the different floors. Another one going the other way matches it, the two forming a double helix".
+The scenery-balconies are distant scenery in rotunda-room. The printed name of the scenery-balconies is "balconies". Understand "balcony" or "glass" or "Barrier" or "barriers" or "balconies" as the scenery-balconies. The description of the scenery-balconies is "The balconies wrap around the interior of the rotunda, with glass barriers to keep everyone from injuries. No one is around, though.".
+
+The rotunda-ceiling is distant scenery in rotunda-room. The printed name of the rotunda-ceiling is "ceiling". Understand "ceiling" or " pale" or "green" or "golden" or "star" or "stars" or "constellation" or "constellations" as the rotunda-ceiling.
+
+The description of the rotunda-ceiling is "The rotunda ceiling is a pale green, with golden stars and constellations painted over it. None of the constellations are named. Perhaps they're a record of stars that have passed by? Or the stars at the destination?"
+
+The spiral-escalator is a scenery staircase. The spiral-escalator is down from rotunda-room and up from museum-entrance. The printed name of the spiral-escalator is "spiral escalator". Understand "ladder" as the spiral-escalator when the spiral-escalator is open. Understand "spiral" or "escalator" or "double" or "helix" or "entrance" or "other" or "another" or "entrances" as the spiral-escalator. The description of the spiral-escalator is "The escalator wraps all around the different floors. Another one going the other way matches it, the two forming a double helix.".
 
 Every turn during depart-audience:
 	if arawn is in rotunda-room:
@@ -28973,9 +28992,11 @@ Every turn during depart-audience:
 She steps onto the escalator and is whisked away.";
 			now arawn webster is nowhere;
 			
+rotundalooking is an action applying to one visible thing. Understand "look [down]" as rotundalooking when the player is in rotunda-room. Carry out rotundalooking: say "You peer out into the area below and get a little dizzy. It looks like something's being prepared, but you can't make out what.";
+
 Chapter 2 - Museum entrance
 
-Museum-entrance is a room in wildcard-region. The printed  name of the museum-entrance is "Museum Entrance". "You are just outside the doors to a museum to the [boldeast], which has the words STARSHIP TISSERAND HISTORICAL MUSEUM on it. It looks quite a bit better funded than the wax museum you visited earlier. 
+Museum-entrance is a room in wildcard-region. The printed  name of the museum-entrance is "Museum Entrance". "You are just outside the doors to a museum to the [boldeast], over which are the words STARSHIP TISSERAND HISTORICAL MUSEUM. It looks quite a bit better funded than the wax museum you visited earlier. 
 
 There is a larger area to the [boldwest][if receptionready is false], but it has been roped off[otherwise] which is no longer roped off, the velvet rope having been moved aside[end if]. The escalator goes back [boldup], although there's not much reason for you to go that way[first time]
 
@@ -28990,6 +29011,14 @@ She opens the rope and crosses it to the west, reattaching it behind her. She th
 Section 1 - Scenery
 
 The hist-doors are a plural-named scenery closed openable door. The hist-doors are east from museum-entrance and west from fore-port. The printed name of the hist-doors is "double doors". Understand "double" or "above" or "words" or "word" or "doors" or "entrance" or "window" or "tinted" or "door" or "starship" or "tisserand" or "historical" or "museum" as the hist-doors. The description of the hist-doors is "These double doors are the entrance to the STARSHIP TISSERAND HISTORICAL MUSEUM, according to the words above them."
+
+Understand "examine [things]" as examining when the hist-doors are visible.
+
+Does the player mean examining the hist-doors:
+	it is likely;
+	
+Does the player mean examining the foyer-rope:
+	it is unlikely;
 
 Instead of searching the hist-doors:
 	say "You can't see anything through the door."
@@ -29021,7 +29050,7 @@ This corner of the museum has a map on the wall and an exhibit about the constru
 
 A model of the Starship Tisserand is the centerpiece of the museum, and can be viewed from every angle. From this angle, you can see a diagram describing agriculture and ecosystems on the ship. You can get a better view by going [boldup].
 
-A soft bench near the door looks inviting.
+[if the player is on the soft-bench]You are comfortably sat on a soft bench[otherwise]A soft bench near the door looks inviting[end if].
 
 There is more of the museum to the [boldsouth] and [boldeast]."
 
@@ -29035,46 +29064,95 @@ Instead of physicality when the noun is the grand-hall:
 
 The muse-lighting is a distant backdrop in map-region. The printed name of the muse-lighting is "dim lighting". Understand "dim" or "lighting" or "light" or "lights" as the muse-lighting. The description of the muse-lighting is "The lights are purposely kept low in here, giving a feeling of being in space."
 
-The muse-walls are a plural-named backdrop in map-region. The printed name of the muse-walls is "walls". Understand "wall" or "walls" or "space" or "star" or "stars" or "style" or "nebula" or "nebulae" or "impressionistic" or "impression" or "ceiling" as the muse-walls. The description of the muse-walls is "The walls and ceiling are painted like space, with stars and nebulae. They've chosen an impressionistic style, rather than a realistic one."
+The muse-walls are a plural-named backdrop in map-region. The printed name of the muse-walls is "walls". Understand "wall" or "walls" or "space" or "star" or "stars" or "style" or "nebula" or "nebulae" or "impressionistic" or "impression" or "ceiling" as the muse-walls. The description of the muse-walls is "The walls and ceiling are painted to look like space, with stars and nebulae. They've chosen an impressionistic style, rather than a realistic one."
 
-The starship-model is a backdrop in map-region. The printed name of the starship-model is "model of the [italic type]Tisserand[roman type]". Understand "model" or "oblate" or "spheroid" or "model of" or "opaque" or "lower" or "half" or "words" or "top" or "transparent" or "dome" or "starship" or "tisserand" as the starship-model. The description of the starship-model is "This model is taller than you are, shaped like an oblate spheroid. The lower half is mostly opaque, emblazoned with the words [italic type]Starship Tisserand[roman type], while the top is enclosed by a transparent dome.
+The starship-model is a backdrop in map-region. The printed name of the starship-model is "model of the [italic type]Tisserand[roman type]". Understand "model" or "oblate" or "spheroid" or "model of" or "opaque" or "lower" or "half" or "words" or "starship" or "tisserand" as the starship-model. The description of the starship-model is "[if the player is in cent-room]The model is below you now, [otherwise]The model is taller than you are[end if], shaped like an oblate spheroid. The lower half is mostly opaque, emblazoned with the words [italic type]Starship Tisserand[roman type], while the top is enclosed by a transparent dome.
 
-[if the player is in fore-port]Inside the dome, near you, are a vast expanse of forest, lakes, rivers, and an outer ocean. You can see a sprinkling of small cities that grow in density towards a larger city in the center. But you can't make out any more detail from this angle.
+[if the player is enclosed by fore-port]Inside the dome, near you, are a vast expanse of forest, lakes, rivers, and an outer ocean. You can see a sprinkling of small cities that grow in density towards a larger city in the center. But you can't make out any more detail from this angle.
 
 There is a diagram on the model near you, describing agriculture and ecosystems on the ship[otherwise if the player is in aft-port]Inside the dome, you can see a coastline with several towering cities stretched along it next to white sandy beaches. Railways connect the various cities together, growing in complexity until they reach a larger city in the center. But you can't see any more from this angle.
 
 There is a diagram on the model near you, describing the government system on the ship[otherwise if the player is in fore-starboard]Inside the dome, you can see a few isolated cities separated by mountain ranges and grassy plains. Near the top float a collection of islands in the sky. The biggest sign of life is a larger city in the center. But you can't see any more from this angle.
 
-There is a diagram on the model near you, describing the role of Storyweavers on the ship[otherwise if the player is in aft-starboard]Inside the dome, you can see a desert area with a variety of industrial complexes isolated from other cities. Several of them contain large holes leading deeper into the model. Signs of habitation are seen through a larger city in the center. But you can't see any more from this angle.
+There is a diagram on the model near you, describing the role of Storyweavers on the ship[otherwise if the player is in aft-starboard]Inside the dome, you can see a desert area with a variety of industrial complexes isolated from the rest of civilization. Several of them contain large holes leading deeper into the model. Signs of habitation are seen through a larger city in the center. But you can't see any more from this angle.
 
-There is a diagram on the model near you, describing the role of Storyweavers on the ship[otherwise if the player is in cent-room]Inside the dome, you can see a dense and tall city filled with spires. The center contains two tall spires with a memorial between them surrounded by an open park. Transportation lines radiate from the center like spokes of a wheel. But you can't see any more from this angle.
+There is a diagram on the model near you, describing the role of Storyweavers on the ship[otherwise if the player is in cent-room]Inside the dome, you can see a dense and tall city filled with spires. The center contains two tall spires with a memorial between them surrounded by an open park. Transportation lines radiate from the center like spokes of a wheel. This looks like the most important part of the model.
 
 There is a diagram on the model near you, describing the transporation system on the ship[end if]."
 
-Understand "vast" or "expanse" or "forest" or "lakes" or "rivers" or "river" or "trees" or "tree" or "outer" or "ocean" or "sprinkling" or "small cities" or "cities" or "larger" or "city" as the starship-model when the player is in fore-port.
+The trans-dome is part of the starship-model. THe printed name of the trans-dome is "transparent dome". Understand "transparent" or "top" or "dome" as the trans-dome. THe description of the trans-dome is "A transparent dome covers the top of the ship model. It doesn't seem to be just part of the exhibition; it looks like the starship itself has a transparent dome that must be hundreds of miles across. It boggles the mind to think of what materials would be needed for such an undertaking."
 
-Understand "coastline" or "several" or "white" or "sandy" or "beach" or "beaches" or "sand" or "rail" or "lines" or "ways" or "line" or "way" or "railway" or "railline" or "train" or "trains" or "ocean" or "towering" or "cities" or "larger" or "city" as the starship-model when the player is in aft-port.
+The outer-ocean is a distant part of the starship-model. The printed name of the outer-ocean is "outer ocean". Understand "edge" or "outer" or "ocean" as the outer-ocean. The description of the outer-ocean is "The edge of the starship, under the dome, is covered by an outer ocean. It bends slightly, due to the internal gravity effects of the ship."
 
-Understand "few" or "isolated" or "mountain" or "range" or "ranges" or "grassy" or "grass" or "plain" or "plains" or "floating" or "islands" or "island" or "collection" or "larger" or "city" or "sky" as the starship-model when the player is in fore-starboard.
+The central-city is a distant part of the starship-model. The printed name of the central-city is "central city". Understand "larger" or "city" or "central" as the central-city. The description of the central-city is "One city, taller than all the others, sprouts in the middle of the entire model.
 
-Understand "desert" or "area" or "variety" or "variety of" or "industrial" or "complex" or "complexes" or "cities" or "large" or "holes" or "hole" or "signs" or "sign" or "habitation" or "larger" or "city" as the starship-model when the player is in aft-starboard.
+[if the player is in cent-room]It contains two tall spires with a park in the center between them. It seems like the focus point of the whole world[otherwise]You might get a better view if you go [boldup]."
 
-Understand "dense" or "tall" or "city" or "spires" or "spire" or "two" or "2" or "memorial" or "open" or "park" or "transportation" or "line" or "lines" or "larger" or "city" as the starship-model when the player is in cent-room.
+The fore-surface is distant scenery in fore-port. The printed name of the fore-surface is "wilderness".  Understand "vast" or "expanse" or "forest" or "forests" or "lakes" or "rivers" or "river" or "trees" or "tree"  as the fore-surface. The description of the fore-surface is "Most of the land in this part of the exhibit is covered in wilderness, such as forests or lakes."
+
+The fore-cities are a plural-named distant scenery in fore-port. The printed name of the fore-cities is "cities".  Understand "sprinkling" or "small cities" or "cities" or "few" or "city" as the fore-cities. The description of the fore-cities is "There are only a few cities visible from here."
+
+aft-port is a room. aft-starboard is a room. fore-starboard is a room. cent-room is a room.
+
+The towering-cities are plural-named distant scenery in aft-port. The printed name of the towering-cities is "towering cities". Understand "towering" or "cities"  as the towering-cities. The description of the towering-cities is "These cities are quite large, bigger than anything you've been in except perhaps the port you first launched out of in your own ship. Each is connected to its neighbors by rail, and they all connect to the central city."
+
+The aft-beaches are plural-named distant scenery in aft-port. The printed name of the aft-beaches is "beaches". Understand  "coastline" or "several" or "white" or "sandy" or "beach" or "artificial" or "artificially" or "beaches" or "sand"as the aft-beaches. THe description of the aft-beaches is "The beaches along the coastline seem much larger than could be explained by natural processes. They must be artifically created."
+
+The aft-rails are plural-named scenery in aft-port. Understand "rail" or "lines" or "ways" or "line" or "way" or "railway" or "railline" as the aft-rails. The printed name of the aft-rails is "rail lines". THe description of the rail-lines is "This part of the model has a large number of rail lines, mostly connecting different towering cities to each other and to the central city. You can even see little trains zooming by."
+
+The aft-trains are plural-named scenery in aft-port. Understand "train" or "trains" as the aft-trains. The printed name of the aft-trains is "trains". The description of the aft-trains is "It's really straining your eyes to try to see these well."
+
+The star-islands are plural-named distant scenery in fore-starboard. The printed name of the star-islands is "floating islands". Understand "sky" or "floating" or "islands" or "island" or "collection" or "monuments" or "large" or "monument" as the star-islands. The description of the star-islands is "Floating islands cluster together on this side of the model, near the transparent dome. Some are quite large, with monuments on them, although its hard to see more detail."
+
+The star-cities are a plural-named distant scenery in fore-starboard. The printed name of the star-cities is "cities".  Understand "few" or "isolated" or "small cities" or "cities" or "city" as the star-cities. The description of the star-cities is "These cities are isolated, spread out among the mountains. The view from inside them must be beautiful, in real life."
+
+The star-ranges are plural-named distant scenery in fore-starboard. The printed name of the star-ranges is "mountain ranges".  Understand "mountain" or "range" or "ranges" as the star-ranges. The description of the star-ranges is "Mountain ranges run through this part of the model, dividing the cities. It boggles your mind to think about a ship large enough to contain mountain ranges."
+
+The star-plains are plural-named distant scenery in fore-starboard. The printed name of the star-plains is "grassy plains". Understand "grassy" or "grass" or "plain" or "plains" as the star-plains. The description of the star-plains is "The grassy plains are too small to see individual blades of grass, of course, but you get a sense of their wide scope.".
+
+Understand "signs" or "sign" or "habitation" or "larger" or "city" as the central-city when the player is in aft-starboard.
+
+The as-desert is distant scenery in aft-starboard. The printed name of the as-desert is "desert". Understand "desert" as the as-desert. The description of the as-desert is "This part of the model is primarily desert, in stark contrast to the liveliness of the other areas.".
+
+The as-complexes are distant plural-named scenery in aft-starboard. The printed name of the as-complexes is "industrial complexes". Understand  "variety" or "variety of" or "industrial" or "complex" or "complexes" as the as-complexes. The description of the as-complexes is "The complexes don't have much in the way of transportation near them. It's possible they're meant for robot use rather than human.".
+
+The as-holes are plural-named distant scenery in aft-starboard. The printed name of the as-holes is "holes".Understand "large" or "holes" or "hole" or "dark" or "cavern" or "caverns" as the as-holes. The description of the as-holes is "These holes lead deeper into the ship. You catch glimpses of dark caverns, but can't make out any more detail."
+
+Understand "dense" or "tall" as the central-city when the player is in cent-room.
+
+The model-spires are distant plural-named scenery in cent-room. Understand "spire" or "two" or "2" or "spires" as the model-spires. The description of the model-spires is "You can only presume the two spires are the one that you arrived in and the one you are now in."
+
+The model-park is distant scenery in cent-room.  Understand "memorial" or "obelisk" or "open" or "park" or "flowers" or "paths" as the model-park. The description of the model-park is "The memorial park looks to be primarily flowers and paths with an obelisk in the middle, but you can't make out any more detail than that."
+
+The cent-lines are plural-named distant scenery in cent-room. The printed name of the cent-lines is "rail lines". Understand "transportation" or "line" or "lines" or "rail" as the cent-lines. The description of the cent-lines is "Rail lines radiate outwards from the central city.".
 
 Instead of physicality when the noun is the starship-model:
 	say "You seem unable to actually touch the starship itself. Perhaps a field generator? It's hard to tell.";
 	
-The museum-map is scenery in fore-port. The printed name of the museum-map is "museum map". Understand "museum" or "map" or "square" or "region" or "right" or "side" or "star" or "upper" or "left" or "corner" or "time" or "line" as the museum-map. The description of the museum-map is "The map shows a square region labelled MODEL SHIP, with a star in the upper left corner saying YOU ARE HERE. On the right side of the square region, a hallway leads north, labelled TIME LINE."
+The museum-map is scenery in fore-port. The printed name of the museum-map is "museum map". Understand "museum" or "map" or "square" or "region" or "right" or "side" or "star" or "upper" or "left" or "corner" or "time" or "line" as the museum-map. The description of the museum-map is "The map shows a square region labelled MODEL SHIP, with a star in the upper left corner saying YOU ARE HERE. On the right side of the square region, a hallway leads north, labelled TIMELINE."
 
-The construction-exhibit is scenery in fore-port. The printed name of the construction-exhibit is "construction exhibit". Understand "construction" or "exhibit" or "glass" or "cases" or "blueprint" or "blueprints" or "case" or "fragment" or "comet" or "comets" or "artifact" or "artifacts" or "you" or "bronwyn" or "image" or "partially" or "constructed"or "partially-constructed" or "background" as the construction-exhibit. The description of the construction-exhibit is "This exhibit consists of several glass cases containing artifacts from the creation of the starship.
+The construction-exhibit is scenery in fore-port. The printed name of the construction-exhibit is "construction exhibit". Understand "construction" or "exhibit" or "artifact" or "artifacts" as the construction-exhibit. The description of the construction-exhibit is "This exhibit consists of several glass cases containing artifacts from the creation of the starship.
 
-This includes blueprints for the ship, displayed as a hologram. There is a fragment of the first asteroid used to create the ship; apparently the main mass for the ship was gathered by harvesting asteroids and comets.
+These include blueprints for the ship, in paper form. There is a fragment of the first asteroid used to create the ship; apparently the main mass for the ship was gathered by harvesting asteroids and comets.
 
 There is an image of you and Bronwyn, with the partially-constructed ship in the background. Its captioned, 'Emrys Tisserand visits the construction site. 2391 AD.'".
 
+The construction-case is plural-named scenery transparent closed unopenable container in fore-port. The printed name of the construction-case is "glass cases". Understand "glass" or "case" or "cases" as the construction-case. The description of the construction-case is "The glass cases contain various artifacts from the ship."
+
+Instead of opening the construction-case:
+	say "Like most museums, you are unable to open the glass cases unassisted."
+	
+The star-blueprints are in the construction-case. The printed name of the star-blueprints is "blueprints". Understand "blue" or "blueprint" or "ship's" or "for the ship" or "blueprints" or "molten" or "core" or "cutaway" or "sketch" or "print" or "topmost" or "whole ship" or "stacked" or "prints" or "paper" or "form" as the star-blueprints. The description of the star-blueprints is "The blueprints are stacked high, with the topmost saying '1 of 23700'. That one shows a cutaway sketch of the whole ship, revealing a molten core much like that of a planet, designed to carry energy for millenia.".
+
+The asteroid-fragment is in construction-case. THe printed name of the asteroid-fragment is "asteroid fragment". Understand "asteroid" or "fragment" or "comet" or "black" or "glassy" or "obsidian" or "comets" as the asteroid-fragment. The description of the asteroid-fragment is "This fragment is black and glassy, like obsidian. It's fascinating how they were able to build everything you've seen from such basic material.".
+
+The bronwyn-photo is in construction-case. The printed name of the bronwyn-photo is "photo". Understand "bronwyn" or "you" or "Me" or "image" or "laboratory" or "lab" or "partially" or "partially-constructed" or "ship" or "caption" or "captioned" or "photo" or "photograph" as the bronwyn-photo. The description of the bronwyn-photo is "This photo shows you and an older Brownyn meeting in her laboratory, with the starship in the backgroun.
+
+It must have been taken when you travelled in time to see her, most likely from security footage. For you, a couple of hours have passed. But for the ship, its been over a century.".
+
 The eco-diagram is scenery in fore-port. The printed name of the eco-diagram is "ecosystem diagram". Understand "ecosystem" or "diagram" or "agriculture" or "ecosystems" as the eco-diagram. The description of the eco-diagram is "The diagram describes the ecosystems of the ship.
 
-According to what you can make out, most of the mass of the ship begins as inert compounds, primarily carbon, in the lower portion, which is mined and brought to the surface as needed. There it can be refined into various compounds such as fertilizer or carbon dioxide to provide for the plants. A variety of insect and other invertebrate species assist in the breakdown of dead plants and feed, and in turn they provide food for a large number of insectivores. Herbivore and carnivore vertebrates complete the cycle, although many of them are kept in zoos to protect the local populace. Human and industrial waste is fed back into the lower portions of the ship to be recycled.".
+According to what you can make out, most of the mass of the ship begins as inert compounds, primarily carbon, in the lower portion, which is mined and brought to the surface as needed. There, it is refined into various compounds such as fertilizer or carbon dioxide to provide for the plants. A variety of insect and other invertebrate species assist in the breakdown of dead plants and feed, and in turn they provide food for a large number of insectivores. Herbivore and carnivore vertebrates complete the cycle, although many of them are kept in zoos to protect the local populace. Human and industrial waste is fed back into the lower portions of the ship to be recycled.".
 
 The soft-bench is an enterable scenery supporter in fore-port. The printed name of the soft-bench is "soft bench". Understand "soft" or "bench" or "comfortable" as the soft-bench. The description of the soft-bench is "This must be the bench Arawn was talking about. She was right; it looks comfortable."
 
@@ -29086,7 +29164,7 @@ After entering the soft-bench:
 Understand "nap" as sleeping.
 
 Instead of entering the soft-bench when receptionready is true:
-	say "While you could benefit for more rest, it seems like people are waiting for you."
+	say "While you could benefit from more rest, it seems like people are waiting for you."
 
 Instead of sleeping when the player is on soft-bench:
 	if receptionready is false:
@@ -29095,7 +29173,7 @@ Instead of sleeping when the player is on soft-bench:
 	otherwise:
 		say "It sounds like it's time to go, unfortunately."
 	
-After exiting when the player was on soft-bench:
+after getting off when the player was on soft-bench:
 	say "With a bit of reluctance, you get off the soft bench."
 
 Up from fore-port is cent-room.
@@ -29112,19 +29190,19 @@ There is more of the museum to the [boldnorth] and [boldeast]."
 
 Up from aft-port is cent-room.
 
-The robots-exhibit is scenery in aft-port. The printed name of the robots-exhibit is "robots exhibit". Understand "robot" or "exhibit" or "hologram" or "holograms" or "robots" or "artificial" or "intelligence" or "AI" as the robots-exhibit. The description of the robots-exhibit is "This exhibit consists of several holograms depicting different types of robots and artificial  intelligence used in the ship over time.
+The robots-exhibit is scenery in aft-port. The printed name of the robots-exhibit is "robots exhibit". Understand "robot" or "exhibit" or "hologram" or "holograms" or "robots" or "artificial" or "intelligence" or "AI" as the robots-exhibit. The description of the robots-exhibit is "This exhibit consists of several holograms depicting different types of robots and artificial intelligence used on the ship over time.
 
-Like many things in the history of this place, AI for robots took off after the Record was found. However, its seems that early inventors struggled to replicate what they found. It looks like the older ones had stiff, actuated bodies with AI systems that had difficulty appearing truly intelligent. 
+Like many things in the history of this place, AI for robots took off after the Record was found. However, it seems that early inventors struggled to replicate what they found. It looks like the older robots had stiff, actuated bodies with AI systems that had difficulty appearing truly intelligent. 
 
 Later robots benefitted significantly from the development of nanotech, which provided higher computing power while simultaneously improving body motion. These proved expensive, however, so there remained a market for cheaper robots, though these were still more powerful than the earliest models.
 
-Robots today primarily serve to perform manual labor as well as higher administrative functions, with higher thought processes reserved for said administrators. There has been recent talk about including robots into the governmental system."
+Robots today primarily serve to perform manual labor as well as higher administrative functions, with higher thought processes reserved for said administrators. There has been recent talk about including robots in the governmental system."
 
 The pol-diagram is scenery in aft-port. The printed name of the pol-diagram is "political system diagram". Understand "political" or "politics" or "system" or "diagram" as the pol-diagram. The description of the pol-diagram is "The diagram describes the political system of the ship.
 
-It seems the ship is divided up into nine sectors based on their relative position in the ship, being labelled Starboard, Central, and Port in one direction and Aft, Central, and Fore in another. So there is a Fore Central Sector and an Aft Starboard Sector. Instead of Central Central, the center is just called Central.
+It seems the ship is divided  into nine sectors based on their relative position in the ship, labelled Starboard, Central, and Port in one direction and Aft, Central, and Fore in another. So there is a Fore Central Sector and an Aft Starboard Sector. Instead of Central Central, the center is just called Central.
 
-Each of these sectors has their own infrastructure and entertainment such as hologram chambers and zoos, and is represented by a group of representatives in the Pan-Sector Council. A Pilot is elected on a regular basis to provide stable leadership to the vessel and to serve as a mouthpiece for the government. Both representatives and the Pilot tends to serve anonymously, not showing their face in public and relying solely on their public performance in office."
+Each of these sectors has their own infrastructure and entertainment, such as hologram chambers and zoos, and is represented by a delegation in the Pan-Sector Council. A Pilot is elected on a regular basis to provide stable leadership to the vessel and to serve as a mouthpiece for the government. Both representatives and the Pilot tend to serve anonymously, not showing their face in public and relying solely on their public performance in office."
 
 Section 3 - Fore Starboard
 
@@ -29142,13 +29220,13 @@ Up from fore-starboard is cent-room.
 
 The rifts-exhibit is scenery in fore-starboard. The printed name of the rifts-exhibit is "rifts exhibit". Understand "rift" or "exhibit" or "hologram" or "holograms" or "rifts" as the rifts-exhibit. The description of the rifts-exhibit is "This exhibit consists of several holograms depicting different types of rifts.
 
-It warns that actual rifts are difficult to create, can be dangerous, and can only be seen and interacted with well by Storyweavers, whose bodies can absorb a slightly different range of electromagnetic radiation than most humans, both in the retinas and the body itself. That's why only Storyweavers and specialized robots use the rifts on a regular basis.
+It warns that actual rifts are difficult to create, can be dangerous, and can only be seen and interacted with by Storyweavers, whose bodies can absorb a slightly different range of electromagnetic radiation than most humans, both in the retinas and the body itself. That's why only Storyweavers and specialized robots use the rifts on a regular basis.
 
-It describes the various types of rifts you've become familiar with: black and white rifts resulting from cutting off parts of space, and blue or red rifts caused by sewing them together. The latter two differ only in how they are sewn together, the blue being separated in space and the red being separated in time. Finally, it describes how red rifts can be energized into green rifts when the time loops that cause them are resolved."
+It describes the various types of rifts you've become familiar with: black and white rifts resulting from cutting off parts of space, and blue or red rifts caused by sewing them together. The latter two differ only in their stitching, the blue being separated in space and the red being separated in time. Finally, it mentions how red rifts can be energized into green rifts when the time loops that cause them are resolved."
 
 The sto-diagram is scenery in fore-starboard. The printed name of the sto-diagram is "Storyweaver diagram". Understand "storyweaver" or "storyweavers" or "diagram" as the sto-diagram. The description of the sto-diagram is "The diagram describes the role of Storyweavers on the ship.
 
-It describes how Storyweavers have remained remarkably stable in their base duties over time. For centuries they have functioned as authors, orators, and artists in preserving the history of their people and sharing and creating their culture
+It tells how Storyweavers have remained remarkably stable in their base duties over time. For centuries they have functioned as authors, orators, and artists, preserving the history of their people and sharing and creating their culture.
 
 It goes on to say how Emrys Tisserand was the first to discover the interactions between rifts and Storyweavers due to their slightly different absorption spectra for radiation. Since then, Storyweavers have expanded into roles in technology and governance in addition to the storytelling role."
 
@@ -29166,9 +29244,9 @@ Up from aft-starboard is cent-room.
 
 The entertainment-exhibit is scenery in aft-starboard. The printed name of the entertainment-exhibit is "entertainment exhibit". Understand "exhibit" or "hologram" or "holograms" or "entertainment" as the entertainment-exhibit. The description of the entertainment-exhibit is "This exhibit consists of several holograms depicting entertainment on the ship.
 
-It describes how the original seedship (the one you hail from) provided little of interest for the crew to do outside of social gatherings and storytelling. Most civilians and much of the crew spent long parts of the voyage frozen in hibernation. The information in the Record showed that it was possible to make interstellar journeys on a ship where everyone was awake by providing more for them to do. This includes entertainment but also healthy work options.
+It describes how the original seedship (the one you hail from) provided little of interest for the crew to do outside of social gatherings and storytelling. Most civilians and much of the crew spent long parts of the voyage frozen in hibernation. The information in the Record showed that it was possible to make interstellar journeys on a ship where everyone was awake by providing more for them to do. This included entertainment. but also healthy work options.
 
-Entertainment includes zoos, museums, holograms, nature, and special events. Many people even explore the catacombs under the surface using nanobot avatars being controlled remotely. The juxtaposition of dangerous environments with the safety of long-distance control makes for a lot of fun."
+Entertainment includes zoos, museums, holograms, nature, and special events. Many people even explore the catacombs under the surface using remotely-controlled nanobot avatars. The juxtaposition of dangerous environments with the safety of long-distance control makes for a lot of fun."
 
 The rec-diagram is scenery in aft-starboard. The printed name of the rec-diagram is "waste management diagram". Understand "waste" or "management" or "diagram" as the rec-diagram. The description of the rec-diagram is "The diagram describes waste management on the ship.
 
@@ -29195,7 +29273,7 @@ The empty-placard is part of the empty-exhibit. The printed name of the empty-pl
 
 The tra-diagram is scenery in cent-room. The printed name of the tra-diagram is "waste management diagram". Understand "central" or "diagram" as the tra-diagram. The description of the tra-diagram is "The diagram describes the city called Central.
 
-Central is the metropolis and capital of the Starship Tisserand. It unites most of the administrative functions into one location, the most defensible on the ship. Even with its safe location in the center, some members of each governmental and administrative body are dispersed throughout the ship in case of catastrophic failure.
+Central is the metropolis and capital of the Starship Tisserand. It unites most of the administrative functions into one location--the most defensible on the ship. However, some members of each governmental and administrative body are dispersed throughout the ship in case of catastrophic failure.
 
 Central contains the memorial park for Emrys Tisserand, where her remains are stored. The surrounding gardens are a popular location for visitors."
 
@@ -29208,13 +29286,17 @@ Chapter 4 - Timeline
 
 Timeline-region is a region. Timeline-region is in wildcard-region.
 
-The ancient-timeline is in timeline-region. The printed name of ancient-timeline is "Timeline (Early Period)". The ancient-timeline is north from fore-starboard. "This part of the museum has a timeline on the wall that extends to the [boldnorth] down a short, empty hallway. This is the start of the timeline, dating back to your own ship.The rest of the museum is to the [boldsouth]."
+The ancient-timeline is in timeline-region. The printed name of ancient-timeline is "Timeline (Early Period)". The ancient-timeline is north from fore-starboard. "This part of the museum has a timeline on the wall that extends to the [boldnorth] down a short, empty hallway. This is the start of the timeline, dating back to your own ship. The rest of the museum is to the [boldsouth]."
 
-The anc-timeline is scenery in ancient-timeline. The printed name of the anc-timeline is "timeline". Understand "time" or "line" or "timeline" or "tragwyddol" or "yourself" or "2320" or "2340" or "departure" or "ceremony" or "corner" or "arrival" or "wall" or "hall" or "ad" or "hallway" or "record" or "delivered" or "memorial" or "park" or "image" or "start" or "start of" or "own" or "ship" as the anc-timeline. The description of the anc-timeline is "This part of the timeline begins in 2320 AD, the year that the Tragwyddol, your original ship, left Earth. You were around 50 at that time. It shows the departure ceremony, and you can make out yourself standing in one corner, much younger of course than you are now.
+The anc-timeline is scenery in ancient-timeline. The printed name of the anc-timeline is "timeline". Understand "time" or "line" or "timeline" or "tragwyddol" or "yourself" or "2320" or "2340" or "departure" or "ceremony" or "corner" or "arrival" or "wall" or "hall" or "ad" or "hallway" or "record" or "delivered" or "start" or "start of" or "own" or "ship" as the anc-timeline. The description of the anc-timeline is "This part of the timeline begins in 2320 AD, the year that the Tragwyddol, your original ship, left Earth. You were 48 at that time. It shows the departure ceremony, and you can make out yourself standing in one corner, much younger of course than you are now.
 
-In 2340 was the asteroid strike that damaged the Tragwyddol. It was the same years as your time travel and the subsequent arrival of the Record, delivered by you. It was the year of the Tragwyddol's landing on its target planet.
+In 2340 was the asteroid strike that damaged the Tragwyddol. It was the same year as your time travel and the subsequent arrival of the Record, delivered by you. It was the year of the Tragwyddol's landing on its target planet.
 
 And, apparently, it was the year of your death. There is an image next to that piece of information showing the memorial park that you saw outside[first time]. That's...good to know. Kind of makes you wonder how you went out[only]."
+
+The death-image is part of the anc-timeline. Understand "memorial" or "park" or "image" or "image of" or "obelisk" or "flowers" as the death-image.
+
+The printed name of the death-image is "image of a memorial park". The description of the death-image is "The image of the memorial park is mostly flowers surrounding an obelisk. It looks like it was taken from the back of the obelisk, and you can't see any text."
 
 The trag-timeline is in timeline-region. The printed name of the trag-timeline is "Timeline (Construction Period)". The trag-timeline is north from ancient-timeline. "The timeline continues in this part of the hallway, which extends both to the [boldnorth] and [boldsouth].
 
@@ -29222,9 +29304,9 @@ This part of the timeline covers the construction of the Starship Tisserand."
 
 The con-timeline is scenery in trag-timeline. The printed name of the con-timeline is "timeline". Understand "time" or "line" or "timeline" or "construction" or "construction of" or "yang" or "labs" or "lab" or "antonio" or "starship" or "2350" or "tisserand" or "pan-sector" or "council" or "bronwyn" or "ad" as the con-timeline. The description of the con-timeline is "This part of the timeline begins in 2350 AD, with the establishment of Yang Labs by Antonio Yang.
 
-It displays a bewildering display of new technologies coming from a variety of research institutions and corporations in a short time. Telecommunications, artificial intelligence, and robotics all took off in a very short time.
+It has a bewildering display of new technologies coming from a variety of research institutions and corporations in a short time. Telecommunications, artificial intelligence, and robotics all took off in a very short time.
 
-All of these were used in the construction of the Starship Tisserand, which took roughly forty years, involving the gathering of numerous asteroids and comets, as well as production of an atmosphere. The ship itself launched in 2390 under the supervision of a Pan-Sector Council. That was also the year that you travelled to see Bronwyn, which is marked in red."
+All of these were used in the construction of the Starship Tisserand, which took roughly forty years, involving the gathering of numerous asteroids and comets, as well as production of an atmosphere. The ship itself launched in 2390 under the supervision of a temporary government that would one day become the Pan-Sector Council. That was also the year that you travelled to see Bronwyn, which is marked in red."
 
 The yang-timeline is in timeline-region. The yang-timeline is north from trag-timeline. The printed name of the yang-timeline is "Timeline (Journey's Start)". "This part of the timeline deals with the early journeys of the Starship Tisserand. There are exits to the [boldnorth] and [boldsouth]."
 
@@ -29232,15 +29314,15 @@ The ear-timeline is scenery in yang-timeline. The printed name of the ear-timeli
 
 It describes early arguments about the role of the Pilot, and a few issues with trying to make sure the Record was strictly followed. 
 
-Apparently a group of terrorists sprang up at one point that wanted to intentionally deviate from the Record, claiming that it wasn't real and was just an effort by the government to control the people. It looks like several of them were imprisoned, while others eventually changed their minds and were reintegrated into society. At their height, they denied the existence of you, the earth, and the old Starship Tragwyddol.
+Apparently a group of protesters sprang up at one point that wanted to intentionally deviate from the Record, claiming that it wasn't real and was just an effort by the government to control the people. It looks like several of them were imprisoned, while others eventually changed their minds and were reintegrated into society. At their height, they denied the existence of you, the earth, and the old Starship Tragwyddol.
 
-Near the end of this period, around 2455, there was a massive tech disaster in Central, one in which you appeared to Lance Franklin and took some of the results of his work, including a stabilizer. This is also labelled in red."
+Near the end of this period, around 2455, there was a massive tech disaster in Central, in which you appeared to Lance Franklin and took some of the results of his work, including a stabilizer. This is also labelled in red."
 
 The arawn-timeline is in timeline-region. The printed name of the arawn-timeline is "Timeline (Modern Day)". The arawn-timeline is north from yang-timeline. "This is the end of the timeline. It described everything up to the current day. The only way back is to the [boldsouth]."
 
-The late-timeline is scenery in arawn-timeline. The printed name of the late-timeline is "timeline". Understand "time" or "line" or "timeline" or "2480" or "current" or "everything" or "up to" or "discovery" or "election" or "lady" or "lady in" or "white" or "pilot" or "record" or "arawn" or "webster" or "modern"  or "day" or "ad" or "day" or "weft" or "weft's" or "end" or "panel" or "last" as the late-timeline. The description of the late-timeline is "This part of the timeline begins around 2480, describing everything up to the modern day.
+The late-timeline is scenery in arawn-timeline. The printed name of the late-timeline is "timeline". Understand "time" or "line" or "timeline" or "2480" or "current" or "everything" or "up to" or "discovery" or "election" or "lady" or "lady in" or "white" or "pilot" or "record" or "arawn" or "webster" or "modern"  or "day" or "ad" or "day" or "weft" or "weft's" or "end" or "panel" or "last" or "murder" as the late-timeline. The description of the late-timeline is "This part of the timeline begins around 2480, describing everything up to the modern day.
 
-It describes the excitement surrounding the discovery of and election of Arawn Webster, the Lady in White, who fit the descriptions of the Pilot in the Record. It was the beginning of many signs that the time of the Record was approaching.
+It describes the excitement surrounding the discovery and election of Arawn Webster, the Lady in White, who fit the descriptions of the Pilot in the Record. It was the beginning of many signs that the time of the Record was approaching.
 
 The end of the timeline looks like it extends slightly into the future of when it was made. It shows artist's depictions of scenes from the Record: robot battles, underground caverns, a violent murder. The panel ends in the modern day, 2555 AD, with the last day marked as 'The Day of Weft's End'."
 
@@ -29257,7 +29339,7 @@ To trigger-reception:
 	otherwise:
 		say "There is a chime, and you hear Arawn's voice over an intercom.
 
-'Emrys, the reception is ready. Please return to the outside of the museum, when you are ready.'";
+'Emrys, we have enough people that we can begin, but feel free to take your time. Just return to the outside of the museum when you are ready.'";
 
 Museum-scene is a scene. Museum-scene begins when the player is in map-region.
 
@@ -29266,7 +29348,7 @@ Museum-scene ends when the time since museum-scene began is 20 minutes.
 When museum-scene ends:
 	if receptionready is false:
 		trigger-reception;
-		the reminder hits in ten turns from now;
+		the reminder hits in 30 turns from now;
 	now verbosequips is true;
 	repeat with character running through other people in party-region:
 		let space be a random p-room;
@@ -29275,7 +29357,7 @@ When museum-scene ends:
 At the time when the reminder hits:
 	if the player is not in party-region:
 		say "You remember that you heard Arawn's voice telling you the reception was ready outside.";
-		the reminder hits in ten turns from now;		
+		the reminder hits in 30 turns from now;		
 
 Chapter 5 - Party
 
@@ -29287,6 +29369,12 @@ Every turn during party-scene:
 		now the foyer-rope is closed;
 	if arawn webster is in the location:
 		deliver intent-quip;
+	if party-christine is in the location:
+		deliver awkward-quip;
+	if party-webmaster is in the location:
+		deliver cruel-quip;
+	if party-curator  is in the location:
+		deliver renewal-quip;
 		
 [at party tell a ton of stuff but imply there's more]
 
@@ -29309,14 +29397,14 @@ Instead of listening to the quiet-music:
 The quiet-music is an intangible backdrop in party-region. The printed name of quiet-music hall is "quiet music". Understand "quiet" or "music" or "old" or "bach" as the quiet-music. The description of the quiet-music is "Quiet music is coming from somewhere in the chamber. It is something old; Bach, perhaps?".
 
 After going through foyer-rope:
-	say "[bold type]At the Party, By the Dessert Table[roman type]";
+	say "[bold type]At the Party, By the Dessert Table[roman type][line break]";
 	say "As you walk past the rope, an attendant comes and closes it behind you.
 
 You are in the center of the spire, near a buffet of desserts. Arawn Webster is here, along with many of the people you've met today, and a new man, as well. According to the nametags everyone is wearing, they are: [a list of other people in party-region].
 
 Arawn Webster steps forward and says, 'Attention, guests, and welcome. We are here to celebrate the true, and final, Day of Weft's End. From this day on, we will be free from the tyranny of fate. And we can celebrate with the hero of our little world: Emrys Tisserand.' Here she gestures towards you, and the crowd claps.
 
-'Feel free to talk amongst yourselves and to try the refreshments,' she says, going on. 'Our engineers are making their final calculations before we open the final rift that can send Emrys home. Our time here will be short, but I hope it is memorable. Thank you.'
+'Feel free to talk amongst yourselves and to try the refreshments,' she says, going on. 'Our engineers are making their final calculations before we open the rift that can send Emrys home. Our time here will be short, but I hope it is memorable. Thank you.'
 
 Quiet music begins to play. Arawn pauses by you and says, 'We have twenty minutes or so. I hope you enjoy,' before breaking off."
 
@@ -29440,7 +29528,7 @@ After looking when party-scene is happening:
 After deciding the scope of the player: 
 	if the player is in party-region:
 		repeat with current running through p-rooms:
-			repeat with current2 running through people in current:
+			repeat with current2 running through things in current:
 				place current2 in scope;
 
 Rule for reaching inside a room when the player is in party-region:
@@ -29451,7 +29539,7 @@ Rule for reaching inside a room when the player is in party-region:
 	if the current action is personjoining:
 		allow access;
 	otherwise:
-		say "You can only look from this distance."; 
+		say "You can only look from this distance. [if the noun is not enclosed by the location]But you can JOIN [the location of the noun] to go there[otherwise]But you can JOIN [the location of the second noun] to go there[end if]."; 
 		deny access;
 
 Before uttering something to someone in party-region:
@@ -29481,7 +29569,7 @@ Carry out looking toward a p-room:
 	if the player is in the noun:
 		try looking;
 	otherwise:
-		say "In that direction you see [a list of other people in the noun]."
+		say "In that direction you see [if the noun is by the fountain]an abstract fountain[otherwise if the noun is near the entrance]some ceremonial doors[otherwise if the noun is by the dessert table]a buffet[otherwise]more room[end if]. [if someone is in the noun][a list of other people in the noun] [are][otherwise]nobody is[end if] in that general area."
 
 When party-scene begins: 
 	assign clumping;
@@ -29499,7 +29587,7 @@ They walk by Arawn, their leader giving her a nod as they pass. But they move st
 
 'Sir, you're going to have to come with us. Some information has come to light regarding your business practices that the regulators are going to be [italic type]very[roman type] interested in,' you overhear the leader say.
 
-Andy splutters.'Now this is just a mistake. You hear?' he says, turning to everyone, 'a simple misunderstanding. I'll be back before you know it.'
+Andy splutters. 'Now this is just a mistake. You hear?' he says, turning to everyone, 'a simple misunderstanding. I'll be back before you know it.'
 
 'Hey,' says Max, waving at you.";
 		deliver arrest-quip;
@@ -29567,7 +29655,7 @@ Understand "nametag" or "name tag" or "name tags" or "nametags" as a person when
 
 Section 2 - Christine 
 
-party-christine is a woman in by the dessert table. THe printed name of party-christine is "Christine". Understand "Christine" or "middle-aged" or "middle aged" or "aged" or "woman" or "dark" or "worn" or "woolen" or "dress" as party-christine. The description of party-christine is "Christine is a middle-aged woman wearing a dark, worn woolen dress. She looks much less transparent than the last time you saw her."
+party-christine is a woman in near the entrance. THe printed name of party-christine is "Christine". Understand "Christine" or "middle-aged" or "middle aged" or "aged" or "woman" or "dark" or "worn" or "woolen" or "dress" as party-christine. The description of party-christine is "Christine is a middle-aged woman wearing a dark, worn woolen dress. She looks much less transparent than the last time you saw her."
 
 Rule for writing a paragraph about party-christine:
 	if the location contains a man (called flirt) who is desired by party-christine:
@@ -29577,9 +29665,17 @@ Rule for writing a paragraph about party-christine:
 
 party-christine likes arawn webster, Morgan, and party-owen. Party-christine desires morgan. party-christine dislikes party-andy and the party-webmaster.
 
+Awkward-quip is a quip. The target of awkward-quip is party-christine. Understand "Awkward" as the awkward-quip. The printed name of awkward-quip is "Awkward". The preview of Awkward-quip is "Sorry if we got off on the wrong foot earlier.".
+
+Targetresponse of awkward-quip is "'No, it's completely fine,' says Christine. 'I thought you were someone breaking into the hologram. Like a hacker or something. Now that I know what happened, I'm really sorry!'
+
+'Yeah, well I'm sorry, too. Just wanted to clear the air,' you say.
+
+'I appreciate it,' says Christine. 'You seem nice, and I'm always glad to make a new friend.'"
+
 Section 3 - Maeve
 
-party-Maeve is a woman in by the dessert table. The printed name of party-maeve is "Maeve". Understand "Maeve" or "younger" or "woman" or "sqaure" or "chin" or "curiously" or "small" or "ears" or "blonde" or "hair" or "rhinestone" or "jumpsuit" or "dangly" or "sapphire" or "earrings" or "thick" or "sunglasses" as party-maeve. The description of party-Maeve is "Maeve is a younger woman with a square chin, curiously small ears, and blonde hair. She is dressed glamorously, with a rhinestone jumpsuit, dangly sapphire earrings, and thick sunglasses."
+party-Maeve is a woman in near the entrance. The printed name of party-maeve is "Maeve". Understand "Maeve" or "younger" or "woman" or "sqaure" or "chin" or "curiously" or "small" or "ears" or "blonde" or "hair" or "rhinestone" or "jumpsuit" or "dangly" or "sapphire" or "earrings" or "thick" or "sunglasses" as party-maeve. The description of party-Maeve is "Maeve is a younger woman with a square chin, curiously small ears, and blonde hair. She is dressed glamorously, with a rhinestone jumpsuit, dangly sapphire earrings, and thick sunglasses."
 
 party-maeve likes the party-curator, morgan, party-webmaster, and party-max. Maeve dislikes party-andy and party-owen.
 
@@ -29624,13 +29720,25 @@ The targetresponse of amusing-quip is "He smiles, and says quietly, 'Is that so?
 
 Section 5 - Webmaster
 
-The Party-webmaster is a robotic man in by the dessert table. The printed name of party-webmaster is "Webmaster". Understand "webmaster" or "spider" or "anthropomorphic" or "head" or "numerous" or "eyes" or "quivering" or "chelicerae" or "legs" as the party-webmaster. The description of party-webmaster is "This is a robot shaped like an anthropomorphic spider. His head is as large as yours, with its numerous eyes and quivering chelicerae. The legs are longer than you are tall."
+The Party-webmaster is a robotic man in near the entrance. The printed name of party-webmaster is "Webmaster". Understand "webmaster" or "spider" or "anthropomorphic" or "head" or "numerous" or "eyes" or "quivering" or "chelicerae" or "legs" as the party-webmaster. The description of party-webmaster is "This is a robot shaped like an anthropomorphic spider. His head is as large as yours, with its numerous eyes and quivering chelicerae. The legs are longer than you are tall."
 
 Party-Webmaster desires party-curator. Party-webmaster likes max, arawn, and party-maeve. Party-webmaster likes party-andy.
 
+Cruel-quip is a quip. The target of Cruel-quip is party-webmaster. Understand "Cruel" as the Cruel-quip. The printed name of Cruel-quip is "Cruel". The preview of Cruel-quip is "Some of the things you said and did were really messed up.".
+
+Targetresponse of Cruel-quip is "'If it makes you feel any better, it was all in the record. If I hadn't lied to you, if I hadn't let you experience all of those monsters and spells, none of us would be here.'
+
+'So, what, you were forced to be like that?' you ask.
+
+He grins (at least, his mouth gets noticeably larger). 'No, I loved every second of it,' says the Webmaster.
+
+'If you're so sadistic, how do you still have a job?' you ask.
+
+'Some people learn best through suffering,' says the Webmaster. 'And I'm careful not to bother those in power. Unless destiny requires it, of course.'"
+
 Section 6 - Andy and Max
 
-Party-andy is a man in by the dessert table. The printed name of party-andy is "Andy". Understand "andy" or "short" or "man" or "waist" or "feet" or "smug" as party-andy. The description of party-andy is "[The Andy] is a short man wearing a suit that bulges tight around his waist and bunches up near his feet. He looks very smug right now."
+Party-andy is a man in by the dessert table. The printed name of party-andy is "Andy". Understand "andy" or "short" or "man" or "waist" or "feet" or "smug" as party-andy. The description of party-andy is "Andy is a short man wearing a suit that bulges tight around his waist and bunches up near his feet. He looks very smug right now."
 
 Party-andy desires party-maeve, party-christine, and arawn. Party-andy likes party-maeve, morgan, party-christine, arawn, and party-owen. Party-andy dislikes party-webmaster and party-curator.
 
@@ -29691,9 +29799,19 @@ party-owen likes party-maeve and party-max. party-owen dislikes party-andy.
 
 Section 9 - Curator
 
-The party-curator is a robotic woman in by the dessert table. The printed name of the party-curator is "Curator". Understand "Curator" or "Drone" or "humanoid" or "zookeeper" or "body" or "curator's" as the party-curator. The description of the party-curator is "The curator's body is a zookeeper drone, a roughly humanoid drone floating in the air".
+The party-curator is a robotic woman in by the dessert table. The printed name of the party-curator is "Curator". Understand "Curator" or "Drone" or "humanoid" or "zookeeper" or "body" or "curator's" as the party-curator. The description of the party-curator is "The curator's body is a zookeeper drone, a roughly humanoid drone floating in the air.".
 
 Party-curator likes party-max, party-maeve, and morgan. Party-curator dislikes arawn.
+
+Renewal-quip is a quip. The printed name of Renewal-quip is "Renewal". The target of Renewal-quip is Curator. Understand "Renewal" as Renewal-quip. The preview of Renewal-quip is "So, how's the new body?"
+
+The targetresponse of Renewal-quip is "'It's great!' says the Curator, flying around in a circle to show it off. 'Although, I guess it's just my old body, but the logic circuit is nice.'
+
+'Wait, though, aren't you the logic part of the drone? Like, your programming? Why does it need a logic circuit anyway?' you ask.
+
+'It mostly handles local things that don't require your brainpower, kind of like the way your brain stem handles reflexes. Like, check this out,' she say.  She flies higher, then stops, falling to the floor. Right before she hits the ground, something reactivates, and she bounces back up.
+
+'See? Reflexes,' she says.".
 
 Section 10 - Social Dynamics
 
@@ -29756,7 +29874,7 @@ To say invite-text:
 
 'So you don't actually know why they invited you,' you say.
 
-He glares at you. 'I admit that this group is missing most of the movers and shakers around here, although I do espy our beloved Pilot and her left-hand man Morgan here. But whatever I'm here for, it'll give me a better opportunity to network my growing collection of videos.'
+He glares at you. 'I admit that this group is missing most of the movers and shakers around here, although I do spy our beloved Pilot and her left-hand man Morgan here. But whatever I'm here for, it'll give me a better opportunity to network my growing collection of videos.'
 
 'Hmm,' you say";
 	otherwise if currenttarget is party-max:
@@ -29835,7 +29953,7 @@ Section 1 - Garden Path
 
 Garden-path is a room in wildcard-region. The printed name of garden-path is "Garden Path". "You are in the park between the two spires. Flowers lay all around you, but most are closed in the darkness. 
 
-The most prominent object in the park is a large obelisk, some distance away. A path winds through the flowers,  leading to the to the [boldsouthwest], and towards the obelisk."
+The most prominent object in the park is a large obelisk, some distance away. A path winds through the flowers, leading to the to the [boldsouthwest], and towards the obelisk."
 
 The two-spires are a plural-named distant backdrop. The two-spires are in garden-path and emrys-memorial. The printed name of the two-spires is "two spires". Understand "two" or "spire" or "spires" or "2" or "horns" or "great" or "bull" as the two-spires. The description of the two-spires is "The two spires curve up into night like the horns of a great bull. They only reflect the dark."
 
@@ -29899,14 +30017,16 @@ She travelled through time, left a record of infinite potential, and saved her s
 
 She gave her life to stop the engines of her ship from exploding, saving countless lives. We all owe our existence to her sacrifice.
 
-'There is no greater love than this, than to give your life for your friends.'[roman type][firsttime][end if]."
+'There is no greater love than this, than to give your life for your friends.'
+
+2272-2340[roman type][firsttime][end if]."
 
 To say firsttime:
 	say ".
 
 The words hit you like cold water. You turn to Emrys, who is silent[deliversac]"
 
-The memorial-flowers are scenery in memorial-path. The printed name of the memorial-flowers is "flowers". Understand "flower" or "flowers" or "garden" or "park" or "closed" or "variety" or "fresh" or "freshly" or "dug" or "ground" as the memorial-flowers. The description of the memorial-flowers is "The flowers here are newly planted. The ground still looks freshly dug[deliverplanting].".
+The memorial-flowers are scenery in memorial-path. The printed name of the memorial-flowers is "flowers". Understand "flower" or "flowers" or "garden" or "park" or "closed" or "bed" or "beds" or "variety" or "fresh" or "freshly" or "dug" or "ground" as the memorial-flowers. The description of the memorial-flowers is "The flowers here are newly planted. The ground still looks freshly dug[deliverplanting].".
 
 Instead of smelling the memorial-flowers:
 	say "The flowers smell sweet to you."
@@ -29933,7 +30053,13 @@ To say lightson:
 To say deliverplanting:
 	deliver planting-quip;
 
-planting-quip is a quip. 
+planting-quip is a quip. THe printed name of planting-quip is "Planting". Understand "planting" as planting-quip.The target of planting-quip is arawn. The preview of planting-quip is "You were planting these flowers when I first saw you, weren't you?"
+
+The targetresponse of planting-quip is "'That's right,' says Arawn. 'I wanted everything to look nice before you came.'
+
+'You frightened me,' you say, smiling a bit. 'With your mask and you tools, you looked like the grim reaper.'
+
+Arawn smiles; it's the most pleased you've seen her so far."
 
 To say deliversac:
 	deliver sacrifice-quip;
@@ -29967,12 +30093,18 @@ The targetresponse of resigned-quip is "Arawn nods and says, 'That is the same c
 
 'I mean, what else can I say?' you ask.
 
-She is silent for a moment[clearemotions]."
+She is silent for a moment.
+
+[clearemotions]"
 
 To say clearemotions:
-	remove angry-quip;
-	remove sad-quip;
-	remove resigned-quip;
+	say "[bracket]Removed topics - Angry, Sad, Resigned[close bracket][line break]";
+	now angry-quip is MeihTarget;
+	now angry-quip is nowhere;
+	now sad-quip is MeihTarget;
+	now sad-quip is nowhere;
+	now resigned-quip is MeihTarget;
+	now resigned-quip is nowhere;
 	deliver whatnext-quip;
 	deliver refuse-quip;
 	
@@ -30009,12 +30141,18 @@ The targetresponse of Skeptical-quip is "'Well, Emrys Tisserand has to die. Or s
 
 Relieved-quip is a quip. The printed name of Relieved-quip is "Relieved". Understand "Relieved" as Relieved-quip. The target of Relieved-quip is arawn. The preview of Relieved-quip is "Oh thank heavens, I was panicking!"
 
-The targetresponse of Relieved-quip is "Arawn's jaw tightens. 'But it won't be easy. The only way I can think of saving you is if I take your place.[clearreactions].'"
+The targetresponse of Relieved-quip is "Arawn's jaw tightens. 'But it won't be easy. The only way I can think of saving you is if I take your place.'
+
+[clearreactions]"
 
 To say clearreactions:
-	remove timing-quip;
-	remove skeptical-quip;
-	remove relieved-quip;
+	say "[bracket]Removed topics - Timing, Skeptical, Relieved[close bracket][line break]";
+	now timing-quip is MeihTarget;
+	now timing-quip is nowhere;
+	now skeptical-quip is MeihTarget;
+	now skeptical-quip is nowhere;
+	now relieved-quip is MeihTarget;
+	now relieved-quip is nowhere;
 	deliver substitute-quip;
 
 Substitute-quip is a quip. The printed name of substitute-quip is "Proxy". Understand "Proxy" as Substitute-quip. The target of Substitute-quip is arawn. The preview of Substitute-quip is "What do you mean, take my place?"
@@ -30039,7 +30177,7 @@ Underneath, she is just a woman, a little younger than you. Her eyes are dark, a
 
 You look over her face, with its ridged nose and faintly scarred cheekbones. 'No.'
 
-'Then neither will they. I've thought about this. Remember when you did the time travel calibration with the apples dipped in caramel? It didn't matter which apple you put in caramel, because that information wasn't preserved. If I look like you, I can [italic type]be[roman type] you. I even had my teeth replaced to match your records. It is my utmost belief that, if I take your place, no one will ever know the difference. And you could take mine. I've worn a mask my whole career, and my term ends in just a few days. I have a retirement planned[changeface].".
+'Then neither will they. I've thought about this. Remember when you did the time travel calibration with the apples dipped in caramel? It didn't matter which apple you put in caramel, because that information wasn't preserved. If I look like you, I can [italic type]be[roman type] you. I even had my teeth replaced to match your records. It is my utmost belief that, if I take your place, no one will ever know the difference. And you could take mine. I've worn a mask my whole career, and my term ends in just a few days. I have a retirement planned[changeface].'".
 
 To say changeface:
 	now arawn is unmasked;
@@ -30066,7 +30204,7 @@ To say delstory:
 	
 Story-quip is a quip. The printed name of story-quip is "Story". Understand "Story" as story-quip. The target of story-quip is arawn. The preview of story-quip is "Tell me your story, Weaver."
 
-The targetresponse of story-quip is "*************************************************************************************************[line break]As you listen to her story, you can imagine what it would be like...*************************************************************************************************
+The targetresponse of story-quip is "*************************************************************************************************[line break]As you listen to her story, you can imagine what it would be like...[line break]*************************************************************************************************
 
 Claxons sound on the bridge of the Starship Tragwyddol. The navigator shouts out in fear:
 
@@ -30088,7 +30226,7 @@ You raise one hand and freeze time itself. You raise the other, and rip open a p
 
 Who do you help first?
 
-1)The Captain, so he can lead the ship.[line break]2)My friends, to make sure they survive.[line break]3)The frozen settlers, to ensure their future[choiceprompt]."
+1) The Captain, so he can lead the ship.[line break]2) My friends, to make sure they survive.[line break]3) The frozen settlers, to ensure their future[choiceprompt]."
 
 To say choiceprompt:
 	now the command prompt is "Choose 1, 2, or 3>";
@@ -30194,13 +30332,13 @@ To say secondchunk:
 	increment choiceprogress;
 	say "You have made a difference, but a hero's work is never finished. With that first task completed, who will you help next?
 
-1)We need to move the ship out of the asteroid field.[line break]2)We have to repair the ship! I help the engineers.[line break]3)I make sure the animals on board are safe.";
+1) We need to move the ship out of the asteroid field.[line break]2) We have to repair the ship! I help the engineers.[line break]3) I make sure the animals on board are safe.";
 
 To say thirdchunk:
 	increment choiceprogress;
 	say "The ship is in much better shape now. What are you going to do to finish things off?
 
-1)I stop an escaped criminal who is terrifying the crew![line break]2)I pinpoint the last remaining asteroids so we can steer clear![line break]3)I make sure all the children on board are safe.";
+1) I stop an escaped criminal who is terrifying the crew![line break]2) I pinpoint the last remaining asteroids so we can steer clear![line break]3) I make sure all the children on board are safe.";
 
 To say fourthchunk:
 	increment choiceprogress;
@@ -30208,7 +30346,7 @@ To say fourthchunk:
 
 No! The ship itself is exploding! The engines are overloaded! There is only one thing to do!
 
-1)Sacrifice myself to save the ship[singleprompt]!";
+1) Sacrifice myself to save the ship[singleprompt]!";
 
 To say singleprompt:
 	now the command prompt is "Choose 1>";
@@ -30248,11 +30386,11 @@ She presses the silver device on her wrist, and the ground shakes. The pedestal 
 
 'It is time,' she says, and taps several buttons on the pedestal.
 
-The tool begins, to flash, and Arawn backs away, pulling you with her. Then with a completely silent and still explosion, the largest rift you've ever seen opens in front of you, a red rift with a trail of energy that extends up into the sky. The pedestal lowers again, taking the tool with it.
+The tool begins to flash, and Arawn backs away, pulling you with her. Then with a completely silent and still explosion, the largest rift you've ever seen opens in front of you, a red rift with a trail of energy that extends up into the sky. The pedestal lowers again, taking the tool with it.
 
 Arawn looks at you and holds up your recorder in her hand, the one she took from you earlier. 'This is what changed history,' she said. 'This is what matters. It's time to make your choice. Either you can wear the recorder, and sacrifice yourself to save your ship, or you can give it back to me, and I can do it for you. It will cost you nothing: merely a stranger's death.'
 
-You think through your options. To complete the time loop, one of you will have to put on the recorder and go in. So, like Arawn said, you can either wear the recorder or give it to here. 
+You think through your options. To complete the time loop, one of you will have to put on the recorder and go in. So, like Arawn said, you can either wear the recorder or give it to her. 
 
 But there's a third option you don't dare say aloud: you could destroy the recorder, and erase this entire time loop. Start over fresh, but destroy her world[make-rift].
 
@@ -30289,7 +30427,7 @@ Then she squares up her shoulders, and steps into the rift. As she disappeas, sh
 	now the player is arawn webster;
 	try looking;
 
-After attacking the all-recorder when the all-recorder is not worn by the player:
+Instead of attacking the all-recorder when the all-recorder is not worn by the player:
 	say "Arawn sees what you are doing, but cannot stop you in time.
 
 'Emrys, no!' she shrieks, but everything around you is folding into itself in a red haze.";
@@ -30848,7 +30986,7 @@ Test qeighthshard with "set tool to lockpick/unlock door/w/set tool to connector
 
 Test eighthupgrade with "put shard in hole/put tool on pedestal/s/say proud/e/d/set tool to harvester/s/s/cheatrift/point tool at rift/n/n/e/e/point tool at rift/w/w/u/s/point tool at rift/n/e/point tool at rift/w/u/n/e/point tool at rift/w/w/point tool at rift/e/n/u/e/point tool at rift/w/w/n/point tool at rift/s/e/d/s/d/w/n/point tool at rift/put tool on pedestal/remove shoes/remove mask/drop all/enter rift"
 
-Test qeighthupgrade with "put shard in hole/put tool on pedestal/s/say proud/e/d/set tool to harvester/n/cheatrift/point tool at rift/s/s/listen/say escape/point tool at rift/n/w/point tool at rift/e/u/n/point tool at rift/s/e/point tool at rift/w/s/s/point tool at rift/n/u/n/point tool at rift/s/s/say quest/point tool at rift/n/d/w/n/point tool at rift/put tool on pedestal/remove shoes/remove mask/drop all/enter rift" in device-room.
+Test qeighthupgrade with "put shard in hole/put tool on pedestal/s/say proud/e/d/set tool to harvester/s/s/listen/say escape/cheatrift/point tool at rift/n/n/e/e/point tool at rift/w/w/u/s/point tool at rift/n/e/e/point tool at rift/w/u/n/e/point tool at rift/w/w/point tool at rift/e/n/u/e/point tool at rift/w/w/n/point tool at rift/s/e/d/s/d/w/n/point tool at rift/put tool on pedestal/remove shoes/remove mask/drop all/enter rift" in device-room.
 
 Test alltool with "test totool/test firstshard/test firstupgrade/test secshard/test secupgrade/test thirdshard/test thiupgrade/test fourthshard/test fourthupgrade/test fifthshard/test fifthupgrade/test sixthshard/test sixthupgrade/test sevshard/test sevupgrade/test eighthshard/test eighthupgrade"
 
@@ -31133,6 +31271,8 @@ Part 4 - Temporary beta-testing stuff
 
 Chapter 1 - Sergeant Olgin
 
+[This isn't temporary. Just leaving it here in case people need it]
+
 Sergeant Olgin is a talkative woman in Transit-room. "Sergeant Olgin is directing the rescue and repair effort in this sector of the starship[deliverexplanation]." The description of Sergeant Olgin is "Sergeant Olgin is a short woman with black hair tied up in a bun, wearing a beige military uniform. 
 
 Try TALKing TO the Sergeant if you don't know how conversation works in this game, or SAY EXPLANATION if you do." 
@@ -31143,6 +31283,7 @@ The beige-uniform is worn by Sergeant Olgin. The printed name of the beige-unifo
 
 To say deliverexplanation:
 	deliver Sergeant-Explanation;
+	clear the flags;
 	
 Sergeant-Explanation is a quip carried by the player. The printed name of Sergeant-Explanation is "Explanation". Understand "explanation" as Sergeant-Explanation. The preview of Sergeant-Explanation is "Hey, can you tell me everything about the game?" The target of Sergeant-Explanation is Sergeant Olgin.
 
@@ -31150,7 +31291,7 @@ The targetresponse of Sergeant-Explanation is "'Of course! Unfortunately, the au
 	
 'You are wearing a recorder that records all audio you hear, and can help with translation. It's what enables your conversation system. You can examine the recorder for more info.
 
-'To start this demo, go [boldwest] This room you're in and the this starting area aren't finished yet. Every other part of the game, outside the ending, is complete.
+'To start this demo, follow whatever directions you were given. Outside of the intro and the ending,  every other part of the game is complete.
 
 'Good luck!' she says, and salutes you."
 
@@ -31216,6 +31357,16 @@ Carry out toolteleporting:
 	if the player is not in device-room:
 		say "[paragraph break][bracket]Testers: Only the octagon door/hatch/trapdoor is important here. Teleporting to this room causes errors in the surrounding level, but those errors do not affect the material you are testing. You do not need to explore this area or pick up anything or do anything besides open the door and enter.[close bracket][line break]";
 		
+Arawntping is an action applying to nothing. Understand "xyzarawn" as arawntping. 
+
+Carry out arawntping:
+	now the all-recorder is worn by arawn webster;
+	now arawn webster is in engine-closet;
+	now the story viewpoint is third person singular; 
+	now the player is arawn webster;
+	try looking;
+
+
 Chapter 3 - Maps
 
 Index map with web-room mapped north of dark-room. 
