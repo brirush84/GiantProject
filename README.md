@@ -20,11 +20,9 @@ Finished areas:
 
 -world monuments (tested)
 
--toolroom (untested)
+-toolroom (tested)
 
-Areas under construction:
-
--Opening, megaship and final puzzle (partially finished)
+-Opening, megaship and final puzzle (finished, untested)
 
 Remaining areas:
 
