@@ -25,7 +25,7 @@ Release along with cover art.
 
 Section 1 - Genre, description, etc
 
-The story genre is "Science Fiction". The story description is "Hop through dimensions to save your ship." The story creation year is 2023. The release number is 53.
+The story genre is "Science Fiction". The story description is "Hop through dimensions to save your ship." The story creation year is 2023. The release number is 54.
 
 Section 2 - Increasing memory sizes
 
@@ -279,7 +279,7 @@ Report uttering a quip to someone:
 
 A person is usually not talkative.
 
-Every turn:
+Every turn (this is the clear personlists rule):
 	clear personlists;
 	
 When play begins:
@@ -329,7 +329,7 @@ Carry out all-topicing:
 		now target of current is talkative;
 	try topicing;
 
-The standard singleuttering rule response (B) is "[if the all-recorder is worn by the player]Your recorder beeps. This is a message meant for [the target of the noun], who isn't here[otherwise if the player is in party-region]You want to talk to [the target of the noun], but [they] [are] across the room. You can JOIN [them], if you wish.[otherwise][The target of the noun] isn't here right now[end if].";
+The standard singleuttering rule response (B) is "[if the all-recorder is worn by the player]Your recorder beeps. This is a message meant for [the target of the noun], who isn't here[otherwise if the player is in party-region]You want to talk to [the target of the noun], but [they] [are] across the room. You can JOIN [them], if you wish[otherwise][The target of the noun] isn't here right now[end if].";
 
 The advice on talking to just one person rule response (A) is "[We] [can] see just the topics for one person at a time by TALKing TO that person[first time]
 
@@ -1544,7 +1544,11 @@ The party-crowd is scenery neuter person in opening-room. The printed name of th
 Instead of physicality when the noun is the party-crowd:
 	say "You keep your distance from most of the crowd."
 
-The banquet-benches are distant plural-named scenery supporters in opening-room. The banquet-benches can be shattered or unshattered. The banquet-benches are unshattered. The printed name of the banquet-benches is "benches". Understand "bench" or "benches" as the banquet-benches. The description of the benches is "[if the banquet-benches are shattered]The benches have been broken, shattered by the impact[otherwise]In the further parts of the room, benches are lined up to provide as much seating as possible for the partygoers[end if]." Understand the shattered property as describing the banquet-benches. Understand "broken" as shattered.
+The banquet-benches are distant plural-named scenery supporters in opening-room. The banquet-benches can be shattered or unshattered. The banquet-benches are unshattered. The printed name of the banquet-benches is "benches". Understand "bench" or "benches" as the banquet-benches. The description of the benches is "[if the banquet-benches are shattered]The benches have been broken, shattered by the impact[otherwise]In the further parts of the room, benches are lined up to provide as much seating as possible for the partygoers[end if]." Understand the shattered property as describing the banquet-benches. Understand "broken" or "smashed" or "pieces" or "to pieces" as shattered.
+
+Before physicality when the noun is the banquet-benches:
+	if the banquet-benches are shattered:
+		say "The benches have been smashed to pieces. You'd probably get a splinter." instead;
 
 The emrys-seat is an enterable scenery supporter in opening-room. The printed name of the emrys-seat is "seat". The indefinite article of emrys-seat is "your". Understand "your seat" or "padded" or "cushion" or "seat" or "your chair" or "chair" as the emrys-seat. The description of the emrys-seat is "Your seat has a padded cushion, making it one of the more comfortable chairs, in deference to your age.".
 
@@ -1615,7 +1619,7 @@ Rule for writing a paragraph about party-gareth when open-scene is not happening
 
 The Captain wanders off.
 
-'Here let me grab those things for you,' says Gareth. He grabs [the list of memorable things enclosed by the player] and places [them] on the display table. Then he pulls out your chair for you and grabs one of the donuts, stuffing it in his mouth.";
+'Here, let me grab those things for you,' says Gareth. He grabs everything you found in the storage room and places them on the display table. Then he pulls out your chair for you and grabs one of the donuts, stuffing it in his mouth.";
 	now the ceremonial-jacket is nowhere;
 	deliver weird-quip;
 	deliver reminder-quip;
@@ -1898,8 +1902,10 @@ There is an exit to the [boldnorth].";
 		now the banquet-benches are shattered;
 		now the command prompt is ">";
 		reject the player's command;
-		
-After looking in auxiliary-quarters for the first time:
+
+Endintro is a scene. Endintro begins when the player is in auxiliary-quarters.
+
+When endintro begins:
 	say "A voice comes over the shipwide intercom. 'This is Sergeant Olgin of Transportation Control. We have received damage from an asteroid impact. All non-essential personnel are asked to proceed towards evacuation centers and stand by. All officers and auxiliary staff that are not required for emergency operations, please help to maintain order and take care of any injured civilians.'
 
 Gareth doesn't look too good. While seemingly uninjured, he is pale. 'I think I'm going to go to my office,' he says, and staggers away to the north.
@@ -6770,7 +6776,7 @@ Every turn when a cai-man (called currentcai) is lured (this is the caiman rule)
 
 The caiman rule is listed after the zoo following rule in the every turn rulebook.
 
-Every turn:
+Every turn when the player is in bigcosm-region:
 	let temproom be the location of scarred-caiman;
 	if the keeper-body is unhandled:
 		if the number of cai-man in temproom is 2:
@@ -9648,7 +9654,8 @@ Instead of entering the final-rift:
 		say "A gentle voice from the pedestal says, 'Outside item detected. Please leave all items you are holding or wearing behind, besides your recorder. You will not have the opportunity to return.'";
 	otherwise:
 		repeat with current running through quips enclosed by the player:
-			remove current;
+			now current is nowhere;
+			now current is meihtarget;
 		say "[line break]*************************************************************************************************[line break]";
 		say "You are engulfed in a blue haze, losing all sense of direction. Slowly the haze clears.";
 		say "*************************************************************************************************[paragraph break]";
@@ -15492,7 +15499,7 @@ Before printing the name of something flaming:
 		if the noun is not a strikable-match:
 			say "flaming ";
 		
-Every turn:
+Every turn when flaming-printed is true:
 	now flaming-printed is false;
 
 Understand "burn [something]" or "light [something]" as burning when the player is not in monument-region.
@@ -29838,7 +29845,7 @@ The trag-timeline is in timeline-region. The printed name of the trag-timeline i
 
 This part of the timeline covers the construction of the Starship Tisserand."
 
-The con-timeline is scenery in trag-timeline. The printed name of the con-timeline is "timeline". Understand "time" or "line" or "timeline" or "construction" or "construction of" or "yang" or "labs" or "lab" or "antonio" or "starship" or "2350" or "tisserand" or "pan-sector" or "council" or "bronwyn" or "ad" as the con-timeline. The description of the con-timeline is "This part of the timeline begins in 2350 AD, with the establishment of Yang Labs by Antonio Yang.
+The con-timeline is scenery in trag-timeline. The printed name of the con-timeline is "timeline". Understand "time" or "line" or "timeline" or "construction" or "construction of" or "yang" or "labs" or "lab" or "antonio" or "starship" or "2350" or "tisserand" or "pan-sector" or "council" or "bronwyn" or "red" or "ad" as the con-timeline. The description of the con-timeline is "This part of the timeline begins in 2350 AD, with the establishment of Yang Labs by Antonio Yang.
 
 It has a bewildering display of new technologies coming from a variety of research institutions and corporations in a short time. Telecommunications, artificial intelligence, and robotics all took off in a very short time.
 
@@ -29891,7 +29898,7 @@ When museum-scene ends:
 		move character to space.
 				
 At the time when the reminder hits:
-	if the player is not in party-region:
+	if the player is in map-region or the player is in timeline-region:
 		say "You remember that you heard Arawn's voice telling you the reception was ready outside.";
 		the reminder hits in 30 turns from now;		
 
@@ -30087,6 +30094,14 @@ Before uttering something to someone in party-region:
 			say "(first joining [the second noun])[command clarification break]";
 			try personjoining the second noun;
 
+Before singleuttering something in party-region:
+	if the target of the noun is not nobody:
+		if the target of the noun is not in the location:
+			if the target of the noun is in party-region:
+				say "(first joining [the target of the noun])[command clarification break]";
+				try personjoining the target of the noun;
+
+
 Understand "go to [any p-room]" or "join [any p-room]" as joining when the player is in party-region. Joining is an action applying to one visible thing. 
 
 Before joining: 
@@ -30173,7 +30188,7 @@ To assign value of spaces for (mover - a person):
 	repeat with space running through p-rooms:
 		now attractiveness of the space is 0;
 		repeat with figure running through people in the space:
-			if the mover is bored, decrease attractiveness of the space by 3;
+			if the mover is bored, decrease attractiveness of the space by 2;
 			if the mover likes the figure, increment attractiveness of the space;
 			if the mover dislikes the figure, decrement attractiveness of the space;
 			if the mover desires the figure, increase attractiveness of the space by 2;
@@ -30243,6 +30258,19 @@ Rule for writing a paragraph about Morgan:
 		deliver amusing-quip;
 		repeat with character running through people in the location:
 			if the character is not Morgan and the character is not the flirt, now the character is bored;
+	deliver vision-quip;
+
+Vision-quip is a quip. The target of vision-quip is morgan. Understand "vision" as vision-quip. The printed name of vision-quip is "Vision". The preview of vision-quip is "I think I've heard your voice before, in a vision".
+
+The targetresponse of vision-quip is "'Oh? You have those too? That wasn't in the Record.'
+
+'What do you mean, [']too[']? Does Arawn get them?' you ask.
+
+'Now and then. She doesn't talk about it much. So...you heard me talking. I hope it wasn't anything too embarassing.'
+
+'No, it was you and Arawn talking about things. About me. Nothing personal between you.'
+
+'Ah. Well, despite my best efforts, there never has been anything personal between us.'"
 
 Amusing-quip is a quip. The target of amusing-quip is Morgan. The printed name of amusing-quip is "Amusing". Understand "amusing" as amusing-quip. The preview of Amusing-quip is "You and Arawn seem to be having a good time together."
 
@@ -30615,7 +30643,7 @@ Angry-quip is a quip. The printed name of angry-quip is "Angry". Understand "ang
 
 The targetresponse of angry-quip is "'I am sorry,' says Arawn. 'I've thought about it for so long, I didn't realize how my phrasing would affect you.'
 
-'Phrasing? You're talking about me dying in a fiery inferno. I think [']sorry for phrasing['] doesn't cut it,' you say bitingly[clearemotions]."
+'Phrasing? You're talking about me dying in a fiery inferno. I think [']sorry for phrasing['] doesn't cut it,' you say bitingly.[clearemotions]"
 
 Sad-quip is a quip. The printed name of sad-quip is "Sad". Understand "sad" as sad-quip. The target of sad-quip is arawn. The preview of sad-quip is "That's horrible! That can't be the ending!"
 
@@ -30623,7 +30651,7 @@ The targetresponse of sad-quip is "'I'm afraid so,' says Arawn. 'If it helps you
 
 'And...?' you ask hopefully.
 
-'The story of Emrys Tisserand must end with her death,' she says[clearemotions]."
+'The story of Emrys Tisserand must end with her death,' she says.[clearemotions]"
 
 Resigned-quip is a quip. The printed name of resigned-quip is "Resigned". Understand "resigned" as resigned-quip. The target of resigned-quip is arawn. The preview of resigned-quip is "I guess it makes sense, in the end."
 
@@ -30631,12 +30659,10 @@ The targetresponse of resigned-quip is "Arawn nods and says, 'That is the same c
 
 'I mean, what else can I say?' you ask.
 
-She is silent for a moment.
-
-[clearemotions]"
+She is silent for a moment.[clearemotions]."
 
 To say clearemotions:
-	say "[bracket]Removed topics - Angry, Sad, Resigned[close bracket][line break]";
+	say "[paragraph break][bracket]Removed topics - Angry, Sad, Resigned[close bracket][line break]";
 	now angry-quip is MeihTarget;
 	now angry-quip is nowhere;
 	now sad-quip is MeihTarget;
@@ -30667,7 +30693,7 @@ To say otherway:
 	
 Timing-quip is a quip. The printed name of Timing-quip is "Timing". Understand "Timing" as Timing-quip. The target of Timing-quip is arawn. The preview of Timing-quip is "I would have led with that!"
 
-The targetresponse of Timing-quip is "'It isn't easy for me to talk about it,' she says. 'The only way I can see out of this, is for me to take your place[clearreactions].'"
+The targetresponse of Timing-quip is "'It isn't easy for me to talk about it,' she says. 'The only way I can see out of this, is for me to take your place.'[clearreactions]"
 
 Skeptical-quip is a quip. The printed name of Skeptical-quip is "Skeptical". Understand "Skeptical" as Skeptical-quip. The target of Skeptical-quip is arawn. The preview of Skeptical-quip is "I don't see how; you said that I had to die."
 
@@ -30675,16 +30701,14 @@ The targetresponse of Skeptical-quip is "'Well, Emrys Tisserand has to die. Or s
 
 'You mean--' you say.
 
-'I could take your place[clearreactions].'"
+'I could take your place.'[clearreactions]"
 
 Relieved-quip is a quip. The printed name of Relieved-quip is "Relieved". Understand "Relieved" as Relieved-quip. The target of Relieved-quip is arawn. The preview of Relieved-quip is "Oh thank heavens, I was panicking!"
 
-The targetresponse of Relieved-quip is "Arawn's jaw tightens. 'But it won't be easy. The only way I can think of saving you is if I take your place.'
-
-[clearreactions]"
+The targetresponse of Relieved-quip is "Arawn's jaw tightens. 'But it won't be easy. The only way I can think of saving you is if I take your place.'[clearreactions]"
 
 To say clearreactions:
-	say "[bracket]Removed topics - Timing, Skeptical, Relieved[close bracket][line break]";
+	say "[paragraph break][bracket]Removed topics - Timing, Skeptical, Relieved[close bracket]";
 	now timing-quip is MeihTarget;
 	now timing-quip is nowhere;
 	now skeptical-quip is MeihTarget;
@@ -30907,7 +30931,7 @@ Nothing disturbs the silence around you, here in the moonlight at your own grave
 
 She looks up at you. 'It almost broke me, realizing that my childhood stories weren't real. I realized that you were in many ways a victim of circumstance. I realized that, when the time came, it might be hard for you to do the right thing. And that's when I realized that, if everything else was fake, what if your death was as well? What if someone else died the death of a the great hero Emrys Tisserand?'
 
-And,' she adds, 'what if that person was me?'";
+And,' she adds, 'what if that person was me?'[line break]";
 		now the command prompt is ">";
 		if how-quip is targetgiven:
 			deliver choice-quip;
@@ -31020,6 +31044,12 @@ Instead of smelling when the player is in engine-closet:
 
 The radiation-suit is a wearable thing in engine-closet. The printed name of the radiation-suit is "radiation suit". Understand "radiation" or "suit" or "yellow" or "sterile" or "dry" or "stretchy" as the radiation-suit. The description of the radiation-suit is "[if the player is emrys-weaver]You've seen suits like these before, yellow and thick. They're designed to mitigate radiation. There were likely many around here before; perhaps others grabbed them once the asteroid struck. It's stretchy; you should fit[otherwise]The suit is exactly as Arawn remembers from the photos and holograms. But it looks different in person, sterile and dry. It will fit her, and it must, if she is to keep her identity away from the world[end if]."
 
+AFter taking the radiation-suit for the first time:
+	if the player is emrys-weaver:
+		say "You grab the suit, your hands trembling. You realize that you saw this place in a vision this morning, right before the impact. Everything has been leading to this.";
+	otherwise:
+		say "Arawn takes the suit. She knows it is not strong enough to protect her, but it is essential for her disguise."
+
 To fit is a verb.
 
 After wearing the radiation-suit:
@@ -31085,7 +31115,7 @@ Instead of pulling or pushing or shaking or attacking the busted-support:
 To tug is a verb.
 
 Instead of taking the busted-support for the first time:
-	say "[We] [adapt the verb tug] hard and [pull] out the rotten beam from the staircase.";
+	say "[We] [adapt the verb tug] hard and [pull] out the broken support from the coolant pipe, which bobs up and down.";
 	now the busted-support is carried by the player;
 
 The pristine-support is a metallic thing. The printed name of the pristine-support is "pristine support". Understand "pristine" or "new" or "support" or "metal" as the pristine-support. The description of the pristine-support is "This metal support looks to be in perfect condition[if the busted-support is not part of the burst-pipe], unlike the busted one [we] removed earlier[end if][if the pristine-support is part of the burst-pipe]. It's set perfectly under the coolant pipe[otherwise]. It seems to be the perfect height to fit under the pipe[end if]." 
@@ -31102,12 +31132,13 @@ Instead of inserting something into the burst-pipe:
 		if the busted-support is part of the burst-pipe:
 			say "The broken support is still in its place, and needs to be removed first.";
 		otherwise:
-			say "[We] [push] the pristine support into place beneath the coolant pipe. It fits perfectly! The water leak disappears.";
+			say "[We] [push] the pristine support into place beneath the coolant pipe. It fits perfectly! The water leak disappears. Everything should be flowing well to the reactor room, now.";
 			now the pristine-support is part of the burst-pipe;
+			if something is in streaming-water:
+				say "[line break][We] [take] [the list of things in streaming-water] again, now that the water is gone.";
+				repeat with current running through things in streaming-water:
+					now current is held by the player;
 			now the streaming-water is nowhere;
-			say "[We] [take] [the list of things in streaming-water] again, now that the water is gone.";
-			repeat with current running through things in streaming-water:
-				now current is held by the player;
 	otherwise:
 		if the noun is the busted-support:
 			say "[We] [don't] want to put that back in!";
@@ -31147,7 +31178,7 @@ Instead of searching the finale-door:
 
 The door-bar is scenery in engine-closet. The printed name of the door-bar is "bar". Understand "bar" as the door-bar. The description of the door-bar is " This is a heavy bar that slides in and out of the wall to lock or unlock the door. Even when fully extended, most of it remains in the wall. It is currently [if the finale-door is locked]locked[otherwise]unlocked[end if]."
 
-The reactor-floor is a backdrop in finale1-region. THe printed name of the reactor-floor is "floor". Understand "floor" or "panels" or "panel" as the reactor-floor. The description of the reactor-floor is "The floor is mostly made up of panels, and has little of interest for [us]."
+The reactor-floor is a backdrop in finale1-region. THe printed name of the reactor-floor is "floor". Understand "floor" or "panels" as the reactor-floor. The description of the reactor-floor is "The floor is mostly made up of panels, and has little of interest for [us]."
 
 Instead of putting something on the reactor-floor:
 	try dropping the noun;
@@ -31193,7 +31224,7 @@ Section 4 - The rail
 
 The remaining-rail is a scenery supporter in the coolant-room. The printed name of the remaining-rail is "exposed rail". Understand "exposed" or "steel" or "rail" as the remaining-rail. The description of the remaining-rail is "This steel rail is ten centimeters wide and runs along the center of the channel, passing directly under the hole in the ceiling."
 
-The balanced-door is an enterable supporter. "The broken door is perfectly balanced on the rail."The printed name of the balanced-door is "balanced door". Understand "door" or "wide" or "notch" or "balanced" or "notched" or "broken" as the balanced-door. The description of the balanced-door is "This is a broken door made of something sturdy enough for several people to stand on. There is a wide notch in the center, which cuts the short way across the plank. Right now the plank is balanced on the rail."
+The balanced-door is an enterable supporter. "The broken door is perfectly balanced on the rail."The printed name of the balanced-door is "balanced door". Understand "door" or "wide" or "notch" or "balanced" or "notched" or "broken door" as the balanced-door. The description of the balanced-door is "This is a broken door made of something sturdy enough for several people to stand on. There is a wide notch in the center, which cuts the short way across the plank. Right now the plank is balanced on the rail."
 
 To balance is a verb.
 
@@ -31319,7 +31350,7 @@ The last of the ash is rinsed away, reavealing a faulty logic ring.
 		if the burnt-pile is unoncerinsed:
 			say ". Instantly the water downstream turns foul and dark, and remains that way for a few seconds before clearing.
 
-Much of the ash in the bowl is rinsed away, now";
+Much of the ash in the bowl is rinsed away, now; one might be able to shake out more";
 			now the burnt-pile is oncerinsed;
 
 Instead of rubbing the metal-bowl when burnt-pile is in metal-bowl:
@@ -31411,11 +31442,14 @@ Robot-dirs is a list of directions that varies. Robot-dirs is {north, east, sout
 
 The rusty-robot is a neuter person in robot-room.  The rusty-robot has a robot-light. The printed name of the rusty-robot is "rusty robot". Understand "rusty" or "robot" as the rusty-robot. "A rusty robot is [first time]the only robot remaining [only]here, facing [entry 1 of robot-dirs]." The description of the rusty-robot is "This robot is boxy and small, but looks heavy. It's also broken; it has a flipper arm (used for righting itself), but it is missing a large chunk of whatever forward attachment it once had. 
 
-It has a control panel with the following buttons on it: RECORD, PLAY, RIGHT, LEFT, FORWARD, FLIPPER, CAPTURE, RELEASE.
+It has a control panel with the following buttons on it: RECORD, PLAY, RIGHT, LEFT, FORWARD, SELFRIGHT, CAPTURE, RELEASE.
 
 There is a light on the panel labelled STATUS. It is currently [robot-light of rusty-robot][if the player is arawn].
 
 The robot appears very simplistic to Arawn, given the kind that she is used to[end if]."
+
+Instead of switching on or switching off the rusty-robot:
+	say "The robot is controlled by its individual buttons. It doesn't have a specific on or off switch.";
 
 The robot-panel is part of the rusty-robot. The printed name of the robot-panel is "robot's control panel". Understand "robot's" or "its" or "control" or "panel" as the robot-panel. The description of the robot-panel is "The control panel of the robot is bafflingly imprecise. It consists of numerous buttons: RECORD, PLAY, RIGHT, LEFT, FORWARD, FLIPPER, CAPTURE, RELEASE.
 
@@ -31424,6 +31458,9 @@ There is a light on the panel labelled STATUS. It is currently [robot-light of r
 The robot-status is part of the robot-panel. The printed name of the robot-status is "status light". Understand "status" or "light" as the robot-status. Understand "green" as the robot-status when the rusty-robot is rob-play. Understand "red" as the robot-status when the rusty-robot is rob-rec. The description of the robot-status is "This is a light labelled Status, located on the control panel of the rusty robot, and currently [robot-light of rusty-robot].".
 
 The flipper-arm is part of the rusty-robot. The printed name of the flipper-arm is "flipper arm". Understand "flipper" or "arm" as the flipper-arm. The description of the flipper-arm is "The flipper arm is a relic of the oldest models of robots that tended to get stuck. It allows the robot to flip upright, but it can be a problem for nice floors, as it can cause quite an impact.".
+
+Does the player mean pushing the flipper-arm:
+	it is very unlikely;
 
 A robot-button is a kind of thing. A robot-button has some text called robut-name. The printed name of a robot-button is usually "[robut-name] button". Understand the robut-name property as describing a robot-button. Understand "button" as a robot-button.
 
@@ -31514,9 +31551,31 @@ Instead of pushing the forward-button:
 
 Robot-forwarding is an action applying to nothing. 
 
+To say nameus:
+	if the player is emrys-weaver:
+		say "you";
+	otherwise:
+		say "Arawn";
+
+To say capnameus:
+	if the player is emrys-weaver:
+		say "You";
+	otherwise:
+		say "Arawn";
+
 Carry out an actor robot-forwarding:
+	let temp be the location of the actor;
 	let way be entry 1 of robot-dirs;
-	try the rusty-robot going way;
+	if way is east and temp is coolant-room:
+		if the balanced-door is in the location:
+			say "The robot drives east, onto the balanced door, which wobbles back and forth[if the player is on balanced-door] with [nameus] on it[end if].";
+			now the rusty-robot is on the balanced-door instead;
+		otherwise:
+			say "The rusty robot tries to drive east, but the channel blocks it, and it refuses to attempt to cross." instead;
+	otherwise:
+		try the rusty-robot going way;
+		if the rusty-robot is in temp:
+			say "[The rusty-robot] tries to go [way], but bumps into the wall.";
 	
 Instead of pushing the flipper-button:
 	add the rusty-robot robot-flipping to the robot-list of rusty-robot;
@@ -31528,10 +31587,10 @@ Carry out an actor robot-flipping:
 	if the rusty-robot is visible:
 		say "[The rusty-robot] engages its flipper arm and does a backflip, landing with a heavy [italic type]thud[roman type][first time].
 
-It looks like its some kind of self-righting mechanism[only]."
+Interesting--It looks like the flipper is some kind of self-righting mechanism[only]."
 
 Instead of the rusty-robot robot-flipping when the rusty-robot is on the balanced-door:
-	say "The robot engages its flipper arm and does a backflip, landing heavily on the door[if the player is on balanced-door], which flings you upwards[otherwise], making the other end spring up, although nothing is on it[end if].";
+	say "The robot engages its flipper arm and does a backflip, landing heavily on the door[if the player is on balanced-door], which flings [nameus] upwards[otherwise], making the other end spring up, although nothing is on it[end if].";
 	if the player is on balanced-door:
 		now the player is in logic-room;
 		
@@ -31542,13 +31601,6 @@ After the rusty-robot going east to coolant-room:
 
 After the rusty-robot going north to coolant-room:
 	say "[The rusty-robot] arrives from the south, and stops in the middle, just west of the channel."
-
-Before the rusty-robot going east when the rusty-robot is in coolant-room:
-	if the balanced-door is in the location:
-		say "The robot drives east, onto the balanced door, which wobbles back and forth[if the player is on balanced-door] with [us] on it[end if].";
-		now the rusty-robot is on the balanced-door instead;
-	otherwise:
-		say "The rusty robot tries to drive east, but the channel blocks it, and it refuses to attempt to cross." instead;
 
 Instead of pushing the capture-button:
 	add the rusty-robot robot-fuzzing to the robot-list of rusty-robot;
@@ -31562,7 +31614,7 @@ Robot-fuzzing is an action applying to nothing.
 
 Carry out an actor robot-fuzzing:
 	if the rusty-robot is visible:
-		say "There is a whirring sound from the robot and the remains of the forward attachment wiggle, but nothing happens. Whatever that command used to do, its useless now without the attachment."
+		say "There is a whirring sound from the robot and the remains of the forward attachment wiggle, but nothing happens. Whatever that command used to do, it's useless now without the attachment."
 
 To robot-check:
 	if the number of entries in robot-list of rusty-robot > 4:
@@ -31573,22 +31625,24 @@ The status light blinks off.";
 
 Chapter 10 - Main Engine
 
-The main-engine is in finale1-region.  The printed name of main-engine is "Reactor Room". "[We] [are] in the reactor room itself, on a catwalk suspended [if the reactor-catwalk is lowered]about halfway up [otherwise]near the top of the room[end if]. Near [us] is a coolant pipe, which breaks off just above the containment vessel, right after a valve wheel. Across the pipe, on the other side of the room, is a great deal of rubble, and exposed wires trail near the pipe.
+The main-engine is in finale1-region.  The printed name of main-engine is "Reactor Room". "[We] [are] in the reactor room itself, on a catwalk suspended [if the reactor-catwalk is lowered]about halfway up[otherwise]near the top of the room[end if]. Near [us] is a coolant pipe, which breaks off just above the containment vessel, right after a valve wheel. Across the pipe, on the other side of the room, is a great deal of rubble, and exposed wires trail near the pipe.
 
-By [us] on the catwalk are some controls, but they are badly charred[if the burnt-pile is in the location], and [a burnt-pile] has spilled out of them[end if]. Near them are some backup controls.
+By [us] on the catwalk are some broken controls, badly charred. Near them are the backup controls[if the burnt-pile is in the location], and [a burnt-pile] has spilled out onto the catwalk[end if]. 
 
-[one of]It's immediately clear what is wrong; t[or]T[stopping]he primary containment vessel, the ten-meter tall device that holds the fuel, has broken open, and no water is flowing in to cool it. The fuel inside is partially melted. Standing this close, [our] heart beats uncomfortably fast and [our] head aches[first time].
-
-[dyingtext][only].
+[one of]It's immediately clear what is wrong; t[or]T[stopping]he primary containment vessel, the ten-meter tall device that holds the fuel, has broken open, and no water is flowing in to cool it. The fuel inside is partially melted. Standing this close, [our] heart beats uncomfortably fast and [our] head aches[first time][dyingtext][only].
 
 The reactor door leads [boldsouth]."
 
 To say dyingtext:
-	say "[if the player is arawn]. She knows that this level of radiation means that she only has hours to live. There is no way to stop what she has put in motion; but she never intended to leave here alive in the first place[otherwise]You can only assume that this is acute radiation poisoning. Even if you left here alive, you would be dead within a few hours' time[end if]. There is only one goal left that matters: to prevent a meltdown by cooling off the reactor";
+	say "[if the player is arawn].
+
+ She knows that this level of radiation means that she only has hours to live. There is no way to stop what she has put in motion; but she never intended to leave here alive in the first place[otherwise].
+
+You can only assume that this is acute radiation poisoning. Even if you left here alive, you would be dead within a few hours['] time[end if]. There is only one goal left that matters: to prevent a meltdown by cooling off the reactor";
 
 Section 1 - The door
 
-The reactor-door is a closed locked scenery openable door. The reactor-door is north from coolant-room and south from main-engine. The printed name of the reactor-door is "reactor door". Understand "reactor" as reactor-door. The description of the reactor-door is "The reactor door is heavily shielded and seems to have survived the worst of the impact. It is currently [if the reactor-door is unlocked]un[otherwise]locked[end if] and [if the reactor-door is open]open[otherwise]closed[end if]."
+The reactor-door is a closed locked scenery openable door. The reactor-door is north from coolant-room and south from main-engine. The printed name of the reactor-door is "reactor door". Understand "reactor door" as reactor-door. Understand "reactor" as the reactor-door when the player is in coolant-room. Understand "door" as reactor-door when the player is in main-engine. The description of the reactor-door is "The reactor door is heavily shielded and seems to have survived the worst of the impact. It is currently [if the reactor-door is unlocked]un[otherwise]locked[end if] and [if the reactor-door is open]open[otherwise]closed[end if]."
 
 Section 2 - Scenery
 
@@ -31596,7 +31650,7 @@ The primary-containment is distant scenery in main-engine. Understand "primary" 
 
 Inside the containment vessel, you can see molten fuel.".
 
-The melting-reactor is distant scenery in main-engine. Understand "molten" or "fuel" or "partially" or "melted" or "partially-melted" or "mass" or "control" or "rod" or "rods" as the melting-reactor. The description of the melting-reactor is "A partially-melted  mass lies at the bottom of the primary containment. It looks like the fuel rods, interspersed with control rods, [if the player is emrys-weaver]but you're not sure about the details[otherwise]which Arawn knows are still emitting heat due to decay heat[end if]."
+The melting-reactor is distant scenery in main-engine. Understand "molten" or "fuel" or "partially" or "melted" or "partially-melted" or "mass" or "control rod" or "control rods" or "rod" or "rods" as the melting-reactor. The printed name of the melting-reactor is "molten fuel". The description of the melting-reactor is "A partially-melted  mass lies at the bottom of the primary containment. It looks like the fuel rods, interspersed with control rods, [if the player is emrys-weaver]but you're not sure about the details[otherwise]which Arawn knows are still emitting heat due to decay heat[end if]."
 
 Understand "throw [something] in/into/at [something]" as inserting it into when the player is in main-engine.
 Understand "chuck [something] in/into/at [something]" as inserting it into when the player is in main-engine.
@@ -31606,30 +31660,34 @@ Understand "toss [something] in/into/at [something]" as inserting it into when t
 Before throwing something at melting-reactor:
 	try inserting the noun into the primary-containment instead;
 	
-The bad-logic is a thing. The bad-logic can be molten or unmolten. It is unmolten. The printed name of the bad-logic is "faulty logic ring". Understand "faulty" or "logic" or "ring" as the bad-logic. The description of the bad-logic is "This is a logic ring, but it seems to be on the fritz. It flashes in a helpless way."
+The bad-logic is a thing. The bad-logic can be molten or unmolten. It is unmolten. The printed name of the bad-logic is "faulty logic ring". Understand "faulty" or "logic" or "ring" as the bad-logic. The description of the bad-logic is "This is a logic ring, but it seems to be on the fritz. It flashes in a helpless way. It looks like it's still transmitting; unless [we] [adapt the verb find] a way to destroy it, it could interfere with the equipment."
 
-Instead of throwing something at the primary-containment:
-	try inserting the noun into the primary-containment;
+Before throwing something at the primary-containment:
+	try inserting the noun into the primary-containment instead;
 
-Instead of throwing something at the melting-reactor:
-	try inserting the noun into the melting-reactor;
+Before throwing something at the melting-reactor:
+	try inserting the noun into the melting-reactor instead;
 
 The parts-locker is a thing. [FIX THIS LATER make it so it has a visual indicator of being locked or not tied to needing parts or not]
 
 To throw is a verb.
+
+To hear is a verb.
 
 Before inserting something into the primary-containment:
 	if the noun is the bad-logic:
 		now the bad-logic is nowhere;
 		now the bad-logic is molten;
 		now the parts-locker is unlocked;
-		say "[We] [adapt the verb throw] [the bad-logic] into [the primary-containment], where it falls into [the melting-reactor]. It glows white, melts, and is gone in seconds.";
+		say "[We] [adapt the verb throw] [the bad-logic] into [the primary-containment], where it falls into [the melting-reactor]. It glows white, melts, and is gone in seconds.
+
+[We] [adapt the verb hear] a click from somewhere distant.";
 	otherwise:
 		say "[We] may not want to get rid of [the noun] yet.";
 	do nothing instead;
 
-Before inserting something into the primary-containment:
-	try inserting the noun into the melting-reactor instead;
+Before inserting something into the melting-reactor:
+	try inserting the noun into the primary-containment instead;
 	
 Before entering the primary-containment:
 	say "[We] only [have] one life to give. This isn't the best way to give it!" instead;
@@ -31655,10 +31713,13 @@ The flow-pipe is scenery in main-engine. The printed name of the flow-pipe is "c
 
 The broken-panel is scenery in main-engine. The printed name of the broken-panel is "broken controls". Understand "broken" or "main" or "controls" or "control" or "damaged" as the broken-panel. The description of the broken-panel is "Little is left of the main controls. Due to some type of damage, they are burnt[if the burnt-pile is in the location], and their remains lie in a pile on the groun[end if]."
 
+Rule for writing a paragraph about the raised-trap:
+	say "The trap of the coolant pipe has been raised, showing that [if something is in the raised-trap][a list of things in the raised-trap] [are] inside[otherwise]it is empty[end if]."
+
 Does the player mean doing something with the broken-panel:
 	it is unlikely;
 
-The reactor-panel is scenery in main-engine. The printed name of reactor-panel is "backup control panel". Understand "reactor control" or "reactor panel" or "control" or "backup" or "controls" or "panel" as the reactor-panel. The description of the reactor-panel is "This is the backup reactor control panel. It is currently [if the reactor-panel is unbooted]inactive, but [otherwise]active, and [end if]has a slot for entering a logic ring.
+The reactor-panel is scenery in main-engine. The printed name of reactor-panel is "backup control panel". Understand "reactor control" or "reactor panel" or "control" or "backup" or "controls" or "panel" as the reactor-panel. The description of the reactor-panel is "This is the backup reactor control panel. It is currently [if the reactor-panel is unbooted]inactive, but [otherwise]active, and [end if]has a slot for entering a logic ring. Near the slot is a light labelled LOGIC RING STATUS that is currently [if the bad-logic is not molten]red[otherwise if the reactor-panel is upbooted]green[otherwise]turned off[end if].
 
 There are several buttons on the panel, including a CLEAR BLOCKAGE button, a RAISE CW button, and a LOWER CW button.".
 
@@ -31666,6 +31727,8 @@ The logic-slot is part of the reactor-panel. It is an open unopenable container.
 
 Instead of inserting something into the reactor-panel:
 	try inserting the noun into the logic-slot;
+
+The logic-status is part of the reactor-panel. The printed name of the logic-status is "status light". Understand "light" or "status" or "logic ring light" or "logic light" or "ring light" or "logic ring status" as the logic-status. Understand "red" as the logic-status when the bad-logic is not molten. Understand "turned off" as the logic-status when the bad-logic is molten and the reactor-panel is not upbooted. Understand "green" as the logic-status when the reactor-panel is upbooted. The description of the logic-status is "This light seems to indicate the status of the logic ring. Right now it is [if the bad-logic is not molten]red, which means some nearby logic ring is broadcasting faulty instructions[otherwise if the reactor-panel is upbooted]green, which means the panel is operative[otherwise]turned off, which means no logic ring is active[end if]."
 
 The reactor-panel can be upbooted or unbooted. The reactor-panel is unbooted.
 
@@ -31726,7 +31789,7 @@ Instead of pushing the aperture-button:
 
 	Part of the pipe rises, exposing a trap that looks designed to filter out the water. [if the twisted-grill is in the raised-trap]A twisted grill is in the trap, blocking it. Even worse, with the trap raised like this, the grill  up against some of the exposed cables, making it dangerously electrified[end if].
 
-	The same voice from earlier continues: '[fixed letter spacing]Due to risk of water loss, the inflow pipe can only be turned off for four minutes at a time[variable letter spacing].";
+	The same voice from earlier continues: '[fixed letter spacing]Due to risk of water loss, the inflow pipe can only be turned off for four minutes at a time[variable letter spacing].'";
 			now the raised-trap is in the location;
 			the trap descends in four turns from now;
 		
@@ -31765,7 +31828,9 @@ Instead of withtaking the twisted-grill with something when the twisted-grill is
 	otherwise if the second noun is not the insulated-hook:
 		say "[The second noun] isn't shaped right to grab [the twisted-grill].";
 	otherwise if a metallic thing is enclosed by the player:
-		say "[We] [adapt the verb hook] the grill with the insulated hook and [pull] it out of the trap. But as it gets close, arcs of electricity begin to form between the grill and [the random metallic thing enclosed by the player]. One of the arcs hits [us], and it hurts so much that [we] [adapt the verb stop] pulling the grill.";
+		say "[We] [adapt the verb hook] the grill with the insulated hook and [pull] it out of the trap. But as it gets close, arcs of electricity begin to form between the grill and [the random metallic thing enclosed by the player]. One of the arcs hits [us], and it hurts so much that [we] [adapt the verb stop] pulling the grill.
+
+[We]'ll probably have to drop any metal [we] [have].";
 	otherwise:
 		say "[We] [adapt the verb hook] the grill with the insulated hook and [pull] it out of the trap. It falls to the pwith a clatter, no longer electrified. [We] [adapt the verb pick] it up and toss it over into the rubble, where it disappears.";
 		now the twisted-grill is nowhere;
@@ -31795,7 +31860,7 @@ Instead of touching or rubbing the metal-bowl:
 	say "The ridges on the metal bowl are slightly rough under [our] fingers."
 
 Instead of searching the burnt-pile:
-	say "[We] could poke [our] hand in there, but [we]['re] not quite sure what it is you're trying to find."
+	say "[We] could poke [our] hand in there, but [we]['re] not quite sure what it is [we]['re] trying to find. If [we] could rinse it off, [we] might be able to see what's in there."
 
 To scoop is a verb.
 
@@ -31815,15 +31880,21 @@ Instead of withtaking the streaming-water with something:
 	say "[We] [have] no use for taking the water. Unless, of course, [we] want to put something in it."
 
 Instead of taking the burnt-pile:
-	say "Taking it with bare hands could be dangerous."
+	say "Taking it with bare hands could be dangerous[if the burnt-pile is in the location]. If you had a container to scoop it in, it would be different[end if]."
 
 Section 5 - The block valve and ending
 
-The block-valve is scenery in main-engine. The printed name of the block-valve is "valve wheel". Understand "block" or "valve" or "wheel" or "damaged" as the block-valve. 
+The block-valve is scenery in main-engine. The printed name of the block-valve is "valve wheel". Understand "block" or "valve" or "wheel" or "damaged" as the block-valve. The description of the block-valve is "This wheel is designed to block water flow during repairs. It seems to have been damaged, so that it can't remain open on its own."
 
 Before physicality when the noun is the block-valve:
 	if the reactor-catwalk is not lowered:
 		say "The valve wheel is too far below [us] when the catwalk is raised like this." instead; 
+
+Instead of closing the block-valve:
+	say "It's already closed".
+	
+Instead of opening the block-valve:
+	try turning the block-valve;
 
 Instead of turning the block-valve:
 	if the streaming-water is nowhere:
@@ -31876,7 +31947,16 @@ Instead of physicality when the noun is the wreck-pile:
 
 Section 2 - The metal brake
 
-The metal-brake is a scenery device in work-shop. The printed name of the metal-brake is "press brake". Understand "press" or "brake" or "hand-operated" or "hand operated" or "machine" or "hydraulic" or "assisted" as the metal-brake. The description of the metal-brake is "The press brake is a hand-operated and hydraulic-assisted machine designed to bend metal. It has a die surface on it where metal can be placed; then a lever pulls down the rest of the machine, bending the metal into the shape of the die."
+The metal-brake is scenery in work-shop. The printed name of the metal-brake is "press brake". Understand "press" or "brake" or "hand-operated" or "hand operated" or "machine" or "hydraulic" or "assisted" as the metal-brake. The description of the metal-brake is "The press brake is a hand-operated and hydraulic-assisted machine designed to bend metal. It has a die surface on it where metal can be placed; then a lever pulls down the rest of the machine, bending the metal into the shape of the die."
+
+Instead of putting something on the metal-brake:
+	try putting the noun on the die-surface;
+	
+Instead of inserting something into the metal-brake:
+	try putting the noun on the die-surface;
+	
+Instead of inserting something into the die-surface:
+	try putting the noun on the die-surface;
 
 The die-surface is part of the metal-brake. The die-surface is a supporter. Understand "die" or "surface" as the die-surface. The printed name of the die-surface is "die surface". The description of the die-surface is "The die surface currently installed in this press brake is shaped like the supports holding the pipe in the other room.".
 
@@ -31888,7 +31968,22 @@ Instead of pushing the punch-lever:
 Definition:
 	a thing is non-sheety if it is not the sheet-metal;
 
+Definition:
+	a thing is non-logic if it is not the bad-logic;
+
+To sweep is a verb.
+
 Instead of pulling the punch-lever:
+	if the bad-logic is on the die-surface:
+		if a non-logic thing is on the die-surface:
+			say "Destroying the bad logic ring is a good idea, but [the list of non-logic things on the die-surface] might get in the way.";
+		otherwise:
+			now the bad-logic is nowhere;
+			now the bad-logic is molten;
+			now the parts-locker is unlocked;
+			say "[We] [pull] the press down using the lever. It crunches into the faulty logic ring, hard, which shaters into pieces. [We] [adapt the verb sweep] the debris off of the die surface.
+
+[We] [adapt the verb hear] a click from somewhere distant.";
 	if a non-sheety thing is on the die-surface:
 		say "Pulling the lever could damage [the list of non-sheety things on the die-surface].";
 	otherwise if the sheet-metal is on the die-surface:
@@ -31921,7 +32016,19 @@ Section 1 - Scenery
 
 The emergency-ladder is a closed locked unopenable scenery door. It is privately-named. It is down from logic-room and up from coolant-room. The printed name of the emergency-ladder is "[if the cable-ladder is closed]hole[otherwise]cable ladder[end if]". Understand "cable" or "ladder" as the emergency-ladder when the emergency-ladder is open. The description of the emergency-ladder is "A cable ladder hangs from the hole to the floor below."
 
-Instead of doing something with the emergency-ladder when the cable-ladder is closed:
+Check an actor going (this is the can't go through closed ladders rule):
+	if the door gone through is emergency-ladder:
+		if the door gone through is open, continue the action;
+		otherwise:
+			if the player is in coolant-room:
+				say "The hole in the ceiling is too far away to reach.";
+			otherwise:
+				say "[We] [don't] have any way to get down right now.";
+		stop the action.
+
+The can't go through closed doors rule does nothing when going through the emergency-ladder.
+
+Instead of doing something with the emergency-ladder when the emergency-ladder is closed:
 	if the player is in coolant-room:
 		say "The hole is too far away to do anything with.";
 	otherwise:
@@ -31930,9 +32037,15 @@ Instead of doing something with the emergency-ladder when the cable-ladder is cl
 		otherwise:
 			say "There's not much [we] can do with the hole leading down.";
 
-The emergency-box is a scenery closed transparent openable container in  logic-room. The printed name of the emergency-box is "box labelled EMERGENCY". Understand "emergency" or "box" or "label" or "labelled" as the emergency-box. The description of the emergency-box is "A box near the hole is labelled EMERGENCY. A red lever projects from it[if the emergency-ladder is open], and a cable ladder hangs out of it, allowing you to go [bolddown][end if]."
+The emergency-box is a scenery closed transparent container in  logic-room. The printed name of the emergency-box is "box labelled EMERGENCY". Understand "emergency" or "box" or "label" or "labelled" as the emergency-box. The description of the emergency-box is "A box near the hole is labelled EMERGENCY. A red lever projects from it[if the emergency-ladder is open], and a cable ladder hangs out of it, allowing you to go [bolddown][end if]."
 
 The emergency-lever is scenery in logic-room. Understand "lever" or "red" as the emergency-lever. The printed name of the emergency-lever is "red lever". The description of the emergency-lever is "This lever is adjoined to the box labelled EMERGENCY[if the emergency-ladder is open], which is now open, a cable ladder hanging out of it[end if].".
+
+Instead of opening the emergency-box when the emergency-box is closed:
+	say "[We] [don't] see any way to open the box directly, except perhaps for the red lever near it.";
+
+Instead of closing the emergency-box when the emergency-box is open:
+	say "[We] [don't] see any good way to close the box."
 
 Instead of pulling the emergency-lever:
 	if the emergency-ladder is closed:
@@ -32008,6 +32121,9 @@ When play begins:
 	
 The central-monitor is a transparent closed unopenable scenery container in logic-room. Understand "monitor" or "screen" as the central-monitor. The printed name of the central-monitor is "monitor". The description of the central-monitor is "The monitor is almost as wide as the computer itself[if nothing is in the central-monitor]. It is currently turned off[end if]."
 
+Instead of switching on or switching off the central-monitor:
+	say "The monitor is controlled by the computer, not directly."
+
 Definition: a comp-button (called currentbutton) is switchy:
 	if the comp-type of currentbutton is "switch", decide yes;
 	decide no;
@@ -32062,7 +32178,7 @@ Instead of pushing the hail-button:
 
 Instead of pushing the ls-button:
 	if a person is in central-monitor:
-		say "A tinny voice says, [fixed letter spacing]Lowering blast shield number [knob-num][variable letter spacing].
+		say "A tinny voice says, '[fixed letter spacing]Lowering blast shield number [knob-num][variable letter spacing]'.
 
  A blast shield lowers across the screen. Once it is fully covered, the monitor goes dark.";
 		let current be a random person in central-monitor;
@@ -32098,10 +32214,10 @@ Instead of setting the shield-knob to something:
 	say "[We] can only set the knob to a number between 0 and 4."
 
 Before spinning the shield-knob to a number:
-	if a person is in central-monitor:
-		say "[We] [adapt the verb try] to turn the knob, but it refuses to turn. A tinny voice says, '[fixed letter spacing]During emergency procedures, all blast shields must be lowered before accessing the next shield[variable letter spacing].'" instead;
 	if the number understood is knob-num:
 		say "[The shield-knob] is already set to [knob-num]." instead;
+	otherwise if a person is in central-monitor:
+		say "[We] [adapt the verb try] to turn the knob, but it refuses to turn. A tinny voice says, '[fixed letter spacing]During emergency procedures, all blast shields must be lowered before accessing the next shield[variable letter spacing].'" instead;
 
 A person can be summoned or unsummoned. A person is usually unsummoned.
 
@@ -32168,7 +32284,7 @@ To checksummons:
 		if monitor-ginger is summoned:
 			if monitor-yang is summoned:
 				if monitor-gareth is summoned:
-					say "A tinny voice says, '[fixed letter spacing]The reactor core has now been unlocked. You may proceed to admit emergency personnel[variable letter spacing]'";
+					say "[line break]A tinny voice says, '[fixed letter spacing]The reactor core has now been unlocked. You may proceed to admit emergency personnel[variable letter spacing].'";
 					now the reactor-door is unlocked;
 
 Section 4 - Monitor People
@@ -32187,15 +32303,15 @@ Rule for reaching inside the central-monitor:
 	say "[We] can't reach through the monitor to the real world.";
 	deny access;
 	
-The Monitor-captain is a man. The printed name of the monitor-captain is "Captain". Understand "Captain" as the monitor-captain. "The Captain is on the monitor, staring at [us] gravely.". The description of the monitor-captain is "The Captain looks much more resolute than he did earlier when [if the player is arawn]Emrys[otherwise]you[end if]spoke with him earlier.". 
+The Monitor-captain is a man. The printed name of the monitor-captain is "Captain". Understand "Captain" as the monitor-captain. "The Captain is on the monitor, staring at [us] gravely.". The description of the monitor-captain is "The Captain looks much more resolute than he did earlier when [if the player is arawn]Emrys[otherwise]you[end if] spoke with him earlier.". 
 
-Monitor-bridge is a thing. The printed name of the monitor-bridge is "view of the bridge". Understand "view" or "crew" or "station" or "stations" or "view of" or "bridge" as the monitor-bridge. THe description of the monitor-bridge is "The bridge looks exactly as you left it,, with the crew running between the stations."
+Monitor-bridge is a thing. The printed name of the monitor-bridge is "view of the bridge". Understand "view" or "crew" or "station" or "stations" or "view of" or "bridge" as the monitor-bridge. THe description of the monitor-bridge is "The bridge looks exactly as [if the player is arawn]Emrys[otherwise]you[end if] left it, with the crew running between the stations."
 
 Hail-captain is a quip. Understand "Request" as hail-captain. The printed name of hail-captain is "Request". The target of hail-captain is monitor-captain. The preview of hail-captain is "Everyone is gone. Requesting authorization to operate Reactor 7."
 
 The targetresponse of hail-captain is "The Captain curses, and says, 'Yes, yes I give you authorization. If that reactor goes, the whole ship goes. How did you get in? We've been trying to contact this reactor since the impact. Listen, I'll send every engineer we have.'
 
-'I can't explain it now,' [we] say. 'But it has to do with my Storyweaver's gift. I don't think anyone else can get through.'
+'I can't explain it now,' [we] [adapt the verb say]. 'But it has to do with my Storyweaver's gift. I don't think anyone else can get through.'
 
 The Captain curses more. 'Does you gift tell you how to fix a nuclear reactor, Emrys?'
 
@@ -32205,7 +32321,7 @@ He nods. 'Do everything you can. Close all the blast shields. If the radiation l
 
 Someone calls him from off camera. The monitor blinks off.
 
-The computer says in a tinny voice, [fixed letter spacing]Authorization received. All controls now active[variable letter spacing].'"
+The computer says in a tinny voice, '[fixed letter spacing]Authorization received. All controls now active[variable letter spacing].'"
 
 To say byecaptain:
 	now monitor-captain is nowhere;
@@ -32213,7 +32329,7 @@ To say byecaptain:
 	now player-authed is true;
 	
 Before going down from logic-room when a person is in central-monitor:
-	say "[if the player is emrys-weaver]You don't want to leave [a random person in central-monitor] in the lurch. Better to deal with them first![otherwise]No, in the records, Emrys never left in the middle of a conversation. So Arawn won't either." instead;
+	say "[if the player is emrys-weaver]You don't want to leave [the random person in central-monitor] in the lurch. Better to deal with them first![otherwise]No, in the records, Emrys never left in the middle of a conversation. So Arawn won't either." instead;
 
 Monitor-olgin is a woman. The printed name of monitor-olgin is "Sergeant Olgin". Understand "sergeant" or "olgin" as monitor-olgin. The description of monitor-olgin is "Sergeant Olgin, dependable as ever, is busy directing everyone through the transit area."
 
@@ -32319,7 +32435,7 @@ Friend-quip is a quip. The printed name of Friend-quip is "Friend". Understand "
 
 The targetresponse of Friend-quip is "'Emrys? Why are you on the intercom? And why are you talking like that?'
 
-'I'm pretty sure I'm about to die, Gareth,' [wesay]. 'There's a reactor...number 7. They don't have enough people to help, and its about to melt down.'
+'I'm pretty sure I'm about to die, Gareth,' [wesay]. 'I'm at a reactor, number 7 I think. They don't have enough people to help, and its about to melt down.'
 
 'Just get out of there!' he says, concern filling his expression. 'You don't have to throw your life away!'
 
@@ -32337,17 +32453,17 @@ The targetresponse of Movies-quip is "'Emrys, what on earth? Where are you?' he 
 
 Section 5 - Random other things
 
-The sheet-metal is a metallic thing in logic-room. Understand "sheet" or "sheet of" or "metal" as the sheet-metal. The description of the sheet-metal is "This sheet metal looks exactly like the kind you're used to seeing in engineering when some project is going on. Its designed to be bent into different shapes".  "Some sheet metal is leaned up against the wall, about a meter high."
+The sheet-metal is a metallic thing in logic-room. Understand "sheet" or "sheet of" or "metal" as the sheet-metal. The printed name of the sheet-metal is "sheet of metal". The description of the sheet-metal is "This sheet metal looks exactly like the kind you're used to seeing in engineering when some project is going on. Its designed to be bent into different shapes".  "Some sheet metal is leaned up against the wall, about a meter high."
 
 The nuclear-manual is a book in logic-room. The printed name of the nuclear-manual is "nuclear safety manual". Understand "nuclear" or "safety" or "manual" as the nuclear-manual.
 
-To read is a verb. To find is a verb.
+To read is a verb. To find is a verb. TO skim is a verb
 
 The description of the nuclear-manual is "[one of][We] [adapt the verb read] the first page.
 
-It describes the reactor you're in as a BWR, or Boiling Water Reactor, running on enriched uranium and using light water (i.e. water without heavy isotopes such as deuterium). There are eight such reactors located near the center of the ship[or][We] [adapt the verb read] skim forward until [we] [adapt the verb find] something helpful.
+It describes the reactor [nameus] [if the player is arawn]is[otherwise]are[end if] in as a BWR, or Boiling Water Reactor, running on enriched uranium and using light water (i.e. water without heavy isotopes such as deuterium). There are eight such reactors located near the center of the ship[or][We] [adapt the verb skim] forward until [we] [adapt the verb find] something helpful.
 
-On one page, it says that this reactor functions by pumping water through the primary containment (the area housing the reactor itself), where it becomes heated to the boiling point. That is then pumped away, where it transfers heat to multiple steam generation units that generate electricity. Much of the excess heat is used to warm the living quarters[or][We] [adapt the verb read] skim forward until [we] [adapt the verb find] something helpful.
+On one page, it says that this reactor functions by pumping water through the primary containment (the area housing the reactor itself), where it becomes heated to the boiling point. That is then pumped away, where it transfers heat to multiple steam generation units that generate electricity. Much of the excess heat is used to warm the living quarters[or][We]  [adapt the verb skim] forward until [we] [adapt the verb find] something helpful.
 
 On one page, it says that the reactor has several emergency shutdown systems, including a scram system, in which control rods held suspended over the fuel rods by electromagnets, so that any interruption to the power source can cause the rods to drop. 
 
@@ -32355,7 +32471,7 @@ However, due to a phenomenon known as decay heat, a reactor can continue to radi
 
 It gives the shutdown procedures that must be followed before personnel are allowed in the reactor core after an emergency shutdown:
 
-[italic type]1. First, the computer (or its backup) must be turned on and authenticated. In the absence of computer commands, the reactor will fall back on automatic safety systems, including locking the main reactor door.[line break]2. Users without authorization must receize authorization from a senior-level officer using the HAIL button. If no senior officer responds within five minutes, authorization can be given automatically to auxiliary officers. [line break]3. The reactor must be isolated from the rest of the ship. There are four blast shields that can be lowered. Each can be selected by the SHIELD knob. Upon selection, the cameras and PA system in that area will activate, allowing you to warn civilians to leave the area.[line break]4. Once each area is clear, the selected shield can be lowere by pressing the LS button.[line break]5. The door to the reactor core will only open once all four [roman type][cycling]."
+[italic type]1. First, the computer (or its backup) must be turned on and authenticated. In the absence of computer commands, the reactor will fall back on automatic safety systems, including locking the main reactor door.[line break]2. Users without authorization must receize authorization from a senior-level officer using the HAIL button. If no senior officer responds within five minutes, authorization can be given automatically to auxiliary officers. [line break]3. The reactor must be isolated from the rest of the ship. There are four blast shields that can be lowered. Each can be selected by the SHIELD knob. Upon selection, the cameras and PA system in that area will activate, allowing you to warn civilians to leave the area.[line break]4. Once each area is clear, the selected shield can be lowere by pressing the LS button.[line break]5. The door to the reactor core will only open once all four blast shields have been lowered[roman type][cycling]."
 
 Chapter 13 - Medical bay
 
@@ -32387,7 +32503,7 @@ The targetresponse of devastation-quip is "Idris shakes his head. 'Many of them 
 
 'What about Sanya? Is she safe?' you ask, looking for the surgeon. 'Or the Captain? Or Gareth?' 
 
-'I don't know about any of them,' says Idris, sounding a bit bitter. 'The Captain disappeared early on. Same with Gareth. Sanya was out looking for her dog, and hasn't come back.' His mouth sets into stern lines. 'If you excuse me. I have to help who I can. And those who I can't...I'll try to give them a proper burial 'at sea'. Send them out in one of the cargo pods. I'm glad you're back, but I don't have any time to help.'
+'I don't know about any of them,' says Idris, sounding a bit bitter. 'The Captain disappeared early on. Same with Gareth. Sanya was out looking for her dog, and hasn't come back.' His mouth sets into stern lines. 'If you excuse me. I have to help who I can. And those who I can't...I'll try to give them a proper burial [']at sea[']. Send them out in one of the cargo pods. I'm glad you're back, but I don't have any time to help.'
 
 'Is there anything I can do?' you ask.
 
@@ -32442,9 +32558,9 @@ The special vertical push rule substitutes for the can't push vertically rule wh
 
 Section 1 - Cops
 
-The uniformed-officers are plural-named people in lower-redux. "[if first-tiffany is nowhere]You can hear gunshots coming from somewhere, but you can't tell where. No one else can, either, and the crowd panics. 
+The uniformed-officers are plural-named people in lower-redux. "[if first-tiffany is nowhere]You can hear gunshots coming from somewhere in the room, but you can't tell where!  No one else can, either, and the crowd panics. You duck down.
 
-One of the uniformed officers falls to the ground, wounded, and that sets everything off. The crowd surges, pushing past the officers, who beat a hasty withdrawal, carrying their wounded fellow with them[gonecops][otherwise]Uniformed officers block the way up, directing everyone to the [boldeast][end if]."
+One of the uniformed officers falls to the ground, wounded, and that sets everything off. The crowd surges, pushing past the officers, who beat a hasty withdrawal, carrying their wounded fellow with them[gonecops]. The sound of gunshots fade as Tiffany moves to another room. Maybe the east? You can't tell, but you are free to go [boldup], if you want to[otherwise]Uniformed officers block the way up, directing everyone to the [boldeast][end if]."
 
 To say gonecops:
 	now the uniformed-officers are nowhere.
@@ -32471,13 +32587,15 @@ The posh-redux is east from lower-redux. The printed name of posh-redux is "Livi
 
 Before going east from posh-redux when the deceased-officer is nowhere:
 	if the tredux-crowd is in lower-redux:
-		say "It's too hard to go in that direction, as everyone is coming from the other way.";
+		say "It's too hard to go in that direction, as everyone is coming from the other way." instead;
 	otherwise:
-		say "You start down the hallway, but its clear that no one is left down there."
+		say "You start down the hallway, but its clear that no one is left down there." instead;
 
 Instead of going nowhere from posh-redux when the noun is south:
 	if the tredux-crowd is in lower-redux:
-		say "You try valiantly to make it to an escape pod, but the people in the front push back at you, forcing you away from the pods."
+		say "You try valiantly to make it to an escape pod, but the people in the front push back at you, forcing you away from the pods.";
+	otherwise:
+		say "The way to the escape pods is closed, now.";
 
 The damaged-redux is south from lower-redux. The printed name of damaged-redux is "Damaged Hallway". It is in finale2-region. "This area is covered in an acrid haze, and rubble is everywhere. The entire area seems like it was hit hard. You can go [boldnorth] out of here. "
 
@@ -32516,7 +32634,10 @@ Instead of climbing or entering the rub-redux:
 	
 Section 3 - Metal plate
 
-The metal-plate is an open unopenable enterable container in damaged-redux. The printed name of the metal-plate is "makeshift barricade". Understand "metal" or "makeshift" or "barricade" or "bent" or "twisted" or "plate" or "bent" or "insulated" or "coating" as the metal-plate. The metal-plate is pushable between rooms. "A heavy metal plate lies here, bent and twisted into a shape like a makeshift barricade. It's large enough for you to get into it[if the wrapped-cables are part of the metal-plate]It's wrapped in wires that have fallen from above. The insulation on the wires isn't exposed, fortunately[end if]."
+The metal-plate is an open unopenable enterable container in damaged-redux. The printed name of the metal-plate is "makeshift barricade". Understand "metal" or "makeshift" or "barricade" or "bent" or "twisted" or "plate" or "bent" or "insulated" or "coating" as the metal-plate. The metal-plate is pushable between rooms. "A heavy metal plate lies here, bent and twisted into a shape like a makeshift barricade. It's too big to take, but you might be able to push it, and it's shaped the right way for you to hide in it[if the wrapped-cables are part of the metal-plate]. Unfortunately, it's wrapped in wires that have fallen from above[end if]."
+
+Instead of pushing the metal-plate:
+	say "It certainly looks pushable, but you'll have to try pushing it a specific direction.";
 
 The description of the metal-plate is "The metal plate is heavy and bent, making a makeshift barricade. You could never pick it up, but you could push it from place to place or hide in it[if the wrapped-cables are part of the metal-plate].
 
@@ -32690,7 +32811,7 @@ Before taking the molded-helmet when the molded-helmet is part of the deceased-o
 	now the molded-helmet is in the location;
 	
 After taking the molded-helmet for the first time:
-	say "You gently take off the helmet and see the officer's face. You recognize him; his name was Carl, and he was a late addition to the flight, coming in from a distant asteroid colony. His face is pale. You close his eyes.
+	say "You gently take off the helmet and see the officer's face. You recognize him; his name was Carl, and he was a late addition to the flight, coming in from a distant asteroid colony. His face is pale.
 
 Looking over the helmet, it looks like it should fit you just fine.";	
 
@@ -32704,7 +32825,7 @@ Every turn when the player is in transit-redux:
 		
 Chapter 17 - Engineering room
 
-The eng-redux is west from transit-redux. The printed name of eng-redux is "Engineering Room". It is in finale2-region. "The engineering room looks like it has been ransacked. Heavy panels have been pulled out of the floor to provide access to the backup storage [bolddown] below you. A safety handle has been screwed into the floor. You can go [boldeast] out of here."
+The eng-redux is west from transit-redux. The printed name of eng-redux is "Engineering Room". It is in finale2-region. "The engineering room looks like it has been ransacked. Heavy panels have been pulled out of the floor to provide access to the backup storage [bolddown] below you. A safety handle has been screwed into the floor[if the long-cable is stuck to the big-handle], to which a long cable is attached[end if]. You can go [boldeast] out of here."
 
 Section 1 - Rope
 
@@ -32798,7 +32919,11 @@ A reaching inside rule:
 Before tying something to a rope:
 	if the noun is stuck to the second noun, say "[The noun] and [the second noun] are already tied together." instead;
 	if the second noun is not free, say "[The second noun] has no ends free." instead;
-	if the noun is round, say "You can't realistically tie anything to [the noun]." instead.
+	if the noun is round:
+		if the noun is the sharp-cliff:
+			say "You can't tie anything to the cliff itself, but if you had a hook, you could throw it at the cliff." instead;
+		otherwise:
+			say "You can't realistically tie anything to [the noun]." instead.
 
 Instead of tying a rope to something:
 	try tying the second noun to the noun.
@@ -32965,7 +33090,9 @@ Rule for printing the name of the large-toolbox when the large-toolbox is proper
 
 Before printing the name of the large-toolbox:
 	if the large-toolbox is in the location:
-		now the large-toolbox is improper-named;
+		if the large-toolbox is proper-named:
+			say "The ";
+			now the large-toolbox is improper-named;
 
 Section 4 - The cable
 
@@ -33014,11 +33141,17 @@ Instead of putting the salt-handful on the ice-hook:
 'See? Salt is perfect! But we just don't have enough.'  He kicks the hook away. 'You can have that if you want. It's useless.' He then goes back to working on the tubes.";
 	now the salt-handful is nowhere;
 
+Instead of giving the salt-handful to yang-redux:
+	say "'Huh, that's not gonna do much, with that little salt' says Yang. 'Why don't you try it yourself?";
+	try putting the salt-handful on the ice-hook;
+
 Chapter 19 - Brig
 
 The brig-redux is east from transit-redux. The printed name of brig-redux is "Brig". It is in finale2-region. "There isn't really any kind of prison on board; troublemakers tend to get refrozen. But there is a small, temporary brig for use in emergencies, with a single cell.
 
 Some kind of disaster has happened in here. There is blood on the floor. A storage panel on the wall has been torn open, revealing a food pantry,which has been ransacked. You can't see the panel itself anywhere. You can go [boldwest] out of here."
+
+The brig-blood is scenery in brig-redux. The printed name of the brig-blood is "blood". Understand "blood" as the brig-blood. The description of the brig-blood is "This blood has almost dried by now.".
 
 The food-pantry is a scenery open unopenable container in brig-redux. THe printed name of the food-pantry is "food pantry". Understand "food" or "pantry" or "panel" as the food-pantry. The description of the food-pantry is "Usually recessed into the wall, this pantry is used to store food and cleaning supplies both for prisoners and for nearby workers who have forgotten their lunches. It's a convenience, especially considering how few prisoners the ship has. 
 
@@ -33032,7 +33165,7 @@ Chapter 20 - Bridge remains
 
 The broken-bridge is a room in finale2-region. The printed name of the broken-bridge is "Bridge (Destroyed)". "The bridge is unrecognizable. The walls have been torn out by a violent impact, and bare beams and crumpled panels are everywhere. The transport tube that once led [boldup] is entirely torn out, leaving what is essentially a cliff[if the ice-hook is anchored and the ice-hook is stuck to the long-cable]. It's too dangerous to climb, but if you were tethered to something above, it might be possible[end if].
 
-The transport tube leading [bolddown] is still intact, however[if the broken-bridge is spooky].
+The transport tube leading [bolddown] is still intact, however[if the broken-bridge is not spooky].
 
 Now that you know you're looking for mementos, the areas to the [boldnortheast] and [boldsouthwest] seem the most stable[end if]."
 
@@ -33077,9 +33210,14 @@ Instead of throwing the ice-hook:
 		if the player is not in broken-bridge:
 			say "There's no convenient target for throwing the grappling hook here.";
 		otherwise:
-			say "You swing the grappling hook back and forth a couple of times, and then throw it at the top of the cliff. It snags on something; you pull a couple of times, and it seems like it's secure.";
+			say "You swing the grappling hook back and forth a couple of times, and then throw it at the top of the cliff. It snags on something; you pull a couple of times, and it seems like it's secure. The hook is now out of sight.";
 			now the ice-hook is in officer-redux;
 			now the ice-hook is fixed in place;
+
+Before throwing the long-cable:
+	if the long-cable is stuck to the ice-hook:
+		if the ice-hook is enclosed by the location:
+			try throwing the ice-hook instead;
 
 Rule for writing a paragraph about the ice-hook when the player is in officer-redux:
 	say "The grappling hook has become firmly embedded into the top of the cliff. You probably won't be able to get it out again.";
@@ -33139,6 +33277,7 @@ Before going up from broken-bridge:
 		if the long-cable is held by the player:
 			say "(first letting go of the cable)[command clarification break]";
 			try dropping the long-cable;
+		say "You climb up the cable.";
 
 The broken-bridge can be spooky or unspooky. The broken-bridge is spooky.
 
@@ -33398,7 +33537,7 @@ Section 2 - Tiffany
 Battle-tiffany is a distant woman. The printed name of battle-tiffany is "Tiffany". Understand "tiffany" or "rifle" as battle-tiffany. "Tiffany, the escaped prisoner, is here, wounded. She's holding a gun and squinting in the darkness[delshooting]." The description of battle-tiffany is "Tiffany is clearly in pain, holding her hand to her side. She is squinting in the darkness and holding a rifle."
 
 Every turn when battle-tiffany is in the location:
-	if tiffany is distant:
+	if battle-tiffany is distant:
 		if the player was in escape-access:
 			if the player is not in the metal-plate:
 				say "'I warned you,' says Tiffany. A shot rings out.";
@@ -33406,7 +33545,7 @@ Every turn when battle-tiffany is in the location:
 			otherwise:
 				say "[one of]Shots ring out, hitting your makeshift barricade, but you are safe[or]'Come out of there, you little rat!' shouts Tiffany[or]More shots ring out, hitting your barricade[or]'You take one step out of that thing and you're gone!' she shouts[or]Tiffany is quiet now, but watches your every move[stopping].";
 		otherwise:
-			say "'Now stop where you are,' shouts Tiffany. 'If I can't get in one of these pods, no one is. You can turn around right now, or I'll shoot you.'";
+			say "[one of]'Now stop where you are,' shouts Tiffany. 'If I can't get in one of these pods, no one is. You can turn around right now, or I'll shoot you.'[or]'Back again?' shouts Tiffany. 'You've got one second to get out of here before I shoot!'[stopping]";
 	otherwise:
 		unless battle-tiffany was distant:
 			say "Tiffany shakes her head, her vision returning. Enraged by your trick, she raises her gun to fire.";
@@ -33429,6 +33568,12 @@ To say delshooting:
 
 Shooting-quip is a quip. The printed name of shooting-quip is "Shooting". Understand "shooting" as shooting-quip. The target of shooting-quip is battle-tiffany. The preview of shooting-quip is "Why are you shooting at me? I'm just trying to get out, like you.".
 
+Before uttering something to battle-tiffany:
+	if battle-tiffany is distant:
+		if the player is not in the metal-plate:
+			say "Before you can get out the words, Tiffany takes a shot at you. With no protection, you are instantly hit. You drop to the floor, dead.";
+			end the story saying "You have died";
+
 The targetresponse of shooting-quip is "Tiffany stares at you, her face feverish. 'You're with the cryo people. You're trying to freeze everyone. To freeze me. I'm not going to let anyone freeze me.'
 
 'The escape pods have cryo-storage in them,' you say. 'There's no habitable planets around here. So they point us back at earth and--'
@@ -33447,7 +33592,7 @@ The targetresponse of Delivery-quip is "Tiffany leans forward. 'Really?' she ask
 
 'Really,' you say. 'Let's get you out of here.'
 
-You walk forward and unlock the door before pulling it open.
+You pop out from behind the barricade, walk forward, and unlock the door before pulling it open.
 
 Tiffany stares at you, and at the door. 'Thanks,' she says, and staggers into the pod. 'You know, for a cryo zombie, you're not half bad.'
 
@@ -33457,6 +33602,7 @@ Tiffany stares at you, and at the door. 'Thanks,' she says, and staggers into th
 
 To say removetiff:
 	now the final-door is unlocked;
+	move the player to escape-access, without printing a room description;
 	now battle-tiffany is nowhere;
 
 Instead of gunshooting battle-tiffany:
@@ -33567,7 +33713,7 @@ The manual-key is a thing. The printed name of the manual-key is "manual key". U
 
 Chapter 26 - Escape pod
 
-The escape-pod is in finale2-region. "You are in the escape pod at last. There is nothing in here but a chair and a single red button. You can leave to the [boldsouth]."
+The escape-pod is in finale2-region. The printed name of escape-pod is "Escape Pod". "You are in the escape pod at last. There is nothing in here but a chair and a single red button. You can leave to the [boldsouth]."
 
 The escape-chair is an enterable scenery supporter in escape-pod. The printed name of escape-chair is "chair". Understand "chair" as the escape-chair. The description of the escape-chair is "The chair, as you recall, is designed for long term sitting. Very long term. Activating the escape pod will, after a few minutes delay, place the occupant in cryogenic storage."
 
@@ -33686,17 +33832,25 @@ Before going when gareth-scene is happening:
 
 [bracket]When you have a topic, like the topic 'Response', you can SAY RESPONSE TO GARETH or just SAY RESPONSE to use it. A list of topics can be found by typing T.[close bracket][line break]" instead;
 
+Before going when gareth-scene has not happened:
+	say "You should probably answer Gareth before exploring more.
+
+[bracket]When you have a topic, like the topic 'Response', you can SAY RESPONSE TO GARETH or just SAY RESPONSE to use it. A list of topics can be found by typing T.[close bracket][line break]" instead;
+
 Section 3 - Gareth Scene
 
 Gareth-Scene is a scene. Gareth-scene begins when the time since entire game began is 1 minute.
 
-When gareth-scene begins:
-	say "A call is coming over your recorder. It picks up automatically.
+Gareth-scene ends abruptly when the player is not in opening-region.
 
-'Emrys?' says a voice. It's Gareth, you're best friend on the ship, and the current psychologist on duty.[paragraph break]";
-	deliver response-quip;
-	now fake-gareth is in the location;
-	clear the flags;
+When gareth-scene begins:
+	if the player is in storage-room:
+		say "A call is coming over your recorder. It picks up automatically.
+
+	'Emrys?' says a voice. It's Gareth, you're best friend on the ship, and the current psychologist on duty.[paragraph break]";
+		deliver response-quip;
+		now fake-gareth is in the location;
+		clear the flags;
 
 Gareth-scene ends when response-quip is targetgiven.
 
@@ -33741,7 +33895,7 @@ Instead of taking the newer-box:
 	say "The box is kind of awkward to pick up. It's not heavy, but it's just large enough that you'd have to balance it on one knee. You decide to leave it here.";
 
 After opening the newer-box for the first time:
-	say "You open [the newer-box], but all you find inside is a bright red toy robot and a snowglobe."
+	say "You open [the newer-box]. There's no jacket, but there are a bright red toy robot and a snowglobe."
 
 The toy-robot is a memorable device in the newer-box. The printed name of the toy-robot is "toy robot". Understand "bright" or "red" or "toy" or "robot" as the toy-robot. The description of the toy-robot is "This is a bright red toy robot that can be swtiched on or switched off. You recognize it; one of the engineers made a batch of them for Christmas a few years back. This must have been a leftover."
 
@@ -33763,16 +33917,18 @@ Instead of switching on the toy-robot:
 
 Chapter 28 - Maintenance closet
 
-The maintenance-closet is a room in opening-region. The printed name of the maintenance-closet is "Maintenance Closet". The description of the maintenance-closet is "This closet is barely large enough for you to stand in. A single shelf hangs on the back wall.".
+The maintenance-closet is a room in opening-region. The printed name of the maintenance-closet is "Maintenance Closet". The description of the maintenance-closet is "This closet is barely large enough for you to stand in. A single shelf hangs on the back wall[if something is on the maint-shelf].
 
-Rule for writing a paragraph about the flash-light when the flash-light is on the maint-shelf:
-	say "Oh, that looks useful. On the shelf is a flashlight, next to a bottle of floor wax[first time].
+[shelf-text][end if].".
+
+To say shelf-text:
+	say "[one of]Oh, that looks useful. On the shelf is a [flash-light], next to a [floor-wax].
 
 You feel a bit woozy for a moment, and then--
 
 [italic type]You are in a closet, this one marked with warning signs in bright yellow and black. A heavy protective suit is on the ground. You reach for it, your hands trembling--[roman type]
 
-In a second, the vision is gone. A premonition? They say that Storyweavers like yourself have the Gift, but you've usually attributed that to intuition or gentle nudges. You've never actually [italic type]seen[roman type] something like that before[only]."
+In a second, the vision is gone. A premonition? They say that Storyweavers like yourself have the Gift, but you've usually attributed that to intuition or gentle nudges. You've never actually [italic type]seen[roman type] something like that before[or]On the shelf, you can see [a list of things on the maint-shelf][stopping]"
 
 Section 1 - Scenery
 
@@ -33806,7 +33962,7 @@ AFter unlocking the closet-door with the closet-key:
 
 Section 3 - Flashlight
 
-The flash-light is a memorable device on maint-shelf.  Understand "torch" or "sleek" or "black" or "cylinder" or "flashlight" or "flash light" as the flash-light. The printed name of the flash-light is "flashlight". The description of the flash-light is "This is a sleek black cylinder that can be SWITCHED ON or SWITCHED OFF."
+The flash-light is a memorable device on maint-shelf.  Understand "torch" or "sleek" or "black" or "cylinder" or "flashlight" or "flash light" or "light" as the flash-light. The printed name of the flash-light is "flashlight". The description of the flash-light is "This is a sleek black cylinder that can be SWITCHED ON or SWITCHED OFF."
 
 After switching on the flash-light:
 	say "You turn on the flashlight. The darkness is a little less oppressive.";
@@ -33815,6 +33971,9 @@ After switching on the flash-light:
 After switching off the flash-light:
 	say "You turn off the flashlight. The darkness returns.";
 	now the flash-light is not lit;
+
+Does the player mean switching on the flash-light:
+	it is likely;
 
 Section 4 - Floor Wax
 
@@ -33838,6 +33997,12 @@ The rest of the storeroom is back to the [boldeast]. There's also a gap in the f
 Section 1 - Scenery
 
 The closet-light is scenery in far-storage. The printed name of the closet-light is "faint light". Understand "faint" or "light" as the closet-light when in darkness. The description of the closet-light is "The faint light from the [boldeast] is the only thing you can see in here.".
+
+Instead of switching on the closet-light:
+	if the flash-light is enclosed by the player:
+		try switching on the flash-light;
+	otherwise:
+		say "You grope around, but can't find any light to turn on.";
 
 The nailed-crates are plural-named closed openable scenery containers in far-storage. The printed name of the nailed-crates is "crates". Understand "crate" or "crates" or "nail" or "nails" or "nailed" or "nailed shut" as the nailed-crates. The description of the nailed-crates is "These crates seem intended for very long term storage, being nailed down. They likely have material for your future colony."
 
@@ -34236,7 +34401,6 @@ The cabin and forest dimension was inspired by games like She's Got a Thing for 
 
 The animals dimension was at first inspired by educational cartoon maps showing every biome next to each other. At the time of writing it is a bit of a meme to see those maps and say 'I want to live there'. At one point I ran out of puzzle ideas, so I themed each puzzle off a different Lord of the Rings character. Most of those got transformed into somethin very different, so they're no longer recognizable (for instance, the owl's drone piece would be up high and need to be knocked down by a projectile. I realized I'd prefer an animal-based solution, and so switched it to the cougar).";
 	say "
-
 The World Monuments sections was inspired by the many mathematical and physics examples in Inform documentation, including Concentration 1 and 2, Nickle and Dimed, the Cow Exonerated, In Fire or In Flood, and Exonerated. This came after I had completed reading the whole Inform manual and felt bummed at how many awesome examples never (as far as I can tell) got used in games. The idea of descending through a void on a rope came from the Dr Who episode Impossible Planet.
 
 The Tool dimension was originally designed to provide an extra hurdle for players to overcome in every level, so that players would need to explore more. There would be a tool that would get powers as time went on. I just couldn't figure out what to put in this level or what powers to use. I eventually decided to make it a limited parser room using computer commands for the limitations. I looked to Arthur Dibianca and Monument Valley for inspiration. But I eventually moved away from the limited parser and used this level to give more backstory to the game and to form the backbone or spine of everything. Portal was a bit of an inspiration as well, as well as a game by Doug Egan I tested. The tool is definitely modelled on the sonic screwdriver from Dr Who.
@@ -34681,7 +34845,7 @@ Test uptobronze with "test combatintro/test trainingpart/test combattokitchen/te
 
 Chapter 10 - Finale stuff
 
-Test arawn with "say knowledge/say location/say recognition/e/e/d/e"
+Test arawn with "say curiosity/say location/say familiar/e/e/d/e"
 
 Test museum with "x map/x exhibit/x diagram/x model/s/x exhibit/x diagram/e/x exhibit/x diagram/u/x exhibit/x diagram/ne/x exhibit/x diagram/z/w/w"
 
@@ -34869,7 +35033,7 @@ shore-teleporting is an action applying to nothing. Understand "xyshore" as shor
 Carry out shore-teleporting:
 	now the player is in the distant-shore;
 
-Toolteleporting is an action applying to one number. Understand "tp [a number]" as toolteleporting.
+Toolteleporting is an action applying to one number. Understand "xyztp [a number]" as toolteleporting.
 
 Check toolteleporting:
 	if the number understood < 0:
@@ -34905,6 +35069,9 @@ Carry out toolteleporting:
 Arawntping is an action applying to nothing. Understand "xyzarawn" as arawntping. 
 
 Carry out arawntping:
+	now the arawn-tunic is nowhere;
+	now the skull-mask is nowhere;
+	now the silver-device is nowhere;
 	now the all-recorder is worn by arawn webster;
 	now arawn webster is in engine-closet;
 	now the story viewpoint is third person singular; 
