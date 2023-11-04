@@ -1,4 +1,4 @@
-Version 6 of Clues and Conversation by Brian Rushton begins here.
+Version 10 of Clues and Conversation by Brian Rushton begins here.
 
 "A simple system for building conversations."
 
@@ -234,14 +234,14 @@ Check singleuttering (this is the only quips can be singleuttered rule):
 Carry out singleuttering (this is the standard singleuttering rule):
 	if the target of the noun is nothing:
 		if the number of people enclosed by the location of the player > 1:
-			repeat with current running through people in the location of the player:
+			repeat with current running through people enclosed by the location of the player:
 				if current is not the player:
 					try uttering the noun to current;
 					break;
 		otherwise:
 			say "There's no one else here." (A);
 	otherwise:
-		if the target of the noun is in the location of the player:
+		if the target of the noun is enclosed by the location of the player:
 			try uttering the noun to the target of the noun;
 		otherwise:
 			say "[The target of the noun] isn't here." (B);	
@@ -400,16 +400,18 @@ Carry out topicing (this is the standard topicing rule):
 	let generalcounter be 0;
 	repeat with currenttwo running through quips carried by the player:
 		if the target of currenttwo is nothing:
-			increment generalCounter;
+			if a talkative person heeds currenttwo:
+				increment generalCounter;
 	if generalcounter > 0:
 		say "[bold type]General [HasCluesOrTopics]s:[roman type]" (B);
 		repeat with currentquip running through all quips carried by the player:
 			if Target of currentquip is nothing:
-				if every talkative person forsakes currentquip:
-					say "[line break]  *";
-				otherwise:
-					say "[line break]   ";
-				say currentquip;
+				if a talkative person heeds currentquip:
+					if every talkative person forsakes currentquip:
+						say "[line break]  *";
+					otherwise:
+						say "[line break]   ";
+					say currentquip;
 		say "[line break]";
 	repeat with current running through talkative people:
 		let counterThing be 0;
@@ -653,7 +655,7 @@ Example: ** Group Chat - Talking to everyone.
 	When play begins:
 		deliver Roll Call;
 		
-	Roll Call is a quip. The preview of Roll Call is "You need to take roll.".
+	Roll Call is a quip. Every person heeds Roll Call. The preview of Roll Call is "You need to take roll.".
 
 	TargetResponse of a Roll Call is "[if CurrentTarget is Noether]You say, 'Noether?'
 
