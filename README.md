@@ -22,7 +22,7 @@ Finished areas:
 
 -toolroom (tested)
 
--Opening, megaship and final puzzle (finished, untested)
+-Opening, megaship and final puzzle (partially tested)
 
 Remaining areas:
 
