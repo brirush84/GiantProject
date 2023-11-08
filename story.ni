@@ -89,7 +89,7 @@ The special clue called Statement will transport you into a suspect's past when 
 Crediting is an action out of world. Understand "Credits" as crediting. 
 
 Carry out crediting:
-	say "This game was written by Brian Rushton/Mathbrush using Inform 7 (by Graham Nelson). Beta testers include Amanda Walker, the Xenographer, John Ziegler, Jade, Christopher Merriner, Patrick Mooney, Brett Witty, Rovarsson, E. Joyce, Max Fouquet O'Garra, Dee Cooke, Ian Greener, Chandler Groover, Lance Cirone, Zed Lopez, Cody Gaisser, Alex Proudfoot, Radioactive Crow, Mike Spivey, Larry Horsfield, Dirk Spivey, Arthur DiBianca, Hal Rushton, Hidnook, Charm Cochran, and LAST_TESTER_HERE. 
+	say "This game was written by Brian Rushton/Mathbrush using Inform 7 (by Graham Nelson). Beta testers include Amanda Walker, the Xenographer, John Ziegler, Jade, Christopher Merriner, Patrick Mooney, Brett Witty, Rovarsson, E. Joyce, Max Fouquet O'Garra, Dee Cooke, Ian Greener, Chandler Groover, Lance Cirone, Zed Lopez, Cody Gaisser, Alex Proudfoot, Radioactive Crow, Mike Spivey, Larry Horsfield, Dirk Spivey, Arthur DiBianca, Hal Rushton, Hidnook, Charm Cochran, Grueslayer, and LAST_TESTER_HERE. 
 
 Hanon Ondricek gave helpful advice about the concept and title. Phil Riley and Peter Bates made suggestions about coding. Mike Russo and Garry Francis gave poetry tips. Wade Clarke and Mike Russo (again) gave some prose tips.
 
@@ -906,9 +906,9 @@ Instead of giving the rubber-toy to divya:
 
 Chapter 6 - Captain's quarters
 
-The captain-room is east from officers-quarters. The captain-room is in ship-region. The printed name of the captain-room is "Captain's Quarters". The description of captain-room is "The Captain's quarters are much like the man himself, utilitarian but comfortable. [first time]Few people come in here, as the Captain likes to spend his time among his officers and around the ship. It feels almost like you are invading a private sanctum.
+The captain-room is east from officers-quarters. The captain-room is in ship-region. The printed name of the captain-room is "Captain's Quarters". The description of captain-room is "The Captain's quarters are much like the man himself, utilitarian but polished. [first time]Few people come in here, as the Captain likes to spend his time among his officers and around the ship. It feels almost like you are invading a private sanctum.
 
-[only]A desk with his private data terminal is the main feature on one side of his room, next to his neatly made bed. A shelf filled with historical texts dominates the other. The main decoration on the wall is a picture of his family. You can leave to the [boldwest][first time].
+[only]A desk with his private data terminal is the main feature on one side of his room, next to his neatly made bed. A shelf filled with historical texts in printed form dominates the other. The main decoration on the wall is a picture of his family. You can leave to the [boldwest][first time].
 
  [The Captain] looks up as you enter the room. He's the same height as you, but has a commanding presence, with a body still muscled and fit despite the gray in his beard. He's holding a glass of Scotch in his hand. As his eyes look up to meet you, you notice a slight reddish glow behind him, accompanied by a tearing sound.
 
@@ -1041,7 +1041,7 @@ The targetresponse of home-quip is "'Storyweaver,' he answer seriously, 'My wife
 
 Section 5 - Bookshelf
 
-The captain-shelf is a scenery supporter in captain-room. The printed name of the captain-shelf is "bookshelf". Understand "book" or "books" or "caesar" or "gibbon" or "historical" or "text" or "texts" or "plutarch" or "shelf" as the captain-shelf. The description of the captain-shelf is "The Captain's bookshelf is filled with historical texts: Caesar, Gibbon, Plutarch, and others. He has a fondness for grounding himself in the stories of past heroes."
+The captain-shelf is a scenery supporter in captain-room. The printed name of the captain-shelf is "bookshelf". Understand "book" or "books" or "caesar" or "gibbon" or "historical" or "text" or "in printed" or "print" or "printed" or "form" or "texts" or "plutarch" or "shelf" as the captain-shelf. The description of the captain-shelf is "The Captain's bookshelf is filled with historical texts: Caesar, Gibbon, Plutarch, and others. He has a fondness for grounding himself in the stories of past heroes."
 
 Instead of taking the captain-shelf:
 	try reading the captain-shelf;
@@ -1760,7 +1760,7 @@ After taking the great-figures during speech-scene:
 
 'We as a people and as a ship are determined to learn from the past,' you say. 'The history of humanity shows time and time again the influence that one person can have, whether for good or for bad. For every Florence Nightingale, there is a Nero. For every Cincinnatus, there is a Leopold II.
 
-'My job as Storyweaver is to share with you these tales of the past, and to preserve your stories for the future. Perhaps one day chlidren will hear legends of the Starship Tragwyddol.'
+'My job as Storyweaver is to share with you these tales of the past, and to preserve your stories for the future. Perhaps one day children will hear legends of the Starship Tragwyddol.'
 
 The crowd cheers, and someone comes and takes away the book[NextMemento].";
 	now the great-figures is nowhere;
@@ -13217,7 +13217,7 @@ Instead of rubbing the stonehenge-graffiti:
 	say "It would take forever to clean all of this off."
 
 To say testername:
-	say "[one of]Amanda[or]Xenographer[or]John[or]Jade[or]Christopher[or]Lance[or]Zed[or]Cody[or]Alex[or]Radioactive Crow[or]Patrick[or]Arthur[or]Brett[or]Rovarsson[or]Joyce[or]Max[or]Dee[or]Ian[or]Chandler[or]Spike[or]Lazzah[or]Doug[or]Dirk[or]Dee[or]Hidnook[or]Eddie[cycling]"
+	say "[one of]Amanda[or]Xenographer[or]John[or]Jade[or]Christopher[or]Lance[or]Zed[or]Cody[or]Alex[or]Radioactive Crow[or]Patrick[or]Arthur[or]Brett[or]Rovarsson[or]Joyce[or]Max[or]Dee[or]Ian[or]Chandler[or]Spike[or]Lazzah[or]Doug[or]Dirk[or]Dee[or]Hidnook[or]Eddie[or]Grueslayer[cycling]"
 
 The east-collector is a light-collector in stonehenge-east.
 
@@ -31661,7 +31661,7 @@ By [us] on the catwalk are some broken controls, badly charred. Near them are th
 
 [one of]It's immediately clear what is wrong; t[or]T[stopping]he primary containment vessel, the ten-meter tall device that holds the fuel, has broken open, and no water is flowing in to cool it. The fuel inside is partially melted. Standing this close, [our] heart beats uncomfortably fast and [our] head aches[first time][dyingtext][only].
 
-A valve wheel on the very end of the coolant pipe is closed. If the water can be restored through that valve wheel, the reactor can be saved. [unless the streaming-water is nowhere]But, [we] can tell that the coolant pipe is completely empty. Something in the other rooms is blocking the flow[otherwise if the raised-trap is in the location]But there's no way water can get through while the trap is raised[otherwise if the twisted-grill is in the raised-trap][She] can tell that water is in the pipe, but it's getting stuck somewhere in the middle, before it even reaches the valve[otherwise]Water is finally flowing all the way to the closed valve wheel itself.
+A valve wheel on the very end of the coolant pipe is closed. If the water can be restored through that valve wheel, the reactor can be saved. [unless the streaming-water is nowhere]But, [we] can tell that the coolant pipe is completely empty. Something in the other rooms is blocking the flow[otherwise if the raised-trap is in the location]But there's no way water can get through while the trap is raised[otherwise if the twisted-grill is in the raised-trap][We] can tell that water is in the pipe, but it's getting stuck somewhere in the middle, before it even reaches the valve[otherwise]Water is finally flowing all the way to the closed valve wheel itself.
 
 But [we] [adapt the verb know] that opening that valve will be the death of [us][end if].
 
@@ -33446,7 +33446,7 @@ Instead of physicality when the noun is the blood-drops:
 
 Chapter 22 - Captain's room
 
-The captain-redux is east from officer-redux. The printed name of the captain-redux is "Captain's Quarters". "The Captain's quarters are much like the man himself, utilitarian but comfortable. His room is in disarray; his desk is missing his private data terminal, and has a portrait on it face down. A pile of books lays at the foot of an empty bookshelf.
+The captain-redux is east from officer-redux. The printed name of the captain-redux is "Captain's Quarters". "The Captain's quarters are much like the man himself, utilitarian but polished. His room is in disarray; his desk is missing his private data terminal, and has a portrait on it face down. A pile of books lays at the foot of an empty bookshelf.
 
 A safe [first time]that you've never noticed before [only]lies [if captains-safe is open]open[otherwise]closed[end if] on the wall[if the captains-safe is closed][otherwise if the number of things in captains-safe < 1]. There is nothing in it[otherwise]. In it [is-are a list of things in captains-safe]. You can leave to the [boldwest]." It is in finale2-region.
 
@@ -33954,8 +33954,9 @@ When gareth-scene begins:
 
 	'Emrys?' says a voice. It's Gareth, you're best friend on the ship, and the current psychologist on duty.[paragraph break]";
 		deliver response-quip;
-		now fake-gareth is in the location;
+		now fake-gareth is in storage-room;
 		clear the flags;
+		now fake-gareth is talkative;
 
 Gareth-scene ends when response-quip is targetgiven.
 
@@ -34130,7 +34131,7 @@ The clothes-mannequin is scenery in far-storage. The printed name of the clothes
 Instead of taking or pushing or pulling the clothes-mannequin:
 	say "While you're definitely interested in pulling this out some time, now that you've remembered it's here, you're not in the mood to cart around an entire mannequin."
 
-The ice-costume is part of the clothes-mannequin. The printed name of the ice-costume is "Ice Queen costume". Understand "ice" or "queen" or "fabric" or "costume" or "blue" or "white" or "tulle" or "scratchy" as the ice-costume. The description of the ice-costume is "You wear this in the Christmas play a few years back. It's blue and white, made with tulle, nice to look at but very scratchy. On top is a white crown of icicles, made of plastic and stitched to the fabric of the costume."
+The ice-costume is part of the clothes-mannequin. The printed name of the ice-costume is "Ice Queen costume". Understand "ice" or "queen" or "fabric" or "costume" or "blue" or "white" or "tulle" or "scratchy" as the ice-costume. The description of the ice-costume is "You wore this in the Christmas play a few years back. It's blue and white, made with tulle, nice to look at but very scratchy. On top is a white crown of icicles, made of plastic and stitched to the fabric of the costume."
 
 Instead of taking the ice-costume:
 	say "The costume looks decidedly older now. Taking it off the mannequin could damage it. It was never made to last, though."
@@ -34138,10 +34139,16 @@ Instead of taking the ice-costume:
 Instead of touching or rubbing the ice-costume:
 	say "You rub the tulle between your fingers. Just as scratchy as you remember."
 
-The ice-crown is part of the ice-costume. The printed name of the ice-crown is "icicle crown". Understand "icicle" or "crown" or "white" or "plastic" as the ice-crown. The description of the ice-crown is "The crown is your favorite part of the costume, sticking out aggressively from the top and giving you a frigtening look. The kids loved it."
+The ice-crown is part of the ice-costume. The printed name of the ice-crown is "icicle crown". Understand "icicle" or "icicles" or "crown" or "white" or "plastic" as the ice-crown. The description of the ice-crown is "The crown is your favorite part of the costume, sticking out aggressively from the top and giving you a frigtening look. The kids loved it."
+
+Instead of searching the ice-costume:
+	say "There aren't any hidden pockets or anything."
 
 Instead of taking the ice-crown:
 	say "The crown is strongly attached to the fabric. You can't separate the crown from the costume."
+
+Instead of putting the dog-leash on the clothes-mannequin:
+	say "Hmm, that's kind of weird."
 
 Section 2 - Darkness
 
@@ -34161,6 +34168,9 @@ Before going nowhere from far-storage when in darkness:
 Section 3 - Random stuff
 
 Great-figures is a memorable book in far-storage. The printed name of the great-figures is "[italic type]Great Figures of History[roman type]". Understand "great" or "cover" or "figure" or "figures" or "figure of" or "figures of" or "history" as the great-figures. The description of the great-figures is "It's a decorative book about great figures in history, mostly military or political people, but also including some entertainers. Napoleon and Khufu grace the cover.".
+
+Instead of reading great-figures:
+	say "You skim through the book; you've read it before. It always looks fun, but each page is mostly dry historical facts, so you tend not to get through the whole thing."
 
 The napoleon-figure is part of the great-figures. THe printed name of napoleon-figure is "Napoleon". Understand "napoleon" or "image of" or "famous" or "image" or "horse" as napoleon-figure. The description of the napoleon-figure is "The famous image of Napoleon riding his horse is on the cover of [the great-figures].".
 
