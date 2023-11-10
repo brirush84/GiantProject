@@ -25,7 +25,7 @@ Release along with cover art.
 
 Section 1 - Genre, description, etc
 
-The story genre is "Science Fiction". The story description is "Hop through dimensions to save your ship." The story creation year is 2023. The release number is 55.
+The story genre is "Science Fiction". The story description is "Hop through dimensions to save your ship." The story creation year is 2023. The release number is 57.
 
 Section 2 - Increasing memory sizes
 
@@ -89,7 +89,7 @@ The special clue called Statement will transport you into a suspect's past when 
 Crediting is an action out of world. Understand "Credits" as crediting. 
 
 Carry out crediting:
-	say "This game was written by Brian Rushton/Mathbrush using Inform 7 (by Graham Nelson). Beta testers include Amanda Walker, the Xenographer, John Ziegler, Jade, Christopher Merriner, Patrick Mooney, Brett Witty, Rovarsson, E. Joyce, Max Fouquet O'Garra, Dee Cooke, Ian Greener, Chandler Groover, Lance Cirone, Zed Lopez, Cody Gaisser, Alex Proudfoot, Radioactive Crow, Mike Spivey, Larry Horsfield, Dirk Spivey, Arthur DiBianca, Hal Rushton, Hidnook, Charm Cochran, Grueslayer, and LAST_TESTER_HERE. 
+	say "This game was written by Brian Rushton/Mathbrush using Inform 7 (by Graham Nelson). Beta testers include Amanda Walker, the Xenographer, John Ziegler, Jade, Christopher Merriner, Patrick Mooney, Brett Witty, Rovarsson, E. Joyce, Max Fouquet O'Garra, Dee Cooke, Ian Greener, Chandler Groover, Lance Cirone, Zed Lopez, Cody Gaisser, Alex Proudfoot, Radioactive Crow, Doug Egan, Mike Spivey, Larry Horsfield, Dirk Spivey, Arthur DiBianca, Hal Rushton, Hidnook, Charm Cochran, Grueslayer, and LAST_TESTER_HERE. 
 
 Hanon Ondricek gave helpful advice about the concept and title. Phil Riley and Peter Bates made suggestions about coding. Mike Russo and Garry Francis gave poetry tips. Wade Clarke and Mike Russo (again) gave some prose tips.
 
@@ -1941,7 +1941,7 @@ The gran-comf is on the you-bed. The printed name of the gran-comf is "grandmoth
 Instead of physicality when the noun is gran-comf:
 	say "You trace your hand over the comforter, but you don't move it. It took you a while to get it in the right place."
 
-The you-stand is a scenery supporter in personal-quarters. THe printed name of the you-stand  is "nightstand". Understand "night" or "stand" or "nightstand" or "thin" or "tall" or "black" or "painted" or "wood" or "paint" as the you-stand. THe description of the you-stand is "Your nightstand is tall, thin, and made of wood painted black."
+The you-stand is a scenery supporter in personal-quarters. The printed name of the you-stand  is "nightstand". Understand "night" or "stand" or "nightstand" or "thin" or "tall" or "black" or "painted" or "wood" or "paint" as the you-stand. The description of the you-stand is "Your nightstand is tall, thin, and made of wood painted black."
 
 Instead of physicality when the noun is the you-stand:
 	say "You don't want to move the stand when its in the perfect spot for you to reach it at night."
@@ -1985,7 +1985,7 @@ after getting off when the player was on the off-chairs:
 Instead of pushing or pulling or turning or taking the off-chairs:
 	say "Rearranging furniture while a ship is crashing? Reminds you of something, but you can't remember what."
 
-The off-lamps are plural-named scenery devices in officers-quarters. THe printed name of the off-lamps is "lamps". Understand "lamp" or "lamps" or "tall" or "minimal" or "design" as the off-lamps. The description of the off-lamps is "The lamps have a minimal design, contributing to the tasteful aesthetic of the room."
+The off-lamps are plural-named scenery devices in officers-quarters. The printed name of the off-lamps is "lamps". Understand "lamp" or "lamps" or "tall" or "minimal" or "design" as the off-lamps. The description of the off-lamps is "The lamps have a minimal design, contributing to the tasteful aesthetic of the room."
 
 Instead of switching off the off-lamps:
 	say "You switch off a lamp, but it makes little change. You switch it back on."
@@ -7243,9 +7243,9 @@ There is no one in the room[or] displaying a message[stopping][if the purple-dra
 
 The metal-walls are plural-named scenery in device-room. The printed name of the metal-walls is "walls". Understand "giant" or "octagon" or "wall" or "walls" or "panel" or "panels"  or "octagons" as the metal-walls. The description of the metal-walls is "The walls are made from metal panels that join almost seamlessly, and are free from rust and dirt. Each is emblazoned with an octagon."
 
-The mesh-floor is scenery in device-room. THe printed name of the mesh-floor is "steel mesh floor". Understand "steel" or "mesh" or "floor" as the mesh-floor. The description of the mesh-floor is "The floor is made of a kind of tight steel mesh. It must have supports under it, because it doesn't sag as you walk, but the mesh is tight enough that you can't see through it."
+The mesh-floor is scenery in device-room. The printed name of the mesh-floor is "steel mesh floor". Understand "steel" or "mesh" or "floor" as the mesh-floor. The description of the mesh-floor is "The floor is made of a kind of tight steel mesh. It must have supports under it, because it doesn't sag as you walk, but the mesh is tight enough that you can't see through it."
 
-The mesh-ceiling is scenery in device-room. THe printed name of the mesh-ceiling is "steel mesh ceiling". Understand "steel" or "mesh" or "ceiling" or "support" or "supports" as the mesh-ceiling. The description of the mesh-ceiling is "The ceiling is made of tight steel mesh with steel supports running underneath it."
+The mesh-ceiling is scenery in device-room. The printed name of the mesh-ceiling is "steel mesh ceiling". Understand "steel" or "mesh" or "ceiling" or "support" or "supports" as the mesh-ceiling. The description of the mesh-ceiling is "The ceiling is made of tight steel mesh with steel supports running underneath it."
 
 Instead of putting something on the mesh-floor:
 	try dropping the noun;
@@ -7515,7 +7515,18 @@ To locate-action:
 		otherwise:
 			say "The [the curious-tool] is in locator mode, but it is currently not detecting any temporally displaced objects."
 
-[fix this later add the aura or glowing. make it describe which dimension each displaced thing belongs to]
+Understand "glowing" as temporally-displaced when it's glowing time. Understand the temporally-displaced property as describing a thing.
+
+To decide whether it's glowing time:
+	if the curious-tool is not held by the player:
+		decide no;
+	if the curious-tool is not locator:
+		decide no;
+
+REport examining a temporally-displaced thing when it's glowing time:
+	let temp be the dimnumber of the noun;
+	choose the row with a dimorder of temp in the table of dimension names;
+	say "The tool beeps and says, 'This object belongs temporally to the location you titled '[dimname entry]'.";
 
 AtPointing it at is an action applying to one carried thing and one visible thing. Understand "point [something] at [something]" as atpointing it at.
 
@@ -8113,7 +8124,7 @@ A dial appears on the surface of the pedestal.";
 
 [FIx the player hitting the button again here before setting the number. ]
 
-The number-dial is a thing. Understand "dial" as the number-dial. The printed name of the number-dial is "dial". THe description of the number-dial is "The dial can be set to any number from 0 to 8. It is currently set to [dial-number]."
+The number-dial is a thing. Understand "dial" as the number-dial. The printed name of the number-dial is "dial". The description of the number-dial is "The dial can be set to any number from 0 to 8. It is currently set to [dial-number]."
 
 Spinning it to is an action applying to one thing and one number. 
 
@@ -8579,7 +8590,7 @@ The reminder-note is in first-substation. The printed name of the reminder-note 
 
 The sub-glass are plural-named scenery in first-substation. The printed name of the sub-glass is "glass walls". Understand "glass" or "wall" or "walls" as the sub-glass. The description of the sub-glass is "You hope these are safety glass; it'd be a long fall if you broke through these."
 
-The distant-zoo is distant scenery in first-substation. THe printed name of the distant-zoo is "distant zoo". Understand "distant" or "zoo" or "square" or "structure" or "habitat" or "habitats" as the distant-zoo. The description of the distant-zoo is "Far below you can make out a zoo, laid out with a variety of habitats. A square structure floats over the zoo. It's too far away to see any specific animals, though."
+The distant-zoo is distant scenery in first-substation. The printed name of the distant-zoo is "distant zoo". Understand "distant" or "zoo" or "square" or "structure" or "habitat" or "habitats" as the distant-zoo. The description of the distant-zoo is "Far below you can make out a zoo, laid out with a variety of habitats. A square structure floats over the zoo. It's too far away to see any specific animals, though."
 
 The distant-flislands are distant plural-named scenery in first-substation. The printed name of the distant-flislands is "floating islands". Understand "floating" or "of rock" or "rock" or "island" or "islands" or "scattered" as the distant-flislands. The description of the distant-flislands is "Scattered islands of rock float high above you. They have no perceptible machinery keeping them up."
 
@@ -8667,9 +8678,9 @@ The way-glass is scenery closed unopenable transparent container in sixth-substa
 Instead of searching the way-glass:
 	say "All you see are the shoppers and the stores."
 	
-THe busy-mall is scenery in the way-glass. Understand "busy" or "mall" or "shop" or "shops" or "stores" or "bustling" or "outdoor" or "restaurant" or "store" as the busy-mall. The description of the busy-mall is "Through the glass, you can see a bustling outdoor mall. Shoppers relax and sit in a restaurant while others walk from store to stores. Business seems to be good."
+The busy-mall is scenery in the way-glass. Understand "busy" or "mall" or "shop" or "shops" or "stores" or "bustling" or "outdoor" or "restaurant" or "store" as the busy-mall. The description of the busy-mall is "Through the glass, you can see a bustling outdoor mall. Shoppers relax and sit in a restaurant while others walk from store to stores. Business seems to be good."
 
-The mall-shoppers are plural-named scenery in the way-glass. Understand "shopper" or "shoppers" or "people" or "bag" or "bags" or "crying" or "Kid" or "kids" or "bright" or "clothes" or "clothe" or "clothing" as the mall-shoppers. THe description of the mall-shoppers is "Shoppers laden with bags scurry and stroll and strut through the mall, talking and laughing and eating. Outside of the occassional glum shopper or crying kid, the people seem happy." 
+The mall-shoppers are plural-named scenery in the way-glass. Understand "shopper" or "shoppers" or "people" or "bag" or "bags" or "crying" or "Kid" or "kids" or "bright" or "clothes" or "clothe" or "clothing" as the mall-shoppers. The description of the mall-shoppers is "Shoppers laden with bags scurry and stroll and strut through the mall, talking and laughing and eating. Outside of the occassional glum shopper or crying kid, the people seem happy." 
 
 The printed name of the mall-shoppers is "shoppers".
 
@@ -8677,7 +8688,7 @@ sixth-srift is a station-rift. It is northeast from first-substation and southwe
 
 seventh-srift is a station-rift. it is northeast from sixth-substation and southwest from fifth-substation.
 
-seventh-substation is a sub-station. THe printed name of the seventh-substation is "Storage Substation". The description of the seventh-substation is "This substation is in almost total darkness. Only a single yellow lightbulb, swinging from an interminably long wire, lights the area.
+seventh-substation is a sub-station. The printed name of the seventh-substation is "Storage Substation". The description of the seventh-substation is "This substation is in almost total darkness. Only a single yellow lightbulb, swinging from an interminably long wire, lights the area.
 
 All around you in the darkness are hundreds of gleaming eyes, all pointed towards you. As the lightbulb swings back and forth, you can see that the eyes belong to rows and rows of immobile monkey robots."
 
@@ -9308,7 +9319,7 @@ It's difficult to understand."
 Before going down from catastrophe-room when fallen-wreckage is not onceclimbed:
 	say "You can't see any good way to go down." instead;
 
-The wreckage-hole is down from catastrophe-room. Wreckage-hole is in misc-region. THe printed name of the wreckage-hole is "Hole". The description of the wreckage-hole is "You are in a kind of hole or pit under the main room. This seems to be where the blast originated from. Red dust is everywhere, and a heavy bar crosses the pit. You can go back [boldup] when you're ready.".
+The wreckage-hole is down from catastrophe-room. Wreckage-hole is in misc-region. The printed name of the wreckage-hole is "Hole". The description of the wreckage-hole is "You are in a kind of hole or pit under the main room. This seems to be where the blast originated from. Red dust is everywhere, and a heavy bar crosses the pit. You can go back [boldup] when you're ready.".
 
 The actual-hole is scenery in the wreckage-hole. The printed name of the actual-hole is "hole". Understand "hole" or "pit" as the actual-hole. 
 
@@ -9421,7 +9432,7 @@ Report looking in past-construction for the first time:
 	deliver Recognition-quip;
 	say "Bronwyn says, 'Hello Emrys. Long time no see.' She smiles, but there is little warmth."	
 
-The past-construction is a room in misc-region. THe printed name of the past-construction is "Construction Zone". The description of the past-construction is "You are in a past version of the pedestal room you were in before. This room is still under construction, and mostly consists of girders with little connection between them outside of a mesh floor. Through the gaps you can see that you are floating in space above an unfinished but enormous starship[first time], larger than you had ever heard of or even thought possible, at least as large as a moon[only].
+The past-construction is a room in misc-region. The printed name of the past-construction is "Construction Zone". The description of the past-construction is "You are in a past version of the pedestal room you were in before. This room is still under construction, and mostly consists of girders with little connection between them outside of a mesh floor. Through the gaps you can see that you are floating in space above an unfinished but enormous starship[first time], larger than you had ever heard of or even thought possible, at least as large as a moon[only].
 
 [The seventh-backrift] you entered from floats to the [boldsouth].".
 
@@ -9483,7 +9494,7 @@ The back-tisserand is distant scenery in past-construction. The printed name of 
 
 Bronwyn is a person in past-construction. "A woman about your age is standing here, pausing her work at her equipment to watch you. Her badge says 'Bronwyn Savoy'."The description of Bronwyn is "Bronwyn has clear, analytical eyes and white hair pulled up into a bun. She wears a labcoat and a badge saying 'Bronwyn Savoy'.". Understand "savoy" or "clear" or "analytical" or "eyes" or "white" or "bun" or "hair" as bronwyn.
 
-Recognition-quip is a quip. THe printed name of recognition-quip is "Recognition". Understand "recognition" as recognition-quip. The target of recognition-quip is Bronwyn. The preview of recognition-quip is "I'm sorry, I don't recognize you."
+Recognition-quip is a quip. The printed name of recognition-quip is "Recognition". Understand "recognition" as recognition-quip. The target of recognition-quip is Bronwyn. The preview of recognition-quip is "I'm sorry, I don't recognize you."
 
 The targetresponse of recognition-quip is "'I suppose that makes sense,' she says, 'I looked quite a bit different the last time I saw you. I was younger, then. They called me Ginger, because of my hair.'
 
@@ -9495,7 +9506,7 @@ Report uttering recognition-quip to bronwyn:
 	deliver arrival-quip;
 	deliver passing-quip;
 	
-Arrival-quip is a quip. THe printed name of Arrival-quip is "Arrival". Understand "Arrival" as Arrival-quip. The target of Arrival-quip is Bronwyn. The preview of Arrival-quip is "What do you mean, my arrival?"
+Arrival-quip is a quip. The printed name of Arrival-quip is "Arrival". Understand "Arrival" as Arrival-quip. The target of Arrival-quip is Bronwyn. The preview of Arrival-quip is "What do you mean, my arrival?"
 
 The targetresponse of arrival-quip is "'From what I've been told, you are on a kind of journey. Some have been calling it a spiritual one, but that's just silliness. You've been time travelling.'
 
@@ -9541,7 +9552,7 @@ To say scanwyn-text:
 
 'Let me scan you, get a full set of diagnostics. We need to understand how this works, to set boundaries. Time travel is dangerous. Studying you can help us make it less so.'"
 
-Scanning-quip is a quip. THe printed name of scanning-quip is "Scanning". Understand "scanning" as scanning-quip. The target of scanning-quip is Bronwyn. The preview of scanning-quip is "Of course, you can scan me."
+Scanning-quip is a quip. The printed name of scanning-quip is "Scanning". Understand "scanning" as scanning-quip. The target of scanning-quip is Bronwyn. The preview of scanning-quip is "Of course, you can scan me."
 
 The targetresponse of scanning-quip is "Bronwyn nods and leads you over to her equipment. 'This won't take long,' she says.
 
@@ -9563,7 +9574,7 @@ Not sure how to answer that, you meekly say, 'Okay.'";
 	now the seventh-backrift is green-torn;
 	deliver farewell-quip;
 
-Farewell-quip is a quip. The printed name of farewell-quip is "Farewell". Understand "farewell" as farewell-quip. THe target of farewell-quip is Bronwyn. The preview of farewell-quip is "Goodbye, Brownyn."
+Farewell-quip is a quip. The printed name of farewell-quip is "Farewell". Understand "farewell" as farewell-quip. The target of farewell-quip is Bronwyn. The preview of farewell-quip is "Goodbye, Brownyn."
 
 The targetresponse of farewell-quip is "Bronwyn stops her work to bid you farewell.
 
@@ -9708,7 +9719,7 @@ Under-zoo is a crystal-room in hidden-region. The printed name of the under-zoo 
 
 The penn-cot is a scenery enterable supporter in under-zoo. The printed name of the penn-cot is "bed". Understand "bed" or "cot" as the penn-cot. The description of the penn-cot is "The cot looks designed for rest or medical use. Given the lack of bedding, it's probably the latter."
 
-THe scattered-straw is scenery in under-zoo. Understand "straw" or "scattered" as the scattered-straw. The printed name of the scattered-straw is "scattered straw". The description of the scattered-straw is "Bits of straw lie here and there."
+The scattered-straw is scenery in under-zoo. Understand "straw" or "scattered" as the scattered-straw. The printed name of the scattered-straw is "scattered straw". The description of the scattered-straw is "Bits of straw lie here and there."
 
 Instead of physicality when the noun is the scattered-straw:
 	say "It's too scattered to do much of anything with."
@@ -9721,9 +9732,9 @@ The scenery-metal is scenery in cabin-office. Understand "metal" or "wall" or "w
 
 The cabin-console is scenery in the cabin-office. Understand "console" or "time" or "time of" or "day" or "adjuster" or "cabin" or "673C" as the cabin-console. The printed name of the cabin-console is "console". The description of the cabin-console is "This console says 'Time of Day Adjuster for Cabin 673C' and has a large dial that is currently set to [time of day]."
 
-The clock-dial is part of the cabin-console. THe printed name of the clock-dial is "clock dial". Understand "dial" or "clock" as the clock-dial. The description of the clock-dial is "The dial is designed as a clock. It shows the time to be [the time of day]. You should be able to SET it to any time you want."
+The clock-dial is part of the cabin-console. The printed name of the clock-dial is "clock dial". Understand "dial" or "clock" as the clock-dial. The description of the clock-dial is "The dial is designed as a clock. It shows the time to be [the time of day]. You should be able to SET it to any time you want."
 
-The caboffice-chair is an enterable scenery supporter in cabin-office. The printed name of the caboffice-chair is "office chair". Understand "office" or "chair" as the caboffice-chair. THe description of the caboffice-chair is "This chair must have been relegated down here due to its lack of comfort."
+The caboffice-chair is an enterable scenery supporter in cabin-office. The printed name of the caboffice-chair is "office chair". Understand "office" or "chair" as the caboffice-chair. The description of the caboffice-chair is "This chair must have been relegated down here due to its lack of comfort."
 
 Understand "set [clock-dial] to [time]" as setting it by time. Setting it by time is an action applying to one thing and one time. 
 
@@ -9757,7 +9768,7 @@ Chapter 6 - Tower room
 
 The tower-room is a crystal-room. The tower-room is in hidden-region. The printed name of tower-room is "Projection Booth". The description of tower-room is "This room looks nothing like the rest of the house. It is a cramped metal room with several pieces of machinery pointed through small holes in the walls and floor. You can go back [bolddown] through the trapdoor. [rift-text]."
 
-The tower-metal is scenery in tower-room. Understand "metal" or "wall" or "walls" as the tower-metal. THe printed name of the tower-metal is "metal walls". The description of the tower-metal is "The walls are metal, much like your room on the Starship Tragwyddol. There are holes here and there that the machinery sticks out through."
+The tower-metal is scenery in tower-room. Understand "metal" or "wall" or "walls" as the tower-metal. The printed name of the tower-metal is "metal walls". The description of the tower-metal is "The walls are metal, much like your room on the Starship Tragwyddol. There are holes here and there that the machinery sticks out through."
 
 The tower-floor is scenery in tower-room. Understand "metal" or "floor" as the tower-floor. The printed name of the tower-floor is "metal floor". The description of the tower-floor is "The metal floor looks like it's been washed sometime in the last month. There are holes here and there that the machinery pokes through."
 
@@ -9788,9 +9799,9 @@ Chapter 7 - Police back office
 
 Police-back is a crystal-room in hidden-region. The printed name of police-back is "Prop Room". The description of police-back is "This room is filled with props and costumes. There is a rack of dresses, a box of wigs, and a pile of what you can only call junk. [rift-text]."
 
-The random-pile is scenery in police-back. THe printed name of the random-pile is "pile of random items". Understand "pile" or "pile of" or "junk" or "random" or "item" or "items" or "prop" or "props" or "costume" or "costumes" as the random-pile. The description of the random-pile is "Most of the props and costumes are heaped up into a pile. By and large, none of them stick out to you.".
+The random-pile is scenery in police-back. The printed name of the random-pile is "pile of random items". Understand "pile" or "pile of" or "junk" or "random" or "item" or "items" or "prop" or "props" or "costume" or "costumes" as the random-pile. The description of the random-pile is "Most of the props and costumes are heaped up into a pile. By and large, none of them stick out to you.".
 
-The dress-rack is scenery in police-back. THe printed name of the dress-rack is "rack of dresses". Understand "rack" or "rack of" or "dress" or "dresses" or "green" or "yellow" or "plaid" or "horizontal" or "stripe" or "stripes" as the dress-rack. The description of the dress-rack is "The dresses are mostly mundane and none of them are in your size, unfortunately."
+The dress-rack is scenery in police-back. The printed name of the dress-rack is "rack of dresses". Understand "rack" or "rack of" or "dress" or "dresses" or "green" or "yellow" or "plaid" or "horizontal" or "stripe" or "stripes" as the dress-rack. The description of the dress-rack is "The dresses are mostly mundane and none of them are in your size, unfortunately."
 
 Instead of searching the dress-rack:
 	say "You can already see all the dresses, and they're all bad."
@@ -9817,9 +9828,9 @@ Rule for writing a paragraph about a wearable thing in police-back:
 
 The fake-mustache is a wearable thing in police-back. Understand "fake" or "size" or "belgian" or "mustache" or "moustache" as the fake-mustache. The printed name of the fake-mustache is "fake mustache". The description of the fake-mustache is "This mustache, with its impressive size, looks unmistakably Belgian."
 
-The deerstalker-cap is a wearable thing in police-back. Understand "deerstalker" or "cap" as the deerstalker-cap. THe printed name of the deerstalker-cap is "deerstalker cap". The description of the deerstalker-cap is "This cap is perfect for anyone trying to imitate a certain famous detective. No pipe included.".
+The deerstalker-cap is a wearable thing in police-back. Understand "deerstalker" or "cap" as the deerstalker-cap. The printed name of the deerstalker-cap is "deerstalker cap". The description of the deerstalker-cap is "This cap is perfect for anyone trying to imitate a certain famous detective. No pipe included.".
 
-The oversized-raincoat is a wearable thing in police-back. Understand "oversized" or "beige" or "oversize" or "raincoat" or "coat" as the oversized-raincoat. THe printed name of the oversized-raincoat is "oversized raincoat". The description of the oversized-raincoat is "This raincoat looks like it wouldn't really fit well. Looking at it makes you feel like you have just one more question, but you don't know what it would be."
+The oversized-raincoat is a wearable thing in police-back. Understand "oversized" or "beige" or "oversize" or "raincoat" or "coat" as the oversized-raincoat. The printed name of the oversized-raincoat is "oversized raincoat". The description of the oversized-raincoat is "This raincoat looks like it wouldn't really fit well. Looking at it makes you feel like you have just one more question, but you don't know what it would be."
 
 The police-door is a scenery closed locked crystal-door. The police-door is west from police-station and east from police-back. The printed name of the police-door is "metal door". Understand "metal" or "octagon" or "mark" or "door" or "symbol" as the police-door. The description of the police-door is "This metal door is marked with an octagon symbol." The door-room of the police-door is the police-back.
 
@@ -9839,7 +9850,7 @@ The cave-dust is scenery in under-floor. The indefinite article of the cave-dust
 
 The cave-monkeys are plural-named scenery in under-floor. The printed name of the cave-monkeys is "monkeys". Understand "monkey" or "monkeys" as the cave-monkeys. The description of the cave-monkeys is "These monkeys are formed of whatever the black dust is. They look unfinished as they crawl towards the PROCESSING gate.". 
 
-The processing-gate is scenery in under-floor. THe printed name of the processing-gate is "Processing gate". Understand "processing" or "gate" as the processing-gate. The description of the processing-gate is "Due to the angle, it's hard to see what's on the other side of the gate. It's labelled PROCESSING, and all the monkeys are pouring through it."
+The processing-gate is scenery in under-floor. The printed name of the processing-gate is "Processing gate". Understand "processing" or "gate" as the processing-gate. The description of the processing-gate is "Due to the angle, it's hard to see what's on the other side of the gate. It's labelled PROCESSING, and all the monkeys are pouring through it."
 
 The spell-hatch is a scenery closed locked crystal-door. The spell-hatch is down from gem-room and up from under-quarry. The printed name of the spell-hatch is "hatch". The description of the spell-hatch is "This metal hatch subtly glows. It has an octagon symbol on it." Understand "metal" or "faint" or "outline" or "hatch" or "octagon" or "symbol" as the spell-hatch. The door-room of the spell-hatch is the under-quarry.
 
@@ -9916,7 +9927,7 @@ A ladder leads back [bolddown][if an entrance-like hub-door is in the location].
 
 A hub-door is a kind of door. A hub-door is usually scenery and closed. A hub-door has some text called the hub-text. Understand "blue" or "rift" as a hub-door when an open hub-door is in the location. A hub-door has a rift-style. A hub-door is usually black-torn. Understand the rift-style property as describing a hub-door when the player is not in hub-room. Understand "wall" or "walls" as black-torn when the player is in hub-room. Understand "rift" as a hub-door when the player is not in hub-room.
 
-The printed name of a hub-door is usually "[if the player is in hub-room][hub-text] [otherwise if the number of scene-rifts in the location > 0]smaller [end if][if open][rift-style of the item described] rift[otherwise][riftwall][end if]". Understand the hub-text property as describing a hub-door. THe description of a hub-door is usually "[if the item described is wall-like and the location is hub-room]All you can see is a wall, unfortunately[otherwise]This is a [rift-style of the item described] rift, leading [bold type][direction of the item described from the location][roman type]. It floats silently in the air[end if].".
+The printed name of a hub-door is usually "[if the player is in hub-room][hub-text] [otherwise if the number of scene-rifts in the location > 0]smaller [end if][if open][rift-style of the item described] rift[otherwise][riftwall][end if]". Understand the hub-text property as describing a hub-door. The description of a hub-door is usually "[if the item described is wall-like and the location is hub-room]All you can see is a wall, unfortunately[otherwise]This is a [rift-style of the item described] rift, leading [bold type][direction of the item described from the location][roman type]. It floats silently in the air[end if].".
 
 Understand "smaller" or "small" as a hub-door when a scene-rift is in the location.
 
@@ -10055,7 +10066,7 @@ Before opening a crystal-door:
 			now the rift-safe is in temp;
 			now the third-shard is in rift-safe;
 
-The rift-safe is a container. The rift-safe is closed and locked. "A heavy safe sits in one corner of the room. It doesn't look like it belongs here." The rift-safe is fixed in place. Understand "safe" or "heavy" or "writing" as the rift-safe. THe printed name of the rift-safe is "safe". The description of the rift-safe is "This safe looks far too heavy to move. There is a keypad for entering a 6-digit number. The safe is currently [if the rift-safe is open]open[otherwise if the rift-safe is unlocked]closed and unlocked[otherwise]closed and locked[end if].
+The rift-safe is a container. The rift-safe is closed and locked. "A heavy safe sits in one corner of the room. It doesn't look like it belongs here." The rift-safe is fixed in place. Understand "safe" or "heavy" or "writing" as the rift-safe. The printed name of the rift-safe is "safe". The description of the rift-safe is "This safe looks far too heavy to move. There is a keypad for entering a 6-digit number. The safe is currently [if the rift-safe is open]open[otherwise if the rift-safe is unlocked]closed and unlocked[otherwise]closed and locked[end if].
 
 Someone has written on the safe:
 
@@ -10170,7 +10181,7 @@ The pizza-parlor is a room in misc-region. The printed name of the pizza-parlor 
 
 Owen is a talkative man in pizza-parlor. "A scrawny youth with a nametag reading Owen stands across the counter from you." Understand "scrawny" or "short" or "small" or "youth" or "employee" or "nametag" as owen. The description of Owen is "Owen is a small young man that looks like he's barely even old enough to hold this job. His expression is fairly bored.".
 
-The pizza-signage is distant scenery in pizza-parlor. THe printed name of the pizza-signage is "hanging sign". Understand "signage" or "hanging" or "sign" or "skull" or "skull and" or "crossbones" or "cross bones" or "bone" or "bones" or "hat"or "grand" or "line" or "pizza parlor" or "parlor" or "logo" as the pizza-signage. The description of the pizza-signage is "From the ceiling hangs a sign reading Grand Line Pizza Parlor, with a skull and crossbones wearing a hat as its logo."
+The pizza-signage is distant scenery in pizza-parlor. The printed name of the pizza-signage is "hanging sign". Understand "signage" or "hanging" or "sign" or "skull" or "skull and" or "crossbones" or "cross bones" or "bone" or "bones" or "hat"or "grand" or "line" or "pizza parlor" or "parlor" or "logo" as the pizza-signage. The description of the pizza-signage is "From the ceiling hangs a sign reading Grand Line Pizza Parlor, with a skull and crossbones wearing a hat as its logo."
 
 The pizza-furniture is plural-named scenery in pizza-parlor. The printed name of the pizza-furniture is "tables and chairs". Understand "table" or "tables" or "chair" or "chairs" or "tables and" or "scattered" or "sticky" or "molded" or "plastic" as the pizza-furniture. The description of the pizza-furniture is "The tables and chairs are molded plastic, slightly sticky."
 
@@ -10209,7 +10220,7 @@ The pizza-box is a closed openable container. Understand "box" or "pizza" as the
 Does the player mean doing something to the pizza-box:
 	it is unlikely;
 
-The pizza-rift is a scene-rift in pizza-parlor. The pizza-rift is blue-torn. The pizza-rift can be open or closed. The pizza-rift is open. Understand "rift" as the pizza-rift. The printed name of the pizza-rift is "[rift-style] rift". The description of the pizza-rift is "This [rift-style] rift should be able to take you back." THe diagnose-text of pizza-rift is "DIAGNOSIS:Creation date: 0103/51[line break]Type: [if the fifth-uprift is black-torn] Black (originally Blue)[otherwise] Blue[end if] [line break]Separation type: Spatial[line break]Separation distance: 12000 meters"
+The pizza-rift is a scene-rift in pizza-parlor. The pizza-rift is blue-torn. The pizza-rift can be open or closed. The pizza-rift is open. Understand "rift" as the pizza-rift. The printed name of the pizza-rift is "[rift-style] rift". The description of the pizza-rift is "This [rift-style] rift should be able to take you back." The diagnose-text of pizza-rift is "DIAGNOSIS:Creation date: 0103/51[line break]Type: [if the fifth-uprift is black-torn] Black (originally Blue)[otherwise] Blue[end if] [line break]Separation type: Spatial[line break]Separation distance: 12000 meters"
 
 The initial appearance of the pizza-rift is "A [rift-style of the pizza-rift] rift in the middle of the parlor leads back [boldoutside]."
 
@@ -10297,7 +10308,7 @@ To say alsoword:
 	if the 1-light is switched off and the 2-light is switched off:
 		say "also ";
 
-A box-light is a kind of thing. Understand "light" or "labelled" or "label" as a box-light. A box-light can be switched on or switched off. THe description of a box-light is usually "[The item described] is currently [if the item described is switched on]lit up[otherwise]dark[end if]." Understand the switched on property as describing a box-light. Understand "lit" as switched on when a box-light is enclosed by the location. Understand "dark" as switched off when a box-light is enclosed by the location. 
+A box-light is a kind of thing. Understand "light" or "labelled" or "label" as a box-light. A box-light can be switched on or switched off. The description of a box-light is usually "[The item described] is currently [if the item described is switched on]lit up[otherwise]dark[end if]." Understand the switched on property as describing a box-light. Understand "lit" as switched on when a box-light is enclosed by the location. Understand "dark" as switched off when a box-light is enclosed by the location. 
 
 Instead of switching on or switching off a box-light:
 	say "You don't see any way to directly manipulate them.";
@@ -10552,7 +10563,7 @@ Separation distance: 165 years"
 
 The yang-desk is an enterable scenery supporter in yang-two. The printed name of the yang-desk is "desk". Understand "desk" or "prominent" or "softwood" as the yang-desk. The description of the yang-desk is "This desk is made of some kind of softwood, in constrast to the artificial nature of the rest of the lab.".
 
-The mk-iii is scenery on yang-desk. The printed name of the mk-iii is "Yang Engine Mk III". Understand "yang" or "engine" or "mk" or "mark" or "iii" or "3" or "incomplete" or "device" as the mk-iii. THe description of the mk-iii is "The Yang Engine Mk III looks a bit like a pressure cooker, but it's missing so many pieces that it's hard to guess what it would look like when finished."
+The mk-iii is scenery on yang-desk. The printed name of the mk-iii is "Yang Engine Mk III". Understand "yang" or "engine" or "mk" or "mark" or "iii" or "3" or "incomplete" or "device" as the mk-iii. The description of the mk-iii is "The Yang Engine Mk III looks a bit like a pressure cooker, but it's missing so many pieces that it's hard to guess what it would look like when finished."
 
 The eighth-shard is on the yang-desk.
 
@@ -14227,7 +14238,7 @@ The vortex-adj is a list of text that varies. The vortex-adj is {"weathered", "s
 
 Section 1 - The ships
 
-cdir is a direction. The opposite of cdir is ccdir. Ccdir is a direction.THe printed name of ccdir is "counterclockwise". The printed name of cdir is "clockwise". Understand "counterclockwise" or "counter-clockwise" or "ccw" as ccdir when the player is in vortex-region. Understand "clockwise" or "cw" as cdir when the player is in vortex-region.
+cdir is a direction. The opposite of cdir is ccdir. Ccdir is a direction.The printed name of ccdir is "counterclockwise". The printed name of cdir is "clockwise". Understand "counterclockwise" or "counter-clockwise" or "ccw" as ccdir when the player is in vortex-region. Understand "clockwise" or "cw" as cdir when the player is in vortex-region.
 
 The weathered-ship is a vortex-ship with ship-feature "[entry 1 of vortex-adj]". It is northeast from gross-ship and northwest from slim-ship.
 The slim-ship is a vortex-ship with ship-feature "[entry 2 of vortex-adj]". It is northwest from fancy-ship.
@@ -14373,7 +14384,7 @@ The description of gross-ship is "[genship][entry 8 of vortex-desc]. [midship]."
 
 Vortex-rooms is a list of rooms that varies. Vortex-rooms is {weathered-ship, slim-ship, fancy-ship, painted-ship, crooked-ship, sticky-ship, vandalized-ship, gross-ship}.
 
-The vor-tex is intangible backdrop. The vor-tex is in vortex-region. THe printed name of the vor-tex is "vortex". Understand "vortex" or "wind" as the vor-tex. The description of the vor-tex is "The vortex consists of wind blowing wildly in this area. It's not strong enough to push the ships themselves, though."
+The vor-tex is intangible backdrop. The vor-tex is in vortex-region. The printed name of the vor-tex is "vortex". Understand "vortex" or "wind" as the vor-tex. The description of the vor-tex is "The vortex consists of wind blowing wildly in this area. It's not strong enough to push the ships themselves, though."
 
 Section 2 - Central ship
 
@@ -14436,7 +14447,7 @@ Instead of turning the galleon-harpoons:
 
 The galleon-harpoons can be expended or unexpended. The galleon-harpoons are unexpended.
 
-THe harpoon-lever is scenery in the central-ship. The printed name of the harpoon-lever is "lever". Understand "lever"as the harpoon-lever. The description of the harpoon-lever is "This lever is connected to all of [the galleon-harpoons]. "
+The harpoon-lever is scenery in the central-ship. The printed name of the harpoon-lever is "lever". Understand "lever"as the harpoon-lever. The description of the harpoon-lever is "This lever is connected to all of [the galleon-harpoons]. "
 
 The spike-harpoon is a distant backdrop. The printed name of the spike-harpoon is "harpoon". Understand "harpoon" or "harpoons" or "rope" as the spike-harpoon. The description of the spike-harpoon is "A harpoon is embedded in this carrack, out of reach, with a rope leading back to the central galleon.".
 
@@ -14658,7 +14669,7 @@ Instead of turning the vortex-crank:
 Instead of pulling the vortex-crank:
 	try turning the vortex-crank;
 
-The flying-cannons is a distant backdrop. THe printed name of the flying-cannons is "flying cannonball". Understand "flying" or "cannonball" or "cannonballs" or "cannon ball" or "cannon balls" or "ball" or "balls" as the flying-cannons. The description of the flying-cannons is "[ballstatus].";
+The flying-cannons is a distant backdrop. The printed name of the flying-cannons is "flying cannonball". Understand "flying" or "cannonball" or "cannonballs" or "cannon ball" or "cannon balls" or "ball" or "balls" as the flying-cannons. The description of the flying-cannons is "[ballstatus].";
 
 To say ballstatus:
 	let L be a list of text;
@@ -14823,7 +14834,7 @@ The distant-liberty is distant backdrop. The distant-liberty is in eiffel-room. 
 
 The scenery-eiffel is a backdrop. The scenery-eiffel is in eiffel-room. The scenery-eiffel is in eiffel-shop. The scenery-eiffel is in spike-room. The scenery-eiffel is in under-eiffel. The printed name of the scenery-eiffel is "Eiffel Tower". Understand "layer" or "layers" or "eiffel" or "tower" or "rust" as the scenery-eiffel. The description of the scenery-eiffel is "The Eiffel Tower, with its many layers of rust, is dark against the starlight."
 
-The eiffel-island is a scenery backdrop. THe eiffel-island is in eiffel-room. The eiffel-island is in under-eiffel. Understand "bit" or "bit of" or "southern" or "part" as the eiffel-island. THe printed name of the eiffel-island is "floating island". THe description of the eiffel-island is "Most of the island has crumbled away, except for the part under the tower itself and a little bit of the southern part."
+The eiffel-island is a scenery backdrop. The eiffel-island is in eiffel-room. The eiffel-island is in under-eiffel. Understand "bit" or "bit of" or "southern" or "part" as the eiffel-island. The printed name of the eiffel-island is "floating island". The description of the eiffel-island is "Most of the island has crumbled away, except for the part under the tower itself and a little bit of the southern part."
 
 [graffiti mentions winning a stay in the cabin]
 [maybe angular momentum between the two using rope?]
@@ -14836,9 +14847,9 @@ There is a directory sign here. You can go [boldup] to the middle of the tower o
 
 Understand "steel" or "lattice" or "cage" as the scenery-eiffel.
 
-The eiffel-shadow is intangible scenery in the under-eiffel. THe printed name of the eiffel-shadow is "shadow". Understand "shadow" as the eiffel-shadow. The description of the eiffel-shadow is "This entire area is in the shadow of the tower, although some starlight gleams through."
+The eiffel-shadow is intangible scenery in the under-eiffel. The printed name of the eiffel-shadow is "shadow". Understand "shadow" as the eiffel-shadow. The description of the eiffel-shadow is "This entire area is in the shadow of the tower, although some starlight gleams through."
 
-The eiffel-directory is scenery in under-eiffel. THe printed name of the eiffel-directory is "directory sign". Understand "directory" or "sign" or "shop" or "shops" or "luxury" or "brand" or "brands" or "bakeries" or "bakery" or "winery" or "wineries" as the eiffel-directory. The description of the eiffel-directory is "This directory lists shops that were once near here. Luxury brands, bakeries, wineries, and a host of other stores used to surround this area."
+The eiffel-directory is scenery in under-eiffel. The printed name of the eiffel-directory is "directory sign". Understand "directory" or "sign" or "shop" or "shops" or "luxury" or "brand" or "brands" or "bakeries" or "bakery" or "winery" or "wineries" as the eiffel-directory. The description of the eiffel-directory is "This directory lists shops that were once near here. Luxury brands, bakeries, wineries, and a host of other stores used to surround this area."
 
 Section 2 - Eiffel shop
 
@@ -15105,7 +15116,7 @@ The description of the mother-statue is "This statue is covered in roses and hon
 
 The mother-sword is distant scenery in the motherland-room. The printed name of the mother-sword is "giant sword". Understand "giant" or "sword" or "light" or "material" as the mother-sword. The description of the mother-sword is "The sword must be some light material, because it's held up high and at an angle and the vines hang from it".
 
-The flowering-vines are part of the mother-statue. THe printed name of the flowering-vines is "flowering vines". Understand "rose" or "roses" or "thorn" or "thorns" or "flowering" or "flower" or "flower" or "vines" or "vines" or "Honeysuckle" as the flowering-vines. The description of the flowering-vines is "The vines have completely enveloped the statue. Most of them are in bloom; you can identify roses and honeysuckle, among others."
+The flowering-vines are part of the mother-statue. The printed name of the flowering-vines is "flowering vines". Understand "rose" or "roses" or "thorn" or "thorns" or "flowering" or "flower" or "flower" or "vines" or "vines" or "Honeysuckle" as the flowering-vines. The description of the flowering-vines is "The vines have completely enveloped the statue. Most of them are in bloom; you can identify roses and honeysuckle, among others."
 
 Instead of taking the flowering-vines:
 	if the money-envelope is nowhere:
@@ -15135,7 +15146,7 @@ Instead of inserting a non-bill thing into the money-envelope:
 
 [have one of the desolation deer appear here]
 
-The distant-sydney is distant scenery in motherland-room. THe printed name of the distant-sydney is "Sydney Opera House". Understand "sydney" or "opera" or "house" or "stripped" or "skeletal" as the distant-sydney. Understand "burnt" or "remains" as the distant-sydney when the opera-panels are damp. The description of the distant-sydney is "[if the opera-panels are damp]The Sydney Opera House rises the east, stripped and skeletal[otherwise]The burnt remains of the Sydney Opera House are to the east[end if].".
+The distant-sydney is distant scenery in motherland-room. The printed name of the distant-sydney is "Sydney Opera House". Understand "sydney" or "opera" or "house" or "stripped" or "skeletal" as the distant-sydney. Understand "burnt" or "remains" as the distant-sydney when the opera-panels are damp. The description of the distant-sydney is "[if the opera-panels are damp]The Sydney Opera House rises the east, stripped and skeletal[otherwise]The burnt remains of the Sydney Opera House are to the east[end if].".
 
 Section 1 - Equipment
 
@@ -15366,7 +15377,7 @@ With a groan, the Great Gate tears open, sending a shower of dirt below.";
 
 Section 4 - Scenery
 
-The field-machinery is a backdrop in energy-region. Understand "ground" as the field-machinery. Understand "ground" or "cogs" or "overgrown" or "pipes" or "machinery" as the field-machinery. THe description of the field-machinery is "The purpose of the machinery is difficult to discern. Cogs and pipes poke out of the plant growth, but you see no pattern.". The printed name of the field-machinery is "field machinery".
+The field-machinery is a backdrop in energy-region. Understand "ground" as the field-machinery. Understand "ground" or "cogs" or "overgrown" or "pipes" or "machinery" as the field-machinery. The description of the field-machinery is "The purpose of the machinery is difficult to discern. Cogs and pipes poke out of the plant growth, but you see no pattern.". The printed name of the field-machinery is "field machinery".
 
 The field-plants are a backdrop in energy-region. Understand "overgrowth" or "plants" or "growth" or "kudzu" or "grass" as the field-plants. The printed name of the field-plants is "plants". The description of the field-plants is "A lot of this looks like kudzu, but there's some grass here, too.".
 
@@ -15553,7 +15564,7 @@ A fire rule (this is the fire destroys things rule):
 Definition: a thing is vulnerable if it is flammable and it is unburnt.
 
 [The following allows us to force fire to spread from one thing to another]
-Cheatance relates a thing to a thing . THe verb to cheattouch means the cheatance relation.
+Cheatance relates a thing to a thing . The verb to cheattouch means the cheatance relation.
 
 Reliance relates a thing (called X) to a thing (called Y) when X is part of Y or X is in Y or X is on Y or X cheattouch Y. The verb to be relying on means the reliance relation.
 
@@ -15902,7 +15913,7 @@ Instead of physicality when the noun is the dirt-pile:
 Instead of physicality when the noun is the dust-layer:
 	say "You barely make a dent in the dust, it's so thick.";
 	
-The chalk-boards are plural-named scenery in yang-room. THe printed name of the chalk-boards is "chalkboards". Understand "chalk" or "board" or "chalkboard" or "boards" or "chalkboards" or "indecipherable" or "equation" or "equations" or "wall" or "walls" as the chalk-boards. The description of the chalk-boards is "The chalkboards are covered by indecipherable equations. The only parts you understand say:
+The chalk-boards are plural-named scenery in yang-room. The printed name of the chalk-boards is "chalkboards". Understand "chalk" or "board" or "chalkboard" or "boards" or "chalkboards" or "indecipherable" or "equation" or "equations" or "wall" or "walls" as the chalk-boards. The description of the chalk-boards is "The chalkboards are covered by indecipherable equations. The only parts you understand say:
 
 [italic type]1 cm in the scope = 1 km in the chamber[roman type],
 
@@ -16042,7 +16053,7 @@ Before switching on the unfueled dimensional-chamber:
 
 Section 2 - Inside the chamber
 
-The chamber-door is a scenery door. The chamber-door is closed. The chamber-door is inside from yang-room and outside from yang-chamber. Understand "door" or "circular" or "thick" as the chamber-door when the x-spot is unaltered. Understand "missing" as the chamber-door when the x-spot is altered. The description of the chamber-door is "This door is circular and very thick. Great for withstanding a lot of pressure[if the player is in yang-chamber]. It's floating in space[end if]." THe printed name of the chamber-door is "[if the x-spot is altered]missing [otherwise]chamber door[end if]"
+The chamber-door is a scenery door. The chamber-door is closed. The chamber-door is inside from yang-room and outside from yang-chamber. Understand "door" or "circular" or "thick" as the chamber-door when the x-spot is unaltered. Understand "missing" as the chamber-door when the x-spot is altered. The description of the chamber-door is "This door is circular and very thick. Great for withstanding a lot of pressure[if the player is in yang-chamber]. It's floating in space[end if]." The printed name of the chamber-door is "[if the x-spot is altered]missing [otherwise]chamber door[end if]"
 
 Instead of opening the closed chamber-door when the player is in yang-room:
 	try switching on the dimensional-chamber;
@@ -29369,7 +29380,7 @@ The targetresponse of Loc-quip is "'You are in the heart of the Starship Tissera
 
 rec-quip is a quip. Understand "Familiar" as rec-quip. The printed name of rec-quip is "Familiar". The preview of rec-quip is "Who are you? I've seen you before." The target of rec-quip is Arawn.
 
-The targetresponse of rec-quip is "'Yes, and I didn't quite expect that,' she says. 'Our first meeting, when the crash happened...that wasn't in the record. I can only assume your recorder was faulting out. As for the others, I can only assume that your connection as Storyweavers allowed us to communicate in a way not recorded by devices.'
+The targetresponse of rec-quip is "'Yes, and I didn't quite expect that,' she says. 'Our first meeting, when the crash happened...that wasn't in the Record. I can only assume your recorder was faulting out. As for the others, I can only assume that your connection as Storyweavers allowed us to communicate in a way not recorded by devices.'
 
 'So you're a Storyweaver, too,' you point out. 'Are we...?'
 
@@ -29409,7 +29420,7 @@ Instead of opening the tall-windows:
 Instead of searching the tall-windows:
 	try examining the distant-city;
 	
-The distant-city is a distant backdrop. It is in audience-chamber and glass-hallway. THe printed name of the distant-city is "city below". Understand "city" or "below" or "dazzling" or "view" or "outside" or "gleaming" or "orderly" or "row" or "rows" or "street" or "streets" or "apartment" or "apartments" or "commercial" or "block" or "blocks" or "tree" or "trees" as the distant-city. The description of the distant-city is "The city stretches out below you, with orderly rows of streets filled mostly by what look like apartments interspersed with commercial blocks. The streets are wide and have trees planted on all sides."
+The distant-city is a distant backdrop. It is in audience-chamber and glass-hallway. The printed name of the distant-city is "city below". Understand "city" or "below" or "dazzling" or "view" or "outside" or "gleaming" or "orderly" or "row" or "rows" or "street" or "streets" or "apartment" or "apartments" or "commercial" or "block" or "blocks" or "tree" or "trees" as the distant-city. The description of the distant-city is "The city stretches out below you, with orderly rows of streets filled mostly by what look like apartments interspersed with commercial blocks. The streets are wide and have trees planted on all sides."
 
 The aud-couches are plural-named enterable scenery supporter in audience-chamber. The printed name of aud-couches is "couches". Understand "couch" or "rounded" or "stylized" or "round" or "comfortable" or "white" or "couches" as the aud-couches. The description of the aud-couches is "The white couches are rounded and stylized, but look comfortable enough."
 
@@ -29441,7 +29452,7 @@ Instead of entering the aud-desk:
 	otherwise:
 		say "On second thought, Arawn is waiting for you."
 	
-The aud-doors are plural-named closed locked openable scenery doors. THe aud-doors are east from audience-chamber and west from glass-hallway. Understand "doors" or "door" or "double" as the aud-doors. The printed name of the aud-doors is "double doors". The description of the aud-doors is "These doors look slightly newer than the rest of the room. Perhaps they were recently remodeled?".
+The aud-doors are plural-named closed locked openable scenery doors. The aud-doors are east from audience-chamber and west from glass-hallway. Understand "doors" or "door" or "double" as the aud-doors. The printed name of the aud-doors is "double doors". The description of the aud-doors is "These doors look slightly newer than the rest of the room. Perhaps they were recently remodeled?".
 
 Section 3 - Departure scene
 
@@ -29453,9 +29464,15 @@ To decide whether audience is over:
 	unless record-quip is targetgiven, decide no;
 	decide yes;
 
+Gone-arawn is a scenery thing. Understand "arawn" or "webster" or "woman" or "mask" or "skull" as gone-arawn.
+
+Instead of doing something with gone-arawn:
+	say "Arawn isn't here; she's gone on ahead."
+
 When depart-audience begins:
 	now the aud-doors are unlocked;
 	now the aud-doors are open;
+	now gone-arawn is in audience-chamber;
 	now arawn webster is in glass-hallway;
 	now all-recorder is nowhere;
 	say "There is a chime. 
@@ -29500,7 +29517,11 @@ The description of the short-spire is "The shorter spire is the one to the [bold
 
 The description of the tall-spire is "The taller spire is the one to the [boldeast] that you are headed towards. It looks to be made of some reflective metal and glass, but you can't see through it to the inside."
 
-The distant-park is scenery in glass-hallway. The printed name of the distant-park is "distant park". Understand "far" or "below" or "distant" or "park" or "greenery" or "monument" as the distant-park. THe description of the distant-park is "All you can make out of the park is some greenery and a kind of monument in the middle. The city itself spreads out all around it."
+The distant-park is distant scenery in glass-hallway. The printed name of the distant-park is "distant park". Understand "far" or "below" or "distant" or "park" or "greenery" or "monument" as the distant-park. The description of the distant-park is "All you can make out of the park is some greenery and a kind of monument in the middle. The city itself spreads out all around it."
+
+The tiny-monument is distant scenery in glass-hallway. The printed name of the tiny-monument is "monument". Understand "monument" or "obelisk" as the tiny-monument. The description of the tiny-monument is "At this distance, you really can't see much about the monument. It looks like an obelisk; that's all you can tell."
+
+Garddownlooking is an action applying to one visible thing. Understand "look [down]" as Garddownlooking when below-earth is in the location. Carry out Garddownlooking: try examining distant-park;
 
 Every turn during depart-audience:
 	if arawn is in glass-hallway:
@@ -29512,6 +29533,7 @@ Every turn during depart-audience:
 'Feel free to take a look,' she says, waving her arms, 'but I'll go on ahead. We're going to be headed to the museum to wait for the reception to start. It should answer most of your questions.'
 
 She walks on to the spire to the [boldeast].";
+			now gone-arawn is in glass-hallway;
 			now arawn webster is in rotunda-room;
 
 Section 5 - Rotunda room
@@ -29520,9 +29542,11 @@ The rotunda-room is a room in wildcard-region. It is east from glass-hallway. Th
 
 A spiral escalator wraps around the interior with access at each level, allowing you to go [bolddown]."
 
-The scenery-rotunda is distant scenery in the rotunda-room. The printed name of the scenery-rotunda is "rotunda". Understand "inside" or "interior" or "spacious" or "rotunda" or "fifty" or "floors" or "50" or "floor" or "balcony" or "balconies" or "window" or "windows" or "other" or "areas" or "area" as the scenery-rotunda.
+The scenery-rotunda is distant scenery in the rotunda-room. The printed name of the scenery-rotunda is "rotunda". Understand "inside" or "interior" or "spacious" or "rotunda" or "fifty" or "floors" or "50" or "floor" or "window" or "windows" or "other" or "areas" or "area" as the scenery-rotunda.
 
 The description of the scenery-rotunda is "The spacious interior might be designed to allow more rooms to have windows, as several of them do. However, the building seems quiet. Not empty, but below capacity, like on a holiday."
+
+Understand "step on [something]" or "step onto [something]" as entering.
 
 The scenery-balconies are distant scenery in rotunda-room. The printed name of the scenery-balconies is "balconies". Understand "balcony" or "glass" or "Barrier" or "barriers" or "balconies" as the scenery-balconies. The description of the scenery-balconies is "The balconies wrap around the interior of the rotunda, with glass barriers to keep everyone from injuries. No one is around, though.".
 
@@ -29531,6 +29555,9 @@ The rotunda-ceiling is distant scenery in rotunda-room. The printed name of the 
 The description of the rotunda-ceiling is "The rotunda ceiling is a pale green, with golden stars and constellations painted over it. None of the constellations are named. Perhaps they're a record of stars that have passed by? Or the stars at the destination?"
 
 The spiral-escalator is a scenery staircase. The spiral-escalator is down from rotunda-room and up from museum-entrance. The printed name of the spiral-escalator is "spiral escalator". Understand "ladder" as the spiral-escalator when the spiral-escalator is open. Understand "spiral" or "escalator" or "double" or "helix" or "entrance" or "other" or "another" or "entrances" as the spiral-escalator. The description of the spiral-escalator is "The escalator wraps all around the different floors. Another one going the other way matches it, the two forming a double helix.".
+
+REport going through spiral-escalator:
+	say "You take the escalator, passing by floor after floor, until you arrive at..."
 
 Every turn during depart-audience:
 	if arawn is in rotunda-room:
@@ -29576,7 +29603,10 @@ Every turn when hist-doors was open:
 	if the player can see the hist-doors:
 		say "The double doors swing closed."
 
-The foyer-rope is a closed openable scenery door. THe foyer-rope is west from museum-entrance and east from by the dessert table. The printed name of the foyer-rope is "velvet rope". Understand "red" or "velvet" or "rope" as the foyer-rope. The description of the foyer-rope is "[if closed]This is a red velvet rope, currently blocking the way west[otherwise]The rope has been moved aside, leaving the way [boldwest] open [end if]."
+The foyer-rope is a closed openable scenery door. The foyer-rope is west from museum-entrance and east from by the dessert table. The printed name of the foyer-rope is "velvet rope". Understand "red" or "velvet" or "rope" as the foyer-rope. The description of the foyer-rope is "[if closed]This is a red velvet rope, currently blocking the way west[otherwise]The rope has been moved aside, leaving the way [boldwest] open [end if]."
+
+Instead of climbing the foyer-rope:
+	say "Despite its unassuming presence, you find yourself unable to bypass or adjust the rope[if the foyer-rope is open], even with the rope moved aside[end if]. It seems that despite your warm welcome from Arawn, you aren't entirely trusted to do as you please." instead;
 
 Before physicality when the noun is the foyer-rope:
 	say "Despite its unassuming presence, you find yourself unable to bypass or adjust the rope[if the foyer-rope is open], even with the rope moved aside[end if]. It seems that despite your warm welcome from Arawn, you aren't entirely trusted to do as you please." instead;
@@ -29614,7 +29644,7 @@ The muse-lighting is a distant backdrop in map-region. The printed name of the m
 
 The muse-walls are a plural-named backdrop in map-region. The printed name of the muse-walls is "walls". Understand "wall" or "walls" or "space" or "star" or "stars" or "style" or "nebula" or "nebulae" or "impressionistic" or "impression" or "ceiling" as the muse-walls. The description of the muse-walls is "The walls and ceiling are painted to look like space, with stars and nebulae. They've chosen an impressionistic style, rather than a realistic one."
 
-The starship-model is a backdrop in map-region. The printed name of the starship-model is "model of the [italic type]Tisserand[roman type]". Understand "model" or "oblate" or "spheroid" or "model of" or "opaque" or "lower" or "half" or "words" or "starship" or "tisserand" as the starship-model. The description of the starship-model is "[if the player is in cent-room]The model is below you now, [otherwise]The model is taller than you are[end if], shaped like an oblate spheroid. The lower half is mostly opaque, emblazoned with the words [italic type]Starship Tisserand[roman type], while the top is enclosed by a transparent dome.
+The starship-model is a backdrop in map-region. The printed name of the starship-model is "model of the [italic type]Tisserand[roman type]". Understand "model" or "oblate" or "spheroid" or "model of" or "opaque" or "lower" or "half" or "words" or "starship" or "tisserand" as the starship-model. The description of the starship-model is "[if the player is in cent-room]The model is below you now[otherwise]The model is taller than you are[end if], shaped like an oblate spheroid. The lower half is mostly opaque, emblazoned with the words [italic type]Starship Tisserand[roman type], while the top is enclosed by a transparent dome.
 
 [if the player is enclosed by fore-port]Inside the dome, near you, are a vast expanse of forest, lakes, rivers, and an outer ocean. You can see a sprinkling of small cities that grow in density towards a larger city in the center. But you can't make out any more detail from this angle.
 
@@ -29628,7 +29658,7 @@ There is a diagram on the model near you, describing the role of Storyweavers on
 
 There is a diagram on the model near you, describing the transporation system on the ship[end if]."
 
-The trans-dome is part of the starship-model. THe printed name of the trans-dome is "transparent dome". Understand "transparent" or "top" or "dome" as the trans-dome. THe description of the trans-dome is "A transparent dome covers the top of the ship model. It doesn't seem to be just part of the exhibition; it looks like the starship itself has a transparent dome that must be hundreds of miles across. It boggles the mind to think of what materials would be needed for such an undertaking."
+The trans-dome is part of the starship-model. The printed name of the trans-dome is "transparent dome". Understand "transparent" or "top" or "dome" as the trans-dome. The description of the trans-dome is "A transparent dome covers the top of the ship model. It doesn't seem to be just part of the exhibition; it looks like the starship itself has a transparent dome that must be hundreds of miles across. It boggles the mind to think of what materials would be needed for such an undertaking."
 
 The outer-ocean is a distant part of the starship-model. The printed name of the outer-ocean is "outer ocean". Understand "edge" or "outer" or "ocean" as the outer-ocean. The description of the outer-ocean is "The edge of the starship, under the dome, is covered by an outer ocean. It bends slightly, due to the internal gravity effects of the ship."
 
@@ -29644,9 +29674,9 @@ aft-port is a room. aft-starboard is a room. fore-starboard is a room. cent-room
 
 The towering-cities are plural-named distant scenery in aft-port. The printed name of the towering-cities is "towering cities". Understand "towering" or "cities"  as the towering-cities. The description of the towering-cities is "These cities are quite large, bigger than anything you've been in except perhaps the port you first launched out of in your own ship. Each is connected to its neighbors by rail, and they all connect to the central city."
 
-The aft-beaches are plural-named distant scenery in aft-port. The printed name of the aft-beaches is "beaches". Understand  "coastline" or "several" or "white" or "sandy" or "beach" or "artificial" or "artificially" or "beaches" or "sand"as the aft-beaches. THe description of the aft-beaches is "The beaches along the coastline seem much larger than could be explained by natural processes. They must be artifically created."
+The aft-beaches are plural-named distant scenery in aft-port. The printed name of the aft-beaches is "beaches". Understand  "coastline" or "several" or "white" or "sandy" or "beach" or "artificial" or "artificially" or "beaches" or "sand"as the aft-beaches. The description of the aft-beaches is "The beaches along the coastline seem much larger than could be explained by natural processes. They must be artifically created."
 
-The aft-rails are plural-named scenery in aft-port. Understand "rail" or "lines" or "ways" or "line" or "way" or "railway" or "railline" as the aft-rails. The printed name of the aft-rails is "rail lines". THe description of the rail-lines is "This part of the model has a large number of rail lines, mostly connecting different towering cities to each other and to the central city. You can even see little trains zooming by."
+The aft-rails are plural-named scenery in aft-port. Understand "rail" or "lines" or "ways" or "line" or "way" or "railway" or "railline" as the aft-rails. The printed name of the aft-rails is "rail lines". The description of the rail-lines is "This part of the model has a large number of rail lines, mostly connecting different towering cities to each other and to the central city. You can even see little trains zooming by."
 
 The aft-trains are plural-named scenery in aft-port. Understand "train" or "trains" as the aft-trains. The printed name of the aft-trains is "trains". The description of the aft-trains is "It's really straining your eyes to try to see these well."
 
@@ -29692,7 +29722,7 @@ Instead of opening the construction-case:
 	
 The star-blueprints are in the construction-case. The printed name of the star-blueprints is "blueprints". Understand "blue" or "blueprint" or "ship's" or "for the ship" or "blueprints" or "molten" or "core" or "cutaway" or "sketch" or "print" or "topmost" or "whole ship" or "stacked" or "prints" or "paper" or "form" as the star-blueprints. The description of the star-blueprints is "The blueprints are stacked high, with the topmost saying '1 of 23700'. That one shows a cutaway sketch of the whole ship, revealing a molten core much like that of a planet, designed to carry energy for millenia.".
 
-The asteroid-fragment is in construction-case. THe printed name of the asteroid-fragment is "asteroid fragment". Understand "asteroid" or "fragment" or "comet" or "black" or "glassy" or "obsidian" or "comets" as the asteroid-fragment. The description of the asteroid-fragment is "This fragment is black and glassy, like obsidian. It's fascinating how they were able to build everything you've seen from such basic material.".
+The asteroid-fragment is in construction-case. The printed name of the asteroid-fragment is "asteroid fragment". Understand "asteroid" or "fragment" or "comet" or "black" or "glassy" or "obsidian" or "comets" as the asteroid-fragment. The description of the asteroid-fragment is "This fragment is black and glassy, like obsidian. It's fascinating how they were able to build everything you've seen from such basic material.".
 
 The bronwyn-photo is in construction-case. The printed name of the bronwyn-photo is "photo". Understand "bronwyn" or "you" or "Me" or "image" or "laboratory" or "lab" or "partially" or "partially-constructed" or "ship" or "caption" or "captioned" or "photo" or "photograph" as the bronwyn-photo. The description of the bronwyn-photo is "This photo shows you and an older Brownyn meeting in her laboratory, with the starship in the backgroun.
 
@@ -30180,7 +30210,7 @@ Every turn when the player is in party-region:
 				assign value of spaces for the mover;
 				let destination be the nicenicest p-room;
 				if the destination is not the location of the mover:
-					if mover is in the location of the player, say "[The mover] [one of]makes excuses and drifts off[or]walks over[or]loses interest and goes[or]mumbles something quietly and leave[or]breaks off eye contact and walks away[or]apologizes and walks over[at random] to [if the number of people in destination > 0]join [end if][the destination].[paragraph break]";
+					if mover is in the location of the player, say "[The mover] [one of]makes excuses and drifts off[or]walks over[or]loses interest and goes[or]mumbles something quietly and leaves[or]breaks off eye contact and walks away[or]apologizes and walks over[at random] to [if the number of people in destination > 0]join [end if][the destination].[paragraph break]";
 					move the mover to the destination;
 					now the mover is complacent;
 					now the longevity of the mover is 0;
@@ -30214,7 +30244,7 @@ Understand "nametag" or "name tag" or "name tags" or "nametags" as a person when
 
 Section 2 - Christine 
 
-party-christine is a woman in near the entrance. THe printed name of party-christine is "Christine". Understand "Christine" or "middle-aged" or "middle aged" or "aged" or "woman" or "dark" or "worn" or "woolen" or "dress" as party-christine. The description of party-christine is "Christine is a middle-aged woman wearing a dark, worn woolen dress. She looks much less transparent than the last time you saw her."
+party-christine is a woman in near the entrance. The printed name of party-christine is "Christine". Understand "Christine" or "middle-aged" or "middle aged" or "aged" or "woman" or "dark" or "worn" or "woolen" or "dress" as party-christine. The description of party-christine is "Christine is a middle-aged woman wearing a dark, worn woolen dress. She looks much less transparent than the last time you saw her."
 
 Rule for writing a paragraph about party-christine:
 	if the location contains a man (called flirt) who is desired by party-christine:
@@ -30627,7 +30657,7 @@ To say lightson:
 To say deliverplanting:
 	deliver planting-quip;
 
-planting-quip is a quip. THe printed name of planting-quip is "Planting". Understand "planting" as planting-quip.The target of planting-quip is arawn. The preview of planting-quip is "You were planting these flowers when I first saw you, weren't you?"
+planting-quip is a quip. The printed name of planting-quip is "Planting". Understand "planting" as planting-quip.The target of planting-quip is arawn. The preview of planting-quip is "You were planting these flowers when I first saw you, weren't you?"
 
 The targetresponse of planting-quip is "'That's right,' says Arawn. 'I wanted everything to look nice before you came.'
 
@@ -30667,7 +30697,7 @@ The targetresponse of resigned-quip is "Arawn nods and says, 'That is the same c
 
 'I mean, what else can I say?' you ask.
 
-She is silent for a moment.[clearemotions]."
+She is silent for a moment.[clearemotions]"
 
 To say clearemotions:
 	say "[paragraph break][bracket]Removed topics - Angry, Sad, Resigned[close bracket][line break]";
@@ -30752,7 +30782,7 @@ You look over her face, with its ridged nose and faintly scarred cheekbones. 'No
 To say changeface:
 	now arawn is unmasked;
 	now the skull-mask is worn by arawn;
-	if why-quip is targetgiven:
+	if story-quip is targetgiven:
 		deliver choice-quip;
 		now refuse-quip is nowhere;
 		now whatnext-quip is nowhere;
@@ -31075,7 +31105,7 @@ Instead of taking off the radiation-suit:
 	say "[if the player is emrys-weaver]You need all the protection you can in here, until the end[otherwise]Removing the suit would expose Arawn's deception to the world and destroy the time loop. She keeps it on[end if].";
 
 Before going west from engine-closet when the radiation-suit is not worn by the player:
-	say "[if the player is emrys-weaver]If you are, as you suspect, in one of the nuclear engines of the ship, you'll need the protection of the radiation suit[otherwise]Arawn can not leave without the suit. She is well aware that, in the record, Emrys was covered by this suit. In fact, Arawn's entire plan depends on being hidden underneath it[end if]."
+	say "[if the player is emrys-weaver]If you are, as you suspect, in one of the nuclear engines of the ship, you'll need the protection of the radiation suit[otherwise]Arawn can not leave without the suit. She is well aware that, in the record, Emrys was covered by this suit. In fact, Arawn's entire plan depends on being hidden underneath it[end if]." instead;
 
 Chapter 8 -Coolant Room
 
@@ -31110,12 +31140,12 @@ Instead of physicality when the noun is the collapsed-stairs:
 	say "The stairs look like a hopeless mess of wreckage. There is nothing [we]can do about them."
 
 Before going down when the player is in coolant-room:
-	say "The channel is small enough that [we] can climb in and out of it with little difficulty." instead;
+	say "The channel is small enough that [we] has no difficulty walking around the room." instead;
 
 The burst-pipe is scenery in coolant-room. Understand "burst" or "pipe" or "coolant" or "supports" as the burst-pipe. The description of the burst-pipe is "The pipe looks designed to pump coolant into the reactor to the [boldnorth]. Right now, [if the busted-support is part of the burst-pipe]the pipe is sagging and leaking, because one of its supports is broken[otherwise if the pristine-support is not part of the burst-pipe]the pipe is sagging and leaking, because it is missing one of its supports[otherwise]the pipe is flowing correctly to the north, now that it has a new support[end if]."
 
 Instead of taking or pushing or pulling the burst-pipe:
-	say "[unless the pristine-support is part of the burst-pipe]The pipe is firmly anchored by supports in most directions, but it is sagging a bit down[end if][if the busted-support is part of the burst-pipe], because one of its supports is broken[otherwise if the pristine-support is not part of the burst-pipe], because it is missing one of its supports[end if][if the pristine-support is not part of the burst-pipe]. [We] can't hold it forever, so [we]'ll need a better support for it[otherwise]The pipe is now firmly anchored by supports and repaired[end if][if the streaming-water is nowhere]. It is no longer leaking water[otherwise]Water streams out of the pipe and into the channel[end if]."
+	say "[unless the pristine-support is part of the burst-pipe]The pipe is firmly anchored by supports in most directions, but it is sagging a bit down[end if][if the busted-support is part of the burst-pipe], because one of its supports is broken[otherwise if the pristine-support is not part of the burst-pipe], because it is missing one of its supports[end if][if the pristine-support is not part of the burst-pipe]. [We] can't hold it forever, so [we][']ll need a better support for it[otherwise]The pipe is now firmly anchored by supports and repaired[end if][if the streaming-water is nowhere]. It is no longer leaking water[otherwise]. Water streams out of the pipe and into the channel[end if]."
 
 The streaming-water is an open unopenable transparent scenery container in coolant-room. The printed name of the streaming-water is "streaming water". Understand "streaming" or "water" as the streaming-water. The description of the streaming-water is "The water streams out of the pipe and into the channel, where it drains; how it does so, [we] can not tell. The water is flowing as much or more than a bathtub tap, but not enough that it would knock something out of [our] hand.".
 
@@ -31197,7 +31227,7 @@ Instead of searching the finale-door:
 
 The door-bar is scenery in engine-closet. The printed name of the door-bar is "bar". Understand "bar" as the door-bar. The description of the door-bar is "This is a heavy bar that slides in and out of the wall to lock or unlock the door. Even when fully extended, most of it remains in the wall. It is currently [if the finale-door is locked]locked[otherwise]unlocked[end if]."
 
-The reactor-floor is a backdrop in finale1-region. THe printed name of the reactor-floor is "floor". Understand "floor" or "panels" as the reactor-floor. The description of the reactor-floor is "The floor is mostly made up of panels, and has little of interest for [us]."
+The reactor-floor is a backdrop in finale1-region. The printed name of the reactor-floor is "floor". Understand "floor" or "panels" as the reactor-floor. The description of the reactor-floor is "The floor is mostly made up of panels, and has little of interest for [us]."
 
 Instead of putting something on the reactor-floor:
 	try dropping the noun;
@@ -31205,7 +31235,7 @@ Instead of putting something on the reactor-floor:
 Instead of entering the reactor-floor:
 	say "[We] [are] already standing on the floor."
 
-The reactor-walls are a backdrop in finale1-region. THe printed name of the reactor-walls is "walls". Understand "wall" or "walls" or "layer" or "layer of" or "paint" as the reactor-walls. The description of the reactor-walls is "The walls are plain metal in most locations, with a layer or two of paint."
+The reactor-walls are a backdrop in finale1-region. The printed name of the reactor-walls is "walls". Understand "wall" or "walls" or "layer" or "layer of" or "paint" as the reactor-walls. The description of the reactor-walls is "The walls are plain metal in most locations, with a layer or two of paint."
 
 Instead of taking the door-bar:
 	say "The bar is designed to only slide back and forth, but [we] [could] push it or pull it."
@@ -31222,6 +31252,8 @@ Instead of closing the door-bar:
 	otherwise:
 		say "The bar is already pushed shut.";
 
+Understand "lift [something]" or "slide [something]" as pulling when the player is in finale1-region.
+
 Instead of pulling the door-bar:
 	if the finale-door is locked:
 		say "[We] [pull] the bar, unlocking the door.";
@@ -31234,7 +31266,7 @@ Instead of pushing the door-bar:
 		say "The bar has already been pushed as far as it can be.";
 	otherwise:
 		if the finale-door is open:
-			say "[We]'ll have to close the door first before [we] can lock it with the bar.";
+			say "[We][']ll have to close the door first before [we] can lock it with the bar.";
 		otherwise:
 			say "[We] [push] the bar, locking the door.";
 			now the finale-door is locked;
@@ -31255,6 +31287,8 @@ Instead of putting something on the remaining-rail:
 		now the broken-door is nowhere;
 		now the balanced-door is in coolant-room;
 		set pronouns from the balanced-door;
+	otherwise if the noun is the insulated-hook:
+		say "The hook can grab the rail, but this does not seem to be of any use to [us].";
 	otherwise:
 		say "The steel rail is slightly rounded; the only way something could stay on it is if that something had a cut or notch to hold the rail.";
 
@@ -31297,11 +31331,11 @@ Report taking the balanced-door:
 	set pronouns from the broken-door;
 
 Instead of putting something on the balanced-door:
-	say "There's a good chance [we]'ll lose it if [we] [put] that there."
+	say "There's a good chance [we][']ll lose it if [we] [put] that there."
 	
 Section 5 - Sorting the Ash
 
-The sunken-channel is scenery in coolant-room. THe printed name of the sunken-channel is "sunken channel". Understand "sunken" or "channel" as the sunken-channel. The description of the sunken-channel is "A channel has been exposed down the center of the room[if the streaming-water is in the location], and water is streaming down it[otherwise], still a little wet from earlier."
+The sunken-channel is scenery in coolant-room. The printed name of the sunken-channel is "sunken channel". Understand "sunken" or "channel" as the sunken-channel. The description of the sunken-channel is "A channel has been exposed down the center of the room[if the streaming-water is in the location], and water is streaming down it[otherwise], still a little wet from earlier."
 
 Before doing something when the current action involves the sunken-channel:
 	if the streaming-water is in the location:
@@ -31407,7 +31441,7 @@ Instead of shaking the metal-bowl:
 		if the burnt-pile is unwetswirled:
 			say "There's a lot less ash now, but this might work better underwater at this stage, to get a lot of the lighter particles out first.";
 		otherwise if the burnt-pile is oncedryswirled:
-			say "[We] [adapt the verb swirl] it again, but nothing much changes. [We]'ll need to rinse off the water.";
+			say "[We] [adapt the verb swirl] it again, but nothing much changes. [We][']ll need to rinse off the water.";
 		otherwise:
 			say "[We] [adapt the verb swirl] the bowl gently over the water, letting the lighter ash slop out. By the time [we] [are] done, [we] can hear something rattling in the bowl, but there's just enough ash left that [we] can't see it well.
 
@@ -31626,10 +31660,10 @@ Instead of the rusty-robot robot-flipping when the rusty-robot is on the balance
 		
 [FIX THIS LATER what if player jumps while on door]
 
-After the rusty-robot going east to coolant-room:
-	say "[The rusty-robot] arrives from the west, and stops in that half of the room. It's positioned right to the west of[if the balanced-door is in the location] the balanced door[otherwise] the channel and the rail[end if]."
+After the rusty-robot going east to coolant-room when the player is in coolant-room:
+	say "[The rusty-robot] arrives from the west, and stops in that half of the room. It's positioned right to the west of[if the balanced-door is in the location] the balanced door[otherwise] the channel and the rail[end if].";
 
-After the rusty-robot going north to coolant-room:
+After the rusty-robot going north to coolant-room when the player is in coolant-room:
 	say "[The rusty-robot] arrives from the south, and stops in the middle, just west of[if the balanced-door is in the location] the balanced door[otherwise] the channel and the rail[end if]."
 
 Instead of pushing the capture-button:
@@ -31677,6 +31711,13 @@ You can only assume that this is acute radiation poisoning. Even if you left her
 Section 1 - The door
 
 The reactor-door is a closed locked scenery openable door. The reactor-door is north from coolant-room and south from main-engine. The printed name of the reactor-door is "reactor door". Understand "reactor door" as reactor-door. Understand "reactor" as the reactor-door when the player is in coolant-room. Understand "door" as reactor-door when the player is in main-engine. The description of the reactor-door is "The reactor door is heavily shielded and seems to have survived the worst of the impact. It is currently [if the reactor-door is unlocked]un[otherwise]locked[end if] and [if the reactor-door is open]open[otherwise]closed[end if]."
+
+This is the opening locked reactor rule:
+	if the reactor-door is locked:
+		say "The reactor door is sealed shut. There is no visible way to open it manually.";
+		stop the action;
+
+The opening locked reactor rule substitutes for the can't open what's locked rule when the player is in coolant-room and the noun is reactor-door.
 
 Section 2 - Scenery
 
@@ -31757,7 +31798,7 @@ The reactor-panel is scenery in main-engine. The printed name of reactor-panel i
 
 There are several buttons on the panel, including a CLEAR BLOCKAGE button, a RAISE CW button, and a LOWER CW button.".
 
-The logic-slot is part of the reactor-panel. It is an open unopenable container. Understand "slot" as the logic-slot. THe printed name of the logic-slot is "slot". THe description of the logic-slot is "This slot is designed for use with a logic ring."
+The logic-slot is part of the reactor-panel. It is an open unopenable container. Understand "slot" as the logic-slot. The printed name of the logic-slot is "slot". The description of the logic-slot is "This slot is designed for use with a logic ring."
 
 Instead of inserting something into the reactor-panel:
 	try inserting the noun into the logic-slot;
@@ -31864,7 +31905,7 @@ Instead of withtaking the twisted-grill with something when the twisted-grill is
 	otherwise if a metallic thing is enclosed by the player:
 		say "[We] [adapt the verb hook] the grill with the insulated hook and [pull] it out of the trap. But as it gets close, arcs of electricity begin to form between the grill and [the random metallic thing enclosed by the player]. One of the arcs hits [us], and it hurts so much that [we] [adapt the verb stop] pulling the grill.
 
-[We]'ll probably have to drop any metal [we] [have].";
+[We][']ll probably have to drop any metal [we] [have].";
 	otherwise:
 		say "[We] [adapt the verb hook] the grill with the insulated hook and [pull] it out of the trap. It falls to the pwith a clatter, no longer electrified. [We] [adapt the verb pick] it up and toss it over into the rubble, where it disappears.";
 		now the twisted-grill is nowhere;
@@ -31874,7 +31915,7 @@ Section 4 - The burnt pile
 
 The burnt-pile is in main-engine. 
 
-The burnt-pile is an improper-named thing. Understand "burnt" or "pile" or "pile of" or "remains" or "components" or "bit" or "of ash" or "bit of" or "layer" or "slurry" or "gritty" as the burnt-pile. The printed name of the burnt-pile is "[if the burnt-pile is unoncerinsed]pile of burnt components[otherwise if the burnt-pile is unwetswirled]bit of slurry[otherwise if the burnt-pile is undryswirled]layer of ash[otherwise]layer of ash[end if]". The description of the burnt-pile is "[if the burnt-pile is in the location]The pile of components looks like it might contain something important, but it is hard to tell[otherwise if the burnt-pile is unoncerinsed]The bowl is filled to the top with the burnt components, making it hard to see if there's anything special in there[otherwise if the burnt-pile is unwetswirled]Rinsing the components took out a bunch of the ash but left a gritty slurry sloshing around; [we]'ll need to find a way to get that out[otherwise if the burnt-pile is undryswirled]Only the heaviest parts of the ash remain, just enough to obscure whatever's in here[otherwise][We]['re] so close! [We] can almost see the bottom. There's definitely something in there[end if]."
+The burnt-pile is an improper-named thing. Understand "burnt" or "pile" or "pile of" or "remains" or "components" or "bit" or "of ash" or "bit of" or "layer" or "slurry" or "gritty" as the burnt-pile. The printed name of the burnt-pile is "[if the burnt-pile is unoncerinsed]pile of burnt components[otherwise if the burnt-pile is unwetswirled]bit of slurry[otherwise if the burnt-pile is undryswirled]layer of ash[otherwise]layer of ash[end if]". The description of the burnt-pile is "[if the burnt-pile is in the location]The pile of components looks like it might contain something important, but it is hard to tell[otherwise if the burnt-pile is unoncerinsed]The bowl is filled to the top with the burnt components, making it hard to see if there's anything special in there[otherwise if the burnt-pile is unwetswirled]Rinsing the components took out a bunch of the ash but left a gritty slurry sloshing around; [we][']ll need to find a way to get that out[otherwise if the burnt-pile is undryswirled]Only the heaviest parts of the ash remain, just enough to obscure whatever's in here[otherwise][We]['re] so close! [We] can almost see the bottom. There's definitely something in there[end if]."
 
 Instead of touching or rubbing the burnt-pile:
 	say "Touching this with [our] hands is basically [our] last resort."
@@ -32022,7 +32063,7 @@ Instead of pulling the punch-lever:
 
 [We] [adapt the verb hear] a click from somewhere distant.";
 	if a non-sheety thing is on the die-surface:
-		say "Pulling the lever could damage [the list of non-sheety things on the die-surface].";
+		say "Pulling the lever could damage [the list of non-sheety things on the die-surface]. And [they] [don't] seem to be the right shape.";
 	otherwise if the sheet-metal is on the die-surface:
 		say "[We] [pull] the press down using the lever. It presses hard into the sheet metal, bending it. When you let go of the lever, the machine lifts up again, revealing a pristine support.";
 		now the sheet-metal is nowhere;
@@ -32346,7 +32387,7 @@ Rule for reaching inside the central-monitor:
 	
 The Monitor-captain is a man. The printed name of the monitor-captain is "Captain". Understand "Captain" as the monitor-captain. "The Captain is on the monitor, staring at [us] gravely.". The description of the monitor-captain is "The Captain looks much more resolute than he did earlier when [if the player is arawn]Emrys[otherwise]you[end if] spoke with him earlier.". 
 
-Monitor-bridge is a thing. The printed name of the monitor-bridge is "view of the bridge". Understand "view" or "crew" or "station" or "stations" or "view of" or "bridge" as the monitor-bridge. THe description of the monitor-bridge is "The bridge looks exactly as [if the player is arawn]Emrys[otherwise]you[end if] left it, with the crew running between the stations."
+Monitor-bridge is a thing. The printed name of the monitor-bridge is "view of the bridge". Understand "view" or "crew" or "station" or "stations" or "view of" or "bridge" as the monitor-bridge. The description of the monitor-bridge is "The bridge looks exactly as [if the player is arawn]Emrys[otherwise]you[end if] left it, with the crew running between the stations."
 
 Hail-captain is a quip. Understand "Request" as hail-captain. The printed name of hail-captain is "Request". The target of hail-captain is monitor-captain. The preview of hail-captain is "Everyone is gone. Requesting authorization to operate Reactor 7."
 
@@ -32398,7 +32439,7 @@ Report uttering thanks-quip to monitor-olgin:
 Report uttering soon-quip to monitor-olgin:
 	remove thanks-quip;
 
-Soon-quip is a quip. The printed name of soon-quip is "Soon". Understand "soon" as soon-quip. THe target of soon-quip is monitor-olgin. The preview of soon-quip is "See you soon, Sergeant.".
+Soon-quip is a quip. The printed name of soon-quip is "Soon". Understand "soon" as soon-quip. The target of soon-quip is monitor-olgin. The preview of soon-quip is "See you soon, Sergeant.".
 
 The targetresponse of soon-quip is "'This is Emrys Tisserand, by the way,' [wesay].
 
@@ -32428,7 +32469,7 @@ Report uttering evacuation-quip to monitor-ginger:
 Report uttering meltdown-quip to monitor-ginger:
 	remove evacuation-quip;
 
-Meltdown-quip is a quip. The printed name of Meltdown-quip is "Meltdown". Understand "Meltdown" as Meltdown-quip. THe target of Meltdown-quip is monitor-ginger. The preview of Meltdown-quip is "Ginger, the reactor is about to have a meltdown.".
+Meltdown-quip is a quip. The printed name of Meltdown-quip is "Meltdown". Understand "Meltdown" as Meltdown-quip. The target of Meltdown-quip is monitor-ginger. The preview of Meltdown-quip is "Ginger, the reactor is about to have a meltdown.".
 
 The targetresponse of Meltdown-quip is "'Miss Tisserand, is that you?' asks Ginger. 'Why are you in the reactor? Get out of there!'
 
@@ -32460,7 +32501,7 @@ The targetresponse of Research-quip is "'Oh!' he says, startled. 'Thanks, Ms....
 
 'Oh,' he says, in a shy way. 'Well, thanks! I'll back this up before anything else then. Thanks! And it looks like you're clear to lower that shield.'".
 
-Flee-quip is a quip. The printed name of Flee-quip is "Flee". Understand "Flee" as Flee-quip. THe target of Flee-quip is monitor-yang. The preview of Flee-quip is "Mr Yang, you have to run. The reactor is melting down!".
+Flee-quip is a quip. The printed name of Flee-quip is "Flee". Understand "Flee" as Flee-quip. The target of Flee-quip is monitor-yang. The preview of Flee-quip is "Mr Yang, you have to run. The reactor is melting down!".
 
 The targetresponse of Flee-quip is "Antonio jumps out of fear, and says, 'What?!'
 
@@ -32538,7 +32579,7 @@ Idris-redux is a man in medical-redux. The printed name of Idris-redux is "Idris
 To say deldevastation:
 	deliver devastation-quip;
 	
-Devastation-quip is a quip. Understand "devastastion" as devastation-quip. The printed name of devastation-quip is "Devastation". The target of devastation-quip is idris-redux. THe preview of devastation-quip is "What happened? Where are all the doctors?"
+Devastation-quip is a quip. Understand "devastastion" as devastation-quip. The printed name of devastation-quip is "Devastation". The target of devastation-quip is idris-redux. The preview of devastation-quip is "What happened? Where are all the doctors?"
 
 The targetresponse of devastation-quip is "Idris shakes his head. 'Many of them have evacuated. We were hit by an asteroid. Another one hit while you were out--the bridge has been completely destroyed. Everyone's trying to reach the escape pods, now.'
 
@@ -32624,7 +32665,9 @@ Instead of physicality when the noun is the tredux-crowd:
 
 Chapter 15 - Posh and damaged quarters
 
-The posh-redux is east from lower-redux. The printed name of posh-redux is "Living Quarters Entrance". It is in finale2-region. "[if the tredux-crowd is in lower-redux]A crowd of evacuees is rushing down all the hallways to reach the escaped pods. There are far too many people here; it's anarchy[otherwise]The crowd is much smaller now, with just a few scattered evacuees running here and there, trying to find any remaining escape pods[end if]. You can go [boldwest] out of here. [if the tredux-crowd is in lower-redux]The pods are to the [boldsouth][otherwise]The way to the escape pods is now closed. You'll have to find a pod on another level[end if]."
+The posh-redux is east from lower-redux. The printed name of posh-redux is "Living Quarters Entrance". It is in finale2-region. "[if the tredux-crowd is in lower-redux]A crowd of evacuees is rushing down all the hallways to reach the escaped pods. There are far too many people here; it's anarchy[otherwise]The crowd is much smaller now, with just a few scattered evacuees running here and there, trying to find any remaining escape pods[end if]. You can go [boldwest] out of here. [if the tredux-crowd is in lower-redux]The pods are to the [boldsouth][otherwise]The way to the escape pods is now closed. You'll have to find a pod on another level[end if][if the deceased-officer is not nowhere].
+
+With the crowd smaller now, you can make your way [boldeast][end if]."
 
 Before going east from posh-redux when the deceased-officer is nowhere:
 	if the tredux-crowd is in lower-redux:
@@ -32675,7 +32718,7 @@ Instead of climbing or entering the rub-redux:
 	
 Section 3 - Metal plate
 
-The metal-plate is an open unopenable vehicle in damaged-redux. The printed name of the metal-plate is "makeshift barricade". Understand "metal" or "makeshift" or "barricade" or "bent" or "twisted" or "plate" or "bent" or "insulated" or "coating" as the metal-plate. The metal-plate is pushable between rooms. "A heavy metal plate lies here, bent and twisted into a shape like a makeshift barricade. It’s too big to take, but it’s shaped the right way for you to hide behind it[if the wrapped-cables are part of the metal-plate]. You also might be able to push it, but it’s wrapped in wires trapping it to the ground[otherwise]. [Wiretext]ou can now push it wherever you need to[end if]."
+The metal-plate is an open unopenable vehicle in damaged-redux. The printed name of the metal-plate is "makeshift barricade". Understand "metal" or "makeshift" or "barricade" or "bent" or "twisted" or "plate" or "bent" or "insulated" or "coating" or "portable" as the metal-plate. The metal-plate is pushable between rooms. "A heavy metal plate lies here, bent and twisted into a shape like a makeshift barricade. It’s too big to take, but it’s shaped the right way for you to hide behind it[if the wrapped-cables are part of the metal-plate]. You also might be able to push it, but it’s wrapped in wires trapping it to the ground[otherwise]. [Wiretext]ou can now push it wherever you need to[end if]."
 
 To say wiretext:
 	say "[one of]With the wires cut, y[or]Y[stopping]";
@@ -32696,7 +32739,7 @@ Before going through the redux-tube when the player is in the metal-plate:
 Instead of taking the metal-plate:
 	say "[The metal-plate] is too heavy to pick up. It should be pushable, though."
 	
-The wrapped-cables are a plural-named part of the metal-plate. THe printed name of the wrapped-cables is "electrical wires". Understand "electrical" or "wire" or "wires" or "exposed" as the wrapped-cables. The description of the wrapped-cables is "Wires have broken off from above, and trail down onto the metal plate. They aren't electrifiying it, but they could make it hard to move the plate around".
+The wrapped-cables are a plural-named part of the metal-plate. The printed name of the wrapped-cables is "electrical wires". Understand "electrical" or "wire" or "wires" or "exposed" as the wrapped-cables. The description of the wrapped-cables is "Wires have broken off from above, and trail down onto the metal plate. They aren't electrifiying it, but they could make it hard to move the plate around".
 
 Before withcutting the wrapped-cables with something:
 	unless the second noun is bolt-cutters:	
@@ -32713,8 +32756,9 @@ Before going when the player is in the metal-plate and wrapped-cables are part o
 
 Instead of withcutting the wrapped-cables with the bolt-cutters:
 	if the rubber-gloves are worn by the player:
-		say "While wearing the rubber gloves, you cut the wires with the bolt cutters, careful to not let them touch any of your exposed skin. The metal plate is now free.";
+		say "While wearing the rubber gloves, you cut the wires with the bolt cutters, careful to not let them touch any of your exposed skin. The metal plate is now free; it should be easier to move around.";
 		now the wrapped-cables are nowhere;
+		now the printed name of the metal-plate is "portable barricade";
 	otherwise:
 		say "You try to cut the wires with the bolt cutters, but you have nothing to insulate you. There is a loud [italic type]bang[roman type] and you are sent flying. You hit the wall, and all is darkness.";
 		end the story saying "You have died";
@@ -32723,7 +32767,7 @@ Section 4 - Tiffany
 
 A combatant is a kind of person.
 
-First-tiffany is a distant combatant in damaged-redux. THe printed name of first-tiffany is "distant figure". Understand "figure" or "dim" or "distant" as first-tiffany. "You can hear someone moving around in here, and they don't sound friendly. You hear gunshots from time to time, and screams that are cut short. Something bad is happening in here[first time].
+First-tiffany is a distant combatant in damaged-redux. The printed name of first-tiffany is "distant figure". Understand "figure" or "dim" or "distant" as first-tiffany. "You can hear someone moving around in here, and they don't sound friendly. You hear gunshots from time to time, and screams that are cut short. Something bad is happening in here[first time].
 
 You hear a voice in the distance, and see a dim figure approach. If you linger around here too long, you could be in big trouble[only]."
 
@@ -32752,7 +32796,13 @@ Every turn when a combatant is in the location:
 
 A few shots ring out, loud at this close distance. Then the figure stalks by you through the haze. You recognize them in an instant: it's Tiffany. She walks past, and then you hear shouting from the [boldnorth].";
 			now first-tiffany is nowhere;
-			
+			now gone-tiffany is in the location;
+		
+Gone-tiffany is a scenery thing. Understand "tiffany" as gone-tiffany.
+
+Instead of doing something with gone-tiffany:
+	say "Tiffany isn't here; she's gone on to the rest of the ship."
+	
 Chapter 16 - Transit room
 
 The transit-redux is up from lower-redux. The printed name of the transit-redux is "Transit Area". It is in finale2-region. "The transit area has a grim atmosphere. Evacuees and officers pass by in equal measure. There is fear in everyone's eyes. You can go [boldwest], [boldsouth], or [boldeast] to go out of here. You can also go [boldup] through a transport tube or go [bolddown] to lower areas."
@@ -32807,7 +32857,8 @@ olgin-redux is a woman in transit-redux. Understand "olgin" or "sergeant" or "in
 
 To say delemer:
 	deliver emergency-quip;
-	deliver escapee-quip;
+	if first-tiffany is nowhere:
+		deliver escapee-quip;
 	
 Emergency-quip is a quip. Understand "emergency" as emergency-quip. The printed name of emergency-quip is "Emergency". The target of emergency-quip is olgin-redux. The preview of emergency-quip is "Sergeant, what's our status? How can I help?".
 
@@ -32851,7 +32902,7 @@ The deceased-officer is fixed in place. "An officer lies on the ground, deceased
 
 The printed name of the deceased-officer is "deceased officer". The description of the deceased-officer is "It looks like the officer was shot. Hopefully it was quick and painless.".
 
-The molded-helmet is part of the deceased-officer. The molded-helmet is a wearable thing. THe printed name of the molded-helmet is "molded helmet". Understand "molded" or "clear" or "glass" or "front" or "helmet" as the molded-helmet. The description of the molded-helmet is "The helmet looks like its right about your size. It is designed for protection, but also has a clear glass front to allow for better sight.".
+The molded-helmet is part of the deceased-officer. The molded-helmet is a wearable thing. The printed name of the molded-helmet is "molded helmet". Understand "molded" or "clear" or "glass" or "front" or "helmet" as the molded-helmet. The description of the molded-helmet is "The helmet looks like its right about your size. It is designed for protection, but also has a clear glass front to allow for better sight.".
 
 Instead of removing the molded-helmet from the deceased-officer:
 	try taking the molded-helmet;
@@ -32874,7 +32925,7 @@ Every turn when the player is enclosed by transit-redux:
 		
 Chapter 17 - Engineering room
 
-The eng-redux is west from transit-redux. The printed name of eng-redux is "Engineering Room". It is in finale2-region. "The engineering room looks like it has been ransacked. Heavy panels have been pulled out of the floor to provide access to the backup storage [bolddown] below you. A safety handle has been screwed into the floor[if the long-cable is stuck to the big-handle], to which a long cable is attached[end if]. You can go [boldeast] out of here."
+The eng-redux is west from transit-redux. The printed name of eng-redux is "Engineering Room". It is in finale2-region. "The engineering room looks like it has been ransacked. Heavy panels have been pulled out of the floor to provide access to the backup storage [bolddown] below you. You can go [boldeast] out of here."
 
 Section 1 - Rope
 
@@ -32907,12 +32958,18 @@ Definition: something is draggable if it is not had by the player and it is not 
 
 [Now, we want a rope to be described in terms of the way it is tied, when it's described in a room description.]
 
+To say athecoil:
+	say "[one of][The long-cable][or][A long-cable][stopping]";
+
+To say smathecoil:
+	say "[one of][the long-cable][or][a long-cable][stopping]";
+
 Rule for writing a paragraph about a rope (called the coil):
 	if the coil is stuck to something which is in a room (called the next room) which is not the location:
 		repeat with way running through direction:
 			if the room way of the location is next room:
 				if the way is up or the way is down:
-					say "[The coil] runs [way] into [the next room].";
+					say "[Athecoil] runs [way] into [the next room].";
 				otherwise:
 					say "[The coil] snakes across the floor [way] towards [the next room].";
 	otherwise:
@@ -32929,20 +32986,20 @@ Rule for writing a paragraph about a nonrope thing (called the anchor) which is 
 		repeat with way running through directions:
 			if the room way of the location is next room:
 				if the way is up or the way is down:
-					say "[The coil] runs [way] from [the anchor] into [the next room].";
+					say "[Athecoil] runs [way] from [one of][an anchor][or][the anchor][stopping] into [the next room].";
 				otherwise:
 					say "From [the anchor] runs [a coil], heading off toward [the way].";
 	otherwise:
 		if the coil is stuck to something which is not visible,
-			say "[The coil] is tied to [the anchor][if the coil is stuck to something in an adjacent room (called the next room)], and from there runs off towards [the next room][end if].";
+			say "[AThecoil] is tied to [the anchor][if the coil is stuck to something in an adjacent room (called the next room)], and from there runs off towards [the next room][end if].";
 		otherwise if the coil is held by the player:
 			if the coil is stuck to two nonrope things:
 				let templist be the list of nonrope things stuck to the coil;
 				repeat with current running through templist:
 					if current is not the anchor:
-						say "One end of [the coil] is tied to [the anchor], and the other is tied to [the current]. You are holding the middle.";
+						say "One end of [smathecoil] is tied to [the anchor], and the other is tied to [the current]. You are holding the middle.";
 			otherwise:
-				say "One end of [the coil] is tied to [the anchor], and you are holding the other end.";
+				say "One end of [smathecoil] is tied to [the anchor], and you are holding the other end.";
 
 [We need a way to account for it when it's being carried, as well.]
 
@@ -33103,7 +33160,41 @@ Definition: a thing is secondary if it is not the noun.  Definition: a thing is 
 
 [A player who is tied to things should also have some restrictions on his ability to move.]
 
-Before going a direction (called the way) when the player has an unevenly shaped thing (called the link) which is stuck to an anchored unevenly shaped thing (called the anchor):
+Report looking when the player is in finale2-region:
+	if the player has a nonrope thing (called the anchor) which is stuck to a rope (called the coil):
+		if the anchor is unmentioned:
+			if the coil is in an adjacent room:
+				let the next room be the home of the coil;
+				repeat with way running through directions:
+					if the room way of the location is next room:
+						if the way is up or the way is down:
+							say "[The coil] runs [way] from [the anchor], which you are carrying, into [the next room].";
+						otherwise:
+							say "From [the anchor] which you are carrying runs [a coil], heading off toward [the way].";
+			otherwise:
+				if the coil is stuck to something which is not visible,
+					say "[The coil] is tied to [the anchor][if the coil is stuck to something in an adjacent room (called the next room)], and from there runs off towards [the next room][end if].";
+				otherwise if the coil is held by the player:
+					if the coil is stuck to two nonrope things:
+						let templist be the list of nonrope things stuck to the coil;
+						repeat with current running through templist:
+							if current is not the anchor:
+								say "One end of [the coil] is tied to [the anchor], and the other is tied to [the current]. You are holding the middle.";
+					otherwise:
+						say "One end of [the coil] is tied to [the anchor], and you are holding the other end.";
+	if the player has a rope (called the coil):
+		if the coil is unmentioned:
+			if the coil is stuck to something which is in a room (called the next room) which is not the location:
+				repeat with way running through direction:
+					if the room way of the location is next room:
+						if the way is up or the way is down:
+							say "[The coil] that you are holdingruns [way] into [the next room].";
+						otherwise:
+							say "[The coil] that you are holding snakes across the floor [way] towards [the next room].";
+			otherwise:
+				say "You are holding [a coil] here[if the coil is stuck to a visible nonrope thing], tied to [the list of nonrope visible things which are stuck to the coil][end if]."
+
+Before going a direction (called the way) when the player has a thing (called the link) which is stuck to an anchored unevenly shaped thing (called the anchor):
 	let the next room be the home of the anchor;
 	if the next room is not a room, continue the action;
 	if the next room is the location:
@@ -33113,7 +33204,7 @@ Before going a direction (called the way) when the player has an unevenly shaped
 		repeat with safe way running through directions:
 			if the room safe way of the location is next room:
 				if the safe way is the way:
-					if the player is not stuck to the anchor, say "(coiling up your rope again as you go...)";
+					if the player is not stuck to the anchor, say "(coiling up your cable again as you go...)";
 				otherwise:
 					say "While you have [the link] you can't really head any direction but [safe way]." instead;
 
@@ -33151,13 +33242,13 @@ The metal-plate is unevenly shaped.
 
 Section 2 - Scenery
 
-The  big-handle is unevenly shaped scenery in eng-redux. Understand "safety" or "handle" as the big-handle. The printed name of the big-handle is "safety handle". The description of the big-handle is "This is a temporary handle used to anchor down heavy loads. It's been securely attached to the floor."
+The  big-handle is unevenly shaped in eng-redux. It is fixed in place. "A safety handle has been screwed into the floor." Understand "safety" or "handle" as the big-handle.  The printed name of the big-handle is "safety handle". The description of the big-handle is "This is a temporary handle used to anchor down heavy loads. It's been securely attached to the floor."
 
 Section 3 - The crawlspace
 
 The eng-space is down from eng-redux. The printed name of eng-space is "Engineering Storage". It is in finale2-region. "This area is usually used to store extra tools, but it looks like its been cleaned almost all the way out. The only way out is to go [boldup]."
 
-large-toolbox is an unevenly shaped closed openable container in the eng-space. The printed name of the large-toolbox is "large toolbox". 
+large-toolbox is an unevenly shaped closed openable container in the eng-space. The description of the large-toolbox is "This toolbox could potentially fit dozens of tools. It looks fairly unused; you suspect it's one of the backups.". The printed name of the large-toolbox is "large toolbox". 
 
 The bolt-cutters are a plural-named thing in large-toolbox. Understand "bolt" or "cutters" as the bolt-cutters. The printed name of the bolt-cutters is "bolt cutters". The description of the bolt-cutters is "This pair of bolt cutters looks like it could cut through just about anything thin, like a wire, although the cable looks a little too tough to cut."
 
@@ -33179,7 +33270,7 @@ Before printing the name of the large-toolbox:
 
 Section 4 - The cable
 
-The long-cable is a rope in the eng-redux. It is stuck to the large-toolbox and the big-handle. The printed name of the long-cable is "long cable". Understand "long" or "cable" or "thick" or "rope" as the long-cable. The description of the long-cable is "This is a thick cable made of some kind of pliable metal. It's just thin enough that you could tie it to something, though.".
+The long-cable is a rope in the eng-redux. It is stuck to the large-toolbox and the big-handle. The printed name of the long-cable is "long cable". Understand "long" or "cable" or "thick" or "rope" or "line" as the long-cable. The description of the long-cable is "This is a thick cable made of some kind of pliable metal. It's just thin enough that you could tie it to something, though.".
 
 Chapter 18 - Cryo storage
 
@@ -33234,9 +33325,23 @@ The brig-redux is east from transit-redux. The printed name of brig-redux is "Br
 
 Some kind of disaster has happened in here. There is blood on the floor. A storage panel on the wall has been torn open, revealing a food pantry,which has been ransacked. You can't see the panel itself anywhere. You can go [boldwest] out of here."
 
+Section 1 - Scenery
+
 The brig-blood is scenery in brig-redux. The printed name of the brig-blood is "blood". Understand "blood" as the brig-blood. The description of the brig-blood is "This blood has almost dried by now.".
 
-The food-pantry is a scenery open unopenable container in brig-redux. THe printed name of the food-pantry is "food pantry". Understand "food" or "pantry" or "panel" as the food-pantry. The description of the food-pantry is "Usually recessed into the wall, this pantry is used to store food and cleaning supplies both for prisoners and for nearby workers who have forgotten their lunches. It's a convenience, especially considering how few prisoners the ship has. 
+The redux-cell is an open unopenable transparent enterable scenery container in the brig-redux. The printed name of the redux-cell is "cell". Understand "cell" or "wall" or "one cell" or "open cell" as the redux-cell. The description of the redux-cell is "This cell was recessed into to the wall, with the bars flush with the rest of the room, but the accident has bent the bars out of place."
+
+After entering redux-cell:
+	say "You easily step into the cell.";
+
+The redux-bars are plural-named. The redux-bars are part of the redux-cell. The printed name of the redux-bars is "bent bars". Understand "bent" or "bars" or "warped" as the redux-bars. The description of the redux-bars is "These bars were intended to be very solid; the damage must have been intense to warp these so much."
+
+Instead of opening or closing the redux-bars:
+	say "The damage has warped them enough that they can't be moved at all."
+
+Section 2 - Pantry
+
+The food-pantry is a scenery open unopenable container in brig-redux. The printed name of the food-pantry is "food pantry". Understand "food" or "pantry" or "panel" as the food-pantry. The description of the food-pantry is "Usually recessed into the wall, this pantry is used to store food and cleaning supplies both for prisoners and for nearby workers who have forgotten their lunches. It's a convenience, especially considering how few prisoners the ship has. 
 
 Most of the food is gone; the escaped prisoner likely grabbed some, but the rest is probably due to scavenging evacuees."
 
@@ -33250,11 +33355,11 @@ The broken-bridge is a room in finale2-region. The printed name of the broken-br
 
 The transport tube leading [bolddown] is still intact, however[if the broken-bridge is not spooky].
 
-Now that you know you're looking for mementos, the areas to the [boldnortheast] and [boldsouthwest] seem the most stable[end if]."
+While you wouldn't venture into the destroyed areas of the bridge of your own accord, you do remember roughly where Mefe and Rhys were located. The areas to the [boldnortheast] and [boldsouthwest] seem the best shots[end if]."
 
 Section 1 - Scenery
 
-The torn-walls are plural-named scenery in broken-bridge. THe printed name of the torn-walls is "torn walls". Understand "torn" or "walls" or "wall" as the torn-walls. The description of the torn-walls is "Most of the walls were torn down by the impact, and are now lying on the floor."
+The torn-walls are plural-named scenery in broken-bridge. The printed name of the torn-walls is "torn walls". Understand "torn" or "walls" or "wall" as the torn-walls. The description of the torn-walls is "Most of the walls were torn down by the impact, and are now lying on the floor."
 
 The bare-beams are plural-named scenery in broken-bridge. The bare-beams are unevenly shaped. The printed name of the bare-beams is "bare beams". Understand "bare" or "beam" or "beams" or "warped" as the bare-beams. The description of the bare-beams is "The beams of the ship have been exposed, many of them warped.".
 
@@ -33287,8 +33392,8 @@ Definition: a thing is non-hook if it is not the ice-hook.
 Instead of throwing the ice-hook:
 	if the ice-hook is not stuck to the long-cable:
 		say "The hook isn't attached to anything, so throwing it is useless.";
-	otherwise if the long-cable is stuck to a hindering thing:
-		say "You can't throw the grappling hook while the rope is attached to something else as well.";
+	otherwise if the long-cable is stuck to a hindering thing (called meanie):
+		say "You can't throw the grappling hook while the rope is attached to [the meanie] as well.";
 	otherwise:
 		if the player is not in broken-bridge:
 			say "There's no convenient target for throwing the grappling hook here.";
@@ -33355,6 +33460,18 @@ Instead of throwing the metal-plate at the sharp-cliff when the player is in off
 		say "You push the metal plate off of the cliff, and it falls to the bridge below.";
 		now metal-plate is in broken-bridge;
 
+Instead of climbing the long-cable:
+	if the ice-hook is anchored:
+		if the long-cable is stuck to the ice-hook:
+			if the player is in broken-bridge:
+				try going up;
+			otherwise:
+				try going down;
+		otherwise:
+			say "The cable isn't in a good climbable state right now.";
+	otherwise:
+		say "The cable isn't in a good climbable state right now."
+
 Before going down from the officer-redux:
 	if the player is not stuck to something anchored:
 		if the long-cable is in broken-bridge:
@@ -33409,7 +33526,7 @@ The east-glass is scenery in east-broken. The printed name of the east-glass is 
 Instead of physicality when the noun is the east-glass:
 	say "You're not in the mood to play with broken glass."
 
-The sketch-redux is in east-broken. The printed name of the sketch-redux is "sketchbook". Understand "sketch" or "hair" or "face" or "sketches" or "members" or "crew" or "bridge crew" or "book" or "sketchbook" as the sketch-redux. The description of the sketch-redux is "Looks like Rhys's sketchbook. Flipping through it, most of it seems to be sketches of various members of the bridge crew. The technique is good, although he seems to avoid drawing eyes, tending to draw people from behind or when hair is covering their face.".
+The sketch-redux is in east-broken. The printed name of the sketch-redux is "sketchbook". Understand "sketch" or "hair" or "face" or "sketches" or "members" or "crew" or "bridge crew" or "book" or "sketchbook" or "pad" as the sketch-redux. The description of the sketch-redux is "Looks like Rhys's sketchbook. Flipping through it, most of it seems to be sketches of various members of the bridge crew. The technique is good, although he seems to avoid drawing eyes, tending to draw people from behind or when hair is covering their face.".
 
 Section 3 - West bridge
 
@@ -33465,7 +33582,7 @@ The messily-made is a scenery enterable supporter in captain-redux. The printed 
 Instead of entering the messily-made:
 	say "Hopping in the Captain's bed would be deeply disrespectful."
 
-The flipped-picture is scenery in captain-redux. The printed name of the flipped-picture is "flipped-over picture". Understand "flipped" or "over" or "flipped-over" or "family" or "picture" or "rosy" or "plump" or "woman" or "small" or "girl" as the flipped-picture. The description of the flipped-picture is "You tilt the picture up to look at the front.
+The flipped-picture is scenery in captain-redux. The printed name of the flipped-picture is "flipped-over picture". Understand "flipped" or "over" or "flipped-over" or "family" or "portrait" or "picture" or "rosy" or "plump" or "woman" or "small" or "girl" as the flipped-picture. The description of the flipped-picture is "You tilt the picture up to look at the front.
 
 It shows the captain, young and thin, his arm around the waist of a rosy, plump woman. The woman is holding a small girl on her lap.
 
@@ -33474,12 +33591,12 @@ You place the picture back where you found it."
 Instead of taking the flipped-picture:
 	say "It seems to have been left here intentionally. You wouldn't want to go against his wishes."
 
-The shelf-credux is a scenery supporter in captain-room. The printed name of the shelf-credux is "bookshelf". Understand "book shelf" or "shelf" as the shelf-credux. The description of the shelf-credux is "The Captain's bookshelf is is empty. All of the books have been swept to the floor."
+The shelf-credux is a scenery supporter in captain-redux. The printed name of the shelf-credux is "bookshelf". Understand "book shelf" or "shelf" as the shelf-credux. The description of the shelf-credux is "The Captain's bookshelf is is empty. All of the books have been swept to the floor."
 
 Instead of taking the shelf-credux:
 	try reading the shelf-credux;
 
-The book-pile2 is scenery in captain-room. The printed name of the book-pile2 is "pile of books". Understand "book" or "books" or "caesar" or "gibbon" or "historical" or "text" or "texts" or "military" or "history" or "plutarch" or "pile of" as the book-pile2.  The description of the book-pile2 is "These books seem to have been swept to the floor. There are several names you recognize: Caesar, Gibbon, Plutarch, and others."
+The book-pile2 is scenery in captain-redux. The printed name of the book-pile2 is "pile of books". Understand "book" or "books" or "caesar" or "gibbon" or "historical" or "text" or "texts" or "military" or "history" or "plutarch" or "pile of" as the book-pile2.  The description of the book-pile2 is "These books seem to have been swept to the floor. There are several names you recognize: Caesar, Gibbon, Plutarch, and others."
 
 Instead of physicality when the noun is the book-pile2:
 	say "You doubt that military history will be of use to you at this time."
@@ -33860,7 +33977,7 @@ Chapter 27 - Storage room
 
 Opening-region is a region.
 
-The storage-room is in opening-region. The player is in storage-room. The printed name of the storage-room is "Storage Room". The description of the storage-room is "Light spills in from the open door to the [boldsouth]. The room is packed full of boxes, most of which are covered in dust. There's [if the closet-door is open]an open[otherwise]a closed[end if] [closet-door] to the [boldnorth][if the closet-door is open][otherwise if the closet-door is locked], which looks locked[otherwise], which is now unlocked[end if].
+The storage-room is in opening-region. The player is in storage-room. The printed name of the storage-room is "Storage Room". The description of the storage-room is "Light spills in from the open door to the [boldsouth]. The room is packed full of boxes, most of which are covered in dust. There's [if the closet-door is open]an open[otherwise]a closed[end if] [closet-door] to the [boldnorth].
 
 The storage room extends to the [boldwest], away from the light."
 
@@ -33952,7 +34069,7 @@ When gareth-scene begins:
 	if the player is in storage-room:
 		say "A call is coming over your recorder. It picks up automatically.
 
-	'Emrys?' says a voice. It's Gareth, you're best friend on the ship, and the current psychologist on duty.[paragraph break]";
+	'Emrys?' says a voice. It's Gareth, your best friend on the ship, and the current psychologist on duty.[paragraph break]";
 		deliver response-quip;
 		now fake-gareth is in storage-room;
 		clear the flags;
@@ -33986,9 +34103,9 @@ Report uttering response-quip to fake-gareth:
 
 Every turn during gareth-scene:
 	if response-quip is meihtarget:
-		say "[one of]'Emrys, are you there?' says Gareth's voice[or]'I know you're there. Can you answer?' he says[or]'I'll just stay on the line until you say something,' says Gareth[or]Gareth is still waiting for you to answer him
+		say "[one of]'Emrys, are you there?' says Gareth's voice.[or]'I know you're there. Can you answer?' he says.[or]'I'll just stay on the line until you say something,' says Gareth.[or]Gareth is still waiting for you to answer him.
 
-[bracket]To see things you can say, type T. In this case, you can SAY RESPONSE TO GARETH, or just SAY RESPONSE.[close bracket][line break][stopping].";
+[bracket]To see things you can say, type T. In this case, you can SAY RESPONSE TO GARETH, or just SAY RESPONSE.[close bracket][line break][stopping]";
 
 Section 4 - Newer box
 
@@ -34003,9 +34120,9 @@ Instead of taking the newer-box:
 After opening the newer-box for the first time:
 	say "You open [the newer-box]. There's no jacket, but there are a bright red toy robot and a snowglobe."
 
-The toy-robot is a memorable device in the newer-box. The printed name of the toy-robot is "toy robot". Understand "bright" or "red" or "toy" or "robot" as the toy-robot. The description of the toy-robot is "This is a bright red toy robot that can be swtiched on or switched off. You recognize it; one of the engineers made a batch of them for Christmas a few years back. This must have been a leftover."
+The toy-robot is a memorable device in the newer-box. The printed name of the toy-robot is "toy robot". Understand "bright" or "red" or "toy" or "robot" as the toy-robot. The description of the toy-robot is "This is a bright red toy robot that can be swtiched on or switched off. You recognize it; one of the engineers made a batch of them for Christmas a few years back. This must have been a leftover. It could be entertaining for the party."
 
-The eiffel-snowglobe is a memorable thing in newer-box. Understand "snowglobe" or "snow" or "globe" or "miniature" or "eiffel" or "tower" as the eiffel-snowglobe. The printed name of the eiffel-snowglobe is "miniature Eiffel Tower Snowglobe". THe description of the eiffel-snowglobe is "You haven't seen the Eiffel Tower since you were very little, but this snowglobe looks just like you remember it. In fact, this might be your snowglobe; you had a trinkets shelf for a few years until you got tired of dusting it[if the eiffel-snowglobe is unflurried]. The 'snow' has all come to rest at the bottom[otherwise]. The snow is still swirling now that you've shaken it[end if]."
+The eiffel-snowglobe is a memorable thing in newer-box. Understand "snowglobe" or "snow" or "globe" or "miniature" or "eiffel" or "tower" as the eiffel-snowglobe. The printed name of the eiffel-snowglobe is "miniature Eiffel Tower Snowglobe". The description of the eiffel-snowglobe is "You haven't seen the Eiffel Tower since you were very little, but this snowglobe looks just like you remember it. In fact, this might be your snowglobe; you had a trinkets shelf for a few years until you got tired of dusting it. The rest of the crew might like it[if the eiffel-snowglobe is unflurried]. The 'snow' has all come to rest at the bottom[otherwise]. The snow is still swirling now that you've shaken it[end if]."
 
 Understand "turn over [something]" as shaking.
 
@@ -34015,7 +34132,7 @@ Instead of turning the eiffel-snowglobe:
 The eiffel-snowglobe can be flurried or unflurried. The eiffel-snowglobe is unflurried. 
 
 Instead of shaking the eiffel-snowglobe:
-	say "You shake the snowglobe, and the snow flies all around the Eiffel Tower. It's not exactly mesmerizing, but it's fun to watch.";
+	say "You shake the snowglobe, and the snow flies all around the Eiffel Tower. It's not exactly mesmerizing, but it's fun to watch[if in darkness], despite the darkness[end if].";
 	now the eiffel-snowglobe is flurried;
 	
 Every turn when the eiffel-snowglobe is flurried:
@@ -34045,7 +34162,7 @@ Section 1 - Scenery
 
 The back-wall is scenery in maintenance-closet. The printed name of the back-wall is "back wall". Understand "back" or "wall" as the back-wall. The description of the back-wall is "The back wall holds the shelf, which is what a good back wall should do.".
 
-The maint-shelf is a scenery supporter in maintenance-closet. THe printed name of the maint-shelf is "shelf". Understand "shelf" or "metal" or "screwed" or "support" or "supports" as the maint-shelf. The description of the maint-shelf is "This is a metal shelf screwed into the wall via a couple of supports."
+The maint-shelf is a scenery supporter in maintenance-closet. The printed name of the maint-shelf is "shelf". Understand "shelf" or "metal" or "screwed" or "support" or "supports" as the maint-shelf. The description of the maint-shelf is "This is a metal shelf screwed into the wall via a couple of supports."
 
 The maint-screws are a plural-named part of the maint-shelf. The printed name of the maint-screws is "screws". Understand "screw" or "screws" as the maint-screws. The description of the maint-screws is "The screws are exceedintly uninteresting.
 
@@ -34066,14 +34183,14 @@ This is the opening locked closet rule:
 
 The opening locked closet rule substitutes for the can't open what's locked rule when the player is in storage-room and the noun is closet-door.
 
-The closet-key is held by the player. Closet-key unlocks closet-door. The printed name of the closet-key is "maintenance key". Understand "maintenance" or "key" as the closet-key. THe description of the closet-key is "This key will let you LOCK or UNLOCK any door you find around here."
+The closet-key is held by the player. Closet-key unlocks closet-door. The printed name of the closet-key is "maintenance key". Understand "maintenance" or "key" as the closet-key. The description of the closet-key is "This key will let you LOCK or UNLOCK any door you find around here."
 
 AFter unlocking the closet-door with the closet-key:
 	say "You unlock the closet door with the key[first time]. Technically, you aren't supposed to have this, but you swiped it from engineering earlier[only]."
 
 Section 3 - Flashlight
 
-The flash-light is a memorable device on maint-shelf.  Understand "torch" or "sleek" or "black" or "cylinder" or "flashlight" or "flash light" or "light" as the flash-light. The printed name of the flash-light is "flashlight". The description of the flash-light is "This is a sleek black cylinder that can be SWITCHED ON or SWITCHED OFF."
+The flash-light is a memorable device on maint-shelf.  Understand "torch" or "sleek" or "black" or "cylinder" or "flashlight" or "flash light" or "light" or "lamp" as the flash-light. The printed name of the flash-light is "flashlight". The description of the flash-light is "This is a sleek black cylinder that can be SWITCHED ON or SWITCHED OFF."
 
 After switching on the flash-light:
 	say "You turn on the flashlight. The darkness is a little less oppressive.";
@@ -34091,7 +34208,7 @@ Section 4 - Floor Wax
 The floor-wax is a closed openable memorable container on maint-shelf. The printed name of the floor-wax is "bottle of floor wax". Understand "bottle of" or "bottle" or "floor" or "wax" or "crust" or "top" as the floor-wax. The description of the floor-wax is "This bottle of floor wax looks pretty old; the top of it is all crusted over."
 
 Instead of opening the floor-wax:
-	say "The bottle is completely crusted over; it doesn't look like you'll get it open any time soon, and, given its condition, you're not sure you'd want it open.";
+	say "The bottle is completely crusted over; it doesn't look like you'll get it open any time soon, and, given its condition, you're not sure you'd want it open. This would be terrible as a prop for your presentation, but you could always try it.";
 
 Chapter 29 - Far end of storage
 
@@ -34167,12 +34284,12 @@ Before going nowhere from far-storage when in darkness:
 
 Section 3 - Random stuff
 
-Great-figures is a memorable book in far-storage. The printed name of the great-figures is "[italic type]Great Figures of History[roman type]". Understand "great" or "cover" or "figure" or "figures" or "figure of" or "figures of" or "history" as the great-figures. The description of the great-figures is "It's a decorative book about great figures in history, mostly military or political people, but also including some entertainers. Napoleon and Khufu grace the cover.".
+Great-figures is a memorable book in far-storage. The printed name of the great-figures is "[italic type]Great Figures of History[roman type]". Understand "great" or "cover" or "figure" or "figures" or "figure of" or "figures of" or "history" as the great-figures. The description of the great-figures is "It's a decorative book about great figures in history, mostly military or political people, but also including some entertainers. Napoleon and Khufu grace the cover. It's pretty heavy, both physically and metaphorically, but it could be a solid prop for your presentation.".
 
 Instead of reading great-figures:
 	say "You skim through the book; you've read it before. It always looks fun, but each page is mostly dry historical facts, so you tend not to get through the whole thing."
 
-The napoleon-figure is part of the great-figures. THe printed name of napoleon-figure is "Napoleon". Understand "napoleon" or "image of" or "famous" or "image" or "horse" as napoleon-figure. The description of the napoleon-figure is "The famous image of Napoleon riding his horse is on the cover of [the great-figures].".
+The napoleon-figure is part of the great-figures. The printed name of napoleon-figure is "Napoleon". Understand "napoleon" or "image of" or "famous" or "image" or "horse" as napoleon-figure. The description of the napoleon-figure is "The famous image of Napoleon riding his horse is on the cover of [the great-figures].".
 
 khufu-image is part of the great-figures. The printed name of the khufu-image is "Khufu". Understand "khufu" or "pharaoh" or "image" or "image of" or "regalia" as khufu-image. The description of khufu-image is "Khufu stands boldly on the cover of [the great-figures], wearing his regalia as Pharaoh."
 
@@ -34182,7 +34299,7 @@ Instead of physicality when the noun is napoleon-figure:
 Instead of physicality when the noun is khufu-image:
 	say "Khufu is just an image; you can't actually interact with him.";
 	
-The dog-leash is a memorable thing in far-storage. The printed name of the dog-leash is "dog leash". Understand "dog" or "leash" as the dog-leash. The description of the dog-leash is "Hmmm. You have to wonder who left their dog leash down here; it looks like it was meant for a puppy, so maybe the dog grew out of it."
+The dog-leash is a memorable thing in far-storage. The printed name of the dog-leash is "dog leash". Understand "dog" or "leash" as the dog-leash. The description of the dog-leash is "Hmmm. You have to wonder who left their dog leash down here; it looks like it was meant for a puppy, so maybe the dog grew out of it. It probably won't be useful for your presentation, but maybe you could riff off of pets or something."
 
 Instead of wearing the dog-leash:
 	say "The leash is far too small for you to wear!"
@@ -34239,12 +34356,12 @@ And there's the Captain's jacket! Why he put it in such an inaccessible spot is 
 
 Below the jacket are a rubber spider, a mirror with a water motif and a toy train.";
 
-The rubber-spider is a memorable thing in old-trunk. The printed name of the rubber-spider is "rubber spider". Understand "rubber" or "spider" or "disgustingly" or "realistic" or "hairy" as the rubber-spider. The description of the rubber-spider is "This spider is one of those disgustingly realistic ones where it's all hairy."
+The rubber-spider is a memorable thing in old-trunk. The printed name of the rubber-spider is "rubber spider". Understand "rubber" or "spider" or "disgustingly" or "realistic" or "hairy" as the rubber-spider. The description of the rubber-spider is "This spider is one of those disgustingly realistic ones where it's all hairy. You're a little tempted to bring this to your presentation just to see how people react."
 
 Instead of touching or rubbing the rubber-spider:
 	say "Eww. The rubber 'hair' is pretty gross."
 
-The water-mirror is a memorable thing in old-trunk. The printed name of the water-mirror is "mirror with a water motif". Understand "mirror" or "mirror with" or "water" or "motif" or "pool" or "pool or" as the water-mirror. The description of the water-mirror is "This mirror is shaped to look like a pool of water, with little silver lilypads near the edges.
+The water-mirror is a memorable thing in old-trunk. The printed name of the water-mirror is "mirror with a water motif". Understand "mirror" or "mirror with" or "water" or "motif" or "pool" or "pool or" as the water-mirror. The description of the water-mirror is "This mirror is shaped to look like a pool of water, with little silver lilypads near the edges. This could be useful for your presentation, since mirrors have a lot of symbolism.
 
 In the mirror, you can see your reflection.".
 
@@ -34259,7 +34376,7 @@ Instead of examining the self-reflection:
 INstead of physicality when the noun is the self-reflection:
 	say "You can't physically interact with your reflection.";
 
-The toy-train is a memorable thing in old-trunk. The printed name of the toy-train is "toy train". Understand "toy" or "train" or "metal" or "axles" or "axle" or "plastic" or "wheel" or "wheels" as the toy-train. The description of the toy-train is "This simple toy train looks like it was made for a very young child. Its carved out of wood, with metal axles and some plastic wheels."
+The toy-train is a memorable thing in old-trunk. The printed name of the toy-train is "toy train". Understand "toy" or "train" or "metal" or "axles" or "axle" or "plastic" or "wheel" or "wheels" as the toy-train. The description of the toy-train is "This simple toy train looks like it was made for a very young child. Its carved out of wood, with metal axles and some plastic wheels. You might be able to use it to talk about transportation in your presentation, or kids."
 
 The ceremonial-jacket is in old-trunk. The ceremonial-jacket is a wearable thing. The printed name of the ceremonial-jacket is "ceremonial jacket". Understand "ceremonial" or "jacket" or "gold" or "black" or "epaulette" or "epaulettes" or "lapel" or "lapels" as the ceremonial-jacket. The description of the ceremonial-jacket is "This jacket is black with gold epaulettes and lapels. It really does look good; you suppose it was worth the time you spent looking for it."
 
@@ -35031,7 +35148,7 @@ Test findposs with "e/u/u/ne/take sketchbook/sw/sw/take novel/ne/d/d/w/give sket
 
 Test shielding with "e/s/cut wires with cutters/push plate n/push plate u/push plate u/tie plate to cable/u"
 
-Test finalfight with "pull cable/untie plate/push plate n/turn on toy/shoot tiffany/unlock door with key/n/push button"
+Test finalfight with "pull cable/untie plate/push plate n/turn on toy/shoot tiffany/unlock door with key/drop cable/n/push button"
 
 Test ending2 with "test getupstairs/test olginhelm/test getcable/test getsaltgloves/test makehook/test getammo/test checkdoor/test getkey/test findposs/test shielding/test finalfight"
 
