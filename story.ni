@@ -25,7 +25,7 @@ Release along with cover art.
 
 Section 1 - Genre, description, etc
 
-The story genre is "Science Fiction". The story description is "Hop through dimensions to save your ship." The story creation year is 2023. The release number is 57.
+The story genre is "Science Fiction". The story description is "Hop through dimensions to save your ship." The story creation year is 2023. The release number is 58.
 
 Section 2 - Increasing memory sizes
 
@@ -1778,7 +1778,7 @@ After taking the water-mirror during speech-scene:
 	increment SpeechCounter;
 	say "You hold up the mirror and show it to the audience.
 
-'Who are we? Look at yourselves in the mirror. Are you the same person you were when we left? I know I'm not. I was younger then: 48 years old, recently become a grandmother. I heeded the call to become Storyweaver for this ship. And I've spent the last twenty years watching you go in and out of cryogenic storage. I've earned a lot of grey hairs in my service to the ship. What about you? Who have you become?'
+'Who are we? Look at yourselves in the mirror. Are you the same person you were when we left? I know I'm not. I was younger then: 48 years old, recently became a grandmother. I heeded the call to become Storyweaver for this ship. And I've spent the last twenty years watching you go in and out of cryogenic storage. I've earned a lot of grey hairs in my service to the ship. What about you? Who have you become?'
 
 The crowd watches you silently and thoughtfully. Someone comes and takes away the mirror[NextMemento].";	now the water-mirror is nowhere;
 
@@ -1872,7 +1872,7 @@ After reading a command when the command prompt is "???>":
 
 Now you are face to face with a woman in white wearing a skull mask, the top of which is covered in spikes. Her eyes are furious.
 
-'You should not be here yet,' she hisses. She forces you to take a step. 'You need to go back.' Another step. 'Find the rifts, save the others.' She glances at the stone, and softens. 'Then, you can rest.'
+'You should not be here yet,' she hisses. She forces you to take a step. 'You need to go back.' Another step. 'Find the rifts, save the others.' She glances at the stone and softens. 'Then, you can rest.'
 
 She raises something, and you notice she's holding a shovel covered in dirt. She uses the handle to push you back through the rift.
 
@@ -1884,7 +1884,7 @@ Gareth is looking around wildly, then sees you. 'Emrys!' he shouts. 'Are you oka
 
 'I'm fine,' you say. 'What was it?'
 
-'I don't know. Let's get out of here,' he says, and points to the [boldnorth].";
+'I don't know. Let's get out of here,' he says and points to the [boldnorth].";
 		now the printed name of opening-room is "Banquet Hall (Damaged)";
 		now the description of opening-room is "This room is spacious, designed to hold most of the officers and auxiliary staff. But now it has been thrown into chaos, with broken benches strewn across the floor.
 
@@ -1919,7 +1919,7 @@ Chapter 14 - Your quarters
 
 Personal-quarters is a room in ship-region. Personal-quarters is west from auxiliary-quarters. The printed name of personal-quarters is "Your Quarters". The description of personal-quarters is "Your room is intentionally minimal. Every new captain likes to shuffle up the quarters, and after years of moving your things you've stripped them down to the minimum.
 
-Your bed is here, just large enough to accomodate you, with your [gran-comf] on it. A nightstand near your bed holds [a list of things on the you-stand]. A potted spider plant completes the scene.
+Your bed is here, just large enough to accommodate you, with your [gran-comf] on it. A nightstand near your bed holds [a list of things on the you-stand]. A potted spider plant completes the scene.
 
 You can make your way back to the other auxiliary quarters to the [boldeast].".
 
@@ -1962,7 +1962,7 @@ Chapter 16 - Officers Quarters
 
 Officers-Quarters is a room in ship-region. Officers-quarters is east from auxiliary-quarters. The printed name of Officers-Quarters is "Officers['] Quarters". The description of Officers-Quarters is "This sumptuous area is one of the nicest on the ship, designed as a place for ship officers to relax and gather. The current captain rarely uses this area, but the other officers spend much of their time here. A bar made of real oak lines one wall, although all alcohol is currently stored away. Armchairs and lamps dot the area. 
 
-You can reach the bridge by going [bolddown] a nearby transport tube. The Captain's own quarters are the to [boldeast], while the quarters for auxiliary staff is to the [boldwest].".
+You can reach the bridge by going [bolddown] a nearby transport tube. The Captain's own quarters are to the [boldeast], while the quarters for auxiliary staff are to the [boldwest].".
 
 Section 1 - Scenery
 
@@ -3452,7 +3452,7 @@ to say blobrinse:
 		if the china-mud is oncedryswirled:
 			say ".
 
-The last of the mud is rinsed away, reavealing a silver ring that bears one enormous (and sharp-looking!) diamond. 
+The last of the mud is rinsed away, revealing a silver ring that bears one enormous (and sharp-looking!) diamond. 
 
 You pluck out the diamond ring and hold it. You set down the now-empty bowl";
 			now the china-mud is nowhere;
@@ -4607,9 +4607,9 @@ The brown-soda is a soda-button. The brown-soda is part of the soda-machine. The
 The purple-soda is a soda-button. The purple-soda is part of the soda-machine. The printed name of the purple-soda is "purple button". Understand "purple" or "grape" as the purple-soda. The soda-type of purple-soda is "grape soda".
 The blue-soda is a soda-button. The blue-soda is part of the soda-machine. The printed name of the blue-soda is "blue button". Understand "blue" or "lime" as the blue-soda. The soda-type of the blue-soda is "lime soda".
 
-The green-soda is part of the soda-machine. The printed name of the green-soda is "green button". Understand "go" or "green" or "button" as the green-soda. The description of the the green-soda is "This is a green button labelled GO.".
+The green-soda is part of the soda-machine. The printed name of the green-soda is "green button". Understand "go" or "green" or "button" as the green-soda. The description of the green-soda is "This is a green button labelled GO.".
 
-The cancel-soda is part of the soda-machine. The printed name of the cancel-soda is "red button". Understand "cancel" or "red" or "button" as the cancel-soda. The description of the the cancel-soda is "This is a red button labelled CANCEL.".
+The cancel-soda is part of the soda-machine. The printed name of the cancel-soda is "red button". Understand "cancel" or "red" or "button" as the cancel-soda. The description of the cancel-soda is "This is a red button labelled CANCEL.".
 
 Sodafull is a truth state that varies. Sodafull is false.
 
@@ -10842,7 +10842,7 @@ A time allotment rule for megawaiting:
 	
 Pasttime is a daytime that varies. 
 
-Every turn when the the player is in garden-region:
+Every turn when the player is in garden-region:
 	if pasttime is not currenttime:
 		if the location is indoors:
 			say "Outside, the ";
@@ -11235,7 +11235,7 @@ The rotten-beam is a temporally-displaced part of the cabin-stairs. The dimnumbe
 Before going up from cabin-interior:
 	if the rotten-beam is part of the cabin-stairs:
 		say "The stairs [unless the rotten-beam is examined]creak dangerously; it feels like one of the beams is rotten. Looks like they [end if]are too dangerous to use right now." instead;
-	otherwise if the the whole-beam is not part of the cabin-stairs:
+	otherwise if the whole-beam is not part of the cabin-stairs:
 		say "The stairs are too dangerous to use while a beam is missing." instead;
 
 Instead of pulling or pushing or shaking or attacking the rotten-beam:
@@ -11566,7 +11566,7 @@ Before taking the cat-fluff:
 Section 4 - Canister
 
 Instead of withtaking the water-canister with something:
-	if the second noun is the the hook-line:
+	if the second noun is the hook-line:
 		if the hook-line is part of the birch-limb:
 			try fishing the water-canister;
 		otherwise:
@@ -11925,7 +11925,7 @@ Instead of pouring a pourable thing on a paint-can:
 		say "There's already some paint in there!";
 	otherwise if the noun is the talc-bowl and the thin-turp mezclars the second noun:
 		say "The recipe says not to mix the talc with the turpentine.";
-	otherwise if the noun is the thin-turp and the the talc-bowl mezclars the second noun:
+	otherwise if the noun is the thin-turp and the talc-bowl mezclars the second noun:
 		say "The recipe says not to mix the talc with the turpentine.";
 	otherwise if the noun is the talc-bowl and the talc-bowl mezclars a paint-can:
 		say "You only need the talc for one of the recipes, and you already added it to the other can.";
@@ -13590,7 +13590,7 @@ Instead of taking the book-pile:
 	otherwise:
 		say "You grab a book at random to look through: [italic type][one of]Wordperfect for Dummies[or]Javascript React Reference Manual[or]Lisp and Lisper[or]VGA Graphics Cards and You[or]An Introduction to the Internet[or]AOL: A Visual Guide[at random][roman type]. [one of]How exciting[or]Yay[or]Wonderful[or]You can barely contain your excitement[at random]."
 
-Instead of physicality when the noun is the the book-pile:
+Instead of physicality when the noun is the book-pile:
 	if the library-mold is not nowhere:
 		say "The books look super moldy. It's not worth it.";
 	otherwise:
@@ -18809,7 +18809,7 @@ Every turn:
 
 Instead of putting something on the iron-bar when rodheld is true:
 	if the noun is the notched-plank:
-		say "You balance the notched plank on the iron bar. It wobbles a bit back and forth, but then settles down.";
+		say "You balance the notched plank on the iron bar. It wobbles a bit back and forth but then settles down.";
 		now the notched-plank is nowhere;
 		now the balanced-plank2 is in throne-room;
 		set pronouns from the balanced-plank2;
@@ -19033,7 +19033,7 @@ Instead of putting something on the iron-rail:
 	if the balanced-plank is on the iron-rail:
 		say "You already have something on the rail: [the balanced-plank].";
 	if the noun is the notched-plank:
-		say "You balance the notched plank on the steel rail. It wobbles a bit back and forth, but then settles down.";
+		say "You balance the notched plank on the steel rail. It wobbles a bit back and forth but then settles down.";
 		now the notched-plank is nowhere;
 		now the balanced-plank is in dark-tunnel;
 		set pronouns from the balanced-plank;
@@ -19910,7 +19910,7 @@ Instead of physicality when the noun is blood-trail:
 
 The rubbery-floor is scenery floor in second-class. The printed name of the rubbery-floor is "floor". Understand "floor" or "rubbery" or "rubber" or "texture" or "textured" or "utilitarian" or "sturdy" or "plastic" as the rubbery-floor.
 
-The description of the rubbery-floor is "The floor is utilitarian, some kind of textured plastic with a little give as you walk on it. It's not particularly flattering, but looks quite sturdy."
+The description of the rubbery-floor is "The floor is utilitarian, some kind of textured plastic with a little give as you walk on it. It's not particularly flattering but looks quite sturdy."
 
 The bucket-seats are plural-named scenery in second-class. The printed name of the bucket-seats is "orange bucket seats". Understand "row" or "bucket" or "orange" or "seat" or "seats" or "chair" or "chairs" or "molded" or "uncomfortable" as the bucket-seats. The description of the bucket-seats is "These look distinctly uncomfortable. You can't imagine sitting in one for hours at a time."
 
@@ -22336,7 +22336,7 @@ She looks genuinely relieved[otherwise if currenttarget is mari]'I don't know wh
 
 'The others don't seem to think so,' you say.
 
-'Oh,' says Mari. She looks a bit embarrassed[otherwise]Arthur doesn't respond at all, but looks at you darkly before turning away[end if].".
+'Oh,' says Mari. She looks a bit embarrassed[otherwise]Arthur doesn't respond at all but looks at you darkly before turning away[end if].".
 
 Instead of linking personalized-quip to croes-quip:
 	linkpercro;
@@ -22794,7 +22794,7 @@ To linkgiffrac:
 	
 mugging-quip is a linkaged squip. The printed name of mugging-quip is "Graverobber". Understand "Graverobber" as mugging-quip. The preview of mugging-quip is "[the elen] stole the corpse's watch and lied about it."
 
-The targetresponse of mugging-quip is "[if currenttarget is arthur]Arthur recoils in disgust. 'What a filthy thing to do,' he said. 'Imagine desecrating a corpse like that.[otherwise if currenttarget is maeve]Maeve looks incensed. 'Where is she? Where is the woman who would do such terrible things to my--to such a man? I hope you lock her up for years, hon.[otherwise if currenttarget is mari]Mari says nothing, but looks paler and takes a couple of steps further away from Elen, who says, 'Oh, stop it. I won't bite[otherwise if currenttarget is elen]Elen's careful facade of politeness and respectability fades away, replaced by a shrewd look.
+The targetresponse of mugging-quip is "[if currenttarget is arthur]Arthur recoils in disgust. 'What a filthy thing to do,' he said. 'Imagine desecrating a corpse like that.[otherwise if currenttarget is maeve]Maeve looks incensed. 'Where is she? Where is the woman who would do such terrible things to my--to such a man? I hope you lock her up for years, hon.[otherwise if currenttarget is mari]Mari says nothing but looks paler and takes a couple of steps further away from Elen, who says, 'Oh, stop it. I won't bite[otherwise if currenttarget is elen]Elen's careful facade of politeness and respectability fades away, replaced by a shrewd look.
 
 'I didn't think you'd put it together, Detective,' she says. 'Clever. But I have to say up front that I did not kill the man. You won't pin that on me[end if].'"
 
@@ -24727,7 +24727,7 @@ The life-text of desolation-room is "[paragraph break][italic type]Climbers[roma
 
 The desolation-deer are plural-named scenery animals in desolation-room. The printed name of the desolation-deer is "creatures". Understand "malformed" or "wrong" or "missing" or "creature" or "creatures" or "peaceful" or "parade" or "beast" or "beasts" or "goat" or "goats" or "deer" or "deers" or "climbers" as the desolation-deer. 
 
-The description of the desolation-deer is "A line of creatures that look like malformed deer or goats stretches out to the the room to the [boldeast]. One by one, the creatures leap or crawl or struggle forward into the flame-filled fissures, where they melt down with a shriek. 
+The description of the desolation-deer is "A line of creatures that look like malformed deer or goats stretches out to the room to the [boldeast]. One by one, the creatures leap or crawl or struggle forward into the flame-filled fissures, where they melt down with a shriek. 
 
 Each is different from the others: shorter, or missing a limb, or having too many limbs."
 
@@ -29306,7 +29306,7 @@ Chapter 1 - Reception
 
 Audience-chamber is a room. The printed name of audience-chamber is "Audience Chamber".  The description of audience-chamber is "You are in a spacious room decorated mostly in white, with a flatweave carpet and a high ceiling. Tall windows on one wall show that you are high up in the air, with a gleaming city down below you. 
 
-This room looks like it was designed to accomodate a few dozen people, with several couches and chairs. At one end of the room, framed by the windows, is a marble-topped desk. Double doors lead to the [boldeast][first time].
+This room looks like it was designed to accommodate a few dozen people, with several couches and chairs. At one end of the room, framed by the windows, is a marble-topped desk. Double doors lead to the [boldeast][first time].
 
 The woman in white that you've been seeing in your visions is here, wearing her white skull mask.
 
@@ -29422,7 +29422,7 @@ Instead of searching the tall-windows:
 	
 The distant-city is a distant backdrop. It is in audience-chamber and glass-hallway. The printed name of the distant-city is "city below". Understand "city" or "below" or "dazzling" or "view" or "outside" or "gleaming" or "orderly" or "row" or "rows" or "street" or "streets" or "apartment" or "apartments" or "commercial" or "block" or "blocks" or "tree" or "trees" as the distant-city. The description of the distant-city is "The city stretches out below you, with orderly rows of streets filled mostly by what look like apartments interspersed with commercial blocks. The streets are wide and have trees planted on all sides."
 
-The aud-couches are plural-named enterable scenery supporter in audience-chamber. The printed name of aud-couches is "couches". Understand "couch" or "rounded" or "stylized" or "round" or "comfortable" or "white" or "couches" as the aud-couches. The description of the aud-couches is "The white couches are rounded and stylized, but look comfortable enough."
+The aud-couches are plural-named enterable scenery supporter in audience-chamber. The printed name of aud-couches is "couches". Understand "couch" or "rounded" or "stylized" or "round" or "comfortable" or "white" or "couches" as the aud-couches. The description of the aud-couches is "The white couches are rounded and stylized but look comfortable enough."
 
 After entering the aud-couches:
 	say "You settle quietly onto the couch, which is surprisingly comfortable."
@@ -29479,7 +29479,7 @@ When depart-audience begins:
 
 'It seems it's time to go. Here,' she says, tapping the device on her wrist. You hear a 'click' from the doors. 'Let's go. Please follow me.'
 
-She then opens the doors, and heads [boldeast]."
+She then opens the doors and heads [boldeast]."
 
 Depart-audience ends when the player is in museum-entrance.
 
@@ -29538,7 +29538,7 @@ She walks on to the spire to the [boldeast].";
 
 Section 5 - Rotunda room
 
-The rotunda-room is a room in wildcard-region. It is east from glass-hallway. The printed name of the rotunda-room is "Rotunda". "The inside of this spire is a spacious rotunda at least fifty floors tall, with balconies circling each level leading off into other areas. You are near the top, and its dizzying to see how high up you are.
+The rotunda-room is a room in wildcard-region. It is east from glass-hallway. The printed name of the rotunda-room is "Rotunda". "The inside of this spire is a spacious rotunda at least fifty floors tall, with balconies circling each level leading off into other areas. You are near the top, and it's dizzying to see how high up you are.
 
 A spiral escalator wraps around the interior with access at each level, allowing you to go [bolddown]."
 
@@ -29626,7 +29626,7 @@ You are in the northwest corner of a grand hall. The lighting is dim and the wal
 
 This corner of the museum has a map on the wall and an exhibit about the construction of the ship.
 
-A model of the Starship Tisserand is the centerpiece of the museum, and can be viewed from every angle. From this angle, you can see a diagram describing agriculture and ecosystems on the ship. You can get a better view by going [boldup].
+A model of the Starship Tisserand is the centerpiece of the museum and can be viewed from every angle. From this angle, you can see a diagram describing agriculture and ecosystems on the ship. You can get a better view by going [boldup].
 
 [if the player is on the soft-bench]You are comfortably sat on a soft bench[otherwise]A soft bench near the door looks inviting[end if].
 
@@ -29646,7 +29646,7 @@ The muse-walls are a plural-named backdrop in map-region. The printed name of th
 
 The starship-model is a backdrop in map-region. The printed name of the starship-model is "model of the [italic type]Tisserand[roman type]". Understand "model" or "oblate" or "spheroid" or "model of" or "opaque" or "lower" or "half" or "words" or "starship" or "tisserand" as the starship-model. The description of the starship-model is "[if the player is in cent-room]The model is below you now[otherwise]The model is taller than you are[end if], shaped like an oblate spheroid. The lower half is mostly opaque, emblazoned with the words [italic type]Starship Tisserand[roman type], while the top is enclosed by a transparent dome.
 
-[if the player is enclosed by fore-port]Inside the dome, near you, are a vast expanse of forest, lakes, rivers, and an outer ocean. You can see a sprinkling of small cities that grow in density towards a larger city in the center. But you can't make out any more detail from this angle.
+[if the player is enclosed by fore-port]Inside the dome, near you, is a vast expanse of forest, lakes, rivers, and an outer ocean. You can see a sprinkling of small cities that grow in density towards a larger city in the center. But you can't make out any more detail from this angle.
 
 There is a diagram on the model near you, describing agriculture and ecosystems on the ship[otherwise if the player is in aft-port]Inside the dome, you can see a coastline with several towering cities stretched along it next to white sandy beaches. Railways connect the various cities together, growing in complexity until they reach a larger city in the center. But you can't see any more from this angle.
 
@@ -29713,7 +29713,7 @@ The construction-exhibit is scenery in fore-port. The printed name of the constr
 
 These include blueprints for the ship, in paper form. There is a fragment of the first asteroid used to create the ship; apparently the main mass for the ship was gathered by harvesting asteroids and comets.
 
-There is an image of you and Bronwyn, with the partially-constructed ship in the background. Its captioned, 'Emrys Tisserand visits the construction site. 2391 AD.'".
+There is an image of you and Bronwyn, with the partially constructed ship in the background. It's captioned, 'Emrys Tisserand visits the construction site. 2391 AD.'".
 
 The construction-case is plural-named scenery transparent closed unopenable container in fore-port. The printed name of the construction-case is "glass cases". Understand "glass" or "case" or "cases" as the construction-case. The description of the construction-case is "The glass cases contain various artifacts from the ship."
 
@@ -29746,7 +29746,7 @@ Instead of entering the soft-bench when receptionready is true:
 
 Instead of sleeping when the player is on soft-bench:
 	if receptionready is false:
-		say "You close your eyes and enjoy a bit of sleep.[line break]";
+		say "You close your eyes and enjoy a bit of sleep.[paragraph break]";
 		trigger-reception; 
 	otherwise:
 		say "It sounds like it's time to go, unfortunately."
@@ -29778,9 +29778,9 @@ Robots today primarily serve to perform manual labor as well as higher administr
 
 The pol-diagram is scenery in aft-port. The printed name of the pol-diagram is "political system diagram". Understand "political" or "politics" or "system" or "diagram" as the pol-diagram. The description of the pol-diagram is "The diagram describes the political system of the ship.
 
-It seems the ship is divided  into nine sectors based on their relative position in the ship, labelled Starboard, Central, and Port in one direction and Aft, Central, and Fore in another. So there is a Fore Central Sector and an Aft Starboard Sector. Instead of Central Central, the center is just called Central.
+It seems the ship is divided into nine sectors based on their relative position in the ship, labelled Starboard, Central, and Port in one direction and Aft, Central, and Fore in another. So there is a Fore Central Sector and an Aft Starboard Sector. Instead of Central Central, the center is just called Central.
 
-Each of these sectors has their own infrastructure and entertainment, such as hologram chambers and zoos, and is represented by a delegation in the Pan-Sector Council. A Pilot is elected on a regular basis to provide stable leadership to the vessel and to serve as a mouthpiece for the government. Both representatives and the Pilot tend to serve anonymously, not showing their face in public and relying solely on their public performance in office."
+Each of these sectors has its own infrastructure and entertainment, such as hologram chambers and zoos, and is represented by a delegation in the Pan-Sector Council. A Pilot is elected on a regular basis to provide stable leadership to the vessel and to serve as a mouthpiece for the government. Both representatives and the Pilot tend to serve anonymously, not showing their face in public and relying solely on their public performance in office."
 
 Section 3 - Fore Starboard
 
@@ -29830,7 +29830,7 @@ The rec-diagram is scenery in aft-starboard. The printed name of the rec-diagram
 
 It describes how the catacombs in the lower half of the ship contain a variety of mechanisms to disassemble trash and industrial waste, including spiderlike robots that break down the trash and nanobiotic organisms that act like bacteria or viruses to break down even the toughest of substances.
 
-Very large waste such as outdated architecture or buildings scheduled for demolition is lifted out of place using antigrav technology and floated into the sky, above the transparent panels used to simulated the day/night cycle. These larger pieces of waste are eventually processed by giant underground robots known as pit feeders Such demolitions are often attended [italic type]en masse[roman type] by fans utilizing nanobot avatars."
+Very large waste such as outdated architecture or buildings scheduled for demolition is lifted out of place using antigrav technology and floated into the sky, above the transparent panels used to simulate the day/night cycle. These larger pieces of waste are eventually processed by giant underground robots known as pit feeders Such demolitions are often attended [italic type]en masse[roman type] by fans utilizing nanobot avatars."
 
 Section 5 - Central
 
@@ -29838,7 +29838,7 @@ The cent-room is a room in map-region. The cent-room is southeast from fore-port
 
 The printed name of cent-room is "Museum (Central)". The description of cent-room is "You are in the center of the grand hall, suspended on a catwalk directly over the model of the Starship Tisserand. Near you is an empty platform with a placard.
 
-From this vantage point you have an excellent view of the model, especially the central city. There is a diagram next to it describing Central. You can exit to the [boldnorthwest], [boldnortheast], [boldsoutheast], or [boldsouthwest]."
+From this vantage point, you have an excellent view of the model, especially the central city. There is a diagram next to it describing Central. You can exit to the [boldnorthwest], [boldnortheast], [boldsoutheast], or [boldsouthwest]."
 
 The cent-cat is scenery in cent-room. The printed name of the cent-cat is "catwalk". Understand "catwalk" or "black" or "metal" or "honeycomb" or "honeycombed" or "comb" or "combed" as the cent-cat. The description of the cent-cat is "The catwalk is black honeycombed metal, arching over the model ship and leading in all diagonal directions."
 
@@ -29964,7 +29964,7 @@ Section 1 - The party
 
 The indefinite article of the party-webmaster is "the". The indefinite article of the party-curator is "the".
 
-The central-hall is a distant backdrop in party-region. The printed name of central-hall is "central hall". Understand "central" or "hall" or "party" or "hollow" or "spire" or "tall" or "center" as the central-hall. The description of the central-hall is "The hall is tall enough that its difficult to see the top. You are in the center of the spire, large enough to accomodate the whole party".
+The central-hall is a distant backdrop in party-region. The printed name of central-hall is "central hall". Understand "central" or "hall" or "party" or "hollow" or "spire" or "tall" or "center" as the central-hall. The description of the central-hall is "The hall is tall enough that its difficult to see the top. You are in the center of the spire, large enough to accommodate the whole party".
 
 Instead of listening when the player is in party-region:
 	say "All you can hear is the chatter of guests and the quiet music in the background."
@@ -29995,7 +29995,7 @@ The room is large enough that everyone is spread out. You are free to join anyon
 The room is now empty[end if]."
 
 Instead of going nowhere from party-region:
-	say "You find that compass directions are not as useful in this large room.
+	say "You find that compass directions are not as useful in this large room[if arawn is not in party-region], except for leaving to the [boldsouth][end if].
 
 [bracket]During the party, you can GO TO or JOIN any person you see, or any area. So you could JOIN WEBMASTER or GO TO MIDDLE[close bracket][line break]";
 
@@ -30238,7 +30238,8 @@ Disliking relates various people to various people. The verb to dislike means th
 Attraction relates various people to various people. The verb to desire means the attraction relation.
  
 Report examining someone in party-region:
-	say "[regarding the noun][They] [are] wearing a nametag reading [italic type][the noun][roman type]."
+	if the noun is not the player:
+		say "[regarding the noun][They] [are] wearing a nametag reading [italic type][the noun][roman type]."
 
 Understand "nametag" or "name tag" or "name tags" or "nametags" as a person when the player is in party-region.
 
@@ -30248,7 +30249,7 @@ party-christine is a woman in near the entrance. The printed name of party-chris
 
 Rule for writing a paragraph about party-christine:
 	if the location contains a man (called flirt) who is desired by party-christine:
-		say "[party-Christine] is talking excitedly with [the flirt], to the exclusion of everyone else[if an unmentioned other person is in the location]. [The list of unmentioned other people in the location] stand about awkwardly[end if].";
+		say "[party-Christine] is talking excitedly with [the flirt], to the exclusion of everyone else[if an unmentioned other person is in the location]. [The list of unmentioned other people in the location] [adapt the verb stand] about awkwardly[end if].";
 		repeat with character running through people in the location:
 			if the character is not party-christine and the character is not the flirt, now the character is bored.
 
@@ -30381,7 +30382,7 @@ The targetresponse of intent-quip is "'For several reasons. One is to celebrate 
 
 'We have just enough time for this,' she says. She doesn't elaborate, and seems lost in thought."
 
-Arrest-quip is a quip. The printed name of arrest-quip is "Arrest". The target of arrest-quip is Arawn. Understand "arrest" as arrest-quip. The preview of arrest-quip is "So, were you the one that got Andy arrested?"
+Arrest-quip is a quip. The printed name of arrest-quip is "Arrested". The target of arrest-quip is Arawn. Understand "arrested" as arrest-quip. The preview of arrest-quip is "So, were you the one that got Andy arrested?"
 
 The targetresponse of arrest-quip is "'Well, yes and no,' says Arawn. 'Andy has been a major thorn in my side for years due to his unethical business practices. We've had numerous complaints about him.'
 
@@ -30428,9 +30429,7 @@ There is a chime. Arawn webster stops what she's doing and walks towards you.
 
 She says, 'Emrys, it's time for us to go. Meet me outside. I'll lay all my cards on the table.'
 
-She strolls towards the entrance and pushes the double doors open, then steps outside.
-
-You follow her towards the doors to the [boldsouth], but stop just inside the doors. Whatever's waiting for you outside, there's no turning back.";
+She strolls towards the entrance. You follow her towards the doors to the [boldsouth]. She pushes the double doors open, then steps outside";
 	move the player to near the entrance, without printing a room description;
 	repeat with current running through other people in party-region:
 		now current is nowhere;
@@ -30555,7 +30554,7 @@ Section 1 - Garden Path
 
 Garden-path is a room in wildcard-region. The printed name of garden-path is "Garden Path". "You are in the park between the two spires. Flowers lay all around you, but most are closed in the darkness. 
 
-The most prominent object in the park is a large obelisk, some distance away. A path winds through the flowers, leading to the to the [boldsouthwest], and towards the obelisk."
+The most prominent object in the park is a large obelisk, some distance away. A path winds through the flowers, leading to the [boldsouthwest], and towards the obelisk."
 
 The two-spires are a plural-named distant backdrop. The two-spires are in garden-path and emrys-memorial. The printed name of the two-spires is "two spires". Understand "two" or "spire" or "spires" or "2" or "horns" or "great" or "bull" as the two-spires. The description of the two-spires is "The two spires curve up into night like the horns of a great bull. They only reflect the dark."
 
@@ -30613,7 +30612,7 @@ The description of the memorial-obelisk is "This obelisk stands at the center of
 
 It is currently too dark to read what is on the obelisk. But you remember having been here before[otherwise].
 
-It is is illuminated now. You can read the words engraved on it:
+It is illuminated now. You can read the words engraved on it:
 
 [italic type]In Memory of Emrys Tisserand, Storyweaver of the Starship Tragwyddol.
 
@@ -30663,7 +30662,7 @@ The targetresponse of planting-quip is "'That's right,' says Arawn. 'I wanted ev
 
 'You frightened me,' you say, smiling a bit. 'With your mask and you tools, you looked like the grim reaper.'
 
-Arawn smiles; it's the most pleased you've seen her so far."
+Arawn smiles under the mask; it's the most pleased you've seen her so far."
 
 To say deliversac:
 	deliver sacrifice-quip;
@@ -30767,7 +30766,7 @@ how-quip is a quip. The printed name of how-quip is "How". Understand "How" as h
 
 The targetresponse of how-quip is "'Time loops are based on information,' says Arawn. 'The more a time traveller causes deviation from the future, the less stable the loop is, until it collapses. But it's not the actual state of the universe that matters, just the information that is imparted.'
 
-You shake you head. 'I have no idea what you're talking about.'
+You shake your head. 'I have no idea what you're talking about.'
 
 Arawn reaches up and unbuckles her mask, pulling it away from her face.
 
@@ -30795,7 +30794,7 @@ The targetresponse of why-quip is "Arawn says, 'When I was a child and first lea
 
 'But wouldn't this change destiny?' you ask.
 
-'Maybe not. Because I began to realize something about you over time. About your story. Who you are...you're not who I thought you are. You're not how I thought you were.'
+'Maybe not. Because I began to realize something about you over time. About your story. Who you are...you're not who I thought you were. You're not how I thought you were.'
 
 'Who did you think I was?' you ask[delStory].
 
@@ -30969,7 +30968,7 @@ Nothing disturbs the silence around you, here in the moonlight at your own grave
 
 'You were my hero, Emrys. And in a way, you still are. But as I grew older, I realized how wrong I was. So many things that happened to you weren't real; so many fakes. The heroes were wax; the animals were in captivity; the robots were part of a game; the murder wasn't real; the haunted house was a hologram.'
 
-She looks up at you. 'It almost broke me, realizing that my childhood stories weren't real. I realized that you were in many ways a victim of circumstance. I realized that, when the time came, it might be hard for you to do the right thing. And that's when I realized that, if everything else was fake, what if your death was as well? What if someone else died the death of a the great hero Emrys Tisserand?'
+She looks up at you. 'It almost broke me, realizing that my childhood stories weren't real. I realized that you were in many ways a victim of circumstance. I realized that, when the time came, it might be hard for you to do the right thing. And that's when I realized that, if everything else was fake, what if your death was as well? What if someone else died the death of the great hero Emrys Tisserand?'
 
 And,' she adds, 'what if that person was me?'[line break]";
 		now the command prompt is ">";
@@ -31123,7 +31122,7 @@ The main reactor door is to the [boldnorth].
 
 Above it, it looks like it was once possible to go [boldup] to another room, but the stairs leading there have collapsed. The metal rail runs directly beneath the hole in the ceiling, though[first time].
 
-As soon as [we] [adapt the verb enter], it is clear that something is wrong. Even through the radiation suit, [we] [adapt the verb feel] lightheaded and nauseous. The main reactor must be emitting an immense amount of radiation if its affecting [us] out here[only]."
+As soon as [we] [adapt the verb enter], it is clear that something is wrong. Even through the radiation suit, [we] [adapt the verb feel] lightheaded and nauseous. The main reactor must be emitting an immense amount of radiation if it's affecting [us] out here[only]."
 
 Section 1 - Scenery
 
@@ -31143,6 +31142,8 @@ Before going down when the player is in coolant-room:
 	say "The channel is small enough that [we] has no difficulty walking around the room." instead;
 
 The burst-pipe is scenery in coolant-room. Understand "burst" or "pipe" or "coolant" or "supports" as the burst-pipe. The description of the burst-pipe is "The pipe looks designed to pump coolant into the reactor to the [boldnorth]. Right now, [if the busted-support is part of the burst-pipe]the pipe is sagging and leaking, because one of its supports is broken[otherwise if the pristine-support is not part of the burst-pipe]the pipe is sagging and leaking, because it is missing one of its supports[otherwise]the pipe is flowing correctly to the north, now that it has a new support[end if]."
+
+The printed name of the burst-pipe is "coolant pipe".
 
 Instead of taking or pushing or pulling the burst-pipe:
 	say "[unless the pristine-support is part of the burst-pipe]The pipe is firmly anchored by supports in most directions, but it is sagging a bit down[end if][if the busted-support is part of the burst-pipe], because one of its supports is broken[otherwise if the pristine-support is not part of the burst-pipe], because it is missing one of its supports[end if][if the pristine-support is not part of the burst-pipe]. [We] can't hold it forever, so [we][']ll need a better support for it[otherwise]The pipe is now firmly anchored by supports and repaired[end if][if the streaming-water is nowhere]. It is no longer leaking water[otherwise]. Water streams out of the pipe and into the channel[end if]."
@@ -31199,7 +31200,7 @@ Instead of pulling the pristine-support:
 
 Instead of taking the pristine-support when the pristine-support is part of the burst-pipe:
 	say "[We] pull out the support again, allowing the pipe to sag and water to flow into the channel.";
-	now the busted-support is held by the player;
+	now the pristine-support is held by the player;
 	now the streaming-water is in coolant-room;
 		
 Section 3 - The door
@@ -31238,7 +31239,7 @@ Instead of entering the reactor-floor:
 The reactor-walls are a backdrop in finale1-region. The printed name of the reactor-walls is "walls". Understand "wall" or "walls" or "layer" or "layer of" or "paint" as the reactor-walls. The description of the reactor-walls is "The walls are plain metal in most locations, with a layer or two of paint."
 
 Instead of taking the door-bar:
-	say "The bar is designed to only slide back and forth, but [we] [could] push it or pull it."
+	say "The bar is designed to only slide back and forth but [we] [could] push it or pull it."
 
 Instead of opening the door-bar:
 	if the finale-door is locked:
@@ -31283,7 +31284,7 @@ Instead of putting something on the remaining-rail:
 	if the balanced-door is enclosed by the location:
 		say "[We] already [have] something on the rail: [the balanced-door].";
 	otherwise if the noun is the broken-door:
-		say "[We] [balance] the notched plank on the steel rail. It wobbles a bit back and forth, but then settles down.";
+		say "[We] [balance] the notched plank on the steel rail. It wobbles a bit back and forth but then settles down.";
 		now the broken-door is nowhere;
 		now the balanced-door is in coolant-room;
 		set pronouns from the balanced-door;
@@ -31330,7 +31331,7 @@ Report taking the balanced-door:
 	now the balanced-door is nowhere;
 	set pronouns from the broken-door;
 
-Instead of putting something on the balanced-door:
+Instead of putting something on the balanced-door when the noun is held by the player:
 	say "There's a good chance [we][']ll lose it if [we] [put] that there."
 	
 Section 5 - Sorting the Ash
@@ -31391,6 +31392,11 @@ After inserting the metal-bowl into the streaming-water:
 To pluck is a verb.
 
 The bad-logic is a thing. Understand "bad" or "logic" or "ring" as the bad-logic.
+
+Instead of attacking the bad-logic:
+	say "Yes, but how?"
+	
+Understand "throw [something] in [something]" as throwing it at when the player is in finale1-region.
 
 to say ashrinse:
 	if the burnt-pile is in metal-bowl:
@@ -31502,13 +31508,15 @@ To say (x - a robot-light):
 
 Robot-dirs is a list of directions that varies. Robot-dirs is {north, east, south, west}.
 
-The rusty-robot is a neuter person in robot-room.  The rusty-robot has a robot-light. The printed name of the rusty-robot is "rusty robot". Understand "rusty" or "robot" as the rusty-robot. "A rusty robot is [first time]the only robot remaining [only]here, facing [entry 1 of robot-dirs]." The description of the rusty-robot is "This robot is boxy and small, but looks heavy. It's also broken; it has a flipper arm (used for righting itself), but it is missing a large chunk of whatever forward attachment it once had. 
+The rusty-robot is a neuter person in robot-room.  The rusty-robot has a robot-light. The printed name of the rusty-robot is "rusty robot". Understand "rusty" or "robot" as the rusty-robot. "A rusty robot is [first time]the only robot remaining [only]here, facing [entry 1 of robot-dirs]." The description of the rusty-robot is "This robot is boxy and small but looks heavy. It's also broken; it has a flipper arm (used for righting itself), but it is missing a large chunk of whatever forward attachment it once had. 
 
 It has a control panel with the following buttons on it: RECORD, PLAY, RIGHT, LEFT, FORWARD, SELFRIGHT, CAPTURE, RELEASE.
 
 There is a light on the panel labelled STATUS. It is currently [robot-light of rusty-robot][if the player is arawn].
 
-The robot appears very simplistic to Arawn, given the kind that she is used to[end if]."
+The robot appears very simplistic to Arawn, given the kind that she is used to[end if][if the rusty-robot is in coolant-room and the balanced-door is on the remaining-rail].
+
+It is currently just to the west of the balanced door[end if]."
 
 Instead of switching on or switching off the rusty-robot:
 	say "The robot is controlled by its individual buttons. It doesn't have a specific on or off switch.";
@@ -31721,7 +31729,7 @@ The opening locked reactor rule substitutes for the can't open what's locked rul
 
 Section 2 - Scenery
 
-The primary-containment is distant scenery in main-engine. Understand "primary" or "containment" or "vessel"or "cylinder" or "cylindrical" as the primary-containment. The description of the primary-containment is "The containment vessel is roughly cylindrical, reaching about 10 meters high. The vessel has a huge crack on the top, and the coolant pipe which would usually feed it is broken off. It looks like water could still flow into the vessel and cool the fuel, if the water weren't blocked by something.
+The primary-containment is distant scenery in main-engine. Understand "primary" or "containment" or "vessel"or "cylinder" or "cylindrical" or "crack" as the primary-containment. The description of the primary-containment is "The containment vessel is roughly cylindrical, reaching about 10 meters high. The vessel has a huge crack on the top, and the coolant pipe which would usually feed it is broken off. It looks like water could still flow into the vessel and cool the fuel, if the water weren't blocked by something.
 
 Inside the containment vessel, you can see molten fuel.".
 
@@ -31862,7 +31870,7 @@ Instead of pushing the aperture-button:
 		otherwise:
 			say "[We] [adapt the verb press] [the aperture-button], and a tinny voice says, '[fixed letter spacing]Temporarily ceasing water flow for maintenance[variable letter spacing].' 
 
-	Part of the pipe rises, exposing a trap that looks designed to filter out the water. [if the twisted-grill is in the raised-trap]A twisted grill is in the trap, blocking it. Even worse, with the trap raised like this, the grill up against some of the exposed cables, making it dangerously electrified[end if].
+	Part of the pipe rises, exposing a trap that looks designed to filter out the water[if the twisted-grill is in the raised-trap]. A twisted grill is in the trap, blocking it. Even worse, with the trap raised like this, the grill up against some of the exposed cables, making it dangerously electrified[end if].
 
 	The same voice from earlier continues: '[fixed letter spacing]Due to risk of water loss, the inflow pipe can only be turned off for four minutes at a time[variable letter spacing].'";
 			now the raised-trap is in the location;
@@ -31897,6 +31905,7 @@ To stop is a verb.
 
 Clearflow is initially false.
 
+To toss is a verb.
 Instead of withtaking the twisted-grill with something when the twisted-grill is in the raised-trap:
 	if the reactor-catwalk is lowered:
 		say "Even with [the second noun], the trap is too high up to reach anything in it.";
@@ -31907,7 +31916,7 @@ Instead of withtaking the twisted-grill with something when the twisted-grill is
 
 [We][']ll probably have to drop any metal [we] [have].";
 	otherwise:
-		say "[We] [adapt the verb hook] the grill with the insulated hook and [pull] it out of the trap. It falls to the pwith a clatter, no longer electrified. [We] [adapt the verb pick] it up and toss it over into the rubble, where it disappears.";
+		say "[We] [adapt the verb hook] the grill with the insulated hook and [pull] it out of the trap. It falls to the catwalk with a clatter, no longer electrified. [We] [adapt the verb pick] it up and [adapt the verb toss] it over into the rubble, where it disappears.";
 		now the twisted-grill is nowhere;
 		now clearflow is true;
 
@@ -32158,6 +32167,12 @@ Section 3- The computer
 
 The central-computer is in logic-room. It is fixed in place. The printed name of the central-computer is "central computer". Understand "central" or "computer" or "dominant" or "switches" or "buttons" or "object" or "reactor" or "7" or "seven" or "words" as the central-computer. "The dominant object in the room is the central computer, with a variety of switches on it. A monitor hangs above it. The words REACTOR 7 are written at the top of the computer."
 
+Instead of switching on the central-computer:
+	say "The computer is controlled by its buttons, of which there are several."
+
+Instead of switching off the central-computer:
+	say "The computer is controlled by its buttons, of which there are several."
+
 The central-computer can be powered or unpowered. The central-computer is unpowered.
 
 Knob-num is initially 0.
@@ -32234,8 +32249,8 @@ Instead of pushing the backup-power:
 	otherwise:
 		say "[We] [push] the BACKUP POWER switch, but nothing happens. It looks like the computer isn't designed to turn off in this scenario.";
 
-Instead of pushing the main-power:
-	say "[We] [push] the MAIN POWER switch, but it doesn't look like main power is available right now."
+Before pushing the main-power:
+	say "[We] [push] the MAIN POWER switch, but it doesn't look like main power is available right now." instead;
 	
 Instead of pushing the shield-knob:
 	say "The knob is something to turn, not to push."
@@ -32326,7 +32341,7 @@ Olgin steps back, and directs those around her to do the same. She listens inten
 		otherwise:
 			say "The monitor blinks on, and [we] can see Ginger in the engineering room. An intercom crackles and says, '[fixed letter spacing]Warning: The blast shield in this area will shortly be lowered. Please stand back, and follow any verbal instructions given to you by the blast shield operator[variable letter spacing].' 
 
-Ginger looks frustrated, but gets up and pushes all of the tools she is working on back. Then she crosses her arms and listens intently; this is a chance for [if the player is arawn]Arawn[otherwise]you[end if] to speak.";
+Ginger looks frustrated but gets up and pushes all of the tools she is working on back. Then she crosses her arms and listens intently; this is a chance for [if the player is arawn]Arawn[otherwise]you[end if] to speak.";
 			now monitor-ginger is in the central-monitor;
 			now monitor-engineering is in the central-monitor;
 			now monitor-ginger is summoned;
@@ -32401,9 +32416,12 @@ The Captain curses more. 'Does your gift tell you how to fix a nuclear reactor, 
 
 He nods. 'Do everything you can. Close all the blast shields. If the radiation levels get too high, make sure you get out of there. Sending authorization now.[byecaptain]'
 
-Someone calls him from off camera. The monitor blinks off.
+Someone calls him from off-camera. The monitor blinks off.
 
 The computer says in a tinny voice, '[fixed letter spacing]Authorization received. All controls now active[variable letter spacing].'"
+
+Does the player mean opening the balanced-door:
+	it is very unlikely;
 
 To say byecaptain:
 	now monitor-captain is nowhere;
@@ -32425,7 +32443,7 @@ The targetresponse of thanks-quip is "'Is that Emrys?' asks Olgin. 'That's such 
 
 'Don't talk like that!' she exclaims through the intercom. 'Whatever's going on, I'm sure you can figure it out!'
 
-'Thanks, Sergeant,' [wesay]. 'I;m going to lower the blast shield now.'".
+'Thanks, Sergeant,' [wesay]. 'I'm going to lower the blast shield now.'".
 
 To say wesay:
 	if the player is emrys-weaver:
@@ -32547,13 +32565,13 @@ It describes the reactor [nameus] [if the player is arawn]is[otherwise]are[end i
 
 On one page, it says that this reactor functions by pumping water through the primary containment (the area housing the reactor itself), where it becomes heated to the boiling point. That is then pumped away, where it transfers heat to multiple steam generation units that generate electricity. Much of the excess heat is used to warm the living quarters[or][We] [adapt the verb skim] forward until [we] [adapt the verb find] something helpful.
 
-On one page, it says that the reactor has several emergency shutdown systems, including a scram system, in which control rods held suspended over the fuel rods by electromagnets, so that any interruption to the power source can cause the rods to drop. 
+On one page, it says that the reactor has several emergency shutdown systems, including a scram system, in which control rods are held suspended over the fuel rods by electromagnets so that any interruption to the power source can cause the rods to drop. 
 
-However, due to a phenomenon known as decay heat, a reactor can continue to radiate intense heat after a shutdown. Unless the fuel is cooled, a meltdown can occur, with the fuel heating enough to become liquid and to burn through the containment structures and into the surrounding area. This would be catastrophic[or]This is the final page.
+However, due to a phenomenon known as decay heat, a reactor can continue to radiate intense heat after a shutdown. Unless the fuel is cooled, a meltdown can occur. This is when the uranium becomes hot enough to melt itself and the surrounding containment structures, spilling into the surrounding area. This would be catastrophic[or]This is the final page.
 
 It gives the shutdown procedures that must be followed before personnel are allowed in the reactor core after an emergency shutdown:
 
-[italic type]1. First, the computer (or its backup) must be turned on and authenticated. In the absence of computer commands, the reactor will fall back on automatic safety systems, including locking the main reactor door.[line break]2. Users without authorization must receize authorization from a senior-level officer using the HAIL button. If no senior officer responds within five minutes, authorization can be given automatically to auxiliary officers. [line break]3. The reactor must be isolated from the rest of the ship. There are four blast shields that can be lowered. Each can be selected by the SHIELD knob. Upon selection, the cameras and PA system in that area will activate, allowing you to warn civilians to leave the area.[line break]4. Once each area is clear, the selected shield can be lowered by pressing the LS button.[line break]5. The door to the reactor core will only open once all four blast shields have been lowered[roman type][cycling]."
+[italic type]1. First, the computer (or its backup) must be turned on and authenticated. In the absence of computer commands, the reactor will fall back on automatic safety systems, including locking the main reactor door.[line break]2. Users without authorization must receive authorization from a senior-level officer using the HAIL button. If no senior officer responds within five minutes, authorization can be given automatically to auxiliary officers. [line break]3. The reactor must be isolated from the rest of the ship. There are four blast shields that can be lowered. Each can be selected by the SHIELD knob. Upon selection, the cameras and PA system in that area will activate, allowing you to warn civilians to leave the area.[line break]4. Once each area is clear, the selected shield can be lowered by pressing the LS button.[line break]5. The door to the reactor core will only open once all four blast shields have been lowered[roman type][cycling]."
 
 Chapter 13 - Medical bay
 
@@ -32566,7 +32584,7 @@ They say you have the Gift, but if you do, it hasn't helped you escape this situ
 
 The Medical-redux is a room in finale2-region. The printed name of Medical-redux is "Medical Bay". "[first time]Everything is dark. Your head hurts.
 
-The pain threatens to overwhelm you, but it finally subsides. You open your eyes, and sit up.
+The pain threatens to overwhelm you, but it finally subsides. You open your eyes and sit up.
 
 [only]You are in the medical bay, and everything stinks in here. All around you are the wounded, and, judging by the stained curtain drawn across the back half of the room, the dying.
 
@@ -32642,7 +32660,7 @@ Section 1 - Cops
 
 The uniformed-officers are plural-named people in lower-redux. "[if first-tiffany is nowhere]You can hear gunshots coming from somewhere in the room, but you can't tell where!  No one else can, either, and the crowd panics. You duck down.
 
-One of the uniformed officers falls to the ground, wounded, and that sets everything off. The crowd surges, pushing past the officers, who beat a hasty withdrawal, carrying their wounded fellow with them[gonecops]. The sound of gunshots fade as Tiffany moves to another room. Maybe the east? You can't tell, but you are free to go [boldup], if you want to[otherwise]Uniformed officers block the way up, directing everyone to the [boldeast][end if]."
+One of the uniformed officers falls to the ground, wounded, and that sets everything off. The crowd surges, pushing past the officers, who beat a hasty withdrawal, carrying their wounded fellow with them[gonecops]. The sound of gunshots fades as Tiffany moves to another room. Maybe the east? You can't tell, but you are free to go [boldup], if you want to[otherwise]Uniformed officers block the way up, directing everyone to the [boldeast][end if]."
 
 To say gonecops:
 	now the uniformed-officers are nowhere.
@@ -32769,7 +32787,7 @@ A combatant is a kind of person.
 
 First-tiffany is a distant combatant in damaged-redux. The printed name of first-tiffany is "distant figure". Understand "figure" or "dim" or "distant" as first-tiffany. "You can hear someone moving around in here, and they don't sound friendly. You hear gunshots from time to time, and screams that are cut short. Something bad is happening in here[first time].
 
-You hear a voice in the distance, and see a dim figure approach. If you linger around here too long, you could be in big trouble[only]."
+You hear a voice in the distance and see a dim figure approach. If you linger around here too long, you could be in big trouble[only]."
 
 Understand "hide [something]" or "hide in [something]" as entering when the player is in finale2-region.
 
@@ -32821,7 +32839,7 @@ Instead of physicality when the noun is the transit-officers:
 
 Section 2 - Transport tube
 
-The redux-tube is an closed locked scenery door. The redux-tube is up from Transit-redux and down from broken-bridge.The printed name of the redux-tube is "transport tube". Understand "transport" or "tube" or "elevator" as the redux-tube. The description of the redux-tube is "The tube looks like it's still in working order[if the metal-plate is in the location]. And it's large enough to accomodate [the metal-plate][end if]. It is currently [if the redux-tube is open]open[otherwise]closed[end if] and [if the redux-tube is unlocked]unlocked[otherwise]locked[delimprisoned][end if]." 
+The redux-tube is an closed locked scenery door. The redux-tube is up from Transit-redux and down from broken-bridge.The printed name of the redux-tube is "transport tube". Understand "transport" or "tube" or "elevator" as the redux-tube. The description of the redux-tube is "The tube looks like it's still in working order[if the metal-plate is in the location]. And it's large enough to accommodate [the metal-plate][end if]. It is currently [if the redux-tube is open]open[otherwise]closed[end if] and [if the redux-tube is unlocked]unlocked[otherwise]locked[delimprisoned][end if]." 
 
 To say delimprisoned:
 	deliver imprisoned-quip;
@@ -32843,7 +32861,7 @@ The targetresponse of imprisoned-quip is "Sergeant Olgin shakes her head woefull
 
 'They're all in use,' she says. 'Although...' She tilts her head. Her face darkens. 'You may not like it, but I'm getting a report that an officer was downed below us, in the living quarters. If you can reach that  helmet before the others get there, you could take it.'
 
-'I don't really like the idea of scavenging from the dead' you say.
+'I don't really like the idea of scavenging from the dead,' you say.
 
 'Every officer that's left is someone who is trying to save the others,' she says. 'That includes saving you. Go grab it, and I'll unlock the tube.'".
 
@@ -32873,7 +32891,7 @@ The targetresponse of Escapee-quip is "Sergeant Olgin nods grimly and says, 'I'v
 Olgin-unlock is a scene. Olgin-unlock begins when the molded-helmet is worn by the player and the player is enclosed by transit-redux.
 
 When olgin-unlock begins:
-	say "Olgin notices your helmet, and gives you a thumbs up, unlocking the transport tube.";
+	say "Olgin notices your helmet and gives you a thumbs up, unlocking the transport tube.";
 
 Section 4 - Living Quarters
 
@@ -33274,7 +33292,7 @@ The long-cable is a rope in the eng-redux. It is stuck to the large-toolbox and 
 
 Chapter 18 - Cryo storage
 
-The cryo-redux is south from transit-redux. The printed name of the cryo-redux is "Cryostorage". It is in finale2-region. "You stand in a room that stretches further than you can see, filled with rows and rows of cryotubes. The cryogenic systems have malfunctioned, encasing the the tubes closest to you in ice[if the ice-hook is part of frozen-ice]. A clawed hook, like a grappling hook, is frozen in the ice[end if]. You can go [boldnorth] out of here."
+The cryo-redux is south from transit-redux. The printed name of the cryo-redux is "Cryostorage". It is in finale2-region. "You stand in a room that stretches further than you can see, filled with rows and rows of cryotubes. The cryogenic systems have malfunctioned, encasing the tubes closest to you in ice[if the ice-hook is part of frozen-ice]. A clawed hook, like a grappling hook, is frozen in the ice[end if]. You can go [boldnorth] out of here."
 
 Section 1 - Scenery
 
@@ -33323,7 +33341,7 @@ Chapter 19 - Brig
 
 The brig-redux is east from transit-redux. The printed name of brig-redux is "Brig". It is in finale2-region. "There isn't really any kind of prison on board; troublemakers tend to get refrozen. But there is a small, temporary brig for use in emergencies, with a single cell.
 
-Some kind of disaster has happened in here. There is blood on the floor. A storage panel on the wall has been torn open, revealing a food pantry,which has been ransacked. You can't see the panel itself anywhere. You can go [boldwest] out of here."
+Some kind of disaster has happened in here. There is blood on the floor. A storage panel on the wall has been torn open, revealing a food pantry, which has been ransacked. You can't see the panel itself anywhere. You can go [boldwest] out of here."
 
 Section 1 - Scenery
 
@@ -33512,7 +33530,7 @@ Before going southwest from broken-bridge when broken-bridge is spooky:
 	say "The destruction was almost total. You can't think of any reason to go exploring in it right now.";
 
 Rule for printing the name of the broken-bridge when the player is not enclosed by broken-bridge:
-	say "bridge";
+	say "the bridge";
 
 The bolt-cutters are unevenly shaped.
 The rubber-gloves are unevenly shaped.
@@ -33538,7 +33556,7 @@ Chapter 21 - Officer quarters
 
 Escape-region is a region. Escape-region is in finale2-region.
 
-The officer-redux is up from broken-bridge. The printed name of officer-redux is "Officer's Quarters". It is in escape-region. "The officer's quarters is in a shambles, with all of the furniture missing. A jagged cliff extends below you, which you can try to go [bolddown], as long as you use the cable. The Captain's quarters are to the [boldeast], and the quarters for auxiliary staff such as yourself is to the [boldwest]. 
+The officer-redux is up from broken-bridge. The printed name of officer-redux is "Officer's Quarters". It is in escape-region. "The officer's quarters are in a shambles, with all of the furniture missing. A jagged cliff extends below you, which you can try to go [bolddown], as long as you use the cable. The Captain's quarters are to the [boldeast], and the quarters for auxiliary staff such as yourself are to the [boldwest]. 
 
 A corridor you hadn't noticed before is open to the [boldnorth], and arrows on the ground are flashing towards it. This must be the emergency exit to the escape pods[if the manual-key is handled].
 
@@ -33563,7 +33581,7 @@ Instead of physicality when the noun is the blood-drops:
 
 Chapter 22 - Captain's room
 
-The captain-redux is east from officer-redux. The printed name of the captain-redux is "Captain's Quarters". "The Captain's quarters are much like the man himself, utilitarian but polished. His room is in disarray; his desk is missing his private data terminal, and has a portrait on it face down. A pile of books lays at the foot of an empty bookshelf.
+The captain-redux is east from officer-redux. The printed name of the captain-redux is "Captain's Quarters". "The Captain's quarters are much like the man himself, utilitarian but polished. His room is in disarray; his desk is missing his private data terminal and has a portrait on it face down. A pile of books lies at the foot of an empty bookshelf.
 
 A safe [first time]that you've never noticed before [only]lies [if captains-safe is open]open[otherwise]closed[end if] on the wall[if the captains-safe is closed][otherwise if the number of things in captains-safe < 1]. There is nothing in it[otherwise]. In it [is-are a list of things in captains-safe]. You can leave to the [boldwest]." It is in finale2-region.
 
@@ -33889,13 +33907,13 @@ Report uttering manual-quip to olgin-redux:
 	
 Poss-quip is a quip. The printed name of poss-quip is "Possessions". Understand "possession" as poss-quip. The target of poss-quip is idris-redux. The preview of poss-quip is "Have you found any manual escape pod keys?".
 
-The targetresponse of poss-quip is "'Idris looks at you with bloodshot eyes and says, 'I think I may have. But I'm not running a commisary. I have more important things to do then to rifle through dead people's goods. I'm trying to do something useful here.'
+The targetresponse of poss-quip is "'Idris looks at you with bloodshot eyes and says, 'I think I may have. But I'm not running a commissary. I have more important things to do than to rifle through dead people's goods. I'm trying to do something useful here.'
 
 'I know,' you say. 'But it's my only way off the ship.'
 
-'What about them?' he asks, pointing to the wounded and to the bloodstained curtain beyond them. He gets close to you and whispers, 'None of them are getting off the ship. They would've left now if they could. [italic type]I'm[roman type] not getting off this ship. I just want to help them in their final hours, and sends us all off in a great big viking funeral.'
+'What about them?' he asks, pointing to the wounded and to the bloodstained curtain beyond them. He gets close to you and whispers, 'None of them are getting off the ship. They would've left now if they could. [italic type]I'm[roman type] not getting off this ship. I just want to help them in their final hours, and send us all off in a great big Viking funeral.'
 
-He pace back and forth a bit, and says, 'You know what? Maybe I will do it. But only if you help me.'
+He paces back and forth a bit, and says, 'You know what? Maybe I will do it. But only if you help me.'
 
 'How?' you ask. 'Do you want me to help you to a pod?'
 
