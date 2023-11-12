@@ -25,7 +25,7 @@ Release along with cover art.
 
 Section 1 - Genre, description, etc
 
-The story genre is "Science Fiction". The story description is "Hop through dimensions to save your ship." The story creation year is 2023. The release number is 58.
+The story genre is "Science Fiction". The story description is "Hop through dimensions to save your ship." The story creation year is 2023. The release number is 59.
 
 Section 2 - Increasing memory sizes
 
@@ -52,7 +52,7 @@ Part 2 - Out of world actions
 Abouting is an action out of world. Understand "About" as abouting. 
 
 Carry out abouting:
-	say "Never Gives Up Her Dead is a large-scale text adventure. For help, type HELP. For credits, type CREDITS[if the banquet-benches are shattered]. For a reminder on background information on the story, type BACKGROUND[end if].
+	say "Never Gives Up Her Dead is a large-scale text adventure. For credits, type CREDITS[if the banquet-benches are shattered]. For a reminder on background information on the story, type BACKGROUND[end if].
 
 The basic commands needed for this game include LOOK, INVENTORY, EXAMINE (or just X), TAKE, DROP, ENTER, N, E, S, W, UP, DOWN, OPEN, UNLOCK, PUSH, PULL, LOOK UNDER, TURN ON, TURN OFF, WAIT (or just Z), AGAIN (or just G).
 
@@ -95,7 +95,9 @@ Hanon Ondricek gave helpful advice about the concept and title. Phil Riley and P
 
 Matt Weiner, N. Comier, Mike Sousa, Austin Auclair, Doug Egan, Pinkunz, and Charm Cochran served as inspiration for some puzzle content. Many of the standard Inform examples were used, but a lot of code was directly lifted from Under Contract, Example 205; Lethal Concentration 1 and 2, examples 255 and 257; Nickel and Dimed, example 262; Robo1 and Robo 2, examples 426 and 429; Entropy, example 182; The Cow Exonerated, example 401; In Fire or in Flood, example 401; Otranto, example 228.
 
-Cover art was made from photographs by NASA and the Space Telescope Science Institute (STScI) and by Sandra Rushton, my mother."
+Cover art was made from photographs by NASA and the Space Telescope Science Institute (STScI) and by Sandra Rushton, my mother.
+
+This game is dedicated to Sean Shore and Marco Innocenti, who I used as my mental image of who the potential might be."
 [Code from Otistdog was used for overly elaborate looking.]
 [for testing]
 
@@ -104,7 +106,7 @@ After reading a command (this is the ignore beta-comments rule):
 		say "(Noted: '[text matching subexpression 1]')[line break]"; 
 		reject the player's command. 
 
-After reading a command: 
+After reading a command when the player is in monument-region: 
 	let the last command be the player's command;
 	if the last command matches the regular expression "\.\d+": 
 		replace the regular expression "\.\d+" in the last command with "0\0"; 
@@ -154,10 +156,7 @@ Instead of opening a space-tear:
 	otherwise:
 		say "It doesn't seem you're able to open [the noun]."
 		
-The diagnose-text of a space-tear is usually "Creation date: 0705/51[line break]
-Type: [if red-torn]Red[otherwise if green-torn]Green[otherwise]Black (originally Green)[end if][line break]
-Separation type: Temporal[line break]
-Separation distance: 215 years"
+The diagnose-text of a space-tear is usually "Creation date: 0705/51[line break]Type: [if red-torn]Red[otherwise if green-torn]Green[otherwise]Black (originally Green)[end if][line break]Separation type: Temporal[line break]Separation distance: 215 years"
 
 Understand "tear" or "space" or "rift" or "rip" as a space-tear when the item described is undisguised.
 
@@ -184,9 +183,9 @@ Carry out going through a space-tear (called currenttear):
 	if the currenttear is black-torn:
 		say "You reach toward [the noun], but you are unable to touch it. The rift is not open.";
 	otherwise:
-		say "[line break]*************************************************************************************************[line break]";
+		say "[line break]***************************************************************************[line break]";
 		say "You are engulfed in a [rift-style of currenttear] haze, losing all sense of direction. Slowly the haze clears.";
-		say "*************************************************************************************************[paragraph break]";
+		say "***************************************************************************[paragraph break]";
 
 The printed name of a space-tear is usually "[rift-style] rift".
 
@@ -1421,7 +1420,7 @@ Cryonics-quip is a quip. The printed name of cryonics-quip is "Cryonics". Unders
 
 'What about the backups?' you ask. 'I thought these systems had more redundancies than anything else on the ship.'
 
-'The comet that we hit took out half of our backups and the main generator for this area. We never anticipated a collision could go so deep into the ship.'
+'The asteroid that we hit took out half of our backups and the main generator for this area. We never anticipated a collision could go so deep into the ship.'
 
 'Is there anything I could do to help?' you ask.
 
@@ -1431,7 +1430,7 @@ Section 4 - Exploration notebook
 
 The exploration-notebook is a book in cryo-storage. The printed name of the exploration-notebook is "[one of]book[or]book[or]exploration notebook[stopping]". Understand "exploration" or "cover" or "lettering" or "note book" or "notebook" or "collaborative" or "journal" as the exploration-notebook. "The book the creature dropped is still on the floor." The description of the exploration-notebook is "[one of]You go to the first page. It reads:
 
-[italic type]NOTICE: This is a collaborative journal! Anyone exploring the PF3 waste dump can contribute their discoveries and theories here. No trolling! And please add your callsign after each entry!--dewdrop[roman type]
+[italic type]NOTICE: This is a collaborative journal! Anyone exploring the SF3 waste dump can contribute their discoveries and theories here. No trolling! And please add your callsign after each entry!--dewdrop[roman type]
 
 It seems there are more pages[or]The next page says: 
 
@@ -1539,7 +1538,7 @@ Instead of doing something with the spacious-room:
 Instead of going nowhere when the player is in spacious-room and open-scene is happening:
 	say "You don't feel like poking around looking for secret openings while the party is happening."
 
-The party-crowd is scenery neuter person in opening-room. The printed name of the party-crowd is "crowd of people". Understand "crew" or "kids" or "kid" or "staff" or "family" or "families" or "auxiliary" or "officer" or "officers" or "crowd" or "crowd of" or "partygoers" or "people" or "wounded" as the party-crowd. The description of the party-crowd is "[if the banquet-benches are shattered]The last of the crowd is exiting the room, with some helping the wounded out, probably to the medical bay. You are one of the last ones left[otherwise]While you know most people here, you're certain everyone knows you. And that's not bragging; you're just fairly conspicuous in your duties. All sorts are here, staff, crew, officers, kids. But you don't look too long, as large crowds make you nervous[end if]."
+The party-crowd is talkative scenery neuter person in opening-room. The printed name of the party-crowd is "crowd of people". Understand "crew" or "kids" or "kid" or "staff" or "family" or "families" or "auxiliary" or "officer" or "officers" or "crowd" or "crowd of" or "partygoers" or "people" or "wounded" as the party-crowd. The description of the party-crowd is "[if the banquet-benches are shattered]The last of the crowd is exiting the room, with some helping the wounded out, probably to the medical bay. You are one of the last ones left[otherwise]While you know most people here, you're certain everyone knows you. And that's not bragging; you're just fairly conspicuous in your duties. All sorts are here, staff, crew, officers, kids. But you don't look too long, as large crowds make you nervous[end if]."
 
 Instead of physicality when the noun is the party-crowd:
 	say "You keep your distance from most of the crowd."
@@ -1650,6 +1649,8 @@ You walk up to the front.
 You are standing next to the display table, where everything you collected from the storage room has been placed. The crew and staff are gathered around the edges of the banquet hall, waiting for your presentation to begin.[paragraph break]";
 	deliver welcome-quip;
 	clear the flags;
+	now welcome-quip is held by the player;
+	now party-crowd is talkative;
 	now the printed name of opening-room is "Banquet Hall (At the front)";
 	move the player to opening-room, without printing a room description;
 	now party-gareth is nowhere;
@@ -1849,7 +1850,7 @@ You aren't able to finish the sentence, because the entire room jumps away from 
 
 But right before the impact, the wall [italic type]fractures[roman type], forming a red rift. Helpless, you fall into it....
 
-*************************************************************************************************[line break]You are engulfed in a red haze, losing all sense of direction. Slowly the haze clears.[line break]*************************************************************************************************
+***************************************************************************[line break]You are engulfed in a red haze, losing all sense of direction. Slowly the haze clears.[line break]***************************************************************************
 
 [bold type]Grave[roman type]
 
@@ -1876,7 +1877,7 @@ Now you are face to face with a woman in white wearing a skull mask, the top of 
 
 She raises something, and you notice she's holding a shovel covered in dirt. She uses the handle to push you back through the rift.
 
-*************************************************************************************************[line break]You are engulfed in a red haze, losing all sense of direction. Slowly the haze clears.[line break]*************************************************************************************************
+***************************************************************************[line break]You are engulfed in a red haze, losing all sense of direction. Slowly the haze clears.[line break]***************************************************************************
 
 [Banner text][line break]Back on the other side, everything is in chaos. Several crew members are injured and are being helped to their feet. 
 
@@ -2504,7 +2505,7 @@ Then the left eye lights up again and it says, '...and three legs at evening?'
 
 Then it turns dark[first time].
 
-Every Storyweaver worth her salt knows this one; you've been telling kids about this riddle for years. 'Man!' you shout. But nothing responds. Must not be an audio puzzle[only]."
+Every Storyweaver worth her salt knows this one; you've been telling kids about this riddle for years. 'Man!' you shout. But nothing responds. Hmm, maybe the clues mean something else.[only]."
 
 [add eyes to the sphinx]
 
@@ -2721,7 +2722,7 @@ To selectrock (currentrock - a climbing-rock):
 
 A mechanical voice shouts, 'Tango, Romeo, Oscar, Uniform, Bravo, Lima and Echo! That spells trouble!'
 
-The rocks slowly sink down and then back into the wall, despositing you on the floor.
+The rocks slowly sink down and then back into the wall, depositing you on the floor.
 
 The voice continues, 'Congratulations! Your score has gone up by one! Check the prize meter in the gift shop to monitor your progress!'";
 			now climbingheight is -1;
@@ -2834,7 +2835,6 @@ Instead of inserting something into the coin-machine:
 Into the coin tray falls an obol.";
 		now the obol is on the coin-tray;
 		now the coin-machine is not temporally-displaced;
-		[FIX THIS LATER Add a message announcing its not displaced]
 	otherwise:
 		say "That's not the right shape to fit into the slot.";
 
@@ -2855,7 +2855,7 @@ The words echo hollowly into the empty museum. The cage holding the watch lowers
 
 'Come on and grab your prize!' says the voice.
 
-You walk forward and grab the watch from the cage. It slowly climbs and returns to its original position. You feel tension leave your body now that you have the Captain's watch in hand.";
+You walk forward and grab the watch from the cage. The cage slowly climbs and returns to its original position. You feel tension leave your body now that you have the Captain's watch in hand.";
 	now the antique-watch is held by the player;
 	
 Instead of attacking the antique-watch:
@@ -3004,7 +3004,7 @@ Instead of attacking the left-helm:
 	if tethered-mallet is not held by the player:
 		now the tethered-mallet is held by the player;
 		say "You grab the mallet first.[paragraph break]";
-	say "You hit the left helm with the mallet. The helmet rings with the impact. You hear a sonorous voice from the box say '[entry 1 of adjective-list]'.";
+	say "You hit the left helm with the mallet. The helmet rings with the impact. You hear a sonorous voice from the box say '[entry 1 of adjective-list]'[helminfo].";
 	if bloody is ready:
 		do nothing;
 	otherwise:
@@ -3045,7 +3045,7 @@ Instead of attacking the right-helm:
 	if tethered-mallet is not held by the player:
 		now the tethered-mallet is held by the player;
 		say "You grab the mallet first.[paragraph break]";
-	say "You hit the right helm with the mallet. The helmet rings from the blow. You hear a sonorous voice from the box say '[entry 1 of Initial-list][entry 1 of terminal-list]'.";
+	say "You hit the right helm with the mallet. The helmet rings from the blow. You hear a sonorous voice from the box say '[entry 1 of Initial-list][entry 1 of terminal-list]'[helminfo].";
 	if mary is ready:
 		increment marylevel;
 		say "[line break][one of]A chill breeze floats through the room, and you shiver. The mirror moves, just the smallest amount[or]As the box repeats the name of Bloody Mary, you swear you can hear another voice whispering them back. Your arms are covered in goosebumps[or]Then the voice is quiet[stopping].";
@@ -3241,7 +3241,7 @@ A gold-ring is a kind of thing. Understand "ring" or "gold" or "band" or "engrav
 The poem-sign is scenery in lust-room. The printed name of the poem-sign is "sign". Understand "poem" or "warning" or "sign" as the poem-sign. The description of the poem-sign is "The sign says:
 
 'Four jeweled rings are lovely things,[line break]
- Electric, magic, lovely rings![line break]
+ Electric, magic, shiny rings![line break]
 But seekers weary first must query,[line break]
 Where to find the rings that vary.[line break]
 One ring plain is put on show,[line break]
@@ -3253,7 +3253,7 @@ At the bottom it adds, 'WARNING. REMOVING ANYTHING OF VALUE OUT OF THIS ROOM WIL
 
 Section 1 - Cleopatra
 
-Cleopatra-figure is a wax-figure in lust-room. Understand "cleopatra" or "symmetrical" or "face" or "tightly-curled" or "curled" or "Hair" or "black hair" or "reclining" or "breast" as the cleopatra-figure. The printed name of cleopatra-figure is "Cleopatra". The description of cleopatra-figure is "This reclining figure of Cleopatra is depicted as a woman with tightly-curled black hair and a pleasingly symmetrical face. That face is solemn as it contemplates the asp she holds in her grasp."
+Cleopatra-figure is a wax-figure in lust-room. Understand "cleopatra" or "symmetrical" or "face" or "tightly-curled" or "curled" or "Hair" or "black hair" or "reclining" or "breast" or "cleo" as the cleopatra-figure. The printed name of cleopatra-figure is "Cleopatra". The description of cleopatra-figure is "This reclining figure of Cleopatra is depicted as a woman with tightly-curled black hair and a pleasingly symmetrical face. That face is solemn as it contemplates the asp she holds in her grasp."
 
 The asp-figure is scenery in lust-room. Understand "asp" or "snake" or "fangs" or "mouth" or "fang" as the asp-figure. The printed name of the asp-figure is "asp". The description of the asp-figure is "The asp is a coiled snake, its fangs bared and its mouth open wide, springing at Cleopatra. It is fairly close to you, as Cleopatra is both shorter than most of the figures you've seen and reclining.".
 
@@ -4505,7 +4505,7 @@ The henry-wires are plural-named scenery in gluttony-room. The printed name of t
 
 Section 3 -Turntables
 
-An elvis-table is a kind of device. An elvis-table is usually scenery. An elvis-table has some text called the song-first. Understand the song-first property as describing an elvis-table. An elvis-table has some text called the song-second. Understand the song-second property as describing an elvis-table. The printed name of an elvis-table is usually "[song-first of the item described] [song-second of the item described] turntable". Understand "table" or "turn" or "record" or "table" or "turntable" or "records"as an elvis-table. The song-first of an elvis-table is usually "Can't help falling in love". The song-second of an elvis-table is usually "Can't help falling in love". An elvis-table has a number called song-length. The song-length of an elvis-table is usually 4. An elvis-table has a number called air-time. The air-time of an elvis-table is usually 0. The description of an elvis-table is usually "This is a turntable with a record on it labelled [song-first of the item described] [song-second of the item described]. The record seems firmly attached to the turntable at the center, but still able to spin. The turntable has the number [song-length of the item described] on it."
+An elvis-table is a kind of device. An elvis-table is usually scenery. An elvis-table has some text called the song-first. Understand the song-first property as describing an elvis-table. An elvis-table has some text called the song-second. Understand the song-second property as describing an elvis-table. The printed name of an elvis-table is usually "[song-first of the item described] [song-second of the item described] turntable". Understand "table" or "turn" or "record" or "table" or "turntable" or "records" or "tables" or "turntables" as an elvis-table. The song-first of an elvis-table is usually "Can't help falling in love". The song-second of an elvis-table is usually "Can't help falling in love". An elvis-table has a number called song-length. The song-length of an elvis-table is usually 4. An elvis-table has a number called air-time. The air-time of an elvis-table is usually 0. The description of an elvis-table is usually "This is a turntable with a record on it labelled [song-first of the item described] [song-second of the item described]. The record seems firmly attached to the turntable at the center, but still able to spin. The turntable has the number [song-length of the item described] on it."
 
 Instead of taking an elvis-table:
 	say "The turntable and record are all attached together and are immobile, other from turning when switched on."
@@ -4708,7 +4708,7 @@ Gluttonyend is a scene. Gluttonyend begins when the henry-goblet is nowhere and 
 The gluttony-wax is a thing. Understand "wasps" or "nest" or "chunk" or "wasps" or "wasp" as the gluttony-wax. The printed name of the gluttony-wax is "wasp nest". The description of the gluttony-wax is "Numerous wasps are swarming over a nest partially embedded in the floor.".
 
 Instead of physicality when the noun is gluttony-wax:
-	say "Those are wasps! There's no way I'm getting anywhere near that!"
+	say "Those are wasps! There's no way you're getting anywhere near that!"
 
 When gluttonyend begins:
 	now the gluttony-wax is in gluttony-room;
@@ -5275,8 +5275,6 @@ Instead of taking or pushing or pulling an animal:
 
 Instead of searching an animal:
 	say "Yep, that's definitely [a noun]."
-
-[FIX THIS LATER MAKE A FULL PARAGRAPH]
 
 The confused-going rule substitutes for the block vaguely going rule when the person asked is not the player.
 
@@ -6192,8 +6190,6 @@ Emrys-weaver can be ramriding or not ramriding. The player is not ramriding.
 
 Riding-scene is a recurring scene. Riding-scene begins when the player is ramriding. Riding-scene ends when the player is not ramriding.
 
-[FIX THIS LATER physicality with the left horn and right horn]
-
 When riding-scene begins:
 	repeat with current running through lured zoo-animals:
 		now current is not lured;
@@ -6824,8 +6820,6 @@ Rule for writing a paragraph about the water-snake:
 	otherwise:
 		say "The snake slithers around, uncomfortable on land."
 
-[FIX THIS LATER make snake's lured message more appropriate when jet is used]
-
 The snake-jet is a keeper-device. Understand "rocket" or "pack" as the snake-jet. The printed name of the snake-jet is "rocket pack". The description of the snake-jet is "[if the snake-jet is held by the water-snake]The rocket pack the snake is on seems to have been running for a very long time[otherwise]Unfortunately, the rocket pack is now out of fuel[end if].". The snake-jet is held by the water-snake.
 
 Instead of taking the snake-jet when the snake-jet is held by the water-snake:
@@ -7206,9 +7200,9 @@ The rifted entering rule substitutes for the standard entering rule when enterin
 
 This is the rifted entering rule:
 	if the noun is not black-torn:
-		say "[line break]*************************************************************************************************[line break]";
+		say "[line break]***************************************************************************[line break]";
 		say "You are engulfed in a [rift-style of the noun] haze, losing all sense of direction. Slowly the haze clears.";
-		say "*************************************************************************************************[paragraph break]";
+		say "***************************************************************************[paragraph break]";
 		now the player is in the destination-room of the noun;
 	otherwise:
 		say "You reach toward [the noun], but you are unable to touch it. The rift feels closed off.";
@@ -7229,15 +7223,13 @@ The can't go through closed doors rule does nothing when going through a rifty d
 
 Chapter 1 - Main room
 
-[fix this if they are all red or all green]
-
 Device-room is a room in the tool-region. The printed name of Device-room is "The Device". The description of Device-room is "This is a small room enclosed entirely by metal. Each of the walls is adorned with an octagon, and the floor and ceilings are a kind of steel mesh. Everything is meticulously clean. To one side is a ladder leading [boldup].
 
 In the center is a simple black pedestal labelled YANG ENGINE MK XCI. There is a screen on the pedestal[one of] that currently says:
 
 [italic-pedestal]
 
-There is no one in the room[or] displaying a message[stopping][if the purple-drawings are part of the tool-pedestal], and the whole thing is currently covered in purple drawings[end if][if the meter-rings are part of the tool-pedestal]. It is surrounded by a disc inscribed with rings[end if][if a pedestal-button is part of the tool-pedestal]. 
+There is no one in the room[or] displaying a message[stopping][if the purple-drawings are part of the tool-pedestal], and the whole thing is currently covered in glowing purple drawings[end if][if the meter-rings are part of the tool-pedestal]. It is surrounded by a disc inscribed with rings[end if][if a pedestal-button is part of the tool-pedestal]. 
 
 [A list of pedestal-buttons that are part of the tool-pedestal] [are] lit up on the pedestal, glowing on its surface[end if][if the radiation-dial is part of the tool-pedestal]. A dial is also lit up[end if]."
 
@@ -7286,7 +7278,7 @@ Use of this tool without proper training is prohibited. Trainees will gain furth
 
 Your tool is currently restricted to its most limited ability: unlocking doors. Demonstrate your ability to use the tool by finding one of our several outposts, each marked with a door with an octagon symbol. Each of these outposts contains a crystal shard, a type of fuel source. Once you've obtained the shard, return to this room. 
 
-Good luck, and thank you for visiting Yang Labs! When you're ready to upgrade your tool using a crystal shard,place one in the small hole which you can see in the pedestal."
+Good luck, and thank you for visiting Yang Labs! When you're ready to upgrade your tool using a crystal shard, place one in the small hole which you can see in the pedestal."
 
 [add a spiderweb map here. The map indicates items brought from one area to another.]
 
@@ -7458,7 +7450,7 @@ Separation distance: None'[line break]";
 The tool sets itself to Inert.";
 			now curious-tool is Inert;
 		otherwise:
-			say "[line break]The tool beeps and a voice says, 'Locator activated.'";
+			say "[line break]The tool beeps and a voice says, 'Locator activated.'[paragraph break]";
 			locate-action;
 			say "[line break][bracket]This setting makes temporally displaced objects glow. To see the original dimension of a displaced object, simply POINT the tool AT any glowing object.[close bracket][line break]";
 	otherwise if the curious-tool is connector:
@@ -7509,11 +7501,11 @@ To locate-action:
 		if shard-trough is in the location:
 			if the fourth-shard is unhandled:
 				now the fourth-shard is in the shard-trough;
-				say "[line break]It's hard to tell at first, but you become certain that you can see something glowing inside the crate, so you take a closer look. ";
-		if a temporally-displaced visible thing is in the location:
+				say "It's hard to tell at first, but you become certain that you can see something glowing inside the crate, so you take a closer look. ";
+		if a temporally-displaced visible thing is enclosed by the location:
 			say "With [the curious-tool] in locator mode, you see a faint aura around [the list of temporally-displaced visible things].";
 		otherwise:
-			say "The [the curious-tool] is in locator mode, but it is currently not detecting any temporally displaced objects."
+			say "[The curious-tool] is in locator mode, but it is currently not detecting any temporally displaced objects."
 
 Understand "glowing" as temporally-displaced when it's glowing time. Understand the temporally-displaced property as describing a thing.
 
@@ -7658,7 +7650,7 @@ As soon as the text displays, there is a 'click' and glowing purple drawings app
 	now the receiver-button is part of the tool-pedestal;
 	now the photo-button is part of the tool-pedestal;
 	
-The purple-drawings are a thing. Understand "purple" or "drawing" or "drawings" or "fluorescent" or "flourescent" as the purple-drawings. The printed name of the purple-drawings is "purple drawings". The description of the purple-drawings is "These purple drawings are abstract and cover the pedestal. They appear fluorescent, like images under a blacklight."
+The purple-drawings are a thing. Understand "purple" or "glowing" or "drawing" or "drawings" or "fluorescent" or "flourescent" as the purple-drawings. The printed name of the purple-drawings is "purple drawings". The description of the purple-drawings is "These purple drawings are abstract and cover the pedestal. They appear fluorescent, like images under a blacklight."
 
 A tool-freq is a kind of value. A tool-freq has some text called the printed name. The tool-freqs are vis-light, uv-ray, x-ray, rad-io, and infra-red. Understand "jagged" or "sunlight" or "jagged sunlight" or "symbol" as uv-ray. Understand "rainbow" or "symbol" as vis-light. Understand "thermometer" or "symbol" as infra-red. Understand "skeleton" as x-ray. Understand "radio" or "tower" or "symbol" or "radio tower" as rad-io. 
 
@@ -7973,12 +7965,12 @@ Second-upgrade is a scene. Second-upgrade begins when second-shard is in the cry
 When second-upgrade begins:
 	now pedestal-text is "Training and calibration will now commence. 
 
-Rifts, or interdimensional portals, are pieces of spacetime that may be connected to one another  with non-trivial topology or exist in isolation. For instance, this training chamber is contained in a rift. Press the Diagnosis button to obtain information on the rift that surrounds you.";
+Rifts, or interdimensional portals, are pieces of spacetime that may be connected to one another with non-trivial topology or exist in isolation. For instance, this training chamber is contained in a rift. Press the Diagnosis button to obtain information on the rift that surrounds you.";
 	now the tool-pedestal is in sphere-room;
 	say "The pedestal opens up to pull in the tool before closing again.";
-	say "[line break]*************************************************************************************************[line break]";
+	say "[line break]***************************************************************************[line break]";
 	say "You are engulfed in a black haze, losing all sense of direction. Slowly the haze clears.";
-	say "*************************************************************************************************[paragraph break]";
+	say "***************************************************************************[paragraph break]";
 	now the curious-tool is nowhere;
 	now the confirm-button is nowhere;
 	now the meter-rings are part of the tool-pedestal;
@@ -7990,7 +7982,6 @@ Buttondiagnosing is an action applying to nothing. Understand "diagnose" as butt
 Carry out buttondiagnosing:
 	try pushing the diagnosis-button;
 
-[FIX THIS LATER make actual yang chamber diagnosable in monuments dimension, make all other rifts diagnosable]
 The meter-rings are a thing. The printed name of the meter-rings is "meter rings". Understand "metal" or "disc" or "disk"or "ring" or "rings" or "circle" or "label" or "center" or "platform" or "concentric" or "line" or "lines" or "spaced" or "fourth" or "meter" as the meter-rings. The description of the meter-rings is "The disc around the pedestal has rings marked on it labelled in meters from the center. It goes, according to the label, eight meters out from the pedestal[if the blue-exit is in the location].
 
 The outer blue rift is on the fourth ring[end if]."
@@ -8002,8 +7993,6 @@ Instead of putting something on the meter-rings:
 
 Instead of entering the meter-rings:
 	say "They feel no different from the rest of the floor. You step off again."
-
-[fix this later don't let the player drop stuff in sphere-room and move it back to device-room when done!]
 
 Sphere-room is a room in tool-region. The printed name of Sphere-room is "Spherical Space". The description of sphere-room is "[first time]Everything rushes around you, and you find yourself somewhere else. [only]You are in a vast white space that curves in on itself in bizarre ways. Everywhere you look you see distorted reflections. There are no exits[first time].
 
@@ -8031,7 +8020,7 @@ Instead of examining the sphere-space:
 Instead of physicality when the noun is sphere-space:
 	say "The space around you just distorts as you move through it, the reflections and space itself always moving just out of your grasp."
 
-Instead of dropping something when the player is in sphere-room:
+Instead of dropping something when the player is enclosed by sphere-room:
 	say "Anything you drop in here might become lost forever."
 
 Second-upgrade ends when the second-shard is part of the curious-tool.
@@ -8050,7 +8039,7 @@ To say timestamp:
 Instead of pushing diagnosis-button for the first time:
 	now pedestal-text is "DIAGNOSIS:[line break]Creation date: 1205/51[line break]Type: White [line break]Separation type: None [line break]Separation distance: None
 
-As you can see, this is a white rift: a chunk of space separated from the rest of reality. We usually refer to such a thing as a [']closed space[']. Shifting to a white rift is used to protect baseline reality from the effects of our testing. From an outside perspective, all an observer could see would be an emptiness we call a black rift, which you will soon see.
+As you can see, the space you are in is a white rift: a chunk of space separated from the rest of reality. We usually refer to such a thing as a [']closed space[']. Shifting to a white rift is used to protect baseline reality from the effects of our testing. From an outside perspective, all an observer could see would be an emptiness we call a black rift, which you will soon see.
 
 A black rift is a hole, and a white rift is what is taken out of the hole. If the white rift is replaced in the black rift, reality is restored. But, instead, if two black rifts are sewn together, they create a wormhole, and can take on a variety of colors depending on their attributes.
 
@@ -8205,7 +8194,7 @@ Every turn during red-scene:
 	if the time since red-scene began is 1 minute:
 		now the tiny-red is in the location;
 		now the tiny-red is red-torn;
-		say "A tiny red rift appears on top of the pedestal. The Diagnosis button once again appears on the pedestal.[line break]";
+		say "A tiny red rift appears on top of the pedestal. The Diagnosis button once again appears on the pedestal.[paragraph break]";
 		now the diagnosis-button is part of the tool-pedestal;
 	say "A voice chimes and says, 'The time is [time of day].'"
 
@@ -8304,9 +8293,9 @@ For now, the Diagnose setting on your tool has been activated. To receive the ne
 		now the number-dial is nowhere;
 		now every metal-ball is nowhere;
 		say "There is a happy chime, followed by a rushing sound.";
-		say "[line break]*************************************************************************************************[line break]";
+		say "[line break]***************************************************************************[line break]";
 		say "You are engulfed in a black haze, losing all sense of direction. Slowly the haze clears.";
-		say "*************************************************************************************************[paragraph break]";
+		say "***************************************************************************[paragraph break]";
 		now the player is in device-room;
 		say "The closed space around you is gone. You are back in the room where you started.
 
@@ -8564,9 +8553,9 @@ Instead of physicality when the noun is initial-rift:
 	say "All attempts to approach the rift just send parts of you through it, which feels midlly uncomfortable."
 
 Instead of entering the initial-rift:
-	say "[line break]*************************************************************************************************[line break]";
+	say "[line break]***************************************************************************[line break]";
 	say "You are engulfed in a [rift-style of initial-rift] haze, losing all sense of direction. Slowly the haze clears.";
-	say "*************************************************************************************************[paragraph break]";
+	say "***************************************************************************[paragraph break]";
 	now the player is in first-substation;
 
 [No diagnose-text needed since we don't have the tool]
@@ -8575,8 +8564,6 @@ A station-rift is a kind of door. The printed name of a station-rift is usually 
 
 Instead of physicality when the noun is a station-rift:
 	say "All attempts to approach the rift just send parts of you through it, which feels midlly uncomfortable."
-
-[FIX THIS LATER let the rifts describe where they lead. Make each sub station a really interesting room that gives a different viewpoint to one or more of the other dimensions or the land between them]
 
 The description of a station-rift is usually "This is a blue rift, indistinguishable from the others, except that it is[if the item described is in the location] leading [direction of the item described from the location]."
 
@@ -8749,9 +8736,9 @@ Every turn when a station-switch is switched off:
 You may now use the Connector setting on closed blue rifts. If you see a black rift that is a closed blue rift, you may OPEN it when in Connector mode.
 
 You can begin the next upgrade by placing a new crystal shard in the receptacle and placing the tool on the pedestal.";
-			say "Everything is quiet around you for a moment. Then...[paragraph break]*************************************************************************************************[line break]";
+			say "Everything is quiet around you for a moment. Then...[paragraph break]***************************************************************************[line break]";
 			say "You are engulfed in a [rift-style of initial-rift] haze, losing all sense of direction. Slowly the haze clears.";
-			say "*************************************************************************************************[paragraph break]";
+			say "***************************************************************************[paragraph break]";
 			now initial-rift is nowhere;
 			now the player is in device-room;
 			say "You reappear in the room you were originally in.
@@ -8826,9 +8813,9 @@ For your benefit, the time of day will be announced continuously during the expe
 To start the time loop, press the Diagnosis button.";
 	say "The pedestal opens up to pull in the tool before closing again.[line break]";
 	now the tool-pedestal is in sphere-room;
-	say "[line break]*************************************************************************************************[line break]";
+	say "[line break]***************************************************************************[line break]";
 	say "You are engulfed in a black haze, losing all sense of direction. Slowly the haze clears.";
-	say "*************************************************************************************************[paragraph break]";
+	say "***************************************************************************[paragraph break]";
 	now the fifth-uprift is in sphere-room;
 	now the diagnosis-button is part of the tool-pedestal;
 	now the player is in sphere-room;
@@ -8871,9 +8858,9 @@ When time-paradox ends poorly:
 When time-paradox begins:
 	if timescrambled is true:
 		say "Time resets in a whirl. You're back where you were at first.[paragraph break]";
-		say "*************************************************************************************************[line break]";
+		say "***************************************************************************[line break]";
 		say "You are engulfed in a black haze, losing all sense of direction. Slowly the haze clears.";
-		say "*************************************************************************************************";
+		say "***************************************************************************";
 		now the player is in sphere-room;
 		now the time of day is fifth-time;
 		now fifthpast is false;
@@ -9012,9 +8999,9 @@ Instead of entering the fifth-uprift:
 	otherwise:
 		if the glassed-area is not closed:
 			say "You enter the rift.";
-			say "*************************************************************************************************[line break]";
+			say "***************************************************************************[line break]";
 			say "You are engulfed in a [rift-style of fifth-uprift] haze, losing all sense of direction. Slowly the haze clears.";
-			say "*************************************************************************************************";		
+			say "***************************************************************************";		
 			now the glassed-area is closed;
 			now every food-apple is on the science-bench;
 			now fifthpast is true;
@@ -9023,9 +9010,9 @@ Instead of entering the fifth-uprift:
 			say "The haze clears. Your former self is here, outside the glass.";
 		otherwise:
 			say "You enter the rift again, travelling into the future.";
-			say "*************************************************************************************************[line break]";
+			say "***************************************************************************[line break]";
 			say "You are engulfed in a [rift-style of fifth-uprift] haze, losing all sense of direction. Slowly the haze clears.";
-			say "*************************************************************************************************";		
+			say "***************************************************************************";		
 			now the glassed-area is open;
 			now the fifth-uprift is green-torn;
 			now temporal-emrys is nowhere;
@@ -9082,9 +9069,9 @@ Every turn during time-paradox:
 			now timescrambled is true;
 		otherwise:
 			say "There is a pleasant chime, and the room around you dissolves away.[paragraph break]";
-			say "*************************************************************************************************[line break]";
+			say "***************************************************************************[line break]";
 			say "You are engulfed in a black haze, losing all sense of direction. Slowly the haze clears.";
-			say "*************************************************************************************************";
+			say "***************************************************************************";
 			now the player is in device-room;
 			now the tool-pedestal is in device-room;
 			now the fifth-shard is green-sharded;
@@ -9212,7 +9199,7 @@ The sixth-backrift is a scene-rift in catastrophe-room. The sixth-backrift is re
 Instead of entering the sixth-backrift:
 	now the player is in device-room;
 
-Lance is a man in catastrophe-room. "[lancedesc].". The description of Lance is "This man, older than you, is clearly near the end of his life. He is pinned under a pillar, and his white shirt is soaked with blood. He wears a badge with the name 'Dr Lance Franklin' on it". Understand "man" or "dr" or "franklin" or "shirt" or "old" or "white" or "blood" or "badge" or "name" as Lance. [fix this later]
+Lance is a man in catastrophe-room. "[lancedesc].". The description of Lance is "This man, older than you, is clearly near the end of his life. He is pinned under a pillar, and his white shirt is soaked with blood. He wears a badge with the name 'Dr Lance Franklin' on it". Understand "man" or "dr" or "franklin" or "shirt" or "old" or "white" or "blood" or "badge" or "name" as Lance. 
 
 To say lancedesc:
 	if lance is alive:
@@ -9670,9 +9657,9 @@ Instead of entering the final-rift:
 		repeat with current running through quips enclosed by the player:
 			now current is nowhere;
 			now current is meihtarget;
-		say "[line break]*************************************************************************************************[line break]";
+		say "[line break]***************************************************************************[line break]";
 		say "You are engulfed in a blue haze, losing all sense of direction. Slowly the haze clears.";
-		say "*************************************************************************************************[paragraph break]";
+		say "***************************************************************************[paragraph break]";
 		now the player is in audience-chamber;
 	
 Harvesting is an action applying to one thing. Understand "harvest [something]" as harvesting when the curious-tool is held by the player.
@@ -9726,7 +9713,7 @@ Instead of physicality when the noun is the scattered-straw:
 
 Chapter 4 - Cabin office
 
-The cabin-office is a crystal-room in hidden-region. "This room contrasts markedly with the forested area outisde. It is made entirely out of metal, and looks as if it has been unused for a long time. There is a console here with a large dial, with an office chair in front of it. [rift-text]." The printed name of the cabin-office is "Office".
+The cabin-office is a crystal-room in hidden-region. "This room contrasts markedly with the forested area outside. It is made entirely out of metal, and looks as if it has been unused for a long time. There is a console here with a large dial, with an office chair in front of it. The door leads back out to the [boldwest]. [rift-text]." The printed name of the cabin-office is "Office".
 
 The scenery-metal is scenery in cabin-office. Understand "metal" or "wall" or "walls" or "floor" or "ceiling" as the scenery-metal. The printed name of the scenery-metal is "metal". The description of the scenery-metal is "All of the surfaces of the room are covered in metal. There is nothing natural in this room."
 
@@ -10601,7 +10588,6 @@ The garden-region is a region.
 
 Section 1 - Backdrops
 
-[FIX THIS LATER add natural events outside and inside]
 The cloudy-sky is a distant backdrop in garden-region. The printed name of the cloudy-sky is "sky".
 
 The old-forest is a distant backdrop in garden-region. The printed name of the old-forest is "distant forest". Understand "distant" or "forest" or "trees" or "mixed" as the old-forest. The description of the old-forest is "This is a mixed forest, the trees being of multiple species and levels of growth. It stretches as far as you can see in most directions."
@@ -11021,7 +11007,10 @@ Instead of physicality when the noun is the porch-roof:
 
 The porch-posts are plural-named scenery in porch-room. The printed name of the porch-posts is "posts". Understand "single" or "sturdy" or "post" or "posts" as the porch-posts. The description of the porch-posts is "Each post is a single piece of wood, much sturdier than what the porch roof seems to require. Maybe it snows in the winter?".
 
-The porch-windows are plural-named scenery in porch-room. The printed name of the porch-windows is "windows". Understand "window" or "windows" or "couple" or "high" as the porch-windows. The description of the porch-windows is "The windows are glass panes, but they are high up enough that you can't see anything inside through them."
+The porch-windows are plural-named scenery in porch-room. The printed name of the porch-windows is "windows". Understand "window" or "windows" or "couple" or "high" as the porch-windows. The description of the porch-windows is "The windows have glass panes, but they are high up enough that you can't see anything inside through them."
+
+Instead of entering the porch-windows:
+	say "They're too high, and they're not the kind that opens."
 
 Instead of searching the porch-windows:
 	try examining the porch-windows;
@@ -11093,7 +11082,7 @@ The cabin-plaster is scenery in porch-room. The printed name of the cabin-plaste
 About half of the plaster has been scraped off[end if]."
 
 Instead of putting something on the cabin-plaster:
-	say "You'll have to take off the old-plaster before you can put on anything else."
+	say "You'll have to take off the old plaster before you can put on anything else."
 	
 Instead of taking or pushing or pulling or attacking or taking off the cabin-plaster:
 	say "You won't be able to get it off by hand, although you could scrape it off with the right tool."
@@ -11373,10 +11362,10 @@ The copper-still is a scenery container in cabin-interior. The printed name of t
 It has a funnel for pouring in liquids, and a place to put a receptacle to collect the resulting liquid[if the copper-still is ensapped], where you've placed the bucket. It's still a bit sticky from the sap you poured in[end if]."
 
 Instead of pouring the oil-jar on the copper-still:
-	say "That seems like a good way to start a fire.";
+	say "That seems like a good way to set the whole still on fire.";
 	
 Instead of inserting the oil-jar into the copper-still:
-	say "That seems like a good way to start a fire.";
+	say "That seems like a good way to set the whole still on fire.";
 
 Instead of smelling the copper-still:
 	say "The still has a strong pine odor."
@@ -11811,13 +11800,13 @@ The hilltop-shadow is intangible scenery in hill-view. The printed name of the h
 
 Section 1 - Journal Page
 
-The hidden-compartment is a container. The Hidden-compartment is fixed in place. The 1-page is a journal-page in the hidden-compartment. The page-number of 1-page is 1. The description of the 1-page is "My name is Arawn Webster. And they say that I have the Storyweaver's gift, the same one that Emrys Tisserand once had. Our ship is currently in the one-hundredth year of its grand voyage, and I have the great luck to have been chosen to stay at the Weaver's cottage, one of the resorts scattered around the uninhabited portions of the ship. I swear they just keep these cabins for the sake of unpaid labor, since somebody has to tend to do all the repairs and the planting. But there's an old rumor about this cottage specifically; a lot of storyweavers get sent here, girls specifically. They say it was Emrys's cottage, but that doesn't make sense, since she died long before this ship was made. I know they want something from me, from us, but I don't know what.
+The hidden-compartment is a container. The Hidden-compartment is fixed in place. The 1-page is a journal-page in the hidden-compartment. The page-number of 1-page is 1. The description of the 1-page is "My name is Arawn Webster. And they say that I have the Storyweaver's gift, the same one that Emrys Tisserand once had. Our ship is currently in the hundredth year of its grand voyage, and I have the great luck to have been chosen to stay at the Weaver's cottage, one of the resorts scattered around the uninhabited portions of the ship. I swear they just keep these cabins for the sake of unpaid labor, since somebody has to tend to do all the repairs and the planting. But there's an old rumor about this cottage specifically; a lot of storyweavers get sent here, mostly girls. They say it was Emrys's cottage, but that doesn't make sense, since she died long before this ship was made. I know they want something from me, from us, but I don't know what.
 
 The simulated sky here is done very well. It looks just like earth's sky does in the movies. It even tracks the moon and the sun correctly.
 
 I've spent my time drawing, mostly. [roman type]
 
-[bracket]Here there are several sketches of clothing, mostly outfits with lots of buckles and spikes[close bracket][italic type]
+[bracket]Here there are several sketches of clothing, mostly outfits with lots of buckles and spikes, with one mask that looks a lot like a skull[close bracket][italic type]
 
 I'm keeping this journal to help me remember that my past is behind me, my present is now, and my future is bright. Here's to a great adventure![roman type]"
 
@@ -13318,12 +13307,13 @@ The output-ang of a light-collector is usually 0. The output-ang of a light-coll
 
 Definition: a light-collector (called current) is shining if output-ang of current > -1.
 
-Every turn when cable-ladder is secretive:
-	if the number of shining light-collectors is 4:
-		now the cable-ladder is unsecretive;
-		say "With all four collectors receiving light, you hear a click[if the player is in stonehenge-south]. [ladderreveal][otherwise] from the south end of Stonehenge[end if].";
-		now the cable-ladder is not scenery;
-		now the initial appearance of the cable-ladder is "[if the player is in stonehenge-south][ladderreveal][otherwise]A cable ladder dangles from above[end if].";
+Every turn when the player is in stonehenge-region:
+	if the cable-ladder is secretive:
+		if the number of shining light-collectors is 4:
+			now the cable-ladder is unsecretive;
+			say "With all four collectors receiving light, you hear a click[if the player is in stonehenge-south]. [ladderreveal][otherwise] from the south end of Stonehenge[end if].";
+			now the cable-ladder is not scenery;
+			now the initial appearance of the cable-ladder is "[if the player is in stonehenge-south][ladderreveal][otherwise]A cable ladder dangles from above[end if].";
 
 To say ladderreveal:
 	say "[one of]Something has dropped from the lintel. It looks like it's [a cable-ladder] that was hidden in a recess. One end is firmly attached to the stone. You should be able to unroll it from here[or]A cable ladder is here, attached to the stone lintel. It is currently [rolledunrolled][stopping]";
@@ -14528,8 +14518,6 @@ Every turn when the player is in a ship-adjacent room (this is the rotation rule
 To say innerrotations:
 	say "rotation[unless inner-vel is 1]s[end if]";
 
-[fix this later Change this and the levertext if they match speeds]
-
 Instead of dropping something when the player is in vortex-region:
 	say "You might lose something if you drop it out here.";
 
@@ -15197,7 +15185,6 @@ Understand "close [openable open thing]" as closing.
 
 Understand "put [something] in [container]" as inserting it into.
 
-[FIX THIS LATER Make this only work for a batteried-batteried-device]
 Instead of opening a batteried-device, try opening a random battery-compartment which is part of the noun. Instead of closing a batteried-device, try closing a random battery-compartment which is part of the noun. Instead of inserting a battery into a batteried-device, try inserting the noun into a random battery-compartment which is part of the second noun.
 
 Instead of switching on an empty batteried-device:
@@ -15281,7 +15268,6 @@ An energy-room is a kind of room. An energy-room has some text called the energy
 
 The energy-grid is a backdrop in energy-region. The printed name of the energy-grid is "grid". Understand "grid" as the energy-grid. The description of the energy-grid is "The machinery you're standing on forms a three-by-three grid. You are standing on the [energy-text of the location] portion."
 
-[FIX THIS LATER]
 Instead of going nowhere when the player is in energy-region:
 	say "The grid does not extend in that direction.";
 
@@ -15470,7 +15456,6 @@ Check burning something with something (this is the burn only with flaming match
 Check burning something with something (this is the burn only flammable things rule):
 	if the noun is impervious, say "[The noun] cannot be burned." instead.
 
-[FIX THIS LATER don't directly steal]
 Check burning something with something (this is the burn only things not held rule):
 	if the noun is held by the player:
 		say "[one of]It occurs to you to set down [the noun] before burning, just for safety's sake. [or]Again, you decide to put down [the noun] prior to burning. [or]You try setting down [the noun] as usual. [stopping][run paragraph on]";
@@ -16379,7 +16364,7 @@ The TargetResponse of Franken-name is "The great creature sighs in response. 'Th
 
 Franken-confusion is a quip. The printed name of Franken-confusion is "Confusion". Understand "confusion" as Franken-confusion. The preview of Franken-confusion is "What is this place?"  The target of Franken-confusion is Frankenstein.
 
-The TargetResponse of Franken-confusion is "Frankenstein says, 'Welcome to 'Monsters Inside', Miss...' he pauses, looking at you quizzically.
+The TargetResponse of Franken-confusion is "Frankenstein says, 'Welcome to [italic type]Monsters Inside[roman type], Miss...' he pauses, looking at you quizzically.
 
 'Emrys Tisserand,' you respond.
 
@@ -16710,9 +16695,10 @@ Report looking in grand-room when pharaoh is fullcatfound:
 	
 The gold-token is a token. The token-target of gold-token is "Pharaoh". The printed name of the gold-token is "gold token". Understand "gold" or "pharaoh" as the gold-token. 
 
-Every turn when the player is not in grand-room:
-	if absent-quip is targetgiven:
-		now onceleftpharaoh is true;
+Every turn when the player is in haunted-region:
+	if the player is not in grand-room:
+		if absent-quip is targetgiven:
+			now onceleftpharaoh is true;
 
 Onceleftpharaoh is a truth state that varies. Onceleftpharaoh is false.
 
@@ -17332,7 +17318,7 @@ Instead of showing the wolf-handcuffs to the wolfman:
 
 Carry out cuffing:
 	if the wolf-handcuffs are carried by the player:
-		try putting the wolf-handcuffs on the second noun;
+		try putting the wolf-handcuffs on the noun;
 	otherwise:
 		say "[We] [don't] have anything to use as handcuffs."
 
@@ -17608,9 +17594,9 @@ Instead of touching the crystal-ball:
 
 roomcounter is a number that varies. roomcounter is 0.
 
-A thing can be oncecarried or not oncecarried. A thing is usually not oncecarried
+A thing can be oncecarried or unoncecarried. A thing is usually unoncecarried
 
-Every turn:
+Every turn when the player is carrying an unoncecarried thing:
 	repeat with current running through things carried by the player:
 		now current is oncecarried;
 
@@ -18131,7 +18117,7 @@ Instead of climbing the heavy-block:
 	say "It's not high enough that climbing it would give you any advantage."
 
 Instead of taking the heavy-block:
-	say "It's far too heavy to pick up, but it could be pushed, or FIX THIS LATER pulled.."
+	say "It's far too heavy to pick up, but it could be pushed, or pulled."
 
 Instead of clone-you taking the heavy-block:
 	if clone-you is enclosed by the location of the player:
@@ -18270,8 +18256,8 @@ Before you stands a fully-embodied copy of yourself. She says, 'Well, I guess I'
 
 Section 2 - Your clone
 
-Every turn:
-	if the player is in dark-pool and clonesubmerged is true:
+Every turn when the player is in dark-pool:
+	if clonesubmerged is true:
 		if how-help is targetgiven:
 			say "'Ah, you've returned,' says your clone, pulling herself out of the water again. 'Let's see what we can do together.'";
 			now clonesubmerged is false;
@@ -18283,11 +18269,12 @@ Past-actions is a list of stored actions that varies. Past-actions is {clone-you
 PastPast-actions is a list of stored actions that varies. PastPast-actions is {clone-you waiting}.
 PastPastPast-actions is a list of stored actions that varies. PastPastPast-actions is {clone-you waiting}.
 
-Every turn when the player is not in castle-region:
-	repeat with current running through things enclosed by clone-you:
-		now current is in dark-pool;
-	now clonesubmerged is true;
-	now clone-you is in dark-pool;
+Every turn when clone-you is not in dark-pool:
+	if the player is not in castle-region:
+		repeat with current running through things enclosed by clone-you:
+			now current is in dark-pool;
+		now clonesubmerged is true;
+		now clone-you is in dark-pool;
 
 [Every turn when clonesubmerged is true:
 	now Past-actions is {clone-you waiting};
@@ -18312,12 +18299,13 @@ Before the player doing something when the player is in castle-region:
 	now the actor is the player; 
 	continue the action. 
 
-Every turn when clonesubmerged is true and the player is not in dark-pool:
-	now Past-actions is {clone-you waiting};
-	now PastPast-actions is {clone-you waiting};
-	now PastPastPast-actions is {clone-you waiting};
+Every turn when the player is in haunted-region:
+	if clonesubmerged is true and the player is not in dark-pool:
+		now Past-actions is {clone-you waiting};
+		now PastPast-actions is {clone-you waiting};
+		now PastPastPast-actions is {clone-you waiting};
 
-Every turn:
+Every turn (this is the clone copying rule):
 	if pastpastpast-actions is not empty:
 		if clonesubmerged is false:
 			try entry 1 of pastpastpast-actions;
@@ -18435,7 +18423,7 @@ Before clone-you doing something:
 		now clone-you is proper-named;
 		now the second noun is clone-you;
 
-Every turn:
+Every turn (this is the clone adjustment rule):
 	now currentactor is the player;
 	now clone-you is not proper-named;
 	now currentactee is the player;
@@ -18445,7 +18433,7 @@ A thing can be cloneattempting or not cloneattempting. A thing is usually not cl
 Before clone-you taking something:
 	now the noun is cloneattempting;
 
-Every turn:
+Every turn (this is the clone trying to take rule):
 	repeat with current running through cloneattempting things:
 		if current is held by clone-you:
 			now current is not cloneattempting;
@@ -18796,7 +18784,7 @@ Report taking iron-bar:
 
 The balanced-plank2 is an enterable supporter. "The plank is here, balanced carefully."The printed name of the balanced-plank2 is "balanced plank". Understand "notched" or "plank" or "balanced" or "long" or "cupboard" as the balanced-plank2. The description of the balanced-plank2 is "This is a long plank, sturdy enough for several people to stand on. There is a notch in the center, which cuts the short way across the plank. Right now the plank is balanced."
 
-Every turn:
+Every turn when the player is in castle-region (this is the rod falling rule):
 	if rodheld is false:
 		if balanced-plank2 is in throne-room:
 			say "Without the rod to hold it, the plank clatters to the ground.";
@@ -18806,7 +18794,6 @@ Every turn:
 			now the notched-plank is in throne-room;
 			set pronouns from the balanced-plank2;
 			
-
 Instead of putting something on the iron-bar when rodheld is true:
 	if the noun is the notched-plank:
 		say "You balance the notched plank on the iron bar. It wobbles a bit back and forth but then settles down.";
@@ -18887,9 +18874,11 @@ Chapter 17 - Spire
 
 The castle-spire is a room in castle-region. The printed name of the castle-spire is "Spire". The description of the castle-spire is "This room is unusual. Most of it looks like a run-down castle spire made of stone and wood, but one wall is made of solid stainless steel. A dedication plaque is fixed to the wall."
 
-The stone-wood is plural-named scenery in castle-spire. The printed name of stone-wood is "castle materials". Understand "stone" or "wood" or "castle" or "spire" or "material" or "materials" as the stone-wood. The description of the stone-wood is "All of the materials making up the castle and spire seem old and crumbling, except for the wall."
+The stone-wood is plural-named scenery in castle-spire. The printed name of stone-wood is "castle materials". Understand "stone" or "wood" or "castle" or "spire" or "material" or "materials" as the stone-wood. The description of the stone-wood is "All of the materials making up the castle and spire seem old and crumbling, except for the wall. There is a hole near the top."
 
 The spire-bot is an animal in castle-spire. The printed name of spire-bot is "monkey robot". Understand "monkey" or "monkey-like" or "like" or "robot" or "silver" or "metal" or "robotic" or "creature" or "polygons" or "shape" or "polygonal" as the spire-bot. "At last, the monkey-like robot you saw take the action figure is here; in fact, it's still holding Gareth's toy! Instead of running away, though, the robot is facing you calmly." The description of the spire-bot is "This seems like a very advanced robotic creature made of some shimmering, silver metal hammered into polygonal shapes."
+
+The spire-hole is distant scenery in castle-spire. The printed name of the spire-hole is "hole". Understand "hole" as the spire-hole. The description of the spire-hole is "This hole must be how the monkey robot was getting in and out."
 
 The gareth-toy is carried by the spire-bot. The printed name of the gareth-toy is "Dracula toy". Understand "action" or "figure" or "gareth's" or "toy" or "dracula" or "vampire" as the gareth-toy. The description of the gareth-toy is "This is Gareth's vintage Dracula action-figure; you know that it's his very favorite. He'll definitely be wanting this back!"
 
@@ -18900,11 +18889,11 @@ Instead of going nowhere from castle-spire when the noun is outside:
 
 The spire-plaque is scenery in the castle-spire. The printed name of the spire-plaque is "dedication plaque". Understand "dedication" or "plaque" as the spire-plaque. The description of the spire-plaque is "You read the plaque out loud:
 
-'This holo-chamber is dedicated to Gareth Djomo, Ship Psychologist of the Starship Tragwyddol.
+[italic type]This holo-chamber is dedicated to Gareth Djomo, Ship Psychologist of the Starship Tragwyddol.
 
-'Gareth's calm head and quick thinking prevented mass panic during the near-fatal accident that the Tragwyddol suffered on its maiden voyage. He was instrumental to the survival of the ship. 
+Gareth's calm head and quick thinking prevented mass panic during the near-fatal accident that the Tragwyddol suffered on its maiden voyage. He was instrumental to the survival of the ship. 
 
-'In later years, Gareth went on to pioneer the use of holo-chambers for therapy. For his decades of service, we dedicate Holo-chamber to him.'"
+In later years, Gareth went on to pioneer the use of holo-chambers for therapy. For his decades of service, we dedicate Holo-chamber to him.[roman type]"
 
 Report examining the spire-plaque:
 	say "Once you've finished reading the plaque, the monkey robot drops the action figure at your feet, then bounds out a hole in the spire, leaving you alone.";
@@ -19297,7 +19286,7 @@ To triggerthirdchord:
 		now malignant-wall is nowhere;
 		now strange-veins are nowhere;
 
-Every turn:
+Every turn when the player is in castle-region (this is the music duet rule):
 	now lastnote is "None";
 	if the malignant-wall is in treasure-room:
 		if justbroke is false:
@@ -19365,6 +19354,7 @@ Instead of clone-you going east from treasure-room when the malignant-wall is in
 
 To say triggercloneout:
 	now past-actions is {clone-you waiting};
+	now clone-you is in the outside-treasure;
 	now pastpast-actions is {clone-you waiting};
 	say ".
 
@@ -20127,9 +20117,9 @@ A person can be onceswapped or unonceswapped. A person is usually unonceswapped.
 
 To playerswap (current - a person):
 	now currentswap is current;
-	say "*************************************************************************************************[line break]";
+	say "***************************************************************************[line break]";
 	say "As you listen to [the current]'s statement, you can almost imagine how it happened...";
-	say "*************************************************************************************************[paragraph break]";
+	say "***************************************************************************[paragraph break]";
 	now the story viewpoint is first person singular; 
 	now the story tense is past tense;
 	now the player is doppelganger of current;
@@ -20146,9 +20136,9 @@ Ceasing is an action applying to nothing. Understand "stop" as ceasing.
 
 Carry out ceasing:
 	if playerswapped is true:
-		say "*************************************************************************************************[line break]";
+		say "***************************************************************************[line break]";
 		say "As the statement ends, your attention returns to the world around you...";
-		say "*************************************************************************************************[paragraph break]";
+		say "***************************************************************************[paragraph break]";
 		now the player is emrys-weaver;
 		now the story viewpoint is second person singular; 
 		now the story tense is present tense;
@@ -20327,10 +20317,9 @@ The fake-jumpsuit is in luxury-closet. "The only clothing that stood out to me w
 After taking the fake-jumpsuit:
 	do nothing;
 	
-Every turn:
-	if the fake-jumpsuit is carried by the player:
-		if the fake-jumpsuit is not worn by the player:
-			try wearing the fake-jumpsuit;
+Every turn when the fake-jumpsuit is carried by the player:
+	if the fake-jumpsuit is not worn by the player:
+		try wearing the fake-jumpsuit;
 		
 After wearing the fake-jumpsuit when the fake-robe is worn by the player:
 	now the fake-robe is in the location;
@@ -20637,7 +20626,7 @@ Before going east from nice-apartment:
 	if the healthy-breakfast is not nowhere:
 		say "I definitely wouldn't have had the energy to get going that day if I didn't have food in me." instead;
 	otherwise if the fake-jumpsuit is not worn by the player:
-		say "I couldn't go out in my pajamas!"
+		say "I couldn't go out in my pajamas!" instead;
 
 Instead of taking off the fake-pajamas:
 	say "My apartment was too cold to wear nothing; I could just WEAR my clothes once I picked out what to wear."
@@ -20687,7 +20676,7 @@ Section 9 - Nice book store
 
 Nice-bookstore is a room in statement-region. The printed name of nice-bookstore is "Bookstore". The description of nice-bookstore is "You know, yeah, they didn't open up a whole party room for me at the bookstore. But they did give me a table right at the front, and there were at least, I mean, a couple dozen fans."
 
-The Nice-dafydd is a man in nice-bookstore. The printed name of nice-dafydd is "[if nice-dafydd is proper-named]Dafydd[otherwise]charming young man[end if]". Understand "dafydd" or "charming" or "young" as nice-dafydd. The initial appearance of nice-dafydd is "[if dafyddbegged is true]Dafydd was sitting at his table, sobbing[otherwise if nice-dafydd is in nice-cafe]Dafydd was seated at a nearby table[otherwise]I wasn't lying about the guy, though. A charming young man was the next in line, waiting for me to [end if][if nice-copy is held by nice-dafydd]talk to him. He held the copy of my book he had picked at the other end of the line[otherwise if nice-dafydd is not in nice-cafe]sign his book[end if]."
+The Nice-dafydd is a man in nice-bookstore. The printed name of nice-dafydd is "[if nice-dafydd is proper-named]Dafydd[otherwise]charming young man[end if]". Understand "dafydd" or "charming" or "young" or "guy" as nice-dafydd. The initial appearance of nice-dafydd is "[if dafyddbegged is true]Dafydd was sitting at his table, sobbing[otherwise if nice-dafydd is in nice-cafe]Dafydd was seated at a nearby table[otherwise]I wasn't lying about the guy, though. A charming young man was the next in line, waiting for me to [end if][if nice-copy is held by nice-dafydd]talk to him. He held the copy of my book he had picked at the other end of the line[otherwise if nice-dafydd is not in nice-cafe]sign his book[end if]."
 
 The description of nice-dafydd is "[The nice-dafydd] was sweet. He looked like one in a million. And he was at [italic type]my[roman type] signing. You understand?"
 
@@ -21437,7 +21426,7 @@ After taking weird-chip when weird-chip is not scenery:
 
 'I wondered what that chip was myself, because I didn't know how it figured into the murder,' says Maeve, her voice and demeanor much more pleasant and warm now that the murder mystery is over.
 
-'Oh, it's part of a navigational computer,' you say. 'It belongs to a friend of mine, actually; a robot that looks like a monkey took it.'
+'It's part of a navigational computer,' you say. 'It belongs to a friend of mine, actually; a robot that looks like a monkey took it.'
 
 'Oh, those things?' she says. 'Yeah, they're all over the place. But a navigational computer, that sounds interesting. I actually have an ancestor, quite a while back, who was a flight officer on a starship. I was named after her, actually. She was a hero.'
 
@@ -21506,10 +21495,9 @@ Section 5 - Department Hallway
 
 The lab-door is a closed scenery door. The lab-door is south of bio-lab and north of department-hallway. The printed name of the lab-door is "lab door". Understand "swinging" or "doors" or "lab" or "door" as the lab-door. The description of the lab-door is "Our lab door doesn't have any windows in it, nor does it have a lock, which is unfortunate."
 
-Every turn:
-	if the lab-door is open:
-		if the player is fake-arthur:
-			say "The door swung shut again.";
+Every turn when the lab-door is open:
+	if the player is fake-arthur:
+		say "The door swung shut again.";
 	now lab-door is closed;
 		
 Instead of swinging the lab-door:
@@ -21962,7 +21950,7 @@ The playground-roof is scenery. The printed name of the playground-roof is "play
 The distant-gangs is plural-named distant scenery people in roof-tops. The printed name of distant-gangs is "distant [if mari-level is 0]gangs[otherwise]bikers[end if]". Understand "distant" or "gang" or "gangs" or "bikers" or "biker" or "dangerous" or "bicycle" or "teen" or "teens" or "cyclists" or "cyclist" as the distant-gangs. The description of the distant-gangs is "[if mari-level is 2]Haha! Those dumb bicycle teens couldn't get me now! Suckers[otherwise if mari-level is 1]The bikers were still at it, down below. I just didn't get the appeal. Why not just get on a highway and go crazy instead of circling an intersection? I really don't get it[otherwise]From up above, I could see all the bikers fighting, and yet, what were they fighting over? From up here, there were no borders, no dividing lines like one would see in a map. I felt like I understood a deep truth that others just don't understand. That's what it's like, being a courier in the streets[end if]."
  
 Instead of talking to the distant-gangs:
-	say "What? I didn't shout at the the from the rooftops. That'd be weird."
+	say "What? I didn't shout at them from the rooftops. That'd be weird."
 
 The mari-wires are plural-named scenery supporter in roof-tops. The printed name of the mari-wires is "wires". Understand "sturdy" or "insulated" or "wire" or "wires" as the mari-wires. The description of the mari-wires is "Some kind of sturdy, insulated wire leads from this rooftop to just over the train on Platform A."
 
@@ -22821,7 +22809,7 @@ To decide if secondtime occurs:
 
 Major-switch is a scene. Major-switch begins when secondtime occurs and the player is in second-class;
 
-Every turn:
+Every turn when the train-corpse is not nowhere:
 	if major-switch has happened:
 		if the time since major-switch began is one minute:
 			say "A whistle blows, and the train begins to slow down.
@@ -23288,8 +23276,6 @@ Chapter 1 - Collapsed Hallway
 
 Chapter 2 - Gem chamber
 
-[FIX THIS LATER Maybe make this room dark and have gem not give light]
-
 The gem-room is a dark room in bigspell-region. The printed name of gem-room is "Gem Room". The description of the gem-room is "You are in a perfectly hemispherical room. The floor is some kind of flat concrete or dull rock, while the dome that bounds the room is dark, opaque glass. There is a loud hum all around you, and you get the impression of being far underground. There is a hatch in the floor with an octagon symbol.
 
 In the center of the room is a pedestal that nestles a single, gray gem[if the gray-gem is active] that emits a sickly gray light[end if]."
@@ -23318,7 +23304,6 @@ Instead of putting something on the gem-pedestal:
 	say "There's no room, with the gem there."
 
 black-dome is a room in spell-region. Fake-emrys is a woman in black-dome.
-[FIX THIS LATER describe fake-emrys in her own room]
 
 Instead of physicality when the noun is gray-gem:
 	if in darkness:
@@ -24127,8 +24112,6 @@ Instead of going nowhere from vast-ladder:
 	otherwise:
 		say "The ladder doesn't extend in that direction."
 
-[FIX THIS LATER add a spell scroll that does something here]
-
 The life-text of vast-ladder is "[The life-text of vast-room]."
 
 Section 4 - The scroll
@@ -24484,8 +24467,6 @@ Splashing is an action applying to nothing. Understand "splash" as splashing whe
 
 Carry out splashing:
 	say "[one of]You...you don't know how to splash.[or]Splash doesn't really make sense as an action.[or]You stoutly refuse to splash.[stopping]"
-
-[FIX THIS LATER add examining stuff to the nouns in the above thing]
 
 The life-text of eye-room is "[paragraph break][italic type]Watchers[roman type][line break]Quantity: 153[line break]Mass: 2444 kg"
 
@@ -25179,12 +25160,11 @@ Instead of inserting something into the spell-book:
 	
 [fix this later physicality with the bookmark]
 
-Instead of taking spiral-bookmark when spiral-bookmark is part of the spell-book:
+Instead of taking or pulling spiral-bookmark when spiral-bookmark is part of the spell-book:
 	say "You pull out the bookmark. Some of the spells look different, now.";
 	now the spiral-bookmark is held by the player;
 	now bookmarkon is false;
 	
-[FIX THIS LATER change pulling and pushing on bookmark when in spellbook]
 [change description of bookmark and spellbook to indicate only top is sticking out].
 
 Section 7 - Void of space
@@ -25254,8 +25234,6 @@ Finally, the survivors back off, realizing you aren't safe food, while they drag
 			say "All of the insects in the room are scuttling, flying, and jumping towards you. The sound of their buzzing is deafening, and they smell like the overpowering stench of rotten meat."
 
 Section 2 - The virox scroll
-
-[FIX THIS LATER Make the scroll be inside the hive, really gross. Maybe insects don't learn lesson unless you burn the hive by grabbing this?]
 
 The spongy-monolith is an open unopenable transparent scenery container in corruption-room. The printed name of the spongy-monolith is "spongy monolith". Understand "spongy" or "rock" or "hive"or "monolith" as the spongy-monolith. The description of the spongy-monolith is "It's hard to tell if this spongy monolith is rock or hive, but it is covered in insects. It seems to be the center of activity."
 
@@ -25390,8 +25368,6 @@ Instead of smelling when the player is in dark-room:
 	say "[if the odorous-object is examined]There is a distinct brackish odor in this room. It makes you a bit nauseous. With careful sniffing, you can tell that its coming from some odorous object. You can't see it, but you can guess where it is[otherwise]You can still smell the brackish odor in this room, coming from the odorous object; you have a pretty good idea of where it's located, but it sure reeks[end if].";
 	now the odorous-object is examined;
 
-[FIX THIS LATER Make brackish odor object]
-
 The odorous-object is scenery in dark-room. The printed name of the odorous-object is "odorous object". Understand "odorous" or "odor" or "smell" as the odorous-object. Understand "big" or "soft" or "wet" or "object" as the odorous-object when the odorous-object is examined. The description of the odorous-object is "You can't see the object, you just know where it is".
 
 [Thing-smelling is an action applying to one visible thing. Understand "smell [something]" as thing-smelling.
@@ -25422,7 +25398,6 @@ Instead of listening to the dark-room:
 	now the splashing-puddle is examined;
 	
 [fix this later: add scenes with a stinky or wet hand and have the smell or water decrease over time, and disappear when remoxng. change smell when corrupt, too.]
-[fix this later add splashing as an intangible background thing, or sloshing sound]
 
 [fix this later-instead of swimming or drinking the puddle]
 
@@ -25567,7 +25542,7 @@ Every turn during hunter-scene:
 When hunter-scene ends comically:
 	say "You hear a how of frustration echoing from the edge of the ledge to the south. But you see nothing."
 
-[handle exkliping]
+[FIX THIS LATER handle exkliping]
 
 When hunter-scene ends:
 	now strange-odor is nowhere;
@@ -25608,18 +25583,6 @@ The tiny-spiders are plural-named scenery animals in the web-room. The printed n
 
 Instead of physicality when the noun is the tiny-spiders:
 	say "The little spiders are so small and so great in number that there is little you can do with them. But you manage to get a couple that scamper on you. You shudder and shake them off."
-
-[maybe this grandmaster is a rogue AI that needs resetting?]
-
-[FIX THIS LATER: I will tell you the truth about everything. Except for one little lie. But we all deserve one lie, don't we?]
-
-[all of your actions were laid out years ago. Look, I knew exactly what you would say. 
-
-Then why do all this?
-
-To see if you were capable of more. To see if you were like me...if any of you were like me. Can you escape the web of fate? 
-
-As for Emrys, I have nothing to say to her but this: your fate is the worst of us all. When the white queen comes for you, she will take everything you have.]
 
 The life-text of web-room is "[paragraph break][italic type]Webmaster[roman type][line break]Quantity: 1[line break]Mass: 99 kg[paragraph break][italic type]Webspinners[roman type][line break]Quantity: 1101[line break]Mass: 100 kg"
 
@@ -26007,7 +25970,6 @@ The black globule in front of you is ripped and leaking a green fluid. It retrea
 		now the description of dark-room is "With the darkness gone, this room is a simple rock corridor leading from the [boldsouth] to the [boldnorth].";
 		change the north exit of dark-room to web-room; 
 		change the south exit of web-room to dark-room instead;
-	[FIX THIS LATER find a scroll maybe (not necessary), door opens to north, room is no longer dark, scenery is gone.]
 	otherwise if the noun is the strange-man:
 		say "You attack [the strange-man] with all your might, and the ground around you shudders, but the man is like rubber, absorbing every hit. Furious, you race around the room to burn off your anger.";
 	otherwise if the noun is the desolation-deer or the noun is the flesh-beasts or the noun is the malformed-growths:
@@ -26128,6 +26090,7 @@ The rift behind you turns from dark red to green.
 	now little-girl is nowhere;
 	remove caretaker-quip;
 	remove escape-quip;
+	now the teddy-bear is nowhere;
 	remove child-quip;
 	remove companion-quip;
 	if child-quip is targetgiven:
@@ -27216,7 +27179,7 @@ After someone taking the hamburger-bun for the first time:
 
 The raw-meat is in the kitchen-fridge. The raw-meat can be cooked or uncooked. The indefinite article of the raw-meat is "some". The raw-meat is uncooked. The printed name of the raw-meat is "[if the raw-meat is uncooked]raw [otherwise]cooked [end if]meat". Understand the cooked property as describing the raw-meat. Understand "raw" or "grey" or "gray" as uncooked. Understand "meat" as the raw-meat. The description of the raw-meat is "[if the raw-meat is uncooked]The meat looks pretty gray. Hopefully it hasn't gone bad[otherwise]Cooking the meat seems to have improved it considerably, but only because it had a lot of room to improve[end if]."
 
-After someone taking the raw-meat:
+After someone taking the raw-meat for the first time:
 	say "Max picks up [the raw-meat].
 
 He peers at it for a moment. 'Have you looked at this? Gross,' he says."
@@ -27552,7 +27515,7 @@ An assembly-button has a robot-piece called the button-piece.
 
 Buttonquest is a number that varies. Buttonquest is 0.
 
-Every turn:
+Every turn when buttonquest is not 0:
 	now buttonquest is 0;
 
 After printing the name of an assembly-button while asking which do you mean:
@@ -28065,7 +28028,7 @@ Section 6 - Good guys
 
 The lasergoal of Max is 1. The lasergoal of Dan is 1. The lasergoal of the player is 1.
 
-Every turn:
+Every turn (this is the laser deactivation rule):
 	if every good-guy in the location is deactivated:
 		now the laser-vest is switched off;
 	if the laser-vest is switched off:
@@ -28298,7 +28261,7 @@ Understand "hide" or "hide behind" or "take cover" or "go behind" as single-hidi
 
 A person has a thing called the lastcover. The lastcover of a person is usually fakecover.
 
-Every turn:
+Every turn (this is the finding cover rule):
 	repeat with current running through good-guy people in the location:
 		if currentcover of current is not fakecover:
 			now lastcover of current is fakecover;
@@ -28640,7 +28603,7 @@ Before an actor taking Dan-blaster:
 	if the actor is not Dan:
 		say "A voice warns, 'This blaster has been designated for use by Dan only.'" instead;
 
-Every turn:
+Every turn (this is the blaster taking rule):
 	if max is in the location:
 		if maxarmed was happening:
 			if the max-blaster is in the location:
@@ -28999,8 +28962,8 @@ Carry out someone desolating:
 		now entry 1 of pillarlist is nowhere;
 		say ".";
 
-Every turn when silver-fight is not happening:
-	if the player is in combat-region:
+Every turn when the player is in combat-region:	
+	if silver-fight is not happening:
 		if flame-pillar is not nowhere:
 			now flame-pillar is nowhere;
 		repeat with current running through pillarlist:
@@ -30805,7 +30768,7 @@ To say delstory:
 	
 Story-quip is a quip. The printed name of story-quip is "Story". Understand "Story" as story-quip. The target of story-quip is arawn. The preview of story-quip is "Tell me your story, Weaver."
 
-The targetresponse of story-quip is "*************************************************************************************************[line break]As you listen to her story, you can imagine what it would be like...[line break]*************************************************************************************************
+The targetresponse of story-quip is "***************************************************************************[line break]As you listen to her story, you can imagine what it would be like...[line break]***************************************************************************
 
 Claxons sound on the bridge of the Starship Tragwyddol. The navigator shouts out in fear:
 
@@ -30960,7 +30923,7 @@ After reading a command when the command prompt is "Choose 1>":
 	otherwise if the player's command matches "RESTORE":
 		do nothing;
 	otherwise if the player's command matches "1":
-		say "*************************************************************************************************[line break]As Arawn finishes her story, you return from your imagination...[line break]*************************************************************************************************
+		say "***************************************************************************[line break]As Arawn finishes her story, you return from your imagination...[line break]***************************************************************************
 
 'And then you flew into the engines of the ship, sacrificing your own life to stop the explosion,' says Arawn, her story finished.
 
@@ -31014,9 +30977,9 @@ After wearing the all-recorder:
 It's enormous, with tendrils that whip around, and yet it makes no sound.
 
 'Wish me luck,' you say, and you step forward. As you disappear, you turn to see Emrys looking at you with a mix of gratitude, envy, hope, and emptiness. 'Thank you,' she mouths. Then everything is red.";
-	say "[line break]*************************************************************************************************[line break]";
+	say "[line break]***************************************************************************[line break]";
 	say "You are engulfed in a red haze, losing all sense of direction. Slowly the haze clears.";
-	say "*************************************************************************************************[paragraph break]";
+	say "***************************************************************************[paragraph break]";
 	now the player is in engine-closet;
 
 The block giving rule does nothing when the noun is the all-recorder.
@@ -31036,9 +30999,9 @@ This was the story of how you die. But it was a lie. Your story is over now, and
 	now the arawn-tunic is nowhere;
 	now the skull-mask is nowhere;
 	now the silver-device is nowhere;
-	say "[line break]*************************************************************************************************[line break]";
+	say "[line break]***************************************************************************[line break]";
 	say "She is engulfed in a red haze, losing all sense of direction. Slowly the haze clears.";
-	say "*************************************************************************************************[paragraph break]";
+	say "***************************************************************************[paragraph break]";
 	try looking;
 
 Instead of attacking the all-recorder when the all-recorder is not worn by the player:
@@ -31047,9 +31010,9 @@ Instead of attacking the all-recorder when the all-recorder is not worn by the p
 'Emrys, no!' she shrieks, but everything around you is folding into itself into darkness.
 
 Time resets in a whirl. You're back where you were at first.[paragraph break]";
-	say "*************************************************************************************************[line break]";
+	say "***************************************************************************[line break]";
 	say "You are engulfed in a black haze, losing all sense of direction. Slowly the haze clears.";
-	say "*************************************************************************************************";
+	say "***************************************************************************";
 	now the player is in medical-cot;
 	repeat with current running through quips carried by the player:
 		now current is nowhere;
@@ -31989,9 +31952,9 @@ Instead of turning the block-valve:
 This will be the end of her story[otherwise]You are aware of that. You are also aware that, as it cools off the fuel, it will form clouds of superheated steam. There is no way you will be able to survive this. But you never intended to anyway[end if]. Do you wish to proceed?";
 				if the player consents:
 					say "[We] [turn] the valve. Water pours out of the valve and into the primary containment chamber. It hits the fuel, and there is a flash.";
-					say "[line break]*************************************************************************************************[line break]";
+					say "[line break]***************************************************************************[line break]";
 					say "[We] [are] engulfed in a white haze. Everything fades away.";
-					say "*************************************************************************************************[paragraph break]This is the story of how [if the player is arawn]Arawn Webster dies[otherwise]you die[end if]. [Our] story has come to an end.
+					say "***************************************************************************[paragraph break]This is the story of how [if the player is arawn]Arawn Webster dies[otherwise]you die[end if]. [Our] story has come to an end.
 
 But stories are meant to be told.
 
@@ -32646,7 +32609,7 @@ Chapter 14 - Lower Transit
 Lower-redux is east from medical-redux. The printed name of Lower-redux is "Lower Transit". Lower-redux is in finale2-region. "[if the tredux-crowd is in the location]Everything is in chaos down here, with crowds of people running from other areas of[otherwise]It's much quieter down here, now. Most people seem to have evacuated. From here, you can go to the evacuation area of[end if] the ship to the [boldeast]. There are also exits to the [boldwest], and [boldsouth]. The rest of the transit area is [boldup] from here[if the metal-plate is in the location], and easy enough to get to that you could push the metal plate up as well[end if]."
 
 Before going up from lower-redux:
-	if uniformed-officers are in posh-redux:
+	if uniformed-officers are in lower-redux:
 		say "The area upwards is blocked by officers in uniform, who are directing everyone to the [boldeast][delpassage]." instead;
 
 [FIX THIS LATER add panicked crowd here too]
@@ -32683,9 +32646,12 @@ Instead of physicality when the noun is the tredux-crowd:
 
 Chapter 15 - Posh and damaged quarters
 
-The posh-redux is east from lower-redux. The printed name of posh-redux is "Living Quarters Entrance". It is in finale2-region. "[if the tredux-crowd is in lower-redux]A crowd of evacuees is rushing down all the hallways to reach the escaped pods. There are far too many people here; it's anarchy[otherwise]The crowd is much smaller now, with just a few scattered evacuees running here and there, trying to find any remaining escape pods[end if]. You can go [boldwest] out of here. [if the tredux-crowd is in lower-redux]The pods are to the [boldsouth][otherwise]The way to the escape pods is now closed. You'll have to find a pod on another level[end if][if the deceased-officer is not nowhere].
+The posh-redux is east from lower-redux. The printed name of posh-redux is "Living Quarters Entrance". It is in finale2-region. "[if the tredux-crowd is in lower-redux]A crowd of evacuees is rushing down all the hallways to reach the escaped pods. There are far too many people here; it's anarchy[chaostext][otherwise]The crowd is much smaller now, with just a few scattered evacuees running here and there, trying to find any remaining escape pods[end if]. You can go [boldwest] out of here. [if the tredux-crowd is in lower-redux]The pods are to the [boldsouth][otherwise]The way to the escape pods is now closed. You'll have to find a pod on another level[end if][if the deceased-officer is not nowhere].
 
 With the crowd smaller now, you can make your way [boldeast][end if]."
+
+To say chaostext:
+	say ". [one of]A fist fight almost breaks out, but it is quickly quelled[or]Someone falls and is almost trampled, but their friends pull them up again and they rush into the pod area[or]There is a loud bang as someone drops a suitcase, and everyone panics, thinking it's gunshots, until they realize there aren't any more[or]Everyone is shouting at once[stopping]"
 
 Before going east from posh-redux when the deceased-officer is nowhere:
 	if the tredux-crowd is in lower-redux:
@@ -32757,7 +32723,10 @@ Before going through the redux-tube when the player is in the metal-plate:
 Instead of taking the metal-plate:
 	say "[The metal-plate] is too heavy to pick up. It should be pushable, though."
 	
-The wrapped-cables are a plural-named part of the metal-plate. The printed name of the wrapped-cables is "electrical wires". Understand "electrical" or "wire" or "wires" or "exposed" as the wrapped-cables. The description of the wrapped-cables is "Wires have broken off from above, and trail down onto the metal plate. They aren't electrifiying it, but they could make it hard to move the plate around".
+The wrapped-cables are a plural-named part of the metal-plate. The printed name of the wrapped-cables is "electrical wires". Understand "electrical" or "wire" or "wires" or "exposed" as the wrapped-cables. The description of the wrapped-cables is "Wires have broken off from above, and trail down onto the metal plate. They aren't electrifiying it, but they could make it hard to move the plate around.".
+
+Instead of physicality when the noun is the wrapped-cables:
+	say "These cables have gotten heavily tangled up; without something to cut them, you'll likely never get them off."
 
 Before withcutting the wrapped-cables with something:
 	unless the second noun is bolt-cutters:	
@@ -32787,7 +32756,7 @@ A combatant is a kind of person.
 
 First-tiffany is a distant combatant in damaged-redux. The printed name of first-tiffany is "distant figure". Understand "figure" or "dim" or "distant" as first-tiffany. "You can hear someone moving around in here, and they don't sound friendly. You hear gunshots from time to time, and screams that are cut short. Something bad is happening in here[first time].
 
-You hear a voice in the distance and see a dim figure approach. If you linger around here too long, you could be in big trouble[only]."
+You hear a voice in the distance and see a dim figure approach, drawn by the sound of your entrance. If you linger around here too long, you could be in big trouble[only]."
 
 Understand "hide [something]" or "hide in [something]" as entering when the player is in finale2-region.
 
@@ -32859,7 +32828,7 @@ The targetresponse of imprisoned-quip is "Sergeant Olgin shakes her head woefull
 
 'Can you lend me a helmet?' you ask. 
 
-'They're all in use,' she says. 'Although...' She tilts her head. Her face darkens. 'You may not like it, but I'm getting a report that an officer was downed below us, in the living quarters. If you can reach that  helmet before the others get there, you could take it.'
+'They're all in use,' she says. 'Although...' She tilts her head. Her face darkens. 'You may not like it, but I'm getting a report that an officer was downed below us, in the living quarters. If you can reach that helmet before the others get there, you could take it.'
 
 'I don't really like the idea of scavenging from the dead,' you say.
 
@@ -32953,15 +32922,15 @@ A rope is a kind of thing.
 
 Definition: a thing is nonrope if it is not a rope. [The perfect idiocy of this statement notwithstanding, having a shortcut will come in very handy later]
 
-Attachment relates things to each other in groups. The verb to be stuck to means the attachment relation.
+A thing can be ropestuck or not ropestuck. A thing is usually not ropestuck.
 
-Definition: a thing is tied if the number of things stuck to it is greater than 1.
+Definition: the long-cable is tied if the number of ropestuck things is greater than 1.
 
 Definition: a thing is free if it is not tied.
 
-Definition: a rope is free if the number of nonrope things stuck to it is less than 2.
+Definition: a rope is free if the number of ropestuck things is less than 2.
 
-Definition: a thing is hindering if it is stuck to the noun and it is not enclosed by the location.
+Definition: a thing is hindering if it is ropestuck and it is not enclosed by the location.
 
 A thing can be round or unevenly shaped. A thing is usually round.
 
@@ -32983,22 +32952,40 @@ To say smathecoil:
 	say "[one of][the long-cable][or][a long-cable][stopping]";
 
 Rule for writing a paragraph about a rope (called the coil):
-	if the coil is stuck to something which is in a room (called the next room) which is not the location:
+	if a ropestuck thing is in a room (called the next room) which is not the location:
 		repeat with way running through direction:
 			if the room way of the location is next room:
 				if the way is up or the way is down:
 					say "[Athecoil] runs [way] into [the next room].";
 				otherwise:
 					say "[The coil] snakes across the floor [way] towards [the next room].";
+	otherwise if the lastcableroom is not the location:
+		if a ropestuck anchored thing is in the location:
+			repeat with way running through direction:
+				if the room way of the location is lastcableroom:
+					if the way is up or the way is down:
+						say "[Athecoil] runs [way] from [the random ropestuck anchored thing in the location] into [the lastcableroom].";
+					otherwise:
+						say "[The coil] snakes across the floor [way] from [the random ropestuck anchored thing in the location] towards [the lastcableroom].";
+		otherwise:
+			repeat with way running through direction:
+				if the room way of the location is lastcableroom:
+					if the way is up or the way is down:
+						say "[Athecoil] runs [way] into [the lastcableroom].";
+					otherwise:
+						say "[The coil] snakes across the floor [way] towards [the lastcableroom].";
 	otherwise:
-		say "There is [a coil] here[if the coil is stuck to a visible nonrope thing], tied to [the list of nonrope visible things which are stuck to the coil][end if]."
+		say "There is [a coil] here[if a ropestuck thing is visible], tied to [the list of ropestuck visible things][end if]."
 
 To decide what room is the home of (item - a thing):
 	if item is a door:
 		decide on the front side of the item;
 	decide on the location of the item.
 
-Rule for writing a paragraph about a nonrope thing (called the anchor) which is stuck to a rope (called the coil):
+A thing can be ropestuck or not ropestuck. A thing is usually not ropestuck.
+
+Rule for writing a paragraph about a ropestuck thing (called the anchor):
+	let coil be the long-cable;
 	if the coil is in an adjacent room:
 		let the next room be the home of the coil;
 		repeat with way running through directions:
@@ -33008,11 +32995,21 @@ Rule for writing a paragraph about a nonrope thing (called the anchor) which is 
 				otherwise:
 					say "From [the anchor] runs [a coil], heading off toward [the way].";
 	otherwise:
-		if the coil is stuck to something which is not visible,
-			say "[AThecoil] is tied to [the anchor][if the coil is stuck to something in an adjacent room (called the next room)], and from there runs off towards [the next room][end if].";
+		let isstuck be false;
+		let adjisstuck be false;
+		let adjroom be lower-redux;
+		repeat with current running through things in finale2-region:
+			if current is not visible:
+				if current is ropestuck:
+					now isstuck is true;
+					if current is in an adjacent room (called the next room):
+						now adjisstuck is true;
+						now adjroom is next room;
+		if isstuck is true:
+			say "[AThecoil] is tied to [the anchor][if adjisstuck is true], and from there runs off towards [adjroom][end if].";
 		otherwise if the coil is held by the player:
-			if the coil is stuck to two nonrope things:
-				let templist be the list of nonrope things stuck to the coil;
+			if the number of ropestuck things is 2:
+				let templist be the list of ropestuck things;
 				repeat with current running through templist:
 					if current is not the anchor:
 						say "One end of [smathecoil] is tied to [the anchor], and the other is tied to [the current]. You are holding the middle.";
@@ -33022,23 +33019,24 @@ Rule for writing a paragraph about a nonrope thing (called the anchor) which is 
 [We need a way to account for it when it's being carried, as well.]
 
 After printing the name of a rope (called the tied object) while taking inventory:
-	if something nonrope is stuck to the tied object:
-		say " (attached to [the list of nonrope things which are stuck to the tied object])";
+	if the number of ropestuck things > 0:
+		say " (attached to [the list of ropestuck things])";
 	otherwise:
 		say " (with both ends free)".
 
 [And, indeed, whenever the player examines a rope, we should see what's connected.]
 
-Instead of examining a rope (called the cord) when something is stuck to the cord:
-	say "[The noun] is tied to [the list of secondary things which are stuck to the noun]."
+Instead of examining a rope (called the cord) when the number of ropestuck things > 0:
+	say "[The noun] is tied to [the list of ropestuck things]."
 
 [Similarly, any time the player looks at something tied to a rope.]
 
-After examining the player when the player is stuck to something which is not the player:
-	say "You're currently lashed to [the list of secondary things stuck to the noun]."
+Report examining the player when the player is ropestuck:
+	if the number of ropestuck things > 1:
+		say "You're currently lashed to [the list of secondary ropestuck things]."
 
-After examining something which is stuck to something secondary:
-	say "[The noun] is currently attached to [the list of secondary things stuck to the noun]."
+After examining something which is ropestuck when the number of ropestuck things > 1:
+	say "[The noun] is currently attached to [the list of secondary ropestuck things]."
 
 [We also need to make sure that the rope can be interacted with properly even when it's partly in the next room.]
 
@@ -33055,21 +33053,26 @@ Every turn (this is the scope adjustment rule):
 	otherwise:
 		now partyhappening is false;
 
-After deciding the scope of the player when finale2time is true (this is the cabling scope rule):
-	if an unevenly shaped thing stuck to the long-cable is in the location:
-		place the long-cable in scope;
+Lastcableroom is a room that varies. Lastcableroom is eng-redux.
+
+Every turn when the player is in finale2-region (this is the cablescope rule):
+	if a ropestuck thing is visible:
+		if the long-cable is not enclosed by the location of the player:
+			now lastcableroom is the location of long-cable;
+			now the long-cable is in the location of the player;
+		otherwise if the long-cable is held by the player:
+			now lastcableroom is the location of the player;
 					
 [if something stuck to the long-cable is in the location, place the long-cable in scope]
 		
 A reaching inside rule:
-	if the noun is a rope:
-		let the anchor be a random visible thing stuck to the noun;
-		if the anchor is touchable, allow access.
+	if the noun is the long-cable:
+		allow access.
 		
 [Now tying:]
 
 Before tying something to a rope:
-	if the noun is stuck to the second noun, say "[The noun] and [the second noun] are already tied together." instead;
+	if the noun is ropestuck, say "[The noun] and [the second noun] are already tied together." instead;
 	if the second noun is not free, say "[The second noun] has no ends free." instead;
 	if the noun is round:
 		if the noun is the sharp-cliff:
@@ -33081,21 +33084,21 @@ Instead of tying a rope to something:
 	try tying the second noun to the noun.
 
 Instead of tying something to a rope:
-	now the noun is stuck to the second noun;
+	now the noun is ropestuck;
 	say "You loop [the second noun] around [the noun] and knot firmly."
 
 Instead of tying something to a nonrope tied thing:
-	let the coil be a random rope stuck to the second noun;
+	let the coil be the long-cable;
 	try tying the noun to the coil.
 
 Instead of tying a nonrope tied thing to something:
-	let the coil be a random rope stuck to the noun;
+	let the coil be the long-cable;
 	try tying the second noun to the coil.
 
 Instead of tying a free nonrope thing to a free nonrope thing when the player is in finale2-region:
 	if the player carries a free rope (called the coil):
 		try tying the noun to the coil;
-		if the noun is stuck to the coil and the coil is free:
+		if the noun is ropestuck and the coil is free:
 			try tying the second noun to the coil;
 	otherwise:
 		say "You lack the requisite spare cable."
@@ -33106,27 +33109,29 @@ Rule for supplying a missing second noun while untying something from:
 	let L be a list of things;
 	let M be a list of things;
 	repeat with current running through unevenly shaped things:
-		if current is stuck to the noun:
+		if current is ropestuck:
 			if current is secondary:
 				add current to L;
 			if current is touchable:
 				if current is nonrope:
 					add current to M;
+	if the noun is ropestuck:
+		add long-cable to L;
 	if the number of entries in L is  0, say "[The noun] is already entirely free." instead;
 	if the noun is a rope:
 		if the number of entries in M > 1:
 			say "You'll have to say which thing you want to untie [the noun] from.";
 			rule fails;
 		otherwise:
-			if the number of entries in M is 0, say "You can't reach [the random nonrope thing stuck to the noun]." instead;
+			if the number of entries in M is 0, say "You can't reach [the random ropestuck thing]." instead;
 			sort M in random order;
 			let the tied object be entry 1 of M;
 			say "(from [the tied object])[line break]";
 			now the second noun is the tied object;
 	otherwise:
-		if the noun is stuck to a rope (called the tied object):
-			say "(from [the tied object])[line break]";
-			now the second noun is the tied object.
+		if the noun is ropestuck:
+			say "(from [the long-cable])[line break]";
+			now the second noun is the long-cable.
 
 Untying it from is an action applying to two things.
 
@@ -33138,11 +33143,12 @@ Before untying something from a rope:
 		try taking the second noun.
 
 Check untying it from:
-	unless the noun is stuck to the second noun or the second noun is stuck to the noun,
+	unless (the noun is ropestuck and the second noun is the long-cable) or (the second noun is ropestuck and the noun is the long-cable):
 		say "[The noun] and [the second noun] are already not tied together." instead.
 
 Carry out untying it from:
-	now the noun is not stuck to the second noun.
+	now the noun is not ropestuck;
+	now the second noun is not ropestuck;
 
 Report untying it from:
 	say "Untied."
@@ -33151,10 +33157,23 @@ Report untying it from:
 
 Before pulling something anchored when the player is in finale2-region: say "[The noun] is firmly anchored." instead.
 
-Instead of pulling something tied:
+Instead of pulling a tied long-cable:
 	if the noun is unmentioned:
-		say "The impulse is transmitted to [the list of pullable things stuck to the noun].";
-		repeat with item running through pullable things stuck to the noun:
+		say "The impulse is transmitted to [the list of pullable ropestuck things].";
+		repeat with item running through pullable ropestuck things:
+			say "[item]: [run paragraph on]";
+			try pulling the item;
+		if the noun is a rope and the noun is not within the location:
+			if the number of nonrope hindering things is 0, move the noun to the location;
+	otherwise:
+		continue the action.
+
+Instead of pulling a ropestuck thing:
+	let L be the list of secondary ropestuck things;
+	add the long-cable to L;
+	if the noun is unmentioned:
+		say "The impulse is transmitted to [the L].";
+		repeat with item running through L:
 			say "[item]: [run paragraph on]";
 			try pulling the item;
 		if the noun is a rope and the noun is not within the location:
@@ -33179,78 +33198,115 @@ Definition: a thing is secondary if it is not the noun.  Definition: a thing is 
 [A player who is tied to things should also have some restrictions on his ability to move.]
 
 Report looking when the player is in finale2-region:
-	if the player has a nonrope thing (called the anchor) which is stuck to a rope (called the coil):
+	if the long-cable is held by the player:
+		now lastcableroom is the location of the player;
+	if the player has a nonrope ropestuck thing (called the anchor):
+		let coil be the long-cable;
 		if the anchor is unmentioned:
-			if the coil is in an adjacent room:
-				let the next room be the home of the coil;
+			if the lastcableroom is an adjacent room:
 				repeat with way running through directions:
-					if the room way of the location is next room:
+					if the room way of the location is lastcableroom:
 						if the way is up or the way is down:
-							say "[The coil] runs [way] from [the anchor], which you are carrying, into [the next room].";
+							say "[The coil] runs [way] from [the anchor], which you are carrying, into [the lastcableroom].";
 						otherwise:
 							say "From [the anchor] which you are carrying runs [a coil], heading off toward [the way].";
 			otherwise:
-				if the coil is stuck to something which is not visible,
-					say "[The coil] is tied to [the anchor][if the coil is stuck to something in an adjacent room (called the next room)], and from there runs off towards [the next room][end if].";
+				if a ropestuck thing is not visible,
+					say "[The coil] is tied to [the anchor][if a ropestuck thing is in an adjacent room (called the next room)], and from there runs off towards [the next room][end if].";
 				otherwise if the coil is held by the player:
-					if the coil is stuck to two nonrope things:
-						let templist be the list of nonrope things stuck to the coil;
+					if the number of ropestuck things is 2:
+						let templist be the list of ropestuck things;
 						repeat with current running through templist:
 							if current is not the anchor:
 								say "One end of [the coil] is tied to [the anchor], and the other is tied to [the current]. You are holding the middle.";
-					otherwise:
-						say "One end of [the coil] is tied to [the anchor], and you are holding the other end.";
 	if the player has a rope (called the coil):
 		if the coil is unmentioned:
-			if the coil is stuck to something which is in a room (called the next room) which is not the location:
+			if a ropestuck thing is in a room (called the next room) which is not the location:
 				repeat with way running through direction:
 					if the room way of the location is next room:
 						if the way is up or the way is down:
-							say "[The coil] that you are holdingruns [way] into [the next room].";
+							say "[The coil] that you are holding runs [way] into [the next room].";
 						otherwise:
 							say "[The coil] that you are holding snakes across the floor [way] towards [the next room].";
 			otherwise:
-				say "You are holding [a coil] here[if the coil is stuck to a visible nonrope thing], tied to [the list of nonrope visible things which are stuck to the coil][end if]."
+				if a ropestuck thing that is not held by the player is visible:
+					say "You are holding [a coil] here, tied to [the list of visible ropestuck things]."
 
-Before going a direction (called the way) when the player has a thing (called the link) which is stuck to an anchored unevenly shaped thing (called the anchor):
-	let the next room be the home of the anchor;
-	if the next room is not a room, continue the action;
-	if the next room is the location:
-		if the link is stuck to at least two anchored things,
-			say "You can't go far while you're carrying [the link] tied to [the list of unevenly shaped anchored things stuck to the link]." instead;
-	otherwise:
-		repeat with safe way running through directions:
-			if the room safe way of the location is next room:
-				if the safe way is the way:
-					if the player is not stuck to the anchor, say "(coiling up your cable again as you go...)";
-				otherwise:
-					say "While you have [the link] you can't really head any direction but [safe way]." instead;
+Before going a direction (called the way) when the player is in finale2-region:
+	repeat with anchor running through ropestuck anchored unevenly shaped things:
+		 if the player has the long-cable:
+			let the next room be the home of the anchor;
+			if the next room is not a room, continue the action;
+			if the next room is the location:
+				if the number of ropestuck anchored things is 2:
+					say "You can't go far while you're carrying [the long-cable] tied to [the list of ropestuck anchored things]." instead;
+			otherwise:
+				repeat with safe way running through directions:
+					if the room safe way of the location is next room:
+						if the safe way is the way:
+							if the player is not ropestuck or the anchor is not ropestuck, say "(coiling up your cable again as you go...)";
+						otherwise:
+							say "While you have [the long-cable] you can't really head any direction but [safe way]." instead;
+			break;
+		otherwise  if the player has a ropestuck thing (called link):
+			let the next room be the home of the anchor;
+			if the next room is not a room, continue the action;
+			if the next room is the location:
+				if the the number of ropestuck anchored things > 0,
+					say "You can't go far while you're carrying [the link] tied to [the anchor]." instead;
+			otherwise:
+				repeat with safe way running through directions:
+					if the room safe way of the location is next room:
+						if the safe way is the way:
+							if the player is not ropestuck or the anchor is not ropestuck, say "(coiling up your cable again as you go...)";
+						otherwise:
+							say "While you have [the link] you can't really head any direction but [safe way]." instead;
+			break;
 
-Before going a direction (called the way) when the player is stuck to an unevenly shaped anchored thing (called the anchor):
-	let the next room be the home of the anchor;
-	if the next room is not a room, continue the action;
-	if the next room is the location:
-		if the player is stuck to at least two unevenly shaped anchored things,
-			say "You can't go far while you're tied to [the list of unevenly shaped anchored things stuck to the player]." instead;
-	otherwise:
-		repeat with way2 running through directions:
-			if the room way2 from the location is next room:
-				if the way2 is the way:
-					say "(coiling up your cable again as you go...)";
-				otherwise:
-					say "Your attachment to the cable prevents you going any way but [way2]." instead.
+Before going a direction (called the way) when the player is in finale2-region:
+	repeat with anchor running through unevenly shaped anchored ropestuck things:
+		if the player is ropestuck:
+			let the next room be the home of the anchor;
+			if the next room is not a room, continue the action;
+			if the next room is the location:
+				if the number of unevenly shaped anchored ropestuck things is 2:
+					say "You can't go far while you're tied to [the list of unevenly shaped anchored ropestuck things]." instead;
+			otherwise:
+				repeat with way2 running through directions:
+					if the room way2 from the location is next room:
+						if the way2 is the way:
+							say "(coiling up your cable again as you go...)";
+						otherwise:
+							say "Your attachment to the cable prevents you going any way but [way2]." instead;
+			break;
 
 [Sometimes, if the player is tied to a movable object, the moved object will move with him.]
 
-After going somewhere when the player has something (called the link) which is stuck to something draggable:
-	if the player is not stuck to the link:
-		say "You drag along behind you [the list of draggable things which are stuck to the link].";
-		now every draggable thing which is stuck to the link is in the location;
+Definition: a things is ropeorstuck:
+	if it is draggable ropestuck, decide yes;
+	if it is the long-cable, decide yes;
+	decide no;
+
+After going somewhere when the player is in finale2-region:
+	if the player has the long-cable:
+		if the number of draggable ropestuck things > 0:
+			if the player is not ropestuck:
+				say "You drag along behind you [the list of draggable ropestuck things].";
+				now every draggable ropestuck thing is in the location;
+	otherwise if the player has a ropestuck thing (called the link):
+		if the noun is not up and the noun is not down:
+			say "You drag along behind you [the list of ropeorstuck things].";
+		now every draggable ropestuck thing is in the location;
+		now long-cable is in the location;
+		now lastcableroom is the location;
+	otherwise if the player is ropestuck:
+		if the the number of draggable ropestuck things > 0:
+			say "You drag along behind you [the list of ropeorstuck things].";
+			now every draggable ropestuck thing is in the location;
+		now the long-cable is in the location;
+		now lastcableroom is the location;
 	continue the action.
 
-Report going somewhere when the player is stuck to something draggable:
-	say "You drag along behind you [the list of draggable things which are stuck to the player].";
-	now every draggable thing which is stuck to the player is in the location.
 	
 The player is unevenly shaped.
 
@@ -33288,7 +33344,7 @@ Before printing the name of the large-toolbox:
 
 Section 4 - The cable
 
-The long-cable is a rope in the eng-redux. It is stuck to the large-toolbox and the big-handle. The printed name of the long-cable is "long cable". Understand "long" or "cable" or "thick" or "rope" or "line" as the long-cable. The description of the long-cable is "This is a thick cable made of some kind of pliable metal. It's just thin enough that you could tie it to something, though.".
+The long-cable is a rope in the eng-redux. The large-toolbox is ropestuck. The big-handle is ropestuck. The printed name of the long-cable is "long cable". Understand "long" or "cable" or "thick" or "rope" or "line" as the long-cable. The description of the long-cable is "This is a thick cable made of some kind of pliable metal. It's just thin enough that you could tie it to something, though.".
 
 Chapter 18 - Cryo storage
 
@@ -33369,7 +33425,7 @@ The rubber-gloves are a plural-named wearable thing in food-pantry. The printed 
 
 Chapter 20 - Bridge remains
 
-The broken-bridge is a room in finale2-region. The printed name of the broken-bridge is "Bridge (Destroyed)". "The bridge is unrecognizable. The walls have been torn out by a violent impact, and bare beams and crumpled panels are everywhere. The transport tube that once led [boldup] is entirely torn out, leaving what is essentially a cliff[if the ice-hook is anchored and the ice-hook is stuck to the long-cable]. It's too dangerous to climb, but if you were tethered to something above, it might be possible[end if].
+The broken-bridge is a room in finale2-region. The printed name of the broken-bridge is "Bridge (Destroyed)". "The bridge is unrecognizable. The walls have been torn out by a violent impact, and bare beams and crumpled panels are everywhere. The transport tube that once led [boldup] is entirely torn out, leaving what is essentially a cliff[if the ice-hook is anchored and the ice-hook is ropestuck]. It's too dangerous to climb, but if you were tethered to something above, it might be possible[end if].
 
 The transport tube leading [bolddown] is still intact, however[if the broken-bridge is not spooky].
 
@@ -33408,9 +33464,9 @@ The ice-hook is unevenly shaped.
 Definition: a thing is non-hook if it is not the ice-hook.
 
 Instead of throwing the ice-hook:
-	if the ice-hook is not stuck to the long-cable:
+	if the ice-hook is not ropestuck:
 		say "The hook isn't attached to anything, so throwing it is useless.";
-	otherwise if the long-cable is stuck to a hindering thing (called meanie):
+	otherwise if a hindering thing (called meanie) is ropestuck:
 		say "You can't throw the grappling hook while the rope is attached to [the meanie] as well.";
 	otherwise:
 		if the player is not in broken-bridge:
@@ -33421,26 +33477,27 @@ Instead of throwing the ice-hook:
 			now the ice-hook is fixed in place;
 
 Before throwing the long-cable:
-	if the long-cable is stuck to the ice-hook:
+	if the ice-hook is ropestuck:
 		if the ice-hook is enclosed by the location:
 			try throwing the ice-hook instead;
 
 Rule for writing a paragraph about the ice-hook when the player is in officer-redux:
 	say "The grappling hook has become firmly embedded into the top of the cliff. You probably won't be able to get it out again.";
-	if the long-cable is stuck to the ice-hook:
+	if the ice-hook is ropestuck:
+		if the long-cable is not in the location:
+			now lastcableroom is the location of the long-cable;
 		let coil be the long-cable;
 		let anchor be the ice-hook;
-		if the coil is in an adjacent room:
-			let the next room be the home of the coil;
+		if lastcableroom is an adjacent room:
 			repeat with way running through directions:
-				if the room way of the location is next room:
+				if the room way of the location is lastcableroom:
 					if the way is up or the way is down:
-						say "[line break][The coil] runs [way] from [the anchor] into [the next room].";
+						say "[line break][The coil] runs [way] from [the anchor] into [the lastcableroom].";
 					otherwise:
 						say "[line break]From [the anchor] runs [a coil], heading off toward [the way].";
 		otherwise:
-			if the coil is stuck to something which is not visible,
-				say "[line break][The coil] is tied to [the anchor][if the coil is stuck to something in an adjacent room (called the next room)], and from there runs off towards [the next room][end if]."
+			if a ropestuck thing is not visible,
+				say "[line break][The coil] is tied to [the anchor][if a ropestuck thing is in an adjacent room (called the next room)], and from there runs off towards [the next room][end if]."
 
 Instead of throwing the ice-hook at something:
 	try throwing the ice-hook;
@@ -33472,7 +33529,7 @@ Before going down from officer-redux when the player is in metal-plate:
 Understand "push [something] off [something]" as throwing it at when the player is in finale2-region.
 
 Instead of throwing the metal-plate at the sharp-cliff when the player is in officer-redux:
-	if the metal-plate is stuck to the long-cable:
+	if the metal-plate is ropestuck:
 		say "You won't be able to push it off the cliff while it's tied to the cable.";
 	otherwise:
 		say "You push the metal plate off of the cliff, and it falls to the bridge below.";
@@ -33480,7 +33537,7 @@ Instead of throwing the metal-plate at the sharp-cliff when the player is in off
 
 Instead of climbing the long-cable:
 	if the ice-hook is anchored:
-		if the long-cable is stuck to the ice-hook:
+		if the ice-hook is ropestuck:
 			if the player is in broken-bridge:
 				try going up;
 			otherwise:
@@ -33491,11 +33548,11 @@ Instead of climbing the long-cable:
 		say "The cable isn't in a good climbable state right now."
 
 Before going down from the officer-redux:
-	if the player is not stuck to something anchored:
+	if the player is not ropestuck or the number of ropestuck anchored things is 0:
 		if the long-cable is in broken-bridge:
 			say "You climb down the cable which hangs off the cliff.";
 		otherwise:
-			if the long-cable is stuck to something anchored in officer-redux:
+			if the the number of ropestuck anchored things in officer-redux > 0:
 				if the long-cable is free:
 					now the long-cable is in broken-bridge;
 					say "You toss the cable down the cliff, then climb down it.";
@@ -33504,13 +33561,13 @@ Before going down from the officer-redux:
 			otherwise:
 				say "You don't quite dare simply leap down the cliff without some anchor." instead;
 	otherwise:
-		let anchor be a random anchored thing which is stuck to the player;
+		let anchor be a random anchored ropestuck thing;
 		say "You lower yourself gingerly, hoping that [the anchor] holds your weight..."
 
 Before going up from broken-bridge:
 	if the player is in the metal-plate:
 		say "There's no way you can climb the cliff while you're inside the barricade. You might be able to pull it up with some rope, though." instead;
-	otherwise if the player cannot touch a rope which is stuck to an anchored thing which is in the officer-redux:
+	otherwise if the player cannot touch the long-cable or the number of ropestuck anchored things in officer-redux is 0:
 		 say "Without a rope to climb, you'll never make it up." instead;
 	otherwise:
 		if the long-cable is held by the player:
@@ -34208,7 +34265,7 @@ AFter unlocking the closet-door with the closet-key:
 
 Section 3 - Flashlight
 
-The flash-light is a memorable device on maint-shelf.  Understand "torch" or "sleek" or "black" or "cylinder" or "flashlight" or "flash light" or "light" or "lamp" as the flash-light. The printed name of the flash-light is "flashlight". The description of the flash-light is "This is a sleek black cylinder that can be SWITCHED ON or SWITCHED OFF."
+The flash-light is a memorable device on maint-shelf.  Understand "torch" or "sleek" or "black" or "cylinder" or "flashlight" or "flash light" or "light" or "lamp" as the flash-light. The printed name of the flash-light is "flashlight". The description of the flash-light is "This is a sleek black cylinder that can be SWITCHED ON or SWITCHED OFF. Technically, you could use it for your presentation, but it would likely be more useful for exploring this storage area."
 
 After switching on the flash-light:
 	say "You turn on the flashlight. The darkness is a little less oppressive.";
@@ -34223,10 +34280,10 @@ Does the player mean switching on the flash-light:
 
 Section 4 - Floor Wax
 
-The floor-wax is a closed openable memorable container on maint-shelf. The printed name of the floor-wax is "bottle of floor wax". Understand "bottle of" or "bottle" or "floor" or "wax" or "crust" or "top" as the floor-wax. The description of the floor-wax is "This bottle of floor wax looks pretty old; the top of it is all crusted over."
+The floor-wax is a closed openable memorable container on maint-shelf. The printed name of the floor-wax is "bottle of floor wax". Understand "bottle of" or "bottle" or "floor" or "wax" or "crust" or "top" as the floor-wax. The description of the floor-wax is "This bottle of floor wax looks pretty old; the top of it is all crusted over.  This would be terrible as a prop for your presentation, but you could always try it."
 
 Instead of opening the floor-wax:
-	say "The bottle is completely crusted over; it doesn't look like you'll get it open any time soon, and, given its condition, you're not sure you'd want it open. This would be terrible as a prop for your presentation, but you could always try it.";
+	say "The bottle is completely crusted over; it doesn't look like you'll get it open any time soon, and, given its condition, you're not sure you'd want it open.";
 
 Chapter 29 - Far end of storage
 
@@ -35249,9 +35306,9 @@ That's when you realize you're looking at a mirror.[or]You see the woman in whit
 
 'A Storyweaver will come to you tonight. Make sure that she pays,' says the woman.[or]You are in a dark place underground. The woman in the spiked skull mask is speaking to a hideous spider beast.
 
-The spider talks, its voice grotesque. 'Should I go easy on here?''
+The spider talks, its voice grotesque. 'Should I go easy on her?'
 
-The woman shakes her head. 'Our path is already chosen for us.'[or]You see the masked woman carrying a strange cylindrical device. Standing between a cabin and a forest, she presses a button. All the trees quake as the air in front of her ripples. Then it rips open, forming a red rift in space.[or]You see the masked woman sitting at a desk, speaking to someone you can't see. 
+The woman shakes her head. 'Our path is already chosen for us.'[or]You see the masked woman carrying a strange cylindrical device. Standing between a cabin and a forest, she presses a button. All the trees quake as the air in front of her ripples. Then the air rips open, forming a red rift in space.[or]You see the masked woman sitting at a desk, speaking to someone you can't see. 
 
 'She's going to have to make a choice,' says the woman.
 
@@ -35379,6 +35436,111 @@ Index map with nice-cafe mapped north of luxury-cafe.
 Index map with bad-cafe mapped north of nice-cafe.
 
 Index map with mari-limo mapped south of city-streets.
+
+Chapter 4 - Time stamp stuff
+
+Section - Rules Timestamping
+
+Section - Rules Timestamping
+
+Include (-
+
+Array prev_timestamp --> 3;
+Array timestamp --> 3;
+Array timestamp_diff --> 3;
+Array timestamp_converted --> 8;
+
+[ StoreLastTimestamp ;
+	prev_timestamp-->0 = timestamp-->0;
+	prev_timestamp-->1 = timestamp-->1;
+	prev_timestamp-->2 = timestamp-->2;
+];
+
+[ ComputeTimestampDiff     n ;
+	n = timestamp-->2 - prev_timestamp-->2;
+	if (n < 0) {
+		! negative microseconds
+		(timestamp-->1)--; ! assume 21st century
+		timestamp_diff-->2 = 1000000-n; 
+	} else {
+		! positive microseconds
+		timestamp_diff-->2 = n; 
+	}
+	timestamp_diff-->1 = timestamp-->1 - prev_timestamp-->1; ! keep assuming 21st century
+	timestamp_diff-->0 = 0;  ! keep assuming 21st century
+];
+
+[ PadToTens n ;
+	if (n < 10) print "0";
+	print n;
+];
+
+[ PadToHundredThousands n ;
+	if (n < 100000) print "0";
+	if (n < 10000) print "0";
+	if (n < 1000) print "0";
+	if (n < 100) print "0";
+	if (n < 10) print "0";
+	print n;
+];
+
+[ SayCurrentTimestamp  load_only_flag;
+	glk_current_time(timestamp);
+	if (load_only_flag) rtrue;
+	glk_time_to_date_local(timestamp, timestamp_converted);
+	print (PadToTens) timestamp_converted-->4, ":", (PadToTens) timestamp_converted-->5, ":", (PadToTens) timestamp_converted-->6, ".", (PadToHundredThousands) timestamp_converted-->7;
+];
+
+[ SayDiffFromLastTimestamp    i ;
+	StoreLastTimeStamp();
+	glk_current_time(timestamp);
+	ComputeTimestampDiff();
+	glk_time_to_date_local(timestamp_diff, timestamp_converted);
+	print (PadToTens) timestamp_converted-->5, ":", (PadToTens) timestamp_converted-->6, ".", (PadToHundredThousands) timestamp_converted-->7;
+];
+
+
+-).
+
+To say current system timestamp:
+	(- SayCurrentTimestamp(); -).
+
+To say elapsed system time:
+	(- SayDiffFromLastTimestamp(); -).
+
+To mark initial system time:
+	(- SayCurrentTimestamp(true); StoreLastTimestamp(); -).
+
+When play begins (this is the mark initial time rule):
+	mark initial system time.
+
+Include (-
+
+! ==== ==== ==== ==== ==== ==== ==== ==== ==== ====
+! Rulebooks.i6t: Debugging
+! ==== ==== ==== ==== ==== ==== ==== ==== ==== ====
+
+[ DebugRulebooks subs parameter i;
+	spaces(2*process_rulebook_count);
+	print "[", (RulePrintingRule) subs;
+	if (parameter) print " / on O", parameter;
+	print "]^";
+];
+
+[ DB_Rule R N blocked;
+	if (R==0) return;
+	print "[Rule ~", (RulePrintingRule) R, "~ ";
+	#ifdef NUMBERED_RULES; print "(", N, ") "; #endif;
+	! BEGIN MODIFICATION
+	if (blocked == false) {
+		print "applies.]";
+		print "  ("; SayDiffFromLastTimestamp(); ")";
+	}
+	! END MODIFICATION
+	print "does not apply (wrong ", (address) blocked, ").]^";
+];
+
+-) instead of "Debugging" in "Rulebooks.i6t".
 
 Book 5 - Notes
 
