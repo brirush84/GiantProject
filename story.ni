@@ -25,7 +25,7 @@ Release along with cover art.
 
 Section 1 - Genre, description, etc
 
-The story genre is "Science Fiction". The story description is "Hop through dimensions to save your ship." The story creation year is 2023. The release number is 59.
+The story genre is "Science Fiction". The story description is "Hop through dimensions to save your ship." The story creation year is 2023. The release number is 60.
 
 Section 2 - Increasing memory sizes
 
@@ -106,11 +106,14 @@ After reading a command (this is the ignore beta-comments rule):
 		say "(Noted: '[text matching subexpression 1]')[line break]"; 
 		reject the player's command. 
 
-After reading a command when the player is in monument-region: 
-	let the last command be the player's command;
-	if the last command matches the regular expression "\.\d+": 
-		replace the regular expression "\.\d+" in the last command with "0\0"; 
-		change the text of the player's command to the last command. 
+This is the calculator fixing rule:
+	if something enterable (called the box) is enclosed by the location:
+		now the noun is the box;
+	otherwise:
+		say "[bracket]If you are trying to enter a decimal on the calculator, you must add a zero before the period due to Inform's command processing.[close bracket][line break]";
+		continue the activity.
+ 
+The calculator fixing rule substitutes for the find what to enter rule when the busted-calculator is in the location.
 
 Part 3 - Extensions
 
@@ -6249,6 +6252,8 @@ To goatmove (goatroom - a room):
 	now the player is in goatroom;
 	now the old-ram is in goatroom;
 		
+Understand "ride [something]" as entering.
+
 Instead of pulling a horny thing during riding-scene:
 	say "You pull [the noun] and turn to the [if the noun is left-horn]left[otherwise]right[end if]. ";
 	if the player is in foothills-room:
@@ -9394,11 +9399,7 @@ Instead of pushing the diagnosis-button when seventh-uprift is in the location:
 
 The display changes to say:
 
-[italic type]DIAGNOSIS:
-Creation date: 0205/51[line break]
-Type: [if the seventh-uprift is black-torn] Black (originally Red)[otherwise] Red[end if] [line break]
-Separation type: Temporal[line break]
-Separation distance: 160 years[roman type]
+[italic type]DIAGNOSIS:[line break]Creation date: 0205/51[line break]Type: [if the seventh-uprift is black-torn] Black (originally Red)[otherwise] Red[end if] [line break]Separation type: Temporal[line break]Separation distance: 160 years[roman type]
 
 Then the screen changes back to its previous message, and the Diagnosis button disappears.";
 
@@ -9477,7 +9478,7 @@ Finally, the black rift disappears, and the pedestal pops open, revealing the to
 
 The back-tisserand is distant scenery in past-construction. The printed name of the back-tisserand is "giant starship". Understand "giant" or "starship" or "unfinished" or "enormous" or "star" or "ship" or "tisserand" as the back-tisserand. The description of the back-tisserand is "The ship you see in the distance is still under construction but already has the beginnings of cities, forests, and an overarching glass dome. The name of the ship is already visible, in letters as large as mountains:
 
-[italic type]The Starship Tisserand[roman type].."
+[italic type]The Starship Tisserand[roman type]."
 
 Bronwyn is a person in past-construction. "A woman about your age is standing here, pausing her work at her equipment to watch you. Her badge says 'Bronwyn Savoy'."The description of Bronwyn is "Bronwyn has clear, analytical eyes and white hair pulled up into a bun. She wears a labcoat and a badge saying 'Bronwyn Savoy'.". Understand "savoy" or "clear" or "analytical" or "eyes" or "white" or "bun" or "hair" as bronwyn.
 
@@ -9674,9 +9675,14 @@ Instead of atpointing the curious-tool at a rifty thing when the curious-tool is
 	if the second noun is not green-torn:
 		say "The tool beeps and says, 'No harvestable energy detected.'";
 	otherwise:
-		say "There is a thrum, and the rift flares green. Bits of the rift stream towards your tool, being absorbed into the crystals. By the time you finish, the rift is dark.";
 		now the second noun is black-torn;
 		now the second noun is closed;
+		let temp be the number of black-torn space-tears;
+		say "There is a thrum, and the rift flares green. Bits of the rift stream towards your tool, being absorbed into the crystals. By the time you finish, the rift is dark.
+
+A voice says, 'Now [Temp in words] out of nine great rifts have been harvested[if temp is 9]. You may return and place the tool on the pedestal to reach your final destination[end if].'";
+
+Understand "great" as a space-tear.
 
 Cheatrifting is an action applying to nothing. Understand "cheatrift" as cheatrifting.
 
@@ -9738,7 +9744,7 @@ The cellar-door is a scenery crystal-door. The cellar-door is east from cabin-ce
 
 Chapter 5 - Inside the Pillar
 
-The pillar-room is a crystal-room in hidden-region. The printed name of the pillar-room is "Pillar Interior". The description of the pillar-room is "Inside the pillar is a round room. It's uncomfortably warm in here, but not as much as you might have expected; perhaps the heat is being directed outwards. [rift-text]."
+The pillar-room is a crystal-room in hidden-region. The printed name of the pillar-room is "Pillar Interior". The description of the pillar-room is "Inside the pillar is a round room. It's uncomfortably warm in here, but not as much as you might have expected; perhaps the heat is being directed outwards. You can leave to the [boldeast]. [rift-text]."
 
 The currency-book is a book in pillar-room. The printed name of the currency-book is "book about currency". Understand "book about" or "currency" as the currency-book. The description of the currency-book is "You flip through the book, which seems to be about the history of currency.
 
@@ -10269,7 +10275,7 @@ The scribbled-note is a thing. "A scribbled note has been left here." The printe
 
 [italic type]Both levers have to be activated at once to open the box. Make sure to diagnose the rift first![roman type]".
 
-The slot-box is a container. The slot-box is fixed in place. "A glass box is attached to one wall, with a lever on it. It has two lights: one, labelled A, is [if the 1-light is switched on]lit[otherwise]dark[end if] while the other, labelled B, is [alsoword][if the 2-light is switched on]lit[otherwise]dark[end if]." The slot-box is closed. The slot-box is transparent. The slot-box is openable. The printed name of the slot-box is "glass box". Understand "box" or "glass "or "wall" as the slot-box. The description of the slot-box is "This glass box has been hooked up to a lever in a somewhat confusing way. It has two lights attached to it labelled A and B. Light A is [if the 1-light is switched on]lit[otherwise]dark[end if] while  B is [alsoword][if the 2-light is switched on]lit[otherwise]dark[end if]."
+The slot-box is a container. The slot-box is fixed in place. "A glass box is attached to one wall, with a lever on it. It has two lights: one, labelled A, is [if the 1-light is switched on]lit[otherwise]dark[end if] while the other, labelled B, is [alsoword][if the 2-light is switched on]lit[otherwise]dark[end if]." The slot-box is closed. The slot-box is transparent. The slot-box is openable. The printed name of the slot-box is "glass box". Understand "box" or "glass "or "wall" as the slot-box. The description of the slot-box is "This glass box has been hooked up to a lever in a somewhat confusing way. It has two lights attached to it labelled A and B. Light A is [if the 1-light is switched on]lit[otherwise]dark[end if] while B is [alsoword][if the 2-light is switched on]lit[otherwise]dark[end if]."
 
 An upgrade-clock is a kind of thing. An upgrade-clock is usually fixed in place. The printed name of an upgrade-clock is "clock". Understand "clock" or "digital" or "bare-bones" or "bare-bone" as an upgrade-clock. 
 
@@ -10542,11 +10548,7 @@ Instead of physicality when the noun is the two-fragments:
 
 The giga-out is a scene-rift in yang-two. The giga-out is red-torn. The printed name of the giga-out is "[rift-style] rift". Understand "rift" as the giga-out. The description of the giga-out is "This [rift-style] rift floats in the center of the room, leading [boldoutside].".
 
-The diagnose-text of giga-out is "DIAGNOSIS:
-Creation date: 0205/51[line break]
-Type: [if the giga-out is black-torn] Black (originally Red)[otherwise] Red[end if] [line break]
-Separation type: Temporal[line break]
-Separation distance: 165 years"
+The diagnose-text of giga-out is "DIAGNOSIS:[line break]Creation date: 0205/51[line break]Type: [if the giga-out is black-torn] Black (originally Red)[otherwise] Red[end if] [line break]Separation type: Temporal[line break]Separation distance: 165 years"
 
 The yang-desk is an enterable scenery supporter in yang-two. The printed name of the yang-desk is "desk". Understand "desk" or "prominent" or "softwood" as the yang-desk. The description of the yang-desk is "This desk is made of some kind of softwood, in constrast to the artificial nature of the rest of the lab.".
 
@@ -13586,7 +13588,7 @@ Instead of physicality when the noun is the book-pile:
 	otherwise:
 		say "With the mold gone, you can now interact with the books, but they don't look especially interesting."
 
-The calc-manual is a book. "A calculator manual sticks out to you." The printed name of the calc-manual is "calculator manual". Understand "calculator" or "manual" as the calc-manual. The description of the calc-manual is "You paw through the book. This page says:
+The calc-manual is a book. "A calculator manual sticks out to you." The printed name of the calc-manual is "calculator manual". Understand "calculator" or "manual" or "and you" or "journey" as the calc-manual. The description of the calc-manual is "You paw through the book. This page says:
 
 [italic type][one of]Most basic calculators have you input the number first and then the function. For instance, to find EXP(0), you would enter 0, and then push the EXP button[or]Most calculators do not have a button for inverse functions. Instead, they usually have a separate button or toggle to invert functions. For instance, there is usually no arccosine button, but pressing INVERSE followed by COSINE works on most calculators.
 
@@ -13627,7 +13629,7 @@ Does the player mean reading the non-fiction:
 Instead of physicality when the noun is the non-fiction:
 	say "[if the library-mold is not nowhere]These books are too moldy to do anything with[otherwise]None of the non-fiction books look helpful[end if]."
 
-The math-textbook is a book. "[A math-textbook][if the basic-textbook is not handled] and [a basic-textbook][end if] stick[if the basic-textbook is not handled]s[end if] out to you from the shelves." The printed name of the math-textbook is "advanced geometry textbook". Understand "advanced" or "geometry" or "text" or "textbook" as the math-textbook. The description of the math-textbook is "This book discusses some advanced concepts in geometry. You read a page:
+The math-textbook is a book. "[A math-textbook][if the basic-textbook is not handled] and [a basic-textbook][end if] stick[if the basic-textbook is not handled]s[end if] out to you from the shelves." The printed name of the math-textbook is "advanced geometry textbook". Understand "advanced" or "geometry" or "text" or "textbook" or "for geniuses" or "geniuses" as the math-textbook. The description of the math-textbook is "This book discusses some advanced concepts in geometry. You read a page:
 
 [italic type][one of]A line essentially only has one kind of geometry. Things don't get interesting until two dimensions, where we encounter three kinds of geometries that can exist in that and all higher dimensions:
 
@@ -13641,9 +13643,9 @@ It looks like there's more to read[or]The Poincaré disk model is one way of mak
 
 It looks like there's more to read[or]Antonio Yang was able to recreate hyperbolic space in his early dimensional experiments, but of course in practice this involved paying careful attention to units. A length of 1 in the disk model (such as the scope he used) might be measured in different units than a length of 1 inside the chamber[cycling][roman type]."
 
-The basic-textbook is a book. The printed name of the basic-textbook is "basic math textbook". Understand "basic" or "math" or "textbook" or "maths" as the basic-textbook. The description of the basic-textbook is "Most of this book is illegible. Only a couple of pages remain. This one says:
+The basic-textbook is a book. The printed name of the basic-textbook is "basic math textbook". Understand "basic" or "math" or "textbook" or "maths" or "for dummies" or "dummies" as the basic-textbook. The description of the basic-textbook is "Most of this book is illegible. Only a couple of pages remain. This one says:
 
-[italic type][one of]If you have a measurement in millimeters and need to convert to centimeters, just divide it by 10. So, for instance, 4.56 millimeters,, if divided by 10, is 0.456 centimeters[or]Arctanh is another name for the inverse hyperbolic tangent, a function with a few obscure uses, such as hyperbolic geometry[cycling][roman type]."
+[italic type][one of]If you have a measurement in millimeters and need to convert to centimeters, just divide it by 10. So, for instance, 4.56 millimeters, if divided by 10, is 0.456 centimeters[or]Arctanh is another name for the inverse hyperbolic tangent, a function with a few obscure uses, such as hyperbolic geometry[cycling][roman type]."
 
 Section 6 - Dome
 
@@ -14171,6 +14173,12 @@ Section 2 - The white tower
 The white-tower is a room in monument-region. White-tower is north from london-room. White-tower is inside from london-room. The printed name of the white-tower is "White Tower". The description of the white-tower is "Inside the tower, almost everything has been stripped out. There are, however, two historical displays that have remained untouched: a knight's armor, and a WWII soldier uniform[if the gas-mask is part of the soldier-uniform] with a gas mask[end if].
 
 You can leave the tower to the [boldsouth], or go deeper in to the [boldeast]."
+
+The library-card is in white-tower. THe printed name of the library-card is "library card". Understand "library card" or "logo" or "card" as the library-card. The description of the library-card is "This card has a logo stating 'LIBRARY OF ALEXANDRIA' on it.
+
+Someone has scrawled on it: 
+
+[italic type]Can't figure out spinning ships. TODO: Find physics books in library.[roman type]"
 
 A historical-display is a kind of thing. Understand "historical" or "display" as a historical-display. A historical-display is usually scenery.
 
@@ -14731,7 +14739,9 @@ The liberty-notice is scenery in the liberty-inside. Understand "condemnation" o
 
 Section 2 - Crown room
 
-The crown-room is a room in monument-region. The crown-room is up from the liberty-inside. The printed name of the crown-room is "Inside the Crown". The description of the crown-room is "The top of the statue has been gutted leaving a bare wooden floor that certainly wasn't part of the original Statue of Liberty. A telescope looks out through empty window frames.".
+The crown-room is a room in monument-region. The crown-room is up from the liberty-inside. The printed name of the crown-room is "Inside the Crown". The description of the crown-room is "The top of the statue has been gutted, leaving a bare wooden floor that certainly wasn't part of the original Statue of Liberty. You can leave by going [bolddown].
+
+A telescope looks out through empty window frames.".
 
 The crown-frames are plural-named scenery in the crown-room. The printed name of the crown-frames is "empty window frames". Understand "empty" or "window" or "frame" or "frames" as the crown-frames. The description of the crown-frames is "Empty window frames look out from the crown. You can see the stars above you."
 
@@ -15235,7 +15245,7 @@ To decide what number is meter-setting:
 The em-meter is a batteried-device in motherland-room. "A dusty device lies on the ground." 
 
 After taking the em-meter for the first time:
-	say "You grab the meter, dusting it off. It says Yang Field Meter."
+	say "You grab the meter, dusting it off. It is labelled Yang Field Meter."
 
 The printed name of the em-meter is "[if handled]Yang Field Meter[otherwise]dusty device[end if]". Understand "yang" or "display" or "field" or "meter" or "device" or "metal" or "detector" or "screen" or "dusty" as the em-meter. The description of the em-Meter is "This device, which looks like a metal detector with a screen, says Yang Field Meter on the side. Underneath that, it says:
 
@@ -15330,6 +15340,14 @@ Instead of dropping a field-damper when a field-damper is in the location:
 
 After dropping a field-damper in energy-region:
 	say "You place [the noun] carefully on the ground."
+
+The library-notice is in center-energy. The printed name of the library-notice is "late notice from a library". Understand "late" or "notice from" or "notice" or "a library" or "library" as the library-notice. The description of the library-notice is "This notice reads:
+
+Patron A. Webster, you are instructed to return the following books:[line break][italic type]Physics Wars[line break]Geometry for Dummies[line break]Geometry for Geniuses[line break]Calculators and You: A Journey[roman type]
+
+Failure to do so will result in charges for the books being returned to your account.
+
+-The Library of Alexandria"
 
 The energy-button is a thing in center-energy. The energy-button is fixed in place. The printed name of the energy-button is "giant button". Understand "giant" or "button" as the energy-button. The description of the energy-button is "This button is at least 15 cm across. It's set horizontally into the ground, and overall looks like it was designed to interface with the machinery." The initial appearance of the energy-button is "There is a button larger than your hand set into the machinery in the ground. Next to it is a cracked monitor."
 
@@ -15513,7 +15531,7 @@ Report examining something flammable:
 	if the noun is a strikable-match:
 		say "Hm, the [printed name] appears to be [fireheat].";
 	otherwise if the noun is flaming:
-		say "More importantly, the [printed name] is on fire!";
+		say "More importantly, [the noun] [are] on fire!";
 
 Before taking a flaming thing:
 	let turns remaining be the endurance of the noun minus the burning-turns of the noun;
@@ -15744,7 +15762,7 @@ Every turn when there is a flaming strikable-match:
 
 Section 6 - Opera Theater
 
-The Theater-room is a room in opera-region. The Theater-room is south from opera-room. The printed name of the Theater-room is "Opera Theater". "This theatre room has mostly been stripped clear, leaving only the metal supports and the wooden ceiling panels. A dispenser is fixed to the wall, filled with flyers for their last show. 
+The Theater-room is a room in opera-region. The Theater-room is south from opera-room. The printed name of the Theater-room is "Opera Theater". "This theatre room has mostly been stripped clear, leaving only the metal supports and the [if the opera-panels are flaming]flaming [end if] wooden ceiling panels. A [if the flyer-dispenser is flaming]burning [end if]dispenser is fixed to the wall, filled with flyers for their last show. 
 
 You can go [boldnorth] to leave the opera house, and the concert hall is through [a wooden-door] to the [boldeast]. "
 
@@ -16271,7 +16289,7 @@ Instead of showing the yang-laptop to antonio:
 
 'It took a lot of digging,' you say. 
 
-'This...this is perfect! If I create a hyperbolic network it's no longer amenable; I can pump in more electricity from the outskirts than gets pumped out.' He notices you watching him. 'Sorry for rambling, but Storyweaver, you're a treasure!' He folds the laptop under his arm and embraces you for a second before rushing away and out of sight.
+'This...this is perfect! If I create a hyperbolic network, then it's no longer amenable; I can pump in more electricity from the outskirts than gets pumped out.' He notices you watching him. 'Sorry for rambling, but Storyweaver, you're a treasure!' He folds the laptop under his arm and embraces you for a second before rushing away and out of sight.
 
 The rift in the room changes from red to green.
 
@@ -25953,7 +25971,7 @@ Before doing something during rage-scene:
 	otherwise if the noun is not a thing:
 		say "[if flying-player is true]You thrash around mid-air, unable to find anything good to hit[otherwise]You can only scream and hit everything near you, unable to control yourself without a target[end if]." instead;
 	otherwise if the noun is the odorous-object or the noun is the splashing-puddle:
-		say "You attack [the noun] in a furious rage, but nothing happens beyond your hands getting coated with something [if the noun is the odorous-object]foul-smelling[otherwise]that burns[end if], which you shake off while howling.";
+		say "You attack [the noun] in a furious rage, but nothing happens beyond your hands getting coated with something [if the noun is the odorous-object]foul-smelling[otherwise]that burns[end if], which you shake off while howling." instead;
 	otherwise if the noun is warm-thing:
 		say "You scream and assault the warm, moist object as hard as you can, digging in your fingers like claws, ripping and biting with your teeth. You have the taste of wet copper in your mouth.
 
@@ -29978,7 +29996,7 @@ Instead of eating the cookie-pile:
 
 The single-cookie is an edible thing. The printed name of the single-cookie is "single cookie". Understand "single" or "cookie" as the single-cookie. The description of the single-cookie is "This cookie is perfectly made. Should taste great!"
 
-The baklava-pile is on buffet-spread. The printed name of the baklava-pile is "pile of baklavas". Understand "pile" or "pile of" or "baklava" or "honey" as the baklava-pile. The description of the baklava-pile is "The baklava is positively dripping with honey."
+The baklava-pile is on buffet-spread. The printed name of the baklava-pile is "pile of baklava". Understand "pile" or "pile of" or "baklava" or "honey" as the baklava-pile. The description of the baklava-pile is "The baklava is positively dripping with honey."
 
 Instead of taking the baklava-pile:
 	if the single-baklava is not nowhere:
@@ -30369,7 +30387,7 @@ The party-curator is a robotic woman in by the dessert table. The printed name o
 
 Party-curator likes party-max, party-maeve, and morgan. Party-curator dislikes arawn.
 
-Renewal-quip is a quip. The printed name of Renewal-quip is "Renewal". The target of Renewal-quip is Curator. Understand "Renewal" as Renewal-quip. The preview of Renewal-quip is "So, how's the new body?"
+Renewal-quip is a quip. The printed name of Renewal-quip is "Renewal". The target of Renewal-quip is party-Curator. Understand "Renewal" as Renewal-quip. The preview of Renewal-quip is "So, how's the new body?"
 
 The targetresponse of Renewal-quip is "'It's great!' says the Curator, flying around in a circle to show it off. 'Although, I guess it's just my old body, but the logic circuit is nice.'
 
@@ -30392,7 +30410,7 @@ There is a chime. Arawn webster stops what she's doing and walks towards you.
 
 She says, 'Emrys, it's time for us to go. Meet me outside. I'll lay all my cards on the table.'
 
-She strolls towards the entrance. You follow her towards the doors to the [boldsouth]. She pushes the double doors open, then steps outside";
+She strolls towards the entrance. You follow her towards the doors to the [boldsouth]. She pushes the double doors open, then steps outside. You pause before leaving, looking behind you; it seems that everyone has left.";
 	move the player to near the entrance, without printing a room description;
 	repeat with current running through other people in party-region:
 		now current is nowhere;
@@ -30933,7 +30951,7 @@ Nothing disturbs the silence around you, here in the moonlight at your own grave
 
 She looks up at you. 'It almost broke me, realizing that my childhood stories weren't real. I realized that you were in many ways a victim of circumstance. I realized that, when the time came, it might be hard for you to do the right thing. And that's when I realized that, if everything else was fake, what if your death was as well? What if someone else died the death of the great hero Emrys Tisserand?'
 
-And,' she adds, 'what if that person was me?'[line break]";
+'And,' she adds, 'what if that person was me?'[line break]";
 		now the command prompt is ">";
 		if how-quip is targetgiven:
 			deliver choice-quip;
@@ -31625,10 +31643,11 @@ Carry out an actor robot-flipping:
 Interesting--It looks like the flipper is some kind of self-righting mechanism[only]."
 
 Instead of the rusty-robot robot-flipping when the rusty-robot is on the balanced-door:
-	say "The robot engages its flipper arm and does a backflip, landing heavily on the door[if the player is on balanced-door], which flings [nameus] upwards[otherwise], making the other end spring up, although nothing is on it[end if].";
-	if the player is on balanced-door:
-		now the player is in logic-room;
-		
+	if the rusty-robot is visible:
+		say "The robot engages its flipper arm and does a backflip, landing heavily on the door[if the player is on balanced-door], which flings [nameus] upwards[otherwise], making the other end spring up, although nothing is on it[end if].";
+		if the player is on balanced-door:
+			now the player is in logic-room;
+			
 [FIX THIS LATER what if player jumps while on door]
 
 After the rusty-robot going east to coolant-room when the player is in coolant-room:
@@ -34723,14 +34742,14 @@ This is the investigate something rule:
 
 The Murder Mystery dimension was a callback to my game Color the Truth. Both games feature four suspects, a clue system that lets you combine clues, and flashbacks that let you inhabit a character in the past. The courier's story is based on my time living in the Bronx in the early 2000[']s; the author's story is based on my experience with authors being much poorer than the public perceives; the attendant's story is based on compulsive liars, if anything; and the professor's story is unfortunately based on many experiences in academia.
 
-The Wax Museum escape room dimension was inspired by vague memories of a wax museum area in The Mulldoon Legacy. Many of the characters are in the game Civilization, while I first met Diaochan in games like Bandit Kings of Ancient China and Dynasty Warrior. The rooms are loosely themed around the seven deadly sins. Fishblade was a character invented to serve as a 'futuristic' celebrity, and is named after an obscure twitter mini-trend about a theoretical TTRPG called Fishblade. The hideous contraption was directly inspired by the purple room in Mike Sousa's The Recruit.";
+The Wax Museum escape room dimension was inspired by vague memories of a wax museum area in The Mulldoon Legacy. Many of the characters are in the game Civilization, while I first met Diaochan in games like Bandit Kings of Ancient China and Dynasty Warrior. The rooms are loosely themed around the seven deadly sins. Fishblade was a character invented to serve as a 'futuristic' celebrity, and is named after an obscure twitter mini-trend about a theoretical TTRPG called Fishblade. The hideous contraption was directly inspired by the purple room in Mike Sousa's The Recruit. ";
 	say "[paragraph break]The Magical Spells Horror dimension was themed on the fourteen fears described in the Magnus Archives podcast. I reached out to Chandler Groover and Amanda Walker for tips on writing horror. The spell system is directly designed to mimic Enchanter, except you can't cast scrolls before inscribing them into the book, as it could place the game in an unwinnable state.
 
 The combat dimension was inspired by Gun Mute, Attack of the Yeti Robot Zombies, and by the sections on persuasion in the Inform 7 manual. Very large chunks of code were taken from the Under Contract example in the manual. The character Max is named after a beta tester. The other was originally Sam, but I forgot that Max and Sam already exists, so it was changed to Dan. Short names were chosen due to the frequent need to type their name before commands.
 
 The cabin and forest dimension was inspired by games like She's Got a Thing for a Spring, Muse, and Sunset Over Savannah, with nature-based exploration and wonder. The crafting mechanics were inspired by Stardew Valley. Originally the concept for this dimension was a plant-based dimension in a magical garden where plants solved every puzzle, but it eventually became a grounded-in-reality dimension. I added journal pages since collecting journal pages is something many games have but which I've never tried. It also provided a way to add backstory to the main NPC of the game. The rock compartment was based on the one Joseph Smith found the Book of Mormon in.
 
-The animals dimension was at first inspired by educational cartoon maps showing every biome next to each other. At the time of writing it is a bit of a meme to see those maps and say 'I want to live there'. At one point I ran out of puzzle ideas, so I themed each puzzle off a different Lord of the Rings character. Most of those got transformed into somethin very different, so they're no longer recognizable (for instance, the owl's drone piece would be up high and need to be knocked down by a projectile. I realized I'd prefer an animal-based solution, and so switched it to the cougar).";
+The animals dimension was at first inspired by educational cartoon maps showing every biome next to each other. At the time of writing it is a bit of a meme to see those maps and say 'I want to live there'. At one point I ran out of puzzle ideas, so I themed each puzzle off a different Lord of the Rings character. Most of those got transformed into somethin very different, so they're no longer recognizable (for instance, the owl's drone piece would be up high and need to be knocked down by a projectile. I realized I'd prefer an animal-based solution, and so switched it to the cougar). ";
 	say "[paragraph break]The World Monuments sections was inspired by the many mathematical and physics examples in Inform documentation, including Concentration 1 and 2, Nickle and Dimed, the Cow Exonerated, In Fire or In Flood, and Exonerated. This came after I had completed reading the whole Inform manual and felt bummed at how many awesome examples never (as far as I can tell) got used in games. The idea of descending through a void on a rope came from the Dr Who episode Impossible Planet.
 
 The Tool dimension was originally designed to provide an extra hurdle for players to overcome in every level, so that players would need to explore more. There would be a tool that would get powers as time went on. I just couldn't figure out what to put in this level or what powers to use. I eventually decided to make it a limited parser room using computer commands for the limitations. I looked to Arthur Dibianca and Monument Valley for inspiration. But I eventually moved away from the limited parser and used this level to give more backstory to the game and to form the backbone or spine of everything. Portal was a bit of an inspiration as well, as well as a game by Doug Egan I tested. The tool is definitely modelled on the sonic screwdriver from Dr Who.
