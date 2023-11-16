@@ -25,7 +25,7 @@ Release along with cover art.
 
 Section 1 - Genre, description, etc
 
-The story genre is "Science Fiction". The story description is "Travel through space and time to save your ship." The story creation year is 2023. The release number is 1.
+The story genre is "Science Fiction". The story description is "Travel through space and time to save your ship." The story creation year is 2023. The release number is 2.
 
 Section 2 - Increasing memory sizes
 
@@ -31663,7 +31663,7 @@ Interesting--It looks like the flipper is some kind of self-righting mechanism[o
 
 Instead of the rusty-robot robot-flipping when the rusty-robot is on the balanced-door:
 	if the rusty-robot is visible:
-		say "The robot engages its flipper arm and does a backflip, landing heavily on the door[if the player is on balanced-door], which flings [nameus] upwards[otherwise], making the other end spring up, although nothing is on it[end if].";
+		say "The robot engages its flipper arm and does a backflip, landing heavily on the door[if the player is on balanced-door], which tilts the whole thing upward high enough that [nameus] can reach the hole to the floor above. [We] pull [ourselves] up into the room above[otherwise], making the other end spring up, although nothing is on it[end if].";
 		if the player is on balanced-door:
 			now the player is in logic-room;
 			
@@ -34281,7 +34281,7 @@ Targetresponse of response-quip is "'Oh, good, you're there,' says the voice.
 
 Gareth chuckles nervously. 'I thought not. That may or may not be because I forgot to tell you.'
 
-Youare silent.
+You are silent.
 
 He goes on, 'Listen, it shouldn't be bad. You're in the storage closet, right?'
 
@@ -34312,7 +34312,7 @@ Instead of taking the newer-box:
 After opening the newer-box for the first time:
 	say "You open [the newer-box]. There's no jacket, but there are a bright red toy robot and a snowglobe."
 
-The toy-robot is a memorable device in the newer-box. The printed name of the toy-robot is "toy robot". Understand "bright" or "red" or "toy" or "robot" as the toy-robot. The description of the toy-robot is "This is a bright red toy robot that can be swtiched on or switched off. You recognize it; one of the engineers made a batch of them for Christmas a few years back. This must have been a leftover. It could be entertaining for the party."
+The toy-robot is a memorable device in the newer-box. The printed name of the toy-robot is "toy robot". Understand "bright" or "red" or "toy" or "robot" as the toy-robot. The description of the toy-robot is "This is a bright red toy robot that can be switched on or switched off. You recognize it; one of the engineers made a batch of them for Christmas a few years back. This must have been a leftover. It could be entertaining for the party."
 
 The eiffel-snowglobe is a memorable thing in newer-box. Understand "snowglobe" or "snow" or "globe" or "miniature" or "eiffel" or "tower" as the eiffel-snowglobe. The printed name of the eiffel-snowglobe is "miniature Eiffel Tower Snowglobe". The description of the eiffel-snowglobe is "You haven't seen the Eiffel Tower since you were very little, but this snowglobe looks just like you remember it. In fact, this might be your snowglobe; you had a trinkets shelf for a few years until you got tired of dusting it. The rest of the crew might like it[if the eiffel-snowglobe is unflurried]. The 'snow' has all come to rest at the bottom[otherwise]. The snow is still swirling now that you've shaken it[end if]."
 
@@ -34349,6 +34349,9 @@ You feel a bit woozy for a moment, and then--
 [italic type]You are in a closet, this one marked with warning signs in bright yellow and black. A heavy protective suit is on the ground. You reach for it, your hands trembling--[roman type]
 
 In a second, the vision is gone. A premonition? They say that Storyweavers like yourself have the Gift, but you've usually attributed that to intuition or gentle nudges. You've never actually [italic type]seen[roman type] something like that before[or]On the shelf, you can see [a list of things on the maint-shelf][stopping]"
+
+Before going nowhere from maintenance-closet when the noun is outside:
+	try going south instead;
 
 Section 1 - Scenery
 
@@ -34517,6 +34520,9 @@ Rule for printing the description of a dark room when the player is in far-stora
 Instead of exiting when the player is in crawl-space:
 	try going up;
 
+Before going nowhere from crawl-space when the noun is outside:
+	try going up instead;
+
 Section 1 - The gap
 
 The crawl-gap is an open unopenable scenery door. It is down from far-storage and up from crawl-space. The printed name of the crawl-gap is "gap". Understand "gap" as the crawl-gap. The description of the crawl-gap is "[if the player is in far-storage]The gap looks big enough for you to fit in it, but not by much[otherwise]The gap to go back up looks very welcoming right now[end if]".
@@ -34584,6 +34590,8 @@ Part 1 - Standard Responses
 Chapter 1 - Redirecting to standard responses
 
 Understand "Look behind [something]" or "go behind [something]" as looking under.
+
+Understand "look on [something]" as examining.
 
 Instead of climbing a supporter:
 	try entering the noun;
