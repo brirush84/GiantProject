@@ -25,7 +25,7 @@ Release along with cover art.
 
 Section 1 - Genre, description, etc
 
-The story genre is "Science Fiction". The story description is "Travel through space and time to save your ship." The story creation year is 2023. The release number is 3.
+The story genre is "Science Fiction". The story description is "Travel through space and time to save your ship." The story creation year is 2023. The release number is 4.
 
 Section 2 - Increasing memory sizes
 
@@ -403,7 +403,7 @@ Report uttering an unlinkaged squip to someone:
 	
 Every turn when squipcounter is 7:
 	now squipcounter is 0;
-	say "[one of]It dawns on you that this group of suspects is quite adept at lying. While they have been willing to talk about many subjects, you're beginning to feel that only calling them out directly in their lies will make any real progress.[or][bracket]Talking to suspects about clues can provide useful info, but only clues produced by LINKing one clue to another will produce any real progress[close bracket][stopping][conditional paragraph break]"
+	say "[one of]It dawns on you that this group of suspects is quite adept at lying. While they have been willing to talk about many subjects, you're beginning to feel that only calling them out directly in their lies will make any real progress.[or][bracket]Talking to suspects about clues can provide useful info, but only clues produced by LINKing one clue to another will produce any real progress.[close bracket][stopping][conditional paragraph break]"
 
 Singlequipping is an action applying to one thing. Understand "[a held quip]" as singlequipping.
 
@@ -918,7 +918,7 @@ The captain-room is east from officers-quarters. The captain-room is in ship-reg
 
 'Storyweaver. You're here,' he says, keeping a calm tone despite his ashen appearance. 'I could use your historical perspective, given the...events of the day.[deliverrequest]' As he speaks, the glow behind him widens, opening into a full-blown rift in the fabric of space, glowing red.
 
-The captain sighs, and you see moisture in the corners of his eyes. As he speaks, a robotic, yet simian-looking hand pushes its way out of the rift and grabs something from the desk before pulling it into the rift.
+The Captain sighs, and you see moisture in the corners of his eyes. As he speaks, a robotic, yet simian-looking hand pushes its way out of the rift and grabs something from the desk before pulling it into the rift.
 
 You only had a second to look, but your heart drops: the hand took the Captain's watch, an antique passed down for generations in his family. Strangely, he seems completely unaware of what's happened[only].".
 
@@ -932,6 +932,7 @@ The command-uniform is worn by the captain. The printed name of the command-unif
 
 To say deliverrequest:
 	deliver request-quip;
+	deliver extraordinary-quip;
 
 Request-quip is a quip. The printed name of the request-quip is "Request". Understand "Request" as the request-quip. The target of request-quip is the captain. The preview of the request-quip is "Reporting for duty, sir. How can I help you?".
 
@@ -949,7 +950,15 @@ He winces. 'I hope you don't think me a coward,' he says. 'There is little I can
 
 He shakes his head, then turns to look at his desk. He does not take notice of the gaping hole in spacetime next to it. But he notices the absence of his watch. He startles, then looks under the desk, but then notices you watching. He returns to sulking over his Scotch, now sadder than before."
 
-The scotch-glass is held by the captain. The printed name of the scotch-glass is "glass of scotch". Understand "glass" or "glass of" or "scotch" or "drink" or "cup" as the scotch-glass. The description of the scotch-glass is "The Captain holds a glass of scotch firmly in his hand. It seems he's been helping himself to the decanter on the desk." 
+Extraordinary-quip is a quip. The printed name of Extraordinary-quip is "Extraordinary". Understand "Extraordinary" as Extraordinary-quip. The preview of Extraordinary-quip is "Captain, strange rifts have been opening all over the ship!" The target of Extraordinary-quip is the Captain.
+
+The targetresponse of Extraordinary-quip is "He looks at you with a stone-faced expression. 'I'm not sure I understand. Are you referring to hull breaches?'
+
+'No, Captain, they're different--more like holes in space. I can enter them, go places...there's one in here, with us,' he says.
+
+He looks around, seemingly not noticing the rift, then sighs and takes a heavy sip of his Scotch. 'I'm afraid I don't have time to deal with the metaphysical, Storyweaver. If there are such rifts, I suggest you find a way to make use of them, but, barring that... perhaps you should get some rest.'"
+
+The scotch-glass is held by the captain. The printed name of the scotch-glass is "glass of Scotch". Understand "glass" or "glass of" or "scotch" or "drink" or "cup" as the scotch-glass. The description of the scotch-glass is "The Captain holds a glass of Scotch firmly in his hand. It seems he's been helping himself to the decanter on the desk." 
 
 Instead of drinking the scotch-glass:
 	say "That's the Captain's drink!"
@@ -1023,7 +1032,7 @@ Instead of opening the captains-desk:
 
 Section 4 - Bed and ornaments
 
-The tightly-made is a scenery enterable supporter in captain-room. The printed name of tightly-made is "tightly-made bed". Understand "tightly" or "made" or "bed" as the tightly-made. The description of the tightly-made is "The captain's bed is impeccable. A quarter would bounce quite a bit on this.".
+The tightly-made is a scenery enterable supporter in captain-room. The printed name of tightly-made is "tightly-made bed". Understand "tightly" or "made" or "bed" as the tightly-made. The description of the tightly-made is "The captain's bed is impeccable.".
 
 Instead of entering the tightly-made:
 	say "Hopping in the Captain's bed would be deeply disrespectful."
@@ -1037,7 +1046,7 @@ To say deliverhome:
 	
 Home-quip is a quip. The printed name of home-quip is "Home". Understand "Home" as home-quip. The target of Home-quip is the Captain. The preview of Home-quip is "Do you think of your family often?"
 
-The targetresponse of home-quip is "'Storyweaver,' he answer seriously, 'My wife and son died very soon after that picture was taken. It was sudden, but I'm told it was relatively painless. I think about them every day.'
+The targetresponse of home-quip is "'Storyweaver,' he answers seriously, 'My wife and son died very soon after that picture was taken. It was sudden, but I'm told it was relatively painless. I think about them every day.'
 
 'Oh,' you say, embarrassed. 'I didn't know. My condolences.'
 
@@ -1520,7 +1529,12 @@ The description of the transit-crowd is "People look scared. Most of the wounded
 
 Chapter 13 - Opening room
 
-Opening-room is a room in ship-region. The printed name of opening-room is "Banquet Hall". "[one of]Although most of the ship is conservative in its use of space, this[or]This[stopping] is the one room designed to hold most of the officers and auxiliary staff. Today, it's bustling, filled with crew from every walk of life and their families.
+To decide whether it's weirdpromptime:
+	if the command prompt is "???>":
+		decide yes;
+	decide no;
+
+Opening-room is a room in ship-region. The printed name of opening-room is "[if it's weirdpromptime]Grave[otherwise]Banquet Hall[end if]". "[one of]Although most of the ship is conservative in its use of space, this[or]This[stopping] is the one room designed to hold most of the officers and auxiliary staff. Today, it's bustling, filled with crew from every walk of life and their families.
 
 [if the emrys-table is in the location]Benches are lined up on both sides of the room, and a seat has been reserved for you at the head table[otherwise]Everyone is watching you now, their interest held by your presentation[end if]. A display table at the front [if the number of things on display-table is 0]stands empty[otherwise]holds [a list of things on display-table][end if].
 
@@ -1661,7 +1675,7 @@ You are standing next to the display table, where everything you collected from 
 	clear the flags;
 	now welcome-quip is held by the player;
 	now party-crowd is talkative;
-	now the printed name of opening-room is "Banquet Hall (At the front)";
+	now the printed name of opening-room is "[if it's weirdpromptime]Grave[otherwise]Banquet Hall (At the front)[end if]";
 	move the player to opening-room, without printing a room description;
 	now party-gareth is nowhere;
 	now emrys-table is nowhere;
@@ -1780,7 +1794,7 @@ After taking the rubber-spider during speech-scene:
 	increment SpeechCounter;
 	say "You hold up the rubber spider. A baby starts to cry, but some of the older kids edge in closer to look.
 
-'You may not know this, but I am terrified of spiders.' A few people laugh nervously. 'Don't worry, this one is fake. Even so, just holding makes my heart race a little. Nevertheless, on a mission like ours, all of us have to face fears daily. We are travelling in space, on first ship of its kind. No one knew if we could make it, and yet here we are, almost at the end of our journey. None of us would be here if we had not faced our fears.'
+'You may not know this, but I am terrified of spiders.' A few people laugh nervously. 'Don't worry, this one is fake. Even so, just holding it makes my heart race a little. Nevertheless, on a mission like ours, all of us have to face fears daily. We are travelling in space, on the first ship of its kind. No one knew if we could make it, and yet here we are, almost at the end of our journey. None of us would be here if we had not faced our fears.'
 
 The crowd is silent, thoughtful. Someone comes and takes away the spider[NextMemento].";
 	now the rubber-spider is nowhere;
@@ -18535,6 +18549,9 @@ Definition: a thing is carrycontainer:
 	
 The rucksack is an openable closed wearable container. The rucksack is carried by the player. Understand "ruck" or "sack" or "backpack" or "back pack" or "bag" as the rucksack. The description of the rucksack is "This is your standard-issue rucksack you were given on your first day on the Starship Tragwyddol."
 
+Does the player mean entering the rucksack:
+	it is very unlikely;
+
 Instead of clone-you opening something:
 	if clone-you is enclosed by the location of the player:
 		if the noun is an open thing:
@@ -19841,7 +19858,7 @@ Instead of showing the police-badge to Maeve:
 	otherwise:
 		say "[The maeve] crouches down, staring between you and the photo. 'Oh, all right,' she says. 'I believe you.' She stands up and steps back a bit.
 
-'I'm sure you've already guessed, and it's true. I am celebrity author Maeve Miller, travelling incognito'--and here she tips her sunglasses down, revealing watery blue eyes, leaning in to whisper--'to avoid the paparazzi. They can be brutal, you know'. 
+'I'm sure you've already guessed, and it's true. I am celebrity author Maeve Miller, travelling incognito'--and here she tips her sunglasses down, revealing watery blue eyes, leaning in to whisper--'to avoid the paparazzi. They can be brutal, you know.'
 
 She then seats herself down and removes her sunglasses entirely, massaging her eyes with the other hand[deliverstatement].";
 		now Maeve is proper-named;
@@ -20116,6 +20133,9 @@ The description of Elen is "[The elen] is a middle-aged woman wearing a sleek bl
 She's wearing a very expensive-looking wristwatch[end if]."
 
 The elen-uniform is worn by Elen. The printed name of the elen-uniform is "sleek black uniform". Understand "sleek" or "black" or "uniform" or "well" or "designed" or "well-designed" as the elen-uniform. 
+
+Instead of taking off the elen-uniform:
+	say "This isn't roleplay, detective."
 
 The description of the elen-uniform is "This train attendant uniform is surprisingly well-designed, completely unobtrusive while not being unflattering."
 
@@ -20607,7 +20627,7 @@ Instead of going nowhere from luxury-cafe when the noun is north:
 	if dafyddbegged is false:
 		say "I couldn't leave yet without trying to figure out what was going on with this young man.";
 	otherwise:
-		say "But all good things have to come to end. I said goodbye to Dafydd, and left. He seemed sad to have to leave me.";
+		say "But all good things have to come to end. I said goodbye to Dafydd, and left. He seemed sad to have to leave me.[line break]";
 		silently try ceasing;
 		now maeve is onceswapped;
 		say "'And that's everything that happened, Detective. We parted on good terms. I can only assume he came here to find me,' says Maeve."
@@ -21160,7 +21180,7 @@ Instead of taking the false-slides:
 After opening the samples-fridge when arthur-level is 0:
 	say "I opened the refrigerator, revealing the last two samples to be marked, sample 4B and sample 5C. The other samples I had previously marked were also in the refrigerator."
 
-Sample-4B is a sample-slide in the samples-fridge. Sample-5C is a sample-slide in the samples-fridge. The printed name of Sample-4B is "sample 4B". Understand "4b" as sample-4b. Understand "5c" as sample-5c. The printed name of sample-5c is "sample 5c". The description of sample-4B is "This was one of the more confusing samples of the experiment, and had been left for last, along with sample 5C. I couldn't see any pertinent details without the use of the microscope."
+Sample-4B is a sample-slide in the samples-fridge. Sample-5C is a sample-slide in the samples-fridge. The printed name of Sample-4B is "sample 4B". Understand "4b" or "rb" as sample-4b. Understand "5c" or "tc" as sample-5c. The printed name of sample-5c is "sample 5c". The description of sample-4B is "This was one of the more confusing samples of the experiment, and had been left for last, along with sample 5C. I couldn't see any pertinent details without the use of the microscope."
 
 The description of sample-5C is "This was one of the more confusing samples of the experiment, and had been left for last, along with sample 4B. I couldn't see any pertinent details without the use of the microscope."
 
@@ -22587,7 +22607,7 @@ He glanced at me nervously, and said, 'Ticket? Oh, of course,' and handed it to 
 
 'How sweet,' I said. And, being able to see it closer up, I was sure it was real. I made an impressed face, but said nothing further. I could always come back after I took the other tickets, especially with a tunnel coming up soon.";
 		now the dafydd-ticket is held by the player;
-	otherwise if maeve-ticket is held by the player and arthur-ticket is held by the player:
+	otherwise if maeve-ticket is not held by the elen-maeve and arthur-ticket is not held by the elen-arthur:
 		say "'Okay, they should leave us alone for a bit. What's your proposal?'
 
 'Here,' he said. 'This watch, it's an authentic Arawnz. It's got to be worth more than your car. If you take it, we're even, right?'
@@ -34531,7 +34551,7 @@ Instead of examining the self-reflection:
 INstead of physicality when the noun is the self-reflection:
 	say "You can't physically interact with your reflection.";
 
-The toy-train is a memorable thing in old-trunk. The printed name of the toy-train is "toy train". Understand "toy" or "train" or "metal" or "axles" or "axle" or "plastic" or "wheel" or "wheels" as the toy-train. The description of the toy-train is "This simple toy train looks like it was made for a very young child. Its carved out of wood, with metal axles and some plastic wheels. You might be able to use it to talk about transportation in your presentation, or kids."
+The toy-train is a memorable thing in old-trunk. The printed name of the toy-train is "toy train". Understand "toy" or "train" or "metal" or "axles" or "axle" or "plastic" or "wheel" or "wheels" as the toy-train. The description of the toy-train is "This simple toy train looks like it was made for a very young child. It's carved out of wood, with metal axles and some plastic wheels. You might be able to use it to talk about transportation in your presentation, or kids."
 
 The ceremonial-jacket is in old-trunk. The ceremonial-jacket is a wearable thing. The printed name of the ceremonial-jacket is "ceremonial jacket". Understand "ceremonial" or "jacket" or "gold" or "black" or "epaulette" or "epaulettes" or "lapel" or "lapels" as the ceremonial-jacket. The description of the ceremonial-jacket is "This jacket is black with gold epaulettes and lapels. It really does look good; you suppose it was worth the time you spent looking for it."
 
