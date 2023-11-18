@@ -25,7 +25,7 @@ Release along with cover art.
 
 Section 1 - Genre, description, etc
 
-The story genre is "Science Fiction". The story description is "Travel through space and time to save your ship." The story creation year is 2023. The release number is 2.
+The story genre is "Science Fiction". The story description is "Travel through space and time to save your ship." The story creation year is 2023. The release number is 3.
 
 Section 2 - Increasing memory sizes
 
@@ -89,7 +89,7 @@ The special clue called Statement will transport you into a suspect's past when 
 Crediting is an action out of world. Understand "Credits" as crediting. 
 
 Carry out crediting:
-	say "This game was written by Brian Rushton/Mathbrush using Inform 7 (by Graham Nelson). Beta testers include Amanda Walker, the Xenographer, John Ziegler, Jade, Christopher Merriner, Patrick Mooney, Brett Witty, Rovarsson, E. Joyce, Max Fouquet O'Garra, Dee Cooke, Ian Greener, Chandler Groover, Lance Cirone, Zed Lopez, Cody Gaisser, Alex Proudfoot, Radioactive Crow, Doug Egan, Mike Spivey, Larry Horsfield, Dirk Spivey, Arthur DiBianca, Hal Rushton, Hidnook, Charm Cochran, Grueslayer, Lynnea Glasser, and LAST_TESTER_HERE. 
+	say "This game was written by Brian Rushton/Mathbrush using Inform 7 (by Graham Nelson). Beta testers include Amanda Walker, the Xenographer, John Ziegler, Jade, Christopher Merriner, Patrick Mooney, Brett Witty, Rovarsson, E. Joyce, Max Fouquet O'Garra, Dee Cooke, Ian Greener, Chandler Groover, Lance Cirone, Zed Lopez, Cody Gaisser, Alex Proudfoot, Radioactive Crow, Doug Egan, Mike Spivey, Larry Horsfield, Dirk Spivey, Arthur DiBianca, Hal Rushton, Hidnook, Charm Cochran, Grueslayer, Lynnea Glasser, Wade Clarke, Onno Brouwer, and LAST_TESTER_HERE. 
 
 Hanon Ondricek gave helpful advice about the concept and title. Phil Riley and Peter Bates made suggestions about coding. Mike Russo and Garry Francis gave poetry tips. Wade Clarke and Mike Russo (again) gave some prose tips.
 
@@ -683,7 +683,7 @@ Section 2 - Rift
 
 The psych-tear is a space-tear. "[one of]The psychologist on duty, Gareth Djomo, is in here, huddled on his couch. Oblivious to the chaos outside, or perhaps overwhelmed by it, he stares off into the corner. 
 
-There is a tearing sound, and the fabric of reality rips open to the [boldnorth]. Out of the rift comes a bizarre little creature, a kind of robotic monkey. It leaps up onto Gareth's desk and grabs one of the action figures, then rushes back into the rift. [Gareth] doesn't seem to notice any of this[or][if the player is in ship-region]A rift has opened up[otherwise]A rift leading back to the ship[end if] to the [if the player is in psych-room][boldnorth][otherwise][boldsouth][end if]. It glows [rift-style of the psych-tear][stopping]." The psych-tear is north of psych-room and south of the front-room.
+There is a tearing sound, and the fabric of reality rips open to the [boldnorth]. Out of the rift comes a bizarre little creature, a kind of robotic monkey. It leaps up onto Gareth's desk and grabs one of the action figures, then rushes back into the rift. [Gareth] doesn't seem to notice any of this[or][if the player is in ship-region]A rift has opened up[otherwise]A rift leads back to the ship[end if] to the [if the player is in psych-room][boldnorth][otherwise][boldsouth][end if]. It glows [rift-style of the psych-tear][stopping]." The psych-tear is north of psych-room and south of the front-room.
 
 Chapter 3 - Engineering room
 
@@ -859,9 +859,9 @@ Instead of entering the family-doors:
 
 Section 3 - Harish and Divya
 
-Harish is a man in living-quarters. The description of Harish is "Harish is a middle-aged man whom time has not been entirely kind to. He looks deeply concerned with his daughter's distress."
+Harish is a man in living-quarters. Understand "father" or "dad" or "papa" as harish. The description of Harish is "Harish is a middle-aged man whom time has not been entirely kind to. He looks deeply concerned with his daughter's distress."
 
-Divya is a woman in living-quarters. The description of Divya is "Divya is a teen with a tear-streaked face. She's sitting on the ground while stifling sobs."
+Divya is a woman in living-quarters. Understand "daughter" as divya. The description of Divya is "Divya is a teen with a tear-streaked face. She's sitting on the ground while stifling sobs."
 
 Rule for writing a paragraph about harish: 
 	say "[first time]You hear shouting as you walk down the corridor. 'Duke! Duke, where are you?' shouts a voice that you recognize.
@@ -1055,7 +1055,7 @@ Instead of reading the captain-shelf:
 
 Chapter 7 - Bridge, Sensors
 
-The sensors-room is in bridge-region. The sensors-room is east from bridge-command. "You are in the southern portion of the bridge, in the area dedicated to reading sensors. Almost all stations are empty, although crew members are passing back and forth rapidly in the background. Countless monitors cover the walls, although some are dead. The rest of the bridge is to the [boldwest]." The printed name of sensors-room is "Bridge: Sensors". 
+The sensors-room is in bridge-region. The sensors-room is east from bridge-command. "You are in the eastern portion of the bridge, in the area dedicated to reading sensors. Almost all stations are empty, although crew members are passing back and forth rapidly in the background. Countless monitors cover the walls, although some are dead. The rest of the bridge is to the [boldwest]." The printed name of sensors-room is "Bridge: Sensors". 
 
 Section 1 - The rift
 
@@ -1577,7 +1577,12 @@ Instead of taking the donut-pile:
 		now the single-donut is held by the player;
 		
 Instead of eating the donut-pile:
-	try taking the donut-pile;
+	if the single-donut is enclosed by the player:
+		try eating the single-donut;
+	otherwise:
+		try taking the donut-pile;
+		if the single-donut is enclosed by the player:
+			try eating the single-donut;
 
 The single-donut is an edible thing. The printed name of the single-donut is "single donut". Understand "single" or "donut" or "glazed" as the single-donut. The description of the single-donut is "This donut is perfectly made. It's just a glazed donut, but sometimes the classics are the best."
 
@@ -1670,7 +1675,7 @@ Welcome-quip is a quip. The printed name of welcome-quip is "Welcome". Understan
 
 The targetresponse of welcome-quip is "Everyone claps and cheers, then settles down again.
 
-You go on. 'I can't tell you how much I've enjoyed spending time with each of you on this ship. I knew when I signed up that I would spend a very large part of my life on this voyage, watching all the rest of you come in and out of cryogenic storage. I've cried when some of my friends went back to be frozen, and I cried when I saw some of you come back.' The crowd laughs.
+You go on. 'I can't tell you how much I've enjoyed spending time with each of you on this ship. I knew when I signed up that I would spend a very large part of my life on this voyage, watching all the rest of you come in and out of cryogenic storage. I cried when some of my friends went back to be frozen, and I cried when I saw some of you come back.' The crowd laughs.
 
 'But as your Storyweaver, I've learned to laugh with your jokes, mourn with your losses, and celebrate with your successes, so that I could pass your story on to future generations.' You indicate the table. 'I've brought some symbols of our time on this ship. Some may spark memories, while others might provide you with new insights.'
 
@@ -1972,7 +1977,7 @@ You can reach the bridge by going [bolddown] a nearby transport tube. The Captai
 
 Section 1 - Scenery
 
-The off-bar is a scenery supporter in officers-quarters. The printed name of the off-bar is "oak bar". Understand "oak" or "oaken" or "bar" or "real" as the off-bar. The description of the off-bar is "The barm made of oak, stretches across part of the room. Not the largest bar, it is mostly used for small gatherings.".
+The off-bar is a scenery supporter in officers-quarters. The printed name of the off-bar is "oak bar". Understand "oak" or "oaken" or "bar" or "real" as the off-bar. The description of the off-bar is "The bar made of oak stretches across part of the room. Not the largest bar, it is mostly used for small gatherings.".
 
 Instead of searching or looking under the off-bar:
 	say "Looks like all the alcohol and glasses have been stowed."
@@ -1980,7 +1985,7 @@ Instead of searching or looking under the off-bar:
 Instead of entering the off-bar:
 	say "The officers would likely get upset if they knew you had been tramping over their bar."
 
-The off-chairs are plural-named scenery supporters in officers-quarters. The printed name of off-chairs is "chairs". Understand "chair"  or "armchair" or "armchairs" or "comfortable" or "chairs" as the off-chairs. The description of the off-chairs is "These armchairs are quite comfortable. They get re-upholstered every few years, so are in good condition."
+The off-chairs are plural-named enterable scenery supporters in officers-quarters. The printed name of off-chairs is "chairs". Understand "chair"  or "armchair" or "armchairs" or "comfortable" or "chairs" as the off-chairs. The description of the off-chairs is "These armchairs are quite comfortable. They get re-upholstered every few years, so are in good condition."
 
 After entering the off-chairs:
 	say "You sink into an armchair. Very nice!"
@@ -1991,7 +1996,7 @@ after getting off when the player was on the off-chairs:
 Instead of pushing or pulling or turning or taking the off-chairs:
 	say "Rearranging furniture while a ship is crashing? Reminds you of something, but you can't remember what."
 
-The off-lamps are plural-named scenery devices in officers-quarters. The printed name of the off-lamps is "lamps". Understand "lamp" or "lamps" or "tall" or "minimal" or "design" as the off-lamps. The description of the off-lamps is "The lamps have a minimal design, contributing to the tasteful aesthetic of the room."
+The off-lamps are plural-named scenery devices in officers-quarters. The printed name of the off-lamps is "lamps". Understand "lamp" or "lamps" or "tall" or "minimal" or "design" as the off-lamps. The description of the off-lamps is "The lamps have a minimal design, contributing to the tasteful aesthetic of the room." The off-lamps are switched on.
 
 Instead of switching off the off-lamps:
 	say "You switch off a lamp, but it makes little change. You switch it back on."
@@ -5821,7 +5826,7 @@ Does the player mean luring an animal:
 
 Section 4 - Zoo sign
 
-The termite-sign is a zoo-sign in savanna-room. The sign-text of termite-sign is "termites". The description of the termite-sign is "These termites are industrious insects that enjoy eating a variety of plant-based materials. While they will settle for low-quality wood, such as the baobab trees or popsicle sticks, they are far more fond of rotten or decayed wood. While the zoo itself does not provide rotten wood, feel free to contribute any you find elsewhere!"
+The termite-sign is a zoo-sign in savanna-room. The sign-text of termite-sign is "termites". Understand "temite sign" as the termite-sign. The description of the termite-sign is "These termites are industrious insects that enjoy eating a variety of plant-based materials. While they will settle for low-quality wood, such as the baobab trees or popsicle sticks, they are far more fond of rotten or decayed wood. While the zoo itself does not provide rotten wood, feel free to contribute any you find elsewhere!"
 
 Chapter 4 - Desert
 
@@ -5890,7 +5895,7 @@ After a few fearful moments, the cougar leaps back down and the owl returns to h
 
 Section 3 - Sign
 
-The owl-sign is a zoo-sign in desert-room. The sign-text of owl-sign is "owls". The description of the owl-sign is "Our resident horned owl, Wanda, is one of our oldest residents! Her favorite activities are decorating her nest and sleeping throughout the day. Make sure to be quiet; sudden noises will startle her!
+The owl-sign is a zoo-sign in desert-room. The sign-text of owl-sign is "owl". The description of the owl-sign is "Our resident horned owl, Wanda, is one of our oldest residents! Her favorite activities are decorating her nest and sleeping throughout the day. Make sure to be quiet; sudden noises will startle her!
 
 Note: Wanda is no longer attuned, in respect of her old age."
 
@@ -6164,7 +6169,7 @@ The goat-trails are plural-named scenery in foothills-room. The printed name of 
 
 Rule for writing a paragraph about the mountain-goat:
 	if the old-ram is in the location:
-		say "An entire herd of mountain goats is wandering around aimlessly. One buck towers over the others, old but powerful[if the logic-ring is part of the left-horn]. [A logic-ring] dangles from its left horn[end if].";
+		say "An entire herd of mountain goats is [if the mountain-goat is lured]following your lure[end if]wandering around aimlessly. One buck towers over the others, old but powerful[if the logic-ring is part of the left-horn]. [A logic-ring] dangles from its left horn[end if].";
 		now the old-ram is mentioned;
 
 Instead of entering the goat-trails:
@@ -6176,7 +6181,9 @@ Understand "follow [something]" as entering when the player is in ecocosm-region
 
 Section 4 - Logic ring and ram
 
-The old-ram is an animal in foothills-room. "One buck towers over the others, old but powerful[if the logic-ring is part of the left-horn]. [A logic-ring] dangles from its left horn[end if]." The printed name of the old-ram is "old buck". Understand "old" or "white" or "fur" or "buck" or "powerful" or "goat" or "billy" as the old-ram. The description of the old-ram is "Much larger than the other goats, this old buck has white fur and a nasty attitude. Two massive horns sprout from his head[if the logic-ring is part of the left-horn]. On the left horn hangs a logic ring[end if].".
+The old-ram is an animal in foothills-room. "[if the mountain-goat is in the location]An entire herd of [mountain-goat] is wandering around aimlessly. [end if]One buck towers over [if mountain-goat is in the location]the others[otherwise]you[end if], old but powerful[if the logic-ring is part of the left-horn]. [A logic-ring] dangles from its left horn[end if]." 
+
+The printed name of the old-ram is "old buck". Understand "old" or "white" or "fur" or "buck" or "powerful" or "goat" or "billy" as the old-ram. The description of the old-ram is "Much larger than the other goats, this old buck has white fur and a nasty attitude. Two massive horns sprout from his head[if the logic-ring is part of the left-horn]. On the left horn hangs a logic ring[end if].".
 
 The left-horn is part of the old-ram. Understand "left" or "horn" or "horns" or "buck's" as the left-horn. The printed name of the left-horn is "left horn". The description of the left-horn is "The buck's left horn is about the width of your arm[if the logic-ring is part of the left-horn]On it hangs [a logic-ring].[end if].".
 
@@ -6379,7 +6386,7 @@ Except for the old buck, who is quite an ornery fellow. Make sure not to mess wi
 
 Chapter 9 - Lake
 
-The lake-room is south from foothills-room. The printed name of the lake-room is "Lake". The lake-room is in ecocosm-region. The description of the lake-room is "This placid lake stretches out for a good distance, about halfway from you to the horizon. Bamboo thickets surround it on all sides, although the part near the lake itself is mostly empty sand. The lake water is a bit murky, with clumps of algae floating on it.
+The lake-room is south from foothills-room. The printed name of the lake-room is "Lake". The lake-room is in ecocosm-region. The description of the lake-room is "This placid lake stretches out for a good distance, about halfway from you to the horizon. Bamboo thickets surround it on all sides, although the part near the lake itself is mostly empty sand. The lake water is a bit murky, with clumps of algae floating on it. A sign is posted next to the lake.
 
 A gorilla nest has been formed in the middle of the bamboo. The only way out of here is to the [boldnorth]."
 
@@ -6442,7 +6449,7 @@ The beach-sand is ambiguously plural scenery in lake-room. The printed name of t
 
 Section 4 - Sign
 
-The gorilla-sign is a zoo-sign in lake-room. The sign-text of gorilla-sign is "gorilla". The description of the gorilla-sign is "Our gorillas are new to the zoo! This pair are actually uncle and niece, having moved here from one our more crowded zoos. While our silverback was very protective at first, he seems to be relaxing more now that he's settled in."
+The gorilla-sign is a zoo-sign in lake-room. The sign-text of gorilla-sign is "gorillas". The description of the gorilla-sign is "Our gorillas are new to the zoo! This pair are actually uncle and niece, having moved here from one our more crowded zoos. While our silverback was very protective at first, he seems to be relaxing more now that he's settled in."
 
 Chapter 10 - Peninsula
 
@@ -6697,7 +6704,7 @@ INstead of drinking the rain-river:
 
 Section 4 - Sign
 
-The caiman-sign is a zoo-sign in rainforest-room. The sign-text of caiman-sign is "caiman". The description of the caiman-sign is "This exhibit is larger than the other areas, encompassing this rainforest and the waterfall to the west. The caimans consider both their home.
+The caiman-sign is a zoo-sign in rainforest-room. The sign-text of caiman-sign is "caimans". The description of the caiman-sign is "This exhibit is larger than the other areas, encompassing this rainforest and the waterfall to the west. The caimans consider both their home.
 
 All of our caimans are attuned; however, some of them are much more prone to fighting than the others and like to bully the others whenever they have an advantage. Be careful!"
 
@@ -6729,7 +6736,7 @@ The fall-pool is scenery zoo-water in the waterfall-room. Understand "pool" or "
 
 The falls-mist is intangible ambiguously plural scenery in the waterfall-room. The printed name of the falls-mist is "mist". Understand "mist" or "fine" or "spray" as the falls-mist. The description of the falls-mist is "The force of the waterfall fills most of this area with a fine mist."
 
-The falls-stones are enterable scenery plural-named supporters in the waterfall-room. The printed name of the falls-stones is "slick stones". Understand "stone" or "stones" or "slick" or "wet" as the falls-stones. The description of the falls-stones is "Many of the rocks surrounding the pool are slick."
+The falls-stones are enterable scenery plural-named supporters in the waterfall-room. The printed name of the falls-stones is "slick stones". Understand "stone" or "stones" or "slick" or "wet" or "rock" or "rocks" as the falls-stones. The description of the falls-stones is "Many of the rocks surrounding the pool are slick."
 
 The falls-stream is scenery in waterfall-room. The printed name of the falls-stream is "river". Understand "stream" or "river" as the falls-stream. The description of the falls-stream is "The river is wide and moving rapidly. It'd be dangerous to cross."
 
@@ -6756,7 +6763,7 @@ Before taking the keeper-body:
 
 Section 4 - Caimen 
 
-A cai-man can be grumpy or nice. A cai-man is usually nice.
+A cai-man can be grumpy or nice. A cai-man is usually nice. Understand "caimans" as the plural of cai-man.
 
 The crooked-snout is a cai-man in waterfall-room. The printed name of crooked-snout is "stubby caiman". Understand "stubby" or "snout" or "small" or "guy" as crooked-snout. The description of the crooked-snout is "This caiman is stubbier than the others, a kind of small guy.".
 
@@ -6887,7 +6894,7 @@ The palm-trees are plural-named scenery zoo-tree in the island-room. Understand 
 
 Section 4 - Sign
 
-The snakes-sign is a zoo-sign in island-room. The sign-text of snakes-sign is "snakes". The description of the snakes-sign is "Unlike sea snakes, which have great difficulty moving on land, water snakes are able to spend more time out and about. 
+The snakes-sign is a zoo-sign in island-room. The sign-text of snakes-sign is "snake". The description of the snakes-sign is "Unlike sea snakes, which have great difficulty moving on land, this water snake is able to spend more time out and about. 
 
 Like all other reptiles, snakes are cold-blooded. Due to their high surface-area-to-volume ratio, they may quickly become dormant in colder temperatures."
 
@@ -7053,7 +7060,7 @@ The spruce-trees are plural-named scenery zoo-tree in tundra-room. The printed n
 
 Section 4 - Sign
 
-The wolf-sign is a zoo-sign in tundra-room. The sign-text of wolf-sign is "wolf". The description of the wolf-sign is "Our wolf pack is a diverse group! These wolves come from several different sets of parents, but have blended well in our zoo. Some of the wolves are quite tame and have been adopted by staff members. These have been attuned and presented with tracking collars. But all of our wolves are sweeties."
+The wolf-sign is a zoo-sign in tundra-room. The sign-text of wolf-sign is "wolves". The description of the wolf-sign is "Our wolf pack is a diverse group! These wolves come from several different sets of parents, but have blended well in our zoo. Some of the wolves are quite tame and have been adopted by staff members. These have been attuned and presented with tracking collars. But all of our wolves are sweeties."
 
 Chapter 17 - Glacier
 
@@ -7137,7 +7144,7 @@ After taking the fuel-storage for the first time:
 
 Section 4 - Sign
 
-The bear-sign is a zoo-sign in floes-room. The sign-text of bear-sign is "polar bears". Understand "polar" or "bears" as the bear-sign. The description of the bear-sign is "Polar bears can be considered one of the largest living land predators. Their extreme size and strength makes them fearless. While they are capable of killing most animals, they prefer to hunt seals and have been known to freeze the seal meat for later use."
+The bear-sign is a zoo-sign in floes-room. The sign-text of bear-sign is "polar bear". Understand "polar" or "bear" as the bear-sign. The description of the bear-sign is "Polar bears can be considered one of the largest living land predators. Their extreme size and strength makes them fearless. While they are capable of killing most animals, they prefer to hunt seals and have been known to freeze the seal meat for later use."
 
 Chapter 19 - Parkland
 
@@ -13221,7 +13228,7 @@ Instead of rubbing the stonehenge-graffiti:
 	say "It would take forever to clean all of this off."
 
 To say testername:
-	say "[one of]Amanda[or]Xenographer[or]John[or]Jade[or]Christopher[or]Lance[or]Zed[or]Cody[or]Alex[or]Radioactive Crow[or]Patrick[or]Arthur[or]Brett[or]Rovarsson[or]Joyce[or]Max[or]Dee[or]Ian[or]Chandler[or]Spike[or]Lazzah[or]Doug[or]Dirk[or]Dee[or]Hidnook[or]Eddie[or]Grueslayer[or]Lynnea[cycling]"
+	say "[one of]Amanda[or]Xenographer[or]John[or]Jade[or]Christopher[or]Lance[or]Zed[or]Cody[or]Alex[or]Radioactive Crow[or]Patrick[or]Arthur[or]Brett[or]Rovarsson[or]Joyce[or]Max[or]Dee[or]Ian[or]Chandler[or]Spike[or]Lazzah[or]Doug[or]Dirk[or]Dee[or]Hidnook[or]Eddie[or]Grueslayer[or]Lynnea[or]Wade[or]Onno[cycling]"
 
 The east-collector is a light-collector in stonehenge-east.
 
@@ -16363,7 +16370,7 @@ Understand "man" as a man. Understand "woman" as a woman.
 
 Frankenstein is a man in Parlor-room. "A tall man with pale, translucent skin and black lips is standing nearby with an avaricious look in his eye. He has a nametag on his overalls that says, 'Frankenstein'. He is holding [a list of things carried by Frankenstein][first time]. 
 
-Did that say, 'Frankenstein'? You have many questions[deliverfrankstuff][only]." The description of Frankenstein is "This is a very tall man. He has translucent skin, with a dark web of blood vessels underneath, and black lips. He wears overalls with a nametag that says 'Frankenstein: Treasure Collector'. He keeps glancing over at you with a greedy look in his eye.". Understand "Frank" or "tall" or "creature" or "monster" or "translucent" or "skin" or "web" or "pale" or "blood" or "vessels" or "vessel" or "corpse" or "avaricious" or "eye" or "corpse-like" as Frankenstein.
+Hmmmm. 'Frankenstein'? You have many questions[deliverfrankstuff][only]." The description of Frankenstein is "This is a very tall man. He has translucent skin, with a dark web of blood vessels underneath, and black lips. He wears overalls with a nametag that says 'Frankenstein: Treasure Collector'. He keeps glancing over at you with a greedy look in his eye.". Understand "Frank" or "tall" or "creature" or "monster" or "translucent" or "skin" or "web" or "pale" or "blood" or "vessels" or "vessel" or "corpse" or "avaricious" or "eye" or "corpse-like" as Frankenstein.
 
 The frank-overalls are plural-named thing worn by frankenstein. The printed name of the frank-overalls is "overalls". Understand "overalls" as the frank-overalls. The description of the frank-overalls is "These seem poorly stitched together."
 
@@ -16628,7 +16635,7 @@ Instead of entering the Grand-west: try going west;
 
 Section 1 - Pharaoh
 
-The Pharaoh is a man in Grand-room. "A mummy is here, adorned with gold, lapis lazuli and turquoise jewelry that contrast with his threadbare linen bandages. [if pharaoh is not fullcatfound]He is walking gravely around the room, seemingly troubled[end if][first time][deliverpharaoh][only]." The description of Pharaoh is "The mummified Pharaoh is a towering figure that looms over you, making you shrink away a bit. He is covered in tightly-wrapped linen bandages, yellowed with age, and is covered in bracelets and jewels made of lapis lazuli, turquoise, and beaten gold[if absent-quip is targetgiven].
+The Pharaoh is a man in Grand-room. "A mummy is here, adorned with gold, lapis lazuli and turquoise jewelry that contrast with his threadbare linen bandages[if pharaoh is not fullcatfound]. He is walking gravely around the room, seemingly troubled[end if][first time][deliverpharaoh][only]." The description of Pharaoh is "The mummified Pharaoh is a towering figure that looms over you, making you shrink away a bit. He is covered in tightly-wrapped linen bandages, yellowed with age, and is covered in bracelets and jewels made of lapis lazuli, turquoise, and beaten gold[if absent-quip is targetgiven].
 
 He's still waiting for you to find his cat[end if]."
 
@@ -16770,11 +16777,9 @@ The Library-darkness is intangible scenery in the Library-room. Understand "dark
 
 [emotion here is anxiety and intrusive thoughts]
 
-The library-cage is distant scenery in the library-room. The printed name of the library-cage is "cage". Understand "guano" or "cage" as the library-cage. The description of the library-cage is "It seems this guano-encrusted cage (on the right side of the room) has hosted bats for many years now. And it doesn't seem to have been cleaned even once during that time[if the dracula-bats are in the library-cage].
+The library-cage is distant scenery in the library-room. The printed name of the library-cage is "cage". Understand "guano" or "cage" as the library-cage. The description of the library-cage is "It seems this guano-encrusted cage (on the right side of the room) has hosted bats for many years now. And it doesn't seem to have been cleaned even once during that time."
 
-The cage is filled with many sleeping bats[end if]."
-
-The library-cage is an openable container. The library-cage is open.
+The library-cage is an openable transparent container. The library-cage is open.
 
 The library-shelves are plural-named scenery in Library-room. The library-shelves are a supporter. The printed name of library-shelves is "bookshelves". Understand "bookshelf" or "row" or "rows" or "shelf" or "shelves" or "bookshelves" or "nonsensical" or "tome" or "tomes" or "library" or "books" as the library-shelves. 
 
@@ -16972,7 +16977,7 @@ The red-token is a token. The printed name of the red-token is "red token". Unde
 The token-target of the red-token is "Dracula".
 
 Does the player mean examining the red-token when the player is in library-room:
-	it is unlikely;
+	it is likely;
 
 Every turn when the player is in library-room:
 	if the dracula-bats are not trapped:
@@ -17091,15 +17096,15 @@ Chapter 4 - Great Bath
 
 [depression]
 
-The Bath-room is a room in haunted-region. "You are standing at the edge of the largest swimming pool you've ever seen. The pool is enclosed by a glass dome that shows nothing but the darkness outside. An enormous comb leans against the wall near you. You can leave to the [boldeast]."
+The Bath-room is a room in haunted-region. "You are standing at the edge of the largest swimming pool you've ever seen. The pool is enclosed by a transparent glass dome that shows nothing but the dark sky outside. An enormous comb leans against the wall near you. You can leave to the [boldeast]."
 
-The bath-dome is distant scenery in bath-room. The printed name of the bath-dome is "glass dome". Understand "glass" or "dome" or "darkness" or "outside" or "unsupported" as the bath-dome. The description of the bath-dome is "The size of this unsupported glass dome makes it a true engineering feat. Outside, all is dark.
+The bath-dome is distant scenery in bath-room. The printed name of the bath-dome is "glass dome". Understand "glass" or "dome" or "darkness" or "outside" or "transparent" or "unsupported" or "sky" as the bath-dome. The description of the bath-dome is "The size of this unsupported glass dome makes it a true engineering feat. Outside, all is dark.
 
-An enormous comb, larger than a rhinoceros, leans against the wall." The printed name of Bath-room is "Indoor Lagoon". 
+An enormous comb, larger than a rhinoceros, leans against the dome near you." The printed name of Bath-room is "Indoor Lagoon". 
 
 The Bath-room is west of the Grand-room. 
 
-The bath-pool is scenery in bath-room. The printed name of the bath-pool is "swimming pool". Understand "lagoon" or "largest" or "waves" or "wave" or "ripple" or "ripples" or "water" or "extensive" or "pool" or "crystal" or "clear" or "crystal-clear" as the bath-pool. The description of the bath-pool is "This very extensive pool is filled with crystal-clear water that moves with every breath of the creature."
+The bath-pool is scenery in bath-room. The printed name of the bath-pool is "swimming pool". Understand "lagoon" or "largest" or "waves" or "wave" or "ripple" or "ripples" or "water" or "extensive" or "pool" or "crystal" or "clear" or "swimming" or "crystal-clear" as the bath-pool. The description of the bath-pool is "This very extensive pool is filled with crystal-clear water that moves with every breath of the creature."
 
 Instead of entering the bath-pool:
 	try swimming;
@@ -17222,7 +17227,10 @@ The stone-expanse is scenery floor in game-room. The printed name of stone-expan
 The description of the stone-expanse is "Unlike the rest of the building, the floor here is mostly stone and quite lumpy."
 
 Instead of pushing or pulling the frozen-rug:
-	say "This is a very large rug, much of which is frozen to the floor. You can't push or pull the whole thing."
+	say "This is a very large rug, much of which is frozen to the floor. You can't push or pull the whole thing, but you could look under it."
+
+Instead of searching the frozen-rug:
+	try looking under the frozen-rug;
 
 Section 2 - Yeti
 
@@ -17698,7 +17706,7 @@ Instead of entering the wolf-debris:
 
 Section 1 - The wolf
 
-The wolfman is a man in wolf-room. "A wolfish-looking man, tall and scruffy[if the large-fencing is nowhere] and wearing a large fencing mask[end if] is [if the wolf-handcuffs are nowhere]handcuffed to the pole[otherwise]anxiously pacing the room[end if]. He stares timidly around the room and trembles as he shifts around[one of].
+The wolfman is a man in wolf-room. "A wolfish-looking man, tall and scruffy[if the large-fencing is nowhere] and wearing a large fencing mask[end if], is [if the wolf-handcuffs are nowhere]handcuffed to the pole[otherwise]anxiously pacing the room[end if]. He stares timidly around the room and trembles as he shifts around[one of].
 
 The wolfman jumps as you enter the room. 'Back!' he says. 'Back! I'm a terrible man, a terrible [italic type]thing[roman type], and you're not safe here!' He looks at you earnestly[or].
 
@@ -17772,7 +17780,7 @@ The handcuffs and mask fall off, and the wolfsbane tumbles away into the debris.
 	otherwise:
 		say "You seem to have made the wolf much safer than the game should allow, or much less. This is a bug!";
 
-The grey-token is a token. The printed name of the grey-token is "grey token". Understand "grey" as the grey-token. The token-target of the grey-token is "the Wolfman".
+The grey-token is a token. The printed name of the grey-token is "grey token". Understand "grey" or "gray" as the grey-token. The token-target of the grey-token is "the Wolfman".
 
 [add wolfsbane visually sticking out of pocket, handcuffs visually holding him in place]
 
@@ -17815,7 +17823,10 @@ As soon as you arrive, you see the monkey-like robot, still clutching the action
 
 'Hey, drop that!' you shout. But the robot chitters at you, running away to the east and jumping over the river in one enormous bound[only]." 
 
-The monster-sign is distant scenery in front-room. The printed name of the monster-sign is "neon sign". Understand "monsters" or "monster" or "monsters inside" or "sign" or "neon" or "bright" or "red" as the monster-sign. 
+The monster-sign is scenery in front-room. The printed name of the monster-sign is "neon sign". Understand "monsters" or "monster" or "monsters inside" or "sign" or "neon" or "bright" or "red" as the monster-sign. 
+
+Instead of physicality when the noun is the monster-sign:
+	say "The sign is near the top of the house, out of your reach."
 
 The description of the monster-sign is "The neon sign elaborately displays the words 'Monsters Inside'. It clashes terribly with the house itself."
 
@@ -17831,7 +17842,10 @@ Report examining something:
 
 The examine containers rule does nothing when the noun is the front-bed.
 
-The front-bed is an open unopenable scenery container in the front-room. The printed name of the front-bed is "overgrown flowerbed". Understand "overgrown" or "flower" or "bed" or "flowerbed" or "over-grown" as the front-bed. The description of the front-bed is "This flowerbed has run wild with [front-weeds][if wolfs-bane is in front-bed], but some [wolfs-bane] grow here as well[end if]."
+The front-bed is an open unopenable scenery container in the front-room. The printed name of the front-bed is "overgrown flowerbed". Understand "overgrown" or "flower" or "bed" or "flowerbed" or "over-grown" as the front-bed. The description of the front-bed is "This flowerbed has run wild with [front-weeds][if wolfs-bane is in front-bed], but some [wolfs-bane] grow[wolf-s] here as well[end if]."
+
+To say wolf-s:
+	say "[if wolfs-bane is examined]s[end if]";
 
 The front-weeds are in the front-bed. The front-weeds are plural-named. The printed name of the front-weeds is "weeds". Understand "weed" or "weeds" as the front-weeds. The description of the front-weeds is "Weeds have choked away whatever else use to grow here[if wolfs-bane is in front-bed], except for the purple flowers[end if]."
 
@@ -23959,17 +23973,11 @@ The body opens its eyes, staring up at the ceiling, and screams. Then the magic 
 
 Chapter 6 - Vast
 
-[add another crack door]
-
-[allow first death in here from falling]
-
-[puzzle - flying over the vast, but it grabs you every time. flying is the vast spell. You have to corrupt yourself and get eaten, with the beast shutting down for repairs]
-
 Section 1 - The main room
 
 The vast-room is a room in spell-region. The vast-room is northeast from the buried-room. The printed name of the vast-room is "Vast Chamber". "[first time]You squeeze out of the tiny crevice and into a larger space. There's only a narrow ledge, but it feels good to be free!
 
-[only]You are on the rim of a vast chamber that stretches off beyond the range of your vision. You have to lean against the wall to keep your balance; there's not enough room on the ledge for you to stand straight. The rocks below you form a cliff that goes down at least a hundred meters, maybe more. At the bottom lies an underground lake of pure blackness which laps gently up and down despite the lack of any breeze[if beastgone is true].
+[only]You are on the rim of a vast chamber that stretches off beyond the range of your vision. You have to lean against the wall to keep your balance; there's not enough room on the ledge for you to stand straight. The rocks below you form a cliff that goes down at least a hundred meters, maybe more. At the bottom lies an underground lake of pure blackness which laps gently up and down[if beastgone is true].
 
 The room smells awful now, and the water bubbles from time to time[end if][if the distant-gleam is in vast-room].
 
@@ -23981,6 +23989,9 @@ There is also a rickety ladder leading [bolddown], but it looks very unsafe[if t
 
 [fix this later wind calming down, here and on ladder]
 [fix this later add smelling when beast is gone]
+
+Instead of smelling in vast-room when beastgone is true:
+	say "It is truly pungent in here."
 
 The vast-crevice is scenery in vast-room. The printed name of the vast-crevice is "tiny crevice". Understand "tiny" or "crevice" as the vast-crevice. The description of the vast-crevice is "Just looking at the tiny crevice gives you shivers."
 
@@ -24626,8 +24637,6 @@ Before taking the exklip-scroll when the exklip-scroll is held by the strange-ma
 	if gripped-scene is not happening:
 		say "The old man shifts in a boneless way to face you, but holds the scroll at arm's reach away from you." instead;
 
-[FIX THIS LATER ADD ROCKS BY THE FACE]
-
 Exklip is a magic-spell. The spell-preview of Exklip is "[if bookmarkon is true]Allow the caster to fly[otherwise]Petrify the caster[end if]"
 
 Exkliping is an action applying to nothing. Exkliping is spellcasting. Understand "Exklip" or "say exklip" as Exkliping.
@@ -24928,10 +24937,6 @@ Spiral-level is a number that varies. Spiral-level is 0.
 
 The spiral-room is northeast from stranger-room. The spiral-room is in spell-region. The printed name of the spiral-room is "[spiral-text]"
 
-[ADD HYBLYG FOR THE THREE IMPOSTERS WE GET HERE]
-
-[FIX THIS LATER add digital books]
-
 To say spiral-text:
 	if spiral-level is 0:
 		say "Cavern";
@@ -25097,8 +25102,6 @@ Section 3 - The main cave
 
 The spiral-lamp is scenery in spiral-room. The spiral-lamp is spiralon. Understand "lamp" as the spiral-lamp.
 
-[FIX THIS LATER When player-isolated is true, get rid of everything else!]
-
 Instead of doing something to the spiral-lamp:
 	if the spiral-lamp is spiraloff:
 		say "There was never a lamp.";
@@ -25179,8 +25182,6 @@ Instead of inserting something into the spell-book:
 			now spiral-bookmark is part of the spell-book;
 	otherwise:
 		say "[The noun] [don't] seem to fit."
-	
-[fix this later physicality with the bookmark]
 
 Instead of taking or pulling spiral-bookmark when spiral-bookmark is part of the spell-book:
 	say "You pull out the bookmark. Some of the spells look different, now.";
@@ -25275,8 +25276,6 @@ Before taking virox-scroll:
 After taking virox-scroll for the first time:
 	say "You reach into the hive, your hand brushing several squirming things, and grab the scroll."
 
-[fIX THIS LATER: GIVING OTHER THINGS THE DISEASE]
-
 Viroxing is an action applying to nothing. Viroxing is spellcasting. Understand "Virox" or "say virox" as Viroxing.
 
 rotting-player is a truth-state that varies. rotting-player is false.
@@ -25294,8 +25293,6 @@ Carry out Viroxing:
 
 Report Viroxing:
 	say "[We] [adapt the verb say] 'Virox'. Heat races throughout your veins, and you feel yourself start to rot away from the inside. Hundreds of pustules appear on your skin, and something dark oozes out."
-
-[FIX THIS LATER ADD THE HOLES AND PUSTULES]
 
 rottingtime is a scene. rottingtime begins when rotting-player is true.
 
@@ -25384,8 +25381,6 @@ Before examining the spell-book while in darkness:
 
 Section 1 - Stinky stuff
 
-[fix this later make sure that above we didn't add stuff we shouldn't be able to see as a backdrop here]
-
 Instead of smelling when the player is in dark-room:
 	say "[if the odorous-object is examined]There is a distinct brackish odor in this room. It makes you a bit nauseous. With careful sniffing, you can tell that its coming from some odorous object. You can't see it, but you can guess where it is[otherwise]You can still smell the brackish odor in this room, coming from the odorous object; you have a pretty good idea of where it's located, but it sure reeks[end if].";
 	now the odorous-object is examined;
@@ -25418,10 +25413,6 @@ Before examining the odorous-object while in darkness:
 Instead of listening to the dark-room:
 	say "[if the splashing-puddle is unexamined]You hear gentle water splashing. You can't see where it's coming from, but you can track it down by hearing. It sounds like there's a large puddle in here, and you can figure out where it is[otherwise]You can still hear the splashing puddle, and know where it is[end if].";
 	now the splashing-puddle is examined;
-	
-[fix this later: add scenes with a stinky or wet hand and have the smell or water decrease over time, and disappear when remoxng. change smell when corrupt, too.]
-
-[fix this later-instead of swimming or drinking the puddle]
 
 The splashing-puddle is scenery in dark-room. The printed name of the splashing-puddle is "puddle". Understand "liquid" or "puddle" or "splashing" or "sloshing" or "pool" or "water" as the splashing-puddle. The description of the splashing-puddle is "You can't see the puddle, but you can hear where it seems to be."
 
@@ -25540,7 +25531,6 @@ Instead of smelling during hunter-scene:
 When hunter-scene ends fearfully:
 	say "The smell that was following you fades quickly away when you enter this room.";
 
-[FIX THIS LATER make sure this doesn't fire during the fight scene]
 Every turn during hunter-scene:
 	if the time since hunter-scene began is 1 minute:
 		say "You smell a strong odor near you.";
@@ -25563,8 +25553,6 @@ Every turn during hunter-scene:
 		
 When hunter-scene ends comically:
 	say "You hear a how of frustration echoing from the edge of the ledge to the south. But you see nothing."
-
-[FIX THIS LATER handle exkliping]
 
 When hunter-scene ends:
 	now strange-odor is nowhere;
@@ -25617,7 +25605,6 @@ Instead of physicality when the noun is the web-coccoon:
 
 Section 2 - Webmaster
 
-[FIX THIS LATER webmaster getting punched by slaughter spell]
 The Webmaster is a neuter person in web-room. "The Webmaster waits patiently for you to act." Understand "giant" or "large" or "numerous" or "eyes" or "eye" or "chelicerae" or "quiver" or "spider" or "leg" or "legs" as the webmaster. The description of the webmaster is "Only the legs and face of this spider can be seen. The head is as large as yours, with its numerous eyes and its quivering chelicerae. The legs are longer than you are tall, and manipulate the strings of the webs in the room to some unseen purpose."
 
 Instead of attacking the webmaster:
@@ -25637,8 +25624,6 @@ Before uttering bear-quip to webmaster:
 		say "Before you can get your words out, the Webmaster holds up one leg, and you find yourself unable to speak.
 
 'Not yet,' he says. 'It's not time for you to ask that. Wait until the end.'" instead;
-	
-[FIX THIS LATER mention how the recorder is a copy]
 
 Role-quip is a quip. The printed name of role-quip is "Role". Understand "role" as role-quip. The preview of role-quip is "Who are you? What are you doing here?" The target of role-quip is webmaster.
 
@@ -25766,7 +25751,6 @@ Check sanoxing:
 	otherwise if player-isolated is true:
 		say "[We] [adapt the verb say] 'Sanox'. Dark black specks emanate from the spellbook, but they soon dissipate. It is difficult to see if the spell has had any effect." instead;
 	otherwise if the player is not in spiral-room:
-		[fix this later effects if the player is around creatures]
 		say "[We] [adapt the verb say] 'Sanox'. Dark black specks emanate from the spellbook, but they soon dissipate. It is difficult to see if the spell has had any effect." instead;
 	
 Carry out sanoxing:
@@ -25895,7 +25879,6 @@ Instead of searching the heavy-portcullis:
 
 Section 3 - Rage scroll
 
-[FIX THIS LATER Different slaughter death when the player is contagious]
 Instead of physicality when the noun is slaughter-dangerous:
 	say "You have approached too close to the cage. [if rotting-player is false]The beast grabs you and smashes you against the wall and its all over[otherwise][flamebeast]beast grabs a rock to use as a club and brains you with it, careful to avoid the corruption oozing out of your sick body[end if].
 
@@ -25917,15 +25900,12 @@ To decide whether (maybe-rage - a thing) is slaughter-dangerous:
 		decide yes;
 	decide no;
 
-[FIX THIS LATER: Initial appearance?]
 
 The slaughter-scroll is a spell-scroll in slaughter-cage. The printed name of the slaughter-scroll is "stained scroll". Understand "stained" or "quadox" as the slaughter-scroll.
 
 The associated-spell of slaughter-scroll is Quadox.
 
 Quadox is a magic-spell. The spell-preview of Quadox is "Enrages the caster beyond control"
-
-[fIX THIS LATER: GIVING OTHER THINGS THE DISEASE]
 
 Quadoxing is an action applying to nothing. Quadoxing is spellcasting. Understand "Quadox" or "say quadox" as Quadoxing.
 
@@ -25963,12 +25943,6 @@ When rage-scene ends:
 When rage-scene ends normally:
 	say "The aching pain in your head subsides, and you can feel yourself calm down."
 
-[Tempraging is an action applying to nothing. Understand "tr" as tempraging. 
-
-Carry out tempraging:
-	now enraged-player is true;]
-
-[FIX THIS LATER Avoid distant scenery and such]
 Before doing something during rage-scene:
 	if the current action is going:
 		say "You howl and race [the noun] to find something to attack.";
@@ -26018,8 +25992,6 @@ Every turn when the player is in dark-room:
 Chapter 18 - The black dome and finale
 
 [we defined the black dome earlier]
-
-[FIX THIS LATER if we added a pedestal or something earlier, add a pedestal here]
 
 Section 1 - The black dome itself
 
@@ -26672,14 +26644,8 @@ Does the player mean an actor playing a memory-slot:
 	if the noun is currentslot of the actor:
 		it is likely;
 
-[fix this later allow replaying to have a base list and then that gets copied to a variable list every time 'replay'gets typed.]
-
 Carry out a robot trying playing something:
 	try the actor replaying;
-
-[Check an actor replaying:
-	if the noun is not a memory-slot:
-		say "That's not something [the actor] can replay." instead;]
 		
 Carry out an actor replaying:
 	if the actor is the player:
@@ -27005,7 +26971,7 @@ combat-kitchen is in robot-region. The printed name of combat-kitchen is "Test K
 
 "You are standing in a long corridor leading from the checkpoint on the [boldnorth] to [if the kitchen-south is open]an open[otherwise]a closed[end if] door on the [boldsouth]. A poster hangs nearby with helpful information[if the glassed-kitchen is transparent].
 
-On the east side[one of] is a glass wall, beyond which is a dark room[or], beyond a glass wall, is a test kitchen in shambles. It comes with a warped wooden counter, a stained refrigerator, an ancient-looking stove top, a rusty sink and some wire shelves[stopping].
+On the east side[one of] is a glass wall, beyond which is a dark room[or], beyond a glass wall, is a test kitchen in shambles. It comes with a warped wooden counter, a stained refrigerator, an ancient-looking stove top, a rusty sink, and some wire shelves[stopping].
 
 [maxdesc][loosedesc][otherwise].
 
@@ -27037,8 +27003,6 @@ Instead of physicality when the noun is glassed-kitchen:
 	say "The glass wall between you and the kitchen is sturdy and is unresponsive to your actions."
 
 The glassed-kitchen is scenery.
-
-[FIX THIS LATER add descriptions for everything in this section]
 
 Rule for reaching inside the glassed-kitchen:
 	if the glassed-kitchen is opaque:
@@ -27136,8 +27100,6 @@ Before a robot (called currentrobot) switching off the kitchen-stove:
 	otherwise:
 		say "'It's already turned off, boss!' says Max.";
 		try nothingaction instead;
-
-[FIX THIS LATER add running water sounds and sights when sink is turned on]
 
 The kitchen-shelves are a plural-named scenery supporter in glassed-kitchen. Understand "shelf" or "shelves" or "wire" as the kitchen-shelves. The printed name of the kitchen-shelves is "wire shelves". The description of the kitchen-shelves is "At least the wire shelves look fairly new."
 
@@ -27259,9 +27221,6 @@ Before someone switching on the kitchen-stove when the kitchen-pan is on the kit
 		now the raw-meat is in kitchen-pan;
 		try nothingaction instead;
 
-
-[FIX THIS LATER add code so they can't put the pan or other big things in the hamburger]
-
 Before someone putting something on the hamburger-bun:
 	try the actor inserting the noun into the hamburger-bun instead; 
 
@@ -27370,8 +27329,6 @@ To decide whether the burger is ready:
 	decide yes;
 
 Chapter 6 - Assembly line
-
-[FIX THIS LATER add memory slots now and not earlier]
 
 Assembly-line is in robot-region. The printed name of Assembly-line is "Assembly Line". "This room is decorated to appear like a mad scientist's laboratory. The walls are painted with images of tesla coils and alchemical apparatuses, although the room itself is mostly bare. Another poster with helpful tips is hanging here.
 
