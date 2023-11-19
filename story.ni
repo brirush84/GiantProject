@@ -25,7 +25,7 @@ Release along with cover art.
 
 Section 1 - Genre, description, etc
 
-The story genre is "Science Fiction". The story description is "Travel through space and time to save your ship." The story creation year is 2023. The release number is 4.
+The story genre is "Science Fiction". The story description is "Travel through space and time to save your ship." The story creation year is 2023. The release number is 5.
 
 Section 2 - Increasing memory sizes
 
@@ -54,7 +54,7 @@ Abouting is an action out of world. Understand "About" as abouting.
 Carry out abouting:
 	say "Never Gives Up Her Dead is a large-scale text adventure. For credits, type CREDITS[if the banquet-benches are shattered]. For a reminder on background information on the story, type BACKGROUND[end if].
 
-The basic commands needed for this game include LOOK, INVENTORY, EXAMINE (or just X), TAKE, DROP, ENTER, N, E, S, W, UP, DOWN, OPEN, UNLOCK, PUSH, PULL, LOOK UNDER, TURN ON, TURN OFF, WAIT (or just Z), AGAIN (or just G).
+The basic commands needed for this game include LOOK, INVENTORY, EXAMINE (or just X), TAKE, DROP, ENTER, N, E, S, W, UP, DOWN, OPEN, UNLOCK, PUSH, PULL, LOOK UNDER, TURN ON, TURN OFF, WAIT (or just Z), AGAIN (or just G). LOOK IN or SEARCH might occasionally be useful if you know items have been hidden on purpose.
 
 This game is large, and you might acquire many things that cause disambiguation problems. Your rucksack can help you; by putting items in it and closing it, you can keep them hidden until needed. Just don't forget about them!
 
@@ -72,7 +72,7 @@ This is the story of how you die. "
 Helping is an action out of world. Understand "Help" as helping.
 
 Carry out helping:
-	say "The basic commands needed for this game include LOOK, INVENTORY, EXAMINE (or just X), TAKE, DROP, ENTER, N, E, S, W, UP, DOWN, OPEN, UNLOCK, PUSH, PULL, LOOK UNDER, TURN ON, TURN OFF, WAIT (or just Z), AGAIN (or just G).
+	say "The basic commands needed for this game include LOOK, INVENTORY, EXAMINE (or just X), TAKE, DROP, ENTER, N, E, S, W, UP, DOWN, OPEN, UNLOCK, PUSH, PULL, LOOK UNDER, TURN ON, TURN OFF, WAIT (or just Z), AGAIN (or just G). LOOK IN or SEARCH might occasionally be useful if you know items have been hidden on purpose.
 
 Commands like UNDO, SAVE and RESTORE can be used to go back to earlier parts of the game.
 
@@ -89,7 +89,7 @@ The special clue called Statement will transport you into a suspect's past when 
 Crediting is an action out of world. Understand "Credits" as crediting. 
 
 Carry out crediting:
-	say "This game was written by Brian Rushton/Mathbrush using Inform 7 (by Graham Nelson). Beta testers include Amanda Walker, the Xenographer, John Ziegler, Jade, Christopher Merriner, Patrick Mooney, Brett Witty, Rovarsson, E. Joyce, Max Fouquet O'Garra, Dee Cooke, Ian Greener, Chandler Groover, Lance Cirone, Zed Lopez, Cody Gaisser, Alex Proudfoot, Radioactive Crow, Doug Egan, Mike Spivey, Larry Horsfield, Dirk Spivey, Arthur DiBianca, Hal Rushton, Hidnook, Charm Cochran, Grueslayer, Lynnea Glasser, Wade Clarke, Onno Brouwer, and LAST_TESTER_HERE. 
+	say "This game was written by Brian Rushton/Mathbrush using Inform 7 (by Graham Nelson). Beta testers include Amanda Walker, the Xenographer, John Ziegler, Jade, Christopher Merriner, Patrick Mooney, Brett Witty, Rovarsson, E. Joyce, Max Fouquet O'Garra, Dee Cooke, Ian Greener, Chandler Groover, Lance Cirone, Zed Lopez, Cody Gaisser, Alex Proudfoot, Radioactive Crow, Doug Egan, Mike Spivey, Larry Horsfield, Dirk Spivey, Arthur DiBianca, Hal Rushton, Hidnook, Charm Cochran, Grueslayer, Lynnea Glasser, Wade Clarke, Onno Brouwer, Keltena, Alyshkalia, and LAST_TESTER_HERE. 
 
 Hanon Ondricek gave helpful advice about the concept and title. Phil Riley and Peter Bates made suggestions about coding. Mike Russo and Garry Francis gave poetry tips. Wade Clarke and Mike Russo (again) gave some prose tips.
 
@@ -97,7 +97,7 @@ Matt Weiner, N. Comier, Mike Sousa, Austin Auclair, Doug Egan, Pinkunz, and Char
 
 Cover art was made from photographs by NASA and the Space Telescope Science Institute (STScI) and by Sandra Rushton, my mother.
 
-This game is dedicated to Sean Shore and Marco Innocenti, who I used as my mental image of who the potential might be."
+This game is dedicated to Sean Shore and Marco Innocenti, who I used as my mental image of who the potential audience might be."
 [Code from Otistdog was used for overly elaborate looking.]
 [for testing]
 
@@ -140,6 +140,9 @@ To say (x - a rift-style):
 		say "black";
 
 A space-tear is a kind of door. A space-tear is usually unopenable. A space-tear is usually open. A space-tear can be disguised or undisguised. A space-tear is usually undisguised. A space-tear has a rift-style.
+
+Does the player mean entering a space-tear:
+	it is likely;
 
 Instead of closing a space-tear:
 	if the noun is black-torn:
@@ -438,7 +441,7 @@ The player is emrys-weaver.
 
 The description of emrys-weaver is "You are Emrys Tisserand, and you are the active Storyweaver of the seedship Tragwyddol. It is your job to preserve and share the history of this people in the form of stories. 
 
-[if the player is in wildcard-region]Usually, you[otherwise]You[end if] wear a recorder that keeps track of everything around you: sound, audio, and some personal data. This lets you record the story of your people[if the player is in wildcard-region]. But now, your recorder has been taken from you[end if].
+[if the player is in wildcard-region]Usually, you[otherwise]You[end if] wear a recorder that keeps track of everything around you: video, audio, and some personal data. This lets you record the story of your people[if the player is in wildcard-region]. But now, your recorder has been taken from you[end if].
 
 They say that Storyweavers have the Gift, but the Gift can take many forms. For most of your career, you haven't noticed anything strange or supernatural about you[if the maintenance-closet is visited]. But all that has changed today[end if]."
 
@@ -578,7 +581,7 @@ The dracula-poster is a horror-poster in psych-room. The printed name of the dra
 
 The mummy-poster is a horror-poster in psych-room. The printed name of the mummy-poster is "[italic type]Mummy[roman type] poster". The description of the mummy-poster is "This poster for the movie [italic type]The Mummy[roman type] shows an impressionistic image of a mummy and an alluring woman posing in front of vague hieroglyphics, with the words 'It Comes to Life!'
 
-You watched this one with Gareth, but it wasn't, in your opinion, as good as the Brendan Frasier one, or that ones['] 100th anniversary remake."
+You watched this one with Gareth, but it wasn't, in your opinion, as good as the Brendan Frasier one, or that one's 100th anniversary remake."
 
 Understand "mummy" as the mummy-poster.
 
@@ -683,7 +686,7 @@ Section 2 - Rift
 
 The psych-tear is a space-tear. "[one of]The psychologist on duty, Gareth Djomo, is in here, huddled on his couch. Oblivious to the chaos outside, or perhaps overwhelmed by it, he stares off into the corner. 
 
-There is a tearing sound, and the fabric of reality rips open to the [boldnorth]. Out of the rift comes a bizarre little creature, a kind of robotic monkey. It leaps up onto Gareth's desk and grabs one of the action figures, then rushes back into the rift. [Gareth] doesn't seem to notice any of this[or][if the player is in ship-region]A rift has opened up[otherwise]A rift leads back to the ship[end if] to the [if the player is in psych-room][boldnorth][otherwise][boldsouth][end if]. It glows [rift-style of the psych-tear][stopping]." The psych-tear is north of psych-room and south of the front-room.
+There is a tearing sound, and the fabric of reality rips open to the [boldnorth]. Out of the rift comes a bizarre little creature, a kind of robotic monkey. It leaps up onto Gareth's desk and grabs one of the action figures, then rushes back into the rift. [Gareth] doesn't seem to notice any of this[or][if the player is in ship-region]A rift has opened up[otherwise]A rift leads back to the ship[end if] to the [if the player is enclosed by psych-room][boldnorth][otherwise][boldsouth][end if]. It glows [rift-style of the psych-tear][stopping]." The psych-tear is north of psych-room and south of the front-room.
 
 Chapter 3 - Engineering room
 
@@ -712,7 +715,7 @@ Sorting-quip is a quip. The target of sorting-quip is ginger. The printed name o
 
 The targetresponse of sorting-quip is "'Do you know the difference between a flange and a gasket?' she asks bitingly.
 
-'No, sorry,' you say 
+'No, sorry,' you say.
 
 'Yeah, I didn't think so,' she says, wiping her cheek. 'Don't worry, I've got this. You should go find someone else to help, we need to keep this area clear,' she says."
 
@@ -924,7 +927,7 @@ You only had a second to look, but your heart drops: the hand took the Captain's
 
 Section 1 - The captain
 
-The Captain is a man in the captain-room. "[if the captain is in captain-room]The Captain is brooding, holding his Scotch and staring disconsolately[otherwise]The Captain is striding around the room, talking to the crew and checking on each station[end if]." Understand "muscles" or "muscle" or "beard" or "hair" or "close" or "cropped" or "close-cropped" or "neatly" or "trim" or "trimmed" as the captain. The description of the captain is "The Captain is a muscular man about your height. He is wearing his command uniform. His close-cropped hair and neatly-trimmed beard are mostly gray with a hint of the original black in them. There is no sign of the ceremonial jacket you found earlier.
+The Captain is a man in the captain-room. "[if the captain is in captain-room]The Captain is brooding, holding his Scotch and staring disconsolately[otherwise]The Captain is striding around the room, talking to the crew and checking on each station[end if]." Understand "muscles" or "muscle" or "beard" or "hair" or "close" or "cropped" or "close-cropped" or "neatly" or "trim" or "trimmed" or "eggleston" or "robert" as the captain. The description of the captain is "The Captain is a muscular man about your height. He is wearing his command uniform. His close-cropped hair and neatly-trimmed beard are mostly gray with a hint of the original black in them. There is no sign of the ceremonial jacket you found earlier.
 
 He is not the first captain the ship has had; each captain serves for a few years, then elects one of his or her officers as a replacement before returning to storage. He is nearing the end of his term, though.".
 
@@ -954,7 +957,7 @@ Extraordinary-quip is a quip. The printed name of Extraordinary-quip is "Extraor
 
 The targetresponse of Extraordinary-quip is "He looks at you with a stone-faced expression. 'I'm not sure I understand. Are you referring to hull breaches?'
 
-'No, Captain, they're different--more like holes in space. I can enter them, go places...there's one in here, with us,' he says.
+'No, Captain, they're different--more like holes in space. I can enter them, go places...there's one in here, with us,' you say.
 
 He looks around, seemingly not noticing the rift, then sighs and takes a heavy sip of his Scotch. 'I'm afraid I don't have time to deal with the metaphysical, Storyweaver. If there are such rifts, I suggest you find a way to make use of them, but, barring that... perhaps you should get some rest.'"
 
@@ -1472,7 +1475,7 @@ It seems there are more pages[or]The next page says:
 
 I heard the Eiffel guy likes it. Besides, it's fun to collect retro stuff like coins. Also, you're nowhere near the bottom--why's 1
 
-Ha, if you guys like cash that much, I'll hide some for you. I put it in the honeysuckle by the giant sword...if any of you ever get that far!-expertclimber[roman type]
+Ha, if you guys like cash that much, I'll hide some for you. I put it in the honeysuckle by the giant sword...if any of you ever get that far!--expertClimber[roman type]
 
 It seems there are more pages[or][toobigtext][or]The last page says: 
 
@@ -1557,7 +1560,7 @@ Instead of doing something with the spacious-room:
 Instead of going nowhere when the player is in spacious-room and open-scene is happening:
 	say "You don't feel like poking around looking for secret openings while the party is happening."
 
-The party-crowd is talkative scenery neuter person in opening-room. The printed name of the party-crowd is "crowd of people". Understand "crew" or "kids" or "kid" or "staff" or "family" or "families" or "auxiliary" or "officer" or "officers" or "crowd" or "crowd of" or "partygoers" or "people" or "wounded" as the party-crowd. The description of the party-crowd is "[if the banquet-benches are shattered]The last of the crowd is exiting the room, with some helping the wounded out, probably to the medical bay. You are one of the last ones left[otherwise]While you know most people here, you're certain everyone knows you. And that's not bragging; you're just fairly conspicuous in your duties. All sorts are here, staff, crew, officers, kids. But you don't look too long, as large crowds make you nervous[end if]."
+The party-crowd is talkative scenery neuter person in opening-room. The printed name of the party-crowd is "crowd of people". Understand "crew" or "kids" or "kid" or "staff" or "family" or "families" or "auxiliary" or "officer" or "officers" or "crowd" or "crowd of" or "partygoers" or "people" or "wounded" or "adult" or "adults" or "child" or "children" or "man" or "woman" or "men" or "women" or "boy" or "boys" or "girl" or "girls" as the party-crowd. The description of the party-crowd is "[if the banquet-benches are shattered]The last of the crowd is exiting the room, with some helping the wounded out, probably to the medical bay. You are one of the last ones left[otherwise]While you know most people here, you're certain everyone knows you. And that's not bragging; you're just fairly conspicuous in your duties. All sorts are here, staff, crew, officers, kids. But you don't look too long, as large crowds make you nervous[end if]."
 
 Instead of physicality when the noun is the party-crowd:
 	say "You keep your distance from most of the crowd."
@@ -1711,6 +1714,9 @@ Before taking a memorable thing during speech-scene:
 	if welcome-quip is meihtarget:
 		say "You still haven't given your welcome yet; the presentation would flow better with a formal introduction." instead;
 
+Report shouting or clapping or singing during speech-scene:
+	say "The crowd looks at each other uneasily."
+
 After taking the toy-train during speech-scene:
 	increment SpeechCounter;
 	say "You hold the toy train up high.
@@ -1728,7 +1734,7 @@ After taking the flash-light during speech-scene:
 
 'Ten years ago, our ship came dangerously close to hitting an asteroid field. If I remember right, we passed within five kilometers of some of the larger pieces. Many lives could have been lost. But no one was injured that day. Do you know why?' 
 
-A few of the older crew nod their heads, while couple kids shout, 'Why?'
+A few of the older crew nod their heads, while a couple kids shout, 'Why?'
 
 'Well, just like this flashlight lets us see in the darkness, the sensors of the ship allow us to see the world around us. Our tireless team of reconnaisance officers gave us advance warning, and we were able to change our course on time.'
 
@@ -1772,7 +1778,7 @@ After taking the floor-wax during speech-scene:
 	increment SpeechCounter;
 	say "You hold up the bottle of floor wax, and then do a double take. You wonder what on earth were you thinking, grabbing floor wax to use for a speech! Some of the crowd seems confused, while others chuckle.
 
-You scramble for something to say. 'Work!' Yes, that's a good angle. You pursue it. 'Hard work is part of all of our lives on the Tragwyddol. Back on earth, if someone crashed their car, or had mold get out of control, or ignored a medical problem too long, then there was always a way out. You could always get a new car, a new house, a new liver. And if that didn't happen, there were always more people.'
+You scramble for something to say. 'Work!' Yes, that's a good angle. You pursue it. 'Hard work is part of all of our lives on the Tragwyddol. Back on earth, if someone crashed their car, or had mold get out of control, or ignored a medical problem too long, then there was always a way out. You could always get a new car, a new house, a new liver. And if that didn't happen, there were always more people.
 
 'But you are all we have, and this is our only ship. We cannot survive if we let things go too long. Each of us has our part to play, from the janitors cleaning up after us to the Captain steering the ship. Work runs the ship, and it's made us who we are today. Here's to us: the workers!'
 
@@ -1944,7 +1950,7 @@ Chapter 14 - Your quarters
 
 Personal-quarters is a room in ship-region. Personal-quarters is west from auxiliary-quarters. The printed name of personal-quarters is "Your Quarters". The description of personal-quarters is "Your room is intentionally minimal. Every new captain likes to shuffle up the quarters, and after years of moving your things you've stripped them down to the minimum.
 
-Your bed is here, just large enough to accommodate you, with your [gran-comf] on it. A nightstand near your bed holds [a list of things on the you-stand]. A potted spider plant completes the scene.
+Your bed is here, just large enough to accommodate you, with your [gran-comf] on it. A nightstand near your bed [if the number of things on you-stand > 0]holds [a list of things on the you-stand][otherwise]is empty[end if]. A potted spider plant completes the scene.
 
 You can make your way back to the other auxiliary quarters to the [boldeast].".
 
@@ -1961,15 +1967,18 @@ Instead of sleeping when the player is in the you-bed:
 after getting off when the player was in you-bed:
 	say "You rise out of your bed once more.".
 
-The gran-comf is on the you-bed. The printed name of the gran-comf is "grandmother's comforter". Understand  "comforter" or "blanket" or "grandmother's" or "grandmother" or "granny" or "granny's" or "gran's" or "gran" or "gramma" or "gramma's" or "nana" or "nana's" as the gran-comf. The description of the gran-comf is "This is the handmade comforter your grandmother gave you decades ago. Its worn and faded now, but you've cared for it and it should last the rest of your life.". The indefinite article of the gran-comf is "your".
+The gran-comf is on the you-bed. The printed name of the gran-comf is "grandmother's comforter". Understand  "comforter" or "blanket" or "grandmother's" or "grandmother" or "granny" or "granny's" or "gran's" or "gran" or "gramma" or "gramma's" or "nana" or "nana's" as the gran-comf. The description of the gran-comf is "This is the handmade comforter your grandmother gave you decades ago. It's worn and faded now, but you've cared for it and it should last the rest of your life.". The indefinite article of the gran-comf is "your".
 
 Instead of physicality when the noun is gran-comf:
 	say "You trace your hand over the comforter, but you don't move it. It took you a while to get it in the right place."
 
 The you-stand is a scenery supporter in personal-quarters. The printed name of the you-stand  is "nightstand". Understand "night" or "stand" or "nightstand" or "thin" or "tall" or "black" or "painted" or "wood" or "paint" as the you-stand. The description of the you-stand is "Your nightstand is tall, thin, and made of wood painted black."
 
+Before opening the you-stand:
+	say "It doesn't really open; there's no drawer." instead;
+
 Instead of physicality when the noun is the you-stand:
-	say "You don't want to move the stand when its in the perfect spot for you to reach it at night."
+	say "You don't want to move the stand when it's in the perfect spot for you to reach it at night."
 
 The carrying capacity of the you-stand is 2.
 
@@ -1981,7 +1990,7 @@ Chapter 15 - Bridge Command
 
 Bridge-command is a room in bridge-region. Bridge-command is north from bridge-central. The printed name of Bridge-command is "Bridge: Command". The description of Bridge-command is "This area of the bridge is the largest, opening out to smaller areas to the [boldwest], [boldeast], and [boldsouth]. A scattered and harried crew man the various stations of the bridge[if the captain is not in the location]. The Captain is nowhere to be seen[end if].
 
-A transport tube leads [boldup] to the officer's quarters.".
+A transport tube leads [boldup] to the officers['] quarters.".
 
 Chapter 16 - Officers Quarters
 
@@ -2035,7 +2044,7 @@ Chapter 17 - Auxiliary Quarters
 
 Auxiliary-Quarters is a room in ship-region. The printed name of Auxiliary-Quarters is "Auxiliary Quarters". The description of Auxiliary-Quarters is "This part of the ship connects the quarters of auxiliary staff like yourself to those of high command and the rest of the ship. In this particular area there are couches for resting and tables and chairs for working. No one's resting or working in here now; this place is deserted. Occasionally you catch glimpses of staff members running through the halls, but no one stays to talk.
 
-Everything is like a maze around here, but you know how to get to your own quarters to the [boldwest] and your friend Gareth's office to the [boldnorth]. The officer's quarters lie more to the [boldeast], and the reception hall is to the [boldsouth]."
+Everything is like a maze around here, but you know how to get to your own quarters to the [boldwest] and your friend Gareth's office to the [boldnorth]. The officers['] quarters lie more to the [boldeast], and the reception hall is to the [boldsouth]."
 
 Section 1 - Scenery
 
@@ -2098,7 +2107,7 @@ The docs-nurses are plural-named scenery people in medical-bay. The printed name
 Instead of physicality when the noun is the docs-nurses:
 	say "All of the doctors and nurses are too busy for you to hassle them."
 
-The medical-patients are plural-named scenery people in medical-bay. The printed name of the medical-patients is "patients". Understand "patient" or "patients" or "new patient" or "new patients" as the medical-patients. The description of the medical-patients is "Most of the patients seem at most lightly damaged, thankfully. Although that may mean that the more serious cases are just being taken care of out of view.".
+The medical-patients are plural-named scenery people in medical-bay. The printed name of the medical-patients is "patients". Understand "patient" or "patients" or "new patient" or "new patients" or "wounded" as the medical-patients. The description of the medical-patients is "Most of the patients seem at most lightly damaged, thankfully. Although that may mean that the more serious cases are just being taken care of out of view.".
 
 Instead of physicality when the noun is the medical-patients:
 	say "You don't want to bother the patients right now."
@@ -2114,7 +2123,7 @@ Manage-quip is a quip. The printed name of manage-quip is "Management". Understa
 
 The targetresponse of Manage-quip is "Idris shakes his head. 'Not good,' he says. [if sanya is not in the location]'And Sanya's not here, so the critical cases are piling up in the back. Not sure what we're going to do. If you see her, send her this way, will you?'
 
-That's not good. Sanya is the best surgeon on the medical team. You say 'I'll keep an eye out for her!'
+That's not good. Sanya is the best surgeon on the medical team. You say, 'I'll keep an eye out for her!'
 
 'Thanks,' says Idris[otherwise]'But at least Sanya's here now. We were having a really rough time before she got here.'
 
@@ -2163,7 +2172,7 @@ The fleeing-crowd is a neuter scenery person in damaged-quarters. Understand "fl
 Instead of physicality when the noun is the fleeing-crowd:
 	say "The crowd is too dangerous to approach closely. You could swept away or trampled."
 	
-The description of the fleeing-crowd is "People keep coming, seemingly without end, but the fleeing crowd stays at a reasonable size. Most people have either already evacuated or are unable to do so.." 
+The description of the fleeing-crowd is "People keep coming, seemingly without end, but the fleeing crowd stays at a reasonable size. Most people have either already evacuated or are unable to do so." 
 
 Chapter 20 - Posh Quarters
 
@@ -2270,7 +2279,7 @@ The description of the gift-sign is "The sign proudly proclaims 'GIFT SHOP'."
 
 Section 1 - Napoleon
 
-wax-napoleon is a wax-figure in pride-room.. The printed name of wax-napoleon is "Napoleon". Understand "napoleon" or "bonaparte" as wax-napoleon. The description of wax-napoleon is "Napoleon is depicted in his full glory, brandishing a polished saber and wearing a billowing cape and a jaunty bicorne hat. He is seated on a rearing horse. As a Storyweaver educated in much of Earth's history, the historical accuracy of the figure is dubious, but it does look impressive."
+wax-napoleon is a wax-figure in pride-room.. The printed name of wax-napoleon is "Napoleon". Understand "napoleon" or "bonaparte" as wax-napoleon. The description of wax-napoleon is "Napoleon is depicted in his full glory, brandishing a polished saber and wearing a billowing cape and a jaunty bicorne hat. He is seated on a rearing horse. To a Storyweaver educated in much of Earth's history, the historical accuracy of the figure is dubious, but it does look impressive."
 
 The napoleon-horse is a wax-figure in pride-room. The printed name of the napoleon-horse is "rearing horse". Understand "rearing" or "horse" or "arabian" or "chestnut" as the napoleon-horse. The description of the napoleon-horse is "The rearing horse looks to be a chestnut Arabian, depicted in a fierce manner."
 
@@ -2500,15 +2509,15 @@ Instead of examining the polished-saber when the player is on green-disk:
 
 Section 6 - Sphinx
 
-Khufu-sphinx is scenery in pride-room. The printed name of khufu-sphinx is "Sphinx". Understand "sphinx" or "gaudy" or "body" or "face" or "scale" or "Model" or "lion" or "nose" as khufu-sphinx.
+The Khufu-sphinx is scenery in pride-room. The printed name of khufu-sphinx is "sphinx". Understand "sphinx" or "gaudy" or "body" or "face" or "scale" or "Model" or "lion" or "nose" as khufu-sphinx.
 
 The description of khufu-sphinx is "The sphinx has been heavily remodeled from its real-life appearance. There is no wear and tear on the body and most of the face, and the flat part of the nose has a button on it. Its eyes look like plastic."
 
 The khufu-button is part of khufu-sphinx. Understand "button" or "nose" as the khufu-button. The printed name of the khufu-button is "button". The description of the khufu-button is "This button is placed where the sphinx's nose should be."
 
-The sphinx-left is part of the khufu-sphinx. Understand "left sphinx" or "left eye" or "eye" or "plastic" or "eyes" or "lit" or "light" as the sphinx-left. The printed name of the sphinx-left is "left sphinx eye". The description of the sphinx-left is "The left eye of the sphinx is plastic, probably has some kind of light underneath, since the texture reminds you of street lights.".
+The sphinx-left is part of the khufu-sphinx. Understand "left sphinx" or "left eye" or "eye" or "plastic" or "eyes" or "lit" or "light" or "left" as the sphinx-left. The printed name of the sphinx-left is "left sphinx eye". The description of the sphinx-left is "The left eye of the sphinx is plastic, probably has some kind of light underneath, since the texture reminds you of street lights.".
 
-The sphinx-right is part of the khufu-sphinx. Understand "right sphinx" or "right eye" or "eye" or "eyes" or "plastic" or "lit" or "light" as the sphinx-right. The printed name of the sphinx-right is "right sphinx eye". The description of the sphinx-right is "The right eye of the sphinx is plastic, probably has some kind of light underneath, since the texture reminds you of street lights."
+The sphinx-right is part of the khufu-sphinx. Understand "right sphinx" or "right eye" or "eye" or "eyes" or "plastic" or "lit" or "light" or "right" as the sphinx-right. The printed name of the sphinx-right is "right sphinx eye". The description of the sphinx-right is "The right eye of the sphinx is plastic, probably has some kind of light underneath, since the texture reminds you of street lights."
 
 Instead of pushing the sphinx-right:
 	say "*doink doink doink*
@@ -2529,7 +2538,7 @@ Then the left eye lights up again and it says, '...and three legs at evening?'
 
 Then it turns dark[first time].
 
-Every Storyweaver worth her salt knows this one; you've been telling kids about this riddle for years. 'Man!' you shout. But nothing responds. Hmm, maybe the clues mean something else.[only]."
+Every Storyweaver worth her salt knows this one; you've been telling kids about this riddle for years. 'Man!' you shout. But nothing responds. Hmm, maybe the clues mean something else[only]."
 
 [add eyes to the sphinx]
 
@@ -2809,7 +2818,7 @@ Gift-entryway is a scenery open unopenable door. Gift-entryway is east from prid
 
 Gift-room is a room. "[first time]The gift shop brings back a flood of memories. When you were younger, even in college, this part always seemed so fun: a way to buy something so that you could always hold onto the memory. Even then, you were concerned with the preservation of knowledge. Only now, you've seen too many material reminders decay or get left behind. Only the stories really last.
 
-[only]The gift shop for the wax museum is colorful and whimsical, to the point of being a little gaudy. 'MYSTERY AND HISTORY', the name of the museum, is displayed proudly. Much of the room is empty, perhaps due to being closed. What's left is scattered around the edges of the room. There are a lot of informational posters on the wall[one of], about the wildest topics[or][stopping]: NATO, Bloody Mary, gold panning, [one of]even foosball![or]and foosball[stopping][paragraph break]An incongruously somber coin machine stands neglected in one corner, labelled 'TOKENS FOR OBOLS'. Next to it is a door marked marked with an octagon, leading [boldnorth].
+[only]The gift shop for the wax museum is colorful and whimsical, to the point of being a little gaudy. 'MYSTERY AND HISTORY', the name of the museum, is displayed proudly. Much of the room is empty, perhaps due to the museum being closed. What's left is scattered around the edges of the room. There are a lot of informational posters on the wall[one of], about the wildest topics[or][stopping]: NATO, Bloody Mary, gold panning, [one of]even foosball![or]and foosball[stopping].[paragraph break]An incongruously somber coin machine stands neglected in one corner, labelled 'TOKENS FOR OBOLS'. Next to it is a door marked marked with an octagon, leading [boldnorth].
 
 A meter stretches up the entire side of one wall: a sort of long indentation with seven marks at the side and an indicator. Right now, the indicator is at the mark labelled '[prize-level]'. 
 
@@ -2825,7 +2834,9 @@ The antique-watch is a thing in gift-cage. The indefinite article of the antique
 
 The gift-room is in wax-region. The printed name of gift-room is "Gift Shop".
 
-The coin-machine is temporally-displaced scenery in Gift-room. The dimnumber of the coin-machine is 1. The printed name of the coin-machine is "coin machine". Understand "coin" or "machine" or "somber" or "obol" or "incongruously" or "black" or "white" or "spider" or "web" or "webs" or "spiderwebs" as the coin-machine. The description of the coin-machine is "This coin machine is painted in black with white spiderwebs, with the slogan TOKENS FOR OBOLS. In front, it has a little tray and a slot with a little sign on it. It doesn't look like it belongs here."
+The coin-machine is temporally-displaced scenery in Gift-room. The dimnumber of the coin-machine is 1. The printed name of the coin-machine is "coin machine". Understand "coin" or "machine" or "somber" or "incongruously" or "black" or "white" or "spider" or "web" or "webs" or "spiderwebs" as the coin-machine. The description of the coin-machine is "This coin machine is painted in black with white spiderwebs, with the slogan TOKENS FOR OBOLS. In front, it has a little tray and a slot with a little sign on it. It doesn't look like it belongs here."
+
+Understand "obol" as the coin-machine when the obol is not visible.
 
 The coin-sign is part of the coin-machine. Understand "little" or "sign" as the coin-sign. The printed name of the coin-sign is "little sign". The description of the coin-sign is "The little sign says:
 
@@ -2868,7 +2879,7 @@ The prize-meter is scenery in gift-room. The printed name of the prize-meter is 
 
 The description of the prize-meter is "The prize meter goes up one whole wall. It's a long indentation with a mechanical indicator set in it. Next to the indentation are several marks, each labelled with a number. The indicator is currently set at [prize-level].
 
-At the top of the meter is a silvery cage[if the antique-watch is in gift-cage] containing the Captain's watch[otherwise]."
+At the top of the meter is a silvery cage[if the antique-watch is in gift-cage] containing the Captain's watch[end if]."
 
 Prize-scene is a scene. Prize-scene begins when the player is in gift-room and prize-level > 6.
 
@@ -3106,7 +3117,7 @@ You look up. Out of the ceiling, balloons are being inflated, growing downward l
 
 A harsh voice shouts, 'Achilles challenges you, Queen of Britain!' The spear of Achilles loosens and falls to the ground with a thud, although it is still attached by a tether to Achilles['] hand. 
 
-'I will defeat all armies!' shouts a womans voice in return.
+'I will defeat all armies!' shouts a woman's voice in return.
 
 Some lights flash on and others flash off, and a large number strip is now easily visible on the wall. Above it are shadows of two large armies, one Greek and one British, judging by their shadowy weapons.
 
@@ -3150,9 +3161,9 @@ Instead of going from wrath-room when the achilles-javelin is enclosed by the pl
 
 Section 3 - Bloody Mary
 
-Bloody-figure is a wax-figure. The printed name of Bloody-figure is "Bloody Mary". Understand "mary" or "bloody" or "tudor" or "crues" or "harsh" as bloody-figure. The description of bloody-figure is "The artist seems to have taken several creative liberties. This is Mary Tudor, depicted as harsh and thin-lipped, wearing a sumptuous dress and brocaded mantle, sitting on a throne. Her hands are covered in--or,at least, painted like--blood."
+Bloody-figure is a wax-figure. The printed name of Bloody-figure is "Bloody Mary". Understand "mary" or "bloody" or "tudor" or "crues" or "harsh" as bloody-figure. The description of bloody-figure is "The artist seems to have taken several creative liberties. This is Mary Tudor, depicted as harsh and thin-lipped, wearing a sumptuous dress and brocaded mantle, sitting on a throne. Her hands are covered in--or, at least, painted like--blood."
 
-The mary-throne is part of the bloody-figure. The printed name of the mary-throne is "throne". Understand "throne" or "sharp" or "edges" or "angle" or "angles" or "iron" as the mary-throne. The description of the mary-throne is "Unlike the traditional thrones of England, like St. Edwards Chair, this throne is made of iron, with sharp edges and square angles. And, again, not very accurate historically."
+The mary-throne is part of the bloody-figure. The printed name of the mary-throne is "throne". Understand "throne" or "sharp" or "edges" or "angle" or "angles" or "iron" as the mary-throne. The description of the mary-throne is "Unlike the traditional thrones of England, like St. Edward's Chair, this throne is made of iron, with sharp edges and square angles. And, again, not very accurate historically."
 
 The mary-smile is a plural-named part of the bloody-figure. The printed name of the mary-smile is "lips". Understand "lips" or "lip" or "smile" or "thin" or "lipped" or "thin-lipped" as the mary-smile. The description of the mary-smile is "Bloody Mary's smile is thin and cruel, like someone seeing their greatest enemy humiliated in public."
 
@@ -3183,7 +3194,7 @@ Withpoking is an action applying to two things. Understand "poke [something] wit
 Carry out withpoking:
 	try attacking the noun;
 
-The numbers-strip is distant scenery in wrath-room. The printed name of numbers-strip is "numbers strip". Understand "numbers" or "strip" or "number" or "battle" or "lines" or "line" as numbers-strip. The description of numbers-strip is "Faint enough that you didn't see it before, a number strip is high upon the wall, just below the shadow armies, stretching from one side of the room to another. It goes from 0 to 200, with the armies currently centered as [armyposition].".
+The numbers-strip is distant scenery in wrath-room. The printed name of numbers-strip is "numbers strip". Understand "numbers" or "strip" or "number" or "battle" or "lines" or "line" as numbers-strip. The description of numbers-strip is "Faint enough that you didn't see it before, a number strip is high upon the wall, just below the shadow armies, stretching from one side of the room to another. It goes from 0 to 200, with the armies currently centered at [armyposition].".
 
 Armyposition is a number that varies. Armyposition is 99.
 
@@ -3202,18 +3213,20 @@ Instead of throwing something at a wrath-balloon:
 Instead of attacking the yellow-wrathbloon:
 	say "The yellow balloon pops, being immediately replaced by a new one that inflates at the same spot.[paragraph break]";
 	let temppos be armyposition;
-	if armyposition > 195:
-		say "The shadow armies don't move at all. You've gone too far to the right to go any further, it seems.";
-	now armyposition is armyposition minus five;
-	say "Led by the shadow of Achilles, the army of Greek shadows hurls themselves at the British, sending them fleeing. When they settle down and battle lines are redrawn, the armies have moved from [temppos] to [armyposition] on the number strip.";
+	if armyposition < 5:
+		say "The shadow armies don't move at all. You've gone too far.";
+	otherwise:
+		now armyposition is armyposition minus five;
+		say "Led by the shadow of Achilles, the army of Greek shadows hurls themselves at the British, sending them fleeing. When they settle down and battle lines are redrawn, the armies have moved from [temppos] to [armyposition] on the number strip.";
 
 Instead of attacking the red-wrathbloon:
 	say "The red balloon pops, being immediately replaced by a new one that inflates at the same spot.[paragraph break]";
 	let temppos be armyposition;
-	if armyposition < 5:
-		say "The shadow armies don't move at all. You've gone too far.";
-	now armyposition is armyposition plus four;
-	say "Led by the shadow of Mary Tudor, the army of British shadows shoot a hail of arrows and the odd musket ball at the Greeks, who flee. When they settle down and battle lines are redrawn, the armies have moved from [temppos] to [armyposition] on the number strip.";
+	if armyposition > 195:
+		say "The shadow armies don't move at all. You've gone too far to the right to go any further, it seems.";
+	otherwise:
+		now armyposition is armyposition plus four;
+		say "Led by the shadow of Mary Tudor, the army of British shadows shoot a hail of arrows and the odd musket ball at the Greeks, who flee. When they settle down and battle lines are redrawn, the armies have moved from [temppos] to [armyposition] on the number strip.";
 
 Wrath-done is a truth state that varies. Wrath-done is false.
 
@@ -3326,7 +3339,7 @@ Instead of opening the khan-chest:
 
 Instead of attacking the khan-chest:
 	if the khan-chest is open:
-		say "You've already done that once; and the memory will be wth you for a while.";
+		say "You've already done that once; and the memory will be with you for a while.";
 	otherwise:
 		now the khan-chest is open;
 		say "You scream as the thrill of combat overcomes you and punch your hand into Genghis Khan. His chest bursts open, revealing an opal ring."
@@ -3563,7 +3576,7 @@ Carry out intensemudremoval:
 
 Section 5 - Glass box
 
-The diamond-ring is a gold-ring. The printed name of the diamond-ring is "diamond ring". Understand "diamond" or "sharp" or "point" or "Ring" as the diamond-ring. The description of the diamond-ring is "The diamond ring has a simple gold band, on which are engraved the tiny words 'DO NOT REMOVE FROM ROOM'. 
+The diamond-ring is a gold-ring. The printed name of the diamond-ring is "diamond ring". Understand "diamond" or "sharp" or "silver" or "point" or "Ring" as the diamond-ring. The description of the diamond-ring is "The diamond ring has a simple gold band, on which are engraved the tiny words 'DO NOT REMOVE FROM ROOM'. 
 
 The diamond itself comes to a very sharp-looking point." 
 
@@ -3773,7 +3786,7 @@ Behind the patch of flowers is a spade[end if]."
 
 The chan-flowers spearhold the diao-spade.
 
-The chan-bench is an enterable scenery supporter in envy-room. The printed name of the chan-bench is "bench". Understand "bench" as the chan-bench. The description of the chan-bench is "Diaochan's bench looks like it is designed to allow her servants to care for her, whether through food or water or other means[if the diao-fan is not oncetaken]
+The chan-bench is an enterable scenery supporter in envy-room. The printed name of the chan-bench is "bench". Understand "bench" as the chan-bench. The description of the chan-bench is "Diaochan's bench looks like it is designed to allow her servants to care for her, whether through food or water or other means[if the diao-fan is not oncetaken].
 
 A fan is near the bench, perhaps left behind by a servant[end if]."
 
@@ -3904,6 +3917,9 @@ Understand "untie [arthur-bandage]" as taking when the player is in envy-room.
 [handle the case where they X SILK]
 
 The weapons-rack is a scenery transparent open unopenable container in envy-room. The printed name of the weapons-rack is "weapons rack". Understand "weapon" or "weapons" or "rack" as the weapons-rack.
+
+Instead of putting something on the weapons-rack:
+	try inserting the noun into the weapons-rack;
 
 The describe what's on scenery supporters in room descriptions rule does nothing when the player is in envy-room.
 
@@ -4195,7 +4211,7 @@ Below is a combination lock that has animals on it rather than numbers.
 
 Next to the door, you recognize what seems to be a blacklight."
 
-Some vault-detritus is in greed-vault. The vault-detritus is ambiguously plural. The printed name of the vault-detritus is "trash". Understand "trash" as the vault-detritus. "Some trash litters the vault." The description of the vault-detritus is "It looks like someone dumped their trash in here. Gross."
+The vault-detritus is in greed-vault. The indefinite article of vault-detritus is "some". The printed name of the vault-detritus is "trash". Understand "trash" as the vault-detritus. "Some trash litters the vault." The description of the vault-detritus is "It looks like someone dumped their trash in here. Gross."
 
 Instead of taking the vault-detritus:
 	say "Ew. No."
@@ -4450,7 +4466,7 @@ Instead of examining the vault-combo:
 		say "[if vaultlocked is false]The lock is lit up. [end if]You haven't dialed the lock to any combination yet. You can SET it TO lion, jaguar, dog, horse, cat, fish, elephant, mouse, or chicken[if vaultlocked is true].
 
 However, the lock is dark and doesn't seem to be active[end if]."; 
-	otherwise say "You have set the lock to [the current-animalnation of the vault-combo].". 
+	otherwise say "You have set the lock to [the current-animalnation of the vault-combo]. You can SET it TO lion, jaguar, dog, horse, cat, fish, elephant, mouse, or chicken.". 
 
 Check setting something animally to (this is the block setting animally rule): 
 	say "[The noun] cannot be set." 
@@ -4488,9 +4504,15 @@ Amusingly, Henry VIII reminds you of your father as well, but only because you t
 
 [only]In this room, a wax figure of Elvis is portrayed wearing a white jumpsuit and singing while contorted in an extreme posture. [if there is an elvis-table in gluttony-room]Surrounding him are four turntables with records on them (labelled Suspicious Minds, Jailhouse Rock, Hound Dog, and Burning Love respectively), with an informational plaque near the middle[otherwise]Near him is an informational plaque[end if].
 
-Across from Elvis is Henry VIII, posed holding a turkey leg, although of course there was no actual image of him ever doing so[if soda-machine is in gluttony-room]. Even more incongruously, there is a soda machine next to him, and a goblet underneath in the soda machine[end if]. He also has an informational plaque.
+Across from Elvis is Henry VIII, posed holding a turkey leg, although of course there was no actual image of him ever doing so[if soda-machine is in gluttony-room]. Even more incongruously, there is a soda machine next to him, [goblettext] in the soda machine[end if]. He also has an informational plaque.
 
 You can go [boldsouth] or [boldeast] from here."
+
+To say goblettext:
+	if the henry-goblet is in the soda-machine:
+		say "and a goblet underneath";
+	otherwise:
+		say "with [a list of things in the soda-machine]";
 
 [filling a goblet with 'wine' until it is full, then higher, with surface tension, then even higher]
 [elvis songs on turntables, playing all out once makes message appear in the noise]
@@ -4512,7 +4534,7 @@ The elvis-plaque is an info-plaque in gluttony-room. Understand "Elvis" as the e
 
 Section 2 - Henry VII
 
-henry-figure is a wax-figure in gluttony-room. Understand "henry" or "viii" or "8" or "eight" or "8th" or "eighth" or "royal" or "finery" or "king" or "mouth" as the henry-figure. The printed name of the henry-figure is "Henry VIII". The description of the henry-figure is "Henry VIII is displayed in his royal finery, standing proud and rotund as ever. The artist has chosen to focus not on his religious reforms, murders of his wives, or other such details. Instead, he is surrounded by food, including a turkey drumstick in his hand. There are some thin wires leading from the nearby soda machine to his mouth.
+henry-figure is a wax-figure in gluttony-room. Understand "henry" or "viii" or "8" or "eight" or "8th" or "eighth" or "royal" or "finery" or "king" or "mouth" as the henry-figure. The printed name of the henry-figure is "Henry VIII". The description of the henry-figure is "Henry VIII is displayed in his royal finery, standing proud and rotund as ever. The artist has chosen to focus not on his religious reforms, murders of his wives, or other such details. Instead, he is surrounded by food, including a turkey drumstick in his hand[if the soda-machine is in the location]. There are some thin wires leading from the nearby soda machine to his mouth[end if].
 
 There is a plaque nearby."
 
@@ -4521,7 +4543,7 @@ Some henry-food is scenery in gluttony-room. The printed name of the henry-food 
 Instead of eating the henry-food:
 	say "Eating a ton of wax probably isn't very healthy!"
 
-The turkey-drumstick is part of the henry-figure. Understand "turkey" or "drumstick" as the turkey-drumstick. The printed name of the turkey-drumstick is "turkey drumstick". The description of the turkey-drumstick is "While turkeys were found in America, they were brought to England by the 1520's. Did Henry VIII every have a turkey drumstick? The world may never know."
+The turkey-drumstick is part of the henry-figure. Understand "turkey" or "leg" or "drumstick" as the turkey-drumstick. The printed name of the turkey-drumstick is "turkey drumstick". The description of the turkey-drumstick is "While turkeys were found in America, they were brought to England by the 1520[']s. Did Henry VIII every have a turkey drumstick? The world may never know."
 
 The henry-plaque is an info-plaque in gluttony-room. The printed name of the henry-plaque is "Henry VIII plaque". Understand "henry" or "viii" or "plaque" as the henry-plaque. The description of the henry-plaque is "It says: 'Oh, Henry. This King will never be satisfied until his cup runneth over'."
 
@@ -4600,8 +4622,7 @@ The goblet is under the soda machine[end if].
 
 Looking inside, it has numbers running up the side going from 0 at the bottom to 7 at the very top. At the level labelled 5 is a warning: DO NOT FILL ABOVE THIS LINE. 
 
-Right now, [if total-soda is 0]it's empty[otherwise]It's filled up to the '[total-soda]' mark with [sodalevels][end if]."
-
+Right now, [if total-soda is 0]it's empty[otherwise]it's filled up to the '[total-soda]' mark with [sodalevels][end if]."
 
 Before inserting something into the soda-machine:
 	if the noun is not henry-goblet:
@@ -4649,7 +4670,7 @@ Instead of pushing a soda-button (called currentsoda):
 			if total-soda < 5:
 				say "There's still room for more in the goblet.";
 			if total-soda is 5:
-				say "The goblet is now full to the brim.";
+				say "The goblet is now full to the marked line.";
 			if total-soda is 6:
 				say "The goblet is dangerously full!";
 			if total-soda > 6:
@@ -4660,7 +4681,7 @@ Instead of pushing a soda-button (called currentsoda):
 		otherwise:
 			say "The soda just spills into the rest of the machine, with no goblet present.";
 	otherwise:
-		say "The machine beeps, and a voice says, 'Soda limit reached.'"
+		say "The machine beeps, and a voice says, 'Allowed soda limit reached.'"
 	
 Understand "soda" as the henry-goblet when total-soda > 0.
 
@@ -4747,7 +4768,7 @@ The wasps-note is part of the gluttony-wax. The printed name of the wasps-note i
 That definitely doesn't seem like it's supposed to be part of the museum!"
 
 Instead of physicality when the noun is the wasps-note:
-	say "It wouldn't get close to that if I were you!"
+	say "I wouldn't get close to that if I were you!"
 
 Gluttony-done is a truth state that varies. Gluttony-done is false.
 
@@ -4773,7 +4794,7 @@ Chapter 8 - Sloth
 
 The sloth-room is east from gluttony-room and north from lust-room. The sloth-room is in wax-region. The printed name of the sloth-room is "Lennon Room". "[first time]Huh, this room is kind of weird. What's with the bed? Then you look closer.
 
-Ah, it's the Beatles. One of them,at least.
+Ah, it's the Beatles. One of them, at least.
 
 [only]You can see John Lennon here, residing in a large bed. Behind him are signs saying HAIR PEACE and BED PEACE. John has a heavy beard and long hair[if the driver-kiosk is in sloth-room].
 
@@ -4800,7 +4821,7 @@ Section 1 - Helen of Troy
 
 helen-figure is a wax-figure in sloth-room. The printed name of helen-figure is "Helen of Troy". Understand "helen" or "figure" or "tall "or "hair" or "athletic" or "helen of" or "troy" as the helen-figure. The description of the helen-figure is "Helen is depicted as a graceful beauty, her hair held back by a headband and her figure covered by a Doric chiton. She is staring [if the foosball-table is in sloth-room]at the Trojan War as depicted in a foosball table[otherwise]off into the distance[end if].".
 
-The helen-band is part of the helen-figure. The printed name of the helen-band is "hairband". Understand "leaves" or "branches" or "branch" or "leaf" or "laurel" or "olive" or "band" or "hairband" or "stephane" as the helen-band. The description of the helen-band is "On further inspection, you can see that Helen's hairband is made of olive branches and laurel leaves, an early version of the Greek [italic type]stephane[roman type]."
+The helen-band is part of the helen-figure. The printed name of the helen-band is "hairband". Understand "leaves" or "branches" or "branch" or "leaf" or "laurel" or "olive" or "band" or "headband" or "hairband" or "stephane" as the helen-band. The description of the helen-band is "On further inspection, you can see that Helen's hairband is made of olive branches and laurel leaves, an early version of the Greek [italic type]stephane[roman type]."
 
 The helen-chiton is part of the helen-figure. The printed name of the helen-chiton is "doric chiton". Understand "doric" or "pin" or "pins" or "chiton" as the helen-chiton. The description of the helen-chiton is "Helen's chiton, the loose garment that covers her, is a Doric type, the earlier form that used pins. It was replaced by Ionic chitons later, you think."
 
@@ -5196,7 +5217,7 @@ Instead of reading the contraption-directions:
 
 'Sign up Today! 1/6'[or]The second page says, 'So you want to figure out how this contraption works. More power to you!
 
-'To begin, you need to understand the original Goat, Wolf, and Cabbage puzzle. This puzzle has been found dating back thousands of years and has appeared in multiple cultures. The idea is that a fisherman must cross a river while carrying a goat, a wolf, and a cabbage, but can only take one at a time. The goat can't be left with the wolf, and the cabbage can't be left with the goat! How can the farmer get all three items across the river? Well, that's your problem! 2/6'[or]The third page says, 'Did you know the Rubik's cube was invented was invented in 1974. It was one of the most popular puzzle items of all time until its ban in 2080. Since being reintroduced, the Rubik's cube has once again become one of the hottest items on the market! Many people have memorized algorithms for solving the Rubik's cube. Hope you're one of them! 3/6'[or]The fourth page says, 'Keyboards originally were just a collection of levers for typewriters. So we thought, why not use levers to spell words?
+'To begin, you need to understand the original Goat, Wolf, and Cabbage puzzle. This puzzle has been found dating back thousands of years and has appeared in multiple cultures. The idea is that a fisherman must cross a river while carrying a goat, a wolf, and a cabbage, but can only take one at a time. The goat can't be left with the wolf, and the cabbage can't be left with the goat! How can the farmer get all three items across the river? Well, that's your problem! 2/6'[or]The third page says, 'Did you know the Rubik's cube was invented in 1974. It was one of the most popular puzzle items of all time until its ban in 2080. Since being reintroduced, the Rubik's cube has once again become one of the hottest items on the market! Many people have memorized algorithms for solving the Rubik's cube. Hope you're one of them! 3/6'[or]The fourth page says, 'Keyboards originally were just a collection of levers for typewriters. So we thought, why not use levers to spell words?
 
 'Unfortunately, you can't represent multiple words at once or words that re-use letters this way, but that shouldn't be a problem for you! 4/6'[or]The fifth page says, 'You may be wondering about the wires. You may ask yourself, Are they based on the ancient Greek elements? The Chinese elements? Or the elements in the hit 1990[']s JRPG Secret of Mana (later made famous as an ice skating musical)? Ah, you got us!'
 
@@ -13242,7 +13263,7 @@ Instead of rubbing the stonehenge-graffiti:
 	say "It would take forever to clean all of this off."
 
 To say testername:
-	say "[one of]Amanda[or]Xenographer[or]John[or]Jade[or]Christopher[or]Lance[or]Zed[or]Cody[or]Alex[or]Radioactive Crow[or]Patrick[or]Arthur[or]Brett[or]Rovarsson[or]Joyce[or]Max[or]Dee[or]Ian[or]Chandler[or]Spike[or]Lazzah[or]Doug[or]Dirk[or]Dee[or]Hidnook[or]Eddie[or]Grueslayer[or]Lynnea[or]Wade[or]Onno[cycling]"
+	say "[one of]Amanda[or]Xenographer[or]John[or]Jade[or]Christopher[or]Lance[or]Zed[or]Cody[or]Alex[or]Radioactive Crow[or]Patrick[or]Arthur[or]Brett[or]Rovarsson[or]Joyce[or]Max[or]Dee[or]Ian[or]Chandler[or]Spike[or]Lazzah[or]Doug[or]Dirk[or]Dee[or]Hidnook[or]Eddie[or]Grueslayer[or]Lynnea[or]Wade[or]Onno[or]Keltena[or]Tabitha[cycling]"
 
 The east-collector is a light-collector in stonehenge-east.
 
@@ -18068,7 +18089,7 @@ Instead of entering the iron-gate:
 
 Before turning or pushing or pulling or taking or attacking the iron-gate:
 	if iron-bar is part of iron-gate:
-		say "You twist a little and the iron bar pops off, falling to the ground.";
+		say "You twist a little and the iron bar pops off, falling to the ground. There is now a gap in the gate.";
 		now the iron-bar is in gate-passage;
 		now iron-bar is noticed;
 		now gate-gap is part of the iron-gate instead;
@@ -18121,7 +18142,7 @@ Before going west from ruined-courtyard when the iron-bar is not part of iron-ga
 
 Chapter 13 - Ruined courtyard
 
-Ruined-courtyard is east from Gate-Passage. The ruined-courtyard is in castle-region. The printed name of ruined-courtyard is "Ruined Courtyard". The description of ruined-courtyard is "This once-beautiful courtyard is now blighted and ruined. Dead grass runs past empty flowerbeds, and crumbling walls surround most of the area. You can go [boldnorth] or [boldsouth] into the wings of the castle, go [boldeast] into the throne room, or return [boldwest] to the gate in the iron fence."
+Ruined-courtyard is east from Gate-Passage. The ruined-courtyard is in castle-region. The printed name of ruined-courtyard is "Ruined Courtyard". The description of ruined-courtyard is "This once-stately courtyard is now blighted and ruined. Dead grass runs past empty flowerbeds, and crumbling walls surround most of the area. You can go [boldnorth] or [boldsouth] into the wings of the castle, go [boldeast] into the throne room, or return [boldwest] to the gate in the iron fence."
 
 The iron-fence is in ruined-courtyard.
 
@@ -18201,7 +18222,7 @@ The plank-notch is part of the notched-plank. The printed name of the plank-notc
 
 Chapter 15- Dark pool
 
-Dark-pool is south from ruined-courtyard. Dark-pool is in castle-region. The printed name of dark-pool is "Dark Pool". "You are in a dank cave. It looks older than the rest of the castle, hewn roughly out of stone. It feels so old it almost hurts, a forbidding place, one that should not have been intruded upon. It's hard to say why, exactly you feel like that, but it may be due to the pool of luminescent green liquid in the center of it. Exits lead [boldeast] and [boldnorth][first time].
+Dark-pool is south from ruined-courtyard. Dark-pool is in castle-region. The printed name of dark-pool is "Dark Pool". "You are in a dank cave. It looks older than the rest of the castle, hewn roughly out of stone. It feels so old it almost hurts, a forbidding place, one that should not have been intruded upon. It's hard to say why, exactly, you feel like that, but it may be due to the pool of luminescent green liquid in the center of it. Exits lead [boldeast] and [boldnorth][first time].
 
 You can hear murmuring coming from the pool. As you walk closer, the pool's bubbling softens and ceases, and the pool goes flat. You look in, and see your own [clone-you]. It winks at you.
 
@@ -18298,7 +18319,7 @@ how-help is a quip. The printed name of how-help is "Assistance". Understand "As
 
 The targetresponse of how-help is "She answers, 'You're right, a reflection isn't much help. Here, help me up.'
 
-An arm lifts out of the pool, which you grab and pull. Your reflection emerges[trigger-clone].
+An arm rises out of the pool, which you grab and pull. Your reflection emerges[trigger-clone].
 
 Before you stands a fully-embodied copy of yourself. She says, 'Well, I guess I'll follow your lead. I'm just your reflection, so whatever you do, I'll do, too. I'll give you a head start, though; I'll silently count to two before following you.'"
 
@@ -18931,7 +18952,7 @@ The spire-bot is an animal in castle-spire. The printed name of spire-bot is "mo
 
 The spire-hole is distant scenery in castle-spire. The printed name of the spire-hole is "hole". Understand "hole" as the spire-hole. The description of the spire-hole is "This hole must be how the monkey robot was getting in and out."
 
-The gareth-toy is carried by the spire-bot. The printed name of the gareth-toy is "Dracula toy". Understand "action" or "figure" or "gareth's" or "toy" or "dracula" or "vampire" as the gareth-toy. The description of the gareth-toy is "This is Gareth's vintage Dracula action-figure; you know that it's his very favorite. He'll definitely be wanting this back!"
+The gareth-toy is carried by the spire-bot. The printed name of the gareth-toy is "Dracula toy". Understand "action" or "figure" or "gareth's" or "toy" or "dracula" or "vampire" or "action-figure" as the gareth-toy. The description of the gareth-toy is "This is Gareth's vintage Dracula action-figure; you know that it's his very favorite. He'll definitely be wanting this back!"
 
 The spire-wall is scenery in castle-spire. The printed name of spire-wall is "unusual wall". Understand "unusual" or "wall" or "solid" or "stainless" or "steel" as the spire-wall. The description of the spire-wall is "This must be the true edge of the holo-program chamber. There is a dedication plaque affixed onto it."
 
@@ -19000,7 +19021,7 @@ After reading a command when the command prompt is "What phrase would you want w
 
 Is that right?";
 	if the player consents:
-		say	"'Cool', he says. He runs out of the room, only to come back, grab action figure from the desk, and run out again.
+		say	"'Cool', he says. He runs out of the room, only to come back, grab the action figure from the desk, and run out again.
 
 The rift in this room gently turns from red to green.
 
@@ -30083,7 +30104,7 @@ Rule for reaching inside a room when the player is in party-region:
 		say "You can only look from this distance. [if the noun is not enclosed by the location]But you can JOIN [the location of the noun] to go there[otherwise]But you can JOIN [the location of the second noun] to go there[end if]."; 
 		deny access;
 
-Before uttering something to someone in party-region:
+Before uttering a quip to someone in party-region:
 	if the second noun is not in the location:
 		if the second noun heeds the noun:
 			say "(first joining [the second noun])[command clarification break]";
@@ -32380,7 +32401,7 @@ Rule for reaching inside the central-monitor:
 	say "[We] can't reach through the monitor to the real world.";
 	deny access;
 	
-The Monitor-captain is a man. The printed name of the monitor-captain is "Captain". Understand "Captain" as the monitor-captain. "The Captain is on the monitor, staring at [us] gravely.". The description of the monitor-captain is "The Captain looks much more resolute than he did earlier when [if the player is arawn]Emrys[otherwise]you[end if] spoke with him earlier.". 
+The Monitor-captain is a man. The printed name of the monitor-captain is "Captain". Understand "Captain" or "robert" or "eggleston" as the monitor-captain. "The Captain is on the monitor, staring at [us] gravely.". The description of the monitor-captain is "The Captain looks much more resolute than he did earlier when [if the player is arawn]Emrys[otherwise]you[end if] spoke with him earlier.". 
 
 Monitor-bridge is a thing. The printed name of the monitor-bridge is "view of the bridge". Understand "view" or "crew" or "station" or "stations" or "view of" or "bridge" as the monitor-bridge. The description of the monitor-bridge is "The bridge looks exactly as [if the player is arawn]Emrys[otherwise]you[end if] left it, with the crew running between the stations."
 
@@ -32709,7 +32730,7 @@ Instead of physicality when the noun is the haze-redux:
 Instead of smelling when the player is enclosed by damaged-redux:
 	say "The haze fills your nostrils with its acrid scent."
 
-The rub-redux is scenery in damaged-redux. Understand "collapsed" or "ceiling" or "narrow" or "space" or "space in" or "rubble" or "portion" as the rub-redux. The printed name of the rub-redux is "rubble". The description of the rub-redux is "It looks like the entire ceiling collapsed here, and its hard to recognize any part of the rubble."
+The rub-redux is scenery in damaged-redux. Understand "collapsed" or "ceiling" or "narrow" or "space" or "space in" or "rubble" or "portion" as the rub-redux. The printed name of the rub-redux is "rubble". The description of the rub-redux is "It looks like the entire ceiling collapsed here, and it's hard to recognize any part of the rubble."
 
 Instead of physicality when the noun is rub-redux:
 	say "[one of]You try shifting the rubble but it makes a dangerous creaking noise.[or]The rubble seems too precarious to mess with again.[stopping]"
@@ -33702,7 +33723,7 @@ Chapter 21 - Officer quarters
 
 Escape-region is a region. Escape-region is in finale2-region.
 
-The officer-redux is up from broken-bridge. The printed name of officer-redux is "Officer's Quarters". It is in escape-region. "The officer's quarters are in a shambles, with all of the furniture missing. A jagged cliff extends below you, which you can try to go [bolddown], as long as you use the cable. The Captain's quarters are to the [boldeast], and the quarters for auxiliary staff such as yourself are to the [boldwest]. 
+The officer-redux is up from broken-bridge. The printed name of officer-redux is "Officers['] Quarters". It is in escape-region. "The officers['] quarters are in a shambles, with all of the furniture missing. A jagged cliff extends below you, which you can try to go [bolddown], as long as you use the cable. The Captain's quarters are to the [boldeast], and the quarters for auxiliary staff such as yourself are to the [boldwest]. 
 
 A corridor you hadn't noticed before is open to the [boldnorth], and arrows on the ground are flashing towards it. This must be the emergency exit to the escape pods[if the manual-key is handled].
 
@@ -33852,7 +33873,7 @@ The antique-gun is unevenly shaped.
 
 Chapter 23 - Auxiliary quarters
 
-Aux-redux is west from officer-redux. Aux-redux is in finale2-region. The printed name of aux-redux is "Auxiliary Quarters". The description of aux-redux is "This part of the ship connects the quarters of auxiliary staff like yourself to those of high command and the rest of the ship. Half of the room has collapsed, though, making it impossible to go anywhere except [boldeast] to the officer's quarters and [boldnorth] to Gareth's office."
+Aux-redux is west from officer-redux. Aux-redux is in finale2-region. The printed name of aux-redux is "Auxiliary Quarters". The description of aux-redux is "This part of the ship connects the quarters of auxiliary staff like yourself to those of high command and the rest of the ship. Half of the room has collapsed, though, making it impossible to go anywhere except [boldeast] to the officers['] quarters and [boldnorth] to Gareth's office."
 
 Chapter 24 - Gareth's room
 
@@ -34190,7 +34211,7 @@ Instead of physicality when the noun is the long-shadows:
 
 The hall-light is scenery in storage-room. The printed name of the hall-light is "light from the hallway". Understand "light" or "light from" or "bright" or "from the hallway" or "from hallway" or "from hall way" or "from hall" as the hall-light. The description of the hall-light is "The light from the hallway is a little too bright; you have to squint when you look towards it."
 
-The hall-door is scenery in storage-room. The printed name of the hall-door is "hall door". Understand "door out" or "hallway door" or "hall door" or "door" as the hall-door.
+The hall-door is scenery in storage-room. The printed name of the hall-door is "hall door". Understand "door out" or "hallway door" or "hall door" or "door" or "south door" or "storage room door" as the hall-door.
 
 Does the player mean doing something with the hall-door:
 	it is very unlikely;
@@ -34201,7 +34222,7 @@ Instead of opening the hall-door:
 	say "That's already open! That's how you came in."
 	
 Instead of closing the hall-door:
-	say "There's a chance you could stuck in here; better not risk it.";
+	say "There's a chance you could get stuck in here; better not risk it.";
 
 Instead of entering the hall-door:
 	try going south;
@@ -34213,7 +34234,7 @@ The way-hall is distant scenery in storage-room. The printed name of the way-hal
 
 Section 2 - Gareth
 
-Fake-gareth is a distant man. The printed name of fake-gareth is "Gareth's voice". Understand "gareth" or "gareth's" or "voice" as fake-gareth. The description of fake-gareth is "Gareth's voice is coming from the recorder you're wearing. But he's not here, of course."
+Fake-gareth is a distant scenery man. The printed name of fake-gareth is "Gareth". Understand "gareth" or "gareth's" or "voice" as fake-gareth. The description of fake-gareth is "Gareth's voice is coming from the recorder you're wearing. But he's not here, of course."
 
 Before going when gareth-scene is happening:
 	say "You should probably answer Gareth before exploring more.
@@ -34246,7 +34267,7 @@ When gareth-scene ends:
 
 response-quip is a quip. The printed name of response-quip is "Response".
 
-The target of response-quip is fake-gareth. Understand "response" or "respond" as response-quip. The preview of Response-quip is "Hey, Gareth what's up?"
+The target of response-quip is fake-gareth. Understand "response" or "respond" as response-quip. The preview of Response-quip is "Hey, Gareth, what's up?"
 
 Targetresponse of response-quip is "'Oh, good, you're there,' says the voice.
 
@@ -34266,15 +34287,13 @@ He goes on, 'Listen, it shouldn't be bad. You're in the storage closet, right?'
 
 'Just bring the jacket, and grab a few other things you can use as props during your talk. The presentation is on the history of the ship, so all that old junk should be perfect.'
 
-'I guess,' you say. 'I can't believe I forgot. Thanks for the suggestion, I think I'll do that. Three things should be enough, beside the jacket. I'll see you there.'
+'I guess,' you say. 'It'll be tough, but I think I can pull something together. Thanks for the suggestion, I think I'll do that. Three things should be enough, beside the jacket. I'll see you there.'
 
 'Better hurry. People are getting antsy. See you soon!' The recorder goes silent as Gareth hangs up."
 
 Every turn during gareth-scene:
 	if response-quip is meihtarget:
-		say "[one of]'Emrys, are you there?' says Gareth's voice.[or]'I know you're there. Can you answer?' he says.[or]'I'll just stay on the line until you say something,' says Gareth.[or]Gareth is still waiting for you to answer him.
-
-[bracket]To see things you can say, type T. In this case, you can SAY RESPONSE TO GARETH, or just SAY RESPONSE.[close bracket][line break][stopping]";
+		say "[one of]'Emrys, are you there?' says Gareth's voice.[or]'I know you're there. Can you answer?' he says.[or]'I'll just stay on the line until you say something,' says Gareth.[or]Gareth is still waiting for you to answer him.[stopping]";
 
 Section 4 - Newer box
 
@@ -34336,7 +34355,7 @@ The back-wall is scenery in maintenance-closet. The printed name of the back-wal
 
 The maint-shelf is a scenery supporter in maintenance-closet. The printed name of the maint-shelf is "shelf". Understand "shelf" or "metal" or "screwed" or "support" or "supports" as the maint-shelf. The description of the maint-shelf is "This is a metal shelf screwed into the wall via a couple of supports."
 
-The maint-screws are a plural-named part of the maint-shelf. The printed name of the maint-screws is "screws". Understand "screw" or "screws" as the maint-screws. The description of the maint-screws is "The screws are exceedintly uninteresting.
+The maint-screws are a plural-named part of the maint-shelf. The printed name of the maint-screws is "screws". Understand "screw" or "screws" as the maint-screws. The description of the maint-screws is "The screws are exceedingly uninteresting.
 
 [bracket]Usually in this game, smaller parts of objects are not implemented separately and aren't worth looking at. The main exceptions are movable parts like buttons or switches.[close bracket][line break]"
 
@@ -34502,11 +34521,11 @@ Before going nowhere from crawl-space when the noun is outside:
 
 Section 1 - The gap
 
-The crawl-gap is an open unopenable scenery door. It is down from far-storage and up from crawl-space. The printed name of the crawl-gap is "gap". Understand "gap" as the crawl-gap. The description of the crawl-gap is "[if the player is in far-storage]The gap looks big enough for you to fit in it, but not by much[otherwise]The gap to go back up looks very welcoming right now[end if]".
+The crawl-gap is an open unopenable scenery door. It is down from far-storage and up from crawl-space. The printed name of the crawl-gap is "gap". Understand "gap" as the crawl-gap. The description of the crawl-gap is "[if the player is in far-storage]The gap looks big enough for you to fit in it, but not by much[otherwise]The gap to go back up looks very welcoming right now[end if].".
 
 Section 2 - Scenery
 
-The crawl-webs are plural-named scenery in crawl-space. The printed name of the crawl-webs is "cobwebs". Understand "web" or "webs" or "cobwebs" or "cob" or "spider web" or "spiderweb" or "spider webs" or "spiderwebs" as the crawl-webs. The description of the crawl-webs is "You don't see any spiders near the webs, but that doesn't exactly reassure you."
+The crawl-webs are plural-named scenery in crawl-space. The printed name of the crawl-webs is "cobwebs". Understand "web" or "webs" or "cobwebs" or "cobweb" or "cob" or "spider web" or "spiderweb" or "spider webs" or "spiderwebs" as the crawl-webs. The description of the crawl-webs is "You don't see any spiders near the webs, but that doesn't exactly reassure you."
 
 Instead of physicality when the noun is the crawl-webs:
 	say "No way! You hate spiders. You're not going anywhere near the webs."
@@ -34553,7 +34572,9 @@ INstead of physicality when the noun is the self-reflection:
 
 The toy-train is a memorable thing in old-trunk. The printed name of the toy-train is "toy train". Understand "toy" or "train" or "metal" or "axles" or "axle" or "plastic" or "wheel" or "wheels" as the toy-train. The description of the toy-train is "This simple toy train looks like it was made for a very young child. It's carved out of wood, with metal axles and some plastic wheels. You might be able to use it to talk about transportation in your presentation, or kids."
 
-The ceremonial-jacket is in old-trunk. The ceremonial-jacket is a wearable thing. The printed name of the ceremonial-jacket is "ceremonial jacket". Understand "ceremonial" or "jacket" or "gold" or "black" or "epaulette" or "epaulettes" or "lapel" or "lapels" as the ceremonial-jacket. The description of the ceremonial-jacket is "This jacket is black with gold epaulettes and lapels. It really does look good; you suppose it was worth the time you spent looking for it."
+The ceremonial-jacket is in old-trunk. The ceremonial-jacket is a wearable thing. The printed name of the ceremonial-jacket is "ceremonial jacket". Understand "ceremonial" or "jacket" or "gold" or "black" or "epaulette" or "epaulettes" or "lapel" or "lapels" or "Eggleston" or "embroidered" or "name" or "thread" as the ceremonial-jacket. The description of the ceremonial-jacket is "This jacket is black with gold epaulettes and lapels. It really does look good; you suppose it was worth the time you spent looking for it.
+
+The name [italic type]Eggleston[roman type] is embroidered on it in gold thread."
 
 Instead of wearing the ceremonial-jacket:
 	say "You slip on the jacket, which is comically oversized on your narrow shoulders. You take it off again, chuckling at the image."
