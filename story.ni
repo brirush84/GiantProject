@@ -25,7 +25,7 @@ Release along with cover art.
 
 Section 1 - Genre, description, etc
 
-The story genre is "Science Fiction". The story description is "Travel through space and time to save your ship." The story creation year is 2023. The release number is 6.
+The story genre is "Science Fiction". The story description is "Travel through space and time to save your ship." The story creation year is 2023. The release number is 7.
 
 Section 2 - Increasing memory sizes
 
@@ -406,7 +406,7 @@ Report uttering an unlinkaged squip to someone:
 	
 Every turn when squipcounter is 7:
 	now squipcounter is 0;
-	say "[one of]It dawns on you that this group of suspects is quite adept at lying. While they have been willing to talk about many subjects, you're beginning to feel that only calling them out directly in their lies will make any real progress.[or][bracket]Talking to suspects about clues can provide useful info, but only clues produced by LINKing one clue to another will produce any real progress.[close bracket][stopping][conditional paragraph break]"
+	say "[one of]It dawns on you that this group of suspects is quite adept at lying. While they have been willing to talk about many subjects, you're beginning to feel that only calling them out directly in their lies will make any real progress.[or][bracket]Talking to suspects about clues can provide useful info, but only clues produced by LINKing one clue to another will produce any real progress.[close bracket][stopping][line break]"
 
 Singlequipping is an action applying to one thing. Understand "[a held quip]" as singlequipping.
 
@@ -1997,7 +1997,7 @@ A transport tube leads [boldup] to the officers['] quarters.".
 
 Chapter 16 - Officers Quarters
 
-Officers-Quarters is a room in ship-region. Officers-quarters is east from auxiliary-quarters. The printed name of Officers-Quarters is "Officers['] Quarters". The description of Officers-Quarters is "This sumptuous area is one of the nicest on the ship, designed as a place for ship officers to relax and gather. The current captain rarely uses this area, but the other officers spend much of their time here. A bar made of real oak lines one wall, although all alcohol is currently stored away. Armchairs and lamps dot the area. 
+Officers-Quarters is a room in ship-region. Officers-quarters is east from auxiliary-quarters. The printed name of Officers-Quarters is "Officers['] Quarters". The description of Officers-Quarters is "This sumptuous area is one of the nicest on the ship, designed as a place for ship officers to relax and gather. The current captain rarely uses this area, but the other officers spend much of their time here. A bar made of real oak lines one wall, although all alcohol is currently stored away. Armchairs and lamps dot the area. It's all empty now; every officer in the ship is on duty while evacuation is being prepped.
 
 You can reach the bridge by going [bolddown] a nearby transport tube. The Captain's own quarters are to the [boldeast], while the quarters for auxiliary staff are to the [boldwest].".
 
@@ -2045,7 +2045,7 @@ Before going through the transport-off:
 
 Chapter 17 - Auxiliary Quarters
 
-Auxiliary-Quarters is a room in ship-region. The printed name of Auxiliary-Quarters is "Auxiliary Quarters". The description of Auxiliary-Quarters is "This part of the ship connects the quarters of auxiliary staff like yourself to those of high command and the rest of the ship. In this particular area there are couches for resting and tables and chairs for working. No one's resting or working in here now; this place is deserted. Occasionally you catch glimpses of staff members running through the halls, but no one stays to talk.
+Auxiliary-Quarters is a room in ship-region. The printed name of Auxiliary-Quarters is "Auxiliary Quarters". The description of Auxiliary-Quarters is "This part of the ship connects the quarters of auxiliary staff like yourself to those of high command and the rest of the ship. In this particular area there are couches for resting and tables and chairs for working. No one's resting or working in here now; this place is deserted, and the atmosphere is tense. Occasionally you catch glimpses of staff members running through the halls, but no one stays to talk.
 
 Everything is like a maze around here, but you know how to get to your own quarters to the [boldwest] and your friend Gareth's office to the [boldnorth]. The officers['] quarters lie more to the [boldeast], and the reception hall is to the [boldsouth]."
 
@@ -3195,7 +3195,7 @@ The printed name of the red-wrathbloon is "red balloon". The printed name of the
 
 The description of a wrath-balloon (called currentbloon) is usually "[The noun] has protruded from the ceiling. You couldn't reach it yourself, but the javelin is long enough to poke it."
 
-Withpoking is an action applying to two things. Understand "poke [something] with [the achilles-javelin]" or "pop [something] with [the achilles-javelin]" or "burst [something] with [the achilles-javelin]" as withpoking.
+Withpoking is an action applying to two things. Understand "poke [something] with [the achilles-javelin]" or "pop [something] with [the achilles-javelin]" or "burst [something] with [the achilles-javelin]" as withpoking when the achilles-javelin is enclosed by the location.
 
 Carry out withpoking:
 	try attacking the noun;
@@ -3519,7 +3519,7 @@ Carry out shaking:
 	otherwise if the noun is a person:
 		say "Shake not, that ye be not shaken.";
 	otherwise:
-		say "[We] lightly [shake] [the noun] to the best of your ability."
+		say "[We] lightly [shake] [the noun] to the best of [our] ability."
 
 Instead of rubbing the ridge-china when china-mud is in ridge-china:
 	try shaking the ridge-china;
@@ -4673,7 +4673,7 @@ Instead of pushing a soda-button (called currentsoda):
 			if total-soda > 6:
 				say "The soda is overflowing. Most of what's flowing spills into the rest of the soda machine.";
 			if machinepushes is 5:
-				say "[conditional paragraph break]The machine beeps and says 'You have dispensed soda five times. The goblet is full.'";
+				say "[conditional paragraph break]The machine beeps and says, 'You have dispensed soda five times. The goblet is full.'";
 				now sodafull is true;
 		otherwise:
 			say "The soda just spills into the rest of the machine, with no goblet present.";
@@ -5423,7 +5423,7 @@ Does the player mean doing something when the second noun is a zoo-sign:
 
 Chapter 2 - Overlook room
 
-The overlook-room is a room in bigcosm-region. The printed name of the overlook-room is "Overlook". The description of the overlook-room is "You find yourself in a spacious room made entirely out of metal. The words AC ZOO OVERLOOK are stenciled on the wall in black paint. Along one wall is a storage cabinet labelled MEDIUM-SIZE DRY GOODS, and against another is an opening labelled REPAIR BAY[if holding-cell is in the location]. A holding cell is now visible, where you can see Duke resting[end if]. 
+The overlook-room is a room in bigcosm-region. The printed name of the overlook-room is "Overlook". The description of the overlook-room is "You find yourself in a spacious room made entirely out of metal. The words AC ZOO OVERLOOK are stenciled on the wall in black paint. Along one wall is a storage cabinet labelled MEDIUM-SIZE DRY GOODS[if the dry-storage is open], which contains [a list of things in dry-storage][end if], and against another is an opening labelled REPAIR BAY[if holding-cell is in the location]. A holding cell is now visible, where you can see Duke resting[end if]. 
 
 [if the zoo-ladder is closed]On the floor is a closed hatch[otherwise]The hatch has opened, revealing a ladder you can go [bolddown][end if]."
 
@@ -5435,7 +5435,7 @@ The wasphawk-bottle is a temporally-displaced thing in the dry-storage. The dimn
 
 The bottle has the following writing: 
 
-SPECIMEN - Some kind of wasphawk.[line break]REASON FOR CONTAINMENT - Invasive species. Kills wasps on sight.[line break]RECOMMENDATION - Remit to FB zoo. Or sell it to people with wasp infestations. [bracket]This last bit is crossed off[close bracket][line break]DANGER LEVEL - Low.".
+SPECIMEN - Some kind of wasphawk.[line break]REASON FOR CONTAINMENT - Invasive species. Kills wasps on sight.[line break]RECOMMENDATION - Remit to FP zoo. Or sell it to people with wasp infestations. [bracket]This last bit is crossed off[close bracket][line break]DANGER LEVEL - Low.".
 
 Instead of inserting something into the wasphawk-bottle:
 	say "The bottle is sealed. For now."
@@ -5573,9 +5573,17 @@ Carry out unluring:
 		releaselured;
 		say "You cancel the psychic leash[releasetext]."
 
+Fakeunluring is an action applying to one thing. Understand "unlure [something]" or "release [something]" or "unleash [something]" as fakeunluring. 
+
+Carry out fakeunluring:
+	if the noun is lured:
+		try unluring;
+	otherwise:
+		say "You can only release creatures that are already lured.";
+
 Section 4 - Dry food storage
 
-The dry-storage is a closed openable scenery container in overlook-room. The printed name of the dry-storage is "storage cabinet". Understand "storage" or "cabinet" or "medium" or "sized" or "medium-size" or "medium-sized" or "dry" or "goods" as the dry-storage. The description of the dry-storage is "This storage cabinet stretches from floor to ceiling. It's lablled MEDIUM-SIZED DRY GOODS."
+The dry-storage is a closed openable scenery container in overlook-room. The printed name of the dry-storage is "storage cabinet". Understand "storage" or "cabinet" or "medium" or "sized" or "medium-size" or "medium-sized" or "dry" or "goods" as the dry-storage. The description of the dry-storage is "This storage cabinet stretches from floor to ceiling. It's labelled MEDIUM-SIZED DRY GOODS."
 
 The pond-filter is in dry-storage. The printed name of the pond-filter is "new filter". Understand "new" or "filter" or "cylinder" or "squat" as the pond-filter. The description of the pond-filter is "This is a filter that, judging from its squat cylindrical shape, seems designed for some kind of pipe or tubing."
 
@@ -5777,7 +5785,7 @@ The rift in the room changes shade from red to green.
 	
 Section 8 - Scenery
 
-The overlook-walls are plural-named scenery in overlook-room. Understand "wall" or "walls" or "studded" or "metal" or "room" or "ceiling" or "floor" as the overlook-walls. The printed name of the overlook-walls is "metal walls". The description of the overlook-walls is "The walls, ceiling and floor are all made of the same studded metal. It looks like this area is used for maintenance, rather than the public."
+The overlook-walls are plural-named scenery in overlook-room. Understand "wall" or "walls" or "studded" or "metal" or "room" or "ceiling" or "floor" as the overlook-walls. The printed name of the overlook-walls is "metal walls". The description of the overlook-walls is "The walls, ceiling and floor are all made of the same studded metal. It looks like this area is used for maintenance, rather than being open to the public."
 
 Instead of putting something on the overlook-walls:
 	try dropping the noun; 
@@ -5895,7 +5903,10 @@ Section 1 - Owl
 The horned-owl is a female animal in desert-room. Understand "horned" or "horn" or "pair" or "pair of" or "glasses" or "horn-rimmed" or "rim" or "rimmed" or "big" or "feather" or "feathers" or "owl" or "wanda" or "fully" or "mature" as the horned-owl. The printed name of the horned-owl is "horned owl". "[A horned-owl] is resting peacefully in the nest[if a random chance of one in 3 succeeds][owlrandom][end if]." The description of the horned-owl is "This looks like a fully mature horned owl, and she is awfully sleepy. Her feathers around her face look like a big pair of horn-rimmed glasses."
 
 To say owlrandom:
-	say "[one of]. She wakes for a moment and preens before falling asleep[or]. She hoots softly in her sleep[or]. A brief breeze ruffles her feathers, then is gone[or]. She wiggles a little to get more comfortable[at random]"
+	if the desert-mice are in the location:
+		say "She peeks at the mice from time to time, but doesn't seem interested in a snack.";
+	otherwise:
+		say "[one of]. She wakes for a moment and preens before falling asleep[or]. She hoots softly in her sleep[or]. A brief breeze ruffles her feathers, then is gone[or]. She wiggles a little to get more comfortable[at random]"
 
 [add shouting/yelling/whistling/singing/jumping in addition to clapping for this and frog]
 
@@ -6525,7 +6536,7 @@ Instead of taking the penn-trees:
 
 Chapter 11 - Swamp
 
-The swamp-room is south from Savanna-room. The printed name of the swamp-room is "Swamp". The swamp-room is in ecocosm-region. The description of the swamp-room is "This swamp is densely shaded by [if moss-clumps are part of the man-groves]moss-covered[end if] mangrove trees, their roots standing out of the ground and intertwining one with another. Despite the large amountt of water, it is fairly easy to travel about by standing on roots. A single log floats on the swamp.
+The swamp-room is south from Savanna-room. The printed name of the swamp-room is "Swamp". The swamp-room is in ecocosm-region. The description of the swamp-room is "This swamp is densely shaded by [if moss-clumps are part of the man-groves]moss-covered[end if] mangrove trees, their roots standing out of the ground and intertwining one with another. Despite the large amount of water, it is fairly easy to travel about by standing on roots. A single log floats on the swamp.
 
 [if the location is stinky]The water stinks here. Even more than you'd expect, in a swamp[otherwise]The water is clear, now[end if]. An informational sign sticks out of the water[if the croaking unlured common-frog is in the location]. A [common-frog] is sitting on a log, croaking loudly[end if].
 
@@ -6644,7 +6655,7 @@ After taking the recon-scope for the first time:
 
 Section 5 - Sign
 
-The frog-sign is a zoo-sign in swamp-room. The sign-text of frog-sign is "frog". The description of the frog-sign is "Just one frog for this exhibit, folks! This little guy has been driving a lot of the other animals nuts with his croaking, so we've been giving him some time by himself in the swamp. He does quiet down a bit when startled.
+The frog-sign is a zoo-sign in swamp-room. The sign-text of frog-sign is "frog". The description of the frog-sign is "Just one frog for this exhibit, folks! The common frog, [italic type]Rana temporaria[roman type]. This little guy has been driving a lot of the other animals nuts with his croaking, so we've been giving him some time by himself in the swamp. He does quiet down a bit when startled.
 
 Swamps are delicate environments and difficult to maintain in a zoo. If you see anything wrong, feel free to report it to staff."
 
@@ -6727,7 +6738,7 @@ The Rainforest-river is scenery in the Rainforest-room.
 
 Section 3 - Scenery
 
-The sapele-trees are plural-named scenery zoo-tree in the rainforest-room. The printed name of the sapele-trees is "sapele trees". Understand "sapele" or "tree" or "trees" or "dense" or "canopy" as the sapele-trees. The description of the sapele-trees is "These dense trees can make excellent building materials, you know; but currently they seem to be home for local wildlife."
+The sapele-trees are plural-named scenery zoo-tree in the rainforest-room. The printed name of the sapele-trees is "sapele trees". Understand "sapele" or "tree" or "trees" or "dense" or "canopy" as the sapele-trees. The description of the sapele-trees is "These dense trees can make excellent building materials, you know; currently they seem to be home for local wildlife."
 
 The shrub-vines are scenery in rainforest-room. The printed name of the shrub-vines is "undergrowth". Understand "shrub" or "shrubs" or "vine" or "vines" or "undergrowth" or "under" or "growth" as the shrub-vines. The description of the shrub-vines is "You have some difficulty figuring out what species these plants are. They're concentrated on the edges of the river."
 
@@ -6764,7 +6775,7 @@ Instead of entering the caiman-nest:
 
 Chapter 14 - Waterfall
 
-The waterfall-room is west from Rainforest-room. The printed name of the waterfall-room is "Waterfall". The waterfall-room is in ecocosm-region. The description of the waterfall-room is "This area is hemmed in by cliffs on almost all sides, with the only way out to the [boldeast]. A waterfall falls from the top of the cliffs, at least 50 meters high, into a pool beneath. The pounding water shrouds the area in mist and leaves the rocks slick underfoot. A river leaves the pool and heads [boldeast]. There is a distinct lack of informational signs."
+The waterfall-room is west from Rainforest-room. The printed name of the waterfall-room is "Waterfall". The waterfall-room is in ecocosm-region. The description of the waterfall-room is "This area is hemmed in by cliffs on almost all sides, with the only way out to the [boldeast]. A waterfall falls from the top of the cliffs, at least 50 meters high, into a pool beneath. The pounding water shrouds the area in mist and leaves the rocks slick underfoot. A river leaves the pool and heads east. There is a distinct lack of informational signs."
 
 Section 1 - Scenery
 
@@ -6772,6 +6783,9 @@ The water-fall is scenery in the waterfall-room. The printed name of the water-f
 
 Instead of climbing the water-fall:
 	say "Did you know that the Epic expansion manual for Dungeons and Dragons 3E included impossible feats using the different ability scores? One of them was swimming up a waterfall. It's not going to happen for you."
+
+Instead of looking under the water-fall:
+	say "Behind the waterfall is... rock."
 
 The fall-pool is scenery zoo-water in the waterfall-room. Understand "pool" or "churning" or "pond" as the fall-pool. The printed name of the fall-pool is "pool". The description of the fall-pool is "The pool is churning dangerously due to the intense pressure of the waterfall."
 
@@ -6811,7 +6825,7 @@ A cai-man can be grumpy or nice. A cai-man is usually nice. Understand "caimans"
 
 The crooked-snout is a cai-man in waterfall-room. The printed name of crooked-snout is "stubby caiman". Understand "stubby" or "snout" or "small" or "guy" as crooked-snout. The description of the crooked-snout is "This caiman is stubbier than the others, a kind of small guy.".
 
-The scarred-caiman is a grumpy cai-man in waterfall-room. The printed name of scarred-caiman is "scarred caiman". Understand "scarred" or "nasty" or "specimen" or "scars" or "scar" as scarred-caiman. The description of the scarred-caiman is "This nasty specimen is a caiman with many scars. He seems to have experienced years' worth of fights.".
+The scarred-caiman is a grumpy cai-man in waterfall-room. The printed name of scarred-caiman is "scarred caiman". Understand "scarred" or "nasty" or "specimen" or "scars" or "scar" as scarred-caiman. The description of the scarred-caiman is "This nasty specimen is a caiman with many scars. He seems to have experienced years['] worth of fights.".
 
 The long-caiman is a cai-man in waterfall-room. The printed name of long-caiman is "long caiman". Understand "long" as long-caiman. The description of the long-caiman is "This caiman is long compared to the others and seems to have an even temperament.".
 
@@ -7098,6 +7112,9 @@ The tundra-snow is ambiguously plural scenery in tundra-room. The indefinite art
 Instead of physicality when the noun is the tundra-snow:
 	say "The snow is fine enough that it melts at the slightest touch."
 
+Instead of tasting or eating the tundra-snow:
+	say "You catch a snowflake on your tongue, where it dissolves instantly.";
+
 The tundra-tundra is scenery in tundra-room. The printed name of the tundra-tundra is "tundra". Understand "tundra" or "landscape" or "wintry" as the tundra-snow. Instead of examining the tundra-tundra: try looking.
 
 The spruce-trees are plural-named scenery zoo-tree in tundra-room. The printed name of the spruce-trees is "spruce trees" . Understand "spruce" or "tree" or "trees" or "needle" or "needles" or "dark" or "darker" or "bluish" or "green" or "blue" as the spruce-trees. The description of the spruce-trees is "These spruce trees seem to be thriving in the tundra, their needles bluish green against the darker bark."
@@ -7141,7 +7158,7 @@ Your seal meat is now gone. You can hear a chime from the freezer to the [boldwe
 		now the frozen-seal is in food-freezer;
 
 Before going south from tundra-room when the frozen-seal is enclosed by the player:
-	say "Carrying a chunk of frozen seal meat out into the warmer parts of the zoo seems like a recipe for disaster."
+	say "Carrying a chunk of frozen seal meat out into the warmer parts of the zoo seems like a recipe for disaster." instead;
 
 Chapter 18 - Floes
 
@@ -7216,7 +7233,7 @@ Rule for writing a paragraph about the shedding-deer:
 			if a croaking zoo-animal is in the location:
 				say "The deer crouches in irritation, annoyed by the croaking frog. He makes no attempts to rub its antlers on the mossy trees.";
 			otherwise:
-				say "[A shedding-deer] is rubbing his antlers vigorously on [a random zoo-tree in the location] in an attempt to dislodge his bloody velvet that is beginning to shed.";
+				say "[A shedding-deer] is rubbing his antlers vigorously on [a random zoo-tree in the location] in an attempt to dislodge his bloody velvet, which is beginning to shed.";
 		otherwise if the shedding-deer is lured:
 			say "The deer is keeping close to you, although it seems irritated by the velvet on his head.";
 
@@ -14171,9 +14188,9 @@ The cashbox is a container. The cashbox contains 10 1-cent coins. The cashbox co
 
 The block buying rule does nothing when the player is in monument-region. 
 
-Check buying something: 
+Check buying something when the player is emrys-weaver: 
 	if the owner of the noun is nothing:
-		say "That's not for sale.";
+		say "That's not for sale." instead;
 	otherwise:
 		if the noun is not for sale, say "[The owner of the noun] does not want to sell you [the noun]." instead; 
 		if the player's cash is less than the price of the noun, say "You can't afford the asking price of [the price of the noun] for [the noun]." instead. 
@@ -19411,7 +19428,6 @@ Understand "break [something] with/using [something]" as Withstriking it with.
 Understand "smash [something] with/using [something]" as Withstriking it with.
 Understand "hit [something] with/using [something]" as Withstriking it with.
 Understand "fight [something] with/using [something]" as Withstriking it with.
-Understand "torture [something] with/using [something]" as Withstriking it with.
 Understand "wreck [something] with/using [something]" as Withstriking it with.
 Understand "crack [something] with/using [something]" as Withstriking it with.
 Understand "destroy [something] with/using [something]" as Withstriking it with.
@@ -19495,7 +19511,7 @@ Check linking it to:
 	otherwise if the player is not in murder-region:
 		say "Linking topics is not necessary in this part of the game." instead;
 	otherwise if the noun is the second noun:
-		say "You don't get any new information from linking something to itself.";
+		say "You don't get any new information from linking something to itself." instead;
 
 The standard topicing rule response (B) is "[if a squip is enclosed by the player][bold type]Clues and Questions[roman type][otherwise][bold type]Topics for Everyone[roman type][end if]";
 
@@ -19642,7 +19658,7 @@ Instead of searching the police-badge:
 Instead of inserting something into the police-badge:
 	say "It doesn't have any compartments."
 
-The detective-card is part of the police-badge. The printed name of the detective-card is "identification card". Understand "identification" or "ident" or "id" or "card" or "photo" or "photograph" as the detective-card. The description of the detective-card is "It says, 'Detective Emrys Tisserand, and has your picture; it looks like an altered version of your crew photo from two years ago."
+The detective-card is part of the police-badge. The printed name of the detective-card is "identification card". Understand "identification" or "ident" or "id" or "card" or "photo" or "photograph" as the detective-card. The description of the detective-card is "It says, 'Detective Emrys Tisserand, and has your picture; it looks like an altered version of your crew photo from two years ago.'"
 
 Before showing the detective-card to someone:
 	try showing the police-badge to the second noun instead;
@@ -19930,7 +19946,7 @@ The description of arthur is "[The arthur] looks to be middle-aged, with an air 
 
 The face-discoloration is part of arthur. The indefinite article of the face-discoloration is "some". The printed name of the face-discoloration is "[if the face-discoloration is examined]bruise[otherwise]discoloration". Understand "face" or "discoloration" or "bruise" or "jaw" as the face-discoloration.
 
-The description of the face-discoloration is "Looking closely as the discoloration on [the Arthur]'s face, you can see it is actually a bruise along his jaw."
+The description of the face-discoloration is "Looking closely at the discoloration on [the Arthur]'s face, you can see it is actually a bruise along his jaw."
 
 Understand "beard" or "heavy" or "bearded" or "man" as arthur. The printed name of arthur is "[if arthurknown is true]Arthur[otherwise]bearded man[end if]".
 
@@ -19997,7 +20013,7 @@ The blood-trail is scenery in second-class. The printed name of the blood-trail 
 The description of the blood-trail is "The trail of blood is somewhat smaller than you expected. But then, you haven't really witnessed many violent deaths in your life."
 
 Instead of physicality when the noun is blood-trail:
-	say "Elen interposes herself, and says, 'Sorry, ma'am, that's evidence.'"
+	say "[The Elen] interposes herself, and says, 'Sorry, ma'am, that's evidence.'"
 
 The rubbery-floor is scenery floor in second-class. The printed name of the rubbery-floor is "floor". Understand "floor" or "rubbery" or "rubber" or "texture" or "textured" or "utilitarian" or "sturdy" or "plastic" as the rubbery-floor.
 
@@ -20127,7 +20143,10 @@ Understand "young" or "frazzled" or "courier" or "woman" or "anxious" or "gallag
 
 The company-cap is worn by mari. The printed name of the company-cap is "cap". Understand "company" or "cap" or "delivery" or "matching" or "carpundia" or "oversized" or "over-sized" or "deliveries" or "united" or "cardboard" or "box" or "milky" or "way" or "logo" as the company-cap. The description of the company-cap is "This is a slightly over-sized baseball cap that says 'United Carpundia Deliveries' on it and shows a logo that kind of looks like a carboard box floating in the Milky Way."
 
-The company-satchel is a closed openable container. The company-satchel is worn by mari. The printed name of the company-satchel is "satchel". Understand "company" or "satchel" or "delivery" or "matching" or "carpundia" or "oversized" or "over-sized" or "deliveries" or "black" or "discrete" or "united" or "cardboard" or "box" or "milky" or "way" or "logo" as the company-satchel. The description of the company-satchel is "The satchel is black and discrete, carrying the United Carpundia Deliveries Logo of a cardboard box floating in the Milky Way."
+The company-satchel is a closed openable container. The company-satchel is worn by mari. The printed name of the company-satchel is "satchel". Understand "company" or "satchel" or "delivery" or "matching" or "carpundia" or "oversized" or "over-sized" or "deliveries" or "black" or "discrete" or "united" or "cardboard" or "box" or "milky" or "way" or "logo" as the company-satchel. The description of the company-satchel is "The satchel is black and discreet, carrying the United Carpundia Deliveries Logo of a cardboard box floating in the Milky Way."
+
+Instead of physicality when the noun is the company-satchel:
+	say "[The Mari] waves you away."
 
 The signed-book is in the company-satchel. The printed name of the signed-book is "signed book". Understand "signed" or "package" or "book" or "ceri" or "torn" or "cover" or "front" or "autograph" as the signed-book. The description of the signed-book is "[if the signed-book is in transparent-dome]The book that was in the satchel earlier is on display in the transparent dome. It is opened [otherwise]The package that was in [the Mari]'s satchel has fallen out and ripped open, revealing a book. It currently lies sprawled on the floor, open [end if]to the front cover which says, 'To my biggest fan Ceri. Love, Maeve Miller'.".
 
@@ -20138,7 +20157,7 @@ Instead of showing the police-badge to mari:
 	if mariknown is true:
 		say "'Sir,' says Mari, 'You've already shown me the badge. Don't worry, I intend to cooperate fully.";
 	otherwise:
-		say "You flash the badge to the courier, and she looks over it. 'Looks legit to me, ma'am,' she says. 'The name's Mari. I'm with UCD, she says,' pointing at her cap, 'United Carpundia Deliveries. I'm just hoping we can wrap things up here quick and I can get back to work. Love the grind, right?' she asks, looking at [the Elen] for support; but [the Elen] shakes her head[deliverstatement].";
+		say "You flash the badge to the courier, and she looks over it. 'Looks legit to me, ma'am,' she says. 'The name's Mari. I'm with UCD,' she says,' pointing at her cap, 'United Carpundia Deliveries. I'm just hoping we can wrap things up here quick and I can get back to work. Love the grind, right?' she asks, looking at [the Elen] for support; but [the Elen] shakes her head[deliverstatement].";
 		now mariknown is true;
 		now mari is proper-named;
 		if elenknown is false:
@@ -20258,11 +20277,16 @@ Statement-quip is a linkaged squip. The printed name of statement-quip is "State
 
 Maeve heeds statement-quip. Arthur heeds statement-quip. Mari heeds statement-quip. Elen heeds statement-quip.
 
-The targetresponse of statement-quip is "[if currenttarget is mari]Mari says, 'You want the truth? I'll tell you the truth[otherwise if currenttarget is arthur]Arthur says, 'Very well, detective. I'll tell you what really happened[otherwise if currenttarget is elen]Elen says, 'It would be my pleasure to tell you what truly happened, officer[otherwise if currenttarget is maeve]Maeve says, 'Of course I'll tell you what happened, hon. Now, this is how everything really went[end if]...'"
+The targetresponse of statement-quip is "[if currenttarget is mari]Mari says, 'You want the truth? I'll tell you the truth[otherwise if currenttarget is arthur]Arthur says, 'Very well, Detective. I'll tell you what really happened[otherwise if currenttarget is elen]Elen says, 'It would be my pleasure to tell you what truly happened, officer[otherwise if currenttarget is maeve]Maeve says, 'Of course I'll tell you what happened, hon. Now, this is how everything really went[end if]...'"
+
+Definition: a thing is non-suspect if it is not a suspect.
 
 Instead of uttering statement-quip to the player:
 	say "There's no need to take your own statement."
 
+Instead of uttering statement-quip to a non-suspect:
+	say "There's no need to ask [the second noun] for a statement."
+	
 Report uttering statement-quip to someone:
 	playerswap the second noun;
 
@@ -20583,7 +20607,7 @@ He put his copy on the table. As he did so, I saw his sleeve lift up. I noticed 
 
 	'I'm sorry,' I said, trying to let him down gently. 'I know how it feels to fall in love with a celebrity. It's called paraphilia, you should look it up.' 
 
-	He was shaking his head, but I put a finger on his lips. 'No, I said, 'we can't be together. But I'll always remember you, Dafydd.'
+	He was shaking his head, but I put a finger on his lips. 'No, I said,' 'we can't be together. But I'll always remember you, Dafydd.'
 
 	He sat back down and put his head in his hands, crying. It was time for me to leave."
 
@@ -20653,9 +20677,9 @@ The cafe-sun is distant backdrop in the luxury-cafe. The printed name of the caf
 
 The outdoors-patio is a backdrop in luxury-cafe. The printed name of the outdoors-patio is "patio". Understand "outdoor" or "outdoors" or "patio" as the outdoors-patio. The description of the outdoors-patio is "I always ate outdoors when possible; the chance to see humanity and nature all at once is something I could never give up."
 
-The usual-table is a scenery supporter in the luxury-cafe. The printed name of the usual-table is "usual table". The indefinite article of the usual-table is "my". Understand "usual" or "my" or "table" or "wrought-iron" or "wrought" or "iron" or "elaborate" or "floral" or "pattern" or "patterns" as the usual-table. The description of the usual-table is "[tabledesc]".
+The usual-table is a scenery supporter in the luxury-cafe. The printed name of the usual-table is "usual table". The indefinite article of the usual-table is "my". Understand "usual" or "my" or "table" or "wrought-iron" or "wrought" or "iron" or "elaborate" or "floral" or "pattern" or "patterns" as the usual-table. The description of the usual-table is "[tabledesc].".
 
-The nearby-table is a scenery supporter in the luxury-cafe. The printed name of the nearby-table is "nearby table". Understand "nearby" or "table" or "wrought-iron" or "his" or "wrought" or "iron" or "elaborate" or "floral" or "pattern" or "patterns" as the nearby-table. The description of the nearby-table is "[tabledesc]".
+The nearby-table is a scenery supporter in the luxury-cafe. The printed name of the nearby-table is "nearby table". Understand "nearby" or "table" or "wrought-iron" or "his" or "wrought" or "iron" or "elaborate" or "floral" or "pattern" or "patterns" as the nearby-table. The description of the nearby-table is "[tabledesc].".
 
 Does the player mean doing something with the nearby-table:
 	it is unlikely;
@@ -20670,7 +20694,7 @@ Instead of taking or drinking the lemon-water:
 	say "I sipped from the lemon water. Truly refreshing, especially on such a lovely day!"
 
 To say tabledesc:
-	say "All of the tables at my favorite cafe look alike: metal with a wrought-iron type finish, beaten into elaborate floral patterns."
+	say "All of the tables at my favorite cafe look alike: metal with a wrought-iron type finish, beaten into elaborate floral patterns"
 
 dafyddbegged is a truth state that varies. Dafyddbegged is false.
 
@@ -20707,7 +20731,7 @@ The refinished-nightstand is a scenery supporter in nice-apartment. The printed 
 
 The description of the refinished-nightstand is "Gosh, this thing was my baby. I had found it, old, paint peeling on the side of the road. I stripped it, found new screws for it and repainted it."
 
-The fake-pajamas are a plural-named wearable thing. The printed name of the fake-pajamas is "pajamas". Understand "pyjamas" or "pajamas" as the fake-pajamas. The description of the fake-pajamas is "I was wearing the pajamas I bought with my Christmas bonus. They made me feel like I was wearing a blanket."
+The fake-pajamas are a plural-named wearable thing. The printed name of the fake-pajamas is "pajamas". Understand "pyjamas" or "pajamas" as the fake-pajamas. The description of the fake-pajamas is "[if the fake-pajamas are worn by the player]I was wearing [otherwise]These are [end if]the pajamas I bought with my Christmas bonus. They made me feel like I was wearing a blanket."
 
 A healthy-breakfast is an edible thing. The printed name of the healthy-breakfast is "healthy breakfast". Understand "healthy" or "breakfast" or "bagel" or "banana" as the healthy-breakfast. The description of the healthy-breakfast is "I had a healthy breakfast I had prepared the night before: a banana and a bagel. Not the tastiest, but good for me."
 
@@ -20812,7 +20836,7 @@ Instead of talking to nice-dafydd:
 He put his copy on the table, and I saw his watch, just like I said. I like men with expensive tastes, okay? And he was obviously there to see me. So I asked about him, his life. He told me he was a scientist. I asked if he'd like to research me, ha ha. He laughed, you know. And his book copy was still on the table.";
 		now nice-copy is on the nice-table;
 	otherwise if nice-dafydd is in nice-bookstore:
-		say "We chatted a bit more, but he started checking his watch. I knew he wanted me to sign his book.";
+		say "We chatted a bit more, but he started checking his watch. I knew he wanted me to sign his book and go.";
 	otherwise if nice-dafydd is in nice-cafe:
 		now dafyddbegged is true;
 		say "'Dafydd,' I called out in surprise. 'Is that you?'
@@ -20888,7 +20912,7 @@ The cafe-sun is in nice-cafe.
 
 The outdoors-patio is in nice-cafe. 
 
-The convenient-table is a scenery supporter in the nice-cafe. The printed name of the convenient-table is "convenient table". The indefinite article of the usual-table is "my". Understand "convenient" or "my" or "table" or "wrought-iron" or "wrought" or "iron" or "elaborate" or "floral" or "pattern" or "patterns" as the usual-table. The description of the convenient-table is "[tabledesc]".
+The convenient-table is a scenery supporter in the nice-cafe. The printed name of the convenient-table is "convenient table". The indefinite article of the usual-table is "my". Understand "convenient" or "my" or "table" or "wrought-iron" or "wrought" or "iron" or "elaborate" or "floral" or "pattern" or "patterns" as the usual-table. The description of the convenient-table is "[tabledesc].".
 
 Understand "sip [something]" as drinking.
 
@@ -21177,7 +21201,7 @@ Arthur-level is a number that varies. Arthur-level is 0.
 
 Section 1 - Fake Arthur
 
-fake-Arthur is a man in bio-lab. The doppelganger of arthur is fake-arthur. The printed name of fake-arthur is "Arthur". The description of fake-Arthur is "I am a healthy man: I eat mostly vegetables and whole grains; I bike; I play handball. I've managed to avoid most of the diseases that plague my fellow academics. Those who know the human body ought to be kind towards it."
+fake-Arthur is a man in bio-lab. The doppelganger of arthur is fake-arthur. The printed name of fake-arthur is "Arthur". The description of fake-Arthur is "I was, and am. a healthy man: I eat mostly vegetables and whole grains; I bike; I play handball. I've managed to avoid most of the diseases that plague my fellow academics. Those who know the human body ought to be kind towards it."
 
 Section 2 - Bio lab
 
@@ -21189,7 +21213,7 @@ However, I was still able to conduct my most recent research. All I needed was t
 
 The protocol poster I had established for the students hung prominently on the wall.
 
-I could go [boldeast] to the data lab or [boldsouth] to the department hallway."
+I could go [boldeast] to the Data Lab or [boldsouth] to the department hallway."
 
 The protocol-poster is scenery in bio-lab. The printed name of the protocol-poster is "protocol poster". Understand "protocol" or "poster" as the protocol-poster. The description of the protocol-poster is "My poster was written in simple language, to help my rather incompetent assistants.
 
@@ -21239,7 +21263,7 @@ Sample-4B is a sample-slide in the samples-fridge. Sample-5C is a sample-slide i
 The description of sample-5C is "This was one of the more confusing samples of the experiment, and had been left for last, along with sample 4B. I couldn't see any pertinent details without the use of the microscope."
 
 Report examining a marked sample-slide:
-	say "This sample has already been marked."
+	say "This sample had already been marked."
 
 The other-slides are plural-named things in samples-fridge. The printed name of the other-slides is "other samples". Understand "slides" or "samples" or "previously" or "Marked" or "other" as the other-slides. The description of the other-slides is "The slides I had previously painstakingly marked were in the fridge already, where I had carefully placed them after analyzing them."
 
@@ -21320,8 +21344,8 @@ Carry out marking it with:
 				now the noun is marked;
 			otherwise:
 				say "[We] already [adapt the verb mark] [the noun].";
-		otherwise if the second noun is the false-slides:
-			say "These slide had already been marked, and sloppily, at that[dishesslopped]!";
+		otherwise if the noun is the false-slides:
+			say "These slides had already been marked, and sloppily, at that[dishesslopped]!";
 		otherwise:
 			say "I'm not in the habit of drawing with markers like a child, Detective. I only used them to mark my sample slides.";
 	otherwise:
@@ -21415,7 +21439,7 @@ Instead of talking to lab-Dafydd:
 	otherwise:
 		say "'Be careful, Dafydd! You hit me!' I snapped. It was hard to retain my customary composure when I had just been struck in the face with a door.
 
-'Oh, gosh! Sorry, professor!' he said earnestly.
+'Oh, gosh! Sorry, Professor!' he said earnestly.
 
 'It's fine, it's fine,' I said, waving him away. 'What was it you wanted to tell me so badly?'
 
@@ -21428,7 +21452,7 @@ I smiled, despite the pain in my face. 'Don't let it go to your head, Dafydd. Bu
 		now arthur is onceswapped;
 		say "'And then I didn't see him again until I saw him on this train, dead,' concludes Arthur."
 
-Shifty-dafydd is a man. The printed name of shifty-dafydd is "Dafydd". Understand "dafydd" as shifty-dafydd. "I was flabbergasted to find Dafydd in my lab, the last day I ever saw him alive. [if dafydd-confronted is false]He was looking at me with guilt on his face. That's when I knew what he had done, even before he spoke[otherwise if shifty-dafydd is in bio-lab]He seemed completely shattered[otherwise]He stared at me, daring me to speak[end if]."
+Shifty-dafydd is a man. The printed name of shifty-dafydd is "Dafydd". Understand "dafydd" as shifty-dafydd. "I was flabbergasted to find Dafydd here, the last day I ever saw him alive. [if dafydd-confronted is false]He was looking at me with guilt on his face. That's when I knew what he had done, even before he spoke[otherwise if shifty-dafydd is in bio-lab]He seemed completely shattered[otherwise]He stared at me, daring me to speak[end if]."
 
 The description of shifty-dafydd is "Dafydd was one of my grad students, a rather unserious boy that focused too much on appearances. Today he had a malicious sort of expression on."
 
@@ -21620,10 +21644,10 @@ I could return [boldnorth] to the Bio Lab, or leave [boldeast] or [boldwest] to 
 The department-hallway is in statement-region. The printed name of department-hallway is "Department Hallway".
 
 Before going nowhere from department-hallway when the noun is east:
-	say lefthallway;
+	say lefthallway instead;
 	
 Before going nowhere from department-hallway when the noun is west:
-	say lefthallway;
+	say lefthallway instead;
 
 Before going north from department-hallway:
 	say "I couldn't just run away from the problem." instead;
@@ -21635,7 +21659,7 @@ Before going south from bio-lab:
 	if a sample-slide is held by the player:
 		say "I couldn't leave with the sample slides; they were too important." instead;
 	if dafydd-finished is false and arthur-level is 0:
-		say "I looked out into the hallway, but it was empty and dark. Not surprising at this time of day. I stayed inside the Bio Lab, though, as [if lab-dafydd is in bio-lab]I hadn't talked to Dayfdd yet[otherwise]I wasn't yet finished analyzing my results[end if]." instead;
+		say "I looked out into the hallway, but it was empty and dark. Not surprising at this time of day. I stayed inside the Bio Lab, though, as [if lab-dafydd is in bio-lab]I hadn't talked to Dafydd yet[otherwise]I wasn't yet finished analyzing my results[end if]." instead;
 	otherwise if dafydd-confronted is false and arthur-level is 1:
 		say "I couldn't leave yet, because I had to sort out this whole mess." instead;
 	otherwise if dafydd-confronted is false and arthur-level is 2:
@@ -21786,6 +21810,9 @@ I could go [boldsouth] to leave to the city streets[deliverstreetsmart]."
 
 The split-counter is an enterable scenery supporter in courier-office. Understand "counter" as the split-counter. The printed name of the split-counter is "counter". The description of the split-counter is "The counter is the dividing line of authority in any shop. On one side is all the power. On the other is none. Question is, though, which is which?"
 
+Before going nowhere from courier-office when the noun is outside:
+	try going south instead;
+
 Instead of entering the split-counter:
 	say "What do I look like, a circus act?"
 
@@ -21794,9 +21821,9 @@ To say deliverstreetsmart:
 	
 streetsmart-quip is a squip. The printed name of streetsmart-quip is "Streetsmart". Understand "streetsmart" as streetsmart-quip. The preview of streetsmart-quip is "[The mari] is a rough, tough, streetsmart courier."
 
-The targetresponse of streetsmart-quip is "[if currenttarget is arthur]Arthur says, 'Sounds like an interesting woman. I myself have always been fascinated by those who live in the underbelly of life.[otherwise if currenttarget is mari]'That's right,' says Mari. 'So you better watch out!' she says, aggressively shadowboxing, then realizing who she's talking to. 'Oh, uh, not you personally. Just the world: it needs to watch out![otherwise if currenttarget is elen]Elen sniffs, and says 'Hmm. Streetsmart is just a polite way of saying one does not have book smarts.[otherwise if currenttarget is maeve]'A tough courier huh,' says Maeve, her eyes calculating. 'I bet I could use that in my next book. I could call her Helen.[end if]'".
+The targetresponse of streetsmart-quip is "[if currenttarget is arthur]Arthur says, 'Sounds like an interesting woman. I myself have always been fascinated by those who live in the underbelly of life.[otherwise if currenttarget is mari]'That's right,' says Mari. 'So you better watch out!' she says, aggressively shadowboxing, then realizing who she's talking to. 'Oh, uh, not you personally. Just the world: it needs to watch out![otherwise if currenttarget is elen]Elen sniffs, and says, 'Hmm. Streetsmart is just a polite way of saying one does not have book smarts.[otherwise if currenttarget is maeve]'A tough courier huh,' says Maeve, her eyes calculating. 'I bet I could use that in my next book. I could call her Helen.[end if]'".
 
-The courier-boss is a person in courier-office. The printed name of the courier-boss is "boss". The indefinite article of the courier-boss is "my". Understand "My" or "Hilda" or "boss" or "legend" or "thick" or "tangled" or "grey" or "hair" or "Body" or "jukebox" as the courier-boss. The initial appearance of courier-boss is "[if bosstalked is false]My boss was on the other side of the counter, a tough old nut named Hilda who'd been running the joint for the last fifty years. I could tell she wanted to talk. Hopefully it was about a job[otherwise]Hilda was looking at me, annoyed that I was still there[end if]."
+The courier-boss is a woman in courier-office. The printed name of the courier-boss is "boss". The indefinite article of the courier-boss is "my". Understand "My" or "Hilda" or "boss" or "legend" or "thick" or "tangled" or "grey" or "hair" or "Body" or "jukebox" as the courier-boss. The initial appearance of courier-boss is "[if bosstalked is false]My boss was on the other side of the counter, a tough old nut named Hilda who'd been running the joint for the last fifty years. I could tell she wanted to talk. Hopefully it was about a job[otherwise]Hilda was looking at me, annoyed that I was still there[end if]."
 
 The description of courier-boss is "Hilda was an older woman with thick, tangled grey hair and a body shaped like an oversized jukebox. Her right eye was missing, and she had ropy scars running up the other side of her body, but you should definitely see the other guys--although you'd have to visit the local cemetery. Hilda was a local legend."
 
@@ -22067,7 +22094,7 @@ Instead of talking to the distant-gangs:
 
 The mari-wires are plural-named scenery supporter in roof-tops. The printed name of the mari-wires is "wires". Understand "sturdy" or "insulated" or "wire" or "wires" as the mari-wires. The description of the mari-wires is "Some kind of sturdy, insulated wire leads from this rooftop to just over the train on Platform A."
 
-The clothesline is a scenery supporter in roof-tops. Understand "clothes" or "line" or "cloth" as the clothesline. The description of the clothesline is "Someone must use it when the weather is nicer. No trace of any clothes remains, except for that broken hanger I saw."
+The clothesline is a scenery supporter in roof-tops. Understand "clothes" or "line" or "cloth" as the clothesline. The description of the clothesline is "Someone must use it when the weather is nicer. No trace of any clothes remained, except for that broken hanger I saw."
 
 Instead of taking the clothesline:
 	say "Someone went to a lot of trouble to set it up, seems like a shame to pull it down."
@@ -22208,7 +22235,7 @@ The targetresponse of acquaint-quip is "[if currenttarget is elen]'Well, well, w
 
 When Mari sticks her tongue out at her, Elen shakes her head and says, 'Incorrigible[otherwise if currenttarget is maeve]'Is that the courier? Odd that she would lie about that. Not that I know her very well, but if you ask me, it seems very suspicious. I hope you've discussed it with her[otherwise if currenttarget is arthur]He seems almost excited. 'Yes, a courier would be a perfect cover for someone to use to stalk and attack another. I feel like this case might be wrapped up very soon indeed[otherwise if currenttarget is mari]'Oooh, that probably doesn't look good for me, does it? Yikes,' says Mari. 'Okay, fine. I did talk with him. Actually, the package I'm carrying belongs...' she says, as she unzips her satchel and pulls out the package, '...to him!'
 
-Elen gasps and slaps the package out of her hands, saying 'Don't touch that! That's evidence!'
+Elen gasps and slaps the package out of her hands, saying, 'Don't touch that! That's evidence!'
 
 The package falls to the ground and rips open. Inside is a book that manages to land gracefully, the cover falling open. 
 
@@ -22404,7 +22431,7 @@ I'm not interested in describing the bathrooms or other parts of the building. B
 To say lockertext:
 	say "I am not a murderer, Detective. But I am a thief. My locker was the place I kept all my treasures until I could fence them[if elen-locker is open]; this morning, I had it open and was going through my latest catch[end if]"
 
-The large-lockers are plural-named scenery in train-locker. The printed name of the large-lockers is "lockers". Understand "large" or "lockers" or "individual" or "clean" as the large-lockers. The description of the large-lockers is "I didn't concern myself about the others' lockers, except on days where they had strange smells emanating from them or dripping liquids. Today they were at least adequately clean."
+The large-lockers are plural-named scenery in train-locker. The printed name of the large-lockers is "lockers". Understand "large" or "lockers" or "individual" or "clean" as the large-lockers. The description of the large-lockers is "I didn't concern myself about the others['] lockers, except on days where they had strange smells emanating from them or dripping liquids. Today they were at least adequately clean."
 
 Instead of smelling the large-lockers:
 	say "There isn't any particularly horrible odor from the lockers today."
@@ -22560,9 +22587,9 @@ The elen-playground is distant scenery in platform-a. The printed name of the el
 
 The glass-ceiling is distant scenery in platform-A. The printed name of the glass-ceiling is "glass ceiling". Understand "glass" or "ceiling" or "lofty" or "arch" or "arched" or "gentle" or "light" as the glass-ceiling.
 
-The description of the glass-ceiling is "With the glass ceiling, the architect clearly wanted to direct the viewers' attention to the heavens, receiving gentle sunlight by day and allowing the stars to shine through by night."
+The description of the glass-ceiling is "With the glass ceiling, the architect clearly wanted to direct the viewers['] attention to the heavens, receiving gentle sunlight by day and allowing the stars to shine through by night."
 
-The multi-passengers are scenery people in platform-A. The printed name of the multi-passengers is "workers". Understand "worker" or "workers" or "shopper" or "shoppers" or "pasenger" or "passengers" or "humanity" as the multi-passengers. The description of the multi-passengers is "I always study the passengers on our train, guessing at their lives. Many are workers, some that I see every day. Others are perhaps shoppers or something more exciting. This morning, though, there was less of all types of people[if elen-level is 2]. No one seemed wealthy enough to be worth approaching, though[end if]."
+The multi-passengers are plural-named scenery people in platform-A. The printed name of the multi-passengers is "workers". Understand "worker" or "workers" or "shopper" or "shoppers" or "pasenger" or "passengers" or "humanity" as the multi-passengers. The description of the multi-passengers is "I always study the passengers on our train, guessing at their lives. Many are workers, some that I see every day. Others are perhaps shoppers or something more exciting. This morning, though, there was less of all types of people[if elen-level is 2]. No one seemed wealthy enough to be worth approaching, though[end if]."
 
 Instead of talking to the multi-passengers:
 	say "I don't fraternize with the riff-raff."
@@ -22584,7 +22611,7 @@ I bristled, but kept my cool. Anger would only end up with me losing my job.
 
 'Is that so?' he said, seeming unimpressed. 'Well, we just had to send off the B-Line train without you. Now we're short on the A-Line. Why don't you get in there, and do your job,' he said, pointing at the train.
 
-'Of course sir,' I said. 'Right away[otherwise]We're missing crew today because of that undercooked sausage at the pizza party last night. I know you were scheduled for the B-line today, but we need you on the A-Line. Can you do that?'
+'Of course sir,' I said. 'Right away[otherwise]We're missing crew today because of that undercooked sausage at the pizza party last night. I know you were scheduled for the B-Line today, but we need you on the A-Line. Can you do that?'
 
 I was annoyed, because the B-line was usually much more profitable. I couldn't tell him that, though. 'Of course, sir,' I answered politely, hiding my anger. 'Right away[end if].'
 
@@ -22882,7 +22909,7 @@ To say deliverpresent:
 	
 Gift-quip is a squip. The printed name of Gift-quip is "Payoff". Understand "Payoff" as gift-quip. The preview of gift-quip is "[the train-corpse] gave his watch to Elen to pay for her car."
 
-Targetresponse of gift-quip is "[if currenttarget is arthur]Arthur frowns and says, 'That doesn't sound like Dafydd. He's not very well off, and that watch is the only expensive thing he has. I'm sure that woman is lying to you.[otherwise if currenttarget is elen]'Yes, detective, that is exactly right. And it's only fitting, seeing that he had destroyed my car,' says Elen. 'If anything, he should have given me more.[otherwise if currenttarget is maeve]'He was giving gifts to other women?' asks Maeve, with a mix of emotions in her voice.
+Targetresponse of gift-quip is "[if currenttarget is arthur]Arthur frowns and says, 'That doesn't sound like Dafydd. He's not very well off, and that watch is the only expensive thing he has. I'm sure that woman is lying to you.[otherwise if currenttarget is elen]'Yes, Detective, that is exactly right. And it's only fitting, seeing that he had destroyed my car,' says Elen. 'If anything, he should have given me more.[otherwise if currenttarget is maeve]'He was giving gifts to other women?' asks Maeve, with a mix of emotions in her voice.
 
 'Apparently he damaged her car,' you say.
 
@@ -22983,11 +23010,11 @@ The evidence-room is in murder-region. The printed name of the evidence-room is 
 
 The evidence-computer is scenery in the evidence-room. Understand "computer" or "bulky" or "bulk" or "metal" or "Device" as the evidence-computer. The printed name of the evidence-computer is "computer". The description of the evidence-computer is "The most interesting features of the computer are its slot labelled REQUISITIONS, the control panel and the transparent dome on the top. The rest seems to primarily be bulk."
 
-The requisition-slot is part of the evidence-computer. The requisition-slot is an open unopenable container. Understand "slot" or "requisitions" as the requisition-slot. The description of the requisition-slot is "This is a slot apparently intended for feeding paper into the machine. It is labelled REQUISITIONS."
+The requisition-slot is part of the evidence-computer. The requisition-slot is an open unopenable container. Understand "slot" or "requisitions" as the requisition-slot. The printed name of the requisition-slot is "slot". The description of the requisition-slot is "This is a slot apparently intended for feeding paper into the machine. It is labelled REQUISITIONS."
 
 Check inserting something into the requisition-slot:
 	if the noun is not the official-papers:
-		say "The machine beeps, rejecting [the noun]. It seems that that can't go in the slot."
+		say "The machine beeps, rejecting [the noun]. It seems that that can't go in the slot." instead;
 
 The evidence-panel is part of the evidence-computer. The printed name of the evidence-panel is "control panel". Understand "brightly" or "bright" or "color" or "colors" or "colored" or "panel" or "control" as the evidence-panel. The description of the evidence-panel is "The control panel has two buttons: NEXT and BACK."
 
@@ -23022,7 +23049,7 @@ EvidenceOn is a truth state that varies. EvidenceOn is false.
 
 Instead of inserting the official-papers into the requisition-slot:
 	if paperstamped is false:
-		say "You try feeding the forms into the slot, but they are pushed back out. You hear a voice recording say: 'Not authorized. These documents are missing the Official Precinct 13 Seal.";
+		say "You try feeding the forms into the slot, but they are pushed back out. You hear a voice recording say: 'Not authorized. These documents are missing the Official Precinct 13 Seal.'";
 	otherwise:
 		now evidenceon is true;
 		now official-papers are nowhere;
@@ -24338,11 +24365,11 @@ That...may not have been a good idea."
 
 Air-scroll is a room. Air-scroll is in air-region. Air-scroll is north from air4. The printed name of Air-scroll is "Stalactite". "[first time]Finally, something different!
 
-[only]You have come across the tip of a great stalactite which stretches as far above you as the lake is below you[if the brilliant-scroll is in stalactite-crack]. At the tip, in a crack, is a brilliant golden scroll[end if][if falling-scene is happening].
+[only]You have come across the tip of a great stalactite which stretches as far above you as the lake is below you[if the brilliant-scroll is in stal-crack]. At the tip, in a crack, is a brilliant golden scroll[end if][if falling-scene is happening].
 
 You are barely holding onto the crack by your fingertips[end if]."
 
-The air-stalactite is scenery in air-scroll. The printed name of air-stalactite is "stalactite". Understand "stalactite" or "stalagmite" or "dark" or "craggy" as the air-stalactite. The description of the air-stalactite is "Like the finger of a chthonic god, the stalactite stabs down from above, dark, craggy, and unending. There is a crack in it near you, with [a list of things enclosed by stalactite-crack] in it.".
+The air-stalactite is scenery in air-scroll. The printed name of air-stalactite is "stalactite". Understand "stalactite" or "stalagmite" or "dark" or "craggy" as the air-stalactite. The description of the air-stalactite is "Like the finger of a chthonic god, the stalactite stabs down from above, dark, craggy, and unending. There is a crack in it near you, with [a list of things enclosed by stal-crack] in it.".
 
 Instead of going nowhere from air-scroll:
 	if the noun is up:
@@ -24358,12 +24385,12 @@ Instead of going nowhere from air-scroll:
 Before going from air-scroll when flying-player is false:
 	say "You can't move; you're hanging by your finger tips!"
 
-The stalactite-crack is scenery in air-scroll. The stalactite-crack is an unopenable open container. Understand "crack" as the stalactite-crack. The printed name of the stalactite-crack is "crack". The description of the stalactite-crack is "A crack is gouged into the stalactite, holding [a list of things enclosed by the stalactite-crack]."
+The stal-crack is scenery in air-scroll. The stal-crack is an unopenable open container. Understand "crack" as the stal-crack. The printed name of the stal-crack is "crack". The description of the stal-crack is "A crack is gouged into the stalactite."
 
-Instead of inserting something into the stalactite-crack:
+Instead of inserting something into the stal-crack:
 	say "It's too difficult to wedge anything in there!"
 
-The brilliant-scroll is a spell-scroll in stalactite-crack. The printed name of the brilliant-scroll is "brilliant scroll". Understand "brilliant" or "collox" as the brilliant-scroll. The associated-spell of brilliant-scroll is Collox.
+The brilliant-scroll is a spell-scroll in stal-crack. The printed name of the brilliant-scroll is "brilliant scroll". Understand "brilliant" or "collox" as the brilliant-scroll. The associated-spell of brilliant-scroll is Collox.
 
 After taking unoncetaken brilliant-scroll during falling-scene:
 	say "You barely manage to fish out the brilliant scroll.";
@@ -24571,15 +24598,15 @@ To say monitorloop:
 	otherwise if desolation-attempt is 2:
 		say "It is currently playing a video of you from earlier: 
 
-[one of]It shows you floating in front of a black pillar. Though there is no sound, it looks like you say a word, and the pillar crackles to life with golden sparks[or]The pillar rises from the ground, and all of the fire in the room dims. The deer-like creatures all turn to stare at you[or]The pillar continues to rise, revealing a hollow portion that has some kind of pump attached to a section of pipe. An enormous gout of slime knocks burst from the pump, but you dodge it midair. There seems to be a creature stuck inside of the pipe[or]You settle back down to the ground from your flight spell wearing off. You seem to notice something inside the pipe in the pillar, behind the creature, although the camera doesn't record what it is. You reach to grab it, ignoring the creature's weak tentacles[or]The creature's tentacles grab the spellbook out of your hand and beat you with it over and over until you slump to the ground. The creature drops the spellbook, and the pillar sinks down into the ground[cycling]";
+[one of]It shows you floating in front of a black pillar. Though there is no sound, it looks like you say a word, and the pillar crackles to life with golden sparks[or]The pillar rises from the ground, and all of the fire in the room dims. The deer-like creatures all turn to stare at you[or]The pillar continues to rise, revealing a hollow portion that has some kind of pump attached to a section of pipe. An enormous gout of slime bursts from the pump, but you dodge it midair. There seems to be a creature stuck inside of the pipe[or]You settle back down to the ground from your flight spell wearing off. You seem to notice something inside the pipe in the pillar, behind the creature, although the camera doesn't record what it is. You reach to grab it, ignoring the creature's weak tentacles[or]The creature's tentacles grab the spellbook out of your hand and beat you with it over and over until you slump to the ground. The creature drops the spellbook, and the pillar sinks down into the ground[cycling]";
 	otherwise if desolation-attempt is 3:
 		say "It is currently playing a video of you from earlier:
 
-[one of]It shows you floating in front of a black pillar. Though there is no sound, it looks like you say a word, and the pillar crackles to life with golden sparks[or]The pillar rises from the ground, and all of the fire in the room dims. The deer-like creatures all turn to stare at you[or]The pillar continues to rise, revealing a hollow portion that has some kind of pump attached to a section of pipe. An enormous gout of slime knocks burst from the pump, but you dodge it midair. There seems to be a creature stuck inside of the pipe[or]You settle back down to the ground from your flight spell wearing off. You seem to notice something inside the pipe in the pillar, behind the creature, although the camera doesn't record what it is. You reach for it, but your arm doesn't seem to be long enough. You look around for something, but don't seem to find whatever it is you're looking for, so you shove your arm back in. The creature slaps at you ineffectually, trying to find something to use against you, but finding nothing[or]The pillar sinks back down, and you slam your fist on it in frustration[cycling]";
+[one of]It shows you floating in front of a black pillar. Though there is no sound, it looks like you say a word, and the pillar crackles to life with golden sparks[or]The pillar rises from the ground, and all of the fire in the room dims. The deer-like creatures all turn to stare at you[or]The pillar continues to rise, revealing a hollow portion that has some kind of pump attached to a section of pipe. An enormous gout of slime bursts from the pump, but you dodge it midair. There seems to be a creature stuck inside of the pipe[or]You settle back down to the ground from your flight spell wearing off. You seem to notice something inside the pipe in the pillar, behind the creature, although the camera doesn't record what it is. You reach for it, but your arm doesn't seem to be long enough. You look around for something, but don't seem to find whatever it is you're looking for, so you shove your arm back in. The creature slaps at you ineffectually, trying to find something to use against you, but finding nothing[or]The pillar sinks back down, and you slam your fist on it in frustration[cycling]";
 	otherwise if desolation-attempt is 4:
 		say "It is currently playing a video of you from earlier:
 
-[one of]It shows you floating in front of a black pillar. Though there is no sound, it looks like you say a word, and the pillar crackles to life with golden sparks[or]The pillar rises from the ground, and all of the fire in the room dims. The deer-like creatures all turn to stare at you[or]The pillar continues to rise, revealing a hollow portion that has some kind of pump attached to a section of pipe. An enormous gout of slime knocks burst from the pump, but you dodge it midair. There seems to be a creature stuck inside of the pipe[or]You settle back down to the ground from your flight spell wearing off. You seem to notice something inside the pipe in the pillar, behind the creature, although the camera doesn't record what it is. You reach for it, but your arm doesn't seem to be long enough. You look around for something, but don't seem to find whatever it is you're looking for, so you shove your arm back in. The creature slaps at you ineffectually[or]The creature's tentacles continue to writhe at you but finding no way to stop you. You seem to have an idea--the bookmark! You reach the bookmark in and use it as a hook to pull down the scroll. 
+[one of]It shows you floating in front of a black pillar. Though there is no sound, it looks like you say a word, and the pillar crackles to life with golden sparks[or]The pillar rises from the ground, and all of the fire in the room dims. The deer-like creatures all turn to stare at you[or]The pillar continues to rise, revealing a hollow portion that has some kind of pump attached to a section of pipe. An enormous gout of slime bursts from the pump, but you dodge it midair. There seems to be a creature stuck inside of the pipe[or]You settle back down to the ground from your flight spell wearing off. You seem to notice something inside the pipe in the pillar, behind the creature, although the camera doesn't record what it is. You reach for it, but your arm doesn't seem to be long enough. You look around for something, but don't seem to find whatever it is you're looking for, so you shove your arm back in. The creature slaps at you ineffectually[or]The creature's tentacles continue to writhe at you but finding no way to stop you. You seem to have an idea--the bookmark! You reach the bookmark in and use it as a hook to pull down the scroll. 
 
 The scroll comes out, but the whole creature comes with it! Free from the machine, you see it is a deformed version of one of the deer creatures. It stumbles toward you, tentacles flaying. You kick it, and it flies into the fire as the pillar sinks back down[cycling]";
 	otherwise:
@@ -25409,7 +25436,7 @@ When rottingtime ends:
 	now rotting-player is false;
 	now pustule-ooze is nowhere;
 
-rottingtime ends normally when the time since rottingtime began is 3 minutes.
+rottingtime ends normally when the time since rottingtime began > 2 minutes.
 
 rottingtime ends forgetfully when anghofiotime begins.
 
@@ -25470,7 +25497,9 @@ Before examining the spell-book while in darkness:
 
 Section 1 - Stinky stuff
 
-Instead of smelling when the player is in dark-room:
+The odorous-object is a thing.
+
+Instead of smelling when the player is in dark-room and the odorous-object is in the location:
 	say "[if the odorous-object is examined]There is a distinct brackish odor in this room. It makes you a bit nauseous. With careful sniffing, you can tell that its coming from some odorous object. You can't see it, but you can guess where it is[otherwise]You can still smell the brackish odor in this room, coming from the odorous object; you have a pretty good idea of where it's located, but it sure reeks[end if].";
 	now the odorous-object is examined;
 
@@ -25663,11 +25692,11 @@ Section 1 - The web itself
 
 The web-room is in spell-region. The printed name of the web-room is "Webbed Room".
 
-The description of the web-room is "[first time]Walking into this room, it feels...prickly somehow. Hazy, like walking through smoke. Everything is blurry, and your skin is crawling.
+The description of the web-room is "[first time]Walking into this room, it feels...prickly somehow. Hazy, like walking through smoke. Everything is blurry, and your skin is crawling. Literally.
 
-Looking down, you realize that your skin is literally crawling. There's a tiny spider crawling across you're arm. You flick it off in disgust. That's when you realize: it's not hazy in here; it's covered in cobwebs.
+There's a tiny spider crawling across you're arm. You flick it off in disgust. That's when you realize: it's not hazy in here; it's covered in cobwebs.
 
-[only]You are in a great chamber covered in spider webs of all shapes and sizes: thick, ropy ones; long, trailing ones; and delicate, diaphanous ones.
+[only]You are in a great chamber covered in spider webs of all shapes and sizes: thick, ropy ones; long, trailing ones; and delicate, diaphanous ones. The only exit is to the [boldsouth].
 
 In the middle of the room hangs a large cocoon, from which a multi-eyed face protrudes, as well as numerous limbs. Each limb moves along the strings of web in the room, sending tremors through the whole system.[first time]
 
@@ -25697,7 +25726,7 @@ Instead of physicality when the noun is the web-coccoon:
 
 Section 2 - Webmaster
 
-The Webmaster is a neuter person in web-room. "The Webmaster waits patiently for you to act." Understand "giant" or "large" or "numerous" or "eyes" or "eye" or "chelicerae" or "quiver" or "spider" or "leg" or "legs" as the webmaster. The description of the webmaster is "Only the legs and face of this spider can be seen. The head is as large as yours, with its numerous eyes and its quivering chelicerae. The legs are longer than you are tall, and manipulate the strings of the webs in the room to some unseen purpose."
+The Webmaster is a neuter person in web-room. "The Webmaster waits patiently for you to act." Understand "giant" or "large" or "numerous" or "master" or "eyes" or "eye" or "chelicerae" or "quiver" or "spider" or "leg" or "legs" as the webmaster. The description of the webmaster is "Only the legs and face of this spider can be seen. The head is as large as yours, with its numerous eyes and its quivering chelicerae. The legs are longer than you are tall, and manipulate the strings of the webs in the room to some unseen purpose."
 
 Instead of attacking the webmaster:
 	say "The Webmaster barks out a command, and you find yourself backing away from him."
@@ -25719,9 +25748,9 @@ Before uttering bear-quip to webmaster:
 
 Role-quip is a quip. The printed name of role-quip is "Role". Understand "role" as role-quip. The preview of role-quip is "Who are you? What are you doing here?" The target of role-quip is webmaster.
 
-The targetresponse of role-quip is "The spider says, 'I'm a promoted AI agent a level above all the others you've seen done here. My role is to administer this site, make sure ration storage is free from pests, perform basic security and provide raw materials and drones for other areas of this ship.'
+The targetresponse of role-quip is "The spider says, 'I'm a promoted AI agent a level above all the others you've seen here. My role is to administer this site, make sure ration storage is free from pests, perform basic security and provide raw materials and drones for other areas of this ship.'
 
-'Ship?' you ask. 'What ship? We're underground!'
+'Ship?' you ask. 'What ship? We're in a cavern! I was eaten by a monster the size of a city in an underground lake! What ship are you talking about?'
 
 He clicks his chelicerae. 'You'll learn in due time. For now, I can tell you that this ship is much larger than anything you're used to. We are in the bowels of the ship, the long-term stores of materials. The pack beasts of the great city in the stars. Most of what you see is carbon, in its various forms, being refined into, well, nanobots. We're all made of nanobots down here. Even you.'
 
@@ -25782,7 +25811,7 @@ Report uttering composition-quip to webmaster:
 			remove current;
 	now bear-quip is ready;
 
-Bear-quip is a quip. The printed name of bear-quip is "Comfort". Understand "Comfort" as Bear-quip. The preview of bear-quip is "I came here looking for a teddy bear. Do you have it?". The target of bear-quip is webmaster.
+Bear-quip is a quip. The printed name of bear-quip is "Treasured". Understand "Treasured" as Bear-quip. The preview of bear-quip is "I came here looking for a teddy bear. Do you have it?". The target of bear-quip is webmaster.
 
 The targetresponse of bear-quip is "'No,' says the spider.
 
@@ -26049,7 +26078,7 @@ There is a scream, and the darkness in this room physically retracts, peeling of
 
 In front of you is a thick globule of the stuff hanging from the ceiling; at your feet is a pile of dead creatures emitting a disgusting odor, and nearby is a pool of some clear liquid that has chunks of bone floating in it.
 
-The black globule in front of you is ripped and leaking a green fluid. It retreats near the corpses and pool, and all the remaining blackness in the room folds itself up around the globule, the corpses, and the liquid, forming a spherical sack, twice the size of you. The sack inches away to the south and disappears out of sight.";
+The black globule in front of you is ripped and leaking a green fluid. It retreats near the corpses and pool, and all the remaining blackness in the room folds itself up around the globule, the corpses and the liquid. It forms a spherical sack twice the size of you. The sack inches away to the south and disappears out of sight.";
 		now the odorous-object is nowhere;
 		now the splashing-puddle is nowhere;
 		now dark-gone is true;
@@ -28390,12 +28419,21 @@ To pop is a verb.
 To spring is a verb.
 Before an actor doing anything other than freeacting or wearing or hiding behind when the currentcover of the actor is not fakecover (this is the popping out rule):
 	if the current action is not asking someone to try doing something:
-		if the actor is in the location:
-			say "[The actor] [one of][adapt the verb pop][or][adapt the verb jump][or][adapt the verb spring][at random] out from behind [the currentcover of the actor].";
-			if the current action is an actor exiting:
+		if the current action is taking something:
+			if the noun is not held by the actor:
+				if the actor is in the location:
+					say "[The actor] [one of][adapt the verb pop][or][adapt the verb jump][or][adapt the verb spring][at random] out from behind [the currentcover of the actor].";
+					if the current action is an actor exiting:
+						now currentcover of the actor is fakecover;
+						try nothingaction instead;
 				now currentcover of the actor is fakecover;
-				try nothingaction instead;
-		now currentcover of the actor is fakecover;
+		otherwise:
+			if the actor is in the location:
+				say "[The actor] [one of][adapt the verb pop][or][adapt the verb jump][or][adapt the verb spring][at random] out from behind [the currentcover of the actor].";
+				if the current action is an actor exiting:
+					now currentcover of the actor is fakecover;
+					try nothingaction instead;
+			now currentcover of the actor is fakecover;
 
 An aim-bot has a person called the bottarget. The bottarget of an aim-bot is usually emrys-weaver.
 
@@ -29122,7 +29160,7 @@ Gold-tier is a room. Gold-tier is in robot-region. The printed name of Gold-tier
 
 The round table itself dominates the middle of the room, while the Siege Perilous is near you as well[if the room east from gold-tier is not nothing].
 
-There is a blue rift leading to the [boldeast][otherwise]You can return to the [boldnorth][end if]."
+There is a blue rift leading to the [boldeast][otherwise]. You can return to the [boldnorth][end if]."
 
 The stained-windows are plural-named scenery in gold-tier. The printed name of the stained-windows is "stained glass windows". Understand "stain" or "stained" or "glass" or "window" or "windows" or "stories" or "story" as the stained-windows. The description of the stained-windows is "Wrought into the windows are the stories of the knights in King Arthur's court. Although it's hard to see them well; perhaps they'll be improved in post-production once filming wraps."
 
@@ -30366,7 +30404,7 @@ The targetresponse of amusing-quip is "He smiles, and says quietly, 'Is that so?
 
 Section 5 - Webmaster
 
-The Party-webmaster is a robotic man in near the entrance. The printed name of party-webmaster is "Webmaster". Understand "webmaster" or "spider" or "anthropomorphic" or "head" or "numerous" or "eyes" or "quivering" or "chelicerae" or "legs" as the party-webmaster. The description of party-webmaster is "This is a robot shaped like an anthropomorphic spider. His head is as large as yours, with its numerous eyes and quivering chelicerae. The legs are longer than you are tall."
+The Party-webmaster is a robotic man in near the entrance. The printed name of party-webmaster is "Webmaster". Understand "webmaster" or "master" or "spider" or "anthropomorphic" or "head" or "numerous" or "eyes" or "quivering" or "chelicerae" or "legs" as the party-webmaster. The description of party-webmaster is "This is a robot shaped like an anthropomorphic spider. His head is as large as yours, with its numerous eyes and quivering chelicerae. The legs are longer than you are tall."
 
 Party-Webmaster desires party-curator. Party-webmaster likes max, arawn, and party-maeve. Party-webmaster likes party-andy.
 
@@ -32917,6 +32955,8 @@ Gone-tiffany is a scenery thing. Understand "tiffany" as gone-tiffany.
 Instead of doing something with gone-tiffany:
 	say "Tiffany isn't here; she's gone on to the rest of the ship."
 	
+The printed name of gone-tiffany is "Tiffany".
+	
 Chapter 16 - Transit room
 
 The transit-redux is up from lower-redux. The printed name of the transit-redux is "Transit Area". It is in finale2-region. "The transit area has a grim atmosphere. Evacuees and officers pass by in equal measure. There is fear in everyone's eyes. You can go [boldwest], [boldsouth], or [boldeast] to go out of here. You can also go [boldup] through a transport tube or go [bolddown] to lower areas."
@@ -33293,13 +33333,13 @@ Instead of tying a free nonrope thing to a free nonrope thing when the player is
 	otherwise:
 		say "You lack the requisite spare cable."
 
-Understand "untie [something] from [something]" as untying it from. Understand "untie [something]" as untying  it from.
+Understand "untie [something] from [something]" as untying it from when the player is in finale2-region. Understand "untie [something]" as untying it from when the player is in finale2-region.
 
-Understand "detach [something] from [something]" as untying it from. Understand "detach [something]" as untying  it from.
+Understand "detach [something] from [something]" as untying it from when the player is in finale2-region. Understand "detach [something]" as untying it from when the player is in finale2-region.
 
-Understand "disconnect [something] from [something]" as untying it from. Understand "disconnect [something]" as untying  it from.
+Understand "disconnect [something] from [something]" as untying it from when the player is in finale2-region. Understand "disconnect [something]" as untying it from when the player is in finale2-region.
 
-Understand "unfasten [something] from [something]" as untying it from. Understand "unfasten [something]" as untying  it from.
+Understand "unfasten [something] from [something]" as untying it from when the player is in finale2-region. Understand "unfasten [something]" as untying it from when the player is in finale2-region.
 
 Rule for supplying a missing second noun while untying something from:
 	let L be a list of things;
@@ -34734,6 +34774,8 @@ The kissing yourself rule response (A) is "[if the player is Emrys-weaver]You al
 	
 The block kissing rule response (A) is "[if the player is fake-maeve]Oh, I love physical affection, hon, but it wasn't the time[otherwise if the player is fake-mari]I was too busy to hug anybody[otherwise if the player is fake-elen]I don't like anyone enough to hug them[otherwise if the player is fake-arthur]My university prohibits physical affection with students, detective[otherwise]This [are] better imagined than attempted[end if]."
 
+
+
 To seem is a verb.
 
 The can't take scenery rule response (A) is "[Those] [adapt the verb seem] hard to move."
@@ -34799,7 +34841,7 @@ Instead of entering a person:
 Instead of opening a person:
 	say "That [adapt the verb seem] like it would involve a lot of blood."
 
-The block sleeping rule response (A) is "[if the player is in ship-region]It would be impossible to sleep with the evacuation giong on[otherwise if the player is emrys-weaver]Despite the craziness of the day, you're not tired yet[otherwise if the player is arawn]She will never sleep again[otherwise]I wasn't sleepy, not any more[end if].".
+The block sleeping rule response (A) is "[if the player is in ship-region]It would be impossible to sleep with the evacuation giong on[otherwise if the player is emrys-weaver]Despite the craziness of the day, you're not tired yet[otherwise if the player is arawn]She will never sleep again[otherwise]I wasn't sleepy, not anymore[end if].".
 
 The can't go that way rule response (A) is "It [don't] look like [we] [can] go that way."
 
@@ -34889,7 +34931,7 @@ Carry out dancing:
 	otherwise:
 		say "Unfortunately, you specifically have been banned from dancing since the ship's last Christmas party.";
 
-Instead of asking someone for a quip:
+Instead of asking someone for a quip when the player is emrys-weaver:
 	try uttering the second noun to the noun;
 
 Digging is an action applying to one thing. Understand "dig [something]" as digging.
@@ -35341,7 +35383,7 @@ Test dark with "e/e/se/n/n/listen/smell/touch odorous/touch pool/quadox/x warm t
 
 Test toweb with "test rescue/test lonely/test buried/test bookmark/test stranger/test end/test pillar/test vast/test hunter/test dark"
 
-Test web with "n/say role/say torture/say composition/say comfort/denox scroll"
+Test web with "n/say role/say torture/say composition/say treasured/denox scroll"
 
 Test spiral2 with "s/s/s/ne/sanox/sanox/sanox/sanox"
 
@@ -35401,7 +35443,7 @@ Test arawn with "say curiosity/say location/say familiar/e/e/d/e"
 
 Test museum with "x map/x exhibit/x diagram/x model/s/x exhibit/x diagram/e/x exhibit/x diagram/u/x exhibit/x diagram/ne/x exhibit/x diagram/z/w/w"
 
-Test party with "w/join arawn/say intent/join table/take cookie/eat cookie/take baklava/eat baklava/take macaron/eat macaron/l/join max/reunion/join arawn/arrest/join fountain/x fountain/join entrance/x entrance/l/z"
+Test party with "w/join arawn/say intent/z/join table/take cookie/eat cookie/take baklava/eat baklava/take macaron/eat macaron/l/join max/reunion/join arawn/arrest/join fountain/x fountain/join entrance/x entrance/l/z"
 
 Test memorial with "s/sw/say grave/x obelisk/say sacrifice/say angry/say refuse/say consequence/say timing/say proxy/say how/say why/say story/1/1/1/1/say choice"
 
