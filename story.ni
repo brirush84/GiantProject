@@ -25,7 +25,7 @@ Release along with cover art.
 
 Section 1 - Genre, description, etc
 
-The story genre is "Science Fiction". The story description is "Travel through space and time to save your ship." The story creation year is 2023. The release number is 8.
+The story genre is "Science Fiction". The story description is "Travel through space and time to save your ship." The story creation year is 2023. The release number is 9.
 
 Section 2 - Increasing memory sizes
 
@@ -91,7 +91,7 @@ Crediting is an action out of world. Understand "Credits" as crediting.
 Carry out crediting:
 	say "This game was written by Brian Rushton/Mathbrush using Inform 7 (by Graham Nelson). Beta testers include Amanda Walker, the Xenographer, John Ziegler, Jade, Christopher Merriner, Patrick Mooney, Brett Witty, Rovarsson, E. Joyce, Max Fouquet O'Garra, Dee Cooke, Ian Greener, Chandler Groover, Lance Cirone, Zed Lopez, Cody Gaisser, Alex Proudfoot, Radioactive Crow, Doug Egan, Mike Spivey, Larry Horsfield, Dirk Spivey, Arthur DiBianca, Hal Rushton, Hidnook, Charm Cochran, Grueslayer, Lynnea Glasser, Wade Clarke, Onno Brouwer, Mel Jason, Alyshkalia, Daniel Worm, and Robert Eggleston, who was also the first to beat the full game. 
 
-Hanon Ondricek gave helpful advice about the concept and title. Phil Riley and Peter Bates made suggestions about coding. Mike Russo and Garry Francis gave poetry tips. Wade Clarke and Mike Russo (again) gave some prose tips.
+Hanon Ondricek gave helpful advice about the concept and title. Phil Riley and Peter Bates made suggestions about coding. Mike Russo and Garry Francis gave poetry tips. Wade Clarke and Mike Russo (again) gave some prose tips. otistdog provided helpful Inform 6 code.
 
 Matt Weiner, N. Comier, Mike Sousa, Austin Auclair, Doug Egan, Pinkunz, and Charm Cochran served as inspiration for some puzzle content. Many of the standard Inform examples were used, but a lot of code was directly lifted from Under Contract, Example 205; Lethal Concentration 1 and 2, examples 255 and 257; Nickel and Dimed, example 262; Robo1 and Robo 2, examples 426 and 429; Entropy, example 182; The Cow Exonerated, example 401; In Fire or in Flood, example 401; Otranto, example 228.
 
@@ -1348,8 +1348,11 @@ You answer, 'Wait, I'm a negotiator, but only by training. I'm not actually auth
 To say delivernegotiator:
 	deliver negotiation-quip;
 
-Instead of showing the police-badge to tiffany:
-	say "'So what?' shouts Tiffany."
+Instead of showing the police-badge to someone in ship-region:
+	if the second noun is tiffany:
+		say "'So what?' shouts Tiffany.";
+	otherwise:
+		say "You feel a little awkward showing a fake police badge to people that very well that you are not, in fact, a police officer, and that the ship has no police."
 
 Section 4 - Guards
 
@@ -2306,7 +2309,7 @@ The horse-hoof is part of the napoleon-horse. Understand "hoof" or "hooves" or "
 Instead of looking under the horse-hoof:
 	try examining the horse-hoof;
 	
-The digit-pad is part of the horse-hoof. The printed name of the digit-pad is "keypad". Understand "five-digit" or "five" or "digit" or "keypad" or "key" or "display" or "keys" as the digit-pad. The description of the digit-pad is "This is a simple keypad that displays five digits. It currently reads '[currentpaddisplay]'."
+The digit-pad is part of the horse-hoof. The printed name of the digit-pad is "keypad". Understand "five-digit" or "five" or "digit" or "keypad" or "key" or "display" or "keys" or "pad" as the digit-pad. The description of the digit-pad is "This is a simple keypad that displays five digits. It currently reads '[currentpaddisplay]'."
 
 Numbersetting it on is an action applying to one number and one thing. Understand "type [a number] on [digit-pad]" or "enter [a number] on [digit-pad]" as numbersetting it on when the digit-pad is enclosed by the location.
 
@@ -3115,7 +3118,7 @@ To decide if mary is ready:
 	decide yes;
 
 Every turn when marylevel is 3:
-	say "The lights go dark[if a lit thing is carried by the player], although [the random lit thing carried by the player]has enough light for you to see what happens: the cube sinks the floor and a wax figure of Bloody Mary rises out of the floor[otherwise] and you feel a rumbling[end if]. There is the sound of a woman's cruel laughter, and the lights go on. There stands the figure of Bloody Mary, a cruel smile on her lips and blood on her hands.
+	say "The lights go dark[if a lit thing is carried by the player], although [the random lit thing carried by the player] has enough light for you to see what happens: the cube sinks the floor and a wax figure of Bloody Mary rises out of the floor[otherwise] and you feel a rumbling[end if]. There is the sound of a woman's cruel laughter, and the lights go on. There stands the figure of Bloody Mary, a cruel smile on her lips and blood on her hands.
 
 At the same time, you hear a hissing sound. Is something being pumped into the room? You can feel your heart pounding.
 
@@ -3592,7 +3595,7 @@ Instead of opening the glass-box when the glass-box is open:
 INstead of going from lust-room when a gold-ring is enclosed by the player:
 	say "A stern voice from above says robotically, 'Contraband detected. Please do not leave the room until all valuable goods you have taken are replaced.'"
 
-The glass-box is a transparent closed unopenable container in lust-room. "A glass case is in the middle of the room, containing a sapphire ring." The glass-box is not portable. Understand "black" or "velvet"or "glass" or "box" or "case" or "cut" or "mark" or "marks" as the glass-box. The printed name of the glass-box is "glass case". The description of the glass-box is "The glass case reminds you of the displays in jewelry stores. Inside, it is lined with black velvet[if the glass-box is not closed]. A circle has been cut out of the glass[otherwise]Cut marks appear here and htere on the glass from something sharp[end if]."
+The glass-box is a transparent closed unopenable container in lust-room. "A glass case is in the middle of the room, containing a sapphire ring." The glass-box is not portable. Understand "black" or "velvet"or "glass" or "box" or "case" or "cut" or "mark" or "marks" as the glass-box. The printed name of the glass-box is "glass case". The description of the glass-box is "The glass case reminds you of the displays in jewelry stores. Inside, it is lined with black velvet[if the glass-box is not closed]. A circle has been cut out of the glass[otherwise]Cut marks appear here and there on the glass from something sharp[end if]."
 
 The sapphire-ring is a gold-ring in glass-box. Understand "Sapphire" or "oval" or "ring" as the sapphire-ring. The printed name of the sapphire-ring is "sapphire ring". The description of the sapphire-ring is "The sapphire ring has a simple gold band, on which are engraved the tiny words 'DO NOT REMOVE FROM ROOM'. The sapphire itself is oval cut."
 
@@ -4486,6 +4489,12 @@ Instead of unlocking the vault-combo with stuck-key:
 	
 Instead of unlocking the greed-vault with the stuck-key:
 	say "The vault has a combination lock, not a keyhole."
+	
+Instead of setting the greed-vault animally to some animal-code:
+	try setting the vault-combo animally to the animal-code understood;
+	
+Instead of opening the vault-combo:
+	try opening the greed-vault;
 
 Chapter 7 - Gluttony
 
@@ -5049,6 +5058,9 @@ After inserting the foos-ball into enemy-goal:
 	if the foosball-table is not nowhere:
 		win the game;
 
+After inserting the foos-ball into player-goal:
+	say "There is a buzz, and a voice says, 'GAME OVER'."
+
 To win the game:
 	now foosball-table is nowhere;
 	say "A cheery little tune plays! The foosball table rumbles and sinks under the ground, the ground closing seamlessly behind it."
@@ -5235,6 +5247,8 @@ To say doorsopen:
 	now the wax-doors are open;
 
 The wax-doors are a plural-named scenery closed openable door. The wax-doors are south from pride-room and north from wax-entrance. The printed name of the wax-doors is "double doors". Understand "double" or "doors" or "bar" or "window" or "tinted" or "door" as the wax-doors. The description of the wax-doors is "These double doors are the main entrance to Mystery and History. Each has a bar and a tinted window."
+
+Understand "examine [things]" as examining when the player is in wax-entrance.
 
 Instead of searching the wax-doors:
 	say "You can't see anything through the door."
@@ -8602,7 +8616,7 @@ Section 4 - The fourth upgrade
 After inserting the fourth-shard into the crystal-hole:
 	now pedestal-text is "Given your positive track record in previous upgrades, and the fact that you have now successfully passed our background checks, your calibration tasks will become more difficult. This upgrade includes a maintenance task to perform in addition to receiving new upgrades.
 
-Please place the tool on the pedestal to verify that you consent to temporary employment on a non-compensatory basis for the 115th Pan-Sector Council, and that you waive indemnity for any losses incurred due to malfunctioning spatial rifts, including loss of personal goods, edema, temporary blindness, loss of limb, and death.";
+Please place the tool on the pedestal to verify that you consent to temporary employment on a non-compensatory basis for the 115th Pan-Sector Congress, and that you waive indemnification for any losses incurred due to malfunctioning spatial rifts, including loss of personal goods, edema, temporary blindness, loss of limb, and death.";
 	say "You place the crystal shard into the receptacle.
 
 The display changes to say:
@@ -8683,7 +8697,7 @@ The sub-river is distant scenery in second-substation. The printed name of the s
 
 The robot-deer are distant plural-named scenery animals in second-substation. The printed name of the robot-deer is "black robot deer". Understand "black" or "robot" or "deer" or "deer-like" or "robots" as the robot-deer. The description of the robot-deer is "The deer-like robots emerge from the rift and walk towards the trees which other, monkey-shaped robots are cutting down. They gather the fallen trees and carry them back through the other side of the rift."
 
-The forest-monkeys are distant plural-named scenery animals in second-substation. Understand "monkey" or "monkeys" or "robot" or "robots" or "tools" as the forest-monkeys. The description of the forest-monkeys is "The robot monkeys are using tools to cut down the trees, which they then help load onto the deer." The printed name of the forest-monkeys is "monkeys".
+The forest-monkeys are distant plural-named scenery animals in second-substation. Understand "monkey" or "monkeys" or "robot" or "robots" or "monkey-shaped" or "tools" as the forest-monkeys. The description of the forest-monkeys is "The robot monkeys are using tools to cut down the trees, which they then help load onto the deer." The printed name of the forest-monkeys is "monkeys".
 
 first-srift is a station-rift. It is west from first-substation and east from second-substation. A station-rift is never proper-named.
 
@@ -10691,6 +10705,9 @@ The cloudy-sky is a distant backdrop in garden-region. The printed name of the c
 
 The old-forest is a distant backdrop in garden-region. The printed name of the old-forest is "distant forest". Understand "distant" or "forest" or "trees" or "mixed" as the old-forest. The description of the old-forest is "This is a mixed forest, the trees being of multiple species and levels of growth. It stretches as far as you can see in most directions."
 
+Instead of entering the old-forest:
+	say "The forest looks like it stretches off interminably; you'd rather not get lost."
+
 The forest-breeze is an intangible backdrop in garden-region. The printed name of the forest-breeze is "breeze".
 
 A room can be indoors or outdoors. A room is usually outdoors.
@@ -11316,7 +11333,10 @@ earlynight	"[if the cabin-fire is enflamed] in contrast to the darkness outside[
 
 Section 2 - Stairs
 
-The cabin-stairs are a plural-named scenery staircase. Understand "stairs" or "stair" or "step" or "steps" or "stringer" or "individual" or "beams" as the cabin-stairs. The cabin-stairs are up from cabin-interior and down from cabin-upstairs. The description of the cabin-stairs is "The stairs are made of individual steps supported by several stringer beams. There are no fasteners; everything is notched and fitted together[if the whole-beam is part of the cabin-stairs]. With your beam in place, the stairs look great[otherwise if the rotten-beam is part of the cabin-stairs]. One of the beams looks rotten and loose[otherwise]. Notably, one of the beams is missing[end if]."
+The cabin-stairs are a plural-named scenery staircase. Understand "stairs" or "stair" or "step" or "steps" or "stringer" or "individual" or "beams" as the cabin-stairs. The cabin-stairs are up from cabin-interior and down from cabin-upstairs. The description of the cabin-stairs is "The stairs are made of individual steps supported by several stringer beams. There are no fasteners; everything is notched and fitted together[if the whole-beam is part of the cabin-stairs]. With your beam in place, the stairs look great[otherwise if the rotten-beam is part of the cabin-stairs]. One of the beams looks rotten and loose[otherwise]. Notably, one of the beams is missing[end if]." The printed name of the cabin-stairs is "stairs".
+
+Instead of putting something on the cabin-stairs:
+	say "The stairs look slightly tilted; anything you put on them would just fall down anyway."
 
 The rotten-beam is a temporally-displaced part of the cabin-stairs. The dimnumber of rotten-beam is 7. The printed name of the rotten-beam is "rotten beam". Understand "rotten" or "beam" or "stringer" as the rotten-beam. The description of the rotten-beam is "This beam looks like rot has gotten to it. It looks like it was less well waxed than the others; perhaps that's why it suffered a different fate than the others[if the rotten-beam is part of the cabin-stairs]. It has no fasteners, just being slotted in with the rest of the stairs[end if]."
 
@@ -11326,7 +11346,7 @@ Before going up from cabin-interior:
 	otherwise if the whole-beam is not part of the cabin-stairs:
 		say "The stairs are too dangerous to use while a beam is missing." instead;
 
-Instead of pulling or pushing or shaking or attacking the rotten-beam:
+Instead of pulling or pushing or shaking or attacking the rotten-beam when the rotten-beam is part of the cabin-stairs:
 	try taking the rotten-beam;
 
 Instead of taking the rotten-beam for the first time:
@@ -11490,7 +11510,7 @@ Instead of pushing the fire-starter:
 	if the cabin-fire is enflamed:
 		say "The fireplace is already burning.";
 	otherwise if a non-coal thing is in the cabin-fire:
-		say "You're hesitant to push the fire starter, as it could burn [a list of non-coal things in the cabin-fire].";
+		say "You're hesitant to push the fire starter, as it could burn [the list of non-coal things in the cabin-fire].";
 	otherwise:
 		say "You press the fire starter and a shower of sparks comes out of it";
 		if the char-coal is in the cabin-fire:
@@ -11588,6 +11608,9 @@ I do not want to end up in prison in Central. I want to blame it all on Mr. Stev
 I wonder what got them so upset. It was just some of my helmet designs--I've been working on skulls and spikes a lot recently. This one was all white, with a big cape behind. I don't get it.
 
 [roman type]This page has been laminated, unlike the others.[roman type]"
+
+Instead of touching or rubbing the 4-page:
+	say "Oooh, the laminated page feels nice".
 
 Section 2 - Scenery
 
@@ -11705,6 +11728,9 @@ Chapter 6 - Cabin upstairs
 The cabin-upstairs is in garden-region. The cabin-upstairs is indoors. "The top floor of the cabin has a magnificent view of [windesc in row currenttime of the Table of Upstairs Descriptions]. [if broken-window is in cabin-upstairs]Or at least it would be magnificent, if the window weren't broken[otherwise if empty-window is in cabin-upstairs]Maybe a little too magnificient; without a window, more of nature can get in here than you'd like[otherwise]Thanks to your new window, that is[end if]. A cozy bed takes up much of the room, with a nightstand next to it. The stairs lead [bolddown].
 
 A delicate feather mobile hangs from the ceiling[if the paper-window is in cabin-upstairs], hanging perfectly still[otherwise if the broken-window is in cabin-upstairs], swinging [featherwild] in the air[otherwise] swinging back and forth[end if]." The printed name of the cabin-upstairs is "Upstairs".
+
+Instead of going nowhere from cabin-upstairs when the noun is outside:
+	try going down;
 
 To say featherwild:
 	if currenttime is windytime:
@@ -12327,7 +12353,7 @@ Instead of touching or pushing or pulling the river-mud:
 	say "It's kind of squelchy and gross."
 
 Instead of taking the river-mud:
-	say "It would be hard to take the mud with your bare hands, although you might be able to fill a suitable container."
+	say "It would be hard to take the mud with what you have, although you might be able to fill a suitable, large container."
 
 The river-mud can be expended or unexpended. The river-mud is unexpended.
 
@@ -12336,7 +12362,7 @@ Instead of inserting the river-mud into the plaster-tub when the river-mud is un
 
 Section 5 - The limestone
 
-The limestone-rocks are plural-named scenery open unopenable door. The limestone-rocks are east of river-side and west from cabin-cellar. The printed name of the limestone-rocks is "limestone rocks". Understand "limestone" or "rock" or "rocks" or "slippery" or "formation" or "steep" or "slippery" or "path" or "bank" as the limestone-rocks. The description of the limestone-rocks is "This formation of rocks is steep and angled, and the rocks themselves look slippery[if the player is in river-side]. There's an etching of Stonehenge on one part of the rocks.
+The limestone-rocks are plural-named scenery open unopenable door. The limestone-rocks are east of river-side and west from cabin-cellar. The printed name of the limestone-rocks is "limestone rocks". Understand "limestone" or "rock" or "rocks" or "slippery" or "formation" or "steep" or "slippery" or "path" or "bank" as the limestone-rocks. The description of the limestone-rocks is "This formation of rocks is steep and angled, and the rocks themselves look slippery[if the player is in river-side]. There's an etching of the Eiffel Tower on one part of the rocks.
 
 There is [a talc-vein] going through one part of the limestone[end if]."
 
@@ -12593,7 +12619,7 @@ Before taking the small-bucket when the small-bucket is part of the small-tree:
 Looking closer, something else fell to the ground along with the bucket.";
 		now the 12-page is in the location instead;
 	otherwise:
-		say "The rope holding the bucket looks crusted and hard to untie. You might be able to forcibly take the bucket, but it's the bucket is too small to be of much use on its own." instead;
+		say "The rope holding the bucket looks crusted and hard to untie. You might be able to forcibly take the bucket, but the bucket is too small to be of much use on its own." instead;
 
 Instead of inserting something into the small-bucket:
 	say "The bucket is too small to put anything into."
@@ -12628,6 +12654,20 @@ Instead of taking the birch-tree when the birch-limb is part of the birch-tree:
 
 The birch-limb is part of the birch-tree. The printed name of the birch-limb is "birch branch". Understand "birch" or "limb" or "branch" or "pole" as the birch-limb. The description of the birch-limb is "This birch branch is a flexible pole about as tall as you[if the hook-line is part of the birch-limb], with a fishing hook and line attached. You should be able to to FISH FOR things in the water now[end if]."
 
+Understand "fishing" or "rod" as the birch-limb when the hook-line is part of the birch-limb;
+
+Instead of inserting the hook-line into the birch-limb when the hook-line is not part of the birch-limb:
+	say "You adeptly tie the fishing line to the birch branch, and in a few minutes you have a perfectly serviceable fishing pole. You should be able to FISH FOR things in the water now.";
+	now the hook-line is part of the birch-limb;
+	increase the time of day by 12 minutes;
+	now the printed name of the birch-limb is "fishing pole";
+
+Instead of putting the hook-line on the birch-limb when the hook-line is not part of the birch-limb:
+	say "You adeptly tie the fishing line to the birch branch, and in a few minutes you have a perfectly serviceable fishing pole. You should be able to FISH FOR things in the water now.";
+	now the hook-line is part of the birch-limb;
+	increase the time of day by 12 minutes;
+	now the printed name of the birch-limb is "fishing pole";
+
 Instead of taking the birch-limb when the birch-limb is part of the birch-tree:
 	say "You grab a limb and pull hard, twisting it as you go to avoid stripping the bark. After some struggle, it comes off in your hands.";
 	increase the time of day by 4 minutes;
@@ -12641,6 +12681,12 @@ Before going from garden-region to a room which is not in garden-region:
 		say "[The birch-limb] is large and cumbersome, and you don't feel up to carrying it around where it's not needed." instead;
 
 Instead of tying the hook-line to the birch-limb when the hook-line is not part of the birch-limb:
+	say "You adeptly tie the fishing line to the birch branch, and in a few minutes you have a perfectly serviceable fishing pole. You should be able to FISH FOR things in the water now.";
+	now the hook-line is part of the birch-limb;
+	increase the time of day by 12 minutes;
+	now the printed name of the birch-limb is "fishing pole";
+
+Instead of tying the birch-limb to the hook-line when the hook-line is not part of the birch-limb:
 	say "You adeptly tie the fishing line to the birch branch, and in a few minutes you have a perfectly serviceable fishing pole. You should be able to FISH FOR things in the water now.";
 	now the hook-line is part of the birch-limb;
 	increase the time of day by 12 minutes;
@@ -12917,7 +12963,7 @@ earlynight	". Most of the bees are back in the hive"
 
 Section 1 - The page
 
-The 10-page is a journal-page in flower-meadow. The page-number of 10-page is 10. The description of the 10-page is "I've picked up my old hobbies a bit since I finished restoring the place. It's an appropriate activity, not prone to cause problems; The Record is purely textual, so art is the perfect outlet; can't mess up anything there. 
+The 10-page is a journal-page in flower-meadow. The page-number of 10-page is 10. The description of the 10-page is "I've picked up my old hobbies a bit since I finished restoring the place. It's an appropriate activity, not prone to cause problems; the Record is purely textual, so art is the perfect outlet; can't mess up anything there. 
 
 I've even made an outfit for myself based on that old drawing that got me into this mess in the first place. It's kind of warm--uncomfortably so--but I'll be wearing it more in Central than here. I'll use it during campaigning. I'm glad anonymity is mandated for candidates, although I don't know what they're going to do if I lose the election.
 
@@ -12946,7 +12992,7 @@ Instead of physicality when the noun is the scenery-bees:
 
 The hive-examine rule substitutes for the examine containers rule if the current action is examining the bee-hive.
 
-The bee-wax is in the bee-hive. The printed name of the bee-wax is "beeswax". The indefinite article of the bee-wax is "some". Understand "bees wax" or "hefty" or "chunk" or "beeswax" or "bee" or "wax" or "hexagonal" or "cell" or "summer" or "honey" or "cells" or "pleasant" or "smell" as the bee-wax. The description of the bee-wax is "This beeswax is a hefty chunk of soft wax, whose hexagonal cells gives off a pleasant smell."
+The bee-wax is in the bee-hive. The printed name of the bee-wax is "beeswax". The indefinite article of the bee-wax is "some". Understand "bees wax" or "hefty" or "chunk" or "beeswax" or "bee" or "wax" or "hexagonal" or "cell" or "summer" or "honey" or "cells" or "pleasant" or "smell" as the bee-wax. The description of the bee-wax is "This beeswax is a hefty chunk of soft wax, whose hexagonal cells give off a pleasant smell."
 
 Rule for deciding whether all includes the bee-wax:
 	if the bee-wax is in the bee-hive:
@@ -13421,7 +13467,7 @@ Every turn when the player is in stonehenge-region:
 			now the initial appearance of the cable-ladder is "[if the player is in stonehenge-south][ladderreveal][otherwise]A cable ladder dangles from above[end if].";
 
 To say ladderreveal:
-	say "[one of]Something has dropped from the lintel. It looks like it's [a cable-ladder] that was hidden in a recess. One end is firmly attached to the stone. You should be able to unroll it from here[or]A cable ladder is here, attached to the stone lintel. It is currently [rolledunrolled][stopping]";
+	say "[one of]Something has dropped from the lintel. It looks like it's [a cable-ladder] that was hidden in a recess. One end is firmly attached to the stone. You should be able to unroll it from here[or]A cable ladder is here, attached to the stone lintel. It is currently [rolledunrolled], leading [bolddown][stopping]";
 
 To say rolledunrolled:
 	if the cable-ladder is open:
@@ -13501,6 +13547,9 @@ The scenery-library is distant scenery in alexandria-room. The printed name of t
 Section 1 - The canister
 
 The sulfur-pack is a temporally-displaced thing. The dimnumber of the sulfur-pack is 8. The sulfur-pack is in the East-locker. The printed name of the sulfur-pack is "sulfur pack". Understand "sulfur" or "sulphur" or "pack" as the sulfur-pack. The description of the sulfur-pack is "This is a rectangular object a little smaller than your head with a warning label on it.".
+
+Instead of opening the sulfur-pack:
+	say "It's less like a box and more like a battery, with weird chemicals inside. You wouldn't open a battery, right? And you probably shouldn't open a sulfur pack.";
 
 The sulfur-label is part of the sulfur-pack. The printed name of the sulfur-label is "warning label". Understand "warning" or "label" as the sulfur-label. The description of the sulfur-label is "The label on the sulfur pack is partially torn. From what you can make out, it reads:
  
@@ -13602,7 +13651,7 @@ The description of the physics-manga is "This is a manga called [italic type]Phy
 
 The pole is spinning clockwise. Positron faces counterclockwise, against the rotation, and fires a blast, making the pole spin faster. 'You fool!' he says. 'I'll speed up this pole until you fall to your death!'
 
-Electron grins and says, 'But I'm farther from the center of the pole! That gives me more torque.' She faces clockwise, same as the pole's rotation and firest a blast. The recoil slows everything to a stop.
+Electron grins and says, 'But I'm farther from the center of the pole! That gives me more torque.' She faces clockwise, same as the pole's rotation and fires a blast. The recoil slows everything to a stop.
 
 (It looks like there's more to read.)[or]This page shows the love interest, Nucleus, holding a device labelled Yang Field Meter.
 
@@ -23469,7 +23518,7 @@ Chapter 1 - Collapsed Hallway
 
 Chapter 2 - Gem chamber
 
-The gem-room is a dark room in bigspell-region. The printed name of gem-room is "Gem Room". The description of the gem-room is "You are in a perfectly hemispherical room. The floor is some kind of flat concrete or dull rock, while the dome that bounds the room is dark, opaque glass. There is a loud hum all around you, and you get the impression of being far underground. There is a hatch in the floor with an octagon symbol.
+The gem-room is a dark room in bigspell-region. The printed name of gem-room is "Gem Room". The description of the gem-room is "You are in a perfectly hemispherical room. The floor is some kind of flat concrete or dull rock, while the dome that bounds the room is dark, opaque glass. There is a loud hum all around you, and you get the impression of being far underground. There is a hatch in the floor with an octagon symbol, leading [bolddown].
 
 In the center of the room is a pedestal that nestles a single, gray gem[if the gray-gem is active] which emits a sickly gray light[end if]."
 
@@ -26768,7 +26817,8 @@ When a replayful scene ends:
 			now currentbot is neutral;
 			add currentbot to botlist;
 	if botlist is not empty:
-		say "'Replay deactivated,' say[if the number of entries in botlist < 2]s[otherwise] both[end if] [botlist]."
+		if combat-blue is not in the location: 
+			say "'Replay deactivated,' say[if the number of entries in botlist < 2]s[otherwise] both[end if] [botlist]."
 
 Briefflag is a truth state that varies. Briefflag is false.
 
@@ -26795,7 +26845,7 @@ Yes/no?>";
 		add the current action to command-list of currentslot of currentbot;
 		say "'Recorded,' says [currentbot].";
 		try nothingaction instead;
-	otherwise if the number of entries in command-list of currentslot of currentbot is 4:
+	otherwise if the number of entries in command-list of currentslot of currentbot > 3:
 		add the current action to command-list of currentslot of currentbot;
 		say "'Recorded. Recording of [currentslot of currentbot] is now full. Recording off,' says [currentbot]. 'You can now ask me to REPLAY or activate another slot.'";
 		now currentbot is neutral;
@@ -29171,7 +29221,13 @@ Rule for writing a paragraph about earth-bot:
 
 A pleasant voice from above says, 'Welcome to the Silver Tier. When you are ready, you may turn on your vest. Good luck!' The voice then cuts out[only]."; 
 	otherwise:
-		say "The earth bot [if earth-bot is deactivated]is deactivated[otherwise if stuncounter of earth-bot > 0]is stunned[otherwise]is grimly firing at you[end if][if there is a non-boss activated battle-bot in silver-tier], surrounded by its allies [the list of activated non-boss battle-bots in silver-tier][otherwise]. It fights alone, now[end if]."
+		say "The earth bot [if earth-bot is deactivated]is deactivated[otherwise if stuncounter of earth-bot > 0]is stunned[otherwise]is grimly firing at you[end if][if there is a non-boss activated battle-bot in silver-tier], surrounded by its [botally] [the list of activated non-boss battle-bots in silver-tier][otherwise]. It fights alone, now[end if]."
+
+To say botally:
+	if the number of activated non-boss battle-bots in silver-tier is 1:
+		say "ally";
+	otherwise:
+		say "allies";
 
 Rule for writing a paragraph about a deactivated non-boss boss-bot:
 	if the player is in silver-tier:
@@ -34804,9 +34860,33 @@ Before taking off something:
 
 Understand "dip [something] into/in [something]" as inserting it into.
 
-The exclude indirect possessions from take all rule is not listed in the for deciding whether all includes rulebook.
-Rule for deciding whether all includes things enclosed by the person reaching while taking or taking off: it does not.
+[Code from otistdog]
 
+To decide which object is token-constraining item:
+	(- advance_warning -).
+
+To decide whether the noun text names (O - object):
+	(- (Refers({O}, match_from)) -).
+
+Rule for deciding whether all includes something (called item) enclosed by the person reaching while taking or removing (this is the revised exclude indirect possessions from take all rule):
+	if taking:
+		if the noun text names item:
+			it does;
+		otherwise:
+			it does not;
+	if removing:
+		if the the token-constraining item contains the item:
+			it does;
+		otherwise:
+			it does not.
+
+The revised exclude indirect possessions from take all rule is listed instead of the exclude indirect possessions from take all rule in the for deciding whether all includes rules.
+
+Rule for deciding whether all includes something (called item) contained by a portable container (called encloser) not enclosed by the player:
+	if taking or removing:
+		unless the noun text names item:
+			it does not.
+			
 Chapter 2 - Responses for the game
 
 The parser nothing error internal rule response (D) is "[bracket]Inform has difficulty understanding what you want when grabbing multiple similar items. You may need to specify where you are taking them from, like GET SLICES FROM BOX or GET BILLS FROM ENVELOPE.[close bracket]"
