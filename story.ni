@@ -89,7 +89,7 @@ The special clue called Statement will transport you into a suspect's past when 
 Crediting is an action out of world. Understand "Credits" as crediting. 
 
 Carry out crediting:
-	say "This game was written by Brian Rushton/Mathbrush using Inform 7 (by Graham Nelson). Beta testers include Amanda Walker, the Xenographer, John Ziegler, Jade, Christopher Merriner, Patrick Mooney, Brett Witty, Rovarsson, E. Joyce, Max Fog, Dee Cooke, Ian Greener, Chandler Groover, Lance Cirone, Zed Lopez, Cody Gaisser, Alex Proudfoot, Radioactive Crow, Doug Egan, Mike Spivey, Larry Horsfield, Dirk Spivey, Arthur DiBianca, Hal Rushton, Hidnook, Charm Cochran, Grueslayer, Lynnea Glasser, Wade Clarke, Onno Brouwer, Mel Jason, Alyshkalia, Daniel Worm, Mike Russo, and Robert Eggleston, who was also the first to beat the full game. 
+	say "This game was written by Brian Rushton/Mathbrush using Inform 7 (by Graham Nelson). Beta testers include Amanda Walker, John Ziegler, Jade, Christopher Merriner, Patrick Mooney, Brett Witty, Rovarsson, E. Joyce, Max Fog, Dee Cooke, Ian Greener, Chandler Groover, Lance Cirone, Zed Lopez, Cody Gaisser, Alex Proudfoot, Radioactive Crow, Doug Egan, Mike Spivey, Larry Horsfield, Dirk Spivey, Arthur DiBianca, Hal Rushton, Hidnook, Charm Cochran, Grueslayer, Lynnea Glasser, Wade Clarke, Onno Brouwer, Mel Jason, Tabitha, Daniel Worm, Mike Russo, and Robert Eggleston, who was also the first to beat the full game. 
 
 Hanon Ondricek gave helpful advice about the concept and title. Phil Riley and Peter Bates made suggestions about coding. Mike Russo and Garry Francis gave poetry tips. Wade Clarke and Mike Russo (again) gave some prose tips. otistdog provided helpful Inform 6 code.
 
@@ -762,7 +762,7 @@ Flight-room is west from bridge-command.
 
 Section 3 - Mefe
 
-Mefe is a woman in flight-room. "Officer Mefe is here[unless the flight-tear is red-torn], calmly working on navigation[otherwise], frantically trying to restore navigation function to the console[end if]." The description of Mefe is "Flight Officer Mefe Azimov is a short woman with wavy blond hair tucked under a cap. An intimidating, reserved woman, Mefe is one of the officers you've spent the least time with[unless the flight-tear is red-torn]. But you feel like you've gotte to know her better, now. She seems confident[otherwise]. She tends to be wary of you, but you haven't found out why, yet. While trying to repair the controls, she constantly scans the room, looking for other problems to fix, but finding too many to handle[end if].". Understand "flight" or "officer" or "azimov" or "wavy" or "blond" or "hair" or "short" as Mefe.
+Mefe is a woman in flight-room. "Officer Mefe is here[unless the flight-tear is red-torn], calmly working on navigation[otherwise], frantically trying to restore navigation function to the console[end if]." The description of Mefe is "Flight Officer Mefe Azimov is a short woman with wavy blond hair tucked under a cap. An intimidating, reserved woman, Mefe is one of the officers you've spent the least time with[unless the flight-tear is red-torn]. But you feel like you've gotten to know her better, now. She seems confident[otherwise]. She tends to be wary of you, but you haven't found out why, yet. While trying to repair the controls, she constantly scans the room, looking for other problems to fix, but finding too many to handle[end if].". Understand "flight" or "officer" or "azimov" or "wavy" or "blond" or "hair" or "short" as Mefe.
 
 Section 4 - Scenery
 
@@ -2906,8 +2906,8 @@ Instead of inserting something into the coin-machine:
 			say "You hear a chugging sound from within the machine. There is a sound as if a hundred souls wailed in a faroff room.
 	
 Into the coin tray falls an obol.";
-		now the obol is on the coin-tray;
-		now the coin-machine is not temporally-displaced;
+			now the obol is on the coin-tray;
+			now the coin-machine is not temporally-displaced;
 	otherwise:
 		say "That's not the right shape to fit into the slot.";
 
@@ -5523,7 +5523,7 @@ Instead of looking under the closed zoo-ladder:
 	
 Section 3 - Animal lure
 
-The animal-lure is a thing in dry-storage. The printed name of the animal-lure is "[if unexamined]oblong remote[otherwise]psychic leash[end if]". Understand "psychic" or "oblong" or "remote" or "leash" or "orb" or "instructions" as the animal-lure. The description of the animal-lure is "This oblong remote is labelled PSYCHIC LEASH. It has instructions on it:
+The animal-lure is a thing in dry-storage. The printed name of the animal-lure is "[if unexamined]oblong remote[otherwise]psychic leash[end if]". Understand "psychic" or "oblong" or "remote" or "leash" or "instructions" as the animal-lure. The description of the animal-lure is "This oblong remote is labelled PSYCHIC LEASH. It has instructions on it:
 
 [italic type]This psychic leash only works on animals that have previously been attuned. In fact, less than half of our animals have been attuned.
 
@@ -5659,7 +5659,9 @@ Instead of inserting the mesquite-seeds into the mouse-hole:
 
 Section 5 - The curator
 
-A woman called the Curator is in overlook-room. "[if keeper-scene has happened]The Curator's drone body floats here, watching you[otherwise if the curator is unpowered]A dark, unlabelled screen is prominently displayed on the wall. Below it is a power button[otherwise]The screen on the wall is lit up, displaying a digital avatar of the Curator. Below it is a power button[end if]." Understand "screen" or "power button" or "dark" or "unlabelled" or "power" or "button" or "digital" or "avatar" or "woman" or "hat" or "older" or "fedora" as the curator when keeper-scene has not happened. Understand "zookeeper" or "drone" or "body" or "curator's" or "roughly" or "humanoid" or "floating" as the curator when keeper-scene has happened. The description of the curator is "[if unpowered]This is a simple screen on the wall with a power button under it. For some reason, it's not labelled the way everything else is[otherwise if keeper-scene has happened]The curator's body is a zookeeper drone, a roughly humanoid drone floating in the air[otherwise]The screen is lit up, and a digital avatar of a woman in a fedora has appeared[end if].".
+A woman called the Curator is in overlook-room. The curator is not proper-named. "[if keeper-scene has happened]The Curator's drone body floats here, watching you[otherwise if the curator is unpowered]A dark, unlabelled screen is prominently displayed on the wall. Below it is a power button[otherwise]The screen on the wall is lit up, displaying a digital avatar of the Curator. Below it is a power button[end if]." Understand "screen" or "power button" or "dark" or "unlabelled" or "power" or "button" or "digital" or "avatar" or "woman" or "hat" or "older" or "fedora" as the curator when keeper-scene has not happened. Understand "zookeeper" or "drone" or "body" or "curator's" or "roughly" or "humanoid" or "floating" as the curator when keeper-scene has happened. The description of the curator is "[if unpowered]This is a simple screen on the wall with a power button under it. For some reason, it's not labelled the way everything else is[otherwise if keeper-scene has happened]The curator's body is a zookeeper drone, a roughly humanoid drone floating in the air[otherwise]The screen is lit up, and a digital avatar of a woman in a fedora has appeared[end if].".
+
+THe printed name of the curator is "[if the curator is unpowered]dark screen[otherwise]Curator[end if]".
 
 [This is literally only to let 'it' mean the curator]
 The neuter-button is part of the curator. The printed name of the neuter-button is "button". 
@@ -5695,6 +5697,7 @@ The Curator pauses for a moment, the avatar peering at you, then says, 'You're n
 'Uh...' you say, looking at the rift you came in by. 'It could be hard to explain.'
 
 'Never mind,' says the Curator. 'I'll just run a scan on you in case I need to call the po--' A beep comes from the screen. 'Oh!' says the Curator. 'I just got your records. Hmm...very interesting! Your name's Emrys? I think you could help. Let me know if you're up for a minor expedition[deliverhelper][or]The screen lights up again. The Curator says, 'Hello, Emrys. Welcome back[stopping].'";
+	now the curator is proper-named;
 	now the curator is powered;
 	
 Instead of switching off the curator:
@@ -6103,7 +6106,7 @@ rule for writing a paragraph about cou-gar:
 
 Section 2 - Cougar den
 
-The cougar-den is enterable open unopenable scenery container in Mountain-room. Understand "den" or "cougar den" or "bare-bones" or "gap" or "uncomfortable-looking" or "uncomfortable" or "looking" as the cougar-den. The printed name of the cougar-den is "den". The description of the cougar-den is "This den is mostly a gap in the boulders[if the keeper-plating is unhandled]. [The keeper-plating] is taking up a lot of the room[end if][if the moss-clumps are part of the cougar-den][The moss-clumps] you gathered make it all homey, though[end if]."
+The cougar-den is enterable open unopenable scenery container in Mountain-room. Understand "den" or "cougar den" or "bare-bones" or "gap" or "uncomfortable-looking" or "uncomfortable" or "looking" as the cougar-den. The printed name of the cougar-den is "den". The description of the cougar-den is "This den is mostly a gap in the boulders[if the keeper-plating is unhandled]. [The keeper-plating] is taking up a lot of the room[end if][if the moss-clumps are part of the cougar-den]. [The moss-clumps] you gathered make it all homey, though[end if]."
 
 Instead of entering the cougar-den:
 	say "You have less anxiety recently after your sessions with Gareth, but entering a pregnant cougar's den would not be helpful with that."
@@ -8163,9 +8166,9 @@ A Diagnosis button lights up[only]."
 
 The sphere-space is scenery in the sphere-room. The printed name of the sphere-space is "spherical space". Understand "sphere" or "space" or "spherical" or "vast" or "white" as the sphere-space. 
 
-The distorted-reflections are part of the sphere-space. Understand "Distorted" or "reflections" or "reflection" as the distorted-reflections. The printed name of the distorted-reflections is "distorted reflections". The description of the distorted-reflections is "The reflections look like a distorted version of yourself and the pedestal around you.
+The distorted-reflections are part of the sphere-space. Understand "Distorted" or "reflections" or "reflection" as the distorted-reflections. The printed name of the distorted-reflections is "distorted reflections". The description of the distorted-reflections is "The reflections look like a distorted version of yourself and the pedestal around you.[first time]
 
-[bracket]As a footnote for interested players, this is exactly what we would see in a 3-sphere, a kind of three-dimensional manifold. Software exists, like Geometry Games, that can show you what it's like to navigate such a space.[close bracket]".
+[bracket]As a footnote for interested players, this is exactly what we would see in a 3-sphere, a kind of three-dimensional manifold. Software exists, like Geometry Games, that can show you what it's like to navigate such a space.[close bracket][only]".
 
 Instead of examining the sphere-space:
 	try looking;
@@ -8683,7 +8686,7 @@ When fourth-upgrade begins:
 	now the curious-tool is nowhere;
 	now pedestal-text is "We will now open up several blue rifts that connect to each other. Each of these rifts connects to a different power substation of this starship. The substations are all parts of the same closed circuit, but we need to shut down all of it once for repairs. 
 
-The repairs should only take a few seconds, and will be handled remotely by drones, but we've chosen this assignment to give you some experience with spatial rifts. There are seven substations, each with a manual off switch that we've set to stay off for seven minutes at a time. You'll have to find the most efficient way to pass through the rifts to make sure all of the substations are off at once.
+The repairs should only take a few seconds, and will be handled remotely by drones, but we've chosen this assignment to give you some experience with spatial rifts. There are seven substations, each with a manual off switch that we've set to stay off for fourteen minutes at a time. You'll have to find the most efficient way to pass through the rifts to make sure all of the substations are off at once.
 
 Good luck!";
 	say "The pedestal opens up to pull in the tool before closing again.
@@ -8832,7 +8835,7 @@ seventh-substation is a sub-station. The printed name of the seventh-substation 
 
 All around you in the darkness are hundreds of gleaming eyes, all pointed towards you. As the lightbulb swings back and forth, you can see that the eyes belong to rows and rows of immobile monkey robots."
 
-The yellow-bulb is distant scenery in seventh-substation. Understand "yellow" or "bulb" or "light"or "lightbulb" or "single" or "swinging" or "interminably" or "long" or "wire" as the yellow-bulb. 
+The yellow-bulb is distant scenery in seventh-substation. Understand "yellow" or "bulb" or "light"or "lightbulb" or "single" or "swinging" or "interminably" or "long" or "wire" as the yellow-bulb. The printed name of the yellow-bulb is "yellow bulb".
 
 The description of the yellow-bulb is "The single yellow bulb, hanging from the wire, is the only landmark around here, other than the switch and the rifts. You can't tell how high the wire goes up; it is soon lost to sight. Why it is swinging you cannot tell, as there is no breeze."
 
@@ -8849,7 +8852,7 @@ tenth-srift is a station-rift. It is east from seventh-substation and west from 
 
 A station-switch is a kind of device. Understand "switch" or "electrical" or "double" or "pole" or "knife" as a station-switch. The printed name of a station-switch is usually "switch". Understand "hum" as a station-switch when a switched on station-switch is in the location.
 
-The description of a station-switch is usually "This is a double pole knife switch with a display mounted above it. Currently, the display [if the item described is switched on]is blank. There is a hum in the room[otherwise] is counting down[end if]."
+The description of a station-switch is usually "This is a double pole knife switch with a display mounted above it. Currently, the display [if the item described is switched on]is blank. There is a hum in the room[otherwise]is counting down[end if]."
 
 A station-switch is in every sub-station. A station-switch is usually switched on. The initial appearance of a station-switch is "An electrical switch is visible here, currently [if switched on]switched on[otherwise]switched off[end if]. Above it is a display, which [if the item described is switched on]is blank. There is a hum in the room[otherwise]is counting down[end if]."
 
@@ -8938,7 +8941,7 @@ This means time travel, and it is extraordinarily dangerous. Through painful exp
 
 First, red rifts can be experimented on inside a white rift or closed space, where it cannot affect the outer world. Timelines can and will collapse in such spaces, but that is what it is designed for, and is where your training will take place. 
 
-Second, some rifts must be opened to protect the time line. This happens when a rift is known to have been opened in the past; to maintain reality as we know it, we must ensure the creation of these rifts.
+Second, some rifts must be opened to protect the timeline. This happens when a rift is known to have been opened in the past; to maintain reality as we know it, we must ensure the creation of these rifts.
 
 Almost all such past rifts have been accounted for. The only exceptions are a small number that are to be created by Emrys Tisserand. She is the only one who should be able to reach this part of training.
 
@@ -8984,7 +8987,9 @@ The fifth-uprift is a scene-rift. The fifth-uprift is black-torn. Understand the
 
 The initial appearance of the fifth-uprift is "A [rift-style of fifth-uprift] rift is present in the room.";
 
-Time-paradox is a recurring scene. Time-paradox begins when fifth-upgrade is happening and fifth-uprift is not black-torn.
+Paradoxstart is a truth state that varies. Paradoxstart is false.
+
+Time-paradox is a recurring scene. Time-paradox begins when fifth-upgrade is happening and paradoxstart is true.
 
 Fifth-time is a time that varies.
 
@@ -8998,7 +9003,8 @@ The display changes to say:
 
 The Diagnose button disappears.";
 	now the diagnosis-button is nowhere;
-	now the fifth-uprift is red-torn;
+	now the fifth-uprift is black-torn;
+	now paradoxstart is true;
 
 Timescrambled is a truth state that varies. Timescrambled is false.
 
@@ -9006,7 +9012,8 @@ Time-paradox ends nicely when the player is in device-room.
 Time-paradox ends poorly when timescrambled is true.
 
 When time-paradox ends poorly:
-	now the fifth-uprift is red-torn;
+	now the fifth-uprift is black-torn;
+	now paradoxstart is true;
 
 When time-paradox begins:
 	if timescrambled is true:
@@ -9014,13 +9021,13 @@ When time-paradox begins:
 		say "***************************************************************************[line break]";
 		say "You are engulfed in a black haze, losing all sense of direction. Slowly the haze clears.";
 		say "***************************************************************************";
-		now the player is in sphere-room;
+		move the player to sphere-room, without printing a room description;
 		now the time of day is fifth-time;
 		now fifthpast is false;
 	otherwise:
 		now fifth-time is the time of day;
 	now timescrambled is false;
-	say "[The tool-pedestal] shakes and rises further out of the ground, rising on columns. Underneath the pedestal is an area surrounded by a glass wall. Inside is a red rift, as well as a bench, on which are several apples, a vat of caramel, and two buttons (labelled Open and Close). You can't reach any of them from outside of the glass.";
+	say "[line break][The tool-pedestal] shakes and rises further out of the ground, rising on columns. Underneath the pedestal is an area surrounded by a glass wall. Inside is a black rift, as well as a bench, on which are several apples, a vat of caramel, and two buttons (labelled Open and Close). You can't reach any of them from outside of the glass.";
 	now the pedestal-columns are in the location;
 	now the glassed-area is closed;
 	now the glassed-area is in the location;
@@ -9031,6 +9038,7 @@ When time-paradox begins:
 	now the close-button is part of the science-bench; 
 	now the open-button is part of the science-bench;
 	now the caramel-apple is held by temporal-emrys;
+	now paradoxstart is false;
 
 Every turn during time-paradox:
 	if fifthpast is true:
@@ -9078,7 +9086,7 @@ Rule for reaching inside the glassed-area:
 		say "[The glassed-area] prevents you from interacting directly with objects inside it.";
 	deny access;
 
-A food-apple is a kind of thing. Understand "apple" as the food-apple. A food-apple is edible. The caramel-apple is edible.
+A food-apple is a kind of thing. Understand "apple" or "apples" as the food-apple. A food-apple is edible. The caramel-apple is edible.
 
 The science-bench is a supporter in glassed-area. It is fixed in place. Understand "bench" as the science-bench. The printed name of the science-bench is "bench". The description of the science-bench is "This bench, attached to the floor, seems utilitarian, but it has a few unusual features, like a [food-disposal] and a [caramel-vat]. An Open button and a Close button are attached.".
 
@@ -9154,12 +9162,14 @@ Instead of entering the fifth-uprift:
 		say "You can't enter the black rift. You can't even feel it.";
 	otherwise:
 		if the glassed-area is not closed:
-			say "You enter the rift.";
+			say "You enter the rift.[paragraph break]";
 			say "***************************************************************************[line break]";
 			say "You are engulfed in a [rift-style of fifth-uprift] haze, losing all sense of direction. Slowly the haze clears.";
-			say "***************************************************************************";		
+			say "***************************************************************************[line break]";		
 			now the glassed-area is closed;
-			now every food-apple is on the science-bench;
+			now the red-apple is on the science-bench;
+			now the green-apple is on the science-bench;
+			now the yellow-apple is on the science-bench;
 			now fifthpast is true;
 			now temporal-emrys is in sphere-room;
 			try looking;
@@ -9944,7 +9954,7 @@ Instead of searching the tower-holes:
 Instead of switching on or switching off the tower-machinery:
 	say "You can't see any way to do that, unfortunately."
 
-The landing-trap is a closed locked openable lockable scenery crystal-door. The landing-trap is up from the landing-room and down from the tower-room. The printed name of the landing-trap is "trapdoor". Understand "trap" or "door" or "trapdoor" or "octagon" as the landing-trap. The description of the landing-trap is "The trapdoor is within reach, due to the low height of the landing. There is on octagon displayed on it." The door-room of the landing-trap is tower-room.
+The landing-trap is a closed locked openable lockable scenery crystal-door. The landing-trap is up from the landing-room and down from the tower-room. The printed name of the landing-trap is "trapdoor". Understand "trap" or "door" or "trapdoor" or "octagon" as the landing-trap. The description of the landing-trap is "The trapdoor is within reach, due to the low height of the landing. There is an octagon displayed on it." The door-room of the landing-trap is tower-room.
 
 Chapter 7 - Police back office
 
@@ -13456,7 +13466,7 @@ Instead of rubbing the stonehenge-graffiti:
 	say "It would take forever to clean all of this off."
 
 To say testername:
-	say "[one of]Amanda[or]Xenographer[or]John[or]Jade[or]Christopher[or]Lance[or]Zed[or]Cody[or]Alex[or]Radioactive Crow[or]Patrick[or]Arthur[or]Brett[or]Rovarsson[or]Joyce[or]Max[or]Dee[or]Ian[or]Chandler[or]Spike[or]Lazzah[or]Doug[or]Dirk[or]Hidnook[or]Eddie[or]Grueslayer[or]Lynnea[or]Wade[or]Onno[or]Mel[or]Tabitha[or]Robert[or]Daniel[or]Mike[cycling]"
+	say "[one of]Amanda[or]John[or]Jade[or]Christopher[or]Lance[or]Zed[or]Cody[or]Alex[or]Radioactive Crow[or]Patrick[or]Arthur[or]Brett[or]Rovarsson[or]Joyce[or]Max[or]Dee[or]Ian[or]Chandler[or]Spike[or]Lazzah[or]Doug[or]Dirk[or]Hidnook[or]Eddie[or]Grueslayer[or]Lynnea[or]Wade[or]Onno[or]Mel[or]Tabitha[or]Robert[or]Daniel[or]Mike[cycling]"
 
 The east-collector is a light-collector in stonehenge-east.
 
@@ -16629,7 +16639,7 @@ The Parlor-room is a room in haunted-region. The printed name of Parlor-room is 
 
 The description of Parlor-room is "This room, once a spacious entryway, is dominated by a broad and sturdy trophy case filled with a variety of treasures, of which [treasureslist] particularly stick out to you. The walls are dark wood, old and warped. You can go outside to the [boldsouth], or deeper into the building to the [boldnorth]."
 
-The warped-walls are scenery in parlor-room. The printed name of the warped-walls is "dark walls". Understand "warped" or "wood" or "old " or "dark" as the warped-walls. The description of the warped-walls is "It seems these walls have not been taken care of in a long time, having dried and warped over time. How long has Frankenstein been living here?"
+The warped-walls are scenery in parlor-room. The printed name of the warped-walls is "dark walls". Understand "warped" or "wood" or "old " or "dark" or "wall" or "walls" as the warped-walls. The description of the warped-walls is "It seems these walls have not been taken care of in a long time, having dried and warped over time. How long has Frankenstein been living here?"
 
 Instead of touching the warped-walls:
 	say "The warped old walls feel rough and knobbly under your fingers".
@@ -16652,7 +16662,7 @@ Section 1 - Frankenstein
 
 Understand "man" as a man. Understand "woman" as a woman.
 
-Frankenstein is a man in Parlor-room. "A tall man with pale, translucent skin and black lips is standing nearby with an avaricious look in his eye. He has a nametag on his overalls that says, 'Frankenstein'. He is holding [a list of things carried by Frankenstein][first time]. 
+Frankenstein is a man in Parlor-room. "A tall man with pale, translucent skin and black lips is standing nearby with an avaricious look in his eye. He has a nametag on his overalls that says 'Frankenstein'. He is holding [a list of things carried by Frankenstein][first time]. 
 
 Hmmmm. 'Frankenstein'? You have many questions[deliverfrankstuff][only]." The description of Frankenstein is "This is a very tall man. He has translucent skin, with a dark web of blood vessels underneath, and black lips. He wears overalls with a nametag that says 'Frankenstein: Treasure Collector'. He keeps glancing over at you with a greedy look in his eye.". Understand "Frank" or "tall" or "creature" or "monster" or "translucent" or "skin" or "web" or "pale" or "blood" or "vessels" or "vessel" or "corpse" or "avaricious" or "eye" or "corpse-like" as Frankenstein.
 
@@ -16675,11 +16685,11 @@ The TargetResponse of Franken-name is "The great creature sighs in response. 'Th
 
 Franken-confusion is a quip. The printed name of Franken-confusion is "Confusion". Understand "confusion" as Franken-confusion. The preview of Franken-confusion is "What is this place?"  The target of Franken-confusion is Frankenstein.
 
-The TargetResponse of Franken-confusion is "Frankenstein says, 'Welcome to [italic type]Monsters Inside[roman type], Miss...' he pauses, looking at you quizzically.
+The TargetResponse of Franken-confusion is "Frankenstein says, 'Welcome to [italic type]Monsters Inside[roman type], Miss...' He pauses, looking at you quizzically.
 
 'Emrys Tisserand,' you respond.
 
-He rolls his eyes. 'Oh, geez, I've heard that one before. Real funny. Okay, Miss [']Tisserand['], as you read in your consent form and waiver, [italic type]Monsters Inside[roman type] is a therapeutic aid only and not an actual treatment for any disease or condition. We are not liable for any damage you may incur during your stay. To complete your training, you'll need to help out each monster inside these walls. In return, we'll give you...' he fishes something out of his pocket and waves it around, continuing, '...exciting tokens!'
+He rolls his eyes. 'Oh, geez, I've heard that one before. Real funny. Okay, Miss [']Tisserand['], as you read in your consent form and waiver, [italic type]Monsters Inside[roman type] is a therapeutic aid only and not an actual treatment for any disease or condition. We are not liable for any damage you may incur during your stay. To complete your training, you'll need to help out each monster inside these walls. In return, we'll give you...' He fishes something out of his pocket and waves it around, continuing, '...exciting tokens!'
 
 'What do I do with the tokens?' you ask. 'And I'm not sure I filled out any waivers.'
 
@@ -16694,6 +16704,9 @@ His face alters subtly, becoming more mechanical, and assumes a greedy expressio
 He grins greedily, and says, 'No. But I'll give you something of mine. To get my actual token, you must say the magic word[delivermagic].'"
 
 The disguised-glasses are a thing carried by Frankenstein. The description of the disguised-glasses is "This is a long staff with two prongs in the middle and what look like large shield-shaped pieces of glass on both ends. The pieces of glass refract everything seen through them." Understand "long" or "staff" or "prongs" or "prong" or "staff" or "staves" or "glass" or "shield" or "unusual" or "staff" or "shield-shaped" or "piece" or "pieces" as the disguised-glasses. The printed name of the disguised-glasses is "unusual staff".
+
+Instead of inserting the disguised-glasses into a container:
+	say "[The noun] [are] quite large. Too large, in fact."
 
 Instead of searching the disguised-glasses:
 	say "Everything looks closer through the glasses, but it doesn't help see anything better. In fact, it makes your head ache."
@@ -16740,9 +16753,12 @@ Instead of taking something that is carried by Frankenstein:
 Instead of asking Frankenstein for something carried by Frankenstein:
 	try taking the second noun;
 
+Instead of showing the disguised-glasses to the lagoon-creature:
+	try giving the disguised-glasses to the lagoon-creature;
+
 Instead of giving the disguised-glasses to the lagoon-creature:
 	now the disguised-glasses are nowhere;
-	say "You call out to the creature, saying 'Hey! I have your glasses!' and hold them out.
+	say "You call out to the creature, saying, 'Hey! I have your glasses!' and hold them out.
 
 The creature grasps them gently and fixes them on her nose. Ignoring you, she lays back down and looks up at the night sky.
 
@@ -16768,7 +16784,7 @@ After unlocking the treasure-case with the curious-tool:
 Frankenstein looks at you in horror. 'Excuse me, just who do you think you are?' he asks, then stands in front of the case. 'Stop touching that.'"
 	
 Instead of opening the treasure-case when the treasure-case is unlocked:
-	say "'No.' says Frankenstein firmly, interposing himself."
+	say "'No,' says Frankenstein firmly, interposing himself."
 
 Instead of attacking the treasure-case:
 	say "Frankenstein would be very upset if you destroyed his precious treasure case!"
@@ -16873,9 +16889,9 @@ xyzzy-stein is a quip. The printed name of xyzzy-stein is "XYZZYstein". Understa
 
 [xyzzysteining is an action applying to nothing. Understand "xyzzystein" or "say xyzzystein" as xyzzysteining. ]
 
-The targetresponse of xyzzy-stein is "Frankenstein jolts up and stares at you, saying 'How did you--where did you see that?'
+The targetresponse of xyzzy-stein is "Frankenstein jolts up and stares at you, saying, 'How did you--where did you see that?'
 
-He sits down and sulks for an uncomfortably long time, then says 'Fine. You can have the token.' He digs into his pocket and pulls out a green token, which he hands you[tokendeliver].";
+He sits down and sulks for an uncomfortably long time, then says, 'Fine. You can have the token.' He digs into his pocket and pulls out a green token, which he hands you[tokendeliver].";
 
 To say tokendeliver:
 	now the green-token is carried by the player;
@@ -16897,7 +16913,7 @@ Withtaking it with is an action applying to two things. Understand "take [someth
 Carry out withtaking it with:
 	try taking the noun;
 
-A Grand-passageway is a kind of thing. A Grand-passageway is usually scenery. The description of a Grand-passageway is usually "This majestic passageway is so long that you can't see what lies beyond it". Understand "passage" or "passageway" or "way" as a Grand-passageway.
+A Grand-passageway is a kind of thing. A Grand-passageway is usually scenery. The description of a Grand-passageway is usually "This majestic passageway is so long that you can't see what lies beyond it.". Understand "passage" or "passageway" or "way" as a Grand-passageway.
 
 The Grand-north is a Grand-passageway in the Grand-room. The printed name of the Grand-north is "north passageway". Understand "north" as the Grand-north.
 
@@ -16925,7 +16941,7 @@ He's still waiting for you to find his cat[end if]."
 
 The pharaoh-jewels are worn by pharaoh. The pharaoh-jewels are plural-named. Understand "bracelet" or "beaten" or "gold" or "jewel" or "lapis" or "lazuli" or "turquoirse" or "jewelry" or "jewels" or "bracelets" as the pharaoh-jewels. The printed name of the pharaoh-jewels is "jewels". The description of the pharaoh-jewels is "The jewels look priceless to you, and are of such fine craftmanship it makes you want to cry. "
 
-The tightly-wrapped linen bandages are worn by pharaoh. Understand "magnificent" or "yellow" or "yellowed" or "threadbare" or "age" as the tightly-wrapped linen bandages. The description of the tightly-wrapped linen bandages is "While these bandages are yellowed and aged, they appear to have once been magnificent."
+The tightly-wrapped linen bandages are plural-named things worn by pharaoh. Understand "magnificent" or "yellow" or "yellowed" or "threadbare" or "age" as the tightly-wrapped linen bandages. The description of the tightly-wrapped linen bandages is "While these bandages are yellowed and aged, they appear to have once been magnificent."
 
 Understand "mummy" or "mummified" or "towering" or "figure" as Pharaoh.
 
@@ -16948,7 +16964,7 @@ To say deliverabsent:
 
 Absent-quip is a quip. The printed name of absent-quip is "Absent". Understand "absent" as absent-quip. The preview of absent-quip is "What can you tell me about your missing cat?" The target of absent-quip is pharaoh. 
 
-The targetresponse of absent-quip is "The pharaoh says, 'Her name is Miut. It's time for her meal, but she's so hard to track down....Please find her! She hides under things, and she loves...organs. Hearts. Teeth.'
+The targetresponse of absent-quip is "The Pharaoh says, 'Her name is Miut. It's time for her meal, but she's so hard to track down....Please find her! She hides under things, and she loves...organs. Hearts. Teeth.'
 
 'That's...pretty weird. But I'll try to find her,' you say.
 
@@ -17216,6 +17232,9 @@ After printing the name of a musical:
 Does the player mean giving a musical to dracula:
 	it is likely;
 
+Instead of showing a musical to dracula:
+	try giving the noun to dracula;
+
 [adjust actions if the bats are inside the cage currently!]
 
 To musicaffect (current - a musical):
@@ -17268,6 +17287,7 @@ Every turn when the player is in library-room:
 		if the dracula-bats are in the library-cage:
 			if the library-cage is closed:
 				now the dracula-bats are trapped;
+				remove stressed-dracula; 
 				now the red-token is carried by the player;
 				say "Dracula pauses, looking up at the cage. The bats, realising they are now finally contained, begin to calm down and settle in for a nap. Soon, they are all hanging silently.
 
@@ -17340,7 +17360,7 @@ The description of Dracula is "Dracula is a harried-looking older man wearing a 
 
 The dracula-shirt is worn by dracula. The description of the dracula-shirt is "The shirt is slightly unbuttoned and seems rumpled." Understand "white" or "dress" or "shirt" or "rumpled" as the dracula-shirt. The printed name of the dracula-shirt is "white dress shirt".
 
-The dracula-suspenders are worn by dracula. Understand "suspenders" or "nifty" as the dracula-suspenders. The printed name of the dracula-suspenders is "suspenders". The description of the dracula-suspenders is "These looks very outdated, but he manages to pull it off somehow."
+The dracula-suspenders are worn by dracula. Understand "suspenders" or "nifty" as the dracula-suspenders. The printed name of the dracula-suspenders is "suspenders". The description of the dracula-suspenders is "These look very outdated, but he manages to pull it off somehow." The dracula-suspenders are plural-named.
 
 Instead of pulling the dracula-suspenders:
 	say "Dracula looks like he got bullied enough in vampire school, or whatever he did when he was young."
@@ -17349,7 +17369,7 @@ The dracula-spectacles are worn by dracula. Understand "spectacles" or "glasses"
 
 Section 5 - Dictionary
 
-The lagoon-dictionary is a book. Understand "blue" or "lacunic" or "dictionary" as the lagoon-dictionary. The printed name of the lagoon-dictionary is "Blue Lacunic Dictionary". The description of the lagoon-dictionary is "This is an extensive dictionary giving the basics of communication of the Blue Lacunic language."
+The lagoon-dictionary is a book. Understand "blue" or "lacunic" or "dictionary" as the lagoon-dictionary. The printed name of the lagoon-dictionary is "Blue Lacunic dictionary". The description of the lagoon-dictionary is "This is an extensive dictionary giving the basics of communication of the Blue Lacunic language."
 
 After taking the lagoon-dictionary for the first time:
 	say "You grab the dictionary and flip through it. You mumble parts of it out loud, until your recorder beeps. It seems like you might be able to talk to the creature better now.";
@@ -17406,7 +17426,7 @@ She looks over at you with clear intelligence in her expression but then turns b
 
 The description of the lagoon-creature is "The creature seems to be a cross between the largest land creatures and the beasts of the deepest seas, with a large green carapace and[if the creature-glasses are worn by the lagoon-creature] piercing black eyes behind a pair of enormous glasses[otherwise] a pair of blurry black eyes[end if]."
 
-Creature-greeter is a quip. The printed name of Creature-greeter is "Communicate". Understand "communicate" as Creature-greeter. The preview of Creature-greeter is "[italic type]Attempt to communicate[roman type]" . The target of Creature-greeter is lagoon-creature.
+Creature-greeter is a quip. The printed name of Creature-greeter is "Communicate". Understand "communicate" as Creature-greeter. The preview of Creature-greeter is "[italic type]*Attempt to communicate*[roman type]" . The target of Creature-greeter is lagoon-creature.
 
 Report going west from grand-room for the first time:
 	deliver creature-greeter;
@@ -17418,7 +17438,7 @@ The TargetResponse of Creature-greeter is "The enormous being burbles and glurbl
 After uttering Creature-greeter to lagoon-creature:
 	deliver Creature-Interpreter;
 
-Creature-Interpreter is a quip. The printed name of Creature-Interpreter is "Interpreter". Understand "Interpreter" as Creature-Interpreter. The preview of Creature-Interpreter is "Can you understand the creature in the Lagoon?" . The target of Creature-Interpreter is Dracula.
+Creature-Interpreter is a quip. The printed name of Creature-Interpreter is "Interpreter". Understand "Interpreter" as Creature-Interpreter. The preview of Creature-Interpreter is "Can you understand the creature in the lagoon?" . The target of Creature-Interpreter is Dracula.
 
 The targetresponse of creature-interpreter is "Dracula looks up with mild interest. 'Oh, her? Yes, I charted out her language long ago. I made a dictionary for it, once, but I haven't seen it in a while,' he says, waving at the bookshelves. 'The language is Blue Lacunic, I believe.'"
 
@@ -17477,7 +17497,7 @@ Instead of physicality when the noun is the frozen-flame:
 The frozen-furniture is scenery in the game-room. The printed name of the frozen-furniture is "frozen furniture". Understand "Frozen" or "Furniture" or "icicle" or "ice"or "icicles" or "solid" or "finely" or "carved" as the frozen-furniture. The description of the frozen-furniture is "There could be anything under here; it's hard to tell. This furniture is frozen solid."
 
 Instead of touching the frozen-furniture:
-	say "It is bittery cold."
+	say "It is bitterly cold."
 
 Section 1 - Cards and cat
 
@@ -17541,7 +17561,7 @@ It's currently broken in half[end if]."
 
 The frozen-target can be broken or unbroken. Understand the broken property as describing the frozen-target. Understand "broken" as broken .
 
-The shot-arrows are part of the frozen-target. Understand "shot" or "arrows" as the shot-arrows. The printed name of the shot-arrows is "shot arrows". The description of the shot-arrows is "All the arrows are clustered near the center."
+The shot-arrows are part of the frozen-target. Understand "shot arrows" as the shot-arrows. The printed name of the shot-arrows is "shot arrows". The description of the shot-arrows is "All the arrows are clustered near the center."
 
 Instead of physicality when the noun is the shot-arrows:
 	if the frozen-target is broken:
@@ -17594,7 +17614,7 @@ Report uttering name-yeti to the yeti:
 
 Harry-yeti is a quip. The printed name of Harry-yeti is "Cousin". Understand "Cousin" as Harry-yeti. The preview of Harry-yeti is "Where do you think Harry is?"  The target of Harry-yeti is the yeti.
 
-The TargetResponse of Harry-yeti is "'Probably with humans again. The last time he was missing I found him tramping around the Pacific northwest with his big feet,' says [the yeti]."
+The TargetResponse of Harry-yeti is "'Probably with humans again. The last time he was missing I found him tramping around the Pacific Northwest with his big feet,' says [the yeti]."
 
 [todo: finish with her and harry]
 
@@ -17633,6 +17653,9 @@ Carry out cuffing:
 		try putting the wolf-handcuffs on the noun;
 	otherwise:
 		say "[We] [don't] have anything to use as handcuffs."
+		
+Instead of putting the wolf-handcuffs on the wolfman:
+	try giving the wolf-handcuffs to the wolfman;
 
 Instead of putting the wolf-handcuffs on someone when the second noun is not the wolfman:
 	say "Handcuffing people against their will is not part of your ethos."
@@ -17644,7 +17667,7 @@ The official-seal is a temporally-displaced thing. The dimnumber of the official
 
 The description of the official-seal is "[first time]Well, that's something you don't see every day. [only]This is a seal, the kind that notaries use to stamp things. The side of it reads:
 
-[italic type]For official Precinct 13 Police use only. This seal only functions on official Precinct 13 documents. Do not place the seal in ink; simply STAMP the document when neeeded.[roman type]"
+[italic type]For official Precinct 13 Police use only. This seal only functions on official Precinct 13 documents. Do not place the seal in ink; simply STAMP the document when needed.[roman type]"
 
 Stamping is an action applying to one thing. Understand "stamp [something]" as stamping.
 
@@ -17705,7 +17728,7 @@ You take the mask off, just to be safe.[or]You've already tried it, but the mask
 The shoe-rack is a scenery supporter. The printed name of the shoe-rack is "shoe rack". Understand "shoe" or "rack" or "swedish" as the shoe-rack. The description of the shoe-rack is "This shoe rack looks Swedish, somehow." 
 
 Instead of pushing, pulling, or taking the shoe-rack:
-	say "It seems like it's not supposed to leave the room. And you doubt you'll need a shoe-rack later on."
+	say "It seems like it's not supposed to leave the room. And you doubt you'll need a shoe rack later on."
 
 The giant-shoes are a plural-named frozen-exclusive on the shoe-rack. The printed name of the giant-shoes is "giant shoes". Understand "giant" or "shoes" as the giant-shoes. The description of the giant-shoes is "These shoes are giant; each one is big enough to use as a baby crib or a toy box. Who has feet this big?"
 
@@ -17758,15 +17781,18 @@ Afraid of the arrow, you drop the mannequin and back off. As you do so, flakes o
 
 [The yeti] stares, then sighs, and lowers the bow. 'It looks just like me, too. Me and Harry are a lot alike. Maybe instead of stewing here, I should go look for him myself.'
 
-She picks up the mannequin and says, 'Thanks for your help, though. You can have this,' she says and walks out of the room, carrying the mannequin absent-mindedly with her.
+She picks up the mannequin.'Thanks for your help, though. You can have this,' she says and walks out of the room, carrying the mannequin absent-mindedly with her.
 
 On her way out, she hands you a white token.";
 		now the yeti is nowhere;
 		now the frozen-mannequin is nowhere;
 		now the white-token is carried by the player;
+		
+Instead of inserting the frozen-mannequin into a container:
+	say "[The noun] [are] much too large to fit."
 
 Instead of giving the large-fencing to the yeti:
-	say "She says, 'That's not very useful for me, I'm sorry,' she says. 'It would be hard to hit, and wearing it would make it harder for me to aim. No thanks.'"
+	say "She says, 'That's not very useful for me, I'm sorry. It would be hard to hit, and wearing it would make it harder for me to aim. No thanks.'"
 
 Instead of giving the wolf-handcuffs to the yeti:
 	say "She says, 'I'm not really into carceral ideation. Sorry, these aren't useful for me.'"
@@ -18144,7 +18170,7 @@ Instead of digging the front-bed:
 Instead of taking the front-weeds:
 	say "The weeds do not look useful whatsoever[if wolfs-bane is in front-bed]. [The wolfs-bane], on the other hand, looks like it may be of interest[end if]."
 
-The wolfs-bane is in the front-bed. The wolfs-bane is ambiguously plural. The indefinite article of the wolfs-bane is "some". The printed name of the wolfs-bane is "[if wolfs-bane is examined]wolfsbane[otherwise]purple flowers[end if]". Understand "wolves" or "wolfs" or "bane" or "wolfsbane" or "purple" or "flower" or "flowers" as the wolfs-bane. The description of the wolfs-bane is "You recognize these purple flowers; they are [italic type]aconitum[roman type], or, in other words, wolfsbane."
+The wolfs-bane is in the front-bed. The wolfs-bane is ambiguously plural. The indefinite article of the wolfs-bane is "some". The printed name of the wolfs-bane is "[if wolfs-bane is examined]wolfsbane[otherwise]purple flowers[end if]". Understand "wolves" or "wolfs" or "bane" or "wolfsbane" or "purple" or "flower" or "flowers" or "aconitum" as the wolfs-bane. The description of the wolfs-bane is "You recognize these purple flowers; they are [italic type]aconitum[roman type], or, in other words, wolfsbane."
 
 Instead of eating the wolfs-bane:
 	say "Wolfsbane is pretty toxic; better not to eat plants that you know will cause a negative reaction."
@@ -18201,7 +18227,7 @@ You can return to the front yard to the [bold type]west[roman type]."
 
 The styx-sign is an enterable scenery supporter in the styx-room. The printed name of the styx-sign is "sign". Understand "sign" or "granite" or "smaller" or "text" or "low" as the styx-sign. The description of the styx-sign is "This is a low, black granite sign that is labelled 'THE RIVER STYX.'
 
-Underneath, in smaller lettering, it says, 'One Obol'."
+Underneath, in smaller lettering, it says, 'ONE OBOL'."
 
 The lightless-sky is distant backdrop in styx-room. Understand "lightless" or "sky" or "overcast" or "grey" or "gray" as the lightless-sky. The printed name of the lightless-sky is "sky". The description of the lightless-sky is "The sky is heavy and overcast; you see no light at all."
 
@@ -18957,7 +18983,7 @@ Instead of clone-you burning something:
 
 Instead of clone-you waking up:
 	if clone-you is enclosed by the location:
-		say "Your clone[setcloneact] shakes her head, lightly slapping her cheeks. 'Come on, Emrys,' she says,' Wake up!'"
+		say "Your clone[setcloneact] shakes her head, lightly slapping her cheeks. 'Come on, Emrys,' she says, 'Wake up!'"
 
 Instead of clone-you thinking:
 	if clone-you is enclosed by the location:
@@ -19062,10 +19088,10 @@ Before physicality when the noun is high-balcony:
 		say "That's too far away." instead;
 
 Instead of taking the broken-poles:
-	say "They lay in so many fragments, it would take forever to grab them all."
+	say "They lie in so many fragments, it would take forever to grab them all."
 	
 Instead of turning, pushing, or pulling the broken-poles:
-	say "The fragment lie everywhere, and cannot be easily manipulated."
+	say "The fragments lie everywhere, and cannot be easily manipulated."
 
 The stone-pair is scenery in the throne-room. The printed name of the stone-pair is "pair of stone supports". Understand "pair" or "pair of" or "stone" or "support" or "hole" or "holes" or "sewing" or "eyes" or "stable" or "needle" or "needles"or "supports" as the stone-pair. The description of the stone-pair is "This is a pair of stone supports, about a meter apart from each other and a few meters away from the wall. They each have a hole in them a few centimeters wide, with the holes facing each other. Overall, they look a bit like two large sewing needles stuck into the ground[if rodheld is false].
 
@@ -19139,7 +19165,7 @@ After entering the balanced-plank2:
 	
 After jumping when the player is on the balanced-plank2:
 	if clone-you is on the balanced-plank2:
-		say "Your clone[setcloneact] launches up high into the air, close to the balcony, before landing back on the board.";
+		say "You jump and your clone[setcloneact] launches up high into the air, close to the balcony, before landing back on the board.";
 	otherwise:
 		say "You jump, but with no resistance from the other end you don't get very high.";
 
@@ -19197,7 +19223,7 @@ Before entering upper-stairs:
 
 Chapter 17 - Spire
 
-The castle-spire is a room in castle-region. The printed name of the castle-spire is "Spire". The description of the castle-spire is "This room is unusual. Most of it looks like a run-down castle spire made of stone and wood, but one wall is made of solid stainless steel. A dedication plaque is fixed to the wall."
+The castle-spire is a room in castle-region. The printed name of the castle-spire is "Spire". The description of the castle-spire is "This room is unusual. Most of it looks like a run-down castle spire made of stone and wood, but one wall is made of solid stainless steel. A dedication plaque is fixed to the wall. The only way out of here is [bolddown]."
 
 The stone-wood is plural-named scenery in castle-spire. The printed name of stone-wood is "castle materials". Understand "stone" or "wood" or "castle" or "spire" or "material" or "materials" as the stone-wood. The description of the stone-wood is "All of the materials making up the castle and spire seem old and crumbling, except for the wall. There is a hole near the top."
 
@@ -19205,7 +19231,7 @@ The spire-bot is an animal in castle-spire. The printed name of spire-bot is "mo
 
 The spire-hole is distant scenery in castle-spire. The printed name of the spire-hole is "hole". Understand "hole" as the spire-hole. The description of the spire-hole is "This hole must be how the monkey robot was getting in and out."
 
-The gareth-toy is carried by the spire-bot. The printed name of the gareth-toy is "Dracula toy". Understand "action" or "figure" or "gareth's" or "toy" or "dracula" or "vampire" or "action-figure" as the gareth-toy. The description of the gareth-toy is "This is Gareth's vintage Dracula action-figure; you know that it's his very favorite. He'll definitely be wanting this back!"
+The gareth-toy is carried by the spire-bot. The printed name of the gareth-toy is "Dracula toy". Understand "action" or "figure" or "gareth's" or "toy" or "dracula" or "vampire" or "action-figure" as the gareth-toy. The description of the gareth-toy is "This is Gareth's vintage Dracula action figure; you know that it's his very favorite. He'll definitely be wanting this back!"
 
 The spire-wall is scenery in castle-spire. The printed name of spire-wall is "unusual wall". Understand "unusual" or "wall" or "solid" or "stainless" or "steel" as the spire-wall. The description of the spire-wall is "This must be the true edge of the holo-program chamber. There is a dedication plaque affixed onto it."
 
@@ -19300,7 +19326,7 @@ After reading a command when the command prompt is "What phrase would you want w
 
 Is that right?";
 	if the player consents:
-		say	"'Cool', he says. He runs out of the room, only to come back, grab the action figure from the desk, and run out again.
+		say	"'Cool,' he says. He runs out of the room, only to come back, grab the action figure from the desk, and run out again.
 
 The rift in this room gently turns from red to green.
 
@@ -19330,7 +19356,7 @@ The dark-tunnel is east from dark-pool. The dark-tunnel is in castle-region. The
 
 Next to you are a large portcullis and a rusty wheel[end if]."
 
-The shadowed-exit is a scenery open unopenable door. Shadowed-exit is east from dark-tunnel and west from treasure-room. The printed name of shadowed-exit is "shadowed exit". Understand "shadow" or "shadowed" or "dark" or "passage" or "exit" as the shadowed-exit. The description of the shadowed-exit is "A dark passage that leads betwen rooms."
+The shadowed-exit is a scenery open unopenable door. Shadowed-exit is east from dark-tunnel and west from treasure-room. The printed name of shadowed-exit is "shadowed exit". Understand "shadow" or "shadowed" or "dark" or "passage" or "exit" as the shadowed-exit. The description of the shadowed-exit is "A dark passage that leads between rooms."
 
 Before doing something with the shadowed-exit:
 	if the player is not on the east-ledge:
@@ -19499,7 +19525,7 @@ Chapter 19 - Treasure room
 
 Treasure-room is a room in castle-region. The printed name of treasure-room is "Treasure Room". "This must have been a magnificent treasure room, once, but it is almost completely bare. The walls here seem covered in pure gold. On the walls are engravings, etched in intricate detail[if the malignant-wall is in treasure-room]. 
 
-The back wall is covered in some kind of malignant mass, with strange black veins stretching out of it and over much of the room. Just looking at if makes you feel sick[otherwise].
+The back wall is covered in some kind of malignant mass, with strange black veins stretching out of it and over much of the room. Just looking at it makes you feel sick[otherwise].
 
 The back wall is gone now, leaving a passage to go outside to the [boldeast][end if]. The rest of the castle is to the [boldwest]."
 
@@ -20395,7 +20421,7 @@ Instead of showing the police-badge to mari:
 	if mariknown is true:
 		say "'Sir,' says Mari, 'You've already shown me the badge. Don't worry, I intend to cooperate fully.";
 	otherwise:
-		say "You flash the badge to the courier, and she looks over it. 'Looks legit to me, ma'am,' she says. 'The name's Mari. I'm with UCD,' she says,' pointing at her cap, 'United Carpundia Deliveries. I'm just hoping we can wrap things up here quick and I can get back to work. Love the grind, right?' she asks, looking at [the Elen] for support; but [the Elen] shakes her head[deliverstatement].";
+		say "You flash the badge to the courier, and she looks over it. 'Looks legit to me, ma'am,' she says. 'The name's Mari. I'm with UCD,' she says, pointing at her cap, 'United Carpundia Deliveries. I'm just hoping we can wrap things up here quick and I can get back to work. Love the grind, right?' she asks, looking at [the Elen] for support; but [the Elen] shakes her head[deliverstatement].";
 		now mariknown is true;
 		now mari is proper-named;
 		if elenknown is false:
@@ -21229,7 +21255,7 @@ Section 12 - Bad book store
 
 Bad-bookstore is a room in statement-region. The printed name of Bad-bookstore is "Bookstore". The description of bad-bookstore is "The used bookstore I was in wasn't the best of places, but I vaguely knew the owner and he was doing me a favor. At least there was a battered table I was at. But the place was almost entirely empty."
 
-The bad-dafydd is a man in bad-bookstore. The printed name of bad-dafydd is "[if bad-dafydd is proper-named]Dafydd[otherwise]charming young man[end if]". Understand "charming" or "young" or "dafydd" or "sweet" or "handsome" as bad-dafydd. The initial appearance of bad-dafydd is "[if dafyddupset is true]Dafydd seemed furious[otherwise if bad-dafydd is in bad-cafe]Dafydd was seated at a nearby table, unaware of my presence[otherwise]There was only one man there, but he was so charming, hon. If you could have seen him....you'd understand. He wanted me to [end if][if bad-copy is held by bad-dafydd]talk to him. He held a copy of my book, I think it might have even been his own[otherwise if bad-dafydd is not in bad-cafe]sign his book[end if]."
+The bad-dafydd is a man in bad-bookstore. The printed name of bad-dafydd is "[if bad-dafydd is proper-named]Dafydd[otherwise]charming young man[end if]". Understand "charming" or "young" or "dafydd" or "sweet" or "handsome" as bad-dafydd. The initial appearance of bad-dafydd is "[if dafyddupset is true]Dafydd seemed furious[otherwise if bad-dafydd is in bad-cafe]Dafydd was seated at a nearby table, unaware of my presence[otherwise]There was only one man there, but he was so charming, hon. If you could have seen him...you'd understand. He wanted me to [end if][if bad-copy is held by bad-dafydd]talk to him. He held a copy of my book, I think it might have even been his own[otherwise if bad-dafydd is not in bad-cafe]sign his book[end if]."
 
 The description of bad-dafydd is "[The bad-dafydd] was sweet. He was young, handsome, charming. He had that look like a marble statue covered with the softest peach velvet. He looked like one in a million."
 
@@ -21314,6 +21340,9 @@ The bad-furniture are plural-named scenery in bad-office. The printed name of ba
 
 The office-shelves are plural-named scenery in bad-office. The printed name of the office-shelves is "shelves". Understand "shelf" or "shelves" or "textbook" or "textbooks" or "text" or "texts" or "book" or "books" or "nanobiotics" as the office-shelves. The description of the office-shelves are "I wasn't too interested in the books. Dafydd could tell me all about them later when were together." 
 
+Instead of physicality when the noun is office-shelves:
+	try examining the office-shelves;
+
 The bad-armoire is a scenery supporter in bad-office. The printed name of the bad-armoire is "polished oak desk". Understand "polished" or "oak" or "desk" or "large" as the bad-armoire. The description of the bad-armoire is "Remember when I lied earlier and said I had a beautiful office with a gorgeous oak desk? I was thinking of this one."
 
 The bad-knickknacks are plural-named scenery things on the bad-armoire. The printed name of the bad-knickknacks is "knickknacks". Understand "knick" or "Knack" or "useless" or "clutter" or "knickknack" or "knickknacks" or "knicknack" or "knicknacks" as the bad-knickknacks. The description of the bad-knickknacks is "Most of the knickknacks on the desk blurred into a vision of expensive but mostly useless clutter."
@@ -21373,13 +21402,13 @@ dafyddupset is a truth state that varies. Dafyddupset is false.
 
 Instead of going nowhere from bad-cafe when the noun is north:
 	if bad-dafydd is in bad-cafe:
-		say "I couldn't leave yet without talking to Dafydd.";
+		say "I couldn't leave yet without talking to Dafydd.[line break]";
 	otherwise:
-		say "I rushed after him, trying to stay out of sight, hoping to find him here.";
+		say "I rushed after him, trying to stay out of sight, hoping to find him here.[line break]";
 		silently try ceasing;
 		now maeve is onceswapped;
 		now secondmaeve is true;
-		say "'And that's everything that happened. You know it all now, my poverty, my rejection, my humiliation. Do what you will with me, Detective. I have done no wrong. I was just trying to find him, but the lights went out, and I heard Dafydd scream,' says Maeve. 'I'll never hear his voice again. And nothing else really matters for me.' She stares for a while, her face ashen and distant, before resuming the guarded expression she had previously worn as a mask."
+		say "'And that's everything that happened. You know it all now, my poverty, my rejection, my humiliation. Do what you will with me, Detective. I have done no wrong. I was just trying to find him, but the lights went out, and I heard Dafydd scream,' says Maeve. 'I'll never hear his voice again. And nothing else really matters for me.' She stares for a while, her face ashen and distant, before resuming the guarded expression she had previously worn as a mask.[line break]"
 
 Chapter 6 - Professor Arthur statement world
 
@@ -21599,7 +21628,9 @@ Dataread is a truth state that varies. Dataread is false.
 
 The data-lab is east from the bio-lab. "Our data lab had a supercomputer a few years old; securing the new grant I was aiming for would mean that we could finally purchase a better one.
 
-[if arthur-level is 2]And it couldn't come quick enough; my rivals at WSTC were working on the same project I was. If I couldn't publish in time, it was over[otherwise]For now, though, our current supercomputer would suffice[end if]. The lab was sterile and well-ventilated, with banks of servers to store our data. Our computer was here, currently turned [if big-computer is switched on]on[otherwise]off, to conserve electricity[end if].
+[if arthur-level is 2]And it couldn't come quick enough; my rivals at WSTC were working on the same project I was. If I couldn't publish in time, it was over[otherwise]For now, though, our current supercomputer would suffice[end if]. 
+
+The lab was sterile and well-ventilated, with banks of servers to store our data. Our computer was here, currently turned [if big-computer is switched on]on[otherwise]off, to conserve electricity[end if].
 
  I could go [boldwest] to return to the Bio Lab." The printed name of the data-lab is "Data Lab".
 
@@ -21621,7 +21652,7 @@ Understand "input [big-computer]" as switching on.
 After switching on the big-computer:
 	if arthur-level is 0:
 		if dataentered is true:
-			say "I turned on the comptuer, but I didn't feel like entering anything else that day.";
+			say "I turned on the computer, but I didn't feel like entering anything else that day.";
 		otherwise:
 			say "I turned on the computer and then I input all the data from the slides, including the two difficult ones I had just finished. 
 
@@ -21758,10 +21789,16 @@ He looked utterly shocked, and ran off. I was left alone in the hallway.";
 
 Thirdarthur is a truth state that varies. Thirdarthur is false.
 
-MurderEnd is a scene. MurderEnd begins when thirdarthur is true.
+MurderEnd is a scene. MurderEnd begins when thirdarthur is true. 
+
+Murderend ends when elen is nowhere.
 
 When murderend begins:
+	remove statement-quip;
 	maeve returns in 1 turn from now;
+
+Instead of going during murderend:
+	say "You pause for a moment."
 
 At the time when maeve returns:
 	say "Slowly, Maeve begins to clap. Arthur, surprisingly, joins in. Hearing noise from behind you, you turn to see Elen and Mari, standing in the doorway.
@@ -21843,6 +21880,7 @@ Instead of giving the weird-chip to mefe:
 'It took quite a while,' you say. 'But I'm glad it will help.'";
 	now weird-chip is nowhere;
 	if maneuver-quip is targetgiven:
+		say "[line break]";
 		mefemaneuver;
 		say "."
 
@@ -21853,7 +21891,7 @@ She dials in a complex sequence of commands, and the entire spaceship shudders. 
 
 You smile and hug her back, and she goes back to the console, new confidence filling her face.
 
-You look at her for a while. 'Hey Mefe,' you ask. 'you don't happen to own a rhinestone jumpsuit, do you?'
+You look at her for a while. 'Hey Mefe,' you ask. 'You don't happen to own a rhinestone jumpsuit, do you?'
 
 'No,' she says. 'Why?'
 
@@ -22045,7 +22083,7 @@ Section 2 - Courier office
 
 [Change package to satchel]
 
-The printed name of the courier-office is "Courier Office". The description of courier-office is "[if mari-level is not 2]It all started this morning. [end if]I was in the United Carpundia Deliveries courier office on Maple Street[if mari-level is 2]. I had never been there before; Dad usually didn't make me go to the creepy parts of town, and boy was this creepy. I was used to the financial district's UCD. This place was a real dump! Most UCD's at least have some nice furniture[otherwise if mari-level is 1], an older office that could really use some renovations[otherwise], a dingy and run-down relic where only the toughest couriers can make a living[end if]. There was a counter splitting the room in half, with no chairs or other furniture[if mari-level is not 2]. Don't want the locals to stay here any longer than they have to--or lazy couriers, for that matter[end if].
+The printed name of the courier-office is "Courier Office". The description of courier-office is "[if mari-level is not 2]It all started this morning. [end if]I was in the United Carpundia Deliveries courier office on Maple Street[if mari-level is 2]. I had never been there before; Dad usually didn't make me go to the creepy parts of town, and boy was this creepy. I was used to the financial district's UCD. This place was a real dump! Most UCDs at least have some nice furniture[otherwise if mari-level is 1], an older office that could really use some renovations[otherwise], a dingy and run-down relic where only the toughest couriers can make a living[end if]. There was a counter splitting the room in half, with no chairs or other furniture[if mari-level is not 2]. Don't want the locals to stay here any longer than they have to--or lazy couriers, for that matter[end if].
 
 I could go [boldsouth] to leave to the city streets[deliverstreetsmart]."
 
@@ -22140,7 +22178,7 @@ I had to chase down that man!";
 	now mari-moreman is distant;
 	now mari-moreman is scenery;
 
-The fake-receipt is a thing. The printed name of the fake-receipt is "receipt". Understand "receipt" as the fake-receipt.
+The fake-receipt is a thing. The printed name of the fake-receipt is "paper receipt". Understand "paper" or "receipt" as the fake-receipt.
 
 The description of the fake-receipt is "The receipt had my name on it, Mari Gallagher, and the logo of United Carpundia Deliveries. And, just so you know, it's literally the same receipt [if train-corpse is not nowhere]clutched in the dead man's hand right before your very eyes[otherwise]you saw yourself[end if], so I don't know why you're asking me about it!"
 
@@ -22210,7 +22248,7 @@ City-streets is a room in statement-region. City-streets is south from the couri
 The courier office was to the [boldnorth][if mari-level is 0], although I'm sure the boss wouldn't want to see me for a while[end if]. Platform A, I knew, was somewhere far to the [boldeast]."
 
 Before going east from city-streets when mari-level is 2 and dafydd-package is not enclosed by the player:
-	say "Dad would go so pissed off I left before doing my job!" instead;
+	say "Dad would get so pissed off if I left before doing my job!" instead;
 
 The missing-tracks is scenery in city-streets. The printed name of the missing-tracks is "train platform". The description of the missing-tracks is "The train platform and tracks were too far away for me to see." Understand "train" or "platform" or "track" or "tracks" or "train A" or "platform A" as the missing-tracks.
 
@@ -22382,7 +22420,7 @@ Instead of examining the mari-platform:
 	if mari-level is 0:
 		say "There was my destination! The A train! Now I just had to find a way down!";
 	otherwise if dafyddspotted is true:
-		say "I already knew where Dafydd was, I just had to head down there";
+		say "I already knew where Dafydd was, I just had to head down there.";
 	otherwise:
 		if mari-level is 2:
 			say "There was Dafydd! He was getting on the train! 
@@ -22540,7 +22578,7 @@ The targetresponse of sneaking-quip is "[if currenttarget is Maeve]'That's a nas
 
 Hmm. She's being defensive. It seems like you'll need to point out her inconsistencies more plainly[otherwise if currenttarget is elen]'Are you sure? That's a children's facility. It's hardly becoming for a grown woman to be among the children,' she says.
 
-At this, Elen looks over, a little embarrassed[otherwise if currenttarget is mari]'Yeah, exactly. It was so weird because she was trying to hide but ended up looking like a disco ball from the sunlight on her jumpsuits,' she says, smiling at the memory[otherwise]'That sounds very suspicious to me, Detective,' says Arthur. 'I assume that sent her to the top of your suspect list.' He peeks at your curiously over his glasses, but you say nothing[end if]."
+At this, Mari looks over, a little embarrassed[otherwise if currenttarget is mari]'Yeah, exactly. It was so weird because she was trying to hide but ended up looking like a disco ball from the sunlight on her jumpsuit,' she says, smiling at the memory[otherwise]'That sounds very suspicious to me, Detective,' says Arthur. 'I assume that sent her to the top of your suspect list.' He peeks at you curiously over his glasses, but you say nothing[end if]."
 
 Instead of linking rendezvous-quip to sneaking-quip:
 	linkrendsne;
@@ -22605,7 +22643,7 @@ Instead of talking to mari-dad:
 
 He ran his fingers through his hair in frustration. 'How many times do I have to tell you? Autopilot is for shareholder meetings and newsreels, not actual use! Do you know how much that car cost me? It's at least two hours of work for me! So because you cost me two hours of work, you're going to pay me two hours of work.'
 
-By then the car had stopped, and dad opened the door. There in front of us was a UCD Courier office.
+By then the car had stopped, and Dad opened the door. There in front of us was a UCD Courier office.
 
 'Dad, no!' I cried.
 
@@ -23188,7 +23226,7 @@ To linkgiffrac:
 	
 mugging-quip is a linkaged squip. The printed name of mugging-quip is "Graverobber". Understand "Graverobber" as mugging-quip. The preview of mugging-quip is "[the elen] stole the corpse's watch and lied about it."
 
-The targetresponse of mugging-quip is "[if currenttarget is arthur]Arthur recoils in disgust. 'What a filthy thing to do,' he said. 'Imagine desecrating a corpse like that.[otherwise if currenttarget is maeve]Maeve looks incensed. 'Where is she? Where is the woman who would do such terrible things to my--to such a man? I hope you lock her up for years, hon.[otherwise if currenttarget is mari]Mari says nothing but looks paler and takes a couple of steps further away from Elen, who says, 'Oh, stop it. I won't bite[otherwise if currenttarget is elen]Elen's careful facade of politeness and respectability fades away, replaced by a shrewd look.
+The targetresponse of mugging-quip is "[if currenttarget is arthur]Arthur recoils in disgust. 'What a filthy thing to do,' he said. 'Imagine desecrating a corpse like that[otherwise if currenttarget is maeve]Maeve looks incensed. 'Where is she? Where is the woman who would do such terrible things to my--to such a man? I hope you lock her up for years, hon.[otherwise if currenttarget is mari]Mari says nothing but looks paler and takes a couple of steps further away from Elen, who says, 'Oh, stop it. I won't bite[otherwise if currenttarget is elen]Elen's careful facade of politeness and respectability fades away, replaced by a shrewd look.
 
 'I didn't think you'd put it together, Detective,' she says. 'Clever. But I have to say up front that I did not kill the man. You won't pin that on me[end if].'"
 
@@ -23259,9 +23297,9 @@ The evidence-door is a scenery closed openable door. The evidence-door is north 
 
 Section 2 - Evidence room
 
-The evidence-room is a room. "This room is dimly lit and has no exits besides the one you came in by. No sounds come from nearby, and you feel utterly alone. It is filled with a bulky metal device larger than your body. It has a brightly-colored control panel (with NEXT and BACK buttons) on the side and a heavy transparent dome on top. Near the control panel is a slot.
+The evidence-room is a room. "This room is dimly lit and has no exits besides the one you came in by. No sounds come from nearby, and you feel utterly alone[if the evidence-computer is in the location]. It is filled with a bulky metal device larger than your body. It has a brightly-colored control panel (with NEXT and BACK buttons) on the side and a heavy transparent dome on top. Near the control panel is a slot.
 
-Next to it is a light plastic table. You can go [boldsouth] back to the police station."
+Next to it is a light plastic table[end if]. You can go [boldsouth] back to the police station."
 
 The evidence-room is in murder-region. The printed name of the evidence-room is "Evidence Room".
 
@@ -23280,7 +23318,7 @@ The evidence-table is a scenery supporter in evidence-room. The printed name of 
 Instead of pushing or pulling or taking the evidence-table:
 	say "You shove the table around a little, but don't want to mess up the police station too much."
 
-The official-papers are on the evidence-table. The printed name of the official-papers is "pile of papers". Understand "papers" or "requisition" or "form" or "pile" or "pile of" as the official-papers. The description of the official-papers is "This is a requisition form for evidence. According to the form, once it is filled out and authorized, it can be submitted into the requisitions slot on the computer. 
+The official-papers are on the evidence-table. The printed name of the official-papers is "official pile of papers". Understand "papers" or "requisition" or "form" or "pile" or "pile of" or "official" as the official-papers. The description of the official-papers is "This is a requisition form for evidence. According to the form, once it is filled out and authorized, it can be submitted into the requisitions slot on the computer. 
 
 All of it is already filled out[if paperstamped is false], except for one space at the bottom that says 'Official Precinct 13 Seal here'[otherwise], including the official seal. It's ready to be submitted into the slot[end if]."
 
@@ -23348,7 +23386,7 @@ Instead of pushing the back-button:
 		now entry 1 of evidencelist is in transparent-dome;
 		say "You hear a clunking noise. [The current] disappears from inside the dome. After a few seconds, it is replaced by [a entry 1 of evidencelist].";
 
-Understand "gilded" or "dagger" or "blood" as the gilded-dagger. The printed name of the gilded-dagger is "gilded dagger". The description of the gilded-dagger is "You peer at the gilded dagger floating in the transparent dome. It looks quite expensive, and decorative more than functional. A letter opener, you presume. The computer beeps and says, 'Evidence shows that this weapon was used to stab Dafydd Yakoob[deliverdagger]. It was found underneath the body.'
+Understand "gilded" or "dagger" or "blood" or "letter" or "opener" as the gilded-dagger. The printed name of the gilded-dagger is "gilded dagger". The description of the gilded-dagger is "You peer at the gilded dagger floating in the transparent dome. It looks quite expensive, and decorative more than functional. A letter opener, you presume. The computer beeps and says, 'Evidence shows that this weapon was used to stab Dafydd Yakoob[deliverdagger]. It was found underneath the body.'
 
 Hmm. They didn't mention if there were fingerprints. That could have been useful hard evidence. But you suspect you almost have the identity of the killer, anyway."
 
@@ -23359,7 +23397,7 @@ Method-quip is a squip. The printed name of method-quip is "Method". Understand 
 
 The targetresponse of method-quip is "[if currenttarget is arthur]Arthur stares at you. 
 
-'Is that all you have to say, detective?' he asks, challenging you.
+'Is that all you have to say, Detective?' he asks, challenging you.
 
 And for now, that is all you have. Only by gathering further clues and investigating the links between them can you go further[otherwise if currenttarget is mari]Mari recoils in disgust. 'That's a terrible way for someone to die! Gosh,' she says[otherwise if currenttarget is elen]Elen purses her lips. 'A knife fight is such a shameful thing,' she says. 'I have to believe that only a lower class person would do that.' She shakes her head[otherwise]Maeve gasps, her hand flying to her mouth. 'Poor Dafydd,' she says. 'Poor, poor Dafydd.' A tear falls from her eye[end if].".
 
@@ -23390,7 +23428,7 @@ Murderer-quip is a linkaged squip. The printed name of murderer-quip is "Murdere
 
 The preview of Murderer-quip is "Arthur owns a weapon identical to the murder weapon.".
 
-The targetresponse of murderer-quip is "[if currenttarget is mari]Mari turns pale. 'I knew it had to be one of us, but knowing he did it...it's too terrible. I wish Dad could pick me up,' she says, bursting into tears[otherwise if currenttarget is elen]Elen nods slowly. 'You see, I didn't do it, did I? You're going to have to confront him now, of course. Put in a good word for me, once he is in prison.' You don't respond[otherwise if currenttarget is maeve]Maeve stumbles away from Arthur. 'That horrid man....it should have been me! No one should have touched Dafydd except for me,' she says.
+The targetresponse of murderer-quip is "[if currenttarget is mari]Mari turns pale. 'I knew it had to be one of us, but knowing he did it...it's too terrible. I wish Dad could pick me up,' she says, bursting into tears[otherwise if currenttarget is elen]Elen nods slowly. 'You see, I didn't do it, did I? You're going to have to confront him now, of course. Put in a good word for me, once he is in prison.' You don't respond[otherwise if currenttarget is maeve]Maeve stumbles away from Arthur. 'That horrid man...it should have been me! No one should have touched Dafydd except for me,' she says.
 
 You take a few steps back. She needs time to chill[otherwise]Arthur stops and becomes very still.
 
@@ -23398,7 +23436,7 @@ You take a few steps back. She needs time to chill[otherwise]Arthur stops and be
 
 'I was one, in my youth,' you say. 'I decided to stop focusing on ideas and start focusing on people.'
 
-'Small minded, detective. Yes, I did stab Dafydd. I'll tell you how it happened,' he says[end if].".
+'Small minded, Detective. Yes, I did stab Dafydd. I'll tell you how it happened,' he says[end if].".
 
 Report uttering murderer-quip to arthur:
 	say "[bracket]Arthur has a new statement to give.[close bracket][paragraph break]";
@@ -23414,7 +23452,7 @@ Unusually, Dafydd also had a dislocated wrist[deliverviolent]. It suggests that 
 To say deliverviolent:
 	deliver fractured-quip;
 	
-fractured-quip is a squip. The printed name of fractured-quip is "Fractured". Understand "fractured" as fractured-quip. The preview of fractured-quip is "Dafydd's wrist was broken post-mortem."
+fractured-quip is a squip. The printed name of fractured-quip is "Fractured". Understand "fractured" as fractured-quip. The preview of fractured-quip is "Dafydd's wrist was broken postmortem."
 
 The targetresponse of fractured-quip is "[if currenttarget is arthur]Arthur seems genuinely stunned. 'Was it intentional, or an accident?' he asks.
 
@@ -31476,7 +31514,7 @@ After giving the all-recorder to arawn:
 
 She removes her tunic, and hands it and the mask to you. She also removes her silver device and hands it to you. 'I suppose you'll need these now,' she says. 'Morgan knows about this. He can help you with the transition.'
 
-Then she squares up her shoulders, and steps into the rift. As she disappears, she looks at you, her eyes a mix of triumph and fear. 'Thank you,' she says, and she means it
+Then she squares up her shoulders, and steps into the rift. As she disappears, she looks at you, her eyes a mix of triumph and fear. 'Thank you,' she says, and she means it.
 
 This was the story of how you die. But it was a lie. Your story is over now, and Arawn's has begun.";
 	now the all-recorder is worn by arawn webster;
@@ -31573,7 +31611,7 @@ There is a door to the [boldeast] to the closet [we] entered from. The room exte
 
 The main reactor door is to the [boldnorth].
 
-Above it, it looks like it was once possible to go [boldup] to another room, but the stairs leading there have collapsed. The metal rail runs directly beneath the hole in the ceiling, though[first time].
+Above it, it looks like it was once possible to go [boldup] to another room, but the stairs leading there have collapsed. The metal rail runs directly beneath the hole in the ceiling, though[if the emergency-ladder is open], from which a cable ladder hangs[end if][first time].
 
 As soon as [we] [adapt the verb enter], it is clear that something is wrong. Even through the radiation suit, [we] [adapt the verb feel] lightheaded and nauseous. The main reactor must be emitting an immense amount of radiation if it's affecting [us] out here[only]."
 
@@ -31777,7 +31815,7 @@ To land is a verb.
 
 Instead of jumping when the player is on the balanced-door:
 	if rusty-robot is on the balanced-door:
-		say "[We] [jump], and when [we] [adapt the verb land], the rusty robot flies into the air, getting close to the hole above [us]. When it lands again, [we] are launched a litle, but not enough.";
+		say "[We] [jump], and when [we] [adapt the verb land], the rusty robot flies into the air, getting close to the hole above [us]. When it lands again, [we] [are] launched a little, but not enough.";
 	otherwise:
 		say "That would flip the broken door without something to weigh down the other end. Maybe a bad idea.";
 
@@ -32133,7 +32171,7 @@ Interesting--It looks like the flipper is some kind of self-righting mechanism[o
 
 Instead of the rusty-robot robot-flipping when the rusty-robot is on the balanced-door:
 	if the rusty-robot is visible:
-		say "The robot engages its flipper arm and does a backflip, landing heavily on the door[if the player is on balanced-door], which tilts the whole thing upward high enough that [nameus] can reach the hole to the floor above. [We] pull [ourselves] up into the room above[otherwise], making the other end spring up, although nothing is on it[end if].";
+		say "The robot engages its flipper arm and does a backflip, landing heavily on the door[if the player is on balanced-door], which tilts the whole thing upward high enough that [nameus] can reach the hole to the floor above. [We] [pull] [ourselves] up into the room above[otherwise], making the other end spring up, although nothing is on it[end if].";
 		if the player is on balanced-door:
 			now the player is in logic-room;
 			
@@ -32261,6 +32299,9 @@ Instead of entering the reactor-catwalk:
 
 The fallen-rubble is distant scenery in main-engine. The printed name of the fallen-rubble is "fallen rubble". Understand "fallen" or "rubble" or "deal of" or "deal" or "wire" or "wires" as the fallen-rubble. The description of the fallen-rubble is "Much of the rubble has fallen on the side of the room across the coolant pipe from [us]. [if the player is arawn]She is aware from her studies that most of the engineering team that should be watching the reactor are in that pile[otherwise]You have to wonder if there are any engineers in there[end if]."
 
+Instead of searching the fallen-rubble:
+	say "[We] can't reach it, unfortunately."
+
 Section 3 - The flow pipe
 
 The flow-pipe is scenery in main-engine. The printed name of the flow-pipe is "coolant pipe". Understand "inflow" or "coolant" or "pipe" as the flow-pipe. The description of the flow-pipe is "This is the inflow pipe for the coolant, which is water in this reactor. However, no water is currently flowing through it[if the raised-trap is in the location]. A trap, designed to catch blockages, is currently raised up out of the pipe[end if]. A valve near you seems to have been damaged, and is currently closed.".
@@ -32358,7 +32399,7 @@ Gone-grill is a thing. THe printed name of gone-grill is "twisted grill". Unders
 Instead of doing anything with gone-grill:
 	say "The twisted grill is not currently visible, as the trap is closed again."
 
-The twisted-grill is in the raised-trap. The printed name of the twisted-grill is "twisted grill". Understand "twisted" or "mesh" or "electrified" or "grill" as the twisted-grill. The description of the twisted-grill is "Some strange mesh or grill has gotten stuck in the trap. Even worse, due to the exposed cables, it is electrified".
+The twisted-grill is in the raised-trap. The printed name of the twisted-grill is "twisted grill". Understand "twisted" or "mesh" or "electrified" or "grill" as the twisted-grill. The description of the twisted-grill is "Some strange mesh or grill has gotten stuck in the trap. Even worse, due to the exposed cables, it is electrified.".
 
 Instead of removing something from the raised-trap:
 	try taking the noun;
@@ -32727,8 +32768,10 @@ Instead of pulling a switchy comp-button:
 	try pushing the noun;
 
 To hit is a verb.
+To encounter is a verb.
+
 Instead of pushing the scram-button:
-	say "[We] [adapt the verb hit] the SCRAM button, but encounter no resistance. Whatever it does, it has already been activated."
+	say "[We] [adapt the verb hit] the SCRAM button, but [adapt the verb encounter] no resistance. Whatever it does, it has already been activated."
 	
 The description of the backup-power is "The backup power switch [if the central-computer is powered]is turned on[otherwise]is turned off[end if]."
 
@@ -32753,7 +32796,7 @@ Instead of pushing the hail-button:
 	if hailpushed is false:
 		say "The monitor lights up, and a view of the bridge appears. The Captain is there, and sees [if the player is Arawn]Arawn[otherwise]you[end if] on the monitor.
 
-'Emrys?' he says, 'Is that you? How did you get into reactor 7? Engineering has been trying to get into there for hours! Can you put one of the engineers on?'";
+'Emrys?' he says, 'Is that you? How did you get into Reactor 7? Engineering has been trying to get into there for hours! Can you put one of the engineers on?'";
 		if the player is arawn:
 			say "[line break]Arawn was not worried about responding. While Emrys had been at the museum, she had loaded the recorder with everything she would need to say, exactly when she would need to say it, from the record. The fact that she was playing records of herself playing recordings, and creating an ontological paradox, did not disturb her. It just had to work.";
 		now hailpushed is true;
@@ -32855,7 +32898,7 @@ Ginger looks frustrated but gets up and pushes all of the tools she is working o
 		otherwise:
 			say "The monitor blinks on, and [we] can see Antonio Yang in the cryostorage room. An intercom crackles and says, '[fixed letter spacing]Warning: The blast shield in this area will shortly be lowered. Please stand back, and follow any verbal instructions given to you by the blast shield operator[variable letter spacing].' 
 
-Antonio looks around, a bit confused, until he spots where the blast shield is located. Its far from where he is working, so he just shrugs, but it is clear he is listening; this is a chance for [if the player is arawn]Arawn[otherwise]you[end if] to speak.";
+Antonio looks around, a bit confused, until he spots where the blast shield is located. It's far from where he is working, so he just shrugs, but it is clear he is listening; this is a chance for [if the player is arawn]Arawn[otherwise]you[end if] to speak.";
 			now monitor-yang is in the central-monitor;
 			now monitor-cryo is in the central-monitor;
 			now monitor-yang is summoned;
@@ -33019,13 +33062,19 @@ The targetresponse of Research-quip is "'Oh!' he says, startled. 'Thanks, Ms....
 
 'Oh,' he says, in a shy way. 'Well, thanks! I'll back this up before anything else then. Thanks! And it looks like you're clear to lower that shield.'".
 
-Flee-quip is a quip. The printed name of Flee-quip is "Flee". Understand "Flee" as Flee-quip. The target of Flee-quip is monitor-yang. The preview of Flee-quip is "Mr Yang, you have to run. The reactor is melting down!".
+Flee-quip is a quip. The printed name of Flee-quip is "Flee". Understand "Flee" as Flee-quip. The target of Flee-quip is monitor-yang. The preview of Flee-quip is "Mr. Yang, you have to run. The reactor is melting down!".
 
 The targetresponse of Flee-quip is "Antonio jumps out of fear, and says, 'What?!'
 
 'I am standing in Nuclear Reactor 7, and I'm telling you that we are currently experiencing a meltdown. Get out of there, and keep yourself safe!' [wesay].
 
 But Antonio is packing everything up to leave before you can even finish.".
+
+Report uttering research-quip to monitor-yang:
+	remove flee-quip;
+	
+Report uttering flee-quip to monitor-olgin:
+	remove research-quip;
 
 Monitor-gareth is a man. The printed name of monitor-gareth is "Gareth". Understand "gareth" or "djomo" as monitor-gareth. The description of monitor-gareth is "Gareth is a disheveled middle-aged man with a mop of curly black hair and a lean frame. He looks happier than before, and is full of energy." 
 
@@ -33051,6 +33100,12 @@ The targetresponse of Movies-quip is "'Emrys, what on earth? Where are you?' he 
 
 'A nuclear reactor, huh?' says Gareth. 'Didn't know that was a hobby of yours. Make sure you don't get bitten by a radioactive spider in there... actually, that would be pretty cool. Yeah, we should watch something later! I'll get these people away from the blast shield in the meantime.'".
 
+Report uttering friend-quip to monitor-gareth:
+	remove movies-quip;
+	
+Report uttering movies-quip to monitor-gareth:
+	remove friend-quip;
+	
 Section 5 - Random other things
 
 The sheet-metal is a metallic thing in logic-room. Understand "sheet" or "sheet of" or "metal" as the sheet-metal. The printed name of the sheet-metal is "sheet of metal". The description of the sheet-metal is "This sheet metal looks exactly like the kind you're used to seeing in engineering when some project is going on. Its designed to be bent into different shapes.".  "Some sheet metal is leaned up against the wall, about a meter high."
@@ -33103,11 +33158,17 @@ The targetresponse of devastation-quip is "Idris shakes his head. 'Many of them 
 
 'What about Sanya? Is she safe?' you ask, looking for the surgeon. 'Or the Captain? Or Gareth?' 
 
-'I don't know about any of them,' says Idris, sounding a bit bitter. 'The Captain disappeared early on. Same with Gareth. Sanya was out looking for her dog, and hasn't come back.' His mouth sets into stern lines. 'If you excuse me. I have to help who I can. And those who I can't...I'll try to give them a proper burial [']at sea[']. Send them out in one of the cargo pods. I'm glad you're back, but I don't have any time to help.'
+'I don't know about any of them,' says Idris, sounding a bit bitter. 'The Captain disappeared early on. Same with Gareth. Sanya was out looking for her dog, and hasn't come back.' His mouth sets into stern lines. 'If you excuse me. I have to help who I can. I'm glad you're back, but I don't have any time to help.'
 
 'Is there anything I can do?' you ask.
 
-'Get out of here alive,' he says, then turns to help the others.".
+'Get out of here alive,' he say.
+
+'But what about you?' you ask. 'There should be enough pods...'
+
+He grives a wry smile. 'That would be the logical thing to do, wouldn't it? But I want to help every one I can. And those that I can't...I'll try to give them a proper burial [']at sea[']. Send them out in one of the cargo pods. Give them the dignified end that fate tried to steal from them. Besides, I'd rather go down my own way than return to earth and start all over again.'
+
+He then turns to help the others.".
 
 Section 1 - Scenery
 
@@ -33376,7 +33437,7 @@ The targetresponse of imprisoned-quip is "Sergeant Olgin shakes her head woefull
 
 'I don't really like the idea of scavenging from the dead,' you say.
 
-'Every officer that's left is someone who is trying to save the others,' she says. 'That includes saving you. Go grab it, and I'll unlock the tube.'".
+'Every officer that's left is someone who is trying to save the others,' she says. 'That includes saving you. It would honor his memory. Go grab it, and I'll unlock the tube.'".
 
 Report uttering imprisoned-quip to olgin-redux:
 	now the deceased-officer is in quarters-redux;
@@ -33444,7 +33505,15 @@ Before taking the molded-helmet when the molded-helmet is part of the deceased-o
 After taking the molded-helmet for the first time:
 	say "You gently take off the helmet and see the officer's face. You recognize him; his name was Carl, and he was a late addition to the flight, coming in from a distant asteroid colony. His face is pale.
 
-Looking over the helmet, it looks like it should fit you just fine.";	
+You are struck by a memory of a conversation you overheard...
+
+[italic type]'So why'd you take this job? I heard you were making bank out in the asteroid fields,' asks a heavy-set security officer, talking to Carl.
+
+Carl shrugs. 'They wanted to put me in a desk job. I told them I wanted to be out in the field, but they said I was getting [']too old['] for heroics. Figured this job here was my last shot at any excitement. But it turns out...' He pauses, indicating the officers in the lunch room, who were lazing about, watching television or reading their digital pads. 'This gig is the same thing. To me, this starship is just one big office. I just wish I could help someone, you know? I mean, for real. But I guess a life of leisure is all life wants for me, and it's gonna give it to me no matter what I do.'[roman type]
+
+The memory fades.
+
+Looking over the helmet, it looks like it should fit you just fine.";
 
 Every turn when the player is enclosed by transit-redux:
 	if the molded-helmet is worn by the player:
@@ -33999,10 +34068,19 @@ Yang-redux is a man in cryo-redux. Understand "yang" as yang-redux. The printed 
 
 To say delice:
 	deliver thaw-quip;
+	deliver freezing-quip;
 	
 Thaw-quip is a quip. The printed name of thaw-quip is "Thaw". Understand "Thaw" as thaw-quip. The target of thaw-quip is Yang-redux. The preview of Thaw-quip is "Anything I can do to help with the ice?". 
 
 The targetresponse of Thaw-quip is "'I can't figure anything out,' he says. He points at the grappling hook. 'I tried to use that thing like an ice pick. That's why it's frozen like that, no rope or anything. If I had salt, I could melt some of the ice more easily, but I'd need gallons. But I just have to try!'".
+
+Freezing-quip is a quip. The printed name of freezing-quip is "freezing". Understand "Freezing" as freezing-quip. The target of freezing-quip is Yang-redux. The preview of freezing-quip is "Aren't they supposed to be frozen?". 
+
+The targetresponse of freezing-quip is "''Well, yeah,' he says, running his fingers through his hair. 'I did this, actually. If we freeze them as much as we can, now, then even if they get ejected into space, they should remain very cold in the vacuum. I just got more of the ice on my equipment than I wanted.'
+
+'But shouldn't you be trying to escape?' you ask.
+
+'Emrys,' he says, looking at you seriously. 'There's one me. There are thousands of them. The math is simple. If I wanted to leave, I would have; most of the crew already have. I'll leave once I know there isn't a single thing I can do anymore.'".
 
 Instead of putting the salt-handful on the frozen-ice:
 	try putting the salt-handful on the ice-hook;
@@ -34587,17 +34665,19 @@ Report uttering manual-quip to olgin-redux:
 	
 Poss-quip is a quip. The printed name of poss-quip is "Possessions". Understand "possession" as poss-quip. The target of poss-quip is idris-redux. The preview of poss-quip is "Have you found any manual escape pod keys?".
 
-The targetresponse of poss-quip is "Idris looks at you with bloodshot eyes and says, 'I think I may have. But I'm not running a commissary. I have more important things to do than to rifle through dead people's goods. I'm trying to do something useful here.'
+The targetresponse of poss-quip is "Idris looks at you with bloodshot eyes and says, 'I think I may have. But there's not that much time left. I have more important things to do than to rifle through dead people's goods. I'm trying to do something useful here.'
 
 'I know,' you say. 'But it's my only way off the ship.'
 
-'What about them?' he asks, pointing to the wounded and to the bloodstained curtain beyond them. He gets close to you and whispers, 'None of them are getting off the ship. They would've left now if they could. [italic type]I'm[roman type] not getting off this ship. I just want to help them in their final hours, and send us all off in a great big Viking funeral.'
+'What about the pods in the living quarters?' he asks. He points to the wounded and to the bloodstained curtain beyond them. 'None of these people are getting off the ship. There should be a ton of extra pods.'
 
-He paces back and forth a bit, and says, 'You know what? Maybe I will do it. But only if you help me.'
+'From what I've seen, all of them are full. I suspect some of them were damaged.'
+
+He paces back and forth a bit, and says, 'You know what? I'll do it. But only if you help me.'
 
 'How?' you ask. 'Do you want me to help you to a pod?'
 
-'No,' he says. 'I've made my choice. I want you to help the dead. Two officers were brought in after the bridge collapse: officers Mefe and Rhys. Find something for each of them, one of their possessions, and I'll trade you the key.'
+'No,' he says. 'I've made my choice. I'm going to honor our dead, give them a Viking funeral. I want you to help me help the dead. Two officers were brought in after the bridge collapse: officers Mefe and Rhys. Find something for each of them, one of their possessions, and I'll find you the key.'
 
 Thinking back, there were some parts of the bridge you hadn't explored; they hadn't looked important at the time.
 
@@ -34810,7 +34890,7 @@ Every turn during gareth-scene:
 
 Section 4 - Newer box
 
-The newer-box is a closed openable container in storage-room. The printed name of the newer-box is "newer box". Understand "newer" or "box" as the newer-box. "[if the newer-box has not been open]Among the older boxes, a newer box sticks out to you. This one isn't taped shut[otherwise if the newer-box is open]The box you opened is here, as well[otherwise]The box you've closed is still here[end if]." The description of the newer-box is "This box looks like it's been opened in at least the last few years. It's currently [if the newer-box is open]open[otherwise]closed[end if].".
+The newer-box is a closed openable container in storage-room. The printed name of the newer-box is "newer box". Understand "newer" or "new" or "box" as the newer-box. "[if the newer-box has not been open]Among the older boxes, a newer box sticks out to you. This one isn't taped shut[otherwise if the newer-box is open]The box you opened is here, as well[otherwise]The box you've closed is still here[end if]." The description of the newer-box is "This box looks like it's been opened in at least the last few years. It's currently [if the newer-box is open]open[otherwise]closed[end if].".
 
 Instead of pushing or pulling the newer-box:
 	say "The box scoots a little bit, but there's not a lot of room in here."
@@ -35285,7 +35365,7 @@ Carry out shouting:
 		say "[We] [don't] feel like shouting at the moment."
 
 Instead of clone-you shouting:
-	say "Your clone shouts, frightening you.'"
+	say "Your clone shouts, frightening you."
 
 To feel is a verb.
 
@@ -35401,7 +35481,7 @@ The combat dimension was inspired by Gun Mute, Attack of the Yeti Robot Zombies,
 
 The cabin and forest dimension was inspired by games like She's Got a Thing for a Spring, Muse, and Sunset Over Savannah, with nature-based exploration and wonder. The crafting mechanics were inspired by Stardew Valley. Originally the concept for this dimension was a plant-based dimension in a magical garden where plants solved every puzzle, but it eventually became a grounded-in-reality dimension. I added journal pages since collecting journal pages is something many games have but which I've never tried. It also provided a way to add backstory to the main NPC of the game. The rock compartment was based on the one Joseph Smith found the Book of Mormon in.
 
-The animals dimension was at first inspired by educational cartoon maps showing every biome next to each other. At the time of writing it is a bit of a meme to see those maps and say 'I want to live there'. At one point I ran out of puzzle ideas, so I themed each puzzle off a different Lord of the Rings character. Most of those got transformed into somethin very different, so they're no longer recognizable (for instance, the owl's drone piece would be up high and need to be knocked down by a projectile. I realized I'd prefer an animal-based solution, and so switched it to the cougar). ";
+The animals dimension was at first inspired by educational cartoon maps showing every biome next to each other. At the time of writing it is a bit of a meme to see those maps and say 'I want to live there'. At one point I ran out of puzzle ideas, so I themed each puzzle off a different Lord of the Rings character. Most of those got transformed into something very different, so they're no longer recognizable (for instance, the owl's drone piece would be up high and need to be knocked down by a projectile. I realized I'd prefer an animal-based solution, and so switched it to the cougar). ";
 	say "[paragraph break]The World Monuments sections was inspired by the many mathematical and physics examples in Inform documentation, including Concentration 1 and 2, Nickle and Dimed, the Cow Exonerated, In Fire or In Flood, and Exonerated. This came after I had completed reading the whole Inform manual and felt bummed at how many awesome examples never (as far as I can tell) got used in games. The idea of descending through a void on a rope came from the Doctor Who episode Impossible Planet.
 
 The Tool dimension was originally designed to provide an extra hurdle for players to overcome in every level, so that players would need to explore more. There would be a tool that would get powers as time went on. I just couldn't figure out what to put in this level or what powers to use. I eventually decided to make it a limited parser room using computer commands for the limitations. I looked to Arthur Dibianca and Monument Valley for inspiration. But I eventually moved away from the limited parser and used this level to give more backstory to the game and to form the backbone or spine of everything. Portal was a bit of an inspiration as well, as well as a game by Doug Egan I tested. The tool is definitely modelled on the sonic screwdriver from Dr Who.
@@ -35764,7 +35844,7 @@ Test thirdmaeve with "n/link rendezvous to sneaking/say stalker to maeve/say sta
 
 Test thirdarthur with "link personalized to croes/link possession to method/say murderer to arthur/say statement to arthur/e/turn on computer/w/talk to dafydd/s/talk to dafydd"
 
-Test murderfinale with "s/w/n/take chip/s/e/n/e/s/give chip to mefe/say maneuver to mefe"
+Test murderfinale with "z/s/w/n/take chip/s/e/n/e/s/give chip to mefe/say maneuver to mefe"
 
 Test allmurder with "test allfirst/test allsecond/test evidence/test thirdmari/test thirdelen/test thirdmaeve/test thirdarthur/test murderfinale/e/s/d"
 
