@@ -25,7 +25,7 @@ Release along with cover art.
 
 Section 1 - Genre, description, etc
 
-The story genre is "Science Fiction". The story description is "Travel through space and time to save your ship." The story creation year is 2023. The release number is 11.
+The story genre is "Science Fiction". The story description is "Travel through space and time to save your ship." The story creation year is 2023. The release number is 12.
 
 Section 2 - Increasing memory sizes
 
