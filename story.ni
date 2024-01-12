@@ -25,7 +25,7 @@ Release along with cover art.
 
 Section 1 - Genre, description, etc
 
-The story genre is "Science Fiction". The story description is "Travel through space and time to save your ship." The story creation year is 2023. The release number is 1.
+The story genre is "Science Fiction". The story description is "Travel through space and time to save your ship." The story creation year is 2023. The release number is 2.
 
 Section 2 - Increasing memory sizes
 
@@ -91,11 +91,13 @@ Crediting is an action out of world. Understand "Credits" as crediting.
 Carry out crediting:
 	say "This game was written by Brian Rushton/Mathbrush using Inform 7 (by Graham Nelson). Beta testers include Amanda Walker, John Ziegler, Jade, Christopher Merriner, Patrick Mooney, Brett Witty, Rovarsson, E. Joyce, Max Fog, Dee Cooke, Ian Greener, Chandler Groover, Lance Cirone, Zed Lopez, Cody Gaisser, Alex Proudfoot, Radioactive Crow, Doug Egan, Mike Spivey, Larry Horsfield, Dirk Spivey, Arthur DiBianca, Hal Rushton, Hidnook, Charm Cochran, Grueslayer, Lynnea Glasser, Wade Clarke, Onno Brouwer, Mel Jason, Tabitha, Daniel Worm, Mike Russo, and Robert Eggleston, who was also the first to beat the full game. 
 
+Bugs were found in subsequent versions by Max Fog, Garrett O., and S B Wiegner.
+
 Hanon Ondricek gave helpful advice about the concept and title. Phil Riley and Peter Bates made suggestions about coding. Mike Russo and Garry Francis gave poetry tips. Wade Clarke and Mike Russo (again) gave some prose tips. otistdog provided helpful Inform 6 code.
 
 Matt Weiner, N. Comier, Mike Sousa, Austin Auclair, Doug Egan, Pinkunz, and Charm Cochran served as inspiration for some puzzle content. Many of the standard Inform examples were used, but a lot of code was directly lifted from Under Contract, Example 205; Lethal Concentration 1 and 2, examples 255 and 257; Nickel and Dimed, example 262; Robo1 and Robo 2, examples 426 and 429; Entropy, example 182; The Cow Exonerated, example 401; In Fire or in Flood, example 401; Otranto, example 228.
 
-Cover art was made from photographs by NASA and the Space Telescope Science Institute (STScI) and by Sandra Rushton, my mother.
+Original Cover art was made from photographs by NASA and the Space Telescope Science Institute (STScI) and by Sandra Rushton, my mother. Advice for original cover art was given by Sophia, Manonamora, Josh Grams, Cody Gaisser, Piergiorgio d'Errico, and piearty. The newer cover art was embroidered by Amanda Walker.
 
 This game is dedicated to Sean Shore and Marco Innocenti, who I used as my mental image of who the potential audience might be."
 [Code from Otistdog was used for overly elaborate looking.]
@@ -2840,7 +2842,7 @@ Before going nowhere from pride-room when the player is on climbing-wall:
 	try exiting instead;
 
 Instead of jumping when the player is on climbing-wall:
-	try jumping instead;
+	try exiting instead;
 
 To say nearbyrocks:
 	let templist be the list of climbing-rocks that rockheighten climbingheight;
@@ -7076,7 +7078,7 @@ The hyper-wolf is a fun-wolf in tundra-room. "[The hyper-wolf] gambols around th
 
 The collar-text of hyper-wolf is "red".
 
-The old-wolf is a fun-wolf in tundra-room. "[if the old-wolf is in marsh-room]Tiny the wolf is still here[otherwise][The old-wolf] walks by your side, coming up to your elbow in height[end if]." The printed name of the old-wolf is "[unless neckwear-quip is meihtarget]Tiny[otherwise]wolf with a blue collar[end if]". Understand "tiny" as the old-wolf. Understand "blue" or "blue-collared" or "old" as the old-wolf. The description of the old-wolf is "[The old-wolf] is the biggest wolf you've ever seen and is noticeably getting along in years. Right now, he is [if the old-wolf is in marsh-room]sliding down the rock with the turtle over and over again, barking and lolling his tongue out[otherwise]looking wistfully at the other wolves having fun[end if]. His blue collar says 'Tiny'."
+The old-wolf is a fun-wolf in tundra-room. "[if the old-wolf is in marsh-room]Tiny the wolf is still here[otherwise][The old-wolf] walks by your side, coming up to your elbow in height[end if]." The printed name of the old-wolf is "[unless neckwear-quip is meihtarget]Tiny[otherwise]wolf with a blue collar[end if]". Understand "tiny" as the old-wolf. Understand "blue" or "blue-collared" or "old" as the old-wolf. The description of the old-wolf is "[The old-wolf] is the biggest wolf you've ever seen and is noticeably getting along in years. Right now, he is [if the old-wolf is in marsh-room]sliding down the rock with the turtle over and over again, barking and lolling his tongue out[otherwise if the player is in tundra-room]looking wistfully at the other wolves having fun[otherwise]looking around thoughtfully[end if]. His blue collar says 'Tiny'."
 
 The collar-text of old-wolf is "blue".
 
@@ -7691,6 +7693,10 @@ Carry out diagnosing:
 		try atpointing the curious-tool at the noun;
 
 A thing has a number called the dimnumber. The dimnumber of a thing is usually 0.
+
+Check atpointing it at:
+	if the second noun is not a thing:
+		say "[We] [can] only point at physical objects." instead;
 
 Carry out atpointing it at:
 	if the noun is the curious-tool:
@@ -9669,7 +9675,7 @@ The targetresponse of arrival-quip is "'From what I've been told, you are on a k
 
 'I guess that makes sense,' you say. 'I've seen a lot of strange stuff. Rifts to different worlds, rifts to different times. But no one else seems to notice them.'
 
-'Your Storyweaver genes gives you sensivity to certain types of radiation associated to temporal events. But as for different worlds, that's not quite true; it's all one world, and mostly all one time,' says Bronwyn. 'You've been to the future. Your future, and mine.'
+'Your Storyweaver genes give you sensivity to certain types of radiation associated to temporal events. But as for different worlds, that's not quite true; it's all one world, and mostly all one time,' says Bronwyn. 'You've been to the future. Your future, and mine.'
 
 She points to the ship under construction below you. 'I'm jealous, in some ways. You've seen what this will be when it's finished, the fruit of our labors.'"
 
@@ -10573,7 +10579,7 @@ Instead of opening the dormant-time:
 		say "You don't have anything to open that with.";
 	otherwise if the curious-tool is not connector:
 		say "The tool is on the wrong setting for opening things.";
-	otherwise if the fourth-shard is not part of the curious-tool:
+	otherwise if the fifth-shard is not part of the curious-tool:
 		say "The tool isn't powerful enough to open [the noun].";
 	otherwise:
 		say "You bring your tool near the larger rift, and in an instant it turns bright red, flaring into life.";
@@ -10616,7 +10622,7 @@ Instead of opening the dormant-mega:
 		say "You don't have anything to open that with.";
 	otherwise if the curious-tool is not connector:
 		say "The tool is on the wrong setting for opening things.";
-	otherwise if the fourth-shard is not part of the curious-tool:
+	otherwise if the sixth-shard is not part of the curious-tool:
 		say "The tool isn't powerful enough to open [the noun].";
 	otherwise:
 		say "You bring your tool near the rift, and in an instant it turns bright red.";
@@ -10700,7 +10706,7 @@ Instead of opening the dormant-giga:
 		say "You don't have anything to open that with.";
 	otherwise if the curious-tool is not connector:
 		say "The tool is on the wrong setting for opening things.";
-	otherwise if the fourth-shard is not part of the curious-tool:
+	otherwise if the seventh-shard is not part of the curious-tool:
 		say "The tool isn't powerful enough to open [the noun].";
 	otherwise:
 		say "You bring your tool near the rift. The tool trembles, drawing on a great deal of power, and the rift turns bright red.";
@@ -12373,7 +12379,7 @@ Instead of drinking the forest-river:
 Instead of physicality when the noun is forest-river:
 	say "The water looks both cold and dangerous, and you keep your distance."
 
-The steep-bank is scenery in river-side. The printed name of the steep-bank is "steep bank". Understand "steep" or "bank" or "rocky" or "rock" or "rocks" as the steep-bank. The description of the steep-bank is "The river runs downhill and the bank follows it. The bank is rocky and steep."
+The steep-bank is scenery in river-side. The printed name of the steep-bank is "steep bank". Understand "steep" or "bank" as the steep-bank. The description of the steep-bank is "The river runs downhill and the bank follows it. The bank is rocky and steep."
 
 Instead of taking the steep-bank:
 	say "Nothing looks to be of use on the rocky bank."
@@ -12894,7 +12900,7 @@ Chapter 12 - Trellis
 
 The trellis-room is east from vegetable-room. The printed name of the trellis-room is "Trellises". The trellis-room is in garden-region. "This area is shaded by a long row of arched wooden trellises that are now completely overgrown. What kind of plant was intended to grow here is hard to tell. The trellises shade the area[trelldesc in row currenttime of the table of trellis descriptions].
 
-You can return to the garden to the [boldwest]. The end of the trellis to the [boldeast] is blocked by a rusty metal gate."
+You can return to the garden to the [boldwest]. The end of the trellis to the [boldeast] is [if the trellis-gate is open]no longer [end if]blocked by a rusty metal gate."
 
 Table of Trellis Descriptions
 skytime	trelldesc	
@@ -23835,6 +23841,10 @@ Every turn when the player is not in spell-region and the number of things enclo
 		now current is held by the player;
 	now spell-book is nowhere;
 	now simple-robe is nowhere;
+	repeat with current running through handled undenoxed spell-scrolls:
+		now current is nowhere;
+	if the spiral-bookmark is handled:
+		now the spiral-bookmark is nowhere;
 
 Instead of listening to the gem-room:
 	try listening to the loud-hum;
@@ -24241,7 +24251,7 @@ Rubberytime is a recurring scene. RUbberytime begins when rubbery-player is true
 
 Rubberytime ends abruptly when the player is not in spell-region.
 
-Rubberytime ends normally when the time since rubberytime began is 3 minutes.
+Rubberytime ends normally when the time since rubberytime began > 2 minutes.
 
 Rubberytime ends forgetfully when anghofiotime begins.
 
@@ -24252,6 +24262,9 @@ You feel the walls of the crevice squeezing you intensely as you change. It feel
 	now rubbery-player is false;
 	if the player is in buried-room:
 		now trapped-level is 1;
+
+When rubberytime ends:
+	now rubbery-player is false;
 
 SEction 3 - Warped mallox
 
@@ -24534,7 +24547,7 @@ Instead of jumping when the player is in vast-room:
 [Sand-Dying]";
 	now the player is in end-room;
 
-The life-text of vast-room is "[paragraph break][italic type]Pit Feeder[roman type] [line break]Quantity: 1[line break][revealfeeder]Mass: ERROR--OUT OF BOUNDS"
+The life-text of vast-room is "[paragraph break][italic type]Pit Feeder[roman type] [line break]Quantity: 1[line break][revealfeeder]Mass: ERROR--OUT OF BOUNDS[if beastgone is true]/DECEASED[end if]"
 
 Beastisnamed is a truth state that varies. Beastisnamed is false.
 
@@ -24660,7 +24673,7 @@ You pass out before you hit the water.
 
 [sand-dying]";
 		now the player is in end-room instead;
-	otherwise:
+	otherwise if the player is in air-region:
 		 say "[if the player is in air-scroll]You're hanging by your fingertips and can't move[otherwise]You're freefalling in the sky, being buffeted by the wind, and can't control yourself[end if]!" instead;
 
 Instead of going nowhere from a vast-air:
@@ -25108,6 +25121,8 @@ Check Exkliping:
 		noscroll Exklip instead;
 	otherwise if the spell-book is not held by the player:
 		nobook Exklip instead;
+	otherwise if the player is in end-room:
+		say "This spell seems to have less effect here" instead;
 	otherwise if bookmarkon is false:
 		say "Your body seizes up in an instant. Your vision goes dark. You lose all sensation, for how long, you can't tell. Finally, eventually, there is release.
 
@@ -25764,7 +25779,7 @@ Carry out Viroxing:
 Report Viroxing:
 	say "[We] [adapt the verb say] 'Virox'. Heat races throughout your veins, and you feel yourself start to rot away from the inside. Hundreds of pustules appear on your skin, and something dark oozes out."
 
-rottingtime is a scene. rottingtime begins when rotting-player is true.
+rottingtime is a recurring scene. rottingtime begins when rotting-player is true.
 
 Instead of examining the player during rottingtime:
 	say "Pustules are all over your skin, oozing a liquid."
@@ -26011,11 +26026,12 @@ Every turn during hunter-scene:
 		say "You smell a strong odor near you.";
 	otherwise if the time since hunter-scene began is 3 minutes:
 		say "The strong odor just won't go away. It smells like it's right next to you.";
-	otherwise if the time since hunter-scene began is 5 minutes:
-		say "You feel sharp teeth pierce through your shoulder, and you are dragged screaming into the air.
+	otherwise if the time since hunter-scene began > 4 minutes:
+		if the player is not in end-room:
+			say "You feel sharp teeth pierce through your shoulder, and you are dragged screaming into the air.
 
-[Sand-Dying]";
-		now the player is in end-room;
+	[Sand-Dying]";
+			now the player is in end-room;
 	otherwise:
 		if the player is in stranger-room:
 			if stranger-commented is false:
@@ -26027,7 +26043,7 @@ Every turn during hunter-scene:
 			say "The beast in the cage is going wild at something in the room, but you can't tell what it is."
 		
 When hunter-scene ends comically:
-	say "You hear a how of frustration echoing from the edge of the ledge to the south. But you see nothing."
+	say "You hear a howl of frustration echoing from the edge of the ledge to the south. But you see nothing."
 
 When hunter-scene ends:
 	now strange-odor is nowhere;
@@ -31361,7 +31377,7 @@ After reading a command when the command prompt is "Choose 1, 2, or 3>":
 		do nothing;
 	otherwise if the player's command matches "1":
 		if choiceprogress is 0:
-			say "You grab the Captain and take him on a magical journey through space of time, helping him meet great leaders of the past.
+			say "You grab the Captain and take him on a magical journey through space and time, helping him meet great leaders of the past.
 
 You and the Captain help negotiate with King Arthur and come to mourn the death of Queen Cleopatra. You solve the riddle of Khufu's Sphinx and dance with Elvis.
 
@@ -31552,6 +31568,7 @@ This was the story of how you die. But it was a lie. Your story is over now, and
 	now arawn webster is in engine-closet;
 	now the story viewpoint is third person singular; 
 	now the player is arawn webster;
+	now the description of arawn is "Arawn is a short woman, almost the same height as you, but with a commanding presence. There is no fear in her eyes.";
 	now the arawn-tunic is nowhere;
 	now the skull-mask is nowhere;
 	now the silver-device is nowhere;
@@ -33219,7 +33236,7 @@ The targetresponse of devastation-quip is "Idris shakes his head. 'Many of them 
 
 'Is there anything I can do?' you ask.
 
-'Get out of here alive,' he say.
+'Get out of here alive,' he says.
 
 'But what about you?' you ask. 'There should be enough pods...'
 
@@ -33934,6 +33951,8 @@ Instead of pulling a ropestuck thing:
 		continue the action.
 
 Before pulling something which is not visible:
+	if in darkness:
+		say "[We] [can't] see any such thing." instead;
 	if the noun is anchored:
 		say "[The noun] resists, for whatever reason." instead;
 	otherwise:
@@ -34896,7 +34915,7 @@ Before going when gareth-scene is happening:
 [bracket]When you have a topic, like the topic 'Response', you can SAY RESPONSE TO GARETH or just SAY RESPONSE to use it. A list of topics can be found by typing T.[close bracket][line break]" instead;
 
 Before going when gareth-scene has not happened:
-	say "You .hear a ring--someone is calling you." instead;
+	say "You hear a ring--someone is calling you." instead;
 
 Section 3 - Gareth Scene
 
