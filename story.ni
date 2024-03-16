@@ -25,7 +25,7 @@ Release along with cover art.
 
 Section 1 - Genre, description, etc
 
-The story genre is "Science Fiction". The story description is "Travel through space and time to save your ship." The story creation year is 2023. The release number is 2.
+The story genre is "Science Fiction". The story description is "Travel through space and time to save your ship." The story creation year is 2023. The release number is 3.
 
 Section 2 - Increasing memory sizes
 
@@ -91,7 +91,7 @@ Crediting is an action out of world. Understand "Credits" as crediting.
 Carry out crediting:
 	say "This game was written by Brian Rushton/Mathbrush using Inform 7 (by Graham Nelson). Beta testers include Amanda Walker, John Ziegler, Jade, Christopher Merriner, Patrick Mooney, Brett Witty, Rovarsson, E. Joyce, Max Fog, Dee Cooke, Ian Greener, Chandler Groover, Lance Cirone, Zed Lopez, Cody Gaisser, Alex Proudfoot, Radioactive Crow, Doug Egan, Mike Spivey, Larry Horsfield, Dirk Spivey, Arthur DiBianca, Hal Rushton, Hidnook, Charm Cochran, Grueslayer, Lynnea Glasser, Wade Clarke, Onno Brouwer, Mel Jason, Tabitha, Daniel Worm, Mike Russo, and Robert Eggleston, who was also the first to beat the full game. 
 
-Bugs were found in subsequent versions by Max Fog, Garrett O., and S B Wiegner.
+Bugs were found in subsequent versions by Max Fog, Garrett O., S B Wiegner, and Reiko Yukawa.
 
 Hanon Ondricek gave helpful advice about the concept and title. Phil Riley and Peter Bates made suggestions about coding. Mike Russo and Garry Francis gave poetry tips. Wade Clarke and Mike Russo (again) gave some prose tips. otistdog provided helpful Inform 6 code.
 
@@ -18048,11 +18048,11 @@ Instead of entering the wolf-debris:
 
 Section 1 - The wolf
 
-The wolfman is a man in wolf-room. "A wolfish-looking man, tall and scruffy[if the large-fencing is nowhere] and wearing a large fencing mask[end if], is [if the wolf-handcuffs are nowhere]handcuffed to the pole[otherwise]anxiously pacing the room[end if]. He stares timidly around the room and trembles as he shifts around[one of].
+The wolfman is a man in wolf-room. "A wolfish-looking man, tall and scruffy[if the large-fencing is nowhere] and wearing a large fencing mask[end if], is [if the wolf-handcuffs are worn by wolfman]handcuffed to the pole[otherwise]anxiously pacing the room[end if]. He stares timidly around the room and trembles as he shifts around[one of].
 
 The wolfman jumps as you enter the room. 'Back!' he says. 'Back! I'm a terrible man, a terrible [italic type]thing[roman type], and you're not safe here!' He looks at you earnestly[or].
 
-He looks up hopefully. 'Have you brought anything that can make us truly safe?' he asks[stopping]." Understand "wolfish" or "tall" or "hairy" or "hairy-looking" or "short" or "stiff" or "black" or "hair" or "dark" or "dark-ringed" or "eye" or "eyes" or "looking" or "wolfish-looking" or "wolf-man" or "wolf" or "beast" as the wolfman. The description of the wolfman is "This is a tall, hairy-looking man with short, stiff black hair and dark-ringed eyes[if the large-fencing is nowhere], both barely visible through the large fencing mask on his head[end if]. [if the wolf-handcuffs are nowhere]He is handcuffed to the pole[otherwise]He's pacing the room nervously[end if][if the wolfs-bane is nowhere], some wolfs-bane poking out of his pocket[end if]."
+He looks up hopefully. 'Have you brought anything that can make us truly safe?' he asks[stopping]." Understand "wolfish" or "tall" or "hairy" or "hairy-looking" or "short" or "stiff" or "black" or "hair" or "dark" or "dark-ringed" or "eye" or "eyes" or "looking" or "wolfish-looking" or "wolf-man" or "wolf" or "beast" as the wolfman. The description of the wolfman is "This is a tall, hairy-looking man with short, stiff black hair and dark-ringed eyes[if the large-fencing is nowhere], both barely visible through the large fencing mask on his head[end if]. [if the wolf-handcuffs are worn by wolfman]He is handcuffed to the pole[otherwise]He's pacing the room nervously[end if][if the wolfs-bane is nowhere], some wolfs-bane poking out of his pocket[end if]."
 
 [fix people leaving without talking to him]
 
@@ -19161,6 +19161,9 @@ Report examining iron-bar when rodheld is true:
 	say "The iron rod is wedged perfectly between the two supports, creating a stable pole."
 
 Report someone taking iron-bar:
+	now rodheld is false;
+	
+Every turn if iron-bar is held by the player:
 	now rodheld is false;
 
 The balanced-plank2 is an enterable supporter. "The plank is here, balanced carefully."The printed name of the balanced-plank2 is "balanced plank". Understand "notched" or "plank" or "balanced" or "long" or "cupboard" as the balanced-plank2. The description of the balanced-plank2 is "This is a long plank, sturdy enough for several people to stand on. There is a notch in the center, which cuts the short way across the plank. Right now the plank is balanced."
