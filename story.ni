@@ -19163,7 +19163,7 @@ Report examining iron-bar when rodheld is true:
 Report someone taking iron-bar:
 	now rodheld is false;
 	
-Every turn if iron-bar is held by the player:
+Every turn when iron-bar is held by the player:
 	now rodheld is false;
 
 The balanced-plank2 is an enterable supporter. "The plank is here, balanced carefully."The printed name of the balanced-plank2 is "balanced plank". Understand "notched" or "plank" or "balanced" or "long" or "cupboard" as the balanced-plank2. The description of the balanced-plank2 is "This is a long plank, sturdy enough for several people to stand on. There is a notch in the center, which cuts the short way across the plank. Right now the plank is balanced."
@@ -22056,7 +22056,7 @@ To reset-mari:
 	if mari-level is 0:
 		now currentswap is emrys-weaver;
 		now mystery-package is nowhere;
-		now bosstalked is true;
+		now bosstalked is false;
 		now fake-mari is in courier-office;
 		now the fake-cap is worn by fake-mari;
 		now the fake-satchel is worn by fake-mari;
