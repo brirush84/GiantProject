@@ -91,7 +91,7 @@ Crediting is an action out of world. Understand "Credits" as crediting.
 Carry out crediting:
 	say "This game was written by Brian Rushton/Mathbrush using Inform 7 (by Graham Nelson). Beta testers include Amanda Walker, John Ziegler, Jade, Christopher Merriner, Patrick Mooney, Brett Witty, Rovarsson, E. Joyce, Max Fog, Dee Cooke, Ian Greener, Chandler Groover, Lance Cirone, Zed Lopez, Cody Gaisser, Alex Proudfoot, Radioactive Crow, Doug Egan, Mike Spivey, Larry Horsfield, Dirk Spivey, Arthur DiBianca, Hal Rushton, Hidnook, Charm Cochran, Grueslayer, Lynnea Glasser, Wade Clarke, Onno Brouwer, Mel Jason, Tabitha, Daniel Worm, Mike Russo, and Robert Eggleston, who was also the first to beat the full game. 
 
-Bugs were found in subsequent versions by Max Fog, Garrett O., S B Wiegner, and Reiko Yukawa.
+Bugs were found in subsequent versions by Max Fog, Garrett O., S B Wiegner, Reiko Yukawa, Chloe A and Sanont.
 
 Hanon Ondricek gave helpful advice about the concept and title. Phil Riley and Peter Bates made suggestions about coding. Mike Russo and Garry Francis gave poetry tips. Wade Clarke and Mike Russo (again) gave some prose tips. otistdog provided helpful Inform 6 code.
 
@@ -32453,7 +32453,7 @@ At the time when the trap descends:
 	now the raised-trap is nowhere;
 	now gone-grill is in the main-engine;
 	
-Gone-grill is a thing. THe printed name of gone-grill is "twisted grill". Understand "twisted" or "mesh" or "electrified" or "grill" as the gone-grill. 
+Gone-grill is a scenery thing. THe printed name of gone-grill is "twisted grill". Understand "twisted" or "mesh" or "electrified" or "grill" as the gone-grill. 
 
 Instead of doing anything with gone-grill:
 	say "The twisted grill is not currently visible, as the trap is closed again."
@@ -35564,7 +35564,7 @@ The Wax Museum escape room dimension was inspired by vague memories of a wax mus
 
 The combat dimension was inspired by Gun Mute, Attack of the Yeti Robot Zombies, and by the sections on persuasion in the Inform 7 manual. Very large chunks of code were taken from the Under Contract example in the manual. The character Max is named after a beta tester. The other was originally Sam, but I forgot that Max and Sam already exists, so it was changed to Dan. Short names were chosen due to the frequent need to type their name before commands.
 
-The cabin and forest dimension was inspired by games like She's Got a Thing for a Spring, Muse, and Sunset Over Savannah, with nature-based exploration and wonder. The crafting mechanics were inspired by Stardew Valley. Originally the concept for this dimension was a plant-based dimension in a magical garden where plants solved every puzzle, but it eventually became a grounded-in-reality dimension. I added journal pages since collecting journal pages is something many games have but which I've never tried. It also provided a way to add backstory to the main NPC of the game. The rock compartment was based on the one Joseph Smith found the Book of Mormon in.
+The cabin and forest dimension was inspired by games like She's Got a Thing for a Spring, The Fire Tower, Muse, and Sunset Over Savannah, with nature-based exploration and wonder. The crafting mechanics were inspired by Stardew Valley. Originally the concept for this dimension was a plant-based dimension in a magical garden where plants solved every puzzle, but it eventually became a grounded-in-reality dimension. I added journal pages since collecting journal pages is something many games have but which I've never tried. It also provided a way to add backstory to the main NPC of the game. The rock compartment was based on the one Joseph Smith found the Book of Mormon in.
 
 The animals dimension was at first inspired by educational cartoon maps showing every biome next to each other. At the time of writing it is a bit of a meme to see those maps and say 'I want to live there'. At one point I ran out of puzzle ideas, so I themed each puzzle off a different Lord of the Rings character. Most of those got transformed into something very different, so they're no longer recognizable (for instance, the owl's drone piece would be up high and need to be knocked down by a projectile. I realized I'd prefer an animal-based solution, and so switched it to the cougar). ";
 	say "[paragraph break]The World Monuments sections was inspired by the many mathematical and physics examples in Inform documentation, including Concentration 1 and 2, Nickle and Dimed, the Cow Exonerated, In Fire or In Flood, and Exonerated. This came after I had completed reading the whole Inform manual and felt bummed at how many awesome examples never (as far as I can tell) got used in games. The idea of descending through a void on a rope came from the Doctor Who episode Impossible Planet.
