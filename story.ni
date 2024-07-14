@@ -6299,7 +6299,7 @@ The old-ram is an animal in foothills-room. "[if the mountain-goat is in the loc
 
 The printed name of the old-ram is "old buck". Understand "old" or "white" or "fur" or "buck" or "powerful" or "goat" or "billy" as the old-ram. The description of the old-ram is "Much larger than the other goats, this old buck has white fur and a nasty attitude. Two massive horns sprout from his head[if the logic-ring is part of the left-horn]. On the left horn hangs a logic ring[end if].".
 
-The left-horn is part of the old-ram. Understand "left" or "horn" or "horns" or "buck's" as the left-horn. The printed name of the left-horn is "left horn". The description of the left-horn is "The buck's left horn is about the width of your arm[if the logic-ring is part of the left-horn]On it hangs [a logic-ring].[end if].".
+The left-horn is part of the old-ram. Understand "left" or "horn" or "horns" or "buck's" as the left-horn. The printed name of the left-horn is "left horn". The description of the left-horn is "The buck's left horn is about the width of your arm[if the logic-ring is part of the left-horn]. On it hangs [a logic-ring].[end if].".
 
 The right-horn is part of the old-ram. Understand "right" or "horn" or "horns" or "buck's" as the right-horn. The printed name of the right-horn is "right horn". The description of the right-horn is "The buck's right horn is about the size of your arm.".
 
@@ -34145,7 +34145,7 @@ The ice-hook is part of the frozen-ice. The printed name of the ice-hook is "gra
 
 Section 3 - Antonio Yang
 
-Yang-redux is a man in cryo-redux. Understand "yang" as yang-redux. The printed name of Yang-redux is "Yang". The description of yang-redux is "Antonio Yang, a young researcher, is almost in tears, trying to figure out what's wrong with the cryotubes.". "Antonio Yang is here, scrambling to find a way to get rid of the ice[delice][first time].
+Yang-redux is a man in cryo-redux. Understand "yang" or "antonio" as yang-redux. The printed name of Yang-redux is "Yang". The description of yang-redux is "Antonio Yang, a young researcher, is almost in tears, trying to figure out what's wrong with the cryotubes.". "Antonio Yang is here, scrambling to find a way to get rid of the ice[delice][first time].
 
 'Sorry, Storyweaver. I'm really busy right now. A bunch of coolant leaked earlier and caused this ice problem. Shouldn't you be trying to find an escape pod?' he says, looking over his shoulder[only]."
 
