@@ -2,6 +2,19 @@
 
 [If future people are adapting this game, you can search FOR FUTURE UPDATERS to find code that needs changing in newer inform games]
 
+[Changelog: Fixed midnight bug
+Made it possible to 'connect' the portal that's in the darkness
+added scoop as synonym of 'take with'
+fixed bug with soda machine
+made dogs that like toys interested if you show them one
+minor punctation changes
+made it easier to type on calculator while holding journal pages
+fixed bug with rift diagnosis
+fixed bug with instant unmentioned death if moving while falling
+fixed a bug with a train stopping when you're in the wrong room
+fixed a bug where you could try to wash in water that doesn't exist
+]
+
 Volume 1 - Pre-game setup
 
 [the true point of the game is to help people come to grips with your personal death]
@@ -11,8 +24,8 @@ When play begins:
 
 You should be at the party right now. But you couldn't resist volunteering to find the Captain's ceremonial jacket; it gave you a chance to step away and be on your own, and you couldn't trust anyone else to find it.  After all, you're the only member of the ship to never have gone into cryogenic storage. You've walked the halls of this ship longer than anyone else.
 
-This is the story of how you die."
-
+This is the story of how you die.";
+	
 Book 1 - Metadata, out of world actions and extensions
 
 Part 1 - Metadata
@@ -21,7 +34,12 @@ Chapter 1 - Game essentials
 
 [Release along with a solution.]
 
-Release along with cover art.
+Include Basic Screen Effects by Emily Short.
+Include Simple Multimedia Effects by Mathbrush.
+
+Release along with cover art and a "Bisquixe" interpreter.
+
+Release along with a interpreter.
 
 Section 1 - Genre, description, etc
 
@@ -46,6 +64,125 @@ Use SYMBOLS_CHUNK_SIZE of 10000.
 Use maximum things understood at once of at least 150.
 
 The carrying capacity of the player is 200.
+
+Section 3 - Art
+
+Figure of Arawn is the file "arawn.jpeg".
+Figure of Cottage is the file "cottage.jpeg".
+Figure of Gem is the file "gem.jpeg".
+Figure of House is the file "house.jpeg".
+Figure of Napoleon is the file "napoleon.jpeg".
+Figure of Robot is the file "robot.jpeg".
+Figure of Stonehenge is the file "stonehenge.jpeg".
+Figure of Termites is the file "termites.jpeg".
+Figure of Tool is the file "tool.jpeg".
+Figure of Train is the file "train.jpeg".
+Figure of RealCover is the file "Cover.jpg".
+
+When play begins:
+	let temp be the glulx resource id of the figure of Arawn;
+	add-image "arawn.jpeg" with alttext "Mysterious woman with a skull mask" with id temp with width 750 with height 1000;
+	let temp be the glulx resource id of the figure of Cottage;
+	add-image "cottage.jpeg" with alttext "An overgrown cabin" with id temp with width 750 with height 1000;
+	let temp be the glulx resource id of the figure of Gem;
+	add-image "gem.jpeg" with alttext "A pillar with a large gem embedded in it" with id temp with width 750 with height 1000;
+	let temp be the glulx resource id of the figure of House;
+	add-image "house.jpeg" with alttext "A haunted house with a neon sign saying, 'Monsters Within'" with id temp with width 750 with height 1000;
+	let temp be the glulx resource id of the figure of Napoleon;
+	add-image "napoleon.jpeg" with alttext "A fish-eye view of Napoleon pointing a sword at you" with id temp with width 750 with height 562;
+	let temp be the glulx resource id of the figure of Robot;
+	add-image "robot.jpeg" with alttext "A goofy robot with the name, 'Max'" with id temp with width 750 with height 1000;
+	let temp be the glulx resource id of the figure of Stonehenge;
+	add-image "stonehenge.jpeg" with alttext "A copy of Stonehenge in space with a pillar behind" with id temp with width 750 with height 1000;
+	let temp be the glulx resource id of the figure of Termites;
+	add-image "termites.jpeg" with alttext "A termite mound in the savannah with a robot arm hanging out" with id temp with width 750 with height 1000;
+	let temp be the glulx resource id of the figure of Tool;
+	add-image "tool.jpeg" with alttext "A glowing futuristic tool over a dark background" with id temp with width 750 with height 1000;
+	let temp be the glulx resource id of the figure of Train;
+	add-image "train.jpeg" with alttext "A woman with sunglasses and a man with a bag standing in an elegant train car" with id temp with width 750 with height 562;
+	let temp be the glulx resource id of the figure of RealCover;
+	add-image "Cover.jpg" with alttext "A rainbow skull with spikes and the words Never Gives Up Her Dead" with id temp with width 720 with height 720;
+
+Arting is an action out of world. Understand "xyzart" as arting.
+
+Carry out arting:
+	display figure of Arawn;
+	display figure of Cottage;
+	display figure of Gem;
+	display figure of House;
+	display figure of Napoleon;
+	display figure of Robot;
+	display figure of Stonehenge;
+	display figure of Termites;
+	display figure of Tool;
+	display figure of Train;
+	display figure of RealCover;
+
+
+Table of Footnotes
+assignment	note	drawing
+1	"The game's cover art"	figure of RealCover
+--	"A mysterious woman with a skull-like mask"	figure of Arawn
+--	"An overgrown cabin"	figure of Cottage
+--	"A mysterious gem embedded in a pillar"	figure of Gem
+--	"A haunted house with a neon sign"	figure of House
+--	"A wax figure of Napoleon with an uncomfotably close sword"	figure of Napoleon
+--	"A rather silly-looking robot"	figure of Robot
+--	"A copy of Stonehenge floating in space"	figure of Stonehenge
+--	"A termite mound with a robot arm sticking out"	figure of Termites
+--	"A mysterious, glowing tool"	figure of Tool
+--	"Two suspicious figures inhabiting a train car"	figure of Train
+
+Footnotes mentioned is a number that varies. Footnotes mentioned is 1.
+
+[Whenever we mention a footnote for the first time, we need to assign it a number, which we will use consistently thereafter. And it's probably a good idea to protect ourselves against the author accidentally using a number too large for the footnote table, too. So:]
+
+Picsallowed is a truth state that varies. Picsallowed is true.
+
+Jailbreaking is an action out of world. Understand "xyzjailbreak" as jailbreaking.
+
+Carry out jailbreaking:
+	say "The game can now display images. This does not apply retroactively."
+
+To say (footnote - a number) as a footnote:
+	if picsallowed is true:
+		if footnote > number of filled rows in the Table of Footnotes:
+			say "Programming error: footnote assignment out of range.";
+		otherwise:
+			choose row footnote in the Table of Footnotes;
+			if there is an assignment entry:
+				say ". [bold type](Image [assignment entry])[roman type]";
+			otherwise:
+				increment footnotes mentioned;
+				choose row footnote in the Table of Footnotes;
+				now assignment entry is footnotes mentioned;
+				say ". [bold type](Image [assignment entry])[roman type]";
+
+
+[Now, in order to let the player view these footnotes, we'll need to parse numbers.]
+
+Understand "image [number]" as looking up a footnote.
+
+Looking up a footnote is an action out of world, applying to one number.
+
+Check looking up a footnote:
+	if the number understood > footnotes mentioned, say "You haven't seen that many images yet. Type IMAGES to see a list of all unlocked images." instead;
+	if the number understood < 1, say "Images are numbered from 1."
+
+Carry out looking up a footnote:
+	choose row with assignment of number understood in the Table of Footnotes;
+	let temp be drawing entry;
+	display temp;
+
+Imageing is an action out of world. Understand "images" as imageing.
+
+Carry out imageing:
+	say "You have seen the following images:[line break]";
+	repeat through the table of footnotes in assignment order:
+		if there is an assignment entry:
+			say "[assignment entry] - [note entry].";
+	say "[line break]To view an image, type IMAGE followed by the number of the entry you wish to see.  For instance, you can type IMAGE 1 to see the cover."
+
 
 Part 2 - Out of world actions
 
@@ -91,11 +228,11 @@ Crediting is an action out of world. Understand "Credits" as crediting.
 Carry out crediting:
 	say "This game was written by Brian Rushton/Mathbrush using Inform 7 (by Graham Nelson). Beta testers include Amanda Walker, John Ziegler, Jade, Christopher Merriner, Patrick Mooney, Brett Witty, Rovarsson, E. Joyce, Max Fog, Dee Cooke, Ian Greener, Chandler Groover, Lance Cirone, Zed Lopez, Cody Gaisser, Alex Proudfoot, Radioactive Crow, Doug Egan, Mike Spivey, Larry Horsfield, Dirk Spivey, Arthur DiBianca, Hal Rushton, Hidnook, Charm Cochran, Grueslayer, Lynnea Glasser, Wade Clarke, Onno Brouwer, Mel Jason, Tabitha, Daniel Worm, Mike Russo, and Robert Eggleston, who was also the first to beat the full game. 
 
-Bugs were found in subsequent versions by Max Fog, Garrett O., S B Wiegner, Reiko Yukawa, Chloe A and Sanont.
+Bugs were found in subsequent versions by Max Fog, Garrett O., S B Wiegner, Reiko Yukawa, Chloe A, Sanont, iaraya and igmkjp.
 
 Hanon Ondricek gave helpful advice about the concept and title. Phil Riley and Peter Bates made suggestions about coding. Mike Russo and Garry Francis gave poetry tips. Wade Clarke and Mike Russo (again) gave some prose tips. otistdog provided helpful Inform 6 code.
 
-Matt Weiner, N. Comier, Mike Sousa, Austin Auclair, Doug Egan, Pinkunz, and Charm Cochran served as inspiration for some puzzle content. Many of the standard Inform examples were used, but a lot of code was directly lifted from Under Contract, Example 205; Lethal Concentration 1 and 2, examples 255 and 257; Nickel and Dimed, example 262; Robo1 and Robo 2, examples 426 and 429; Entropy, example 182; The Cow Exonerated, example 401; In Fire or in Flood, example 401; Otranto, example 228.
+Matt Weiner, N. Comier, Mike Sousa, Austin Auclair, Doug Egan, Pinkunz, and Charm Cochran served as inspiration for some puzzle content. Many of the standard Inform examples were used, but a lot of code was directly lifted from Under Contract, Example 205; Lethal Concentration 1 and 2, examples 255 and 257; Nickel and Dimed, example 262; Robo1 and Robo 2, examples 426 and 429; Entropy, example 182; The Cow Exonerated, example 401; In Fire or in Flood, example 401; Otranto, example 228; Ibid., example 300.
 
 Original Cover art was made from photographs by NASA and the Space Telescope Science Institute (STScI) and by Sandra Rushton, my mother. Advice for original cover art was given by Sophia, Manonamora, Josh Grams, Cody Gaisser, Piergiorgio d'Errico, and piearty. The newer cover art was embroidered by Amanda Walker.
 
@@ -1709,7 +1846,7 @@ You are standing next to the display table, where everything you collected from 
 	now emrys-table is nowhere;
 	now emrys-seat is nowhere;
 
-Open-scene ends when the time since open-scene began is five minutes;
+Open-scene ends when open-scene has endured five.
 
 Speech-scene is a scene. Speech-scene begins when open-scene ends.
 
@@ -1932,9 +2069,10 @@ Now you are face to face with a woman in white wearing a skull mask, the top of 
 
 She raises something, and you notice she's holding a shovel covered in dirt. She uses the handle to push you back through the rift.
 
-***************************************************************************[line break]You are engulfed in a red haze, losing all sense of direction. Slowly the haze clears.[line break]***************************************************************************
-
-[Banner text][line break]Back on the other side, everything is in chaos. Several crew members are injured and are being helped to their feet. 
+***************************************************************************[line break]You are engulfed in a red haze, losing all sense of direction. Slowly the haze clears.[line break]***************************************************************************";
+		wait for any key;
+		display figure of RealCover;
+		say "[Banner text][line break]Back on the other side, everything is in chaos. Several crew members are injured and are being helped to their feet. 
 
 Gareth is looking around wildly, then sees you. 'Emrys!' he shouts. 'Are you okay? I didn't see you after the impact--'
 
@@ -2288,7 +2426,7 @@ Pride-room is a room in the wax-region. The printed name of Pride-room is "Napol
 To say pride-intro:
 	say "[first time]'Hello?' you say as you enter the dark building. 'Is anyone there?'
 
-Lights click on, and you jump in surprise. You let out a shout when the lights reveal a pointed weapon only inches from your face. Then you realize that your attacker isn't moving. 
+Lights click on, and you jump in surprise. You let out a shout when the lights reveal a pointed weapon only inches from your face[6 as a footnote]. Then you realize that your attacker isn't moving. 
 
 'A wax museum,' you say, breathily. Your dad used to take you to these when you were a kid. It was one of the things that got you to major in history in college, and it was also one of the reasons you wanted to be a Storyweaver. Although, you've never been in one alone before.
 
@@ -2858,7 +2996,7 @@ Gift-entryway is a scenery open unopenable door. Gift-entryway is east from prid
 
 Gift-room is a room. "[first time]The gift shop brings back a flood of memories. When you were younger, even in college, this part always seemed so fun: a way to buy something so that you could always hold onto the memory. Even then, you were concerned with the preservation of knowledge. Only now, you've seen too many material reminders decay or get left behind. Only the stories really last.
 
-[only]The gift shop for the wax museum is colorful and whimsical, to the point of being a little gaudy. 'MYSTERY AND HISTORY', the name of the museum, is displayed proudly. Much of the room is empty, perhaps due to the museum being closed. What's left is scattered around the edges of the room. There are a lot of informational posters on the wall[one of], about the wildest topics[or][stopping]: NATO, Bloody Mary, gold panning, [one of]even foosball![or]and foosball[stopping].[paragraph break]An incongruously somber coin machine stands neglected in one corner, labelled 'TOKENS FOR OBOLS'. Next to it is a door marked with an octagon, leading [boldnorth].
+[only]The gift shop for the wax museum is colorful and whimsical, to the point of being a little gaudy. 'MYSTERY AND HISTORY', the name of the museum, is displayed proudly. Much of the room is empty, perhaps due to the museum being closed. What's left is scattered around the edges of the room. There are a lot of informational posters on the wall[one of], about the wildest topics[or][stopping]: NATO, Bloody Mary, gold panning, [one of]even foosball! [or]and foosball. [stopping][paragraph break]An incongruously somber coin machine stands neglected in one corner, labelled 'TOKENS FOR OBOLS'. Next to it is a door marked with an octagon, leading [boldnorth].
 
 A meter stretches up the entire side of one wall: a sort of long indentation with seven marks at the side and an indicator. Right now, the indicator is at the mark labelled '[prize-level]'. 
 
@@ -3457,6 +3595,8 @@ Instead of searching the china-mud:
 	say "You could poke your hand in there, but you're not quite sure what it is you're trying to find."
 
 Understand "fill [something] with [something]" as withtaking it with (with nouns reversed).
+
+Understand "scoop [something] with [something]" as withtaking it with.
 
 Instead of withtaking the mud-bath with something:
 	if the diamond-ring is not nowhere:
@@ -4791,6 +4931,7 @@ Instead of pushing the cancel-soda:
 		repeat with current running through soda-buttons:
 			now soda-amount of current is 0;
 		now total-soda is 0;
+		now machinepushes is 0;
 	otherwise:
 		say "A mechanism acts as if it were dumping out the soda. The soda machine's robotic voice says, 'Filling may recommence.'";
 
@@ -5866,7 +6007,7 @@ Chapter 3 - Savanna
 
 Savanna-room is a room in the ecocosm-region. The printed name of Savanna-room is "Savanna". "Yellow grass grows all around you, and baobab trees dot the landscape. In almost every direction around you, you can see shimmering walls dividing the savanna from whatever's on the other side. The area gets colder to the [boldnorth] and hotter to the [boldeast]. Trees grow thicker to the [boldwest] and everything is wetter to the [boldsouth]. There is also [a zoo-ladder] leading [boldup].
 
-Nearby is an especially large baobab tree that long ago fell over. A termite mound has grown up around it[if the rotten-beam is nowhere], and [the ter-mites] are bustling around the beam you gave them[otherwise], and the [ter-mites] themselves are meandering around the area[end if]. An informational sign is affixed to the mound."
+Nearby is an especially large baobab tree that long ago fell over. A termite mound has grown up around it[if the rotten-beam is nowhere], and [the ter-mites] are bustling around the beam you gave them[otherwise], and the [ter-mites] themselves are meandering around the area[end if][first time][9 as a footnote][only]. An informational sign is affixed to the mound."
 
 [gate this area with something from garden dimension, probably food like carrots or something]
 
@@ -6629,7 +6770,7 @@ Instead of clapping or shouting or jumping or singing when a croaking animal is 
 	say "[The common-frog] [are] startled by your loud noise and stops croaking temporarily.";
 	now the common-frog is not croaking;
 
-Frogcroak is a recurring scene. Frogcroak begins when the common-frog is not croaking. Frogcroak ends when the time since frogcroak began is three minutes.
+Frogcroak is a recurring scene. Frogcroak begins when the common-frog is not croaking. Frogcroak ends when frogcroak has endured three.
 
 When frogcroak ends:
 	now the common-frog is croaking;
@@ -7130,6 +7271,9 @@ Understand "pet [something]" or "scratch [something]" as rubbing.
 Instead of rubbing a fun-wolf:
 	say "[The noun] allows you to pet him for a minute, but stays wary."
 
+Instead of showing the rubber-toy to an animal:
+	try giving the rubber-toy to the second noun;
+
 Instead of giving the rubber-toy to an animal:
 	if the second noun is the hyper-wolf:
 		say "[The hyper-wolf] grabs the rubber toy from you and runs in triumph around the den three times before rolling on his back and chewing on it.";
@@ -7477,7 +7621,7 @@ Instead of inserting something into the tool-pedestal:
 
 Section 2 - The curious tool itself
 
-The curious-tool is on the tool-pedestal. "A curious tool has been placed on top of the pedestal." The printed name of the curious-tool is "curious tool". Understand "curious" or "tool" or "cylinder" or "lockpick" or "flashlight" or "savoy" or "niche" or "niches" or "multitool" as the curious-tool. The description of the curious-tool is "This is a cylindrical device with a dial at one end. There are 8 niches that circle the tool[if a crystal-shard is part of the curious-tool], of which [the number of crystal-shards that are part of the curious-tool] are filled with crystal shards[end if].
+The curious-tool is on the tool-pedestal. "A curious tool has been placed on top of the pedestal[first time][10 as a footnote][only]." The printed name of the curious-tool is "curious tool". Understand "curious" or "tool" or "cylinder" or "lockpick" or "flashlight" or "savoy" or "niche" or "niches" or "multitool" as the curious-tool. The description of the curious-tool is "This is a cylindrical device with a dial at one end. There are 8 niches that circle the tool[if a crystal-shard is part of the curious-tool], of which [the number of crystal-shards that are part of the curious-tool] are filled with crystal shards[end if].
 
 [first time]There are several settings marked at the bottom. [only]The dial is currently set to [tool-mode of the curious-tool]. [toolmodelist]."
 
@@ -7615,7 +7759,8 @@ The tool sets itself to Inert.";
 			now curious-tool is Inert;
 		otherwise:
 			say "[line break]The tool beeps and a voice says, 'Connector activated.'";
-			say "[line break][bracket]To use the connector, simply OPEN a black rift while the tool has this setting, or POINT the tool AT the rift.[close bracket][line break]";
+			now curious-tool is lit;
+			say "[line break][bracket]To use the connector, simply OPEN a black rift while the tool has this setting, or POINT the tool AT the rift. This setting also provides light.[close bracket][line break]";
 	otherwise if the curious-tool is Harvester:
 		if the eighth-shard is not part of the curious-tool:
 			say "[line break]The tool beeps and a voice says, 'Harvester setting. You must upgrade your device for this setting to function.'
@@ -7626,7 +7771,8 @@ The tool sets itself to Inert.";
 			say "[line break]The tool beeps and a voice says, 'Harvester activated.'";
 			say "[line break][bracket]This setting allows you to harvest green rifts. Just POINT the tool AT the rift you wish to harvest. You will not be able to travel through it once you have harvested it. For safety reasons, you will not be allowed to harvest rifts in a way that could leave you stranded.[close bracket][line break]";
 	if curious-tool is not flashlight:
-		now curious-tool is not lit;
+		if curious-tool is not connector:
+			now curious-tool is not lit;
 
 Before unlocking a locked door with the curious-tool:
 	if the curious-tool is not lockpick:
@@ -7674,7 +7820,7 @@ REport examining a temporally-displaced thing:
 		if the curious-tool is locator:
 			let temp be the dimnumber of the noun;
 			choose the row with a dimorder of temp in the table of dimension names;
-			say "The tool beeps and says, 'This object belongs temporally to the location you titled ['][dimname entry][']'.";
+			say "The tool beeps and says, 'This object belongs temporally to the location you titled ['][dimname entry]['].'";
 
 AtPointing it at is an action applying to one carried thing and one visible thing. Understand "point [something] at [something]" as atpointing it at.
 
@@ -7716,7 +7862,7 @@ Carry out atpointing it at:
 			if the second noun is temporally-displaced:
 				let temp be the dimnumber of the second noun;
 				choose the row with a dimorder of temp in the table of dimension names;
-				say "The tool beeps and says, 'This object belongs temporally to the location you titled '[dimname entry]''.";
+				say "The tool beeps and says, 'This object belongs temporally to the location you titled ['][dimname entry]['].'";
 			otherwise:
 				say "The tool beeps and says, 'This object is not temporally displaced.'";
 		otherwise if the curious-tool is connector:
@@ -8354,7 +8500,7 @@ Instead of physicality when the noun is the tiny-red:
 	say "The rift is small enough that it's difficult to do anything with it."
 
 Every turn during red-scene:
-	if the time since red-scene began is 1 minute:
+	if red-scene has endured 1:
 		now the tiny-red is in the location;
 		now the tiny-red is red-torn;
 		say "A tiny red rift appears on top of the pedestal. The Diagnosis button once again appears on the pedestal.[paragraph break]";
@@ -8365,30 +8511,30 @@ Instead of physicality when the noun is a metal-ball:
 	say "The ball makes slight movements as you approach, keeping you from grabbing it."
 
 Every turn during red-scene:
-	if the time since red-scene began is 2 minutes:
+	if red-scene has endured 2:
 		now ball-2 is on the tool-pedestal;
 		say "Another ball, identical to the first, rolls out of the rift. The rift turns green.";
 		now tiny-red is green-torn;
 
 Every turn during red-scene:
-	if the time since red-scene began is 3 minutes:
+	if red-scene has endured 3:
 		now the tiny-red is nowhere;
 		say "The rift disappears from on top of the pedestal, leaving the two balls behind."
 
 Every turn during red-scene:
-	if the time since red-scene began is 4 minutes:
+	if red-scene has endured 4:
 		now the tiny-red is in the location;
 		now the tiny-red is red-torn;
 		say "Another rift appears, this one red."
 
 Every turn during red-scene:
-	if the time since red-scene began is 5 minutes:
+	if red-scene has endured 5:
 		now ball-1 is nowhere;
 		now the tiny-red is green-torn;
 		say "The original ball rolls into the red rift and disappears. The rift turns green.";
 
 Every turn during red-scene:
-	if the time since red-scene began > 5 minutes:
+	if red-scene has overendured 6:
 		if the tiny-red is not nowhere:
 			now the tiny-red is nowhere;
 			say "Finally, the rift disappears[if the diagnosis-button is part of the tool-pedestal], and the DIAGNOSIS button turns off[end if]. The metal ball sinks back into the base of the pillar";
@@ -9142,7 +9288,7 @@ Instead of pushing the open-button:
 	otherwise if the fifth-uprift is black-torn:
 		now the fifth-uprift is red-torn;
 		say "You press the button, and the rift opens, changing to red.";
-		if the time since time-paradox began is not 10 minutes:
+		unless time-paradox has endured 10:
 			now timescrambled is true;
 			say "[line break]But you seem to have opened it at the wrong time! Everything warps and crumbles around you.[line break]";
 	otherwise:
@@ -9154,7 +9300,7 @@ Instead of pushing the close-button:
 	otherwise if the fifth-uprift is not black-torn:
 		now the fifth-uprift is black-torn;
 		say "You press the button and the rift closes, changing to black.";
-		if the time since time-paradox began is not 14 minutes:
+		unless time-paradox has endured 14:
 			now timescrambled is true;
 			say "But you seem to have closed it at the wrong time! Everything warps and crumbles around syou.";
 	otherwise:
@@ -9196,49 +9342,49 @@ Instead of entering the fifth-uprift:
 			say "The rift turns green.";
 		if time-paradox is not happening:
 			say "Something seems off about the rift. You remain outside.";
-		otherwise if the time since time-paradox began is 11 minutes:
+		otherwise if time-paradox has endured 11:
 			do nothing;
-		otherwise if the time since time-paradox began is 13 minutes:
+		otherwise if time-paradox has endured 13:
 			do nothing;
 		otherwise:
 			say "You enter the rift, but it must have been at the wrong time. Everything warps around you.";
 			now timescrambled is true;
 
 Every turn during time-paradox:
-	if the time since time-paradox began is 1 minute:
+	if time-paradox has endured 1:
 		say "You watch as the rift turns red.";
 		now the fifth-uprift is red-torn;
-	if the time since time-paradox began is 2 minutes:
+	if time-paradox has endured 2:
 		say "[one of]To your surprise, a[or]A[stopping] copy of you enters through the rift. She stops, staring at you for a moment. She's holding what looks to be a caramel apple.";
 		now temporal-emrys is in the glassed-area;
-	if the time since time-paradox began is 3 minutes:
+	if time-paradox has endured 3:
 		say "The copy of you takes the caramel apple and puts it in the food disposal. The disposal whirs it away. She sneaks an awkward glance at you.";
 		now the caramel-apple is nowhere;	
-	if the time since time-paradox began is 4 minutes:
+	if time-paradox has endured 4:
 		say "The copy of you disappears into the rift. It looks like she's being swallowed whole. Once she is gone, the rift slowly turns green.";
 		now temporal-emrys is nowhere;
 		now the fifth-uprift is green-torn;	
-	if the time since time-paradox began is 5 minutes:
+	if time-paradox has endured 5:
 		say "The rift closes, becoming black again. The glass opens, and you can enter the glassed area.";
 		now the fifth-uprift is black-torn;
 		now the glassed-area is open;
-	if the time since time-paradox began is 10 minutes:
+	if time-paradox has endured 10:
 		if the fifth-uprift is not red-torn:
 			say "You created a paradox.";
 			now timescrambled is true;
-	if the time since time-paradox began is 11 minutes:
+	if time-paradox has endured 11:
 		if the glassed-area is not closed:
 			say "You created a paradox.";
 			now timescrambled is true;
-	if the time since time-paradox began is 12 minutes:
+	if time-paradox has endured 12:
 		if the caramel-apple is not nowhere:
 			say "Something has gone wrong with the time loop. Everything crumbles around you.";
 			now timescrambled is true;
-	if the time since time-paradox began is 13 minutes:
+	if time-paradox has endured 13:
 		if the glassed-area is closed:
 			say "Something has gone wrong with the time loop. Everything crumbles around you.";
 			now timescrambled is true;
-	if the time since time-paradox began is 14 minutes:
+	if time-paradox has endured 14:
 		if the fifth-uprift is not black-torn:
 			say "Something has gone wrong with the time loop. Everything crumbles around you.";
 			now timescrambled is true;
@@ -10441,7 +10587,7 @@ Before opening a crystal-door:
 
 The dormant-time is a scene-rift. Understand "rift"as the dormant-rift. The dormant-time is black-torn. The printed name of the dormant-time is "[rift-style] rift". Understand "rift" as the dormant-time. The description of the dormant-time is "This [rift-style] rift is in the center of the room, and is larger than the other rift.".
 
-The diagnose-text of dormant-time is "DIAGNOSIS:[line break]Creation date: 0203/51[line break]Type: [if the fifth-uprift is black-torn] Black (originally Red)[otherwise] Red[end if] [line break]Separation type: Temporal[line break]Separation distance: 3 minutes"
+The diagnose-text of dormant-time is "DIAGNOSIS:[line break]Creation date: 0203/51[line break]Type: [if the dormant-time is black-torn] Black (originally Red)[otherwise] Red[end if] [line break]Separation type: Temporal[line break]Separation distance: 3 minutes"
 
 The diagnose-text of dormant-out is "DIAGNOSIS:[line break]Creation date: 0203/51[line break]Type: [if the dormant-out is black-torn] Black (originally Red)[otherwise] Red[end if] [line break]Separation type: Temporal[line break]Separation distance: 3 minutes". The dormant-out is improper-named.
 
@@ -10753,7 +10899,7 @@ Every turn when the player is in yang-two:
 
 '...energy sources. We've started creating crystals with that same energy of the Storyweaver...'[or]The next voice you hear is Sanya's voice...or maybe an older version of Divya?
 
-'...all thanks to Emrys. That's why we've agreed to make this the day of Weft's End a holiday...'[or]The Captain's voice returns:
+'...all thanks to Emrys. That's why we've agreed to make the day of Weft's End a holiday...'[or]The Captain's voice returns:
 
 '...least we can do after what happened to her...'[or]You can hear officer Mefe's voice:
 
@@ -11039,7 +11185,7 @@ The Vegetable-room is a room in the garden-region. The printed name of Vegetable
 
 [only]You are standing in an overgrown vegetable garden which, from the look of it, hasn't been tended in years. Plants grow thickly over the edges of the plots, and any path there once might have been is gone. [skydesc in row currenttime of the Table of Veg Descriptions].
 
-The garden is mostly surrounded by an old forest. To the [boldsouth] is a cabin in need of repair. To the [boldwest] rises a hill, and to the [boldeast] you can see more of the garden."
+The garden is mostly surrounded by an old forest. To the [boldsouth] is a cabin in need of repair[first time][3 as a footnote][only]. To the [boldwest] rises a hill, and to the [boldeast] you can see more of the garden."
 
 Understand "dawn" as the cloudy-sky when currenttime is sunrise.
 Understand "dusk" as the cloudy-sky when currenttime is sunrise.
@@ -12857,7 +13003,7 @@ The 8-page is a journal-page. The page-number of 8-page is 8. The description of
 
 I decided I was going to do it. To change something. I know by now that some of this journal will end up in the Record. So I decided to see if I even had the power to change things. To edit one page. A single sentence. Contradicting the Record just that little bit.
 
-I knew it might change my past. It might erase me completely. But that's what they say, and how can I know that they're not just lying? Trying to manipulate me? Maybe they tell everyone these things; maybe every person I see in town is secretly being fed information from Central saying 'You're special. You're chosen. Your path is laid out'.
+I knew it might change my past. It might erase me completely. But that's what they say, and how can I know that they're not just lying? Trying to manipulate me? Maybe they tell everyone these things; maybe every person I see in town is secretly being fed information from Central saying 'You're special. You're chosen. Your path is laid out.'
 
 So I sat down to...I don't know. Try to change my future, and so to change my past. But I couldn't do it. My hand just started shaking. I began to panic. What, I thought, what if I had already changed it once? What if I was so lonely now because I had erased someone I loved from my actions? What if my life was so screwed up because I had ruined things already?
 
@@ -13447,7 +13593,7 @@ Stonehenge-region is a region. Stonehenge-region is in monument-region.
 
 Section 1 - Stonehenge East and Thing for plant dimension
 
-The stonehenge-east is a room in stonehenge-region. The printed name of the stonehenge-east is "East of Stonehenge". The description of the stonehenge-east is "[first time]Passing out of the rift, you stumble; something is off about the gravity here. You steady yourself on a nearby rock. Looking up, you realize: [only]you are standing on the eastern side of Stonehenge on an island floating in space. The stars fill the sky above you. Other than that, the only thing that sticks out is a large pillar far to the west[first time].
+The stonehenge-east is a room in stonehenge-region. The printed name of the stonehenge-east is "East of Stonehenge". The description of the stonehenge-east is "[first time]Passing out of the rift, you stumble; something is off about the gravity here. You steady yourself on a nearby rock. Looking up, you realize: [only]you are standing on the eastern side of Stonehenge on an island floating in space[first time][8 as a footnote][only]. The stars fill the sky above you. Other than that, the only thing that sticks out is a large pillar far to the west[first time].
 
 You get a sense that you are trespassing, somehow. But that's never stopped you before[only]. 
 
@@ -13989,7 +14135,7 @@ After closing the office-door:
 
 Section 8 - Fumigation scene
 
-Fumigation-scene is a recurring scene. Fumigation-scene begins when the sulfur-dispenser is switched on. Fumigation-scene ends when the time since Fumigation-scene began > nine minutes.
+Fumigation-scene is a recurring scene. Fumigation-scene begins when the sulfur-dispenser is switched on. Fumigation-scene ends when Fumigation-scene has overendured ten.
 
 When fumigation-scene begins:
 	say "Clouds of sulfur dioxide begin pumping out of the vent, colored yellow by some dye within the machine. The gas pours down the ladder.";
@@ -15221,6 +15367,16 @@ Instead of switching on or switching off the busted-calculator:
 Does the player mean pushing or entering a journal-page:
 	it is very unlikely;
 
+Instead of pushing a journal-page when the busted-calculator is enclosed by the player:
+	let temp be page-number of the noun;
+	let temp2 be temp times 1.0;
+	try calcinputting temp2 with the busted-calculator instead;
+
+Instead of entering a journal-page when the busted-calculator is enclosed by the player:
+	let temp be page-number of the noun;
+	let temp2 be temp times 1.0;
+	try calcinputting temp2 with the busted-calculator instead;
+
 Rule for deciding whether all includes things while pushing or entering (this is the fix the calculator rule):
 	if the busted-calculator is enclosed by the player:
 		it does not;
@@ -15329,7 +15485,7 @@ To say error-display:
 	
 The calc-display is a real number that varies. The calc-display is 0.0000.
 
-Calcinputting is an action applying to a real number and one thing. Understand "type [a real number] on/in/onto/into [busted-calculator]" or "enter [a real number] on/in/onto/into [busted-calculator]" or "push [a real number] on/in/onto/into [busted-calculator]" or "input [a real number] on/in/onto/into [busted-calculator]" as calcinputting when the busted-calculator is enclosed by the location.
+Calcinputting it with is an action applying to a real number and one thing. Understand "type [a real number] on/in/onto/into [busted-calculator]" or "enter [a real number] on/in/onto/into [busted-calculator]" or "push [a real number] on/in/onto/into [busted-calculator]" or "input [a real number] on/in/onto/into [busted-calculator]" as calcinputting it with when the busted-calculator is enclosed by the location.
 
 Does the player mean pushing a journal-page:
 	it is very unlikely;
@@ -15337,7 +15493,7 @@ Does the player mean pushing a journal-page:
 Does the player mean entering a journal-page:
 	it is very unlikely;
 
-Carry out calcinputting:
+Carry out calcinputting it with:
 	if the busted-calculator is for sale:
 		say "The shopkeeper waves you away.";
 	otherwise if last-button is an arithmetic-button:
@@ -18157,7 +18313,7 @@ The front-room is in haunted-region.
 
 The front-room is a room. The printed name of the front-room is "Front Yard". The description of the Front-room is "You are standing before an asymmetrical, well-preserved Victorian mansion with a tower on one side and steps up to a door on the other. The sky is overcast, making it hard to tell the time of day. An overgrown flowerbed lies in stark contrast to the tidy-looking mansion.
 
-A bright red neon sign is attached incongruously to the house, saying 'Monsters Inside'.
+A bright red neon sign is attached incongruously to the house, saying 'Monsters Inside'[first time][5 as a footnote][only].
 
 To the [boldnorth], you can enter the parlor of the mansion. To the [boldeast] lies a dark and foreboding river[first time]. [mentionpsych][The initial appearance of the psych-tear]
 
@@ -19256,7 +19412,7 @@ Before entering upper-stairs:
 
 Chapter 17 - Spire
 
-The castle-spire is a room in castle-region. The printed name of the castle-spire is "Spire". The description of the castle-spire is "This room is unusual. Most of it looks like a run-down castle spire made of stone and wood, but one wall is made of solid stainless steel. A dedication plaque is fixed to the wall. The only way out of here is [bolddown]."
+The castle-spire is a room in castle-region. The printed name of the castle-spire is "Spire". The description of the castle-spire is "This room is unusual. Most of it looks like a run-down castle spire made of stone and wood, but one wall is made of solid stainless steel. A dedication plaque is fixed to the wall. [if tower-blue is in castle-spire]You can go [bolddown] or through the rift to the [boldeast][otherwise]The only way out of here is [bolddown][end if]."
 
 The stone-wood is plural-named scenery in castle-spire. The printed name of stone-wood is "castle materials". Understand "stone" or "wood" or "castle" or "spire" or "material" or "materials" as the stone-wood. The description of the stone-wood is "All of the materials making up the castle and spire seem old and crumbling, except for the wall. There is a hole near the top."
 
@@ -19279,7 +19435,7 @@ Gareth's calm head and quick thinking prevented mass panic during the near-fatal
 
 In later years, Gareth went on to pioneer the use of holo-chambers for therapy. For his decades of service, we dedicate this holo-chamber to him.[roman type]"
 
-Report examining the spire-plaque:
+Report examining the spire-plaque when spire-bot is not nowhere:
 	say "Once you've finished reading the plaque, the monkey robot drops the action figure at your feet, then bounds out a hole in the spire, leaving you alone.";
 	now gareth-toy is in castle-spire;
 	now the spire-bot is nowhere;
@@ -19293,6 +19449,8 @@ After taking the gareth-toy when tower-blue is nowhere:
 As you do so, a blue rift opens up to the [boldeast].";
 	change the east exit of castle-spire to front-room;
 	now the tower-blue is scenery in the location;
+	
+The diagnose-text of tower-blue is "DIAGNOSIS:[line break]Creation date: 1205/51[line break]Type: Blue [line break]Separation type: Spatial[line break]Separation distance: 722 meters"
 
 The tower-blue is a thing. Understand "rift" or "blue" as the tower-blue. The printed name of the tower-blue is "blue rift". The description of the tower-blue is "This rift looks like the red ones you've seen, but blue in color."
 
@@ -20241,7 +20399,7 @@ Arthurknown is a truth state that varies. Arthurknown is false.
 
 [Arthur is Mr. Casaubon]
 
-The Arthur is a male suspect in first-class. "[if arthurknown is false]A bearded man with thick glasses and a slightly dirty plaid shirt [otherwise]Arthur [end if]is sitting here with an annoyed look on his face. He clutches a [arthur-briefcase]. "
+The Arthur is a male suspect in first-class. "[if arthurknown is false]A bearded man with thick glasses and a slightly dirty plaid shirt [otherwise]Arthur [end if]is sitting here with an annoyed look on his face. He clutches a [arthur-briefcase][first time][11 as a footnote][only]. "
 
 The description of arthur is "[The arthur] looks to be middle-aged, with an air of confidence bordering on arrogance. He has a heavy beard and wears thick glasses. His plaid shirt is a bit dirty. He's holding a battered leather briefcase.
 
@@ -21919,7 +22077,6 @@ Instead of giving the weird-chip to mefe:
 'It took quite a while,' you say. 'But I'm glad it will help.'";
 	now weird-chip is nowhere;
 	if maneuver-quip is targetgiven:
-		say "[line break]";
 		mefemaneuver;
 		say "."
 
@@ -23294,7 +23451,10 @@ Major-switch is a scene. Major-switch begins when secondtime occurs and the play
 
 Every turn when the train-corpse is not nowhere:
 	if major-switch has happened:
-		if the time since major-switch began is one minute:
+		if major-switch has endured one:
+			if the player is not in second-class:
+				say "You hear someone call you into second class.";
+				now the player is in second-class;
 			say "A whistle blows, and the train begins to slow down.
 
 You've arrived at a station. Multiple individuals in police uniforms come in and surround the body, taking pictures and collecting evidence.
@@ -23768,7 +23928,7 @@ Chapter 2 - Gem chamber
 
 The gem-room is a dark room in bigspell-region. The printed name of gem-room is "Gem Room". The description of the gem-room is "You are in a perfectly hemispherical room. The floor is some kind of flat concrete or dull rock, while the dome that bounds the room is dark, opaque glass. There is a loud hum all around you, and you get the impression of being far underground. There is a hatch in the floor with an octagon symbol, leading [bolddown].
 
-In the center of the room is a pedestal that nestles a single, gray gem[if the gray-gem is active] which emits a sickly gray light[end if]."
+In the center of the room is a pedestal that nestles a single, gray gem[if the gray-gem is active] which emits a sickly gray light[end if][first time][4 as a footnote][only]."
 
 Rule for printing the description of a dark room when the player is in gem-room: 
 	say "This room is almost entirely dark. All you can see are the [if the hallway-tear is red-torn]red[otherwise]green[end if] rift leading [boldnorth] and the faint outline of a metal hatch leading [bolddown]. Nothing else in this room can be seen in the intense darkness." instead.
@@ -24254,7 +24414,7 @@ Rubberytime is a recurring scene. RUbberytime begins when rubbery-player is true
 
 Rubberytime ends abruptly when the player is not in spell-region.
 
-Rubberytime ends normally when the time since rubberytime began > 2 minutes.
+Rubberytime ends normally when rubberytime has overendured 3.
 
 Rubberytime ends forgetfully when anghofiotime begins.
 
@@ -24668,11 +24828,10 @@ Before doing something during falling-scene:
 		 do nothing;
 	otherwise if the current action is spellcasting:
 		 do nothing;
-	otherwise if the current action is going nowhere:
-		if the noun is down:
-			say "You let go.
+	otherwise if the current action is going nowhere and the noun is down:
+		say "[if the player is in air-scroll]You let go.
 
-You pass out before you hit the water.
+[end if]You pass out before you hit the water.
 
 [sand-dying]";
 		now the player is in end-room instead;
@@ -25084,9 +25243,9 @@ Before doing something other than freeacting or spellcasting or taking during gr
 Gripped-scene ends normally when the player is not in stranger-room.
 
 Every turn during Gripped-scene:
-	if the time since gripped-scene began is 0 minutes:
+	if gripped-scene has endured 0:
 		do nothing;
-	otherwise if the time since gripped-scene began is at most 3 minutes:
+	otherwise unless gripped-scene has overendured 4:
 		say "The old man pulls you very slowly towards himself. You can't get his arm off.";
 	otherwise:
 		say "The old man tugs you all the way up to his face. 'Thanks so much for stopping by. I'll tell Gran you said hello,' he says. 
@@ -25170,7 +25329,7 @@ Flyingtime ends abruptly when the player is not in spell-region.
 Flyingtime ends bizarrely when the player is in end-room.
 Flyingtime ends forgetfully when anghofiotime begins.
 
-Flyingtime ends normally when the time since flyingtime began > 4 minutes.
+Flyingtime ends normally when flyingtime has overendured 5.
 
 When flyingtime ends normally:
 	say "The air around you condenses into a dark mist, which invades your mouth, eyes and ears. The gritty material pours into you, and you feel weight coming back into your body.
@@ -25324,7 +25483,7 @@ Anghofioflag is a truth state that varies. Anghofioflag is false.
 
 anghofiotime is a recurring scene. anghofiotime begins when anghofioflag is true.
 
-Anghofiotime ends when the time since anghofiotime began is 1 minutes.
+Anghofiotime ends when anghofiotime has endured 1.
 
 When anghofiotime ends:
 	now anghofioflag is false.
@@ -25366,13 +25525,13 @@ The dark absorbs all the light instantly, leaving the flames visible but unhelpf
 Player-burning is a recurring scene. Player-burning begins when playeraflame is true.
 
 Every turn during player-burning:
-	if the time since player-burning began is 1 minutes:
+	if player-burning has endured 1:
 		say "The flames that wreathe you grow taller and significantly more painful.";
-	if the time since player-burning began is 2 minutes:
+	if player-burning has endured 2:
 		say "Your skin is beginning to crispen in the flames.";
-	if the time since player-burning began is 3 minutes:
+	if player-burning has endured 3:
 		say "It is difficult to breathe as the fire burns away all the oxygen. The pain makes it difficult to [if flying-player is true]fly[otherwise]walk[end if].";
-	if the time since player-burning began is 4 minutes:
+	if player-burning has endured 4:
 		say "The flames are consuming you. With one last gasp, you fall to the ground.
 
 [Sand-Dying]";
@@ -25808,7 +25967,7 @@ When rottingtime ends:
 	now rotting-player is false;
 	now pustule-ooze is nowhere;
 
-rottingtime ends normally when the time since rottingtime began > 2 minutes.
+rottingtime ends normally when rottingtime has overendured 3.
 
 rottingtime ends forgetfully when anghofiotime begins.
 
@@ -25945,7 +26104,7 @@ Chapter 14 - Flesh
 
 The flesh-room is east from desolation-room. The flesh-room is a room in spell-region. The printed name of flesh-room is "Growth Chamber". "Filled with malformed growths and lit by the flickering flames from the [boldwest], it is difficult to make out anything at all in this room.
 
-But with effort, you can see that the growths are unfinished creatures emerging from the room itself. They bud like quick-growing fungi, pulling themselves from the ground. Once they emerge, they spring upwards, higher and higher on the sheer walls until they are out of sight.
+But, with effort, you can see that the growths are unfinished creatures emerging from the room itself. They bud like quick-growing fungi, pulling themselves from the ground. Once they emerge, they spring upwards, higher and higher on the sheer walls until they are out of sight.
 
 The fully-formed creatures look similar to deer or goats with bodies the same gritty dark color as the floor. Several of the creatures are clearly wrong, with missing limbs or asymmetrical bodies. Those that can walk stagger to their feet and out of the room to the west; those that can't are devoured by the others."
 
@@ -26025,11 +26184,11 @@ When hunter-scene ends fearfully:
 	say "The smell that was following you fades quickly away when you enter this room.";
 
 Every turn during hunter-scene:
-	if the time since hunter-scene began is 1 minute:
+	if hunter-scene has endured 1:
 		say "You smell a strong odor near you.";
-	otherwise if the time since hunter-scene began is 3 minutes:
+	otherwise if hunter-scene has endured 3:
 		say "The strong odor just won't go away. It smells like it's right next to you.";
-	otherwise if the time since hunter-scene began > 4 minutes:
+	otherwise if hunter-scene has overendured 5:
 		if the player is not in end-room:
 			say "You feel sharp teeth pierce through your shoulder, and you are dragged screaming into the air.
 
@@ -26423,7 +26582,7 @@ It hurts...it hurts. The pain is all you can think of. It makes you absolutely f
 
 Rage-scene is a recurring scene. Rage-scene begins when enraged-player is true.
 
-Rage-scene ends normally when the time since rage-scene began is three minutes.
+Rage-scene ends normally when rage-scene has endured three.
 
 Rage-scene ends forgetfully when anghofiotime begins.
 
@@ -27272,7 +27431,7 @@ Section 1 - Andy
 
 Andyknown is a truth state that varies. Andyknown is false.
 
-An Andy is a man in combat-lobby. The printed name of Andy is "[if andyknown is true]Andy[otherwise]beaming man[end if]". "[An andy] bobs back and forth excitedly[first time]. 'Hello, Emrys! Looks like we're right on schedule,' he says from afar, wiggling his fingers at you. Something about him immediately puts you on edge.[deliverpardon][only]."
+An Andy is a man in combat-lobby. The printed name of Andy is "[if andyknown is true]Andy[otherwise]beaming man[end if]". "[An andy] bobs back and forth excitedly[first time]. 'Hello, Emrys! Looks like we're right on schedule,' he says from afar, wiggling his fingers at you. Something about him immediately puts you on edge[deliverpardon][only]."
 
 Understand "beaming" or "Man" or "blue" or "bright" or "toupee" or "suit" or "waist" or "bunch" or "bunches" or "Feet" as andy. The description of andy is "[The Andy] is short, wearing a suit that bulges tight around his waist and bunches up near his feet."
 
@@ -27491,7 +27650,7 @@ The shutters are closed, and the kitchen is no longer visible[end if]."
 To say maxdesc:
 	say "[one of]As you enter, the glass-walled room lights up. You see a kitchen, a rather shabby one at that.
 
-In the middle of the kitchen stands a boxy robot with crimson and navy markings spelling MAX on his chest. He looks up at you and waves.
+In the middle of the kitchen stands a boxy robot with crimson and navy markings spelling MAX on his chest[7 as a footnote]. He looks up at you and waves.
 
 A voice crackles around you. 'Can you hear me?' asks the robot. You nod. 'Let's check if sound is working. Say, [']MAX, WAVE['].'
 
@@ -27963,7 +28122,7 @@ Every turn during assembly-scene:
 	if assembly-timer > 0:
 		say "A pleasant mechanical voice says, 'You have [assembly-timer] minute[if assembly-timer is not 1]s[end if] remaining to assemble your robot!'";
 
-Assembly-scene ends normally when the time since assembly-scene began is 6 minutes.
+Assembly-scene ends normally when assembly-scene has endured 6.
 
 When assembly-scene ends normally:
 	say "A voice says, 'Time's up!'
@@ -29880,7 +30039,7 @@ The targetresponse of rec-quip is "'Yes, and I didn't quite expect that,' she sa
 
 'So you're a Storyweaver, too,' you point out. 'Are we...?'
 
-'Related? No. As far as I can tell, your descendants remained on earth and are quite ordinary. No, I am just a person, like you. Quite a bit like you, in fact, which I'd like to talk about later. But I've been sending you messages in the other areas. Journal pages, for instance. And hints under the name SpikySpiderSkull.'
+'Related? No. As far as I can tell, your descendants remained near earth and are quite ordinary. No, I am just a person, like you. Quite a bit like you, in fact, which I'd like to talk about later. But I've been sending you messages in the other areas. Journal pages, for instance. And hints under the name SpikySpiderSkull.'
 
 'About that, what's up with the skull mask?' you ask.
 
@@ -30420,7 +30579,7 @@ To trigger-reception:
 
 Museum-scene is a scene. Museum-scene begins when the player is in map-region.
 
-Museum-scene ends when the time since museum-scene began is 20 minutes. 
+Museum-scene ends when museum-scene has endured 20. 
 
 When museum-scene ends:
 	if receptionready is false:
@@ -30668,7 +30827,7 @@ When party-scene begins:
 
 Every turn during party-scene: 
 	assign clumping;
-	if the time since party-scene began > 9 minutes:
+	if party-scene has overendured 10:
 		if party-andy is in party-region:
 			now party-andy is nowhere;
 			now party-max is in the location of the player;
@@ -30879,7 +31038,7 @@ Intent-quip is a quip. The target of intent-quip is arawn webster. Understand "I
 
 The targetresponse of intent-quip is "'For several reasons. One is to celebrate the true Day of Weft's End; we've been waiting for it for centuries, after all.
 
-'Another reason is to provide a record of you in this time. Everything is being uploaded to holographic cameras. I'm sure that all of our citizens would love to see, but you would be swamped.
+'Another reason is to provide a record of you in this time. Everything is being uploaded to holographic cameras. I'm sure that all of our citizens would love to see you, but you would be swamped.
 
 'But I suppose that most of all, I didn't want to be alone right now. And if I invited anyone, I wanted it to be people that you knew. As well as Morgan,' she says.
 
@@ -30925,7 +31084,7 @@ Section 10 - Social Dynamics
 
 A person can be complacent or bored.
 
-Party-scene ends when the time since party-scene began is 20 minutes.
+Party-scene ends when party-scene has endured 20.
 
 When party-scene ends:
 	say "Everything flickers into darkness for a moment, and the whole spire shudders. Everyone goes silent.
@@ -31527,7 +31686,7 @@ She presses the silver device on her wrist, and the ground shakes. The pedestal 
 
 'It is time,' she says, and taps several buttons on the pedestal.
 
-The tool begins to flash, and Arawn backs away, pulling you with her. Then with a completely silent and still explosion, the largest rift you've ever seen opens in front of you, a red rift with a trail of energy that extends up into the sky. The pedestal lowers again, taking the tool with it.
+The tool begins to flash, and Arawn backs away, pulling you with her. Then, with a completely silent and still explosion, the largest rift you've ever seen opens in front of you, a red rift with a trail of energy that extends up into the sky. The pedestal lowers again, taking the tool with it.
 
 Arawn looks at you and holds up your recorder in her hand, the one she took from you earlier. 'This is what changed history,' she said. 'This is what matters. It's time to make your choice. Either you can wear the recorder, and sacrifice yourself to save your ship, or you can give it back to me, and I can do it for you. It will cost you nothing: merely a stranger's death.'
 
@@ -32017,7 +32176,10 @@ Understand "rinse [something] in [the streaming-water]" as inserting it into.
 Understand "wash [something preferably held]" as washing when the player is in coolant-room.
 
 Instead of washing when the player is in coolant-room:
-	try inserting the noun into the streaming-water;
+	if the streaming-water is enclosed by the location:
+		try inserting the noun into the streaming-water;
+	otherwise:
+		say "With the pipe no longer sagging, the water is not currently available.";
 
 Intenseashremoval is an action applying to two things. Understand "pour out/-- [burnt-pile] on [something]" or "empty [burnt-pile] on [something]" or "pour out/-- [metal-bowl] on [something]" or "empty [metal-bowl] on [something]" as Intenseashremoval when the player is in coolant-room.
 
@@ -32570,6 +32732,28 @@ Instead of turning the block-valve:
 This will be the end of her story[otherwise]You are aware of that. You are also aware that, as it cools off the fuel, it will form clouds of superheated steam. There is no way you will be able to survive this. But you never intended to anyway[end if]. Do you wish to proceed?";
 				if the player consents:
 					say "[We] [turn] the valve. Water pours out of the valve and into the primary containment chamber. It hits the fuel, and there is a flash.";
+					if the player is arawn:
+						say "[line break]Time slows down for Arawn, as she considers herself. Once, she was the ruler of a spacefaring civilization. Now, she is lost in the past, with not a soul in the universe who knows her. Those watching her now, and those who will find her body, won't even know that she is Arawn. She's just a substitute, a scapegoat, a sacrifice for someone else, for Emrys. For the future.
+
+How odd, she thinks, to be yet another false Emrys. How many such phantoms have there been? A holographic reflection; a nanobot body; a wax figure; a copy of Emrys from the future. Is she no better than any of them? Just a shadow of a legend, doomed to obscurity?
+
+But then, as the heat becomes unbearable, she reflects on what does make her different: she offers this sacrifice of her own free will. She wants this, to protect her future. And there will be some in that distant day who will keep her memory dear.";
+					otherwise:
+						say "[line break]As the steam rushes towards you, your life flashes before your eyes, a thousand tiny moments:
+
+Sitting at the kitchen counter, talking to your mother, watching her chop onions while you tell her about your day.
+
+Listening to Elvis with your father outside while he taught you the difference between carrots and weeds in the garden.
+
+Practicing stories in the mirror as an apprentice Storyweaver, repeating them over and over so you wouldn't trip over your words.
+
+Riding home from the hospital a month before your fourth child was born, watching the snow-covered trees roll by while you felt her kick.
+
+Calling your grandchildren to read them a bedtime story, knowing they would soon grow up and raise families of their own.
+
+Deciding to leave it all behind, and stake your hopes on the future.
+
+Today hasn't made you who you are, it only revealed what was always within, the product of a million insignificant choices. And being here, dying for the sake of a barely-known future, you can't think of a better way to spend your last breaths.";
 					say "[line break]***************************************************************************[line break]";
 					say "[We] [are] engulfed in a white haze. Everything fades away.";
 					say "***************************************************************************[paragraph break]This is the story of how [if the player is arawn]Arawn Webster dies[otherwise]you die[end if]. [Our] story has come to an end.
@@ -33193,13 +33377,19 @@ To read is a verb. To find is a verb. TO skim is a verb
 
 The description of the nuclear-manual is "[one of][We] [adapt the verb read] the first page.
 
-It describes the reactor [nameus] [if the player is arawn]is[otherwise]are[end if] in as a BWR, or Boiling Water Reactor, running on enriched uranium and using light water (i.e. water without heavy isotopes such as deuterium). There are eight such reactors located near the center of the ship[or][We] [adapt the verb skim] forward until [we] [adapt the verb find] something helpful.
+It describes the reactor [nameus] [if the player is arawn]is[otherwise]are[end if] in as a BWR, or Boiling Water Reactor, running on enriched uranium and using light water (i.e. water without heavy isotopes such as deuterium). There are eight such reactors located near the center of the ship.
 
-On one page, it says that this reactor functions by pumping water through the primary containment (the area housing the reactor itself), where it becomes heated to the boiling point. That is then pumped away, where it transfers heat to multiple steam generation units that generate electricity. Much of the excess heat is used to warm the living quarters[or][We] [adapt the verb skim] forward until [we] [adapt the verb find] something helpful.
+It looks like there's more to read[or][We] [adapt the verb skim] forward until [we] [adapt the verb find] something helpful.
+
+On one page, it says that this reactor functions by pumping water through the primary containment (the area housing the reactor itself), where it becomes heated to the boiling point. That is then pumped away, where it transfers heat to multiple steam generation units that generate electricity. Much of the excess heat is used to warm the living quarters.
+
+It looks like there's more to read[or][We] [adapt the verb skim] forward until [we] [adapt the verb find] something helpful.
 
 On one page, it says that the reactor has several emergency shutdown systems, including a scram system, in which control rods are held suspended over the fuel rods by electromagnets so that any interruption to the power source can cause the rods to drop. 
 
-However, due to a phenomenon known as decay heat, a reactor can continue to radiate intense heat after a shutdown. Unless the fuel is cooled, a meltdown can occur. This is when the uranium becomes hot enough to melt itself and the surrounding containment structures, spilling into the surrounding area. This would be catastrophic[or]This is the final page.
+However, due to a phenomenon known as decay heat, a reactor can continue to radiate intense heat after a shutdown. Unless the fuel is cooled, a meltdown can occur. This is when the uranium becomes hot enough to melt itself and the surrounding containment structures, spilling into the surrounding area. This would be catastrophic.
+
+It looks like there's more to read[or]This is the final page.
 
 It gives the shutdown procedures that must be followed before personnel are allowed in the reactor core after an emergency shutdown:
 
@@ -34678,7 +34868,7 @@ Tiffany stares at you, and at the door. 'Thanks,' she says, and staggers into th
 
 'I was never frozen, you know,' you tell her.
 
-'That's what they make you think,' she says, shaking her head. Tiffany sits in the pod seat, then pushes a button. The door closes, and you hear a whooshing noise followed by a slow rumbling. There is a 'ding' noise. It seems like the next pod is behind the door[removetiff]."
+'That's what they make you think,' she says, shaking her head. Tiffany sits in the pod seat, then pushes a button. The door closes, and you hear a whooshing noise followed by a slow rumbling. There is a 'ding' noise. It seems like the next pod is behind the door.[removetiff]"
 
 To say removetiff:
 	now the final-door is unlocked;
@@ -34922,7 +35112,7 @@ Before going when gareth-scene has not happened:
 
 Section 3 - Gareth Scene
 
-Gareth-Scene is a scene. Gareth-scene begins when the time since entire game began is 1 minute.
+Gareth-Scene is a scene. Gareth-scene begins when entire game has endured 1.
 
 Gareth-scene ends abruptly when the player is not in opening-region.
 
@@ -35085,9 +35275,15 @@ Not everything is boxed up, though. [first time]Your flashlight plays over a fea
 
 [italic type]A woman in white walks towards you, her face a skull, a crown of spikes over her head. She reaches out with one hand--[roman type]
 
-You blink. There is no woman. [only]A mannequin stands here, wearing your Ice Queen costume from a few years back.
+You blink. There is no woman[2 as a footnote]. [only]A mannequin stands here, wearing your Ice Queen costume from a few years back.
 
-The rest of the storeroom is back to the [boldeast]. There's also a gap in the floor; it looks like you can go [bolddown]."
+The rest of the storeroom is back to the [boldeast]. There's also a gap in the floor; it looks like you can go [bolddown].[first time][picmessage][only]"
+
+To say picmessage:
+	if picsallowed is true:
+		say "
+
+[bracket]You've unlocked an image. Type IMAGES to see a list of all images you've unlocked, or IMAGE [footnotes mentioned] to see this specific image.[close bracket]"
 
 Section 1 - Scenery
 
@@ -35915,7 +36111,7 @@ Test secondmaeve with "n/say altered to maeve/say statement to maeve/eat breakfa
 
 Test secondarthur with "say altercation to arthur/say statement to arthur/x samples/e/turn on computer/w/talk to dafydd/s/talk to dafydd"
 
-Test allsecond with "test linking/test secondelen/test secondmari/test secondmaeve/test secondarthur/s/z"
+Test allsecond with "test linking/test secondelen/test secondmari/test secondmaeve/test secondarthur/s/n"
 
 Test uptosecond with "test allfirst/test allsecond"
 
@@ -36412,3 +36608,30 @@ Book 5 - Notes
 [Todo check if recording works]
 
 [add quip for sergeant olgin about helping out]
+
+To decide whether (currentscene - a scene) has endured (duration - a number):
+	let A be the time of day;
+	let B be the time when currentscene began;
+	let C be duration minutes after B;
+	let D be duration minutes after 4:00 PM;
+	if C is before D:
+		now A is 12 hours before A;
+		now C is 12 hours before C;
+	if A is C:
+		decide yes;
+	decide no;
+
+
+To decide whether (currentscene - a scene) has overendured (duration - a number):
+	let A be the time of day;
+	let B be the time when currentscene began;
+	let C be duration minutes after B;
+	let D be duration minutes after 4:00 PM;
+	if C is before D:
+		now A is 12 hours before A;
+		now C is 12 hours before C;
+	if A is C:
+		decide yes;
+	if A is after C:
+		decide yes;
+	decide no;
