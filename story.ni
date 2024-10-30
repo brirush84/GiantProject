@@ -13,6 +13,18 @@ fixed bug with rift diagnosis
 fixed bug with instant unmentioned death if moving while falling
 fixed a bug with a train stopping when you're in the wrong room
 fixed a bug where you could try to wash in water that doesn't exist
+you can type on a hoof
+made snowglobe more logical
+response for trying to open robot
+made dust
+changed description of a box
+changed the description of walking around in the dark
+added new response for looking things up in a book
+the flashlight now knows when it's in darkness
+more responses for turning and pulling things
+can't look under some posters anymore
+added a space to an error message
+you can now taste the styx
 ]
 
 Volume 1 - Pre-game setup
@@ -137,12 +149,15 @@ Footnotes mentioned is a number that varies. Footnotes mentioned is 1.
 
 [Whenever we mention a footnote for the first time, we need to assign it a number, which we will use consistently thereafter. And it's probably a good idea to protect ourselves against the author accidentally using a number too large for the footnote table, too. So:]
 
-Picsallowed is a truth state that varies. Picsallowed is true.
+Picsallowed is a truth state that varies. Picsallowed is false.
+Linksallowed is a truth state that varies. Linksallowed is false.
 
 Jailbreaking is an action out of world. Understand "xyzjailbreak" as jailbreaking.
 
 Carry out jailbreaking:
-	say "The game can now display images. This does not apply retroactively."
+	say "The game can now display images. This does not apply retroactively. It can also display hyperlinks.";
+	now picsallowed is true;
+	now linksallowed is true;
 
 To say (footnote - a number) as a footnote:
 	if picsallowed is true:
@@ -151,12 +166,18 @@ To say (footnote - a number) as a footnote:
 		otherwise:
 			choose row footnote in the Table of Footnotes;
 			if there is an assignment entry:
-				say ". [bold type](Image [assignment entry])[roman type]";
+				say ". ";
+				let temp be "[bold type](Image [assignment entry])[roman type]";
+				let temp2 be the substituted form of "Image [assignment entry]";
+				hyperlink temp as temp2;
 			otherwise:
 				increment footnotes mentioned;
 				choose row footnote in the Table of Footnotes;
 				now assignment entry is footnotes mentioned;
-				say ". [bold type](Image [assignment entry])[roman type]";
+				say ". ";
+				let temp be "[bold type](Image [assignment entry])[roman type]";
+				let temp2 be the substituted form of "Image [assignment entry]";
+				hyperlink temp as temp2;
 
 
 [Now, in order to let the player view these footnotes, we'll need to parse numbers.]
@@ -228,7 +249,7 @@ Crediting is an action out of world. Understand "Credits" as crediting.
 Carry out crediting:
 	say "This game was written by Brian Rushton/Mathbrush using Inform 7 (by Graham Nelson). Beta testers include Amanda Walker, John Ziegler, Jade, Christopher Merriner, Patrick Mooney, Brett Witty, Rovarsson, E. Joyce, Max Fog, Dee Cooke, Ian Greener, Chandler Groover, Lance Cirone, Zed Lopez, Cody Gaisser, Alex Proudfoot, Radioactive Crow, Doug Egan, Mike Spivey, Larry Horsfield, Dirk Spivey, Arthur DiBianca, Hal Rushton, Hidnook, Charm Cochran, Grueslayer, Lynnea Glasser, Wade Clarke, Onno Brouwer, Mel Jason, Tabitha, Daniel Worm, Mike Russo, and Robert Eggleston, who was also the first to beat the full game. 
 
-Bugs were found in subsequent versions by Max Fog, Garrett O., S B Wiegner, Reiko Yukawa, Chloe A, Sanont, iaraya and igmkjp.
+Bugs were found in subsequent versions by Max Fog, Garrett O., S B Wiegner, Reiko Yukawa, Chloe A, Sanont, iaraya, igmkjp and Stormi.
 
 Hanon Ondricek gave helpful advice about the concept and title. Phil Riley and Peter Bates made suggestions about coding. Mike Russo and Garry Francis gave poetry tips. Wade Clarke and Mike Russo (again) gave some prose tips. otistdog provided helpful Inform 6 code.
 
@@ -372,40 +393,76 @@ Instead of inserting something into a distant thing:
 Part 3 - Exits
 
 To say boldsouth:
-	say "[bold type]south[roman type]";
+	if glulx hyperlinks are supported and linksallowed is true:
+		hyperlink "south" as "south";
+	otherwise:
+		say "[bold type]south[roman type]";
 
 To say boldnorth:
-	say "[bold type]north[roman type]";
+	if glulx hyperlinks are supported and linksallowed is true:
+		hyperlink "north" as "north";
+	otherwise:
+		say "[bold type]north[roman type]";
 
 To say boldeast:
-	say "[bold type]east[roman type]";
+	if glulx hyperlinks are supported and linksallowed is true:
+		hyperlink "east" as "east";
+	otherwise:
+		say "[bold type]east[roman type]";
 
 To say boldup:
-	say "[bold type]up[roman type]";
+	if glulx hyperlinks are supported and linksallowed is true:
+		hyperlink "up" as "up";
+	otherwise:
+		say "[bold type]up[roman type]";
 
 To say bolddown:
-	say "[bold type]down[roman type]";
+	if glulx hyperlinks are supported and linksallowed is true:
+		hyperlink "down" as "down";
+	otherwise:
+		say "[bold type]down[roman type]";
 
 To say boldwest:
-	say "[bold type]west[roman type]";
+	if glulx hyperlinks are supported and linksallowed is true:
+		hyperlink "west" as "west";
+	otherwise:
+		say "[bold type]west[roman type]";
 
 To say boldnorthwest:
-	say "[bold type]northwest[roman type]";
+	if glulx hyperlinks are supported and linksallowed is true:
+		hyperlink "northwest" as "northwest";
+	otherwise:
+		say "[bold type]northwest[roman type]";
 
 To say boldnortheast:
-	say "[bold type]northeast[roman type]";
+	if glulx hyperlinks are supported and linksallowed is true:
+		hyperlink "northeast" as "northeast";
+	otherwise:
+		say "[bold type]northeast[roman type]";
 
 To say boldsouthwest:
-	say "[bold type]southwest[roman type]";
+	if glulx hyperlinks are supported and linksallowed is true:
+		hyperlink "southwest" as "southwest";
+	otherwise:
+		say "[bold type]southwest[roman type]";
 
 To say boldsoutheast:
-	say "[bold type]southeast[roman type]";
+	if glulx hyperlinks are supported and linksallowed is true:
+		hyperlink "southeast" as "southeast";
+	otherwise:
+		say "[bold type]southeast[roman type]";
 	
 To say boldinside:
-	say "[bold type]inside[roman type]";
+	if glulx hyperlinks are supported and linksallowed is true:
+		hyperlink "inside" as "inside";
+	otherwise:
+		say "[bold type]inside[roman type]";
 	
 To say boldoutside:
-	say "[bold type]outside[roman type]";
+	if glulx hyperlinks are supported and linksallowed is true:
+		hyperlink "outside" as "outside";
+	otherwise:
+		say "[bold type]outside[roman type]";
 
 To say exit list: 
 	let place be location; 
@@ -448,6 +505,16 @@ To clear personlists:
 				if target of current is in currentregion:
 					if the player is in currentregion:
 						now target of current is talkative;
+
+Rule for printing the name of a quip (called currentquip):
+	let temp be the substituted form of the printed name of currentquip;
+	if glulx hyperlinks are supported and linksallowed is true:
+		if the current action is talking to someone:
+			hyperlink temp as "say [temp] to [the noun]";
+		otherwise:
+			hyperlink temp as temp;
+	otherwise:
+		say temp;
 
 Before Uttering a quip to someone:
 	if the second noun is the target of the noun:
@@ -519,8 +586,8 @@ To clear the flags:
 		now currentquip is once-delivered;
 		now somethingDelivered is 1;
 		if the target of currentquip is nothing:
-			repeat with currentperson running through talkative people:
-				now currentperson heeds currentquip;
+			repeat with currentone running through talkative people:
+				now currentone heeds currentquip;
 	if somethingDelivered is 1:
 		If FirstClear is 0:
 			say "[line break][bracket]You can see your list of [HasCluesOrTopics]s by typing [CapCluesOrTopics], or just [if the number of clues carried by the player > 0]C[otherwise]T[end if]. If you want a longer description of new topics when you receive them in the future, you can type VERBOSE TOPICS[close bracket]";
@@ -710,6 +777,9 @@ Psych-room is in ship-region. Psych-room is north from auxiliary-quarters. The p
 The classic-posters are plural-named scenery in psych-room. The printed name of the classic-posters is "classic movie posters". Understand "classic" or "movie" or "poster" or "posters"as the classic-posters. The description of the classic-posters is "These are all from old Earth. You know Gareth is a fan of the old movies; he's been trying to purchase an actual film reel for years.
 
 He has posters for The Mummy, Dracula, and The Creature from the Black Lagoon."
+
+Instead of looking under the classic-posters:
+	say "They're attached to firmly to the wall to do that."
 
 Instead of taking the classic-posters:
 	say "You know how careful Gareth is with his posters; you would never take the chance of tearing something he cares so much about."
@@ -1666,7 +1736,7 @@ There is one more page";
 
 Chapter 11 - Central Bridge
 
-The bridge-central is in bridge-region. The printed name of the bridge-central is "Bridge: Aft". The description of the bridge-central is "The bridge of the ship is massive, spreading around you in multiple directions, each spot with its own crew and station. You are in the aft area of the bridge, which connects to the lower areas of the ship. There is a transport tube leading [bold type]down[roman type]. You can also explore more of the bridge to the [boldnorth]."
+The bridge-central is in bridge-region. The printed name of the bridge-central is "Bridge: Aft". The description of the bridge-central is "The bridge of the ship is massive, spreading around you in multiple directions, each spot with its own crew and station. You are in the aft area of the bridge, which connects to the lower areas of the ship. There is a transport tube leading [bolddown]. You can also explore more of the bridge to the [boldnorth]."
 
 Section 1 - The transport tube
 
@@ -1677,7 +1747,7 @@ Before going through the transport-tube:
 
 Chapter 12 - Lower Transit
 
-lower-transit is in ship-region. lower-transit is down from transit-room. The printed name of lower-transit is "Lower Transit". The description of lower-transit is "This is the lower half of the main transit area. You can go back [bold type]up[roman type] to the rest of the ship.
+lower-transit is in ship-region. lower-transit is down from transit-room. The printed name of lower-transit is "Lower Transit". The description of lower-transit is "This is the lower half of the main transit area. You can go back [boldup] to the rest of the ship.
 
 There are a lot of civilians passing through this area. Most are coming from the areas to the [boldsouth], which seem damaged, and headed to the living quarters to the [boldeast], which are in better shape. There's also a steady flow in and out of the medical bay to the [boldwest]."
 
@@ -2147,7 +2217,10 @@ The carrying capacity of the you-stand is 2.
 
 The you-book is a book on the you-stand. The printed name of the you-book is "dog-eared novel". Understand "dog eared" or "dogeared" or "dog-eared" or "Fiction" or "novel" or "book" or "graham" or "nelson" or "jigsaw" as the you-book. The description of the you-book is "This dog-eared novel you've been reading is called [italic type]Jigsaw[roman type], by Graham Nelson. But you don't want to read ahead; that's for when you have more time."
 
-The potted-spider is scenery in personal-quarters. The printed name of the potted-spider is "spider plant". Understand "potted" or "plant" or "spider" or "plant" as the potted-spider. The description of the potted-spider is "You've kept a spider plant in your quarters ever since you heard they improve air quality. It seems to be working so far."
+The potted-spider is scenery in personal-quarters. The printed name of the potted-spider is "spider plant". Understand "potted" or "plant" or "spider" or "plant" or "pot" as the potted-spider. The description of the potted-spider is "You've kept a spider plant in your quarters ever since you heard they improve air quality. It seems to be working so far."
+
+Instead of taking or turning or pulling or pushing the potted-spider:
+	say "The spider plant is already right where you want it."
 
 Chapter 15 - Bridge Command
 
@@ -2480,11 +2553,13 @@ Instead of looking under the horse-hoof:
 	
 The digit-pad is part of the horse-hoof. The printed name of the digit-pad is "keypad". Understand "five-digit" or "five" or "digit" or "keypad" or "key" or "display" or "keys" or "pad" as the digit-pad. The description of the digit-pad is "This is a simple keypad that displays five digits. It currently reads '[currentpaddisplay]'."
 
-Numbersetting it on is an action applying to one number and one thing. Understand "type [a number] on [digit-pad]" or "enter [a number] on [digit-pad]" as numbersetting it on when the digit-pad is enclosed by the location.
+Numbersetting it on is an action applying to one number and one thing. Understand "type [a number] on [digit-pad]" or "enter [a number] on [digit-pad]" or "type [a number] on [horse-hoof]" or "enter [a number] on [horse-hoof]" as numbersetting it on when the digit-pad is enclosed by the location.
 
 Digitpowered is a truth state that varies. Digitpowered is true.
 
 Carry out numbersetting it on:
+	if the second noun is the horse-hoof:
+		try numbersetting the number understood on the digit-pad;
 	if the second noun is the digit-pad:
 		if digitpowered is false:
 			say "The keypad is now inert.";
@@ -9175,14 +9250,14 @@ When time-paradox begins:
 		say "Time resets in a whirl. You're back where you were at first.[paragraph break]";
 		say "***************************************************************************[line break]";
 		say "You are engulfed in a black haze, losing all sense of direction. Slowly the haze clears.";
-		say "***************************************************************************";
+		say "***************************************************************************[line break]";
 		move the player to sphere-room, without printing a room description;
 		now the time of day is fifth-time;
 		now fifthpast is false;
 	otherwise:
 		now fifth-time is the time of day;
 	now timescrambled is false;
-	say "[line break][The tool-pedestal] shakes and rises further out of the ground, rising on columns. Underneath the pedestal is an area surrounded by a glass wall. Inside is a black rift, as well as a bench, on which are several apples, a vat of caramel, and two buttons (labelled Open and Close). You can't reach any of them from outside of the glass.";
+	say "[The tool-pedestal] shakes and rises further out of the ground, rising on columns. Underneath the pedestal is an area surrounded by a glass wall. Inside is a black rift, as well as a bench, on which are several apples, a vat of caramel, and two buttons (labelled Open and Close). You can't reach any of them from outside of the glass.";
 	now the pedestal-columns are in the location;
 	now the glassed-area is closed;
 	now the glassed-area is in the location;
@@ -10228,7 +10303,10 @@ To say hublist:
 		if temp is maxdoors:
 			if maxdoors > 1:
 				say "and ";
-		say "[bold type][hub-text of current][roman type]";
+		if glulx hyperlinks are supported and linksallowed is true:
+			hyperlink "[hub-text of current]" as "[hub-text of current]";
+		otherwise:
+			say "[bold type][hub-text of current][roman type]";
 		unless temp is maxdoors:
 			say ", ";
 
@@ -10300,7 +10378,14 @@ Instead of closing an open hub-door:
 
 To say rift-text:
 	let temp be a random hub-door in the location;
-	say "[A temp] leads [bold type][direction of temp from the location][roman type][if temp is closed]. The rift feels closed off, somehow[end if]"
+	say "[A temp] leads ";
+	let temp2 be the direction of temp from the location;
+	if glulx hyperlinks are supported and linksallowed is true:
+		hyperlink "[temp2]" as "[temp2]";
+	otherwise:
+		say "[bold type]temp2[roman type]";
+	if temp is closed:
+		say ". The rift feels closed off, somehow"
 
 Chapter 11 - Outposts
 
@@ -12164,7 +12249,7 @@ The simulated sky here is done very well. It looks just like Earth's sky does in
 
 I've spent my time drawing, mostly. [roman type]
 
-[bracket]Here there are several sketches of clothing, mostly outfits with lots of buckles and spikes, with one mask that looks a lot like a skull[close bracket][italic type]
+[bracket]Here there are several sketches of clothing, mostly outfits with lots of buckles and spikes, with one mask that looks a lot like a skull.[close bracket][italic type]
 
 I'm keeping this journal to help me remember that my past is behind me, my present is now, and my future is bright. Here's to a great adventure![roman type]"
 
@@ -18363,7 +18448,7 @@ Instead of eating the wolfs-bane:
 
 The scenery-mansion is scenery in the front-room. The printed name of the scenery-mansion is "mansion". Understand "gorgeous" or "well-preserved" or "well" or "tidy-looking" or "tidy" or "asymmetrical" or "haunted" or "house" or "looking" or "house" or "mansion" or "queen" or "anne" or "preserved" or "victorian" or "tall" or "stately" or "handsome" or "old" or "parlor" as the scenery-mansion. The description of the scenery-mansion is "This is a tall and stately old Victorian mansion in the Queen Anne style. It is asymmetrical, with a tower on one side and some steps leading up to a tall wooden door on the other.
 
-On the house is a bright red neon sign saying 'Monsters Within'[first time]
+On the house is a bright red neon sign saying 'Monsters Within'[first time].
 
 The whole thing is a bizarre mix of old and new, kind of like a theme park dedicated to the past. Gareth is obsessed with that kind of thing; he'd probably love it here[only]."
 
@@ -18433,7 +18518,7 @@ Instead of entering the scenery-styx:
 Instead of physicality when the noun is scenery-styx:
 	styx-react;
 	
-Instead of drinking scenery-styx:
+Instead of drinking or tasting scenery-styx:
 	say "[one of]You dip your hands in the water and drink deeply. A horrible feeling comes over you, and you shiver[or]No. Never again[stopping]."
 
 Charon is a man in the styx-room. "A figure in dark robes stands at the water's edge, one foot in a boat[first time][deliverfeequip]. If this river is the Styx, then this figure must be Charon. But probably not [italic type]the[roman type] Charon; this one is not very intimidating. Although Gareth always says, 'People spend way too much time afraid of death and too little time living life.' It's a bit trite but he does have his favorite sayings with his patients[only]."The description of Charon is "This figure is completely covered by his dark, heavy robe. He waits silently, one foot in the boat, and one in the water[if charon is not obolpaid].
@@ -20163,7 +20248,7 @@ Definition: a thing (called current) is rifty:
 	if current is a scene-rift, decide yes;
 	decide no;
 	
-Instead of pushing or pulling a rifty thing:
+Instead of taking or pushing or pulling a rifty thing:
 	say "Despite your best efforts, you are unable to physically affect the rift.";
 
 Does the player mean diagnosing a rifty thing:
@@ -28053,7 +28138,7 @@ To solve this, you'll need to program your robot. The steps are easy:
 
 4. Your robot will stop recording when the slot is full. When you're done recording, type MAX, REPLAY. Then, the next time something dramatic happens (like hitting the white button), he'll replay his currently active slot!
 
-Good luck![roman type]"
+Good luck! And remember, the robot acts after you do.[roman type]"
 
 Instead of physicality when the noun is the assembly-poster:
 	say "The poster seems firmly adhered."
@@ -35059,7 +35144,17 @@ A thing can be memorable or not memorable. A thing is usually not memorable.
 
 The ceremonial-jacket is a thing.
 
-The dusty-boxes are plural-named scenery in storage-room. The printed name of the dusty-boxes is "dusty boxes". Understand "dusty" or "tape" or "taped" or "boxes" or "older" or "dust" as the dusty-boxes. The description of the dusty-boxes is "These older, dusty boxes look like they haven't been opened in over a decade[if the ceremonial-jacket is not handled]. You've seen the Captain wear his jacket once or twice in that time, so it can't be in there."
+The dusty-boxes are plural-named scenery in storage-room. The printed name of the dusty-boxes is "dusty boxes". Understand "dusty" or "tape" or "taped" or "boxes" or "older" as the dusty-boxes. The description of the dusty-boxes is "These older, dusty boxes look like they haven't been opened in over a decade[if the ceremonial-jacket is not handled]. You've seen the Captain wear his jacket once or twice in that time, so it can't be in there."
+
+The ambient-dust is a scenery thing in storage-room. Understand "dust" as the ambient-dust. THe printed name of the ambient-dust is "dust".
+
+Instead of doing something with the ambient-dust:
+	if the current action is rubbing:
+		say "A lot of dust flies up and you sneeze until it settles again.";
+	otherwise if the current action is examining:
+		say "The dust is basically everywhere; there's not enough to do much with but just enough to be a bit annoying.";
+	otherwise:
+		say "Ever since you learned that dust is mostly human skin, you lost any desire to interact with it."
 
 Instead of pushing or pulling or searching or looking under the dusty-boxes:
 	say "You push some of the boxes around, but you don't find anything interesting[if the ceremonial-jacket is not handled]. You'll have to look elsewhere for the jacket[end if].";
@@ -35163,9 +35258,9 @@ Every turn during gareth-scene:
 
 Section 4 - Newer box
 
-The newer-box is a closed openable container in storage-room. The printed name of the newer-box is "newer box". Understand "newer" or "new" or "box" as the newer-box. "[if the newer-box has not been open]Among the older boxes, a newer box sticks out to you. This one isn't taped shut[otherwise if the newer-box is open]The box you opened is here, as well[otherwise]The box you've closed is still here[end if]." The description of the newer-box is "This box looks like it's been opened in at least the last few years. It's currently [if the newer-box is open]open[otherwise]closed[end if].".
+The newer-box is a closed openable container in storage-room. The printed name of the newer-box is "newer box". Understand "newer" or "new" or "box" as the newer-box. "[if the newer-box has not been open]Among the older boxes, a newer box sticks out to you. This one isn't taped shut[otherwise if the newer-box is open]The box you opened is here, as well[otherwise]The box you've closed is still here[end if]." The description of the newer-box is "This box looks it was placed here more recently than the others around you. It's currently [if the newer-box is open]open[otherwise]closed[end if].".
 
-Instead of pushing or pulling the newer-box:
+Instead of pushing or pulling or turning the newer-box:
 	say "The box scoots a little bit, but there's not a lot of room in here."
 
 Instead of taking the newer-box:
@@ -35175,6 +35270,9 @@ After opening the newer-box for the first time:
 	say "You open [the newer-box]. There's no jacket, but there are a bright red toy robot and a snowglobe."
 
 The toy-robot is a memorable device in the newer-box. The printed name of the toy-robot is "toy robot". Understand "bright" or "red" or "toy" or "robot" as the toy-robot. The description of the toy-robot is "This is a bright red toy robot that can be switched on or switched off. You recognize it; one of the engineers made a batch of them for Christmas a few years back. This must have been a leftover[unless speech-scene has ended]. It could be entertaining for the party[end if]."
+
+Instead of opening the toy-robot:
+	say "It looks like you'd need a very small screwdriver to get it open. Which you don't have."
 
 The eiffel-snowglobe is a memorable thing in newer-box. Understand "snowglobe" or "snow" or "globe" or "miniature" or "eiffel" or "tower" as the eiffel-snowglobe. The printed name of the eiffel-snowglobe is "miniature Eiffel Tower Snowglobe". The description of the eiffel-snowglobe is "You haven't seen the Eiffel Tower since you were very little, but this snowglobe looks just like you remember it. In fact, this might be your snowglobe; you had a trinkets shelf for a few years until you got tired of dusting it. The rest of the crew might like it[if the eiffel-snowglobe is unflurried]. The 'snow' has all come to rest at the bottom[otherwise]. The snow is still swirling now that you've shaken it[end if]."
 
@@ -35191,8 +35289,9 @@ Instead of shaking the eiffel-snowglobe:
 	
 Every turn when the eiffel-snowglobe is flurried:
 	if the eiffel-snowglobe was flurried:
-		say "The snow in the snowglobe settles back down again.";
-		now the eiffel-snowglobe is unflurried;
+		if the current action is not shaking:
+			say "The snow in the snowglobe settles back down again.";
+			now the eiffel-snowglobe is unflurried;
 
 Instead of switching on the toy-robot:
 	say "You turn on the toy robot. It flashes a dull red and makes [italic type]pew pew[roman type] noises. After a couple of minutes, it turns off again."
@@ -35220,6 +35319,9 @@ Section 1 - Scenery
 The back-wall is scenery in maintenance-closet. The printed name of the back-wall is "back wall". Understand "back" or "wall" as the back-wall. The description of the back-wall is "The back wall holds the shelf, which is what a good back wall should do.".
 
 The maint-shelf is a scenery supporter in maintenance-closet. The printed name of the maint-shelf is "shelf". Understand "shelf" or "metal" or "screwed" or "support" or "supports" as the maint-shelf. The description of the maint-shelf is "This is a metal shelf screwed into the wall via a couple of supports."
+
+Instead of entering the maint-shelf:
+	say "It doesn't seem like the shelf could hold your weight."
 
 The maint-screws are a plural-named part of the maint-shelf. The printed name of the maint-screws is "screws". Understand "screw" or "screws" as the maint-screws. The description of the maint-screws is "The screws are exceedingly uninteresting.
 
@@ -35250,11 +35352,11 @@ Section 3 - Flashlight
 The flash-light is a memorable device on maint-shelf.  Understand "torch" or "sleek" or "black" or "cylinder" or "flashlight" or "flash light" or "light" or "lamp" as the flash-light. The printed name of the flash-light is "flashlight". The description of the flash-light is "This is a sleek black cylinder that can be SWITCHED ON or SWITCHED OFF. It seems fully charged[unless speech-scene has ended]. Technically, you could use it for your presentation, but it would likely be more useful for exploring this storage area[end if]."
 
 After switching on the flash-light:
-	say "You turn on the flashlight. The darkness is a little less oppressive.";
+	say "You turn on the flashlight[if the location was dark]. The darkness is a little less oppressive[end if].";
 	now the flash-light is lit;
 
 After switching off the flash-light:
-	say "You turn off the flashlight. The darkness returns.";
+	say "You turn off the flashlight[if the location is dark]. The darkness returns[end if].";
 	now the flash-light is not lit;
 
 Does the player mean switching on the flash-light:
@@ -35308,12 +35410,12 @@ Instead of opening or searching the nailed-crates:
 
 The clothes-mannequin is scenery in far-storage. The printed name of the clothes-mannequin is "female mannequin". Understand "female" or "mannequin" as the clothes-mannequin. The description of the clothes-mannequin is "This mannequin belongs to you, although you'd forgotten about it completely. It's currently wearing your Ice Queen costume.".
 
-Instead of taking or pushing or pulling the clothes-mannequin:
+Instead of taking or pushing or pulling or turning or taking the clothes-mannequin:
 	say "While you're definitely interested in pulling this out some time, now that you've remembered it's here, you're not in the mood to cart around an entire mannequin."
 
 The ice-costume is part of the clothes-mannequin. The printed name of the ice-costume is "Ice Queen costume". Understand "ice" or "queen" or "fabric" or "costume" or "blue" or "white" or "tulle" or "scratchy" as the ice-costume. The description of the ice-costume is "You wore this in the Christmas play a few years back. It's blue and white, made with tulle, nice to look at but very scratchy. On top is a white crown of icicles, made of plastic and stitched to the fabric of the costume."
 
-Instead of taking the ice-costume:
+Instead of taking or pushing or pulling or turning the ice-costume:
 	say "The costume looks decidedly older now. Taking it off the mannequin could damage it. It was never made to last, though."
 	
 Instead of touching or rubbing the ice-costume:
@@ -35340,10 +35442,10 @@ Rule for printing the description of a dark room when the player is in far-stora
 	say "This room is almost entirely dark. All you can see is some faint light from the [boldeast]." instead.
 
 Before going down from far-storage when in darkness:
-	say "You feel around in the darkness but can't find a way down." instead;
+	say "You stumble around in the darkness but can't find a way down." instead;
 
 Before going nowhere from far-storage when in darkness:
-	say "You feel around in the darkness but can't find any way to go [noun]." instead;
+	say "You stumble around in the darkness but can't find any way to go [noun]." instead;
 
 Section 3 - Random stuff
 
@@ -35588,7 +35690,7 @@ The parser error internal rule response (N) is "I didn't understand the first wo
 
 The parser error internal rule response (B) is "I understand simple sentences best; I believe you just want to ";[fix this and the next one]
 
-The parser error internal rule response (C) is "I understand a simple set of commands; I believe you just want to (go)";
+The parser error internal rule response (C) is "I understand a simple set of commands; I believe you just want to (go) ";
 	
 The report jumping rule response (A) is "[if the player is emrys-weaver]You jump up into the air fairly athletically before landing[otherwise if the player is arawn]She jumps as high as she can before landing[otherwise if the player is fake-maeve]I jumped, and did well, I think[otherwise if the player is fake-mari]I jumped really high[otherwise]I didn't jump, Detective[end if]."
 
@@ -35604,6 +35706,9 @@ The block buying rule response (A) is "[if the player is emrys-weaver]Any financ
 The block climbing rule response (A) is "[if the noun is an animal]Animals aren't for climbing[otherwise if the noun is a person]People aren't for climbing[otherwise][We] [don't] see a clear path upwards[end if]."
 
 To seem is a verb.
+
+Instead of consulting something about a topic:
+	say "It will not be necessary to look up things in books in this game."
 
 Instead of entering a person:
 	say "That [adapt the verb seem] physically impossible."
